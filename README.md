@@ -44,16 +44,6 @@ The full, intended experience featuring brand-specific icons (e.g., the Edge log
 
 ---
 
-## 🗺️ Roadmap
-
-We are constantly working to improve Fluent New Tab. Here is what's coming next:
-
-- [ ] **Custom Backgrounds:** Support for custom wallpapers and daily images.
-- [ ] **Cloud Sync:** Optional data sync to keep your shortcuts across devices.
-- [ ] **More Integrations:** Expanding the Ecosystem Launcher with more providers.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to improve this project, please follow these steps:
