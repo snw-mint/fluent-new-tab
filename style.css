@@ -981,3 +981,74 @@ input:checked + .slider:before {
 [data-theme="dark"] .copilot-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* --- Search Suggestions --- */
+.suggestions-container {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: var(--search-bg);
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: none; 
+    flex-direction: column;
+    gap: 2px;
+    z-index: 1000; 
+    transform-origin: top center;
+    animation: slideDown 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.suggestions-container.active {
+    display: flex;
+}
+.suggestion-item {
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-color);
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+.suggestion-item:hover, 
+.suggestion-item.selected {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(0.99); /* Leve toque tátil */
+}
+.suggestion-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+.suggestion-icon path {
+    fill: var(--text-color);
+}
+.match {
+    font-weight: 700;
+}
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-8px) scale(0.98); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+[data-theme="dark"] .suggestions-container {
+    background: rgba(40, 40, 40, 0.95); 
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .suggestion-item:hover,
+[data-theme="dark"] .suggestion-item.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}
