@@ -32,18 +32,6 @@ Experience a browser start page that feels like a native extension of your OS.
 
 ---
 
-## 📦 Versions
-
-We offer two distinct versions to suit your needs, available in the Releases section:
-
-### 1. Store Version
-The clean, policy-compliant version designed for official extension stores. It features generic branding to comply with strict trademark policies.
-
-### 2. Original Version
-The full, intended experience featuring brand-specific icons (e.g., the Edge logo) for a cohesive look on Microsoft Edge.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to improve this project, please follow these steps:

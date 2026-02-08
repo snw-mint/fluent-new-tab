@@ -6,8 +6,7 @@ body:
     attributes:
       label: Which version are you using?
       options:
-        - Store Version (Clean)
-        - Original Version (GitHub Release)
+        - Store Version 
         - Local Build
     validations:
       required: true

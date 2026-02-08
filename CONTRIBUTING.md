@@ -11,8 +11,8 @@ This project is built with **Vanilla HTML, CSS, and JavaScript** to ensure maxim
 Since this is a browser extension, you don't need a build server or complex `npm` setup. You can run it directly in your browser.
 
 1.  **Fork and Clone** the repository to your local machine.
-2.  Open **Microsoft Edge** (or Google Chrome).
-3.  Navigate to `edge://extensions` (or `chrome://extensions`).
+2.  Open **Microsoft Edge**.
+3.  Navigate to `edge://extensions`.
 4.  Enable **"Developer Mode"** (usually a toggle in the bottom-left or top-right corner).
 5.  Click **"Load Unpacked"** and select the folder where you cloned this repository.
 6.  Open a **New Tab** to see your changes in action!
@@ -60,23 +60,6 @@ fluent-new-tab/
 
 ---
 
-## 🚩 Store vs. Original Version (Crucial)
-
-To comply with Trademark policies on official extension stores (like the Chrome Web Store), we maintain two "modes" for the extension.
-
-Inside `script.js`, there is a configuration constant:
-
-```javascript
-const IS_STORE_VERSION = false;
-```
-
-*   **`false` (Default/GitHub):** Renders the **Original Version**. Displays the official **Microsoft Edge logo** and branding.
-*   **`true` (Store):** Renders the **Store Version**. Displays a generic "New Tab" greeting or generic icon to avoid trademark violations.
-
-**⚠️ Important:** When submitting a Pull Request, please keep this set to `false` unless you are specifically testing or fixing the Store-compliant view.
-
----
-
 ## 🚀 Submitting a Pull Request
 
 Ready to contribute? Follow these standard steps:
@@ -92,6 +75,5 @@ Ready to contribute? Follow these standard steps:
 **Pre-submission Checklist:**
 - [ ] Did you test your changes in **Light Mode**?
 - [ ] Did you test your changes in **Dark Mode**?
-- [ ] If you added a feature, does it work with the `IS_STORE_VERSION` flag toggled?
 
 We look forward to your code! Happy coding! 🚀
