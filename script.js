@@ -10,39 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.search-bar input');
     const searchBar = document.querySelector('.search-bar');
     const copilotToggle = document.querySelector('.copilot-btn');
-    const IS_STORE_VERSION = false;
+    const ICON_MORNING = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25" fill="currentColor"/></path></svg>`;
+    const ICON_AFTERNOON = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M24 13.08c6.03 0 10.92 4.89 10.92 10.92q-.002 1.026-.184 2h8.014a1.25 1.25 0 1 1 0 2.5H5.25a1.25 1.25 0 1 1 0-2.5h8.013a11 11 0 0 1-.183-2c0-6.03 4.89-10.92 10.92-10.92M15.82 26h16.36a8.42 8.42 0 1 0-16.36 0M11.506 9.804l.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.666-1.859m26.639.091a1.25 1.25 0 0 1 .091 1.667l-.091.101-2.148 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25M21.25 38a1.25 1.25 0 1 0 0 2.5h5.5a1.25 1.25 0 1 0 0-2.5zM12 33.25c0-.69.56-1.25 1.25-1.25h21.5a1.25 1.25 0 1 1 0 2.5h-21.5c-.69 0-1.25-.56-1.25-1.25" fill="currentColor"/></path></svg>`;
+    const ICON_NIGHT = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405" fill="currentColor"/></path></svg>`;
 
-    // --- Icons (Moved to top scope for reuse) ---
-    const ICON_MORNING = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25" fill="currentColor"/></svg>`;
-    const ICON_AFTERNOON = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M24 13.08c6.03 0 10.92 4.89 10.92 10.92q-.002 1.026-.184 2h8.014a1.25 1.25 0 1 1 0 2.5H5.25a1.25 1.25 0 1 1 0-2.5h8.013a11 11 0 0 1-.183-2c0-6.03 4.89-10.92 10.92-10.92M15.82 26h16.36a8.42 8.42 0 1 0-16.36 0M11.506 9.804l.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.666-1.859m26.639.091a1.25 1.25 0 0 1 .091 1.667l-.091.101-2.148 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25M21.25 38a1.25 1.25 0 1 0 0 2.5h5.5a1.25 1.25 0 1 0 0-2.5zM12 33.25c0-.69.56-1.25 1.25-1.25h21.5a1.25 1.25 0 1 1 0 2.5h-21.5c-.69 0-1.25-.56-1.25-1.25" fill="currentColor"/></svg>`;
-    const ICON_NIGHT = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405" fill="currentColor"/></svg>`;
-
-    // --- Brand / Store Version Logic ---
+// --- Brand Logic (Unified) ---
     function initBrand() {
         const logoWrapper = document.querySelector('.logo-wrapper');
-        if (IS_STORE_VERSION) {
-            if(logoWrapper) {
-                logoWrapper.style.display = 'flex';
-                logoWrapper.style.flexDirection = 'row';
-                logoWrapper.style.alignItems = 'center';
-                logoWrapper.style.gap = '0'; 
-                const hour = new Date().getHours();
-                let greetingText = "Good Afternoon!";
-                let greetingIcon = ICON_AFTERNOON;
-                if (hour < 12) {
-                    greetingText = "Good Morning!";
-                    greetingIcon = ICON_MORNING;
-                } else if (hour >= 18) {
-                    greetingText = "Goodnight!";
-                    greetingIcon = ICON_NIGHT;
-                }
-                logoWrapper.innerHTML = `
-                    ${greetingIcon}
-                    <h1 style="font-size: 48px; font-weight: 600; color: var(--text-color); margin: 0;">${greetingText}</h1>
-                `;
+        if(logoWrapper) {
+            logoWrapper.style.display = 'flex';
+            logoWrapper.style.flexDirection = 'row';
+            logoWrapper.style.alignItems = 'center';
+            logoWrapper.style.gap = '0'; 
+
+            const hour = new Date().getHours();
+            let greetingText = "Good Afternoon!";
+            let greetingIcon = ICON_AFTERNOON;
+            
+            if (hour < 12) {
+                greetingText = "Good Morning!";
+                greetingIcon = ICON_MORNING;
+            } else if (hour >= 18) {
+                greetingText = "Goodnight!";
+                greetingIcon = ICON_NIGHT;
             }
-        } else {
-            if(logoWrapper) logoWrapper.style.display = 'flex';
+
+            logoWrapper.innerHTML = `
+                ${greetingIcon}
+                <h1 style="font-size: 48px; font-weight: 600; color: var(--text-color); margin: 0;">${greetingText}</h1>
+            `;
         }
     }
     initBrand();
@@ -268,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="shortcut-card">
                     ${ICON_ADD}
                 </div>
-                <span class="shortcut-title">Adicionar</span>
+                <span class="shortcut-title">Add</span>
             `;
             shortcutsGrid.appendChild(addBtn);
         }
@@ -347,15 +343,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const weatherTemp = document.getElementById('weatherTemp');
     let weatherEnabled = localStorage.getItem('weatherEnabled') === 'true'; 
     let storedCity = localStorage.getItem('weatherCity');
-    let currentCity = 'São Paulo';
+    let currentCity = 'New York';
     if (storedCity) {
         if (storedCity.startsWith('{')) {
             try {
                 const parsed = JSON.parse(storedCity);
-                currentCity = parsed.name || 'São Paulo';
+                currentCity = parsed.name || 'New York';
                 localStorage.setItem('weatherCity', currentCity); 
             } catch (e) {
-                currentCity = 'São Paulo';
+                currentCity = 'New York';
             }
         } else {
             currentCity = storedCity;
