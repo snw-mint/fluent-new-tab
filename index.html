@@ -107,6 +107,28 @@
                     </select>
                 </div>
             </div>
+            
+            <div class="setting-group">
+                <label>Data & Backup</label>
+                <div class="backup-row">
+                    <button id="exportBtn" class="backup-btn" title="Salvar configurações em arquivo">
+                        <svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.25 39.5h23.5a1.25 1.25 0 0 1 .128 2.494L35.75 42h-23.5a1.25 1.25 0 0 1-.128-2.494zh23.5zM23.622 6.006 23.75 6c.647 0 1.18.492 1.244 1.122L25 7.25v24.29l5.647-5.646a1.25 1.25 0 0 1 1.767 1.768l-7.778 7.778a1.25 1.25 0 0 1-1.767 0l-7.779-7.778a1.25 1.25 0 1 1 1.768-1.768l5.642 5.642V7.25c0-.647.492-1.18 1.122-1.244L23.75 6z" fill="currentColor"/>
+                        </svg>
+                        <span>Export</span>
+                    </button>
+
+                    <input type="file" id="importInput" accept=".json" style="display: none;">
+                    
+                    <button id="importBtn" class="backup-btn" title="Restaurar backup">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m5.25 20.5 13 .004a.75.75 0 0 1 .102 1.493l-.102.007-13-.004a.75.75 0 0 1-.102-1.493zm.97-13.282 4.997-4.996a.75.75 0 0 1 .976-.073l.085.073 5.003 4.996a.75.75 0 0 1-.976 1.134l-.084-.072L12.5 4.564V18.25a.75.75 0 0 1-.648.743L11.75 19a.75.75 0 0 1-.743-.648L11 18.249V4.559L7.28 8.28a.75.75 0 0 1-.976.073L6.22 8.28a.75.75 0 0 1-.073-.976zl4.997-4.996z" fill="currentColor"/>
+                        </svg>
+                        <span>Import</span>
+                    </button>
+                </div>
+            </div>
+            
             <div class="settings-footer">
                 <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay" class="footer-link">v1.0</a>
                 <span class="footer-text">by <a href="https://github.com/snw-mint" target="_blank" class="footer-link">Snow Mint</a></span>
@@ -144,10 +166,15 @@
                 </div>
             </div>
             <div class="divider"></div>
-            <input type="text" name="q" placeholder="Pesquisar na web..." autocomplete="off">
-            <button type="submit" class="search-btn">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
-            </button>
+        <input type="text" name="q" placeholder="Search the web" autocomplete="off"> 
+
+        <button type="submit" class="search-btn"> 
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#5f6368"></path></svg> 
+        </button> 
+
+        <button type="button" id="copilotToggle" class="copilot-btn" title="Ask Copilot"> 
+        <img src="assets/apps/microsoft/copilot.svg" alt="Copilot"> 
+        </button> 
         </form>
         <div id="shortcutsGrid" class="shortcuts-grid"></div>
     </div>

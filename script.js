@@ -7,21 +7,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const rowsSelect = document.getElementById('rowsSelect');
     const shortcutsGrid = document.getElementById('shortcutsGrid') || document.querySelector('.shortcuts-grid');
     const rowsInputGroup = document.getElementById('rowsInputGroup');
-    const IS_STORE_VERSION = false; 
+    const IS_STORE_VERSION = false;
 
     // --- Brand / Store Version Logic ---
     function initBrand() {
-        const brandLogo = document.querySelector('.logo-wrapper'); 
         const logoWrapper = document.querySelector('.logo-wrapper');
+        const ICON_MORNING = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25" fill="currentColor"/></svg>`;
+        const ICON_AFTERNOON = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M24 13.08c6.03 0 10.92 4.89 10.92 10.92q-.002 1.026-.184 2h8.014a1.25 1.25 0 1 1 0 2.5H5.25a1.25 1.25 0 1 1 0-2.5h8.013a11 11 0 0 1-.183-2c0-6.03 4.89-10.92 10.92-10.92M15.82 26h16.36a8.42 8.42 0 1 0-16.36 0M11.506 9.804l.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.666-1.859m26.639.091a1.25 1.25 0 0 1 .091 1.667l-.091.101-2.148 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25M21.25 38a1.25 1.25 0 1 0 0 2.5h5.5a1.25 1.25 0 1 0 0-2.5zM12 33.25c0-.69.56-1.25 1.25-1.25h21.5a1.25 1.25 0 1 1 0 2.5h-21.5c-.69 0-1.25-.56-1.25-1.25" fill="currentColor"/></svg>`;
+        const ICON_NIGHT = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405" fill="currentColor"/></svg>`;
         if (IS_STORE_VERSION) {
             if(logoWrapper) {
-                logoWrapper.style.display = 'none';
-                const hour = new Date().getHours();
-                let greeting = "Good Afternoon";
-                if (hour < 12) greeting = "Good Morning;
-                else if (hour >= 18) greeting = "Goodnight";
                 logoWrapper.style.display = 'flex';
-                logoWrapper.innerHTML = `<h1 style="font-size: 48px; font-weight: 600; color: var(--text-color); margin: 0;">${greeting}</h1>`;
+                logoWrapper.style.flexDirection = 'row';
+                logoWrapper.style.alignItems = 'center';
+                logoWrapper.style.gap = '0'; 
+                const hour = new Date().getHours();
+                let greetingText = "Good Afternoon!";
+                let greetingIcon = ICON_AFTERNOON;
+                if (hour < 12) {
+                    greetingText = "Good Morning!";
+                    greetingIcon = ICON_MORNING;
+                } else if (hour >= 18) {
+                    greetingText = "Goodnight!";
+                    greetingIcon = ICON_NIGHT;
+                }
+                logoWrapper.innerHTML = `
+                    ${greetingIcon}
+                    <h1 style="font-size: 48px; font-weight: 600; color: var(--text-color); margin: 0;">${greetingText}</h1>
+                `;
             }
         } else {
             if(logoWrapper) logoWrapper.style.display = 'flex';
@@ -125,6 +138,46 @@ document.addEventListener('DOMContentLoaded', () => {
             if (searchForm) searchForm.action = config.url;
             dropdown.classList.remove('active');
         });
+    });
+
+    // --- Copilot mode ---
+    const copilotToggle = document.getElementById('copilotToggle');
+    const searchBar = document.getElementById('searchForm');
+    const searchInput = searchBar.querySelector('input[name="q"]');
+    
+    let isCopilotMode = false;
+
+    if (copilotToggle) {
+        copilotToggle.addEventListener('click', () => {
+            isCopilotMode = !isCopilotMode;
+            updateCopilotState();
+        });
+    }
+
+    function updateCopilotState() {
+        if (isCopilotMode) {
+            searchBar.classList.add('copilot-active');
+            searchInput.placeholder = "Ask the Copilot";
+            searchInput.focus();
+        } else {
+            searchBar.classList.remove('copilot-active');
+            searchInput.placeholder = "Search the web";
+        }
+    }
+    searchBar.addEventListener('submit', (e) => {
+        if (isCopilotMode) {
+            e.preventDefault(); 
+            const query = searchInput.value;
+        if (query.trim() !== "") {
+                window.location.href = `https://www.bing.com/chat?q=${encodeURIComponent(query)}`;
+            }
+        }
+    });
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isCopilotMode) {
+            isCopilotMode = false;
+            updateCopilotState();
+        }
     });
 
     // --- Icons & Modal Elements ---
@@ -339,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const temp = Math.round(data.current.temp_c);
             const conditionText = data.current.condition.text;
             let iconUrl = data.current.condition.icon;
-            if (iconUrl.startsWith('
+            if (iconUrl.startsWith('//')) {
                 iconUrl = 'https:' + iconUrl;
             }
             weatherCity.textContent = data.location.name;
@@ -481,6 +534,82 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Não foi possível ler a versão do manifesto (contexto local).');
             versionDisplay.textContent = 'v1.0'; 
         }
+    }
+    // --- Backup system ---
+    const exportBtn = document.getElementById('exportBtn');
+    const importBtn = document.getElementById('importBtn');
+    const importInput = document.getElementById('importInput');
+
+    // --- Key List ---
+    const APP_KEYS = [
+        'shortcuts',
+        'theme',
+        'weatherEnabled',
+        'weatherCity',
+        'shortcutsVisible',
+        'shortcutsRows',
+        'launcherEnabled',
+        'launcherProvider'
+    ];
+
+    // --- Export Logic ---
+    if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+            const backupData = {};
+
+            APP_KEYS.forEach(key => {
+                const value = localStorage.getItem(key);
+                if (value !== null) {
+                    backupData[key] = value;
+                }
+            });
+
+            backupData._backupDate = new Date().toISOString();
+            backupData._appName = "FluentNewTab";
+
+            const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `fluent-backup-${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    }
+
+    // --- Import Logic ---
+    if (importBtn && importInput) {
+        importBtn.addEventListener('click', () => importInput.click())
+        importInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    if (!data._appName && !data.shortcuts && !data.theme) {
+                        alert('Erro: Este arquivo não parece ser um backup válido da Fluent New Tab.');
+                        return;
+                    }
+                    if (confirm('Isso irá substituir suas configurações atuais pelas do backup. Deseja continuar?')) {
+                        APP_KEYS.forEach(key => {
+                            if (data[key] !== undefined) {
+                                localStorage.setItem(key, data[key]);
+                            }
+                        });
+                        alert('Backup restaurado com sucesso!');
+                        location.reload();
+                    }   
+                } catch (error) {
+                    console.error('Erro no backup:', error);
+                    alert('Erro ao ler o arquivo. Verifique se é um .json válido.');
+                }
+                importInput.value = '';
+            };
+            reader.readAsText(file);
+        });
     }
 
     // --- Initialization ---

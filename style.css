@@ -482,6 +482,9 @@ body {
     top: 50px;
     right: 0;
     width: 240px;
+    max-height: 70vh; 
+    overflow-y: auto; 
+    overflow-x: hidden;
     background: var(--search-bg);
     border-radius: 16px;
     padding: 16px;
@@ -491,6 +494,35 @@ body {
     gap: 20px;
     transform-origin: top right;
     animation: popupIn 0.2s ease-out;
+}
+/* --- SCROLLBAR FLUENT (Fina e Arredondada) --- */
+.settings-popup::-webkit-scrollbar {
+    width: 6px; /* Largura fina */
+}
+
+.settings-popup::-webkit-scrollbar-track {
+    background: transparent; /* Fundo invisível */
+    margin: 4px 0; /* Margem nas pontas */
+}
+
+.settings-popup::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Cinza suave */
+    border-radius: 20px; /* Pílula redonda */
+    border: 2px solid transparent; /* Truque para dar respiro */
+    background-clip: content-box;
+}
+
+.settings-popup::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Escurece ao passar o mouse */
+}
+
+/* Scrollbar no Dark Mode */
+[data-theme="dark"] .settings-popup::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .settings-popup::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .settings-popup.active {
     display: flex;
@@ -739,35 +771,6 @@ input:checked + .slider:before {
     position: absolute;
     top: 50px;
     left: 0;
-    width: 280px; 
-    background: var(--search-bg);
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-    display: none;
-    flex-direction: column;
-    gap: 16px;
-    transform-origin: top left;
-    animation: popupIn 0.2s ease-out;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-.launcher-popup.active {
-    display: flex;
-}
-.launcher-header {
-    padding-left: 8px;
-    padding-bottom: 4px;
-}
-.launcher-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-color);
-}
-.launcher-popup {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 310px; 
     background: var(--search-bg);
     border-radius: 12px;
     padding: 12px;
@@ -793,7 +796,6 @@ input:checked + .slider:before {
 .launcher-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px; 
 }
 .launcher-item {
     display: flex;
@@ -812,8 +814,8 @@ input:checked + .slider:before {
     transform: scale(1.02); 
 }
 .launcher-icon {
-    width: 54px; 
-    height: 54px;
+    width:40px;
+    height: 40px;
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); 
 }
@@ -902,4 +904,80 @@ input:checked + .slider:before {
     width: 16px;
     height: 16px;
     fill: var(--text-color); 
+}
+
+/* --- Backup buttons --- */
+.backup-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+.backup-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+.backup-btn svg {
+    opacity: 0.8;
+}
+.backup-btn:hover {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.2);
+}
+.backup-btn:active {
+    transform: scale(0.98);
+}
+[data-theme="dark"] .backup-btn {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .backup-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* --- Copilot button --- */
+.copilot-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 44px;  
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px; 
+    transition: background 0.2s, transform 0.2s;
+}
+.copilot-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+}
+.copilot-btn img {
+    width: 24px;
+    height: 24px;
+}
+.search-bar.copilot-active {
+    border: 2px solid transparent;
+    background-image: linear-gradient(var(--search-bg), var(--search-bg)), 
+                      linear-gradient(90deg, #0078D4, #00C7FD, #8A2BE2, #FF1493);                 
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 20px rgba(0, 199, 253, 0.6);
+}
+[data-theme="dark"] .copilot-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
