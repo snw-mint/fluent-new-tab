@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rowsInputGroup = document.getElementById('rowsInputGroup');
     const searchInput = document.querySelector('.search-bar input');
     const searchBar = document.querySelector('.search-bar');
-    const copilotToggle = document.querySelector('.copilot-btn');
+
     const ICON_MORNING = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25" fill="currentColor"/></path></svg>`;
     const ICON_AFTERNOON = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M24 13.08c6.03 0 10.92 4.89 10.92 10.92q-.002 1.026-.184 2h8.014a1.25 1.25 0 1 1 0 2.5H5.25a1.25 1.25 0 1 1 0-2.5h8.013a11 11 0 0 1-.183-2c0-6.03 4.89-10.92 10.92-10.92M15.82 26h16.36a8.42 8.42 0 1 0-16.36 0M11.506 9.804l.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.666-1.859m26.639.091a1.25 1.25 0 0 1 .091 1.667l-.091.101-2.148 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25M21.25 38a1.25 1.25 0 1 0 0 2.5h5.5a1.25 1.25 0 1 0 0-2.5zM12 33.25c0-.69.56-1.25 1.25-1.25h21.5a1.25 1.25 0 1 1 0 2.5h-21.5c-.69 0-1.25-.56-1.25-1.25" fill="currentColor"/></path></svg>`;
     const ICON_NIGHT = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405" fill="currentColor"/></path></svg>`;
@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Logic ---
     const savedTheme = localStorage.getItem('theme') || 'auto';
     
-    // Update icons for theme buttons
     const lightBtn = document.querySelector('.theme-btn[data-theme="light"]');
     const darkBtn = document.querySelector('.theme-btn[data-theme="dark"]');
     if (lightBtn) lightBtn.innerHTML = ICON_MORNING.replace('style="width: 60px; height: 60px; margin-right: 16px;"', '');
@@ -160,74 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdown.classList.remove('active');
         });
     });
-
-    // --- Copilot ---
-    if (searchForm) {
-        searchForm.addEventListener('submit', (e) => {
-            if (searchBar.classList.contains('copilot-active')) {
-                e.preventDefault(); 
-                
-                const query = searchInput.value.trim();
-                if (query) {
-                    window.location.href = `https://www.bing.com/copilotsearch?q=${encodeURIComponent(query)}&FORM=CSSCOP`;
-                }
-            }
-        });
-    }
-
-    // --- Copilot Visibility Logic ---
-    const toggleCopilot = document.getElementById('toggleCopilot');
-    let copilotVisible = localStorage.getItem('copilotEnabled') === 'true';
-    if (copilotToggle) {
-        copilotToggle.style.display = copilotVisible ? 'flex' : 'none';
-    }
-
-    if (toggleCopilot) {
-        toggleCopilot.checked = copilotVisible;
-        toggleCopilot.addEventListener('change', (e) => {
-            copilotVisible = e.target.checked;
-            localStorage.setItem('copilotEnabled', copilotVisible);
-            
-            if (copilotToggle) {
-                if (copilotVisible) {
-                    copilotToggle.classList.remove('zoom-out');
-                    copilotToggle.style.display = 'flex';
-                    copilotToggle.classList.add('zoom-in');
-                    copilotToggle.addEventListener('animationend', () => {
-                        copilotToggle.classList.remove('zoom-in');
-                    }, { once: true });
-                } else {
-                    copilotToggle.classList.remove('zoom-in');
-                    copilotToggle.classList.add('zoom-out');
-                    copilotToggle.addEventListener('animationend', () => {
-                        if (!copilotVisible) { 
-                            copilotToggle.style.display = 'none';
-                            copilotToggle.classList.remove('zoom-out');
-                        }
-                    }, { once: true });
-                }
-            }
-        });
-    }
-
-    // --- Copilot Interaction ---
-    if (copilotToggle) {
-        copilotToggle.addEventListener('click', () => {
-            searchBar.classList.toggle('copilot-active');
-            if (searchBar.classList.contains('copilot-active')) {
-                searchInput.focus();
-                searchInput.placeholder = "Ask to copilot";
-            } else {
-                searchInput.placeholder = "Search the web";
-            }
-        });
-        document.addEventListener('click', (e) => {
-            if (searchBar && !searchBar.contains(e.target) && !copilotToggle.contains(e.target)) {
-                searchBar.classList.remove('copilot-active');
-                searchInput.placeholder = "";
-            }
-        });
-    }
 
     // --- Icons & Modal Elements ---
     const ICON_ADD = `<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13V3.754a.75.75 0 0 0-1.5 0V13H3.754a.75.75 0 0 0 0 1.5H13v9.252a.75.75 0 0 0 1.5 0V14.5l9.25.003a.75.75 0 0 0 0-1.5z" fill="currentColor"/></svg>`;
@@ -761,12 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.innerHTML = `${iconSvg} <span>${text}</span>`;   
             div.addEventListener('click', () => {
                 searchInput.value = text;
-                // Verificação do Copilot
-                if (searchBar.classList.contains('copilot-active')) {
-                     window.location.href = `https://www.bing.com/copilotsearch?q=${encodeURIComponent(text)}&FORM=CSSCOP`;
-                } else {
-                     document.getElementById('searchForm').submit(); 
-                }
+                if(searchForm) searchForm.submit(); 
             });
             suggestionsContainer.appendChild(div);
         });

@@ -35,7 +35,7 @@ While the extension operates primarily offline, specific features require intera
 *   **Data Shared:** When you add a shortcut, your browser sends the **Domain URL** (e.g., `github.com`) to `www.google.com/s2/favicons` to fetch the associated icon image.
 *   **Privacy:** This request is handled according to Google's privacy standards.
 
-### C. Search Engines (Bing, Google, Copilot)
+### C. Search Engines (Bing, Google)
 *   **Usage:** The search bar in Fluent New Tab acts strictly as a redirection tool.
 *   **Data Shared:** We do not record, log, or analyze your search queries. When you press Enter, the query is sent directly to the search engine you selected.
 *   **Privacy:** Once redirected, your interaction is governed by the privacy policy of the respective search engine provider.

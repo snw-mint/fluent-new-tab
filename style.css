@@ -947,58 +947,6 @@ input:checked + .slider:before {
 [data-theme="dark"] .backup-btn:hover {
     background: rgba(255,255,255,0.2);
 }
-
-/* --- Copilot button --- */
-.copilot-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    width: 44px;  
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 4px; 
-    transition: background 0.2s, transform 0.2s;
-}
-.copilot-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    transform: scale(1.1);
-}
-.copilot-btn img {
-    width: 24px;
-    height: 24px;
-}
-.search-bar.copilot-active {
-    border: 2px solid transparent;
-    background-image: linear-gradient(var(--search-bg), var(--search-bg)), 
-                      linear-gradient(90deg, #0078D4, #00C7FD, #8A2BE2, #FF1493);                 
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    box-shadow: 0 0 20px rgba(0, 199, 253, 0.6);
-}
-[data-theme="dark"] .copilot-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-/* --- Copilot Animation --- */
-@keyframes copilotZoomIn {
-    0% { transform: scale(0); opacity: 0; }
-    80% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
-}
-@keyframes copilotZoomOut {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0); opacity: 0; }
-}
-.copilot-btn.zoom-in {
-    animation: copilotZoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-.copilot-btn.zoom-out {
-    animation: copilotZoomOut 0.3s ease-in forwards;
-    pointer-events: none;
-}
-
 /* --- Search Suggestions --- */
 .suggestions-container {
     position: absolute;
