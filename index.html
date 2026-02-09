@@ -110,9 +110,25 @@
 
             <div class="setting-group">
                 <div class="switch-row">
-                    <label for="toggleSuggestions">Search Suggestions</label>
+                    <label for="toggleSearchBar">Search Bar</label>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleSearchBar" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="switch-row child-setting" id="suggestionsRow">
+                    <label for="toggleSuggestions">Suggestions</label>
                     <label class="switch">
                         <input type="checkbox" id="toggleSuggestions">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="switch-row child-setting" id="voiceSearchRow">
+                    <label for="toggleVoiceSearch">Voice Search</label>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleVoiceSearch">
                         <span class="slider"></span>
                     </label>
                 </div>

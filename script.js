@@ -160,6 +160,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //--- Search Visibility Logic ---
+    const searchWrapper = document.querySelector('.search-wrapper') || document.querySelector('.search-bar') || document.getElementById('searchForm');
+    const voiceBtn = document.getElementById('voiceBtn');
+    const toggleSearchBar = document.getElementById('toggleSearchBar'); 
+    const toggleVoiceSearch = document.getElementById('toggleVoiceSearch');
+    const suggestionsRow = document.getElementById('suggestionsRow');
+    const voiceSearchRow = document.getElementById('voiceSearchRow');
+    let searchBarVisible = localStorage.getItem('searchBarVisible') !== 'false';
+    let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') !== 'false';
+
+    function updateSearchSettings() {
+        if (searchWrapper) {
+            searchWrapper.style.display = searchBarVisible ? '' : 'none'; 
+        }
+        
+        if (voiceBtn) {
+            if (searchBarVisible && voiceSearchEnabled) {
+                voiceBtn.style.display = 'flex';
+            } else {
+                voiceBtn.style.display = 'none';
+            }
+        }
+
+        if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
+        if (toggleVoiceSearch) toggleVoiceSearch.checked = voiceSearchEnabled;
+
+        const displayStyle = searchBarVisible ? 'flex' : 'none';
+        
+        if (suggestionsRow) suggestionsRow.style.display = displayStyle;
+        if (voiceSearchRow) voiceSearchRow.style.display = displayStyle;
+    }
+
+    updateSearchSettings();
+    if (toggleSearchBar) {
+        toggleSearchBar.addEventListener('change', (e) => {
+            searchBarVisible = e.target.checked;
+            localStorage.setItem('searchBarVisible', searchBarVisible);
+            updateSearchSettings();
+        });
+    }
+
+    if (toggleVoiceSearch) {
+        toggleVoiceSearch.addEventListener('change', (e) => {
+            voiceSearchEnabled = e.target.checked;
+            localStorage.setItem('voiceSearchEnabled', voiceSearchEnabled);
+            updateSearchSettings();
+        });
+    }
+
     // --- Icons & Modal Elements ---
     const ICON_ADD = `<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13V3.754a.75.75 0 0 0-1.5 0V13H3.754a.75.75 0 0 0 0 1.5H13v9.252a.75.75 0 0 0 1.5 0V14.5l9.25.003a.75.75 0 0 0 0-1.5z" fill="currentColor"/></svg>`;
     const ICON_REMOVE = `<svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 7.25a5.75 5.75 0 0 1 5.746 5.53l.004.22H37a1.25 1.25 0 0 1 .128 2.494L37 15.5h-1.091l-1.703 22.57A4.25 4.25 0 0 1 29.968 42H18.032a4.25 4.25 0 0 1-4.238-3.93L12.09 15.5H11a1.25 1.25 0 0 1-1.244-1.122l-.006-.128c0-.647.492-1.18 1.122-1.244L11 13h7.25A5.75 5.75 0 0 1 24 7.25m9.402 8.25H14.598l1.69 22.382a1.75 1.75 0 0 0 1.744 1.618h11.936a1.75 1.75 0 0 0 1.745-1.618zm-6.152 5.25c.647 0 1.18.492 1.244 1.122L28.5 22v11a1.25 1.25 0 0 1-2.494.128L26 33V22c0-.69.56-1.25 1.25-1.25m-6.5 0c.647 0 1.18.492 1.244 1.122L22 22v11a1.25 1.25 0 0 1-2.494.128L19.5 33V22c0-.69.56-1.25 1.25-1.25m3.25-11a3.25 3.25 0 0 0-3.245 3.066L20.75 13h6.5A3.25 3.25 0 0 0 24 9.75" fill="#e74c3c"/></svg>`;
