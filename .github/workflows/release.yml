@@ -17,6 +17,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Minify JS and CSS
+        run: |
+          npm install -g uglify-js clean-css-cli
+          find . -type f -name "*.js" ! -name "*.min.js" ! -path "*/node_modules/*" -exec uglifyjs {} -o {} \;
+          find . -type f -name "*.css" ! -name "*.min.css" ! -path "*/node_modules/*" -exec cleancss -o {} {} \;
+
       - name: Create Release Zip
         run: |
           zip -r fluent-new-tab-${{ github.ref_name }}.zip . -x "*.git*" -x ".github/*" -x "repo-assets/*" -x "*.md"
