@@ -302,25 +302,21 @@ body {
 /* --- Shortcut Actions (Edit & Remove) --- */
 .card-actions {
     position: absolute;
-    top: -10px;  /* Posiciona para fora do card */
-    right: -10px; /* Posiciona para fora do card */
+    top: -10px;  
+    right: -10px; 
     display: flex;
-    gap: 4px; /* Espaço entre o Edit e o Remove */
+    gap: 4px;
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 20;
-    pointer-events: none; /* Impede passar mouse quando invisível */
+    pointer-events: none; 
 }
-
-/* Mostra ao passar o mouse no atalho */
 .shortcut-item:hover .card-actions {
     opacity: 1;
     transform: scale(1);
     pointer-events: all;
 }
-
-/* Estilo Comum dos Botões (Dot) */
 .action-btn {
     width: 20px;  
     height: 20px; 
@@ -816,6 +812,42 @@ input:checked + .slider:before {
 }
 .weather-icon path {
     fill: var(--text-color);
+}
+
+/* --- Weather Unit Toggles --- */
+.unit-toggle-row {
+    display: flex;
+    gap: 8px; 
+    width: 100%;
+}
+.unit-btn {
+    flex: 1; 
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+.unit-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.unit-btn.active {
+    background-color: #0078d4; 
+    color: white;
+}
+[data-theme="dark"] .unit-btn {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .unit-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+[data-theme="dark"] .unit-btn.active {
+    background-color: #0078d4; /
+    color: white;
 }
 
 /* --- Settings Inputs --- */

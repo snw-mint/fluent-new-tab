@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Theme Logic (Executado primeiro para evitar Flash) ---
     const themeBtns = document.querySelectorAll('.theme-btn');
     const savedTheme = localStorage.getItem('theme') || 'auto';
     
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Shortcuts Data Management ---
     let shortcuts = [];
-    let editingIndex = -1; // Controla se estamos editando (-1 = novo)
+    let editingIndex = -1; 
 
     try {
         shortcuts = JSON.parse(localStorage.getItem('shortcuts')) || [];
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shortcuts = [];
     }
 
-    // --- Modal Functions (Definidas antes para evitar erro) ---
+    // --- Modal Functions ---
     function closeModal() {
         if (addModal) addModal.classList.remove('active');
     }
@@ -74,8 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (addModal) {
             addModal.classList.add('active');
             const modalTitle = document.querySelector('.modal-content h3');
-            
-            // Edição
             if (index !== null && shortcuts[index]) {
                 const item = shortcuts[index];
                 document.getElementById('inputName').value = item.name;
@@ -85,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (modalTitle) modalTitle.textContent = 'Edit Shortcut';
                 if (item.customIcon && customIconGroup) customIconGroup.classList.remove('hidden');
             } 
-            // Novo
+
             else {
                 document.getElementById('inputName').value = '';
                 document.getElementById('inputUrl').value = '';
@@ -110,26 +107,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         visibleShortcuts.forEach((site, index) => {
             const iconSrc = site.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${site.url}`;
-            
-            // Criando o elemento Wrapper
             const link = document.createElement('div');
             link.className = 'shortcut-item';
-            
-            // Clique para abrir o site (ignora se clicar nos botões de ação)
             link.onclick = (e) => {
                 if(!e.target.closest('.action-btn')) {
                     window.location.href = site.url;
                 }
             };
-
-            // Criando a imagem via JS para controlar o erro (sem inline handler)
             const img = document.createElement('img');
             img.src = iconSrc;
             img.className = 'shortcut-icon';
             img.alt = site.name;
             img.onerror = () => { img.src = ICON_GLOBE_FALLBACK; };
-
-            // Montando o HTML interno (Botões + Imagem)
             link.innerHTML = `
                 <div class="shortcut-card">
                     <div class="card-actions">
@@ -139,8 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <span class="shortcut-title">${site.name}</span>
             `;
-            
-            // Inserindo a imagem no lugar certo
             link.querySelector('.shortcut-card').appendChild(img);
             shortcutsGrid.appendChild(link);
         });
@@ -156,8 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             shortcutsGrid.appendChild(addBtn);
         }
-
-        // Listeners para Botões de Ação
         document.querySelectorAll('.remove-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -197,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Form Submit (Editar ou Criar) ---
+    // --- Form Submit  ---
     if (shortcutForm) {
         shortcutForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -211,9 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             if (editingIndex !== null && editingIndex >= 0) {
-                shortcuts[editingIndex] = newShortcut; // Atualiza
+                shortcuts[editingIndex] = newShortcut; 
             } else {
-                shortcuts.push(newShortcut); // Cria novo
+                shortcuts.push(newShortcut); 
             }
 
             saveAndRender();
@@ -238,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (config) {
             if (currentIcon) {
                 currentIcon.src = config.icon;
-                // Tratamento de erro de imagem via JS (sem inline handler)
                 currentIcon.onerror = () => { currentIcon.style.display = 'none'; };
                 currentIcon.onload = () => { currentIcon.style.display = 'block'; };
             }
@@ -360,17 +344,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Weather Logic ---
+// --- Weather Logic ---
     const API_KEY = 'f4dfa0b32bd44ce7af2175310260702'; 
     const weatherWidget = document.getElementById('weatherWidget');
     const toggleWeather = document.getElementById('toggleWeather');
     const cityInputGroup = document.getElementById('cityInputGroup');
+    const weatherUnitGroup = document.getElementById('weatherUnitGroup'); 
     const cityInput = document.getElementById('cityInput');
     const saveCityBtn = document.getElementById('saveCityBtn');
     const weatherCity = document.getElementById('weatherCity');
     const weatherIcon = document.getElementById('weatherIcon');
     const weatherTemp = document.getElementById('weatherTemp');
+    const unitBtns = document.querySelectorAll('.unit-btn'); 
     let weatherEnabled = localStorage.getItem('weatherEnabled') === 'true'; 
+    let weatherUnit = localStorage.getItem('weatherUnit') || 'c'; 
     let storedCity = localStorage.getItem('weatherCity');
     let currentCity = 'New York';
     if (storedCity) {
@@ -391,19 +378,40 @@ document.addEventListener('DOMContentLoaded', () => {
             if(weatherEnabled) fetchWeather();
         });
     }
+    function updateUnitButtons() {
+        if(!unitBtns) return;
+        unitBtns.forEach(btn => {
+            if(btn.dataset.unit === weatherUnit) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    updateUnitButtons(); 
+
+    unitBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            weatherUnit = btn.dataset.unit; 
+            localStorage.setItem('weatherUnit', weatherUnit);
+            updateUnitButtons();
+            fetchWeather(); 
+        });
+    });
+
     if (cityInput) cityInput.value = currentCity;
     updateWeatherVisibility();
     if(weatherEnabled) fetchWeather();
+
     function updateWeatherVisibility() {
         if(!weatherWidget || !cityInputGroup) return;
-        if(weatherEnabled) {
-            weatherWidget.style.display = 'flex';
-            cityInputGroup.style.display = 'flex';
-        } else {
-            weatherWidget.style.display = 'none';
-            cityInputGroup.style.display = 'none';
-        }
+        const displayStyle = weatherEnabled ? 'flex' : 'none';
+        
+        weatherWidget.style.display = displayStyle;
+        cityInputGroup.style.display = displayStyle;
+        if(weatherUnitGroup) weatherUnitGroup.style.display = displayStyle;
     }
+
     if(saveCityBtn) saveCityBtn.addEventListener('click', searchCity);
     if(cityInput) cityInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') searchCity(); });
     
@@ -421,24 +429,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('weatherCity', currentCity);
                 cityInput.value = currentCity; 
                 fetchWeather(); 
-            } else { alert('Cidade não encontrada.'); }
+            } else { alert('City not found.'); }
         } catch (error) {
-            console.error('Erro ao buscar cidade:', error);
+            console.error('Error searching for city:', error);
         } finally {
             saveCityBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
         }
     }
+
     async function fetchWeather() {
         if(!weatherEnabled || !API_KEY) return;
         try {
             const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currentCity}&lang=pt`);
             const data = await res.json();
             if (data.error) return;
-            const temp = Math.round(data.current.temp_c);
+            const isCelsius = weatherUnit === 'c';
+            const tempValue = isCelsius ? data.current.temp_c : data.current.temp_f;
+            const unitSymbol = isCelsius ? '°C' : '°F';
+            const temp = Math.round(tempValue);
+
             let iconUrl = data.current.condition.icon;
             if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+            
             weatherCity.textContent = data.location.name;
-            weatherTemp.textContent = `${temp}°C`;
+            weatherTemp.textContent = `${temp}${unitSymbol}`; 
             weatherIcon.innerHTML = `<img src="${iconUrl}" alt="${data.current.condition.text}">`;
             weatherWidget.href = `https://www.bing.com/weather/forecast?q=${data.location.name}`;
         } catch (error) { weatherTemp.textContent = '--'; }
