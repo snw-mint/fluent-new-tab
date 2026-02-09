@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ICON_AFTERNOON = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M24 13.08c6.03 0 10.92 4.89 10.92 10.92q-.002 1.026-.184 2h8.014a1.25 1.25 0 1 1 0 2.5H5.25a1.25 1.25 0 1 1 0-2.5h8.013a11 11 0 0 1-.183-2c0-6.03 4.89-10.92 10.92-10.92M15.82 26h16.36a8.42 8.42 0 1 0-16.36 0M11.506 9.804l.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.666-1.859m26.639.091a1.25 1.25 0 0 1 .091 1.667l-.091.101-2.148 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25M21.25 38a1.25 1.25 0 1 0 0 2.5h5.5a1.25 1.25 0 1 0 0-2.5zM12 33.25c0-.69.56-1.25 1.25-1.25h21.5a1.25 1.25 0 1 1 0 2.5h-21.5c-.69 0-1.25-.56-1.25-1.25" fill="currentColor"/></path></svg>`;
     const ICON_NIGHT = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin-right: 16px;"><path d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405" fill="currentColor"/></path></svg>`;
 
-// --- Brand Logic (Unified) ---
+    // --- Brand Logic ---
     function initBrand() {
         const logoWrapper = document.querySelector('.logo-wrapper');
         if(logoWrapper) {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     initBrand();
 
-    // --- Settings Popup Logic ---
+    // --- Settings Popup ---
     if (settingsBtn) {
         settingsBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Logic ---
     const savedTheme = localStorage.getItem('theme') || 'auto';
     
-    // Update icons for theme buttons to match brand icons (dynamic)
+    // Update icons for theme buttons
     const lightBtn = document.querySelector('.theme-btn[data-theme="light"]');
     const darkBtn = document.querySelector('.theme-btn[data-theme="dark"]');
     if (lightBtn) lightBtn.innerHTML = ICON_MORNING.replace('style="width: 60px; height: 60px; margin-right: 16px;"', '');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Shortcuts Visibility & Rows ---
+    // --- Shortcuts Visibility ---
     const shortcutsVisible = localStorage.getItem('shortcutsVisible') !== 'false'; 
     toggleShortcuts.checked = shortcutsVisible;
     updateShortcutsVisibility(shortcutsVisible);
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// --- Search Engine Logic ---
+    // --- Search Engine Logic ---
     const engineBtn = document.getElementById('engineBtn');
     const dropdown = document.getElementById('engineDropdown');
     const currentIcon = document.getElementById('currentEngineIcon');
@@ -161,9 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Copilot ---
     if (searchForm) {
         searchForm.addEventListener('submit', (e) => {
             if (searchBar.classList.contains('copilot-active')) {
+                e.preventDefault(); 
+                
                 const query = searchInput.value.trim();
                 if (query) {
                     window.location.href = `https://www.bing.com/copilotsearch?q=${encodeURIComponent(query)}&FORM=CSSCOP`;
@@ -172,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// --- Copilot Visibility Logic ---
+    // --- Copilot Visibility Logic ---
     const toggleCopilot = document.getElementById('toggleCopilot');
     let copilotVisible = localStorage.getItem('copilotEnabled') === 'true';
     if (copilotToggle) {
@@ -288,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Shortcut Actions (Delete/Save) ---
+    // --- Shortcut Actions ---
     function deleteShortcut(index) {
         shortcuts.splice(index, 1);
         saveAndRender();
@@ -585,8 +588,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportBtn = document.getElementById('exportBtn');
     const importBtn = document.getElementById('importBtn');
     const importInput = document.getElementById('importInput');
-
-    // --- Key List ---
     const APP_KEYS = [
         'shortcuts',
         'theme',
@@ -598,21 +599,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'launcherProvider'
     ];
 
-    // --- Export Logic ---
     if (exportBtn) {
         exportBtn.addEventListener('click', () => {
             const backupData = {};
-
             APP_KEYS.forEach(key => {
                 const value = localStorage.getItem(key);
-                if (value !== null) {
-                    backupData[key] = value;
-                }
+                if (value !== null) backupData[key] = value;
             });
-
             backupData._backupDate = new Date().toISOString();
             backupData._appName = "FluentNewTab";
-
             const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -625,7 +620,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Import Logic ---
     if (importBtn && importInput) {
         importBtn.addEventListener('click', () => importInput.click())
         importInput.addEventListener('change', (e) => {
@@ -641,9 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                    if (confirm('This will replace your current settings with those from the backup. Do you want to continue?')) {
                         APP_KEYS.forEach(key => {
-                            if (data[key] !== undefined) {
-                                localStorage.setItem(key, data[key]);
-                            }
+                            if (data[key] !== undefined) localStorage.setItem(key, data[key]);
                         });
                         alert('Backup restored successfully!');
                         location.reload();
@@ -745,7 +737,6 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-
             const suggestions = data[1].slice(0, 5); 
             renderSuggestions(suggestions);
         } catch (error) {
@@ -770,7 +761,12 @@ document.addEventListener('DOMContentLoaded', () => {
             div.innerHTML = `${iconSvg} <span>${text}</span>`;   
             div.addEventListener('click', () => {
                 searchInput.value = text;
-                if(searchForm) searchForm.submit(); 
+                // Verificação do Copilot
+                if (searchBar.classList.contains('copilot-active')) {
+                     window.location.href = `https://www.bing.com/copilotsearch?q=${encodeURIComponent(text)}&FORM=CSSCOP`;
+                } else {
+                     document.getElementById('searchForm').submit(); 
+                }
             });
             suggestionsContainer.appendChild(div);
         });
