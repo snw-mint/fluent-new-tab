@@ -1,6 +1,10 @@
 # Fluent New Tab
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version](https://img.shields.io/badge/version-1.0-blue.svg) ![Maintenance](https://img.shields.io/badge/Maintained-Yes-green.svg)
+<div align="center">
+
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsnw-mint%2Ffluent-new-tab%2Frefs%2Fheads%2Fmain%2Fmanifest.json&query=version&style=plastic&logo=github&label=latest%20version&color=red) ![GitHub last commit](https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?display_timestamp=author&style=plastic&logoColor=FFF&color=orange) ![GitHub License](https://img.shields.io/github/license/snw-mint/fluent-new-tab?style=plastic&color=yellow) ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/snw-mint/fluent-new-tab?style=plastic&color=green)
+
+</div>
 
 ![Fluent New Tab Mockup](repo-assets/mockup.png)
 
@@ -47,6 +51,8 @@ Contributions are welcome! If you'd like to improve this project, please follow 
 ## ⚖️ License & Legal Notice
 
 The source code of this project is licensed under the **MIT License**.
+
+If you choose to fork or distribute this project, you are required to use a different name and logo. Please ensure your version is clearly marked as a fork to avoid confusion with the original project.
 
 **Trademarks Disclaimer:**
 The trademarks, logos, and service marks (collectively the "Trademarks") displayed in this project (including but not limited to Microsoft Edge, Google, and Proton) are registered trademarks of their respective owners. 
