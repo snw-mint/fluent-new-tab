@@ -39,7 +39,7 @@ Experience a browser start page that feels like a native extension of your OS.
 ### Microsoft Add-ons
 The easiest way to install is via the official store. Updates are automatic.
 
-<a href="https://get.microsoft.com/installer/download/0RDCKFXJ11DH?referrer=appbadge">
+<a href="https://microsoftedge.microsoft.com/addons/detail/hcohjkajcimobdddlnfnfhdfnbapondc">
   <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200"/>
 </a>
 
