@@ -224,6 +224,12 @@ body {
     cursor: pointer;
     width: 100%; 
     min-width: 0; 
+    z-index: 1;
+    transition: z-index 0s;
+}
+.shortcut-item:hover,
+.shortcut-item:focus-within {
+    z-index: 1000;
 }
 .shortcut-card {
     width: 44px; 
@@ -238,6 +244,8 @@ body {
     border: 1px solid rgba(255,255,255,0.4);
     transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
     flex-shrink: 0; 
+    position: relative; 
+    z-index: 20; 
 }
 .shortcut-icon {
     width: 24px; 
@@ -256,6 +264,8 @@ body {
     text-overflow: ellipsis;
     width: 100%;
     opacity: 0.9;
+    position: relative;
+    z-index: 10;  
 }
 
 /* --- Settings Select --- */
@@ -299,59 +309,110 @@ body {
     display: none; 
 }
 
-/* --- Shortcut Actions (Edit & Remove) --- */
-.card-actions {
+/* --- Context menu --- */
+.menu-wrapper {
     position: absolute;
-    top: -10px;  
-    right: -10px; 
-    display: flex;
-    gap: 4px;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 20;
-    pointer-events: none; 
+    top: -10px;
+    right: -10px;
+    z-index: 2000;
 }
-.shortcut-item:hover .card-actions {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: all;
-}
-.action-btn {
-    width: 20px;  
-    height: 20px; 
-    background: #ffffff;
+.menu-btn {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    border: none;
+    background: #ffffff;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
     color: #444;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    opacity: 0; 
+    transform: scale(0.5); 
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.action-btn:hover {
+.shortcut-item:hover .menu-btn,
+.menu-btn:focus,
+.shortcut-dropdown.active ~ .menu-btn { 
+    opacity: 1;
+    transform: scale(1);
+}
+.menu-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
     transform: scale(1.1);
-    z-index: 21; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-.action-btn svg {
-    width: 14px; 
-    height: 14px;
+.menu-btn svg {
+    width: 16px;
+    height: 16px;
     fill: currentColor;
 }
-.edit-btn:hover {
-    background-color: var(--accent-color); 
-    color: white;
+.shortcut-dropdown {
+    position: absolute;
+    top: 110%; 
+    right: 0; 
+    width: 130px;
+    background: var(--search-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    padding: 5px;
+    display: none; 
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: 100; 
 }
-.remove-btn:hover {
-    background-color: #ff4d4f; 
-    color: white;
+.shortcut-dropdown.active {
+    display: flex;
+    animation: menuPop 0.1s ease-out;
 }
-[data-theme="dark"] .action-btn {
+.menu-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background 0.1s;
+    white-space: nowrap; 
+}
+.menu-option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.menu-option svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+    fill: currentColor;
+}
+.menu-option.remove-option:hover {
+    background-color: rgba(255, 77, 79, 0.1);
+    color: #ff4d4f;
+}
+.menu-option.remove-option:hover svg {
+    fill: #ff4d4f;
+    opacity: 1;
+}
+@keyframes menuPop {
+    from { opacity: 0; transform: translateY(-5px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+[data-theme="dark"] .menu-btn {
     background: #333;
-    color: #eee;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .shortcut-dropdown {
+    background: #252525;
+    border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .menu-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* --- Add Card --- */

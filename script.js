@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const ICON_ADD = `<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13V3.754a.75.75 0 0 0-1.5 0V13H3.754a.75.75 0 0 0 0 1.5H13v9.252a.75.75 0 0 0 1.5 0V14.5l9.25.003a.75.75 0 0 0 0-1.5z" fill="currentColor"/></svg>`;
     const ICON_REMOVE = `<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="m3.525 3.718.091-.102a1.25 1.25 0 0 1 1.666-.091l.102.091L14 12.233l8.616-8.617a1.25 1.25 0 0 1 1.768 1.768L15.767 14l8.617 8.616a1.25 1.25 0 0 1 .091 1.666l-.091.102a1.25 1.25 0 0 1-1.666.091l-.102-.091L14 15.767l-8.616 8.617a1.25 1.25 0 0 1-1.768-1.768L12.233 14 3.616 5.384a1.25 1.25 0 0 1-.091-1.666l.091-.102z" fill="currentColor"/></svg>`;
     const ICON_EDIT = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.03 2.97a3.58 3.58 0 0 1 0 5.06L9.062 20a2.25 2.25 0 0 1-.999.58l-5.116 1.395a.75.75 0 0 1-.92-.921l1.395-5.116a2.25 2.25 0 0 1 .58-.999L15.97 2.97a3.58 3.58 0 0 1 5.06 0M15 6.06 5.062 16a.75.75 0 0 0-.193.333l-1.05 3.85 3.85-1.05A.75.75 0 0 0 8 18.937L17.94 9zm2.03-2.03-.97.97L19 7.94l.97-.97a2.078 2.078 0 1 0-2.94-2.94" fill="currentColor"/></svg>`;
-    const ICON_GLOBE_FALLBACK = `data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDEuOTk5YzUuNTI0IDAgMTAuMDAyIDQuNDc4IDEwLjAwMiAxMC4wMDIgMCA1LjUyMy00LjQ3OCAxMC4wMDEtMTAuMDAyIDEwLjAwMVMxLjk5OCAxNy41MjQgMS45OTggMTIuMDAxQzEuOTk4IDYuNDc3IDYuNDc2IDEuOTk5IDEyIDEuOTk5TTE0LjkzOSAxNi41SDkuMDZjLjY1MiAyLjQxNCAxLjc4NSA0LjAwMiAyLjkzOSA0LjAwMnMyLjI4Ny0xLjU4OCAyLjkzOS00LjAwMm0tNy40MyAwSDQuNzg1YTguNTMgOC41MyAwIDAgMCA0LjA5NCAzLjQxMWMtLjUyMi0uODItLjk1My0xLjg0Ni0xLjI3LTMuMDE1em0xMS43MDUgMGgtMi43MjJjLS4zMjQgMS4zMzUtLjc5MiAyLjUtMS4zNzMgMy40MTFhOC41MyA4LjUzIDAgMCAwIDMuOTEtMy4xMjd6TTcuMDk0IDEwSDMuNzM1bC0uMDA1LjAxN2E4LjUgOC41IDAgMCAwLS4yMzMgMS45ODRjMCAxLjA1Ni4xOTMgMi4wNjcuNTQ1IDNoMy4xNzNhMjAgMjAgMCAwIDEtLjIxOC0zYzAtLjY4NC4wMzMtMS4zNTQuMDk1LTIuMDAxbTguMzAzIDBIOC42MDNhMTkgMTkgMCAwIDAgLjEzNSA1aDYuNTI0YTE5IDE5IDAgMCAwIC4xMzUtNW00Ljg2OC0uMDAxaC0zLjM1OHEuMDk0Ljk3NC4wOTUgMi4wMDJhMjAgMjAgMCAwIDEtLjIxOCAzaDMuMTczYTguNSA4LjUgMCAwIDAgLjU0NS0zYzAtLjY5LS4wODMtMS4zNi0uMjM3LTIuMDAyTTguODggNC4wODlsLS4wMjMuMDFBOC41MyA4LjUzIDAgMCAwIDQuMjUgOC41aDMuMDQ4Yy4zMTQtMS43NTIuODYtMy4yNzggMS41ODMtNC40MU0xMiAzLjVsLS4xMTYuMDA1QzEwLjYyIDMuNjIgOS4zOTYgNS42MjIgOC44MyA4LjVoNi4zNDJjLS41NjYtMi44Ny0xLjExMiAxLjE3NyAyLjU3MiAxLjQ3NSA0LjIzN2gzLjA0OGE4LjUzIDguNTMgMCAwIDAtNC4zMzktNC4yOXoiIGZpbGw9IiMyMTIxMjEiLz48L3N2Zz4=`;
+    const ICON_GLOBE_FALLBACK = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001S1.998 17.524 1.998 12.001C1.998 6.477 6.476 1.999 12 1.999M14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.53 8.53 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.53 8.53 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.5 8.5 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a21 21 0 0 1-.123-5Zm8.303 0H8.603a19 19 0 0 0 .135 5h6.524a19 19 0 0 0 .135-5m4.868 0h-3.358c.062.647.095 1.317.095 2a20 20 0 0 1-.218 3h3.173a8.5 8.5 0 0 0 .544-3c0-.689-.082-1.36-.236-2M8.88 4.09l-.023.008A8.53 8.53 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.53 8.53 0 0 0-4.339-4.29l-.291-.121Z" fill="currentColor"/></svg>`;
+    const ICON_MENU_DOTS = `<svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 12a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0m6 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0M18 13.75a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5" fill="currentColor"/></svg>`;
 
     // --- Shortcuts Data Management ---
     let shortcuts = [];
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- Render Shortcuts ---
+    // --- Shortcuts Rendering ---
     function renderShortcuts() {
         if (!shortcutsGrid) return;
         shortcutsGrid.innerHTML = '';
@@ -113,21 +114,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const iconSrc = site.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${site.url}`;
             const link = document.createElement('div');
             link.className = 'shortcut-item';
+            
             link.onclick = (e) => {
-                if(!e.target.closest('.action-btn')) {
-                    window.location.href = site.url;
-                }
+                if(e.target.closest('.menu-wrapper')) return;
+                window.location.href = site.url;
             };
+
             const img = document.createElement('img');
             img.src = iconSrc;
             img.className = 'shortcut-icon';
             img.alt = site.name;
             img.onerror = () => { img.src = ICON_GLOBE_FALLBACK; };
+
             link.innerHTML = `
                 <div class="shortcut-card">
-                    <div class="card-actions">
-                        <button class="action-btn edit-btn" data-index="${index}" title="Edit">${ICON_EDIT}</button>
-                        <button class="action-btn remove-btn" data-index="${index}" title="Remove">${ICON_REMOVE}</button>
+                    <div class="menu-wrapper">
+                        <button class="menu-btn" title="More options">${ICON_MENU_DOTS}</button>
+                        <div class="shortcut-dropdown">
+                            <div class="menu-option edit-option" data-index="${index}">
+                                ${ICON_EDIT} <span>Edit</span>
+                            </div>
+                            <div class="menu-option remove-option" data-index="${index}">
+                                ${ICON_REMOVE} <span>Remove</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <span class="shortcut-title">${site.name}</span>
@@ -136,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
             shortcutsGrid.appendChild(link);
         });
 
-        // Add Button
         if (visibleShortcuts.length < maxSlots) {
             const addBtn = document.createElement('div');
             addBtn.className = 'shortcut-item add-card-wrapper';
@@ -147,32 +156,49 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             shortcutsGrid.appendChild(addBtn);
         }
-        document.querySelectorAll('.remove-btn').forEach(btn => {
+
+        document.querySelectorAll('.menu-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                deleteShortcut(btn.dataset.index);
+                e.stopPropagation(); 
+                document.querySelectorAll('.shortcut-dropdown.active').forEach(menu => {
+                    if (menu !== btn.nextElementSibling) menu.classList.remove('active');
+                });
+                const dropdown = btn.nextElementSibling;
+                dropdown.classList.toggle('active');
             });
         });
 
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.edit-option').forEach(opt => {
+            opt.addEventListener('click', (e) => {
                 e.stopPropagation();
-                openModal(parseInt(btn.dataset.index));
+                openModal(parseInt(opt.dataset.index));
+                opt.closest('.shortcut-dropdown').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.remove-option').forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteShortcut(parseInt(opt.dataset.index));
             });
         });
     }
 
-    function deleteShortcut(index) {
-        shortcuts.splice(index, 1);
-        saveAndRender();
-    }
-    
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.menu-wrapper')) {
+            document.querySelectorAll('.shortcut-dropdown.active').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+    });
     function saveAndRender() {
         localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
         renderShortcuts();
     }
-
-    // --- Listeners do Modal ---
+    function deleteShortcut(index) {
+        shortcuts.splice(index, 1);
+        saveAndRender();
+    }
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (addModal) {
         addModal.addEventListener('click', (e) => {
@@ -711,7 +737,5 @@ async function fetchSuggestions(query) {
             reader.readAsText(file);
         });
     }
-
-    // Inicialização
     renderShortcuts();
 });
