@@ -37,3 +37,4 @@ jobs:
         with:
           files: |
             fluent-new-tab-${{ github.ref_name }}.zip
+          draft: true

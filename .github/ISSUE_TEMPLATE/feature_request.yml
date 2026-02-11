@@ -1,5 +1,7 @@
-name: Feature Request
+name: 🚀 Feature Request
 description: Suggest an idea for this project.
+title: "[Feature]: "
+labels: ["feature"]
 body:
   - type: textarea
     id: problem
@@ -7,6 +9,7 @@ body:
       label: Is your feature request related to a problem? Please describe.
     validations:
       required: true
+
   - type: textarea
     id: solution
     attributes:
@@ -14,10 +17,12 @@ body:
       description: A clear and concise description of what you want to happen.
     validations:
       required: true
+
   - type: textarea
     id: alternatives
     attributes:
       label: Describe alternatives you've considered
+
   - type: checkboxes
     id: contribution
     attributes:

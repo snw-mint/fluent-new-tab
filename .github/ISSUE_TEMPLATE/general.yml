@@ -1,0 +1,24 @@
+name: 💬 General / Other
+description: General questions, documentation issues, or discussions.
+title: "[General]: "
+labels: ["question"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: What is this regarding?
+      options:
+        - Question / Support
+        - Documentation
+        - Design / UI
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Description
+      description: Please describe your question or issue in detail.
+    validations:
+      required: true
