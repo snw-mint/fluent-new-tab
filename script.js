@@ -679,10 +679,12 @@ function renderWeather(data) {
         }
     });
 
-    // --- Search Suggestions ---
+// --- Search Suggestions Optimized ---
     const toggleSuggestions = document.getElementById('toggleSuggestions');
-    const suggestionsContainer = document.getElementById('suggestionsContainer');
+    const suggestionsContainer = document.getElementById('suggestionsContainer')
     let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
+    const suggestionsCache = new Map(); 
+
     if(toggleSuggestions) {
         toggleSuggestions.checked = suggestionsActive;
         toggleSuggestions.addEventListener('change', (e) => {
@@ -691,6 +693,7 @@ function renderWeather(data) {
             if(!suggestionsActive) clearSuggestions();
         });
     }
+
     function debounce(func, wait) {
         let timeout;
         return function(...args) {
@@ -698,35 +701,53 @@ function renderWeather(data) {
             timeout = setTimeout(() => func.apply(this, args), wait);
         };
     }
+
     if (searchInput) {
         searchInput.addEventListener('input', debounce((e) => {
             if (!suggestionsActive) return;
             const query = e.target.value.trim();
-            if (query.length < 3) { clearSuggestions(); return; }
+            
+            if (query.length < 2) { 
+                clearSuggestions(); 
+                return; 
+            }
+            if (suggestionsCache.has(query.toLowerCase())) {
+                renderSuggestions(suggestionsCache.get(query.toLowerCase()));
+                return;
+            }
+
             fetchSuggestions(query);
-        }, 300)); 
+        }, 100)); 
+
         searchInput.addEventListener('keydown', (e) => {
             if (!suggestionsActive) return;
             const items = document.querySelectorAll('.suggestion-item');
             if (items.length === 0) return;
-            let index = -1;
-            items.forEach((item, i) => { if (item.classList.contains('selected')) index = i; });
+            let index = Array.from(items).findIndex(item => item.classList.contains('selected'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 index = (index + 1) % items.length;
                 updateSelection(items, index);
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
-                index = (index - 1 + items.length) % items.length; 
+                index = (index - 1 + items.length) % items.length;
                 updateSelection(items, index);
             } else if (e.key === 'Enter') {
-                if (index > -1) { e.preventDefault(); items[index].click(); }
-            } else if (e.key === 'Escape') { clearSuggestions(); }
+                if (index > -1) { 
+                    e.preventDefault(); 
+                    items[index].click(); 
+                }
+            } else if (e.key === 'Escape') { 
+                clearSuggestions(); 
+            }
         });
         document.addEventListener('click', (e) => {
-            if (searchBar && !searchBar.contains(e.target)) clearSuggestions();
+            if (searchInput && !searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+                clearSuggestions();
+            }
         });
     }
+
     function updateSelection(items, index) {
         items.forEach(item => item.classList.remove('selected'));
         if (index > -1 && items[index]) {
@@ -734,24 +755,37 @@ function renderWeather(data) {
             searchInput.value = items[index].dataset.value; 
         }
     }
-async function fetchSuggestions(query) {
-        const url = `https://suggestqueries.google.com/complete/search?client=chrome&q=${encodeURIComponent(query)}`;
+
+    async function fetchSuggestions(query) {
+        const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
+        
         try {
             const response = await fetch(url);
             const data = await response.json();
+            if (searchInput.value.trim().toLowerCase() !== query.toLowerCase()) return;
+
             if (data && data[1]) {
-                const suggestions = data[1].slice(0, 5); 
+                const suggestions = data[1].slice(0, 5);
+                suggestionsCache.set(query.toLowerCase(), suggestions);
+                
                 renderSuggestions(suggestions);
             }
         } catch (error) { 
             console.error('Error retrieving suggestions:', error); 
         }
     }
+
     function renderSuggestions(suggestions) {
         if (!suggestionsContainer) return;
         suggestionsContainer.innerHTML = '';
-        if (suggestions.length === 0) { suggestionsContainer.classList.remove('active'); return; }
+        
+        if (suggestions.length === 0) { 
+            suggestionsContainer.classList.remove('active'); 
+            return; 
+        }
+
         const iconSvg = `<svg class="suggestion-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>`;
+        
         suggestions.forEach(text => {
             const div = document.createElement('div');
             div.className = 'suggestion-item';
@@ -759,12 +793,19 @@ async function fetchSuggestions(query) {
             div.innerHTML = `${iconSvg} <span>${text}</span>`;   
             div.addEventListener('click', () => {
                 searchInput.value = text;
-                if(searchForm) searchForm.submit(); 
+                if(searchForm) {
+                    searchForm.submit();
+                } else {
+                    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(text)}`;
+                }
+                clearSuggestions();
             });
             suggestionsContainer.appendChild(div);
         });
+        
         suggestionsContainer.classList.add('active');
     }
+
     function clearSuggestions() {
         if (suggestionsContainer) {
             suggestionsContainer.innerHTML = '';
