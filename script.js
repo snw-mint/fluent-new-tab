@@ -56,6 +56,7 @@ const launcherData = {
         { name: 'YouTube', url: 'https://youtube.com', icon: 'assets/apps/google/youtube.svg' },
         { name: 'Drive', url: 'https://drive.google.com', icon: 'assets/apps/google/drive.svg' },
         { name: 'Docs', url: 'https://docs.google.com', icon: 'assets/apps/google/docs.svg' },
+        { name: 'Calendar', url: 'https://calendar.google.com', icon: 'assets/apps/google/calendar.svg' },
         { name: 'Meet', url: 'https://meet.google.com', icon: 'assets/apps/google/meet.svg' },
         { name: 'Music', url: 'https://music.google.com', icon: 'assets/apps/google/music.svg' },
         { name: 'Web Store', url: 'https://chromewebstore.google.com', icon: 'assets/apps/google/store.svg' }
@@ -508,19 +509,12 @@ function initSortable() {
         forceFallback: true,
         dragClass: "sortable-dragging",
         ghostClass: "sortable-placeholder",
-        filter: ".add-card-wrapper", // Prevents the 'Add' button from being dragged
+        filter: ".add-card-wrapper", 
         
         onEnd: function (evt) {
             if (evt.oldIndex === evt.newIndex) return;
-
-            // Remove the item from its old position
             const movedItem = shortcuts.splice(evt.oldIndex, 1)[0];
-            
-            // Insert the item into its new position
             shortcuts.splice(evt.newIndex, 0, movedItem);
-            
-            // Save the new array to localStorage and re-render the grid
-            // Re-rendering is crucial here so the 'Edit'/'Remove' data-indexes update
             saveAndRender();
         }
     });
