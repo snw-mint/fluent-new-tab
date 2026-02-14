@@ -7,12 +7,12 @@ Whether you are a developer or just a fan of the project, you can contribute.
 ## 🚀 How to Contribute
 
 ### Method 1: GitHub Issues (Easy)
-If you are not comfortable with Git or coding, you can simply submit the translations via an Issue.
+If you're not comfortable with Git or coding, you can simply submit translations via an Issue.
 
-1.  Copy the **JSON Template** at the bottom of this page.
-2.  Translate the text inside the `"message"` quotes (e.g., `"Apps"` -> `"Aplicativos"`).
-3.  Go to the [New Issue Page](https://github.com/snw-mint/fluent-new-tab/issues/new/choose).
-4.  Choose **Translation**.
+1.  Download or copy the code from the json file [on this page](https://github.com/snw-mint/fluent-new-tab/blob/main/_locales/en/messages.json).
+2.  Translate the text inside the `“message”` quotes (for example, `‘Apps’` -> `“Applications”`).
+3.  Go to the [New Issues page](https://github.com/snw-mint/fluent-new-tab/issues/new/choose).
+4.  Select **Translation**.
 5.  Paste your translated JSON code.
 
 ### Method 2: Pull Request (Recommended)
