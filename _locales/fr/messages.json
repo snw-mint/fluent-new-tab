@@ -2,6 +2,7 @@
   "appsTitle": { "message": "Applications" },
   "moreApps": { "message": "Plus d’applications" },
   "settingsTitle": { "message": "Paramètres" },
+  "wallpaperTitle": { "message": "Fond d’écran" },
   "greetingTitle": { "message": "Salutation" },
   "iconsStyleLabel": { "message": "Style des icônes" },
   "styleEmoji": { "message": "3D Fluent (Couleur)" },

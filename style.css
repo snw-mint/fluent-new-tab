@@ -9,9 +9,11 @@
    7. Modals
    8. Settings
    9. Widgets
-   10. Launcher
-   11. Animations
-   12. Dark Mode
+   10. Wallpaper
+   11. Sortable
+   12. Launcher
+   13. Animations
+   14. Dark Mode
 ========================= */
 
 /* --- 1. Variables --- */
@@ -48,13 +50,8 @@ body {
     -webkit-user-select: none; 
     user-select: none;
     cursor: default; 
-    opacity: 0;
-    transition: opacity 0.2s ease;
 }
 
-body.loaded {
-    opacity: 1;
-}
 input, textarea {
     -webkit-user-select: text;
     user-select: text;
@@ -63,6 +60,27 @@ input, textarea {
 .settings-btn svg path {
     fill: var(--text-color);
     transition: fill 0.3s ease;
+}
+body[data-wallpaper-active="true"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+body {
+    background-color: var(--bg-color);
+    transition: background-image 0.3s ease-in-out;
+}
+
+/* Anti-Flash Content Animation */
+.container, .weather-widget, .settings-wrapper, .launcher-btn {
+    opacity: 0;
+    animation: contentFadeIn 0.6s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
 }
 
 /* --- 3. Layout --- */
@@ -120,17 +138,15 @@ input, textarea {
   color: var(--text-color);
   opacity: 0.7;
   margin-top: 5px;
-  text-decoration: none; /* remove underline */
-  transition: color 0.2s ease, opacity 0.2s ease; /* suaviza efeito */
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease; 
 }
 
 .translate-link:hover {
-  text-decoration: underline; /* aparece underline no hover */
-  opacity: 1; /* aumenta contraste no hover */
-  color: var(--link-color, var(--text-color)); /* opcional: cor diferente no hover */
+  text-decoration: underline;
+  opacity: 1;
+  color: var(--link-color, var(--text-color));
 }
-
-
 
 /* --- 4. Header & Controls --- */
 .header-controls {
@@ -988,9 +1004,10 @@ input:checked + .slider:before {
 .backup-btn {
     flex: 1;
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Volta para layout de linha padrão */
+    align-items: center; /* Centraliza horizontalmente */
     justify-content: center;
-    gap: 8px;
+    gap: 8px; /* Mantém o espaçamento entre o ícone e o texto */
     padding: 8px;
     border: 1px solid rgba(0,0,0,0.1);
     background: rgba(255,255,255,0.5);
@@ -1001,6 +1018,9 @@ input:checked + .slider:before {
     font-weight: 500;
     font-family: inherit;
     transition: all 0.2s;
+    flex-wrap: wrap; /* Permite que o ícone e o texto quebrem para a próxima linha se não houver espaço */
+    word-break: break-word; /* Quebra palavras longas se elas excederem a largura disponível */
+    text-align: center; /* Centraliza o texto se ele quebrar em várias linhas */
 }
 .backup-btn svg {
     opacity: 0.8;
@@ -1092,7 +1112,52 @@ input:checked + .slider:before {
     margin-left: -4px; 
 }
 
-/* --- 10. Launcher --- */
+
+/* --- 9. Wallpapers --- */
+.wallpaper-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+.wallpaper-grid-container.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.wallpaper-option {
+    aspect-ratio: 16 / 13;
+    background-color: var(--card-bg, #f3f3f3);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.1s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wallpaper-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.upload-option {
+    background-color: var(--bg-hover, rgba(0,0,0,0.05));
+    border: 1px dashed var(--text-secondary, #999);
+    color: var(--text-primary);
+}
+.wallpaper-option:hover {
+    transform: scale(1.02);
+}
+.wallpaper-option.selected {
+    border-color: var(--accent-color, #0078d4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* --- 11. Launcher --- */
 .left-controls {
     position: fixed;
     top: 24px;
@@ -1214,7 +1279,7 @@ input:checked + .slider:before {
     cursor: grabbing;
 }
 
-/* --- 10. Sortable --- */
+/* --- 12. Sortable --- */
 .sortable-dragging .shortcut-card {
     background: var(--search-bg);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -1237,9 +1302,13 @@ input:checked + .slider:before {
     opacity: 0;
 }
 
-/* --- 12. Animations --- */
+/* --- 13. Animations --- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 @keyframes menuPopIn {
@@ -1290,7 +1359,7 @@ input:checked + .slider:before {
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
 }
 
-/* --- 13. Dark Mode --- */
+/* --- 14. Dark Mode --- */
 [data-theme="dark"] .greeting-icon.outline {
     filter: invert(1); 
 }
@@ -1451,4 +1520,8 @@ body.dark-mode .fluent-icon,
 }
 [data-theme="dark"] .backup-btn:hover {
     background: rgba(255,255,255,0.2);
+}
+[data-theme="dark"] .upload-option {
+    background-color: rgba(255,255,255,0.05);
+    border-color: #555;
 }

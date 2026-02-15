@@ -3,6 +3,7 @@
   "moreApps": { "message": "Mehr Apps" },
   "settingsTitle": { "message": "Einstellungen" },
   "greetingTitle": { "message": "Begrüßung" },
+  "wallpaperTitle": { "message": "Hintergrundbild" },
   "iconsStyleLabel": { "message": "Iconstil" },
   "styleEmoji": { "message": "3D Fluent (Farbe)" },
   "styleOutline": { "message": "Kontur (Minimal)" },

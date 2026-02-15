@@ -63,7 +63,7 @@ const launcherData = {
     ], allAppsLink: 'https://about.google/products/' }
 };
 
-const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage'];
+const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'wallpaperEnabled', 'wallpaperType', 'wallpaperValue'];
 
 /* --- 2. State --- */
 let shortcuts = [];
@@ -94,6 +94,10 @@ try {
 
 let launcherEnabled = localStorage.getItem('launcherEnabled') === 'true';
 let currentProvider = localStorage.getItem('launcherProvider') || 'microsoft';
+
+let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
+let currentWallpaperType = localStorage.getItem('wallpaperType') || 'preset'; // 'preset' or 'upload'
+let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
 
 /* --- 3. Utility Functions --- */
 function debounce(func, wait) {
@@ -319,6 +323,39 @@ function updateLauncherVisibility() {
         launcherSelectGroup.style.display = launcherEnabled ? 'block' : 'none';
     }
 }
+function updateWallpaperGridVisibility(enabled) {
+    if (wallpaperGrid) {
+        wallpaperGrid.style.display = enabled ? 'grid' : 'none';
+    }
+}
+function highlightSelectedWallpaper(value) {
+    document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
+    const target = document.querySelector(`.wallpaper-option[data-value="${value}"]`);
+    if (target) target.classList.add('selected');
+}
+function applyWallpaper(enabled, type, value) {
+    const body = document.body;
+    if (!enabled) {
+        body.style.backgroundImage = 'none';
+        body.removeAttribute('data-wallpaper-active');
+        return;
+    }
+    body.setAttribute('data-wallpaper-active', 'true');
+    if (type === 'preset') {
+        const presetMap = {
+            'preset_1': 'assets/wallpapers/bg1.webp',
+            'preset_2': 'assets/wallpapers/bg2.webp',
+            'preset_3': 'assets/wallpapers/bg3.webp'
+        };
+        const imageUrl = presetMap[value] || presetMap['preset_1'];
+        body.style.backgroundImage = `url('${imageUrl}')`;
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundPosition = 'center';
+        body.style.backgroundAttachment = 'fixed';
+    } else if (type === 'upload') {
+        console.log("Upload logic coming soon...");
+    }
+}
 
 /* --- 4. DOM References --- */
 const themeBtns = document.querySelectorAll(".theme-btn");
@@ -373,6 +410,11 @@ const exportBtn = document.getElementById('exportBtn');
 const importBtn = document.getElementById('importBtn');
 const importInput = document.getElementById('importInput');
 const languageSelect = document.getElementById('languageProvider');
+const toggleWallpaper = document.getElementById('toggleWallpaper');
+const wallpaperGrid = document.getElementById('wallpaperGrid');
+const wallpaperOptions = document.querySelectorAll('.wallpaper-option:not(.upload-option)');
+const uploadOption = document.querySelector('.upload-option');
+const uploadInput = document.getElementById('wallpaperUploadInput');
 
 /* --- 5. Event Handlers --- */
 function applyTheme(theme) {
@@ -634,6 +676,16 @@ function applyInitialLauncherState() {
     updateLauncherVisibility();
     if(launcherEnabled) renderLauncher(currentProvider);
 }
+function applyInitialWallpaperState() {
+    if (toggleWallpaper) {
+        toggleWallpaper.checked = wallpaperEnabled;
+        updateWallpaperGridVisibility(wallpaperEnabled);
+        if (currentWallpaperType === 'preset') {
+            highlightSelectedWallpaper(currentWallpaperValue);
+        }
+    }
+    applyWallpaper(wallpaperEnabled, currentWallpaperType, currentWallpaperValue);
+}
 function applyBrandInterval() {
     initBrand();
     setInterval(initBrand, 60000);
@@ -868,6 +920,31 @@ document.addEventListener("DOMContentLoaded", () => {
             appLauncherBtn.classList.toggle('active');
         });
     }
+    
+    /* Wallpaper System */
+    applyInitialWallpaperState();
+    if (toggleWallpaper) {
+        toggleWallpaper.addEventListener('change', (e) => {
+            wallpaperEnabled = e.target.checked;
+            localStorage.setItem('wallpaperEnabled', wallpaperEnabled);
+            updateWallpaperGridVisibility(wallpaperEnabled);
+            applyWallpaper(wallpaperEnabled, currentWallpaperType, currentWallpaperValue);
+        });
+    }
+    if (wallpaperOptions) {
+        wallpaperOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                if (!wallpaperEnabled) return;
+                const value = option.dataset.value;
+                currentWallpaperType = 'preset';
+                currentWallpaperValue = value;
+                localStorage.setItem('wallpaperType', 'preset');
+                localStorage.setItem('wallpaperValue', value);
+                highlightSelectedWallpaper(value);
+                applyWallpaper(true, 'preset', value);
+            });
+        });
+    }
 
     /* --- Language Settings --- */
     if (languageSelect) {
@@ -945,6 +1022,7 @@ applyInitialSearchBarVisibility();
 applyInitialSuggestionsActive();
 applyInitialWeatherState();
 applyInitialLauncherState();
+applyInitialWallpaperState();
 initSortable();
 document.addEventListener('i18nReady', () => {
     console.log("Traduções carregadas. Iniciando interface...");

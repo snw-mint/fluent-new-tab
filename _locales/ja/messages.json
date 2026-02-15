@@ -3,6 +3,7 @@
   "moreApps": { "message": "その他のアプリ" },
   "settingsTitle": { "message": "設定" },
   "greetingTitle": { "message": "あいさつ" },
+  "wallpaperTitle": { "message": "壁紙" },
   "iconsStyleLabel": { "message": "アイコンスタイル" },
   "styleEmoji": { "message": "3D Fluent（カラー）" },
   "styleOutline": { "message": "アウトライン（ミニマル）" },
