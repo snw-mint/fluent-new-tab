@@ -63,7 +63,7 @@ const launcherData = {
     ], allAppsLink: 'https://about.google/products/' }
 };
 
-const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'wallpaperEnabled', 'wallpaperType', 'wallpaperValue'];
+const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'wallpaperEnabled', 'wallpaperSource', 'wallpaperType', 'wallpaperValue'];
 
 /* --- 2. State --- */
 let shortcuts = [];
@@ -96,7 +96,8 @@ let launcherEnabled = localStorage.getItem('launcherEnabled') === 'true';
 let currentProvider = localStorage.getItem('launcherProvider') || 'microsoft';
 
 let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
-let currentWallpaperType = localStorage.getItem('wallpaperType') || 'preset'; // 'preset' or 'upload'
+let currentWallpaperSource = localStorage.getItem('wallpaperSource') || 'local'; // 'local' or 'api'
+let currentWallpaperType = localStorage.getItem('wallpaperType') || 'preset'; // 'preset', 'upload', 'bing', 'nasa'
 let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
 
 /* --- 3. Utility Functions --- */
@@ -328,9 +329,18 @@ function updateWallpaperGridVisibility(enabled) {
         wallpaperGrid.style.display = enabled ? 'grid' : 'none';
     }
 }
-function highlightSelectedWallpaper(value) {
+function updateWallpaperUIState(enabled) {
+    if (wallpaperGrid) {
+        wallpaperGrid.style.opacity = enabled ? '1' : '0.5';
+        wallpaperGrid.style.pointerEvents = enabled ? 'auto' : 'none';
+    }
+    if (wallpaperSourceSelect) wallpaperSourceSelect.disabled = !enabled;
+}
+function clearPresetSelection() {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
-    
+}
+function highlightSelectedWallpaper(value) {
+    clearPresetSelection();
     if (value === 'custom' || value === 'upload') {
         const uploadBtn = document.querySelector('.upload-option');
         if (uploadBtn) uploadBtn.classList.add('selected');
@@ -339,26 +349,46 @@ function highlightSelectedWallpaper(value) {
         if (target) target.classList.add('selected');
     }
 }
-async function applyWallpaper(enabled, type, value) {
-    const body = document.body;
-    if (!enabled) {
-        body.style.backgroundImage = 'none';
-        body.removeAttribute('data-wallpaper-active');
+function saveWallpaperConfig() {
+    localStorage.setItem('wallpaperSource', currentWallpaperSource);
+    localStorage.setItem('wallpaperType', currentWallpaperType);
+    localStorage.setItem('wallpaperValue', currentWallpaperValue);
+}
+async function applyWallpaperLogic() {
+    if (!wallpaperEnabled) {
+        document.body.style.backgroundImage = 'none';
+        document.body.removeAttribute('data-wallpaper-active');
         return;
     }
-    body.setAttribute('data-wallpaper-active', 'true');
-    if (type === 'preset') {
-        const presetMap = {
-            'preset_1': 'assets/wallpapers/bg1.webp',
-            'preset_2': 'assets/wallpapers/bg2.webp',
-            'preset_3': 'assets/wallpapers/bg3.webp'
-        };
-        const imageUrl = presetMap[value] || presetMap['preset_1'];
-        body.style.backgroundImage = `url('${imageUrl}')`;
-        body.style.backgroundSize = 'cover';
-        body.style.backgroundPosition = 'center';
-        body.style.backgroundAttachment = 'fixed';
-    } else if (type === 'upload') {
+
+    document.body.setAttribute('data-wallpaper-active', 'true');
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = 'fixed';
+
+    if (currentWallpaperSource === 'local') {
+        if (currentWallpaperType === 'preset') {
+            const presetMap = {
+                'preset_1': 'assets/wallpapers/bg1.webp',
+                'preset_2': 'assets/wallpapers/bg2.webp',
+                'preset_3': 'assets/wallpapers/bg3.webp'
+            };
+            const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
+            document.body.style.backgroundImage = `url('${imageUrl}')`;
+        } 
+        else if (currentWallpaperType === 'upload') {
+            await loadCustomWallpaper();
+        }
+    } 
+    else if (currentWallpaperSource === 'api') {
+        const url = await fetchDailyWallpaper(currentWallpaperType);
+        if (url) {
+            document.body.style.backgroundImage = `url('${url}')`;
+        }
+    }
+}
+async function loadCustomWallpaper() {
+    const body = document.body;
         try {
             const blob = await getWallpaperFromDB();
             if (blob) {
@@ -367,11 +397,13 @@ async function applyWallpaper(enabled, type, value) {
                 body.style.backgroundSize = 'cover';
                 body.style.backgroundPosition = 'center';
                 body.style.backgroundAttachment = 'fixed';
+            } else {
+                // Fallback se não houver imagem salva
+                console.warn("Nenhum wallpaper customizado encontrado.");
             }
         } catch (e) {
             console.error("Erro ao carregar wallpaper:", e);
         }
-    }
 }
 
 /* --- 4. DOM References --- */
@@ -432,6 +464,7 @@ const wallpaperGrid = document.getElementById('wallpaperGrid');
 const wallpaperOptions = document.querySelectorAll('.wallpaper-option:not(.upload-option)');
 const uploadOption = document.querySelector('.upload-option');
 const uploadInput = document.getElementById('wallpaperUploadInput');
+const wallpaperSourceSelect = document.getElementById('wallpaperSource');
 
 /* --- 5. Event Handlers --- */
 function applyTheme(theme) {
@@ -647,6 +680,105 @@ function processImage(file) {
     });
 }
 
+async function fetchDailyWallpaper(source) {
+    const today = new Date().toISOString().slice(0, 10); 
+    const cacheKey = `wallpaper_cache_${source}`;
+
+    try {
+        const cached = JSON.parse(localStorage.getItem(cacheKey));
+        if (cached && cached.date === today && cached.url) {
+            console.log(`Carregando ${source} do cache.`);
+            return cached.url;
+        }
+    } catch (e) { console.error("Erro ao ler cache", e); }
+
+    console.log(`Buscando nova imagem de: ${source}...`);
+    let imageUrl = '';
+    let creditText = '';
+
+    try {
+        // --- BING (via Peapix) ---
+        if (source === 'bing') {
+            const res = await fetch('https://peapix.com/bing/feed?country=us');
+            if (!res.ok) throw new Error(`Bing Error: ${res.status}`);
+            const data = await res.json();
+            console.log("Resposta Bing:", data);
+
+            if (data && data.length > 0) {
+                const img = data[0];
+                imageUrl = img.fullUrl || img.imageUrl || img.url;
+                creditText = `Bing: ${img.copyright || 'Daily Image'}`;
+            }
+        }
+
+        // --- NASA APOD ---
+        else if (source === 'nasa') {
+            const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
+            if (res.status === 429) throw new Error("NASA API limit reached.");
+            if (!res.ok) throw new Error(`NASA Error: ${res.status}`);
+            const data = await res.json();
+            console.log("NASA response:", data);
+
+            if (data.media_type === 'image') {
+                imageUrl = data.hdurl || data.url;
+                creditText = `NASA: ${data.title}`;
+            } else {
+                throw new Error("Today NASA posted a video, not an image.");
+            }
+        }
+
+        // --- WIKIMEDIA COMMONS (PotD) ---
+        else if (source === 'wikimedia') {
+            const fetchWiki = async (date) => {
+                const u = `https://commons.wikimedia.org/w/api.php?action=query&generator=images&titles=Template:Potd/${date}&prop=imageinfo&iiprop=url|extmetadata&format=json&origin=*`;
+                const r = await fetch(u);
+                return await r.json();
+            };
+
+            let data = await fetchWiki(today);
+            console.log("Resposta Wikimedia hoje:", data);
+            let pages = data.query?.pages;
+
+            if (!pages) {
+                console.warn("Wikimedia empty today, trying yesterday...");
+                const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+                data = await fetchWiki(yesterday);
+                console.log("Wikimedia response yesterday:", data);
+                pages = data.query?.pages;
+            }
+
+            if (pages) {
+                for (const page of Object.values(pages)) {
+                    if (page?.imageinfo?.[0]) {
+                        imageUrl = page.imageinfo[0].url;
+                        const meta = page.imageinfo[0].extmetadata;
+                        creditText = meta?.Artist?.value || "Wikimedia Commons";
+                        creditText = creditText.replace(/<[^>]*>?/gm, '');
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 2. save and return
+        if (imageUrl) {
+            localStorage.setItem(cacheKey, JSON.stringify({
+                url: imageUrl,
+                date: today,
+                credit: creditText
+            }));
+            return imageUrl;
+        } else {
+            throw new Error("No image URL found in the API response.");
+        }
+
+    } catch (error) {
+        console.error(`Error while searching ${source}:`, error);
+        return null;
+    }
+}
+
+
 function fetchSuggestions(query) {
     const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
     fetch(url)
@@ -776,36 +908,20 @@ function applyInitialLauncherState() {
 function applyInitialWallpaperState() {
     if (toggleWallpaper) {
         toggleWallpaper.checked = wallpaperEnabled;
-        updateWallpaperGridVisibility(wallpaperEnabled);
+        updateWallpaperUIState(wallpaperEnabled);
     }
 
-    if (!wallpaperEnabled) {
-        applyWallpaper(false);
-        return;
-    }
-
-    if (currentWallpaperType === 'preset') {
+    // Se for API, seleciona no dropdown
+    if (currentWallpaperSource === 'api' && wallpaperSourceSelect) {
+        wallpaperSourceSelect.value = currentWallpaperType; 
+        clearPresetSelection();
+    } else {
+        // Se for Local, seleciona no Grid e reseta dropdown
+        if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
         highlightSelectedWallpaper(currentWallpaperValue);
-        applyWallpaper(true, 'preset', currentWallpaperValue);
-    } else if (currentWallpaperType === 'upload') {
-        getWallpaperFromDB().then(blob => {
-            if (blob) {
-                const objectURL = URL.createObjectURL(blob);
-                document.body.style.backgroundImage = `url('${objectURL}')`;
-                document.body.style.backgroundSize = 'cover';
-                document.body.style.backgroundPosition = 'center';
-                document.body.style.backgroundAttachment = 'fixed';
-                document.body.setAttribute('data-wallpaper-active', 'true');
-                highlightSelectedWallpaper('upload');
-            } else {
-                applyWallpaper(true, 'preset', 'preset_1');
-                highlightSelectedWallpaper('preset_1');
-            }
-        }).catch(err => {
-            console.error("Erro ao carregar wallpaper custom:", err);
-            applyWallpaper(true, 'preset', 'preset_1');
-        });
     }
+    
+    applyWallpaperLogic();
 }
 function applyBrandInterval() {
     initBrand();
@@ -1048,8 +1164,8 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleWallpaper.addEventListener('change', (e) => {
             wallpaperEnabled = e.target.checked;
             localStorage.setItem('wallpaperEnabled', wallpaperEnabled);
-            updateWallpaperGridVisibility(wallpaperEnabled);
-            applyWallpaper(wallpaperEnabled, currentWallpaperType, currentWallpaperValue);
+            updateWallpaperUIState(wallpaperEnabled);
+            applyWallpaperLogic();
         });
     }
     if (wallpaperOptions) {
@@ -1057,12 +1173,16 @@ document.addEventListener("DOMContentLoaded", () => {
             option.addEventListener('click', () => {
                 if (!wallpaperEnabled) return;
                 const value = option.dataset.value;
+                
+                currentWallpaperSource = 'local';
                 currentWallpaperType = 'preset';
                 currentWallpaperValue = value;
-                localStorage.setItem('wallpaperType', 'preset');
-                localStorage.setItem('wallpaperValue', value);
+                
+                saveWallpaperConfig();
+
+                if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
                 highlightSelectedWallpaper(value);
-                applyWallpaper(true, 'preset', value);
+                applyWallpaperLogic();
             });
         });
     }
@@ -1082,21 +1202,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 console.log("Salvando no DB...");
                 await saveWallpaperToDB(processedBlob);
-                localStorage.setItem('wallpaperType', 'upload');
-                localStorage.setItem('wallpaperValue', 'custom');
+                
+                currentWallpaperSource = 'local';
+                currentWallpaperType = 'upload';
+                currentWallpaperValue = 'custom';
+                saveWallpaperConfig();
 
                 if (!wallpaperEnabled) {
                     wallpaperEnabled = true;
                     localStorage.setItem('wallpaperEnabled', 'true');
                     if(toggleWallpaper) toggleWallpaper.checked = true;
-                    updateWallpaperGridVisibility(true);
+                    updateWallpaperUIState(true);
                 }
 
-                const objectURL = URL.createObjectURL(processedBlob);
-                document.body.style.backgroundImage = `url('${objectURL}')`;
-                document.body.setAttribute('data-wallpaper-active', 'true');
-
+                if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
                 highlightSelectedWallpaper('upload');
+                applyWallpaperLogic(); // Recarrega do DB para garantir
                 
                 console.log("Sucesso!");
             } catch (error) {
@@ -1106,6 +1227,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 uploadOption.style.opacity = '1';
                 uploadInput.value = ''; 
             }
+        });
+    }
+    
+    /* API Dropdown Logic */
+    if (wallpaperSourceSelect) {
+        wallpaperSourceSelect.addEventListener('change', async (e) => {
+            const selectedApi = e.target.value;
+            if (selectedApi === 'noSource') return;
+
+            currentWallpaperSource = 'api';
+            currentWallpaperType = selectedApi;
+            
+            saveWallpaperConfig();
+            clearPresetSelection();
+            
+            await applyWallpaperLogic();
         });
     }
 

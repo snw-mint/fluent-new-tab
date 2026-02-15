@@ -37,7 +37,7 @@
 body {
     font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color); /* Fallback imediato */
     color: var(--text-color);
     min-height: 100vh; 
     width: 100vw;
@@ -49,7 +49,18 @@ body {
     align-items: center;  
     -webkit-user-select: none; 
     user-select: none;
-    cursor: default; 
+    cursor: default;
+    
+    /* Suaviza a entrada da imagem quando o JS a injeta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.6s ease-in-out;
+}
+.main-ui-container {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadinUI 0.6s ease-out 0.2s forwards; /* 0.2s de delay para o wallpaper carregar */
 }
 
 input, textarea {
@@ -71,6 +82,7 @@ body[data-wallpaper-active="true"]::before {
     background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%);
     z-index: -1;
     pointer-events: none;
+    animation: fadeInOverlay 0.8s ease;
 }
 body {
     background-color: var(--bg-color);
@@ -1357,6 +1369,16 @@ input:checked + .slider:before {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 77, 79, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
+}
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadinUI {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- 14. Dark Mode --- */
