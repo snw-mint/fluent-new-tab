@@ -330,10 +330,16 @@ function updateWallpaperGridVisibility(enabled) {
 }
 function highlightSelectedWallpaper(value) {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
-    const target = document.querySelector(`.wallpaper-option[data-value="${value}"]`);
-    if (target) target.classList.add('selected');
+    
+    if (value === 'custom' || value === 'upload') {
+        const uploadBtn = document.querySelector('.upload-option');
+        if (uploadBtn) uploadBtn.classList.add('selected');
+    } else {
+        const target = document.querySelector(`.wallpaper-option[data-value="${value}"]`);
+        if (target) target.classList.add('selected');
+    }
 }
-function applyWallpaper(enabled, type, value) {
+async function applyWallpaper(enabled, type, value) {
     const body = document.body;
     if (!enabled) {
         body.style.backgroundImage = 'none';
@@ -353,7 +359,18 @@ function applyWallpaper(enabled, type, value) {
         body.style.backgroundPosition = 'center';
         body.style.backgroundAttachment = 'fixed';
     } else if (type === 'upload') {
-        console.log("Upload logic coming soon...");
+        try {
+            const blob = await getWallpaperFromDB();
+            if (blob) {
+                const url = URL.createObjectURL(blob);
+                body.style.backgroundImage = `url('${url}')`;
+                body.style.backgroundSize = 'cover';
+                body.style.backgroundPosition = 'center';
+                body.style.backgroundAttachment = 'fixed';
+            }
+        } catch (e) {
+            console.error("Erro ao carregar wallpaper:", e);
+        }
     }
 }
 
@@ -550,6 +567,86 @@ document.addEventListener('click', (e) => {
 });
 
 /* --- 6. Core Features --- */
+const DB_NAME = 'FluentNewTabDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'wallpapers';
+
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = (event) => reject('Erro ao abrir banco de dados: ' + event.target.error);
+    });
+}
+
+async function saveWallpaperToDB(blob) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.put(blob, 'custom_wallpaper');
+
+        request.onsuccess = () => resolve(true);
+        request.onerror = () => reject('Erro ao salvar no DB');
+    });
+}
+
+async function getWallpaperFromDB() {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.get('custom_wallpaper');
+
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = () => reject('Erro ao ler do DB');
+    });
+}
+
+function processImage(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                let width = img.width;
+                let height = img.height;
+                const MAX_WIDTH = 1920;
+                
+                if (width > MAX_WIDTH) {
+                    height *= MAX_WIDTH / width;
+                    width = MAX_WIDTH;
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob((blob) => {
+                    if (blob) resolve(blob);
+                    else reject('Erro na compressão');
+                }, 'image/webp', 0.8);
+            };
+            
+            img.onerror = (err) => reject(err);
+        };
+        reader.onerror = (err) => reject(err);
+    });
+}
+
 function fetchSuggestions(query) {
     const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
     fetch(url)
@@ -680,11 +777,35 @@ function applyInitialWallpaperState() {
     if (toggleWallpaper) {
         toggleWallpaper.checked = wallpaperEnabled;
         updateWallpaperGridVisibility(wallpaperEnabled);
-        if (currentWallpaperType === 'preset') {
-            highlightSelectedWallpaper(currentWallpaperValue);
-        }
     }
-    applyWallpaper(wallpaperEnabled, currentWallpaperType, currentWallpaperValue);
+
+    if (!wallpaperEnabled) {
+        applyWallpaper(false);
+        return;
+    }
+
+    if (currentWallpaperType === 'preset') {
+        highlightSelectedWallpaper(currentWallpaperValue);
+        applyWallpaper(true, 'preset', currentWallpaperValue);
+    } else if (currentWallpaperType === 'upload') {
+        getWallpaperFromDB().then(blob => {
+            if (blob) {
+                const objectURL = URL.createObjectURL(blob);
+                document.body.style.backgroundImage = `url('${objectURL}')`;
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+                document.body.style.backgroundAttachment = 'fixed';
+                document.body.setAttribute('data-wallpaper-active', 'true');
+                highlightSelectedWallpaper('upload');
+            } else {
+                applyWallpaper(true, 'preset', 'preset_1');
+                highlightSelectedWallpaper('preset_1');
+            }
+        }).catch(err => {
+            console.error("Erro ao carregar wallpaper custom:", err);
+            applyWallpaper(true, 'preset', 'preset_1');
+        });
+    }
 }
 function applyBrandInterval() {
     initBrand();
@@ -943,6 +1064,48 @@ document.addEventListener("DOMContentLoaded", () => {
                 highlightSelectedWallpaper(value);
                 applyWallpaper(true, 'preset', value);
             });
+        });
+    }
+    if (uploadOption && uploadInput) {
+        uploadOption.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            uploadOption.style.opacity = '0.5'; 
+            
+            try {
+                console.log("Processando imagem...");
+                const processedBlob = await processImage(file);
+                
+                console.log("Salvando no DB...");
+                await saveWallpaperToDB(processedBlob);
+                localStorage.setItem('wallpaperType', 'upload');
+                localStorage.setItem('wallpaperValue', 'custom');
+
+                if (!wallpaperEnabled) {
+                    wallpaperEnabled = true;
+                    localStorage.setItem('wallpaperEnabled', 'true');
+                    if(toggleWallpaper) toggleWallpaper.checked = true;
+                    updateWallpaperGridVisibility(true);
+                }
+
+                const objectURL = URL.createObjectURL(processedBlob);
+                document.body.style.backgroundImage = `url('${objectURL}')`;
+                document.body.setAttribute('data-wallpaper-active', 'true');
+
+                highlightSelectedWallpaper('upload');
+                
+                console.log("Sucesso!");
+            } catch (error) {
+                console.error("Erro no upload:", error);
+                alert("Erro ao processar imagem. Tente uma imagem menor.");
+            } finally {
+                uploadOption.style.opacity = '1';
+                uploadInput.value = ''; 
+            }
         });
     }
 
