@@ -758,6 +758,13 @@ input, textarea {
 .settings-popup.active {
     display: flex;
 }
+.settings-popup-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0 5px 0;
+    color: var(--text-color);
+}
 .settings-popup::-webkit-scrollbar {
     width: 6px;
 }
