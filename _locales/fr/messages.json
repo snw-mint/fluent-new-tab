@@ -18,6 +18,7 @@
   "ecosystemLabel": { "message": "Écosystème" },
   "searchTitle": { "message": "Recherche" },
   "suggestionsOption": { "message": "Suggestions" },
+  "clearSearchOption": { "message": "Recherche propre (Google)" },
   "languageTitle": { "message": "Langue" },
   "interfaceLanguageLabel": { "message": "Langue de l’interface" },
   "backupTitle": { "message": "Sauvegarde des données" },

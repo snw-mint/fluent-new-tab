@@ -79,6 +79,7 @@ const savedEngine = localStorage.getItem('searchEngine') || 'bing';
 let searchBarVisible = localStorage.getItem('searchBarVisible') !== 'false';
 let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
 const suggestionsCache = new Map();
+let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
 
 const CACHE_KEY = 'fluent_weather_cache';
 const CITY_KEY = 'fluent_city_data';
@@ -245,6 +246,7 @@ function setSearchEngine(engineKey) {
             currentIcon.onload = () => { currentIcon.style.display = 'block'; };
         }
         if (searchForm) searchForm.action = config.url;
+        updateGoogleParams();
     }
 }
 function updateSearchSettings() {
@@ -252,6 +254,7 @@ function updateSearchSettings() {
     if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
     const displayStyle = searchBarVisible ? 'flex' : 'none';
     if (suggestionsRow) suggestionsRow.style.display = displayStyle;
+    if (clearSearchRow) clearSearchRow.style.display = displayStyle;
 }
 function renderSuggestions(suggestions) {
     if (!suggestionsContainer) return;
@@ -434,6 +437,8 @@ const searchWrapper = document.querySelector('.search-wrapper') || document.quer
 const toggleSearchBar = document.getElementById('toggleSearchBar');
 const suggestionsRow = document.getElementById('suggestionsRow');
 const toggleSuggestions = document.getElementById('toggleSuggestions');
+const toggleClearSearch = document.getElementById('toggleClearSearch');
+const clearSearchRow = document.getElementById('clearSearchRow');
 const suggestionsContainer = document.getElementById('suggestionsContainer');
 const searchInput = document.getElementById('searchInput');
 const weatherWidget = document.getElementById('weatherWidget');
@@ -793,6 +798,23 @@ function fetchSuggestions(query) {
         })
         .catch(error => { console.error('Error retrieving suggestions:', error); });
 }
+function updateGoogleParams() {
+    if (!searchForm) return;
+    const currentEngine = localStorage.getItem('searchEngine') || 'bing';
+    const udmInput = searchForm.querySelector('input[name="udm"]');
+    
+    if (currentEngine === 'google' && clearSearchEnabled) {
+        if (!udmInput) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'udm';
+            input.value = '14';
+            searchForm.appendChild(input);
+        }
+    } else {
+        if (udmInput) udmInput.remove();
+    }
+}
 async function searchCity() {
     const query = cityInput.value.trim();
     if(!query) return;
@@ -892,6 +914,12 @@ function applyInitialSuggestionsActive() {
     if(toggleSuggestions) {
         toggleSuggestions.checked = suggestionsActive;
     }
+}
+function applyInitialClearSearch() {
+    if(toggleClearSearch) {
+        toggleClearSearch.checked = clearSearchEnabled;
+    }
+    updateGoogleParams();
 }
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
@@ -1075,6 +1103,15 @@ document.addEventListener("DOMContentLoaded", () => {
             suggestionsActive = e.target.checked;
             localStorage.setItem('suggestionsEnabled', suggestionsActive);
             if(!suggestionsActive) clearSuggestions();
+        });
+    }
+    /* Clear Search Option */
+    applyInitialClearSearch();
+    if(toggleClearSearch) {
+        toggleClearSearch.addEventListener('change', (e) => {
+            clearSearchEnabled = e.target.checked;
+            localStorage.setItem('clearSearchEnabled', clearSearchEnabled);
+            updateGoogleParams();
         });
     }
     if (searchInput) {
@@ -1320,6 +1357,7 @@ applyInitialShortcutsVisibility();
 applyInitialSearchEngine();
 applyInitialSearchBarVisibility();
 applyInitialSuggestionsActive();
+applyInitialClearSearch();
 applyInitialWeatherState();
 applyInitialLauncherState();
 applyInitialWallpaperState();

@@ -18,6 +18,7 @@
   "ecosystemLabel": { "message": "エコシステム" },
   "searchTitle": { "message": "検索" },
   "suggestionsOption": { "message": "候補" },
+  "clearSearchOption": { "message": "クリーン検索（Google)" },
   "languageTitle": { "message": "言語" },
   "interfaceLanguageLabel": { "message": "表示言語" },
   "backupTitle": { "message": "データバックアップ" },
