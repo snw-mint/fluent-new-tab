@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "깨끗한 검색 (Google)"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "언어"
   },
@@ -96,7 +99,7 @@
     "message": "저장"
   },
   "searchPlaceholder": {
-    "message": "웹 검색..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "귀하의 이름 (선택 사항)"
