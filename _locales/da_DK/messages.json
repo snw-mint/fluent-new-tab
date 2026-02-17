@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Ren søgning (Google)"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "Sprog"
   },
@@ -96,7 +99,7 @@
     "message": "Gem"
   },
   "searchPlaceholder": {
-    "message": "Søg på internettet..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "Dit navn (valgfrit)"
