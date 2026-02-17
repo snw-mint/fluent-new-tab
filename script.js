@@ -401,15 +401,12 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
         }
     }
 });
+
 function initBrand() {
     if (!greetingWrapper) return;
-    
-    // Recupera configurações
     const showGreeting = localStorage.getItem('showGreeting') !== 'false';
-    const userName = localStorage.getItem('greetingName') || '';
+    const userName = (localStorage.getItem('greetingName') || '').trim();
     const greetingStyle = localStorage.getItem('greetingStyle') || '3d';
-    
-    // Controle de exibição
     if (!showGreeting) {
         greetingWrapper.style.display = 'none';
         if(greetingOptionsDiv) greetingOptionsDiv.style.display = 'none';
@@ -420,65 +417,47 @@ function initBrand() {
     }
     
     const hour = new Date().getHours();
-    let timeOfDay = 'morning';
+    let timeKeyPrefix = 'greetMorning';
     let iconName = 'sun';
-    let greetingPool = [];
-    
-    // Helper para garantir que o código não quebre se a função de tradução não existir ainda
-    const t = window.getTranslation || ((k) => k); 
-
-    // Lógica de horários com tradução
+    let timeOfDayLabel = 'morning';
     if (hour >= 5 && hour < 12) {
-        timeOfDay = 'morning';
+        timeKeyPrefix = 'greetMorning';
         iconName = 'sun';
-        greetingPool = [
-            t("greetMorning1"), 
-            t("greetMorning2"), 
-            t("greetMorning3"), 
-            t("greetMorning4"), 
-            t("greetMorning5")
-        ];
-    } else if (hour >= 12 && hour < 18) {
-        timeOfDay = 'afternoon';
+        timeOfDayLabel = 'morning';
+    } else if (hour >= 12 && hour < 19) {
+        timeKeyPrefix = 'greetAfternoon';
         iconName = 'cloud-sun';
-        greetingPool = [
-            t("greetAfternoon1"), 
-            t("greetAfternoon2"), 
-            t("greetAfternoon3"), 
-            t("greetAfternoon4"), 
-            t("greetAfternoon5")
-        ];
-    } else if (hour >= 18 && hour < 24) {
-        timeOfDay = 'evening';
+        timeOfDayLabel = 'afternoon';
+    } else if (hour >= 19 && hour < 24) {
+        timeKeyPrefix = 'greetEvening';
         iconName = 'moon';
-        greetingPool = [
-            t("greetEvening1"), 
-            t("greetEvening2"), 
-            t("greetEvening3"), 
-            t("greetEvening4"), 
-            t("greetEvening5")
-        ];
+        timeOfDayLabel = 'evening';
     } else {
-        timeOfDay = 'night';
+        timeKeyPrefix = 'greetNight';
         iconName = 'stars';
-        greetingPool = [
-            t("greetNight1"), 
-            t("greetNight2"), 
-            t("greetNight3"), 
-            t("greetNight4"), 
-            t("greetNight5")
-        ];
+        timeOfDayLabel = 'night';
     }
     const seed = new Date().getMinutes();
-    const randomGreeting = greetingPool.length > 0 ? greetingPool[seed % greetingPool.length] : "Hello";
-    
-    const finalGreetingText = userName.trim() ? `${randomGreeting}, ${userName}!` : `${randomGreeting}!`;
+    const randomIndex = (seed % 5) + 1;
+    const translationKey = `${timeKeyPrefix}${randomIndex}`;
+    let rawGreeting = "";
+    try {
+        rawGreeting = chrome.i18n.getMessage(translationKey, [userName]);
+    } catch (e) {
+        rawGreeting = translationKey; 
+    }
+
+    const finalGreetingText = rawGreeting
+        .replace(/,\s*$/, '')
+        .replace(/,\s*!$/, '!')
+        .replace(/,\s*\?$/, '?')
+        .trim();
     
     let iconHTML = '';
     if (greetingStyle === '3d') {
-        iconHTML = `<img src="assets/emojis/${iconName}.png" alt="${timeOfDay}" class="greeting-icon" onerror="this.style.display='none'">`;
+        iconHTML = `<img src="assets/emojis/${iconName}.png" alt="${timeOfDayLabel}" class="greeting-icon" onerror="this.style.display='none'">`;
     } else {
-        iconHTML = `<img src="assets/greetings/${iconName}.svg" alt="${timeOfDay}" class="greeting-icon outline" onerror="this.style.display='none'">`;
+        iconHTML = `<img src="assets/greetings/${iconName}.svg" alt="${timeOfDayLabel}" class="greeting-icon outline" onerror="this.style.display='none'">`;
     }
     
     greetingWrapper.innerHTML = `
@@ -486,31 +465,6 @@ function initBrand() {
         <h1 class="greeting-text">${finalGreetingText}</h1>
     `;
 }
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.menu-wrapper')) {
-        document.querySelectorAll('.shortcut-dropdown.active').forEach(menu => {
-            menu.classList.remove('active');
-        });
-    }
-});
-document.addEventListener('click', (e) => {
-    if (engineBtn && dropdown && !engineBtn.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.classList.remove('active');
-    }
-});
-document.addEventListener('click', (e) => {
-    if (searchInput && !searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-        clearSuggestions();
-    }
-});
-document.addEventListener('click', (e) => {
-    if(launcherPopup && launcherPopup.classList.contains('active')) {
-        if(!launcherPopup.contains(e.target) && !appLauncherBtn.contains(e.target)) {
-            launcherPopup.classList.remove('active');
-            appLauncherBtn.classList.remove('active');
-        }
-    }
-});
 
 /* --- 6. Core Features --- */
 function fetchSuggestions(query) {
