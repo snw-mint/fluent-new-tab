@@ -1,0 +1,302 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "Weitere Apps"
+  },
+  "settingsTitle": {
+    "message": "Einstellungen"
+  },
+  "greetingTitle": {
+    "message": "Begrüßung"
+  },
+  "iconsStyleLabel": {
+    "message": "Symbolstil"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Color)"
+  },
+  "styleOutline": {
+    "message": "Gliederung (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Wetter"
+  },
+  "shortcutsTitle": {
+    "message": "Schnellzugriffe"
+  },
+  "rows1": {
+    "message": "1 Reihe"
+  },
+  "rows2": {
+    "message": "2 Reihen"
+  },
+  "rowsLabel": {
+    "message": "Zeilen"
+  },
+  "rows3": {
+    "message": "3 Reihen"
+  },
+  "rows4": {
+    "message": "4 Reihen"
+  },
+  "appLauncherTitle": {
+    "message": "App-Starter"
+  },
+  "ecosystemLabel": {
+    "message": "Ökosystem"
+  },
+  "searchTitle": {
+    "message": "Suche"
+  },
+  "suggestionsOption": {
+    "message": "Vorschläge"
+  },
+  "clearSearchOption": {
+    "message": "Saubere Suche (Google)"
+  },
+  "compactBarOption": {
+    "message": "Kompakte Stange"
+  },
+  "languageTitle": {
+    "message": "Sprache"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Schnittstellensprache"
+  },
+  "backupTitle": {
+    "message": "Datensicherung"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Verknüpfung hinzufügen"
+  },
+  "editShortcutTitle": {
+    "message": "Verknüpfung bearbeiten"
+  },
+  "shortcutNameLabel": {
+    "message": "Name"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Benutzerdefiniertes Symbol"
+  },
+  "faviconUrlLabel": {
+    "message": "Symbol-URL"
+  },
+  "btnCancel": {
+    "message": "Abbrechen"
+  },
+  "btnSave": {
+    "message": "Speichern"
+  },
+  "searchPlaceholder": {
+    "message": "Im Internet suchen"
+  },
+  "namePlaceholder": {
+    "message": "Ihr Name (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "Ihre Stadt"
+  },
+  "addShortcutLabel": {
+    "message": "Hinzufügen"
+  },
+  "editLabel": {
+    "message": "Bearbeiten"
+  },
+  "removeLabel": {
+    "message": "Entfernen"
+  },
+  "moreOptionsLabel": {
+    "message": "Weitere Optionen"
+  },
+  "greetMorning1": {
+    "message": "Guten Morgen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Aufstehen und loslegen, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Ich wünsche Ihnen einen wunderschönen Tag, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Hallo, $NAME$! Bereit für den heutigen Tag?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Beginnen wir den Tag richtig, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Guten Tag, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Es ist schön, dich zu sehen. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Ich hoffe, es geht Ihnen gut. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Weiter so, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Bleiben Sie konzentriert und produktiv, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Guten Abend, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Es ist Zeit, sich zu entspannen. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Ich wünsche Ihnen einen ruhigen Abend, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Zeit zum Entspannen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Genießen Sie Ihren Abend, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Ich hoffe, Sie haben eine ruhige Nacht. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Noch wach, $NAME$? Ruh dich bald gut aus!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Genießen Sie die ruhigen Stunden, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Gute Nacht, $NAME$. Bis morgen!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Heute Nacht lange wach, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

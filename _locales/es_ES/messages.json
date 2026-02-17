@@ -1,0 +1,302 @@
+{
+  "appsTitle": {
+    "message": "Aplicaciones"
+  },
+  "moreApps": {
+    "message": "Más aplicaciones"
+  },
+  "settingsTitle": {
+    "message": "Configuración"
+  },
+  "greetingTitle": {
+    "message": "Saludo"
+  },
+  "iconsStyleLabel": {
+    "message": "Estilo de icono"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Color)"
+  },
+  "styleOutline": {
+    "message": "Esquema (mínimo)"
+  },
+  "weatherTitle": {
+    "message": "Clima"
+  },
+  "shortcutsTitle": {
+    "message": "Atajos"
+  },
+  "rows1": {
+    "message": "1 fila"
+  },
+  "rows2": {
+    "message": "2 filas"
+  },
+  "rowsLabel": {
+    "message": "Filas"
+  },
+  "rows3": {
+    "message": "3 filas"
+  },
+  "rows4": {
+    "message": "4 filas"
+  },
+  "appLauncherTitle": {
+    "message": "Iniciador de aplicaciones"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistema"
+  },
+  "searchTitle": {
+    "message": "Buscar"
+  },
+  "suggestionsOption": {
+    "message": "Sugerencias"
+  },
+  "clearSearchOption": {
+    "message": "Búsqueda limpia (Google)"
+  },
+  "compactBarOption": {
+    "message": "Barra compacta"
+  },
+  "languageTitle": {
+    "message": "Idioma"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Idioma de la interfaz"
+  },
+  "backupTitle": {
+    "message": "Copia de seguridad de datos"
+  },
+  "exportOption": {
+    "message": "Exportar"
+  },
+  "importOption": {
+    "message": "Importar"
+  },
+  "addShortcutTitle": {
+    "message": "Añadir acceso directo"
+  },
+  "editShortcutTitle": {
+    "message": "Editar acceso directo"
+  },
+  "shortcutNameLabel": {
+    "message": "Nombre"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Icono personalizado"
+  },
+  "faviconUrlLabel": {
+    "message": "URL del icono"
+  },
+  "btnCancel": {
+    "message": "Cancelar"
+  },
+  "btnSave": {
+    "message": "Guardar"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar en la web"
+  },
+  "namePlaceholder": {
+    "message": "Tu nombre (opcional)"
+  },
+  "cityPlaceholder": {
+    "message": "Tu ciudad"
+  },
+  "addShortcutLabel": {
+    "message": "Añadir"
+  },
+  "editLabel": {
+    "message": "Editar"
+  },
+  "removeLabel": {
+    "message": "Eliminar"
+  },
+  "moreOptionsLabel": {
+    "message": "Más opciones"
+  },
+  "greetMorning1": {
+    "message": "Buenos días, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "¡Levántate y brilla, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Te deseo un día maravilloso, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Hola, $NAME$! ¿Listo para hoy?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Empecemos bien el día. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Buenas tardes, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Me alegro de verte. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Espero que estés bien. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "¡Sigue con tu excelente trabajo, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Mantén la concentración y la productividad. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Buenas noches, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Es hora de relajarse. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Te deseo una tarde tranquila, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Es hora de relajarse. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Disfruta de tu velada. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Espero que estés pasando una noche tranquila. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "¿Todavía despierto, $NAME$? ¡Que descanses pronto!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Disfruta de las horas tranquilas, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Buenas noches, $NAME$. ¡Hasta mañana!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "¿Esta noche hasta tarde, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

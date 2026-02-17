@@ -1,0 +1,302 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "Meer apps"
+  },
+  "settingsTitle": {
+    "message": "Instellingen"
+  },
+  "greetingTitle": {
+    "message": "Groet"
+  },
+  "iconsStyleLabel": {
+    "message": "Pictogramstijl"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (kleur)"
+  },
+  "styleOutline": {
+    "message": "Overzicht (minimaal)"
+  },
+  "weatherTitle": {
+    "message": "Weer"
+  },
+  "shortcutsTitle": {
+    "message": "Snelkoppelingen"
+  },
+  "rows1": {
+    "message": "1 rij"
+  },
+  "rows2": {
+    "message": "2 rijen"
+  },
+  "rowsLabel": {
+    "message": "Rijen"
+  },
+  "rows3": {
+    "message": "3 rijen"
+  },
+  "rows4": {
+    "message": "4 rijen"
+  },
+  "appLauncherTitle": {
+    "message": "App-starter"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosysteem"
+  },
+  "searchTitle": {
+    "message": "Zoeken"
+  },
+  "suggestionsOption": {
+    "message": "Suggesties"
+  },
+  "clearSearchOption": {
+    "message": "Schone zoekopdracht (Google)"
+  },
+  "compactBarOption": {
+    "message": "Compacte staaf"
+  },
+  "languageTitle": {
+    "message": "Taal"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Interfacetaal"
+  },
+  "backupTitle": {
+    "message": "Gegevensback-up"
+  },
+  "exportOption": {
+    "message": "Exporteren"
+  },
+  "importOption": {
+    "message": "Importeren"
+  },
+  "addShortcutTitle": {
+    "message": "Snelkoppeling toevoegen"
+  },
+  "editShortcutTitle": {
+    "message": "Snelkoppeling bewerken"
+  },
+  "shortcutNameLabel": {
+    "message": "Naam"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Aangepast pictogram"
+  },
+  "faviconUrlLabel": {
+    "message": "Pictogram-URL"
+  },
+  "btnCancel": {
+    "message": "Annuleren"
+  },
+  "btnSave": {
+    "message": "Opslaan"
+  },
+  "searchPlaceholder": {
+    "message": "Zoek op het web"
+  },
+  "namePlaceholder": {
+    "message": "Uw naam (optioneel)"
+  },
+  "cityPlaceholder": {
+    "message": "Uw stad"
+  },
+  "addShortcutLabel": {
+    "message": "Toevoegen"
+  },
+  "editLabel": {
+    "message": "Bewerken"
+  },
+  "removeLabel": {
+    "message": "Verwijderen"
+  },
+  "moreOptionsLabel": {
+    "message": "Meer opties"
+  },
+  "greetMorning1": {
+    "message": "Goedemorgen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Opstaan, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Ik wens je een geweldige dag toe, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Hallo daar, $NAME$! Klaar voor vandaag?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Laten we de dag goed beginnen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Goedemiddag, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Het is goed je te zien, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Ik hoop dat het goed met je gaat, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Ga zo door, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Blijf gefocust en productief, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Goedenavond, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Het is tijd om te ontspannen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Ik wens je een rustige avond, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Tijd om te ontspannen, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Geniet van je avond, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Ik hoop dat je een rustige nacht hebt, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Nog wakker, $NAME$? Rust snel goed uit!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Geniet van de rustige uurtjes, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Welterusten, $NAME$. Tot morgen!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Vanavond laat op, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

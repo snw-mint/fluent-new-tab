@@ -1,0 +1,302 @@
+{
+  "appsTitle": {
+    "message": "Appar"
+  },
+  "moreApps": {
+    "message": "Fler appar"
+  },
+  "settingsTitle": {
+    "message": "Inställningar"
+  },
+  "greetingTitle": {
+    "message": "Hälsning"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikonstil"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (färg)"
+  },
+  "styleOutline": {
+    "message": "Översikt (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Väder"
+  },
+  "shortcutsTitle": {
+    "message": "Genvägar"
+  },
+  "rows1": {
+    "message": "1 rad"
+  },
+  "rows2": {
+    "message": "2 rader"
+  },
+  "rowsLabel": {
+    "message": "Rader"
+  },
+  "rows3": {
+    "message": "3 rader"
+  },
+  "rows4": {
+    "message": "4 rader"
+  },
+  "appLauncherTitle": {
+    "message": "App-startprogram"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystem"
+  },
+  "searchTitle": {
+    "message": "Sök"
+  },
+  "suggestionsOption": {
+    "message": "Förslag"
+  },
+  "clearSearchOption": {
+    "message": "Ren sökning (Google)"
+  },
+  "compactBarOption": {
+    "message": "Kompakt bar"
+  },
+  "languageTitle": {
+    "message": "Språk"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Gränssnittsspråk"
+  },
+  "backupTitle": {
+    "message": "Säkerhetskopiering av data"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Lägg till genväg"
+  },
+  "editShortcutTitle": {
+    "message": "Redigera genväg"
+  },
+  "shortcutNameLabel": {
+    "message": "Namn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Anpassad ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Avbryt"
+  },
+  "btnSave": {
+    "message": "Spara"
+  },
+  "searchPlaceholder": {
+    "message": "Sök på webben"
+  },
+  "namePlaceholder": {
+    "message": "Ditt namn (valfritt)"
+  },
+  "cityPlaceholder": {
+    "message": "Din stad"
+  },
+  "addShortcutLabel": {
+    "message": "Lägg till"
+  },
+  "editLabel": {
+    "message": "Redigera"
+  },
+  "removeLabel": {
+    "message": "Ta bort"
+  },
+  "moreOptionsLabel": {
+    "message": "Fler alternativ"
+  },
+  "greetMorning1": {
+    "message": "God morgon, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Upp och hoppa, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Önskar dig en underbar dag, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Hej, $NAME$! Är du redo för idag?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Låt oss börja dagen på rätt sätt, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "God eftermiddag, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Det är trevligt att se dig, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Jag hoppas att du mår bra, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Fortsätt med det fantastiska arbetet, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Håll fokus och var produktiv, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "God kväll, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Det är dags att koppla av, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Önskar dig en lugn kväll, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Dags att koppla av, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Ha en trevlig kväll! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Hoppas du har en lugn natt, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Är du fortfarande vaken, $NAME$? Vila dig snart!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Njut av de lugna timmarna, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "God natt, $NAME$. Vi ses imorgon!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Upp sent ikväll, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

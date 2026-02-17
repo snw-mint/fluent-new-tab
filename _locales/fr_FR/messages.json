@@ -1,0 +1,302 @@
+{
+  "appsTitle": {
+    "message": "Applications"
+  },
+  "moreApps": {
+    "message": "Plus d'applications"
+  },
+  "settingsTitle": {
+    "message": "Paramètres"
+  },
+  "greetingTitle": {
+    "message": "Salutation"
+  },
+  "iconsStyleLabel": {
+    "message": "Style icône"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Couleur)"
+  },
+  "styleOutline": {
+    "message": "Plan (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Météo"
+  },
+  "shortcutsTitle": {
+    "message": "Raccourcis"
+  },
+  "rows1": {
+    "message": "1 rangée"
+  },
+  "rows2": {
+    "message": "2 rangées"
+  },
+  "rowsLabel": {
+    "message": "Lignes"
+  },
+  "rows3": {
+    "message": "3 rangées"
+  },
+  "rows4": {
+    "message": "4 rangées"
+  },
+  "appLauncherTitle": {
+    "message": "Lanceur d'applications"
+  },
+  "ecosystemLabel": {
+    "message": "Écosystème"
+  },
+  "searchTitle": {
+    "message": "Rechercher"
+  },
+  "suggestionsOption": {
+    "message": "Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "Recherche propre (Google)"
+  },
+  "compactBarOption": {
+    "message": "Barre compacte"
+  },
+  "languageTitle": {
+    "message": "Langue"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Langue de l'interface"
+  },
+  "backupTitle": {
+    "message": "Sauvegarde des données"
+  },
+  "exportOption": {
+    "message": "Exportation"
+  },
+  "importOption": {
+    "message": "Importation"
+  },
+  "addShortcutTitle": {
+    "message": "Ajouter un raccourci"
+  },
+  "editShortcutTitle": {
+    "message": "Modifier le raccourci"
+  },
+  "shortcutNameLabel": {
+    "message": "Nom"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Icône personnalisée"
+  },
+  "faviconUrlLabel": {
+    "message": "URL de l'icône"
+  },
+  "btnCancel": {
+    "message": "Annuler"
+  },
+  "btnSave": {
+    "message": "Enregistrer"
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher sur le Web"
+  },
+  "namePlaceholder": {
+    "message": "Votre nom (facultatif)"
+  },
+  "cityPlaceholder": {
+    "message": "Votre ville"
+  },
+  "addShortcutLabel": {
+    "message": "Ajouter"
+  },
+  "editLabel": {
+    "message": "Modifier"
+  },
+  "removeLabel": {
+    "message": "Supprimer"
+  },
+  "moreOptionsLabel": {
+    "message": "Plus d'options"
+  },
+  "greetMorning1": {
+    "message": "Bonjour, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Debout, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Je vous souhaite une excellente journée, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Bonjour, $NAME$! Prêt pour aujourd'hui ?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Commençons bien la journée, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Bonjour, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Je suis content de vous voir. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "J'espère que vous allez bien, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Continuez votre excellent travail, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Restez concentré et productif, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Bonsoir, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Il est temps de se détendre, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Je vous souhaite une soirée paisible, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Il est temps de se détendre, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Passez une bonne soirée, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "J'espère que vous passez une nuit paisible, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Toujours éveillé, $NAME$? Repose-toi bien bientôt !",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Profitez des heures tranquilles, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Bonne nuit, $NAME$. À demain !",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Tu es debout tard ce soir, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

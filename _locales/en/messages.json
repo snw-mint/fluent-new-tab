@@ -19,6 +19,7 @@
   "searchTitle": { "message": "Search" },
   "suggestionsOption": { "message": "Suggestions" },
   "clearSearchOption": { "message": "Clean search (Google)" },
+  "compactBarOption": { "message": "Compact bar" },
   "languageTitle": { "message": "Language" },
   "interfaceLanguageLabel": { "message": "Interface Language" },
   "backupTitle": { "message": "Data Backup" },
@@ -32,31 +33,92 @@
   "faviconUrlLabel": { "message": "Icon URL" },
   "btnCancel": { "message": "Cancel" },
   "btnSave": { "message": "Save" },
-  "searchPlaceholder": { "message": "Search the web..." },
+  "searchPlaceholder": { "message": "Search the web" },
   "namePlaceholder": { "message": "Your Name (optional)" },
   "cityPlaceholder": { "message": "Your City" },
   "addShortcutLabel": { "message": "Add" },
-  "greetMorning1": { "message": "Good morning" },
-  "greetMorning2": { "message": "Rise and shine" },
-  "greetMorning3": { "message": "Have a great day" },
-  "greetMorning4": { "message": "Hello there" },
-  "greetMorning5": { "message": "Start the day right" },
-  "greetAfternoon1": { "message": "Good afternoon" },
-  "greetAfternoon2": { "message": "Good to see you" },
-  "greetAfternoon3": { "message": "Hope you're doing well" },
-  "greetAfternoon4": { "message": "Keep it up" },
-  "greetAfternoon5": { "message": "Stay productive" },
-  "greetEvening1": { "message": "Good evening" },
-  "greetEvening2": { "message": "Time to relax" },
-  "greetEvening3": { "message": "Good night" },
-  "greetEvening4": { "message": "Unwind time" },
-  "greetEvening5": { "message": "Enjoy your evening" },
-  "greetNight1": { "message": "Good late night" },
-  "greetNight2": { "message": "Hey night owl" },
-  "greetNight3": { "message": "Late hours" },
-  "greetNight4": { "message": "Quiet hours" },
-  "greetNight5": { "message": "You're up late" },
   "editLabel": { "message": "Edit" },
   "removeLabel": { "message": "Remove" },
-  "moreOptionsLabel": { "message": "More options" }
+  "moreOptionsLabel": { "message": "More options" },
+
+  "greetMorning1": {
+    "message": "Good morning, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetMorning2": {
+    "message": "Rise and shine, $NAME$!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetMorning3": {
+    "message": "Wishing you a wonderful day, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetMorning4": {
+    "message": "Hello there, $NAME$! Ready for today?",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetMorning5": {
+    "message": "Let's start the day right, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon1": {
+    "message": "Good afternoon, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon2": {
+    "message": "It is good to see you, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon3": {
+    "message": "I hope you are doing well, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon4": {
+    "message": "Keep up the great work, $NAME$!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon5": {
+    "message": "Stay focused and productive, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening1": {
+    "message": "Good evening, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening2": {
+    "message": "It is time to relax, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening3": {
+    "message": "Wishing you a calm evening, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening4": {
+    "message": "Time to unwind, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening5": {
+    "message": "Enjoy your evening, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight1": {
+    "message": "Hope you are having a peaceful night, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight2": {
+    "message": "Still awake, $NAME$? Rest well soon!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight3": {
+    "message": "Enjoy the quiet hours, $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight4": {
+    "message": "Good night, $NAME$. See you tomorrow!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight5": {
+    "message": "Up late tonight, $NAME$?",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  }
 }
