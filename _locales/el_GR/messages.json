@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Εφαρμογές"
+  },
+  "moreApps": {
+    "message": "Περισσότερες εφαρμογές"
+  },
+  "settingsTitle": {
+    "message": "Ρυθμίσεις"
+  },
+  "greetingTitle": {
+    "message": "Χαιρετισμός"
+  },
+  "iconsStyleLabel": {
+    "message": "Στυλ εικονιδίου"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Έγχρωμο)"
+  },
+  "styleOutline": {
+    "message": "Περίγραμμα (Ελάχιστο)"
+  },
+  "weatherTitle": {
+    "message": "Καιρός"
+  },
+  "shortcutsTitle": {
+    "message": "Συντομεύσεις"
+  },
+  "rows1": {
+    "message": "1 σειρά"
+  },
+  "rows2": {
+    "message": "2 σειρές"
+  },
+  "rowsLabel": {
+    "message": "Σειρές"
+  },
+  "rows3": {
+    "message": "3 σειρές"
+  },
+  "rows4": {
+    "message": "4 σειρές"
+  },
+  "appLauncherTitle": {
+    "message": "Εκκινητής εφαρμογών"
+  },
+  "ecosystemLabel": {
+    "message": "Οικοσύστημα"
+  },
+  "searchTitle": {
+    "message": "Αναζήτηση"
+  },
+  "suggestionsOption": {
+    "message": "Προτάσεις"
+  },
+  "clearSearchOption": {
+    "message": "Καθαρή αναζήτηση (Google)"
+  },
+  "languageTitle": {
+    "message": "Γλώσσα"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Γλώσσα διεπαφής"
+  },
+  "backupTitle": {
+    "message": "Δημιουργία αντιγράφων ασφαλείας δεδομένων"
+  },
+  "exportOption": {
+    "message": "Εξαγωγή"
+  },
+  "importOption": {
+    "message": "Εισαγωγή"
+  },
+  "addShortcutTitle": {
+    "message": "Προσθήκη συντόμευσης"
+  },
+  "editShortcutTitle": {
+    "message": "Επεξεργασία συντόμευσης"
+  },
+  "shortcutNameLabel": {
+    "message": "Όνομα"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Προσαρμοσμένο εικονίδιο"
+  },
+  "faviconUrlLabel": {
+    "message": "Διεύθυνση URL εικονιδίου"
+  },
+  "btnCancel": {
+    "message": "Ακύρωση"
+  },
+  "btnSave": {
+    "message": "Αποθήκευση"
+  },
+  "searchPlaceholder": {
+    "message": "Αναζήτηση στο διαδίκτυο..."
+  },
+  "namePlaceholder": {
+    "message": "Το όνομά σας (προαιρετικό)"
+  },
+  "cityPlaceholder": {
+    "message": "Η πόλη σας"
+  },
+  "addShortcutLabel": {
+    "message": "Προσθήκη"
+  },
+  "editLabel": {
+    "message": "Επεξεργασία"
+  },
+  "removeLabel": {
+    "message": "Κατάργηση"
+  },
+  "moreOptionsLabel": {
+    "message": "Περισσότερες επιλογές"
+  },
+  "greetMorning1": {
+    "message": "Καλημέρα, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Ξυπνήστε και λάμψτε, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Σας εύχομαι μια υπέροχη μέρα, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Γεια σου, $NAME$! Έτοιμος για σήμερα;",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Ας ξεκινήσουμε τη μέρα σωστά, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Καλησπέρα, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Χαίρομαι που σε βλέπω, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Ελπίζω να είσαι καλά, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Συνεχίστε την εξαιρετική δουλειά, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Μείνετε συγκεντρωμένοι και παραγωγικοί, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Καλησπέρα, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Είναι ώρα να χαλαρώσετε, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Σας εύχομαι ένα ήρεμο βράδυ, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Ώρα να χαλαρώσετε, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Καλή σας βραδιά, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Ελπίζω να περνάς μια ήσυχη νύχτα, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Ακόμα ξύπνιος, $NAME$; Καλόν ύπνο!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Απολαύστε τις ήσυχες ώρες, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Καληνύχτα, $NAME$. Τα λέμε αύριο!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Αργά το βράδυ, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}

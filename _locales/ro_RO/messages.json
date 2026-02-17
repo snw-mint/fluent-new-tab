@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Aplicații"
+  },
+  "moreApps": {
+    "message": "Mai multe aplicații"
+  },
+  "settingsTitle": {
+    "message": "Setări"
+  },
+  "greetingTitle": {
+    "message": "Salutare"
+  },
+  "iconsStyleLabel": {
+    "message": "Stilul pictogramelor"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Culoare)"
+  },
+  "styleOutline": {
+    "message": "Schiță (minimală)"
+  },
+  "weatherTitle": {
+    "message": "Vremea"
+  },
+  "shortcutsTitle": {
+    "message": "Căi rapide"
+  },
+  "rows1": {
+    "message": "1 rând"
+  },
+  "rows2": {
+    "message": "2 rânduri"
+  },
+  "rowsLabel": {
+    "message": "Rânduri"
+  },
+  "rows3": {
+    "message": "3 rânduri"
+  },
+  "rows4": {
+    "message": "4 rânduri"
+  },
+  "appLauncherTitle": {
+    "message": "Lansator de aplicații"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistem"
+  },
+  "searchTitle": {
+    "message": "Căutare"
+  },
+  "suggestionsOption": {
+    "message": "Sugestii"
+  },
+  "clearSearchOption": {
+    "message": "Căutare curată (Google)"
+  },
+  "languageTitle": {
+    "message": "Limba"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Limba interfeței"
+  },
+  "backupTitle": {
+    "message": "Backup de date"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Adăugați scurtătură"
+  },
+  "editShortcutTitle": {
+    "message": "Editați comanda rapidă"
+  },
+  "shortcutNameLabel": {
+    "message": "Nume"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Pictogramă personalizată"
+  },
+  "faviconUrlLabel": {
+    "message": "URL pictogramă"
+  },
+  "btnCancel": {
+    "message": "Anulează"
+  },
+  "btnSave": {
+    "message": "Salvați"
+  },
+  "searchPlaceholder": {
+    "message": "Căutați pe internet..."
+  },
+  "namePlaceholder": {
+    "message": "Numele dvs. (opțional)"
+  },
+  "cityPlaceholder": {
+    "message": "Orașul tău"
+  },
+  "addShortcutLabel": {
+    "message": "Adăugați"
+  },
+  "editLabel": {
+    "message": "Editați"
+  },
+  "removeLabel": {
+    "message": "Eliminare"
+  },
+  "moreOptionsLabel": {
+    "message": "Mai multe opțiuni"
+  },
+  "greetMorning1": {
+    "message": "Bună dimineața, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Trezește-te și strălucește, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Îți doresc o zi minunată, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Bună ziua, $NAME$! Ești pregătit pentru ziua de azi?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Să începem ziua cum trebuie, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Bună ziua, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Mă bucur să te văd, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Sper că ești bine, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Continuați munca excelentă, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Rămâneți concentrat și productiv, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Bună seara, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Este timpul să vă relaxați, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Vă doresc o seară liniștită, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "E timpul să te relaxezi, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Să aveți o seară plăcută! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Sper că aveți o noapte liniștită, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Încă ești treaz, $NAME$? Odihnește-te bine!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Bucurați-vă de orele liniștite, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Noapte bună, $NAME$. Ne vedem mâine!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Stăi treaz până târziu în seara asta, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
