@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Uygulamalar"
+  },
+  "moreApps": {
+    "message": "Daha Fazla Uygulama"
+  },
+  "settingsTitle": {
+    "message": "Ayarlar"
+  },
+  "greetingTitle": {
+    "message": "Selamlama"
+  },
+  "iconsStyleLabel": {
+    "message": "Simge Stili"
+  },
+  "styleEmoji": {
+    "message": "3D Akıcı (Renkli)"
+  },
+  "styleOutline": {
+    "message": "Özet (Minimal)"
+  },
+  "weatherTitle": {
+    "message": "Hava durumu"
+  },
+  "shortcutsTitle": {
+    "message": "Kısayollar"
+  },
+  "rows1": {
+    "message": "1 Sıra"
+  },
+  "rows2": {
+    "message": "2 Sıra"
+  },
+  "rowsLabel": {
+    "message": "Satırlar"
+  },
+  "rows3": {
+    "message": "3 Sıra"
+  },
+  "rows4": {
+    "message": "4 Satır"
+  },
+  "appLauncherTitle": {
+    "message": "Uygulama Başlatıcı"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosistem"
+  },
+  "searchTitle": {
+    "message": "Arama"
+  },
+  "suggestionsOption": {
+    "message": "Öneriler"
+  },
+  "clearSearchOption": {
+    "message": "Temiz arama (Google)"
+  },
+  "languageTitle": {
+    "message": "Dil"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Arayüz Dili"
+  },
+  "backupTitle": {
+    "message": "Veri Yedekleme"
+  },
+  "exportOption": {
+    "message": "Dışa aktar"
+  },
+  "importOption": {
+    "message": "İthalat"
+  },
+  "addShortcutTitle": {
+    "message": "Kısayol Ekle"
+  },
+  "editShortcutTitle": {
+    "message": "Kısayolu Düzenle"
+  },
+  "shortcutNameLabel": {
+    "message": "Ad"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Özel Simge"
+  },
+  "faviconUrlLabel": {
+    "message": "Simge URL'si"
+  },
+  "btnCancel": {
+    "message": "İptal"
+  },
+  "btnSave": {
+    "message": "Kaydet"
+  },
+  "searchPlaceholder": {
+    "message": "İnternette ara..."
+  },
+  "namePlaceholder": {
+    "message": "Adınız (isteğe bağlı)"
+  },
+  "cityPlaceholder": {
+    "message": "Şehriniz"
+  },
+  "addShortcutLabel": {
+    "message": "Ekle"
+  },
+  "greetMorning1": {
+    "message": "Günaydın"
+  },
+  "greetMorning2": {
+    "message": "Uyan ve parla"
+  },
+  "greetMorning3": {
+    "message": "İyi günler dilerim."
+  },
+  "greetMorning4": {
+    "message": "Merhaba"
+  },
+  "greetMorning5": {
+    "message": "Güne doğru başlangıç yapın"
+  },
+  "greetAfternoon1": {
+    "message": "İyi günler"
+  },
+  "greetAfternoon2": {
+    "message": "Seni görmek güzel"
+  },
+  "greetAfternoon3": {
+    "message": "Umarım iyisindir."
+  },
+  "greetAfternoon4": {
+    "message": "Devam et"
+  },
+  "greetAfternoon5": {
+    "message": "Verimli kalın"
+  },
+  "greetEvening1": {
+    "message": "İyi akşamlar"
+  },
+  "greetEvening2": {
+    "message": "Dinlenme zamanı"
+  },
+  "greetEvening3": {
+    "message": "İyi geceler"
+  },
+  "greetEvening4": {
+    "message": "Rahatlama zamanı"
+  },
+  "greetEvening5": {
+    "message": "İyi akşamlar dilerim."
+  },
+  "greetNight1": {
+    "message": "İyi geceler"
+  },
+  "greetNight2": {
+    "message": "Hey gece kuşu"
+  },
+  "greetNight3": {
+    "message": "Geç saatler"
+  },
+  "greetNight4": {
+    "message": "Sessiz saatler"
+  },
+  "greetNight5": {
+    "message": "Geç saatlere kadar ayaktasın."
+  },
+  "editLabel": {
+    "message": "Düzenle"
+  },
+  "removeLabel": {
+    "message": "Kaldır"
+  },
+  "moreOptionsLabel": {
+    "message": "Daha fazla seçenek"
+  }
+}
