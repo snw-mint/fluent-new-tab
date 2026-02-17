@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Puhdas haku (Google)"
   },
+  "compactBarOption": {
+    "message": "Kompakti tanko"
+  },
   "languageTitle": {
     "message": "Kieli"
   },
@@ -96,7 +99,7 @@
     "message": "Tallenna"
   },
   "searchPlaceholder": {
-    "message": "Hae verkosta..."
+    "message": "Hae verkosta"
   },
   "namePlaceholder": {
     "message": "Nimesi (valinnainen)"

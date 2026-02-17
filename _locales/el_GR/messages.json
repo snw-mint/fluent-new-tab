@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Καθαρή αναζήτηση (Google)"
   },
+  "compactBarOption": {
+    "message": "Συμπαγής μπάρα"
+  },
   "languageTitle": {
     "message": "Γλώσσα"
   },
@@ -96,7 +99,7 @@
     "message": "Αποθήκευση"
   },
   "searchPlaceholder": {
-    "message": "Αναζήτηση στο διαδίκτυο..."
+    "message": "Αναζήτηση στο διαδίκτυο"
   },
   "namePlaceholder": {
     "message": "Το όνομά σας (προαιρετικό)"

@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Čisté vyhledávání (Google)"
   },
+  "compactBarOption": {
+    "message": "Kompaktní tyčinka"
+  },
   "languageTitle": {
     "message": "Jazyk"
   },
@@ -96,7 +99,7 @@
     "message": "Uložit"
   },
   "searchPlaceholder": {
-    "message": "Prohledat web..."
+    "message": "Prohledat web"
   },
   "namePlaceholder": {
     "message": "Vaše jméno (volitelné)"

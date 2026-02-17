@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Tìm kiếm sạch (Google)"
   },
+  "compactBarOption": {
+    "message": "Thanh nhỏ gọn"
+  },
   "languageTitle": {
     "message": "Ngôn ngữ"
   },
@@ -96,7 +99,7 @@
     "message": "Lưu"
   },
   "searchPlaceholder": {
-    "message": "Tìm kiếm trên web..."
+    "message": "Tìm kiếm trên web"
   },
   "namePlaceholder": {
     "message": "Tên của bạn (tùy chọn)"

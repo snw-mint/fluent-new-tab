@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "乾淨搜尋（Google）"
   },
+  "compactBarOption": {
+    "message": "緊湊型條狀物"
+  },
   "languageTitle": {
     "message": "語言"
   },
@@ -96,7 +99,7 @@
     "message": "儲存"
   },
   "searchPlaceholder": {
-    "message": "搜尋網路..."
+    "message": "搜尋網路"
   },
   "namePlaceholder": {
     "message": "您的姓名（可填）"
