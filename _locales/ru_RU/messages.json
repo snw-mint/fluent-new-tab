@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Приложения"
+  },
+  "moreApps": {
+    "message": "Еще приложения"
+  },
+  "settingsTitle": {
+    "message": "Настройки"
+  },
+  "greetingTitle": {
+    "message": "Приветствие"
+  },
+  "iconsStyleLabel": {
+    "message": "Стиль значка"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (цветной)"
+  },
+  "styleOutline": {
+    "message": "План (минимальный)"
+  },
+  "weatherTitle": {
+    "message": "Погода"
+  },
+  "shortcutsTitle": {
+    "message": "Горячие клавиши"
+  },
+  "rows1": {
+    "message": "1 ряд"
+  },
+  "rows2": {
+    "message": "2 ряда"
+  },
+  "rowsLabel": {
+    "message": "Ряды"
+  },
+  "rows3": {
+    "message": "3 ряда"
+  },
+  "rows4": {
+    "message": "4 ряда"
+  },
+  "appLauncherTitle": {
+    "message": "Запуск приложений"
+  },
+  "ecosystemLabel": {
+    "message": "Экосистема"
+  },
+  "searchTitle": {
+    "message": "Поиск"
+  },
+  "suggestionsOption": {
+    "message": "Предложения"
+  },
+  "clearSearchOption": {
+    "message": "Чистый поиск (Google)"
+  },
+  "languageTitle": {
+    "message": "Язык"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Язык интерфейса"
+  },
+  "backupTitle": {
+    "message": "Резервное копирование данных"
+  },
+  "exportOption": {
+    "message": "Экспорт"
+  },
+  "importOption": {
+    "message": "Импорт"
+  },
+  "addShortcutTitle": {
+    "message": "Добавить ярлык"
+  },
+  "editShortcutTitle": {
+    "message": "Редактировать ярлык"
+  },
+  "shortcutNameLabel": {
+    "message": "Имя"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Пользовательский значок"
+  },
+  "faviconUrlLabel": {
+    "message": "URL значка"
+  },
+  "btnCancel": {
+    "message": "Отменить"
+  },
+  "btnSave": {
+    "message": "Сохранить"
+  },
+  "searchPlaceholder": {
+    "message": "Поиск в Интернете..."
+  },
+  "namePlaceholder": {
+    "message": "Ваше имя (необязательно)"
+  },
+  "cityPlaceholder": {
+    "message": "Ваш город"
+  },
+  "addShortcutLabel": {
+    "message": "Добавить"
+  },
+  "greetMorning1": {
+    "message": "Доброе утро"
+  },
+  "greetMorning2": {
+    "message": "Вставайте и сияйте"
+  },
+  "greetMorning3": {
+    "message": "Хорошего дня!"
+  },
+  "greetMorning4": {
+    "message": "Здравствуйте"
+  },
+  "greetMorning5": {
+    "message": "Начните день правильно"
+  },
+  "greetAfternoon1": {
+    "message": "Добрый день"
+  },
+  "greetAfternoon2": {
+    "message": "Рад тебя видеть"
+  },
+  "greetAfternoon3": {
+    "message": "Надеюсь, у вас все хорошо"
+  },
+  "greetAfternoon4": {
+    "message": "Продолжай в том же духе"
+  },
+  "greetAfternoon5": {
+    "message": "Оставайтесь продуктивными"
+  },
+  "greetEvening1": {
+    "message": "Добрый вечер"
+  },
+  "greetEvening2": {
+    "message": "Время расслабиться"
+  },
+  "greetEvening3": {
+    "message": "Спокойной ночи"
+  },
+  "greetEvening4": {
+    "message": "Время отдыха"
+  },
+  "greetEvening5": {
+    "message": "Приятного вечера!"
+  },
+  "greetNight1": {
+    "message": "Хорошей ночи"
+  },
+  "greetNight2": {
+    "message": "Эй, ночная сова"
+  },
+  "greetNight3": {
+    "message": "Поздние часы"
+  },
+  "greetNight4": {
+    "message": "Тихие часы"
+  },
+  "greetNight5": {
+    "message": "Ты не спишь"
+  },
+  "editLabel": {
+    "message": "Редактировать"
+  },
+  "removeLabel": {
+    "message": "Удалить"
+  },
+  "moreOptionsLabel": {
+    "message": "Дополнительные опции"
+  }
+}
