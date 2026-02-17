@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Aplikace"
+  },
+  "moreApps": {
+    "message": "Další aplikace"
+  },
+  "settingsTitle": {
+    "message": "Nastavení"
+  },
+  "greetingTitle": {
+    "message": "Pozdrav"
+  },
+  "iconsStyleLabel": {
+    "message": "Styl ikon"
+  },
+  "styleEmoji": {
+    "message": "3D plynulý (barva)"
+  },
+  "styleOutline": {
+    "message": "Nástin (minimální)"
+  },
+  "weatherTitle": {
+    "message": "Počasí"
+  },
+  "shortcutsTitle": {
+    "message": "Zkratky"
+  },
+  "rows1": {
+    "message": "1 řada"
+  },
+  "rows2": {
+    "message": "2 řady"
+  },
+  "rowsLabel": {
+    "message": "Řádky"
+  },
+  "rows3": {
+    "message": "3 řady"
+  },
+  "rows4": {
+    "message": "4 řady"
+  },
+  "appLauncherTitle": {
+    "message": "Spouštěč aplikací"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystém"
+  },
+  "searchTitle": {
+    "message": "Hledat"
+  },
+  "suggestionsOption": {
+    "message": "Návrhy"
+  },
+  "clearSearchOption": {
+    "message": "Čisté vyhledávání (Google)"
+  },
+  "languageTitle": {
+    "message": "Jazyk"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Jazyk rozhraní"
+  },
+  "backupTitle": {
+    "message": "Zálohování dat"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Přidat zástupce"
+  },
+  "editShortcutTitle": {
+    "message": "Upravit zástupce"
+  },
+  "shortcutNameLabel": {
+    "message": "Jméno"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Vlastní ikona"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ikony"
+  },
+  "btnCancel": {
+    "message": "Zrušit"
+  },
+  "btnSave": {
+    "message": "Uložit"
+  },
+  "searchPlaceholder": {
+    "message": "Prohledat web..."
+  },
+  "namePlaceholder": {
+    "message": "Vaše jméno (volitelné)"
+  },
+  "cityPlaceholder": {
+    "message": "Vaše město"
+  },
+  "addShortcutLabel": {
+    "message": "Přidat"
+  },
+  "greetMorning1": {
+    "message": "Dobré ráno"
+  },
+  "greetMorning2": {
+    "message": "Vstávej a záři"
+  },
+  "greetMorning3": {
+    "message": "Přeji vám hezký den."
+  },
+  "greetMorning4": {
+    "message": "Dobrý den"
+  },
+  "greetMorning5": {
+    "message": "Začněte den správně"
+  },
+  "greetAfternoon1": {
+    "message": "Dobré odpoledne"
+  },
+  "greetAfternoon2": {
+    "message": "Rád tě vidím."
+  },
+  "greetAfternoon3": {
+    "message": "Doufám, že se máte dobře."
+  },
+  "greetAfternoon4": {
+    "message": "Pokračujte v tom"
+  },
+  "greetAfternoon5": {
+    "message": "Zůstaňte produktivní"
+  },
+  "greetEvening1": {
+    "message": "Dobrý večer"
+  },
+  "greetEvening2": {
+    "message": "Čas na odpočinek"
+  },
+  "greetEvening3": {
+    "message": "Dobrou noc"
+  },
+  "greetEvening4": {
+    "message": "Čas na odpočinek"
+  },
+  "greetEvening5": {
+    "message": "Užijte si večer"
+  },
+  "greetNight1": {
+    "message": "Dobrou noc"
+  },
+  "greetNight2": {
+    "message": "Ahoj, noční sovo"
+  },
+  "greetNight3": {
+    "message": "Pozdní hodiny"
+  },
+  "greetNight4": {
+    "message": "Klidové hodiny"
+  },
+  "greetNight5": {
+    "message": "Jsi dlouho vzhůru."
+  },
+  "editLabel": {
+    "message": "Upravit"
+  },
+  "removeLabel": {
+    "message": "Odebrat"
+  },
+  "moreOptionsLabel": {
+    "message": "Další možnosti"
+  }
+}
