@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Ứng dụng"
+  },
+  "moreApps": {
+    "message": "Nhiều ứng dụng hơn"
+  },
+  "settingsTitle": {
+    "message": "Cài đặt"
+  },
+  "greetingTitle": {
+    "message": "Chào mừng"
+  },
+  "iconsStyleLabel": {
+    "message": "Phong cách biểu tượng"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Màu)"
+  },
+  "styleOutline": {
+    "message": "Dàn ý (Tối thiểu)"
+  },
+  "weatherTitle": {
+    "message": "Thời tiết"
+  },
+  "shortcutsTitle": {
+    "message": "Phím tắt"
+  },
+  "rows1": {
+    "message": "1 hàng"
+  },
+  "rows2": {
+    "message": "2 hàng"
+  },
+  "rowsLabel": {
+    "message": "Dòng"
+  },
+  "rows3": {
+    "message": "3 hàng"
+  },
+  "rows4": {
+    "message": "4 hàng"
+  },
+  "appLauncherTitle": {
+    "message": "Trình khởi chạy ứng dụng"
+  },
+  "ecosystemLabel": {
+    "message": "Hệ sinh thái"
+  },
+  "searchTitle": {
+    "message": "Tìm kiếm"
+  },
+  "suggestionsOption": {
+    "message": "Gợi ý"
+  },
+  "clearSearchOption": {
+    "message": "Tìm kiếm sạch (Google)"
+  },
+  "languageTitle": {
+    "message": "Ngôn ngữ"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Ngôn ngữ giao diện"
+  },
+  "backupTitle": {
+    "message": "Sao lưu dữ liệu"
+  },
+  "exportOption": {
+    "message": "Xuất khẩu"
+  },
+  "importOption": {
+    "message": "Nhập khẩu"
+  },
+  "addShortcutTitle": {
+    "message": "Thêm lối tắt"
+  },
+  "editShortcutTitle": {
+    "message": "Chỉnh sửa phím tắt"
+  },
+  "shortcutNameLabel": {
+    "message": "Tên"
+  },
+  "shortcutUrlLabel": {
+    "message": "Địa chỉ URL"
+  },
+  "addFaviconLabel": {
+    "message": "Biểu tượng tùy chỉnh"
+  },
+  "faviconUrlLabel": {
+    "message": "URL biểu tượng"
+  },
+  "btnCancel": {
+    "message": "Hủy"
+  },
+  "btnSave": {
+    "message": "Lưu"
+  },
+  "searchPlaceholder": {
+    "message": "Tìm kiếm trên web..."
+  },
+  "namePlaceholder": {
+    "message": "Tên của bạn (tùy chọn)"
+  },
+  "cityPlaceholder": {
+    "message": "Thành phố của bạn"
+  },
+  "addShortcutLabel": {
+    "message": "Thêm"
+  },
+  "greetMorning1": {
+    "message": "Chào buổi sáng"
+  },
+  "greetMorning2": {
+    "message": "Dậy đi nào!"
+  },
+  "greetMorning3": {
+    "message": "Chúc bạn có một ngày tuyệt vời!"
+  },
+  "greetMorning4": {
+    "message": "Xin chào"
+  },
+  "greetMorning5": {
+    "message": "Bắt đầu ngày mới một cách tốt đẹp"
+  },
+  "greetAfternoon1": {
+    "message": "Chào buổi chiều"
+  },
+  "greetAfternoon2": {
+    "message": "Rất vui được gặp lại bạn."
+  },
+  "greetAfternoon3": {
+    "message": "Chúc bạn luôn khỏe mạnh và hạnh phúc."
+  },
+  "greetAfternoon4": {
+    "message": "Tiếp tục như vậy!"
+  },
+  "greetAfternoon5": {
+    "message": "Giữ hiệu quả công việc"
+  },
+  "greetEvening1": {
+    "message": "Chào buổi tối"
+  },
+  "greetEvening2": {
+    "message": "Đã đến lúc thư giãn"
+  },
+  "greetEvening3": {
+    "message": "Chúc ngủ ngon"
+  },
+  "greetEvening4": {
+    "message": "Thư giãn"
+  },
+  "greetEvening5": {
+    "message": "Chúc bạn có một buổi tối vui vẻ."
+  },
+  "greetNight1": {
+    "message": "Chúc ngủ ngon vào đêm khuya"
+  },
+  "greetNight2": {
+    "message": "Này, người thức khuya!"
+  },
+  "greetNight3": {
+    "message": "Giờ muộn"
+  },
+  "greetNight4": {
+    "message": "Giờ yên tĩnh"
+  },
+  "greetNight5": {
+    "message": "Bạn thức khuya."
+  },
+  "editLabel": {
+    "message": "Chỉnh sửa"
+  },
+  "removeLabel": {
+    "message": "Xóa"
+  },
+  "moreOptionsLabel": {
+    "message": "Nhiều tùy chọn hơn"
+  }
+}
