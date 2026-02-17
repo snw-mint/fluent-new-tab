@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "More Apps"
+  },
+  "settingsTitle": {
+    "message": "Settings"
+  },
+  "greetingTitle": {
+    "message": "Greeting"
+  },
+  "iconsStyleLabel": {
+    "message": "Icon Style"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Color)"
+  },
+  "styleOutline": {
+    "message": "Outline (Minimal)"
+  },
+  "weatherTitle": {
+    "message": "Weather"
+  },
+  "shortcutsTitle": {
+    "message": "Shortcuts"
+  },
+  "rows1": {
+    "message": "1 Row"
+  },
+  "rows2": {
+    "message": "2 Rows"
+  },
+  "rowsLabel": {
+    "message": "Rows"
+  },
+  "rows3": {
+    "message": "3 Rows"
+  },
+  "rows4": {
+    "message": "4 Rows"
+  },
+  "appLauncherTitle": {
+    "message": "App Launcher"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosystem"
+  },
+  "searchTitle": {
+    "message": "Search"
+  },
+  "suggestionsOption": {
+    "message": "Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "Clean search (Google)"
+  },
+  "languageTitle": {
+    "message": "Language"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Interface Language"
+  },
+  "backupTitle": {
+    "message": "Data Backup"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Add Shortcut"
+  },
+  "editShortcutTitle": {
+    "message": "Edit Shortcut"
+  },
+  "shortcutNameLabel": {
+    "message": "Name"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Custom Icon"
+  },
+  "faviconUrlLabel": {
+    "message": "Icon URL"
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "searchPlaceholder": {
+    "message": "Search the web..."
+  },
+  "namePlaceholder": {
+    "message": "Your Name (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "Your City"
+  },
+  "addShortcutLabel": {
+    "message": "Add"
+  },
+  "greetMorning1": {
+    "message": "Good morning"
+  },
+  "greetMorning2": {
+    "message": "Rise and shine"
+  },
+  "greetMorning3": {
+    "message": "Have a great day"
+  },
+  "greetMorning4": {
+    "message": "Hello there"
+  },
+  "greetMorning5": {
+    "message": "Start the day right"
+  },
+  "greetAfternoon1": {
+    "message": "Good afternoon"
+  },
+  "greetAfternoon2": {
+    "message": "Good to see you"
+  },
+  "greetAfternoon3": {
+    "message": "Hope you're doing well"
+  },
+  "greetAfternoon4": {
+    "message": "Keep it up"
+  },
+  "greetAfternoon5": {
+    "message": "Stay productive"
+  },
+  "greetEvening1": {
+    "message": "Good evening"
+  },
+  "greetEvening2": {
+    "message": "Time to relax"
+  },
+  "greetEvening3": {
+    "message": "Good night"
+  },
+  "greetEvening4": {
+    "message": "Unwind time"
+  },
+  "greetEvening5": {
+    "message": "Enjoy your evening"
+  },
+  "greetNight1": {
+    "message": "Good late night"
+  },
+  "greetNight2": {
+    "message": "Hey night owl"
+  },
+  "greetNight3": {
+    "message": "Late hours"
+  },
+  "greetNight4": {
+    "message": "Quiet hours"
+  },
+  "greetNight5": {
+    "message": "You're up late"
+  },
+  "editLabel": {
+    "message": "Edit"
+  },
+  "removeLabel": {
+    "message": "Remove"
+  },
+  "moreOptionsLabel": {
+    "message": "More options"
+  }
+}
