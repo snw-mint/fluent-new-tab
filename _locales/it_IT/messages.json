@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Applicazioni"
+  },
+  "moreApps": {
+    "message": "Altre app"
+  },
+  "settingsTitle": {
+    "message": "Impostazioni"
+  },
+  "greetingTitle": {
+    "message": "Saluto"
+  },
+  "iconsStyleLabel": {
+    "message": "Stile icona"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Colore)"
+  },
+  "styleOutline": {
+    "message": "Schema (minimo)"
+  },
+  "weatherTitle": {
+    "message": "Meteo"
+  },
+  "shortcutsTitle": {
+    "message": "Scorciatoie"
+  },
+  "rows1": {
+    "message": "1 riga"
+  },
+  "rows2": {
+    "message": "2 file"
+  },
+  "rowsLabel": {
+    "message": "Righe"
+  },
+  "rows3": {
+    "message": "3 file"
+  },
+  "rows4": {
+    "message": "4 file"
+  },
+  "appLauncherTitle": {
+    "message": "Avvio applicazioni"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistema"
+  },
+  "searchTitle": {
+    "message": "Cerca"
+  },
+  "suggestionsOption": {
+    "message": "Suggerimenti"
+  },
+  "clearSearchOption": {
+    "message": "Ricerca pulita (Google)"
+  },
+  "languageTitle": {
+    "message": "Lingua"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Lingua dell'interfaccia"
+  },
+  "backupTitle": {
+    "message": "Backup dei dati"
+  },
+  "exportOption": {
+    "message": "Esportazione"
+  },
+  "importOption": {
+    "message": "Importa"
+  },
+  "addShortcutTitle": {
+    "message": "Aggiungi collegamento"
+  },
+  "editShortcutTitle": {
+    "message": "Modifica collegamento"
+  },
+  "shortcutNameLabel": {
+    "message": "Nome"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Icona personalizzata"
+  },
+  "faviconUrlLabel": {
+    "message": "URL dell'icona"
+  },
+  "btnCancel": {
+    "message": "Annulla"
+  },
+  "btnSave": {
+    "message": "Salva"
+  },
+  "searchPlaceholder": {
+    "message": "Cerca nel web..."
+  },
+  "namePlaceholder": {
+    "message": "Il tuo nome (facoltativo)"
+  },
+  "cityPlaceholder": {
+    "message": "La tua città"
+  },
+  "addShortcutLabel": {
+    "message": "Aggiungi"
+  },
+  "greetMorning1": {
+    "message": "Buongiorno"
+  },
+  "greetMorning2": {
+    "message": "Alzati e risplendi"
+  },
+  "greetMorning3": {
+    "message": "Buona giornata"
+  },
+  "greetMorning4": {
+    "message": "Ciao!"
+  },
+  "greetMorning5": {
+    "message": "Inizia bene la giornata"
+  },
+  "greetAfternoon1": {
+    "message": "Buon pomeriggio"
+  },
+  "greetAfternoon2": {
+    "message": "È un piacere vederti."
+  },
+  "greetAfternoon3": {
+    "message": "Spero che tu stia bene"
+  },
+  "greetAfternoon4": {
+    "message": "Continua così"
+  },
+  "greetAfternoon5": {
+    "message": "Rimani produttivo"
+  },
+  "greetEvening1": {
+    "message": "Buonasera"
+  },
+  "greetEvening2": {
+    "message": "È ora di rilassarsi"
+  },
+  "greetEvening3": {
+    "message": "Buonanotte"
+  },
+  "greetEvening4": {
+    "message": "Rilassati"
+  },
+  "greetEvening5": {
+    "message": "Buona serata"
+  },
+  "greetNight1": {
+    "message": "Buona notte"
+  },
+  "greetNight2": {
+    "message": "Ehi, nottambulo!"
+  },
+  "greetNight3": {
+    "message": "Ore tarde"
+  },
+  "greetNight4": {
+    "message": "Orario di silenzio"
+  },
+  "greetNight5": {
+    "message": "Sei sveglio fino a tardi"
+  },
+  "editLabel": {
+    "message": "Modifica"
+  },
+  "removeLabel": {
+    "message": "Rimuovi"
+  },
+  "moreOptionsLabel": {
+    "message": "Altre opzioni"
+  }
+}
