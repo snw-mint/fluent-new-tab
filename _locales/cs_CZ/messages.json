@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Aplikace"
+  },
+  "moreApps": {
+    "message": "Další aplikace"
+  },
+  "settingsTitle": {
+    "message": "Nastavení"
+  },
+  "greetingTitle": {
+    "message": "Pozdrav"
+  },
+  "iconsStyleLabel": {
+    "message": "Styl ikon"
+  },
+  "styleEmoji": {
+    "message": "3D plynulý (barva)"
+  },
+  "styleOutline": {
+    "message": "Nástin (minimální)"
+  },
+  "weatherTitle": {
+    "message": "Počasí"
+  },
+  "shortcutsTitle": {
+    "message": "Zkratky"
+  },
+  "rows1": {
+    "message": "1 řada"
+  },
+  "rows2": {
+    "message": "2 řady"
+  },
+  "rowsLabel": {
+    "message": "Řádky"
+  },
+  "rows3": {
+    "message": "3 řady"
+  },
+  "rows4": {
+    "message": "4 řady"
+  },
+  "appLauncherTitle": {
+    "message": "Spouštěč aplikací"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystém"
+  },
+  "searchTitle": {
+    "message": "Hledat"
+  },
+  "suggestionsOption": {
+    "message": "Návrhy"
+  },
+  "clearSearchOption": {
+    "message": "Čisté vyhledávání (Google)"
+  },
+  "languageTitle": {
+    "message": "Jazyk"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Jazyk rozhraní"
+  },
+  "backupTitle": {
+    "message": "Zálohování dat"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Přidat zástupce"
+  },
+  "editShortcutTitle": {
+    "message": "Upravit zástupce"
+  },
+  "shortcutNameLabel": {
+    "message": "Jméno"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Vlastní ikona"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ikony"
+  },
+  "btnCancel": {
+    "message": "Zrušit"
+  },
+  "btnSave": {
+    "message": "Uložit"
+  },
+  "searchPlaceholder": {
+    "message": "Prohledat web..."
+  },
+  "namePlaceholder": {
+    "message": "Vaše jméno (volitelné)"
+  },
+  "cityPlaceholder": {
+    "message": "Vaše město"
+  },
+  "addShortcutLabel": {
+    "message": "Přidat"
+  },
+  "editLabel": {
+    "message": "Upravit"
+  },
+  "removeLabel": {
+    "message": "Odebrat"
+  },
+  "moreOptionsLabel": {
+    "message": "Další možnosti"
+  },
+  "greetMorning1": {
+    "message": "Dobré ráno, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Vstávej a záři, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Přeji vám krásný den, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Ahoj, $NAME$! Jsi připravený na dnešek?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Začněme den správně, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Dobré odpoledne, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Rád tě vidím, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Doufám, že se máte dobře, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Pokračujte v dobré práci, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Zůstaňte soustředění a produktivní, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Dobrý večer, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Je čas si odpočinout, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Přejeme vám klidný večer, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Čas na odpočinek, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Přeji příjemný večer, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Doufám, že máte klidnou noc, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Ještě nespíš, $NAME$? Brzy se dobře vyspi!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Užijte si klidné chvíle, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Dobrou noc, $NAME$. Uvidíme se zítra!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Dneska dlouho vzhůru, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
