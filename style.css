@@ -673,7 +673,7 @@ input, textarea {
 .toggle-link {
     display: block;
     font-size: 12px;
-    color: #0078d4;
+    color: #08538c; 
     margin-bottom: 16px;
     text-decoration: none;
 }
@@ -1234,7 +1234,7 @@ input:checked:active + .slider:before {
 .launcher-footer {
     text-align: center;
     font-size: 12px;
-    color: var(--accent-color); 
+    color: #08538c; 
     text-decoration: none;
     padding: 8px 0 0 0;
     border-top: 1px solid rgba(0,0,0,0.05);
@@ -1478,6 +1478,7 @@ body.dark-mode .fluent-icon,
 }
 [data-theme="dark"] .launcher-footer {
     border-top: 1px solid rgba(255,255,255,0.1);
+    color: #74b5e7;
 }
 [data-theme="dark"] .settings-footer {
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -1503,4 +1504,7 @@ body.dark-mode .fluent-icon,
 }
 [data-theme="dark"] .switch:hover .slider {
     background-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .toggle-link {
+    color: #74b5e7;
 }
