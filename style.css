@@ -1064,7 +1064,6 @@ input:checked:active + .slider:before {
     text-decoration: none;
     color: var(--text-color);
     font-size: 14px; 
-    font-weight: 500;
     padding: 6px 12px;
     border-radius: 6px; 
     transition: background 0.2s ease, transform 0.2s ease;
@@ -1093,7 +1092,7 @@ input:checked:active + .slider:before {
     transform: translateY(-2px) scale(1.1);
 }
 .weather-city {
-    font-weight: 500;
+    font-weight: 400;
     max-width: 100px;
     white-space: nowrap;
     overflow: hidden;
@@ -1102,7 +1101,7 @@ input:checked:active + .slider:before {
     opacity: 0.9;
 }
 .weather-temp {
-    font-weight: 600; 
+    font-weight: 400; 
     opacity: 1;
 }
 .unit-toggle-row {
