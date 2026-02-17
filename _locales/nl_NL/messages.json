@@ -57,7 +57,7 @@
     "message": "Schone zoekopdracht (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Compacte staaf"
   },
   "languageTitle": {
     "message": "Taal"
@@ -99,7 +99,7 @@
     "message": "Opslaan"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Zoek op het web"
   },
   "namePlaceholder": {
     "message": "Uw naam (optioneel)"
