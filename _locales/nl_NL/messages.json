@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "Meer apps"
+  },
+  "settingsTitle": {
+    "message": "Instellingen"
+  },
+  "greetingTitle": {
+    "message": "Groet"
+  },
+  "iconsStyleLabel": {
+    "message": "Pictogramstijl"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (kleur)"
+  },
+  "styleOutline": {
+    "message": "Overzicht (minimaal)"
+  },
+  "weatherTitle": {
+    "message": "Weer"
+  },
+  "shortcutsTitle": {
+    "message": "Snelkoppelingen"
+  },
+  "rows1": {
+    "message": "1 rij"
+  },
+  "rows2": {
+    "message": "2 rijen"
+  },
+  "rowsLabel": {
+    "message": "Rijen"
+  },
+  "rows3": {
+    "message": "3 rijen"
+  },
+  "rows4": {
+    "message": "4 rijen"
+  },
+  "appLauncherTitle": {
+    "message": "App-starter"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosysteem"
+  },
+  "searchTitle": {
+    "message": "Zoeken"
+  },
+  "suggestionsOption": {
+    "message": "Suggesties"
+  },
+  "clearSearchOption": {
+    "message": "Schone zoekopdracht (Google)"
+  },
+  "languageTitle": {
+    "message": "Taal"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Interfacetaal"
+  },
+  "backupTitle": {
+    "message": "Gegevensback-up"
+  },
+  "exportOption": {
+    "message": "Exporteren"
+  },
+  "importOption": {
+    "message": "Importeren"
+  },
+  "addShortcutTitle": {
+    "message": "Snelkoppeling toevoegen"
+  },
+  "editShortcutTitle": {
+    "message": "Snelkoppeling bewerken"
+  },
+  "shortcutNameLabel": {
+    "message": "Naam"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Aangepast pictogram"
+  },
+  "faviconUrlLabel": {
+    "message": "Pictogram-URL"
+  },
+  "btnCancel": {
+    "message": "Annuleren"
+  },
+  "btnSave": {
+    "message": "Opslaan"
+  },
+  "searchPlaceholder": {
+    "message": "Zoek op het web..."
+  },
+  "namePlaceholder": {
+    "message": "Uw naam (optioneel)"
+  },
+  "cityPlaceholder": {
+    "message": "Uw stad"
+  },
+  "addShortcutLabel": {
+    "message": "Toevoegen"
+  },
+  "greetMorning1": {
+    "message": "Goedemorgen"
+  },
+  "greetMorning2": {
+    "message": "Opstaan en stralen"
+  },
+  "greetMorning3": {
+    "message": "Een fijne dag gewenst"
+  },
+  "greetMorning4": {
+    "message": "Hallo daar"
+  },
+  "greetMorning5": {
+    "message": "Begin de dag goed"
+  },
+  "greetAfternoon1": {
+    "message": "Goedemiddag"
+  },
+  "greetAfternoon2": {
+    "message": "Leuk je te zien"
+  },
+  "greetAfternoon3": {
+    "message": "Ik hoop dat het goed met je gaat."
+  },
+  "greetAfternoon4": {
+    "message": "Ga zo door"
+  },
+  "greetAfternoon5": {
+    "message": "Blijf productief"
+  },
+  "greetEvening1": {
+    "message": "Goedenavond"
+  },
+  "greetEvening2": {
+    "message": "Tijd om te ontspannen"
+  },
+  "greetEvening3": {
+    "message": "Goedenacht"
+  },
+  "greetEvening4": {
+    "message": "Ontspantijd"
+  },
+  "greetEvening5": {
+    "message": "Geniet van je avond"
+  },
+  "greetNight1": {
+    "message": "Goede late avond"
+  },
+  "greetNight2": {
+    "message": "Hé nachtbraker"
+  },
+  "greetNight3": {
+    "message": "Late uren"
+  },
+  "greetNight4": {
+    "message": "Rustige uren"
+  },
+  "greetNight5": {
+    "message": "Je bent nog laat op."
+  },
+  "editLabel": {
+    "message": "Bewerken"
+  },
+  "removeLabel": {
+    "message": "Verwijderen"
+  },
+  "moreOptionsLabel": {
+    "message": "Meer opties"
+  }
+}
