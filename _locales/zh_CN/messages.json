@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "应用程序"
+  },
+  "moreApps": {
+    "message": "更多应用"
+  },
+  "settingsTitle": {
+    "message": "设置"
+  },
+  "greetingTitle": {
+    "message": "问候"
+  },
+  "iconsStyleLabel": {
+    "message": "图标样式"
+  },
+  "styleEmoji": {
+    "message": "3D流畅（彩色）"
+  },
+  "styleOutline": {
+    "message": "大纲（简略版）"
+  },
+  "weatherTitle": {
+    "message": "天气"
+  },
+  "shortcutsTitle": {
+    "message": "快捷方式"
+  },
+  "rows1": {
+    "message": "1 行"
+  },
+  "rows2": {
+    "message": "2 行"
+  },
+  "rowsLabel": {
+    "message": "行"
+  },
+  "rows3": {
+    "message": "3 行"
+  },
+  "rows4": {
+    "message": "4 行"
+  },
+  "appLauncherTitle": {
+    "message": "应用启动器"
+  },
+  "ecosystemLabel": {
+    "message": "生态系统"
+  },
+  "searchTitle": {
+    "message": "搜索"
+  },
+  "suggestionsOption": {
+    "message": "建议"
+  },
+  "clearSearchOption": {
+    "message": "干净搜索（谷歌）"
+  },
+  "languageTitle": {
+    "message": "语言"
+  },
+  "interfaceLanguageLabel": {
+    "message": "界面语言"
+  },
+  "backupTitle": {
+    "message": "数据备份"
+  },
+  "exportOption": {
+    "message": "导出"
+  },
+  "importOption": {
+    "message": "导入"
+  },
+  "addShortcutTitle": {
+    "message": "添加快捷方式"
+  },
+  "editShortcutTitle": {
+    "message": "编辑快捷方式"
+  },
+  "shortcutNameLabel": {
+    "message": "名称"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "自定义图标"
+  },
+  "faviconUrlLabel": {
+    "message": "图标URL"
+  },
+  "btnCancel": {
+    "message": "取消"
+  },
+  "btnSave": {
+    "message": "保存"
+  },
+  "searchPlaceholder": {
+    "message": "搜索网页..."
+  },
+  "namePlaceholder": {
+    "message": "您的姓名（可选）"
+  },
+  "cityPlaceholder": {
+    "message": "您的城市"
+  },
+  "addShortcutLabel": {
+    "message": "添加"
+  },
+  "greetMorning1": {
+    "message": "早上好"
+  },
+  "greetMorning2": {
+    "message": "起床啦"
+  },
+  "greetMorning3": {
+    "message": "祝你今天过得愉快"
+  },
+  "greetMorning4": {
+    "message": "你好呀"
+  },
+  "greetMorning5": {
+    "message": "开启美好的一天"
+  },
+  "greetAfternoon1": {
+    "message": "下午好"
+  },
+  "greetAfternoon2": {
+    "message": "见到你真好"
+  },
+  "greetAfternoon3": {
+    "message": "希望你一切安好"
+  },
+  "greetAfternoon4": {
+    "message": "继续努力"
+  },
+  "greetAfternoon5": {
+    "message": "保持高效"
+  },
+  "greetEvening1": {
+    "message": "晚上好"
+  },
+  "greetEvening2": {
+    "message": "放松时间"
+  },
+  "greetEvening3": {
+    "message": "晚安"
+  },
+  "greetEvening4": {
+    "message": "放松时间"
+  },
+  "greetEvening5": {
+    "message": "祝您晚上愉快"
+  },
+  "greetNight1": {
+    "message": "深夜好"
+  },
+  "greetNight2": {
+    "message": "嘿，夜猫子"
+  },
+  "greetNight3": {
+    "message": "深夜"
+  },
+  "greetNight4": {
+    "message": "安静时段"
+  },
+  "greetNight5": {
+    "message": "你熬夜了"
+  },
+  "editLabel": {
+    "message": "编辑"
+  },
+  "removeLabel": {
+    "message": "移除"
+  },
+  "moreOptionsLabel": {
+    "message": "更多选项"
+  }
+}
