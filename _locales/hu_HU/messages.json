@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Alkalmazások"
+  },
+  "moreApps": {
+    "message": "További alkalmazások"
+  },
+  "settingsTitle": {
+    "message": "Beállítások"
+  },
+  "greetingTitle": {
+    "message": "Üdvözlet"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikon stílus"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (színes)"
+  },
+  "styleOutline": {
+    "message": "Vázlat (minimális)"
+  },
+  "weatherTitle": {
+    "message": "Időjárás"
+  },
+  "shortcutsTitle": {
+    "message": "Gyorsbillentyűk"
+  },
+  "rows1": {
+    "message": "1 sor"
+  },
+  "rows2": {
+    "message": "2 sor"
+  },
+  "rowsLabel": {
+    "message": "Sorok"
+  },
+  "rows3": {
+    "message": "3 sor"
+  },
+  "rows4": {
+    "message": "4 sor"
+  },
+  "appLauncherTitle": {
+    "message": "Alkalmazásindító"
+  },
+  "ecosystemLabel": {
+    "message": "Ökoszisztéma"
+  },
+  "searchTitle": {
+    "message": "Keresés"
+  },
+  "suggestionsOption": {
+    "message": "Javaslatok"
+  },
+  "clearSearchOption": {
+    "message": "Tiszta keresés (Google)"
+  },
+  "languageTitle": {
+    "message": "Nyelv"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Felület nyelve"
+  },
+  "backupTitle": {
+    "message": "Adatmentés"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Parancsikon hozzáadása"
+  },
+  "editShortcutTitle": {
+    "message": "Parancsikon szerkesztése"
+  },
+  "shortcutNameLabel": {
+    "message": "Név"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Egyéni ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon URL"
+  },
+  "btnCancel": {
+    "message": "Mégse"
+  },
+  "btnSave": {
+    "message": "Mentés"
+  },
+  "searchPlaceholder": {
+    "message": "Keresés az interneten..."
+  },
+  "namePlaceholder": {
+    "message": "A neved (opcionális)"
+  },
+  "cityPlaceholder": {
+    "message": "A te városod"
+  },
+  "addShortcutLabel": {
+    "message": "Hozzáadás"
+  },
+  "editLabel": {
+    "message": "Szerkesztés"
+  },
+  "removeLabel": {
+    "message": "Eltávolítás"
+  },
+  "moreOptionsLabel": {
+    "message": "További lehetőségek"
+  },
+  "greetMorning1": {
+    "message": "Jó reggelt! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Ébredj és ragyogj, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Kívánok Önnek egy csodálatos napot, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Helló, $NAME$! Készen állsz a mai napra?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Kezdjük jól a napot! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Jó napot kívánok! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Örülök, hogy látlak, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Remélem, jól vagy, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "További sok sikert, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Maradjon koncentrált és produktív, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Jó estét! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Ideje pihenni, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Kellemes estét kívánok, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Ideje kikapcsolódni, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Élvezze az estét! $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Remélem, nyugodt éjszakád van, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Még ébren vagy, $NAME$? Pihenj jól!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Élvezze a csendes órákat, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Jó éjszakát, $NAME$. Holnap találkozunk!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Ma éjjel sokáig fenn vagy, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
