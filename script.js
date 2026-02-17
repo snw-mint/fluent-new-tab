@@ -63,7 +63,7 @@ const launcherData = {
     ], allAppsLink: 'https://about.google/products/' }
 };
 
-const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled', 'compactBarEnabled', 'wallpaperEnabled', 'wallpaperSource', 'wallpaperType', 'wallpaperValue'];];
+const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled', 'compactBarEnabled', 'wallpaperEnabled', 'wallpaperSource', 'wallpaperType', 'wallpaperValue'];
 
 /* --- 2. State --- */
 let shortcuts = [];
