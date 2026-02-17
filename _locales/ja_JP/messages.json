@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "アプリ"
+  },
+  "moreApps": {
+    "message": "その他のアプリ"
+  },
+  "settingsTitle": {
+    "message": "設定"
+  },
+  "greetingTitle": {
+    "message": "ご挨拶"
+  },
+  "iconsStyleLabel": {
+    "message": "アイコンスタイル"
+  },
+  "styleEmoji": {
+    "message": "3D フルーエント（カラー）"
+  },
+  "styleOutline": {
+    "message": "概要（最小限）"
+  },
+  "weatherTitle": {
+    "message": "天気"
+  },
+  "shortcutsTitle": {
+    "message": "ショートカット"
+  },
+  "rows1": {
+    "message": "1行"
+  },
+  "rows2": {
+    "message": "2行"
+  },
+  "rowsLabel": {
+    "message": "行"
+  },
+  "rows3": {
+    "message": "3行"
+  },
+  "rows4": {
+    "message": "4行"
+  },
+  "appLauncherTitle": {
+    "message": "アプリランチャー"
+  },
+  "ecosystemLabel": {
+    "message": "生態系"
+  },
+  "searchTitle": {
+    "message": "検索"
+  },
+  "suggestionsOption": {
+    "message": "提案"
+  },
+  "clearSearchOption": {
+    "message": "クリーン検索（Google）"
+  },
+  "languageTitle": {
+    "message": "言語"
+  },
+  "interfaceLanguageLabel": {
+    "message": "インターフェース言語"
+  },
+  "backupTitle": {
+    "message": "データバックアップ"
+  },
+  "exportOption": {
+    "message": "輸出"
+  },
+  "importOption": {
+    "message": "インポート"
+  },
+  "addShortcutTitle": {
+    "message": "ショートカットを追加"
+  },
+  "editShortcutTitle": {
+    "message": "編集ショートカット"
+  },
+  "shortcutNameLabel": {
+    "message": "名前"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "カスタムアイコン"
+  },
+  "faviconUrlLabel": {
+    "message": "アイコンURL"
+  },
+  "btnCancel": {
+    "message": "キャンセル"
+  },
+  "btnSave": {
+    "message": "保存"
+  },
+  "searchPlaceholder": {
+    "message": "ウェブを検索..."
+  },
+  "namePlaceholder": {
+    "message": "お名前（任意）"
+  },
+  "cityPlaceholder": {
+    "message": "あなたの街"
+  },
+  "addShortcutLabel": {
+    "message": "追加"
+  },
+  "editLabel": {
+    "message": "編集"
+  },
+  "removeLabel": {
+    "message": "削除"
+  },
+  "moreOptionsLabel": {
+    "message": "その他のオプション"
+  },
+  "greetMorning1": {
+    "message": "おはようございます。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "さあ、目を覚ませ、 $NAME$！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "素敵な一日をお過ごしください。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "こんにちは、 $NAME$！今日は準備万端ですか？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "一日を良いスタートで始めよう $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "こんにちは。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "お会いできて嬉しいです。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "お元気でいらっしゃいますように。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "$NAME$、これからも頑張ってください！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "集中力を保ち、生産性を維持しましょう。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "こんばんは、 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "くつろぐ時間です。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "穏やかな夜をお過ごしください。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "くつろぐ時間だ、 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "良い夜を。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "穏やかな夜をお過ごしください。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "まだ起きてる？ $NAME$？早く休んでね！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "静かな時間を楽しんでください。 $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "おやすみ、 $NAME$。また明日！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "今夜は遅くまで起きてる、 $NAME$？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
