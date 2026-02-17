@@ -57,7 +57,7 @@
     "message": "Ren sökning (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Kompakt bar"
   },
   "languageTitle": {
     "message": "Språk"
@@ -99,7 +99,7 @@
     "message": "Spara"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Sök på webben"
   },
   "namePlaceholder": {
     "message": "Ditt namn (valfritt)"
