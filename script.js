@@ -63,7 +63,7 @@ const launcherData = {
     ], allAppsLink: 'https://about.google/products/' }
 };
 
-const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled'];
+const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled', 'compactBarEnabled'];
 
 /* --- 2. State --- */
 let shortcuts = [];
@@ -80,6 +80,7 @@ let searchBarVisible = localStorage.getItem('searchBarVisible') !== 'false';
 let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
 const suggestionsCache = new Map();
 let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
+let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
 
 const CACHE_KEY = 'fluent_weather_cache';
 const CITY_KEY = 'fluent_city_data';
@@ -259,6 +260,14 @@ function updateSearchSettings() {
     const displayStyle = searchBarVisible ? 'flex' : 'none';
     if (suggestionsRow) suggestionsRow.style.display = displayStyle;
     if (clearSearchRow) clearSearchRow.style.display = displayStyle;
+    const compactBarRow = document.getElementById('compactBarRow');
+    if (compactBarRow) compactBarRow.style.display = displayStyle;
+}
+function updateCompactBarStyle() {
+    if (searchWrapper) {
+        if (compactBarEnabled) searchWrapper.classList.add('compact');
+        else searchWrapper.classList.remove('compact');
+    }
 }
 function renderSuggestions(suggestions) {
     if (!suggestionsContainer) return;
@@ -808,6 +817,16 @@ document.addEventListener("DOMContentLoaded", () => {
             updateGoogleParams();
         });
     }
+    /* Compact Bar Option */
+    const toggleCompact = document.getElementById('toggleCompactBar');
+    if (toggleCompact) {
+        toggleCompact.checked = compactBarEnabled;
+        toggleCompact.addEventListener('change', (e) => {
+            compactBarEnabled = e.target.checked;
+            localStorage.setItem('compactBarEnabled', compactBarEnabled);
+            updateCompactBarStyle();
+        });
+    }
     if (searchInput) {
         searchInput.addEventListener('input', debounce((e) => {
             if (!suggestionsActive) return;
@@ -965,6 +984,7 @@ applyInitialSearchEngine();
 applyInitialSearchBarVisibility();
 applyInitialSuggestionsActive();
 applyInitialClearSearch();
+updateCompactBarStyle();
 applyInitialWeatherState();
 applyInitialLauncherState();
 initSortable();
