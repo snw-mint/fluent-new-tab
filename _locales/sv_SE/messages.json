@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Appar"
+  },
+  "moreApps": {
+    "message": "Fler appar"
+  },
+  "settingsTitle": {
+    "message": "Inställningar"
+  },
+  "greetingTitle": {
+    "message": "Hälsning"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikonstil"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (färg)"
+  },
+  "styleOutline": {
+    "message": "Översikt (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Väder"
+  },
+  "shortcutsTitle": {
+    "message": "Genvägar"
+  },
+  "rows1": {
+    "message": "1 rad"
+  },
+  "rows2": {
+    "message": "2 rader"
+  },
+  "rowsLabel": {
+    "message": "Rader"
+  },
+  "rows3": {
+    "message": "3 rader"
+  },
+  "rows4": {
+    "message": "4 rader"
+  },
+  "appLauncherTitle": {
+    "message": "App-startprogram"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystem"
+  },
+  "searchTitle": {
+    "message": "Sök"
+  },
+  "suggestionsOption": {
+    "message": "Förslag"
+  },
+  "clearSearchOption": {
+    "message": "Ren sökning (Google)"
+  },
+  "languageTitle": {
+    "message": "Språk"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Gränssnittsspråk"
+  },
+  "backupTitle": {
+    "message": "Säkerhetskopiering av data"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Lägg till genväg"
+  },
+  "editShortcutTitle": {
+    "message": "Redigera genväg"
+  },
+  "shortcutNameLabel": {
+    "message": "Namn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Anpassad ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Avbryt"
+  },
+  "btnSave": {
+    "message": "Spara"
+  },
+  "searchPlaceholder": {
+    "message": "Sök på webben..."
+  },
+  "namePlaceholder": {
+    "message": "Ditt namn (valfritt)"
+  },
+  "cityPlaceholder": {
+    "message": "Din stad"
+  },
+  "addShortcutLabel": {
+    "message": "Lägg till"
+  },
+  "greetMorning1": {
+    "message": "God morgon"
+  },
+  "greetMorning2": {
+    "message": "Upp och hoppa"
+  },
+  "greetMorning3": {
+    "message": "Ha en bra dag!"
+  },
+  "greetMorning4": {
+    "message": "Hej där"
+  },
+  "greetMorning5": {
+    "message": "Börja dagen på rätt sätt"
+  },
+  "greetAfternoon1": {
+    "message": "God eftermiddag"
+  },
+  "greetAfternoon2": {
+    "message": "Kul att se dig"
+  },
+  "greetAfternoon3": {
+    "message": "Hoppas att du mår bra"
+  },
+  "greetAfternoon4": {
+    "message": "Fortsätt så!"
+  },
+  "greetAfternoon5": {
+    "message": "Håll dig produktiv"
+  },
+  "greetEvening1": {
+    "message": "God kväll"
+  },
+  "greetEvening2": {
+    "message": "Dags att koppla av"
+  },
+  "greetEvening3": {
+    "message": "God natt"
+  },
+  "greetEvening4": {
+    "message": "Koppla av"
+  },
+  "greetEvening5": {
+    "message": "Ha en trevlig kväll!"
+  },
+  "greetNight1": {
+    "message": "God natt"
+  },
+  "greetNight2": {
+    "message": "Hej nattuggla"
+  },
+  "greetNight3": {
+    "message": "Sena timmar"
+  },
+  "greetNight4": {
+    "message": "Tysta timmar"
+  },
+  "greetNight5": {
+    "message": "Du är uppe sent"
+  },
+  "editLabel": {
+    "message": "Redigera"
+  },
+  "removeLabel": {
+    "message": "Ta bort"
+  },
+  "moreOptionsLabel": {
+    "message": "Fler alternativ"
+  }
+}
