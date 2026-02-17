@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Sovellukset"
+  },
+  "moreApps": {
+    "message": "Lisää sovelluksia"
+  },
+  "settingsTitle": {
+    "message": "Asetukset"
+  },
+  "greetingTitle": {
+    "message": "Tervehdys"
+  },
+  "iconsStyleLabel": {
+    "message": "Kuvaketyyli"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (väri)"
+  },
+  "styleOutline": {
+    "message": "Yhteenveto (minimaalinen)"
+  },
+  "weatherTitle": {
+    "message": "Sää"
+  },
+  "shortcutsTitle": {
+    "message": "Pikakuvakkeet"
+  },
+  "rows1": {
+    "message": "1 rivi"
+  },
+  "rows2": {
+    "message": "2 riviä"
+  },
+  "rowsLabel": {
+    "message": "Rivit"
+  },
+  "rows3": {
+    "message": "3 riviä"
+  },
+  "rows4": {
+    "message": "4 riviä"
+  },
+  "appLauncherTitle": {
+    "message": "Sovellusten käynnistin"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosysteemi"
+  },
+  "searchTitle": {
+    "message": "Haku"
+  },
+  "suggestionsOption": {
+    "message": "Ehdotukset"
+  },
+  "clearSearchOption": {
+    "message": "Puhdas haku (Google)"
+  },
+  "languageTitle": {
+    "message": "Kieli"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Käyttöliittymän kieli"
+  },
+  "backupTitle": {
+    "message": "Tietojen varmuuskopiointi"
+  },
+  "exportOption": {
+    "message": "Vienti"
+  },
+  "importOption": {
+    "message": "Tuonti"
+  },
+  "addShortcutTitle": {
+    "message": "Lisää pikakuvake"
+  },
+  "editShortcutTitle": {
+    "message": "Muokkaa pikakuvaketta"
+  },
+  "shortcutNameLabel": {
+    "message": "Nimi"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Mukautettu kuvake"
+  },
+  "faviconUrlLabel": {
+    "message": "Kuvakkeen URL-osoite"
+  },
+  "btnCancel": {
+    "message": "Peruuta"
+  },
+  "btnSave": {
+    "message": "Tallenna"
+  },
+  "searchPlaceholder": {
+    "message": "Hae verkosta..."
+  },
+  "namePlaceholder": {
+    "message": "Nimesi (valinnainen)"
+  },
+  "cityPlaceholder": {
+    "message": "Sinun kaupunkisi"
+  },
+  "addShortcutLabel": {
+    "message": "Lisää"
+  },
+  "greetMorning1": {
+    "message": "Huomenta"
+  },
+  "greetMorning2": {
+    "message": "Nouse ja loista"
+  },
+  "greetMorning3": {
+    "message": "Hyvää päivää!"
+  },
+  "greetMorning4": {
+    "message": "Hei"
+  },
+  "greetMorning5": {
+    "message": "Aloita päivä oikein"
+  },
+  "greetAfternoon1": {
+    "message": "Hyvää iltapäivää"
+  },
+  "greetAfternoon2": {
+    "message": "Hauska nähdä sinua"
+  },
+  "greetAfternoon3": {
+    "message": "Toivottavasti voit hyvin."
+  },
+  "greetAfternoon4": {
+    "message": "Jatka samaan malliin"
+  },
+  "greetAfternoon5": {
+    "message": "Pysy tuotteliaana"
+  },
+  "greetEvening1": {
+    "message": "Hyvää iltaa"
+  },
+  "greetEvening2": {
+    "message": "Aika rentoutua"
+  },
+  "greetEvening3": {
+    "message": "Hyvää yötä"
+  },
+  "greetEvening4": {
+    "message": "Rentoutumisaika"
+  },
+  "greetEvening5": {
+    "message": "Nauti illastasi"
+  },
+  "greetNight1": {
+    "message": "Hyvää myöhäistä iltaa"
+  },
+  "greetNight2": {
+    "message": "Hei yökyöpeli"
+  },
+  "greetNight3": {
+    "message": "Myöhäiset tunnit"
+  },
+  "greetNight4": {
+    "message": "Hiljaiset tunnit"
+  },
+  "greetNight5": {
+    "message": "Olet myöhään hereillä."
+  },
+  "editLabel": {
+    "message": "Muokkaa"
+  },
+  "removeLabel": {
+    "message": "Poista"
+  },
+  "moreOptionsLabel": {
+    "message": "Lisää vaihtoehtoja"
+  }
+}
