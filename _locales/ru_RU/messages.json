@@ -57,7 +57,7 @@
     "message": "Чистый поиск (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Компактный бар"
   },
   "languageTitle": {
     "message": "Язык"
@@ -99,7 +99,7 @@
     "message": "Сохранить"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Поиск в Интернете"
   },
   "namePlaceholder": {
     "message": "Ваше имя (необязательно)"
