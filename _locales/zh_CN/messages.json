@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "干净搜索（谷歌）"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "语言"
   },
@@ -96,7 +99,7 @@
     "message": "保存"
   },
   "searchPlaceholder": {
-    "message": "搜索网页..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "您的姓名（可选）"
