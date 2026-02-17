@@ -67,7 +67,7 @@ Contributions are always welcome! Whether you are a developer or a translator, t
 
 ### 🌍 Translations (No Code Required)
 Want to use this extension in your native language? You can help us translate it!
-👉 **Read the [Translation Guide](TRANSLATING.md)** to learn how to add a new language (JSON format).
+👉 **Read the [Translation Guide](TRANSLATING.md)** to learn how to add a new language.
 
 ### 💻 Code & Features
 Found a bug or have an idea for a new widget?
