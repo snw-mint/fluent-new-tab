@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Applicazioni"
+  },
+  "moreApps": {
+    "message": "Altre app"
+  },
+  "settingsTitle": {
+    "message": "Impostazioni"
+  },
+  "greetingTitle": {
+    "message": "Saluto"
+  },
+  "iconsStyleLabel": {
+    "message": "Stile icona"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Colore)"
+  },
+  "styleOutline": {
+    "message": "Schema (minimo)"
+  },
+  "weatherTitle": {
+    "message": "Meteo"
+  },
+  "shortcutsTitle": {
+    "message": "Scorciatoie"
+  },
+  "rows1": {
+    "message": "1 riga"
+  },
+  "rows2": {
+    "message": "2 file"
+  },
+  "rowsLabel": {
+    "message": "Righe"
+  },
+  "rows3": {
+    "message": "3 file"
+  },
+  "rows4": {
+    "message": "4 file"
+  },
+  "appLauncherTitle": {
+    "message": "Avvio applicazioni"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistema"
+  },
+  "searchTitle": {
+    "message": "Cerca"
+  },
+  "suggestionsOption": {
+    "message": "Suggerimenti"
+  },
+  "clearSearchOption": {
+    "message": "Ricerca pulita (Google)"
+  },
+  "languageTitle": {
+    "message": "Lingua"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Lingua dell'interfaccia"
+  },
+  "backupTitle": {
+    "message": "Backup dei dati"
+  },
+  "exportOption": {
+    "message": "Esportazione"
+  },
+  "importOption": {
+    "message": "Importa"
+  },
+  "addShortcutTitle": {
+    "message": "Aggiungi collegamento"
+  },
+  "editShortcutTitle": {
+    "message": "Modifica collegamento"
+  },
+  "shortcutNameLabel": {
+    "message": "Nome"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Icona personalizzata"
+  },
+  "faviconUrlLabel": {
+    "message": "URL dell'icona"
+  },
+  "btnCancel": {
+    "message": "Annulla"
+  },
+  "btnSave": {
+    "message": "Salva"
+  },
+  "searchPlaceholder": {
+    "message": "Cerca nel web..."
+  },
+  "namePlaceholder": {
+    "message": "Il tuo nome (facoltativo)"
+  },
+  "cityPlaceholder": {
+    "message": "La tua città"
+  },
+  "addShortcutLabel": {
+    "message": "Aggiungi"
+  },
+  "editLabel": {
+    "message": "Modifica"
+  },
+  "removeLabel": {
+    "message": "Rimuovi"
+  },
+  "moreOptionsLabel": {
+    "message": "Altre opzioni"
+  },
+  "greetMorning1": {
+    "message": "Buongiorno, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Svegliati e sorridi, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Ti auguro una splendida giornata, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Ciao, $NAME$! Pronto per oggi?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Iniziamo bene la giornata, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Buon pomeriggio, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "È bello vederti, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Spero che tu stia bene, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Continua così, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Rimani concentrato e produttivo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Buonasera, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "È ora di rilassarsi, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Ti auguro una serata tranquilla, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "È ora di rilassarsi, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Buona serata, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Spero che tu stia trascorrendo una notte tranquilla, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Ancora sveglio, $NAME$? Riposa bene!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Goditi le ore tranquille, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Buonanotte, $NAME$. Ci vediamo domani!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Sveglio fino a tardi stanotte, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
