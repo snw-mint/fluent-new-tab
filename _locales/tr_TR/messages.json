@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "Uygulamalar"
+  },
+  "moreApps": {
+    "message": "Daha Fazla Uygulama"
+  },
+  "settingsTitle": {
+    "message": "Ayarlar"
+  },
+  "greetingTitle": {
+    "message": "Selamlama"
+  },
+  "iconsStyleLabel": {
+    "message": "Simge Stili"
+  },
+  "styleEmoji": {
+    "message": "3D Akıcı (Renkli)"
+  },
+  "styleOutline": {
+    "message": "Özet (Minimal)"
+  },
+  "weatherTitle": {
+    "message": "Hava durumu"
+  },
+  "shortcutsTitle": {
+    "message": "Kısayollar"
+  },
+  "rows1": {
+    "message": "1 Sıra"
+  },
+  "rows2": {
+    "message": "2 Sıra"
+  },
+  "rowsLabel": {
+    "message": "Satırlar"
+  },
+  "rows3": {
+    "message": "3 Sıra"
+  },
+  "rows4": {
+    "message": "4 Satır"
+  },
+  "appLauncherTitle": {
+    "message": "Uygulama Başlatıcı"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosistem"
+  },
+  "searchTitle": {
+    "message": "Arama"
+  },
+  "suggestionsOption": {
+    "message": "Öneriler"
+  },
+  "clearSearchOption": {
+    "message": "Temiz arama (Google)"
+  },
+  "languageTitle": {
+    "message": "Dil"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Arayüz Dili"
+  },
+  "backupTitle": {
+    "message": "Veri Yedekleme"
+  },
+  "exportOption": {
+    "message": "Dışa aktar"
+  },
+  "importOption": {
+    "message": "İthalat"
+  },
+  "addShortcutTitle": {
+    "message": "Kısayol Ekle"
+  },
+  "editShortcutTitle": {
+    "message": "Kısayolu Düzenle"
+  },
+  "shortcutNameLabel": {
+    "message": "Ad"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Özel Simge"
+  },
+  "faviconUrlLabel": {
+    "message": "Simge URL'si"
+  },
+  "btnCancel": {
+    "message": "İptal"
+  },
+  "btnSave": {
+    "message": "Kaydet"
+  },
+  "searchPlaceholder": {
+    "message": "İnternette ara..."
+  },
+  "namePlaceholder": {
+    "message": "Adınız (isteğe bağlı)"
+  },
+  "cityPlaceholder": {
+    "message": "Şehriniz"
+  },
+  "addShortcutLabel": {
+    "message": "Ekle"
+  },
+  "editLabel": {
+    "message": "Düzenle"
+  },
+  "removeLabel": {
+    "message": "Kaldır"
+  },
+  "moreOptionsLabel": {
+    "message": "Daha fazla seçenek"
+  },
+  "greetMorning1": {
+    "message": "Günaydın, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Uyan ve parla, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Harika bir gün geçirmenizi dilerim, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Merhaba, $NAME$! Bugüne hazır mısın?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Güne doğru bir başlangıç yapalım. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "İyi günler, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Seni görmek güzel. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Umarım iyisindir. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "$NAME$, harika işine devam et!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Odaklanın ve üretken olun, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "İyi akşamlar, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Rahatlamanın zamanı geldi. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Sakin bir akşam dilerim, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Rahatlama zamanı, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "İyi akşamlar, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Umarım huzurlu bir gece geçiriyorsunuzdur. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Hala uyanık mısın, $NAME$? Yakında iyi dinlen!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Sessiz saatlerin tadını çıkarın, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "İyi geceler, $NAME$. Yarın görüşürüz!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Bu gece geç saatlere kadar uyanık mısın, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
