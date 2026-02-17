@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "Weitere Apps"
+  },
+  "settingsTitle": {
+    "message": "Einstellungen"
+  },
+  "greetingTitle": {
+    "message": "Begrüßung"
+  },
+  "iconsStyleLabel": {
+    "message": "Symbolstil"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Farbe)"
+  },
+  "styleOutline": {
+    "message": "Gliederung (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Wetter"
+  },
+  "shortcutsTitle": {
+    "message": "Schnellzugriffe"
+  },
+  "rows1": {
+    "message": "1 Reihe"
+  },
+  "rows2": {
+    "message": "2 Reihen"
+  },
+  "rowsLabel": {
+    "message": "Zeilen"
+  },
+  "rows3": {
+    "message": "3 Reihen"
+  },
+  "rows4": {
+    "message": "4 Reihen"
+  },
+  "appLauncherTitle": {
+    "message": "App-Starter"
+  },
+  "ecosystemLabel": {
+    "message": "Ökosystem"
+  },
+  "searchTitle": {
+    "message": "Suche"
+  },
+  "suggestionsOption": {
+    "message": "Vorschläge"
+  },
+  "clearSearchOption": {
+    "message": "Saubere Suche (Google)"
+  },
+  "languageTitle": {
+    "message": "Sprache"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Schnittstellensprache"
+  },
+  "backupTitle": {
+    "message": "Datensicherung"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Verknüpfung hinzufügen"
+  },
+  "editShortcutTitle": {
+    "message": "Verknüpfung bearbeiten"
+  },
+  "shortcutNameLabel": {
+    "message": "Name"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Benutzerdefiniertes Symbol"
+  },
+  "faviconUrlLabel": {
+    "message": "Symbol-URL"
+  },
+  "btnCancel": {
+    "message": "Abbrechen"
+  },
+  "btnSave": {
+    "message": "Speichern"
+  },
+  "searchPlaceholder": {
+    "message": "Im Internet suchen..."
+  },
+  "namePlaceholder": {
+    "message": "Ihr Name (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "Ihre Stadt"
+  },
+  "addShortcutLabel": {
+    "message": "Hinzufügen"
+  },
+  "greetMorning1": {
+    "message": "Guten Morgen"
+  },
+  "greetMorning2": {
+    "message": "Aufstehen und strahlen"
+  },
+  "greetMorning3": {
+    "message": "Ich wünsche Ihnen einen schönen Tag."
+  },
+  "greetMorning4": {
+    "message": "Hallo"
+  },
+  "greetMorning5": {
+    "message": "Starten Sie richtig in den Tag"
+  },
+  "greetAfternoon1": {
+    "message": "Guten Tag"
+  },
+  "greetAfternoon2": {
+    "message": "Schön, dich zu sehen."
+  },
+  "greetAfternoon3": {
+    "message": "Ich hoffe, es geht dir gut."
+  },
+  "greetAfternoon4": {
+    "message": "Weiter so!"
+  },
+  "greetAfternoon5": {
+    "message": "Bleiben Sie produktiv"
+  },
+  "greetEvening1": {
+    "message": "Guten Abend"
+  },
+  "greetEvening2": {
+    "message": "Zeit zum Entspannen"
+  },
+  "greetEvening3": {
+    "message": "Gute Nacht"
+  },
+  "greetEvening4": {
+    "message": "Entspannungszeit"
+  },
+  "greetEvening5": {
+    "message": "Genießen Sie Ihren Abend"
+  },
+  "greetNight1": {
+    "message": "Gute Nacht"
+  },
+  "greetNight2": {
+    "message": "Hey Nachteule"
+  },
+  "greetNight3": {
+    "message": "Späte Stunden"
+  },
+  "greetNight4": {
+    "message": "Ruhezeiten"
+  },
+  "greetNight5": {
+    "message": "Du bist noch spät auf."
+  },
+  "editLabel": {
+    "message": "Bearbeiten"
+  },
+  "removeLabel": {
+    "message": "Entfernen"
+  },
+  "moreOptionsLabel": {
+    "message": "Weitere Optionen"
+  }
+}
