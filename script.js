@@ -107,6 +107,17 @@ function debounce(func, wait) {
 function closeModal() {
     if (addModal) addModal.classList.remove('active');
 }
+function closePopups(except = null) {
+    if (configPopup && configPopup !== except) configPopup.classList.remove('active');
+    if (launcherPopup && launcherPopup !== except) {
+        launcherPopup.classList.remove('active');
+        if (appLauncherBtn) appLauncherBtn.classList.remove('active');
+    }
+    document.querySelectorAll('.shortcut-dropdown.active').forEach(menu => {
+        if (menu !== except) menu.classList.remove('active');
+    });
+    if (dropdown && dropdown !== except) dropdown.classList.remove('active');
+}
 function openModal(index = null) {
     editingIndex = index;
     if (addModal) {
@@ -211,10 +222,8 @@ function renderShortcuts() {
     document.querySelectorAll('.menu-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            document.querySelectorAll('.shortcut-dropdown.active').forEach(menu => {
-                if (menu !== btn.nextElementSibling) menu.classList.remove('active');
-            });
             const dropdown = btn.nextElementSibling;
+            closePopups(dropdown);
             dropdown.classList.toggle('active');
         });
     });
@@ -458,7 +467,6 @@ function initBrand() {
         .replace(/,\s*\?$/, '?')
         .trim();
     
-    // Ajusta o tamanho da fonte dinamicamente para evitar quebra de linha em frases longas
     let fontSize = '40px';
     const len = finalGreetingText.length;
     if (len > 50) fontSize = '22px';
@@ -677,6 +685,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         configBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            closePopups(configPopup);
             configPopup.classList.toggle('active');
             if (settingsDot && settingsDot.classList.contains('active')) {
                 settingsDot.classList.remove('active');
@@ -697,6 +706,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     /* Shortcuts & Modals */
+    document.addEventListener('click', (e) => {
+        document.querySelectorAll('.shortcut-dropdown.active').forEach(dropdown => {
+            if (!dropdown.closest('.menu-wrapper').contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    });
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (addModal) {
         addModal.addEventListener('click', (e) => {
@@ -753,6 +769,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (engineBtn) {
         engineBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            closePopups(dropdown);
             dropdown.classList.toggle('active');
         });
     }
@@ -867,6 +884,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(appLauncherBtn) {
         appLauncherBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            closePopups(launcherPopup);
             launcherPopup.classList.toggle('active');
             appLauncherBtn.classList.toggle('active');
         });
