@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Додатки"
+  },
+  "moreApps": {
+    "message": "Більше додатків"
+  },
+  "settingsTitle": {
+    "message": "Налаштування"
+  },
+  "greetingTitle": {
+    "message": "Привітання"
+  },
+  "iconsStyleLabel": {
+    "message": "Стиль іконки"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (колір)"
+  },
+  "styleOutline": {
+    "message": "Контур (мінімальний)"
+  },
+  "weatherTitle": {
+    "message": "Погода"
+  },
+  "shortcutsTitle": {
+    "message": "Ярлики"
+  },
+  "rows1": {
+    "message": "1 ряд"
+  },
+  "rows2": {
+    "message": "2 ряди"
+  },
+  "rowsLabel": {
+    "message": "Ряди"
+  },
+  "rows3": {
+    "message": "3 ряди"
+  },
+  "rows4": {
+    "message": "4 ряди"
+  },
+  "appLauncherTitle": {
+    "message": "Запуск програми"
+  },
+  "ecosystemLabel": {
+    "message": "Екосистема"
+  },
+  "searchTitle": {
+    "message": "Пошук"
+  },
+  "suggestionsOption": {
+    "message": "Пропозиції"
+  },
+  "clearSearchOption": {
+    "message": "Чистий пошук (Google)"
+  },
+  "languageTitle": {
+    "message": "Мова"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Мова інтерфейсу"
+  },
+  "backupTitle": {
+    "message": "Резервне копіювання даних"
+  },
+  "exportOption": {
+    "message": "Експорт"
+  },
+  "importOption": {
+    "message": "Імпорт"
+  },
+  "addShortcutTitle": {
+    "message": "Додати ярлик"
+  },
+  "editShortcutTitle": {
+    "message": "Редагувати ярлик"
+  },
+  "shortcutNameLabel": {
+    "message": "Ім'я"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Іконка на замовлення"
+  },
+  "faviconUrlLabel": {
+    "message": "URL-адреса піктограми"
+  },
+  "btnCancel": {
+    "message": "Скасувати"
+  },
+  "btnSave": {
+    "message": "Зберегти"
+  },
+  "searchPlaceholder": {
+    "message": "Пошук в Інтернеті..."
+  },
+  "namePlaceholder": {
+    "message": "Ваше ім'я (не обов'язково)"
+  },
+  "cityPlaceholder": {
+    "message": "Ваше місто"
+  },
+  "addShortcutLabel": {
+    "message": "Додати"
+  },
+  "greetMorning1": {
+    "message": "Доброго ранку"
+  },
+  "greetMorning2": {
+    "message": "Прокидайся і посміхайся"
+  },
+  "greetMorning3": {
+    "message": "Гарного дня!"
+  },
+  "greetMorning4": {
+    "message": "Привіт"
+  },
+  "greetMorning5": {
+    "message": "Почніть день правильно"
+  },
+  "greetAfternoon1": {
+    "message": "Добрий день"
+  },
+  "greetAfternoon2": {
+    "message": "Радий бачити вас"
+  },
+  "greetAfternoon3": {
+    "message": "Сподіваюся, у вас все добре"
+  },
+  "greetAfternoon4": {
+    "message": "Продовжуйте в тому ж дусі"
+  },
+  "greetAfternoon5": {
+    "message": "Залишайтеся продуктивними"
+  },
+  "greetEvening1": {
+    "message": "Добрий вечір"
+  },
+  "greetEvening2": {
+    "message": "Час для відпочинку"
+  },
+  "greetEvening3": {
+    "message": "Доброї ночі"
+  },
+  "greetEvening4": {
+    "message": "Час для відпочинку"
+  },
+  "greetEvening5": {
+    "message": "Приємного вечора!"
+  },
+  "greetNight1": {
+    "message": "Гарної пізньої ночі"
+  },
+  "greetNight2": {
+    "message": "Привіт, нічний птах"
+  },
+  "greetNight3": {
+    "message": "Пізні години"
+  },
+  "greetNight4": {
+    "message": "Тихі години"
+  },
+  "greetNight5": {
+    "message": "Ти не спиш допізна"
+  },
+  "editLabel": {
+    "message": "Редагувати"
+  },
+  "removeLabel": {
+    "message": "Видалити"
+  },
+  "moreOptionsLabel": {
+    "message": "Більше опцій"
+  }
+}
