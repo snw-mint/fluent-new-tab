@@ -57,7 +57,7 @@
     "message": "Saubere Suche (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Kompakte Stange"
   },
   "languageTitle": {
     "message": "Sprache"
@@ -99,7 +99,7 @@
     "message": "Speichern"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Im Internet suchen"
   },
   "namePlaceholder": {
     "message": "Ihr Name (optional)"
