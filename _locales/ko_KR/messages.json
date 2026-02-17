@@ -1,0 +1,299 @@
+{
+  "appsTitle": {
+    "message": "앱"
+  },
+  "moreApps": {
+    "message": "더 많은 앱"
+  },
+  "settingsTitle": {
+    "message": "설정"
+  },
+  "greetingTitle": {
+    "message": "인사말"
+  },
+  "iconsStyleLabel": {
+    "message": "아이콘 스타일"
+  },
+  "styleEmoji": {
+    "message": "3D 플루언트 (컬러)"
+  },
+  "styleOutline": {
+    "message": "개요 (최소)"
+  },
+  "weatherTitle": {
+    "message": "날씨"
+  },
+  "shortcutsTitle": {
+    "message": "바로가기"
+  },
+  "rows1": {
+    "message": "1 행"
+  },
+  "rows2": {
+    "message": "2 행"
+  },
+  "rowsLabel": {
+    "message": "행"
+  },
+  "rows3": {
+    "message": "3 행"
+  },
+  "rows4": {
+    "message": "4 행"
+  },
+  "appLauncherTitle": {
+    "message": "앱 실행기"
+  },
+  "ecosystemLabel": {
+    "message": "생태계"
+  },
+  "searchTitle": {
+    "message": "검색"
+  },
+  "suggestionsOption": {
+    "message": "제안"
+  },
+  "clearSearchOption": {
+    "message": "깨끗한 검색 (Google)"
+  },
+  "languageTitle": {
+    "message": "언어"
+  },
+  "interfaceLanguageLabel": {
+    "message": "인터페이스 언어"
+  },
+  "backupTitle": {
+    "message": "데이터 백업"
+  },
+  "exportOption": {
+    "message": "수출"
+  },
+  "importOption": {
+    "message": "수입"
+  },
+  "addShortcutTitle": {
+    "message": "바로 가기 추가"
+  },
+  "editShortcutTitle": {
+    "message": "바로 가기 편집"
+  },
+  "shortcutNameLabel": {
+    "message": "이름"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "사용자 정의 아이콘"
+  },
+  "faviconUrlLabel": {
+    "message": "아이콘 URL"
+  },
+  "btnCancel": {
+    "message": "취소"
+  },
+  "btnSave": {
+    "message": "저장"
+  },
+  "searchPlaceholder": {
+    "message": "웹 검색..."
+  },
+  "namePlaceholder": {
+    "message": "귀하의 이름 (선택 사항)"
+  },
+  "cityPlaceholder": {
+    "message": "당신의 도시"
+  },
+  "addShortcutLabel": {
+    "message": "추가"
+  },
+  "editLabel": {
+    "message": "편집"
+  },
+  "removeLabel": {
+    "message": "제거"
+  },
+  "moreOptionsLabel": {
+    "message": "추가 옵션"
+  },
+  "greetMorning1": {
+    "message": "좋은 아침입니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "일어나서 빛을 발하라, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "멋진 하루 되시길 바랍니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "안녕하세요, $NAME$! 오늘 준비되셨나요?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "하루를 제대로 시작해 봅시다, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "안녕하세요. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "만나서 반갑습니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "잘 지내고 계시길 바랍니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "$NAME$, 계속해서 훌륭한 일을 해주세요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "집중력을 유지하고 생산적으로 일하세요. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "좋은 저녁입니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "이제 휴식을 취할 시간입니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "평온한 저녁 되시길 바랍니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "이제 긴장을 풀 시간, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "좋은 저녁 보내세요, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "평온한 밤 보내고 계시길 바랍니다. $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "아직도 깨어 있나요, $NAME$? 곧 편안히 쉬세요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "고요한 시간을 즐겨보세요, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "안녕, $NAME$. 내일 봐!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "오늘 밤 늦게까지 깨어 있나요, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
