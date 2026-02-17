@@ -57,7 +57,7 @@
     "message": "Recherche propre (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Barre compacte"
   },
   "languageTitle": {
     "message": "Langue"
@@ -99,7 +99,7 @@
     "message": "Enregistrer"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Rechercher sur le Web"
   },
   "namePlaceholder": {
     "message": "Votre nom (facultatif)"
