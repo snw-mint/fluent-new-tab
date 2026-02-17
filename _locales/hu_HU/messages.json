@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Alkalmazások"
+  },
+  "moreApps": {
+    "message": "További alkalmazások"
+  },
+  "settingsTitle": {
+    "message": "Beállítások"
+  },
+  "greetingTitle": {
+    "message": "Üdvözlet"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikon stílus"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (színes)"
+  },
+  "styleOutline": {
+    "message": "Vázlat (minimális)"
+  },
+  "weatherTitle": {
+    "message": "Időjárás"
+  },
+  "shortcutsTitle": {
+    "message": "Gyorsbillentyűk"
+  },
+  "rows1": {
+    "message": "1 sor"
+  },
+  "rows2": {
+    "message": "2 sor"
+  },
+  "rowsLabel": {
+    "message": "Sorok"
+  },
+  "rows3": {
+    "message": "3 sor"
+  },
+  "rows4": {
+    "message": "4 sor"
+  },
+  "appLauncherTitle": {
+    "message": "Alkalmazásindító"
+  },
+  "ecosystemLabel": {
+    "message": "Ökoszisztéma"
+  },
+  "searchTitle": {
+    "message": "Keresés"
+  },
+  "suggestionsOption": {
+    "message": "Javaslatok"
+  },
+  "clearSearchOption": {
+    "message": "Tiszta keresés (Google)"
+  },
+  "languageTitle": {
+    "message": "Nyelv"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Felület nyelve"
+  },
+  "backupTitle": {
+    "message": "Adatmentés"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Parancsikon hozzáadása"
+  },
+  "editShortcutTitle": {
+    "message": "Parancsikon szerkesztése"
+  },
+  "shortcutNameLabel": {
+    "message": "Név"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Egyéni ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon URL"
+  },
+  "btnCancel": {
+    "message": "Mégse"
+  },
+  "btnSave": {
+    "message": "Mentés"
+  },
+  "searchPlaceholder": {
+    "message": "Keresés az interneten..."
+  },
+  "namePlaceholder": {
+    "message": "A neved (opcionális)"
+  },
+  "cityPlaceholder": {
+    "message": "A te városod"
+  },
+  "addShortcutLabel": {
+    "message": "Hozzáadás"
+  },
+  "greetMorning1": {
+    "message": "Jó reggelt!"
+  },
+  "greetMorning2": {
+    "message": "Kelj fel és ragyogj!"
+  },
+  "greetMorning3": {
+    "message": "Legyen szép napod!"
+  },
+  "greetMorning4": {
+    "message": "Helló!"
+  },
+  "greetMorning5": {
+    "message": "Kezdje jól a napot!"
+  },
+  "greetAfternoon1": {
+    "message": "Jó napot kívánok!"
+  },
+  "greetAfternoon2": {
+    "message": "Örülök, hogy látlak."
+  },
+  "greetAfternoon3": {
+    "message": "Remélem, jól vagy."
+  },
+  "greetAfternoon4": {
+    "message": "Továbbra is így!"
+  },
+  "greetAfternoon5": {
+    "message": "Maradjon produktív"
+  },
+  "greetEvening1": {
+    "message": "Jó estét!"
+  },
+  "greetEvening2": {
+    "message": "Ideje pihenni"
+  },
+  "greetEvening3": {
+    "message": "Jó éjszakát!"
+  },
+  "greetEvening4": {
+    "message": "Pihenőidő"
+  },
+  "greetEvening5": {
+    "message": "Élvezze az estét!"
+  },
+  "greetNight1": {
+    "message": "Jó éjszakát!"
+  },
+  "greetNight2": {
+    "message": "Hé, éjszakai bagoly!"
+  },
+  "greetNight3": {
+    "message": "Késő órákon"
+  },
+  "greetNight4": {
+    "message": "Csendes órák"
+  },
+  "greetNight5": {
+    "message": "Sokáig fenn vagy."
+  },
+  "editLabel": {
+    "message": "Szerkesztés"
+  },
+  "removeLabel": {
+    "message": "Eltávolítás"
+  },
+  "moreOptionsLabel": {
+    "message": "További lehetőségek"
+  }
+}
