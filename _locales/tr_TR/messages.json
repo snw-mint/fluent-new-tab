@@ -57,7 +57,7 @@
     "message": "Temiz arama (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Kompakt çubuk"
   },
   "languageTitle": {
     "message": "Dil"
@@ -99,7 +99,7 @@
     "message": "Kaydet"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "İnternette ara"
   },
   "namePlaceholder": {
     "message": "Adınız (isteğe bağlı)"
