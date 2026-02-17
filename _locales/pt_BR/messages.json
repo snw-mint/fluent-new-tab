@@ -1,179 +1,179 @@
 {
   "appsTitle": {
-    "message": "Apps"
+    "message": "Aplicativos"
   },
   "moreApps": {
-    "message": "More Apps"
+    "message": "Mais aplicativos"
   },
   "settingsTitle": {
-    "message": "Settings"
+    "message": "Configurações"
   },
   "greetingTitle": {
-    "message": "Greeting"
+    "message": "Saudações"
   },
   "iconsStyleLabel": {
-    "message": "Icon Style"
+    "message": "Estilo do ícone"
   },
   "styleEmoji": {
-    "message": "3D Fluent (Color)"
+    "message": "3D Fluente (Cor)"
   },
   "styleOutline": {
-    "message": "Outline (Minimal)"
+    "message": "Esboço (mínimo)"
   },
   "weatherTitle": {
-    "message": "Weather"
+    "message": "Clima"
   },
   "shortcutsTitle": {
-    "message": "Shortcuts"
+    "message": "Atalhos"
   },
   "rows1": {
-    "message": "1 Row"
+    "message": "1 linha"
   },
   "rows2": {
-    "message": "2 Rows"
+    "message": "2 linhas"
   },
   "rowsLabel": {
-    "message": "Rows"
+    "message": "Linhas"
   },
   "rows3": {
-    "message": "3 Rows"
+    "message": "3 linhas"
   },
   "rows4": {
-    "message": "4 Rows"
+    "message": "4 linhas"
   },
   "appLauncherTitle": {
-    "message": "App Launcher"
+    "message": "Iniciador de aplicativos"
   },
   "ecosystemLabel": {
-    "message": "Ecosystem"
+    "message": "Ecossistema"
   },
   "searchTitle": {
-    "message": "Search"
+    "message": "Pesquisar"
   },
   "suggestionsOption": {
-    "message": "Suggestions"
+    "message": "Sugestões"
   },
   "clearSearchOption": {
-    "message": "Clean search (Google)"
+    "message": "Pesquisa limpa (Google)"
   },
   "languageTitle": {
-    "message": "Language"
+    "message": "Idioma"
   },
   "interfaceLanguageLabel": {
-    "message": "Interface Language"
+    "message": "Idioma da interface"
   },
   "backupTitle": {
-    "message": "Data Backup"
+    "message": "Backup de dados"
   },
   "exportOption": {
-    "message": "Export"
+    "message": "Exportar"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importar"
   },
   "addShortcutTitle": {
-    "message": "Add Shortcut"
+    "message": "Adicionar atalho"
   },
   "editShortcutTitle": {
-    "message": "Edit Shortcut"
+    "message": "Editar atalho"
   },
   "shortcutNameLabel": {
-    "message": "Name"
+    "message": "Nome"
   },
   "shortcutUrlLabel": {
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Custom Icon"
+    "message": "Ícone personalizado"
   },
   "faviconUrlLabel": {
-    "message": "Icon URL"
+    "message": "URL do ícone"
   },
   "btnCancel": {
-    "message": "Cancel"
+    "message": "Cancelar"
   },
   "btnSave": {
-    "message": "Save"
+    "message": "Salvar"
   },
   "searchPlaceholder": {
-    "message": "Search the web..."
+    "message": "Pesquise na web..."
   },
   "namePlaceholder": {
-    "message": "Your Name (optional)"
+    "message": "Seu nome (opcional)"
   },
   "cityPlaceholder": {
-    "message": "Your City"
+    "message": "Sua cidade"
   },
   "addShortcutLabel": {
-    "message": "Add"
+    "message": "Adicionar"
   },
   "greetMorning1": {
-    "message": "Good morning"
+    "message": "Bom dia"
   },
   "greetMorning2": {
-    "message": "Rise and shine"
+    "message": "Levante-se e brilhe"
   },
   "greetMorning3": {
-    "message": "Have a great day"
+    "message": "Tenha um ótimo dia"
   },
   "greetMorning4": {
-    "message": "Hello there"
+    "message": "Olá"
   },
   "greetMorning5": {
-    "message": "Start the day right"
+    "message": "Comece bem o dia"
   },
   "greetAfternoon1": {
-    "message": "Good afternoon"
+    "message": "Boa tarde"
   },
   "greetAfternoon2": {
-    "message": "Good to see you"
+    "message": "É bom ver você"
   },
   "greetAfternoon3": {
-    "message": "Hope you're doing well"
+    "message": "Espero que esteja tudo bem com você"
   },
   "greetAfternoon4": {
-    "message": "Keep it up"
+    "message": "Continue assim"
   },
   "greetAfternoon5": {
-    "message": "Stay productive"
+    "message": "Mantenha-se produtivo"
   },
   "greetEvening1": {
-    "message": "Good evening"
+    "message": "Boa noite"
   },
   "greetEvening2": {
-    "message": "Time to relax"
+    "message": "Hora de relaxar"
   },
   "greetEvening3": {
-    "message": "Good night"
+    "message": "Boa noite"
   },
   "greetEvening4": {
-    "message": "Unwind time"
+    "message": "Relaxe"
   },
   "greetEvening5": {
-    "message": "Enjoy your evening"
+    "message": "Aproveite a sua noite"
   },
   "greetNight1": {
-    "message": "Good late night"
+    "message": "Boa noite"
   },
   "greetNight2": {
-    "message": "Hey night owl"
+    "message": "Ei, notívago"
   },
   "greetNight3": {
-    "message": "Late hours"
+    "message": "Horas tardias"
   },
   "greetNight4": {
-    "message": "Quiet hours"
+    "message": "Horário de silêncio"
   },
   "greetNight5": {
-    "message": "You're up late"
+    "message": "Você está acordado até tarde"
   },
   "editLabel": {
-    "message": "Edit"
+    "message": "Editar"
   },
   "removeLabel": {
-    "message": "Remove"
+    "message": "Remover"
   },
   "moreOptionsLabel": {
-    "message": "More options"
+    "message": "Mais opções"
   }
 }
