@@ -57,7 +57,7 @@
     "message": "Tiszta keresés (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Kompakt bár"
   },
   "languageTitle": {
     "message": "Nyelv"
@@ -99,7 +99,7 @@
     "message": "Mentés"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Keresés az interneten"
   },
   "namePlaceholder": {
     "message": "A neved (opcionális)"
