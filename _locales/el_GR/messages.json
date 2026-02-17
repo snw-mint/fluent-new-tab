@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Εφαρμογές"
+  },
+  "moreApps": {
+    "message": "Περισσότερες εφαρμογές"
+  },
+  "settingsTitle": {
+    "message": "Ρυθμίσεις"
+  },
+  "greetingTitle": {
+    "message": "Χαιρετισμός"
+  },
+  "iconsStyleLabel": {
+    "message": "Στυλ εικονιδίου"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Έγχρωμο)"
+  },
+  "styleOutline": {
+    "message": "Περίγραμμα (Ελάχιστο)"
+  },
+  "weatherTitle": {
+    "message": "Καιρός"
+  },
+  "shortcutsTitle": {
+    "message": "Συντομεύσεις"
+  },
+  "rows1": {
+    "message": "1 σειρά"
+  },
+  "rows2": {
+    "message": "2 σειρές"
+  },
+  "rowsLabel": {
+    "message": "Σειρές"
+  },
+  "rows3": {
+    "message": "3 σειρές"
+  },
+  "rows4": {
+    "message": "4 σειρές"
+  },
+  "appLauncherTitle": {
+    "message": "Εκκινητής εφαρμογών"
+  },
+  "ecosystemLabel": {
+    "message": "Οικοσύστημα"
+  },
+  "searchTitle": {
+    "message": "Αναζήτηση"
+  },
+  "suggestionsOption": {
+    "message": "Προτάσεις"
+  },
+  "clearSearchOption": {
+    "message": "Καθαρή αναζήτηση (Google)"
+  },
+  "languageTitle": {
+    "message": "Γλώσσα"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Γλώσσα διεπαφής"
+  },
+  "backupTitle": {
+    "message": "Δημιουργία αντιγράφων ασφαλείας δεδομένων"
+  },
+  "exportOption": {
+    "message": "Εξαγωγή"
+  },
+  "importOption": {
+    "message": "Εισαγωγή"
+  },
+  "addShortcutTitle": {
+    "message": "Προσθήκη συντόμευσης"
+  },
+  "editShortcutTitle": {
+    "message": "Επεξεργασία συντόμευσης"
+  },
+  "shortcutNameLabel": {
+    "message": "Όνομα"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Προσαρμοσμένο εικονίδιο"
+  },
+  "faviconUrlLabel": {
+    "message": "Διεύθυνση URL εικονιδίου"
+  },
+  "btnCancel": {
+    "message": "Ακύρωση"
+  },
+  "btnSave": {
+    "message": "Αποθήκευση"
+  },
+  "searchPlaceholder": {
+    "message": "Αναζήτηση στο διαδίκτυο..."
+  },
+  "namePlaceholder": {
+    "message": "Το όνομά σας (προαιρετικό)"
+  },
+  "cityPlaceholder": {
+    "message": "Η πόλη σας"
+  },
+  "addShortcutLabel": {
+    "message": "Προσθήκη"
+  },
+  "greetMorning1": {
+    "message": "Καλημέρα"
+  },
+  "greetMorning2": {
+    "message": "Ξυπνήστε και λάμψτε"
+  },
+  "greetMorning3": {
+    "message": "Καλή σας μέρα"
+  },
+  "greetMorning4": {
+    "message": "Γεια σας"
+  },
+  "greetMorning5": {
+    "message": "Ξεκινήστε τη μέρα σας σωστά"
+  },
+  "greetAfternoon1": {
+    "message": "Καλησπέρα"
+  },
+  "greetAfternoon2": {
+    "message": "Χαίρομαι που σε βλέπω"
+  },
+  "greetAfternoon3": {
+    "message": "Ελπίζω να είσαι καλά."
+  },
+  "greetAfternoon4": {
+    "message": "Συνέχισε έτσι"
+  },
+  "greetAfternoon5": {
+    "message": "Παραμείνετε παραγωγικοί"
+  },
+  "greetEvening1": {
+    "message": "Καλησπέρα"
+  },
+  "greetEvening2": {
+    "message": "Ώρα για χαλάρωση"
+  },
+  "greetEvening3": {
+    "message": "Καληνύχτα"
+  },
+  "greetEvening4": {
+    "message": "Χαλαρώστε"
+  },
+  "greetEvening5": {
+    "message": "Καλή σας βραδιά"
+  },
+  "greetNight1": {
+    "message": "Καληνύχτα"
+  },
+  "greetNight2": {
+    "message": "Γεια σου, νυχτοπούλε"
+  },
+  "greetNight3": {
+    "message": "Αργά το βράδυ"
+  },
+  "greetNight4": {
+    "message": "Ώρες ησυχίας"
+  },
+  "greetNight5": {
+    "message": "Είσαι ξύπνιος μέχρι αργά"
+  },
+  "editLabel": {
+    "message": "Επεξεργασία"
+  },
+  "removeLabel": {
+    "message": "Κατάργηση"
+  },
+  "moreOptionsLabel": {
+    "message": "Περισσότερες επιλογές"
+  }
+}
