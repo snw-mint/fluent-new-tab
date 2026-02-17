@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "クリーン検索（Google）"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "言語"
   },
@@ -96,7 +99,7 @@
     "message": "保存"
   },
   "searchPlaceholder": {
-    "message": "ウェブを検索..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "お名前（任意）"
