@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Pesquisa limpa (Google)"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "Idioma"
   },
@@ -96,7 +99,7 @@
     "message": "Salvar"
   },
   "searchPlaceholder": {
-    "message": "Pesquise na web..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "Seu nome (opcional)"
