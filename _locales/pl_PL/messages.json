@@ -57,7 +57,7 @@
     "message": "Czyste wyszukiwanie (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Kompaktowy bar"
   },
   "languageTitle": {
     "message": "Język"
@@ -99,7 +99,7 @@
     "message": "Zapisz"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Wyszukaj w Internecie"
   },
   "namePlaceholder": {
     "message": "Twoje imię i nazwisko (opcjonalnie)"
