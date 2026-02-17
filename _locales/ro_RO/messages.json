@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Aplicații"
+  },
+  "moreApps": {
+    "message": "Mai multe aplicații"
+  },
+  "settingsTitle": {
+    "message": "Setări"
+  },
+  "greetingTitle": {
+    "message": "Salutare"
+  },
+  "iconsStyleLabel": {
+    "message": "Stilul pictogramelor"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Culoare)"
+  },
+  "styleOutline": {
+    "message": "Schiță (minimală)"
+  },
+  "weatherTitle": {
+    "message": "Vremea"
+  },
+  "shortcutsTitle": {
+    "message": "Căi rapide"
+  },
+  "rows1": {
+    "message": "1 rând"
+  },
+  "rows2": {
+    "message": "2 rânduri"
+  },
+  "rowsLabel": {
+    "message": "Rânduri"
+  },
+  "rows3": {
+    "message": "3 rânduri"
+  },
+  "rows4": {
+    "message": "4 rânduri"
+  },
+  "appLauncherTitle": {
+    "message": "Lansator de aplicații"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistem"
+  },
+  "searchTitle": {
+    "message": "Căutare"
+  },
+  "suggestionsOption": {
+    "message": "Sugestii"
+  },
+  "clearSearchOption": {
+    "message": "Căutare curată (Google)"
+  },
+  "languageTitle": {
+    "message": "Limba"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Limba interfeței"
+  },
+  "backupTitle": {
+    "message": "Backup de date"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Adăugați scurtătură"
+  },
+  "editShortcutTitle": {
+    "message": "Editați comanda rapidă"
+  },
+  "shortcutNameLabel": {
+    "message": "Nume"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Pictogramă personalizată"
+  },
+  "faviconUrlLabel": {
+    "message": "URL pictogramă"
+  },
+  "btnCancel": {
+    "message": "Anulează"
+  },
+  "btnSave": {
+    "message": "Salvați"
+  },
+  "searchPlaceholder": {
+    "message": "Căutați pe internet..."
+  },
+  "namePlaceholder": {
+    "message": "Numele dvs. (opțional)"
+  },
+  "cityPlaceholder": {
+    "message": "Orașul tău"
+  },
+  "addShortcutLabel": {
+    "message": "Adăugați"
+  },
+  "greetMorning1": {
+    "message": "Bună dimineața"
+  },
+  "greetMorning2": {
+    "message": "Trezește-te și strălucește"
+  },
+  "greetMorning3": {
+    "message": "O zi bună!"
+  },
+  "greetMorning4": {
+    "message": "Bună ziua"
+  },
+  "greetMorning5": {
+    "message": "Începeți ziua cu dreptul"
+  },
+  "greetAfternoon1": {
+    "message": "Bună ziua"
+  },
+  "greetAfternoon2": {
+    "message": "Mă bucur să te văd."
+  },
+  "greetAfternoon3": {
+    "message": "Sper că ești bine."
+  },
+  "greetAfternoon4": {
+    "message": "Ține-o tot așa!"
+  },
+  "greetAfternoon5": {
+    "message": "Rămâneți productiv"
+  },
+  "greetEvening1": {
+    "message": "Bună seara"
+  },
+  "greetEvening2": {
+    "message": "E timpul să te relaxezi"
+  },
+  "greetEvening3": {
+    "message": "Noapte bună"
+  },
+  "greetEvening4": {
+    "message": "Timpul de relaxare"
+  },
+  "greetEvening5": {
+    "message": "Bucurați-vă de seară!"
+  },
+  "greetNight1": {
+    "message": "Noapte bună"
+  },
+  "greetNight2": {
+    "message": "Hei, pasăre de noapte!"
+  },
+  "greetNight3": {
+    "message": "Ore târzii"
+  },
+  "greetNight4": {
+    "message": "Ore de liniște"
+  },
+  "greetNight5": {
+    "message": "Ești treaz până târziu."
+  },
+  "editLabel": {
+    "message": "Editați"
+  },
+  "removeLabel": {
+    "message": "Eliminare"
+  },
+  "moreOptionsLabel": {
+    "message": "Mai multe opțiuni"
+  }
+}
