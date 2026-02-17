@@ -56,6 +56,9 @@
   "clearSearchOption": {
     "message": "Καθαρή αναζήτηση (Google)"
   },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
   "languageTitle": {
     "message": "Γλώσσα"
   },
@@ -96,7 +99,7 @@
     "message": "Αποθήκευση"
   },
   "searchPlaceholder": {
-    "message": "Αναζήτηση στο διαδίκτυο..."
+    "message": "Search the web"
   },
   "namePlaceholder": {
     "message": "Το όνομά σας (προαιρετικό)"
