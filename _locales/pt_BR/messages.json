@@ -57,7 +57,7 @@
     "message": "Pesquisa limpa (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Barra compacta"
   },
   "languageTitle": {
     "message": "Idioma"
@@ -99,7 +99,7 @@
     "message": "Salvar"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Pesquisar na web"
   },
   "namePlaceholder": {
     "message": "Seu nome (opcional)"
