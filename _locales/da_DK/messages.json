@@ -1,0 +1,179 @@
+{
+  "appsTitle": {
+    "message": "Apps"
+  },
+  "moreApps": {
+    "message": "Flere apps"
+  },
+  "settingsTitle": {
+    "message": "Indstillinger"
+  },
+  "greetingTitle": {
+    "message": "Hilsen"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikonstil"
+  },
+  "styleEmoji": {
+    "message": "3D Fluent (Farve)"
+  },
+  "styleOutline": {
+    "message": "Oversigt (minimal)"
+  },
+  "weatherTitle": {
+    "message": "Vejr"
+  },
+  "shortcutsTitle": {
+    "message": "Genveje"
+  },
+  "rows1": {
+    "message": "1 række"
+  },
+  "rows2": {
+    "message": "2 rækker"
+  },
+  "rowsLabel": {
+    "message": "Rækker"
+  },
+  "rows3": {
+    "message": "3 rækker"
+  },
+  "rows4": {
+    "message": "4 rækker"
+  },
+  "appLauncherTitle": {
+    "message": "App-starter"
+  },
+  "ecosystemLabel": {
+    "message": "Økosystem"
+  },
+  "searchTitle": {
+    "message": "Søg"
+  },
+  "suggestionsOption": {
+    "message": "Forslag"
+  },
+  "clearSearchOption": {
+    "message": "Ren søgning (Google)"
+  },
+  "languageTitle": {
+    "message": "Sprog"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Grænsefladesprog"
+  },
+  "backupTitle": {
+    "message": "Databackup"
+  },
+  "exportOption": {
+    "message": "Eksport"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+  "addShortcutTitle": {
+    "message": "Tilføj genvej"
+  },
+  "editShortcutTitle": {
+    "message": "Rediger genvej"
+  },
+  "shortcutNameLabel": {
+    "message": "Navn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Brugerdefineret ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Annuller"
+  },
+  "btnSave": {
+    "message": "Gem"
+  },
+  "searchPlaceholder": {
+    "message": "Søg på internettet..."
+  },
+  "namePlaceholder": {
+    "message": "Dit navn (valgfrit)"
+  },
+  "cityPlaceholder": {
+    "message": "Din by"
+  },
+  "addShortcutLabel": {
+    "message": "Tilføj"
+  },
+  "greetMorning1": {
+    "message": "Godmorgen"
+  },
+  "greetMorning2": {
+    "message": "Stå op og strål"
+  },
+  "greetMorning3": {
+    "message": "Hav en god dag"
+  },
+  "greetMorning4": {
+    "message": "Hej"
+  },
+  "greetMorning5": {
+    "message": "Start dagen på den rigtige måde"
+  },
+  "greetAfternoon1": {
+    "message": "God eftermiddag"
+  },
+  "greetAfternoon2": {
+    "message": "Godt at se dig"
+  },
+  "greetAfternoon3": {
+    "message": "Håber du har det godt"
+  },
+  "greetAfternoon4": {
+    "message": "Fortsæt det gode arbejde"
+  },
+  "greetAfternoon5": {
+    "message": "Forbliv produktiv"
+  },
+  "greetEvening1": {
+    "message": "Godaften"
+  },
+  "greetEvening2": {
+    "message": "Tid til at slappe af"
+  },
+  "greetEvening3": {
+    "message": "Godnat"
+  },
+  "greetEvening4": {
+    "message": "Slap af"
+  },
+  "greetEvening5": {
+    "message": "Nyd din aften"
+  },
+  "greetNight1": {
+    "message": "God sen aften"
+  },
+  "greetNight2": {
+    "message": "Hej natteravn"
+  },
+  "greetNight3": {
+    "message": "Sene timer"
+  },
+  "greetNight4": {
+    "message": "Stille timer"
+  },
+  "greetNight5": {
+    "message": "Du er længe oppe"
+  },
+  "editLabel": {
+    "message": "Rediger"
+  },
+  "removeLabel": {
+    "message": "Fjern"
+  },
+  "moreOptionsLabel": {
+    "message": "Flere muligheder"
+  }
+}
