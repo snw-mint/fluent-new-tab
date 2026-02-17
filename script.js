@@ -441,10 +441,15 @@ function initBrand() {
     const randomIndex = (seed % 5) + 1;
     const translationKey = `${timeKeyPrefix}${randomIndex}`;
     let rawGreeting = "";
-    try {
-        rawGreeting = chrome.i18n.getMessage(translationKey, [userName]);
-    } catch (e) {
-        rawGreeting = translationKey; 
+    let message = window.getTranslation(translationKey);
+    if (message && message !== translationKey) {
+        rawGreeting = message.replace(/\$NAME\$/g, userName);
+    } else {
+        try {
+            rawGreeting = chrome.i18n.getMessage(translationKey, [userName]);
+        } catch (e) {
+            rawGreeting = translationKey; 
+        }
     }
 
     const finalGreetingText = rawGreeting
@@ -453,6 +458,13 @@ function initBrand() {
         .replace(/,\s*\?$/, '?')
         .trim();
     
+    // Ajusta o tamanho da fonte dinamicamente para evitar quebra de linha em frases longas
+    let fontSize = '40px';
+    const len = finalGreetingText.length;
+    if (len > 50) fontSize = '22px';
+    else if (len > 40) fontSize = '26px';
+    else if (len > 30) fontSize = '32px';
+
     let iconHTML = '';
     if (greetingStyle === '3d') {
         iconHTML = `<img src="assets/emojis/${iconName}.png" alt="${timeOfDayLabel}" class="greeting-icon" onerror="this.style.display='none'">`;
@@ -462,7 +474,7 @@ function initBrand() {
     
     greetingWrapper.innerHTML = `
         ${iconHTML}
-        <h1 class="greeting-text">${finalGreetingText}</h1>
+        <h1 class="greeting-text" style="font-size: ${fontSize}; white-space: nowrap;">${finalGreetingText}</h1>
     `;
 }
 
@@ -873,7 +885,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     languageSelect.value = browserLang;
                     localStorage.setItem('userLanguage', browserLang); 
                 } else {
-                    languageSelect.value = 'en';
+                    languageSelect.value = 'en_US';
                 }
             } catch (e) {
                 console.log("Idioma auto-detect falhou, usando padrão.");
