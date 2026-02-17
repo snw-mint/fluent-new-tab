@@ -57,7 +57,7 @@
     "message": "Căutare curată (Google)"
   },
   "compactBarOption": {
-    "message": "Compact bar"
+    "message": "Bară compactă"
   },
   "languageTitle": {
     "message": "Limba"
@@ -99,7 +99,7 @@
     "message": "Salvați"
   },
   "searchPlaceholder": {
-    "message": "Search the web"
+    "message": "Căutați pe web"
   },
   "namePlaceholder": {
     "message": "Numele dvs. (opțional)"
