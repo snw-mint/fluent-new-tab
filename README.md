@@ -77,7 +77,7 @@ Found a bug or have an idea for a new widget?
 
 ## ⚖️ License & Legal Notice
 
-The source code of this project is licensed under the **MIT License**.
+The source code of this project is licensed under the **GPL-3.0 license** effective 18/02/2026.
 
 If you choose to fork or distribute this project, you are required to use a different name and logo. Please ensure your version is clearly marked as a fork to avoid confusion with the original project.
 
