@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Приветствие"
   },
+  "wallpaperTitle": {
+    "message": "Обои"
+  },
   "iconsStyleLabel": {
     "message": "Стиль значка"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (цветной)"
-  },
-  "styleOutline": {
-    "message": "План (минимальный)"
   },
   "weatherTitle": {
     "message": "Погода"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Компактный бар"
+  },
+  "voiceSearchOption": {
+    "message": "Голосовой поиск"
   },
   "languageTitle": {
     "message": "Язык"
