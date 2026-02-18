@@ -74,9 +74,9 @@ Runtime files (`script.js` and `style.css`) are generated in `dist/` only.
 
 Your privacy is paramount. **Fluent New Tab** operates with a "Local First" philosophy.
 
-*   **Storage:** All data (shortcuts, settings, city) is stored in your browser's `localStorage`.
 *   **No Analytics:** We do not use Google Analytics, Firebase, or cookies.
-*   **External Requests:** Only strictly necessary requests (Weather, Favicons) are made directly from your client.
+*   **Storage:** Preferences are stored locally (`localStorage`), with local backup support in `chrome.storage.local`; uploaded wallpapers are stored in IndexedDB.
+*   **External Requests:** Only feature-required requests (Open-Meteo weather, wallpaper providers, favicons, optional suggestions) are made directly from your client.
 
 See the full Privacy Policy for details.
 

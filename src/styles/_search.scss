@@ -91,10 +91,11 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 .voice-search-btn svg {
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     position: relative;
     z-index: 1;
+    transform: translateY(1px);
 }
 .voice-search-btn.recording {
     color: #ff3b3b;

@@ -10,12 +10,14 @@ This document explains exactly what data is stored, where it lives, and the limi
 
 ## 1. Data Storage (Local Only)
 
-**Fluent New Tab** does not transmit your personal data to the developers. All data generated or configured within the extension is stored locally on your device using the browser's `localStorage` API.
+**Fluent New Tab** does not transmit your personal data to the developers. All data generated or configured within the extension is stored locally on your device using browser storage (`localStorage`, `chrome.storage.local`, and IndexedDB for uploaded wallpapers).
 
 ### What We Store Locally:
 *   **User Preferences:** Settings regarding the visual theme, wallpaper selections, and layout configurations.
 *   **Shortcuts:** The names and URLs of the shortcut links you manually add to the dashboard.
 *   **Weather Settings:** The specific city name you enter if you choose to enable the weather widget.
+*   **Local Backup Metadata:** A local backup copy of preferences may be stored in `chrome.storage.local` to preserve settings across updates.
+*   **Uploaded Wallpaper Blob:** If you upload a custom wallpaper, the processed image is saved in IndexedDB on your device.
 *   **Backups:** If you use the export feature, a JSON file is generated locally on your machine. We do not receive a copy of this file.
 
 ### Data Access:
@@ -25,17 +27,27 @@ Because this data is stored in your browser's local storage, the developers of F
 
 While the extension operates primarily offline, specific features require interaction with external APIs to function. These interactions occur directly between your browser and the third-party service.
 
-### A. WeatherAPI.com (Optional)
+### A. Open-Meteo APIs (Optional)
 *   **Usage:** This service is only contacted if you explicitly enable the Weather widget.
-*   **Data Shared:** Your browser sends the **City Name** you provided to WeatherAPI.com to retrieve current temperature and forecast data.
-*   **Privacy:** The handling of this data is subject to WeatherAPI.com's Privacy Policy.
+*   **Data Shared:** Your browser sends the **City Name** (geocoding) and city coordinates (weather request) to Open-Meteo endpoints to retrieve weather data.
+*   **Privacy:** The handling of this data is subject to Open-Meteo's privacy terms.
 
-### B. Google Favicon Service
+### B. Wallpaper Providers (Optional)
+*   **Usage:** Contacted only if you enable API wallpapers.
+*   **Providers:** Microsoft Bing (via Peapix feed), NASA APOD API, and Wikimedia Commons.
+*   **Data Shared:** Only request metadata required to fetch the daily image; no user account or profile data is sent.
+
+### C. Google Favicon Service
 *   **Usage:** Used to automatically generate icons for the shortcuts you add to your new tab.
 *   **Data Shared:** When you add a shortcut, your browser sends the **Domain URL** (e.g., `github.com`) to `www.google.com/s2/favicons` to fetch the associated icon image.
 *   **Privacy:** This request is handled according to Google's privacy standards.
 
-### C. Search Engines (Bing, Google)
+### D. Search Suggestions (Optional)
+*   **Usage:** If search suggestions are enabled, the current query is sent to `suggestqueries.google.com`.
+*   **Data Shared:** Partial query text while typing.
+*   **Privacy:** This request is governed by Google's privacy policy.
+
+### E. Search Engines (Bing, Google, and others)
 *   **Usage:** The search bar in Fluent New Tab acts strictly as a redirection tool.
 *   **Data Shared:** We do not record, log, or analyze your search queries. When you press Enter, the query is sent directly to the search engine you selected.
 *   **Privacy:** Once redirected, your interaction is governed by the privacy policy of the respective search engine provider.
