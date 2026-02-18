@@ -20,6 +20,7 @@
   "suggestionsOption": { "message": "Suggestions" },
   "clearSearchOption": { "message": "Clean search (Google)" },
   "compactBarOption": { "message": "Compact bar" },
+  "voiceSearchOption": { "message": "Voice search" },
   "languageTitle": { "message": "Language" },
   "interfaceLanguageLabel": { "message": "Interface Language" },
   "backupTitle": { "message": "Data Backup" },

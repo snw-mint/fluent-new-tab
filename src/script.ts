@@ -88,11 +88,187 @@ function updateSearchSettings(animate = true): void {
     if (clearSearchRow) setCollapsible(clearSearchRow, showChildren, animate);
     const compactBarRow = getById<HTMLDivElement>('compactBarRow');
     if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
+    const voiceSearchRow = getById<HTMLDivElement>('voiceSearchRow');
+    if (voiceSearchRow) setCollapsible(voiceSearchRow, showChildren, animate);
+    updateVoiceSearchAvailability();
 }
 function updateCompactBarStyle(): void {
     if (searchWrapper) {
         if (compactBarEnabled) searchWrapper.classList.add('compact');
         else searchWrapper.classList.remove('compact');
+    }
+}
+const SpeechRecognitionCtor = (window as Window & {
+    SpeechRecognition?: new () => any;
+    webkitSpeechRecognition?: new () => any;
+}).SpeechRecognition || (window as Window & {
+    webkitSpeechRecognition?: new () => any;
+}).webkitSpeechRecognition;
+const voiceSearchSupported = typeof SpeechRecognitionCtor === 'function';
+let voiceRecognition: any = null;
+let voiceRecording = false;
+let voiceShouldSubmitOnEnd = false;
+let voiceFinalTranscript = '';
+let voiceSilenceTimeout: number | null = null;
+const VOICE_SILENCE_MS = 3600;
+
+function stopVoiceRingAnimation(): void {
+    if (!searchWrapper) return;
+    searchWrapper.classList.remove('voice-active');
+}
+
+function startVoiceRingAnimation(): void {
+    if (!searchWrapper) return;
+    searchWrapper.classList.remove('voice-active');
+}
+
+function playVoiceStartSound(): void {
+    const audio = new Audio('assets/mic-recording.mp3');
+    audio.volume = 0.45;
+    audio.play().catch(() => {
+        console.warn('Voice start sound was blocked by browser policy.');
+    });
+}
+
+function updateVoiceButtonRecordingState(): void {
+    if (!voiceSearchBtn) return;
+    voiceSearchBtn.classList.toggle('recording', voiceRecording);
+    voiceSearchBtn.setAttribute('aria-pressed', voiceRecording ? 'true' : 'false');
+}
+
+function getVoiceRecognitionLanguage(): string {
+    if (languageSelect?.value) return languageSelect.value.replace('_', '-');
+    return navigator.language || 'en-US';
+}
+
+function clearVoiceSilenceTimer(): void {
+    if (voiceSilenceTimeout === null) return;
+    window.clearTimeout(voiceSilenceTimeout);
+    voiceSilenceTimeout = null;
+}
+
+function scheduleVoiceSilenceStop(): void {
+    clearVoiceSilenceTimer();
+    voiceSilenceTimeout = window.setTimeout(() => {
+        if (!voiceRecording) return;
+        stopVoiceSearch(true);
+    }, VOICE_SILENCE_MS);
+}
+
+function stopVoiceSearch(submitAfterStop = false): void {
+    voiceShouldSubmitOnEnd = submitAfterStop;
+    if (!voiceRecording || !voiceRecognition) return;
+    voiceRecognition.stop();
+}
+
+function ensureVoiceRecognition(): any {
+    if (!voiceSearchSupported || !SpeechRecognitionCtor) return null;
+    if (voiceRecognition) return voiceRecognition;
+
+    voiceRecognition = new SpeechRecognitionCtor();
+    voiceRecognition.interimResults = true;
+    voiceRecognition.continuous = true;
+    voiceRecognition.maxAlternatives = 1;
+
+    voiceRecognition.onstart = () => {
+        voiceRecording = true;
+        updateVoiceButtonRecordingState();
+        startVoiceRingAnimation();
+        scheduleVoiceSilenceStop();
+    };
+
+    voiceRecognition.onresult = (event: any) => {
+        if (!searchInput) return;
+        let interimTranscript = '';
+
+        for (let index = event.resultIndex; index < event.results.length; index += 1) {
+            const result = event.results[index];
+            const transcript = result[0]?.transcript?.trim() || '';
+            if (!transcript) continue;
+
+            if (result.isFinal) {
+                voiceFinalTranscript = `${voiceFinalTranscript} ${transcript}`.trim();
+            } else {
+                interimTranscript = `${interimTranscript} ${transcript}`.trim();
+            }
+        }
+
+        searchInput.value = `${voiceFinalTranscript} ${interimTranscript}`.trim();
+        scheduleVoiceSilenceStop();
+    };
+
+    voiceRecognition.onerror = () => {
+        voiceShouldSubmitOnEnd = false;
+        clearVoiceSilenceTimer();
+    };
+
+    voiceRecognition.onend = () => {
+        const shouldSubmit = voiceShouldSubmitOnEnd;
+        voiceRecording = false;
+        voiceShouldSubmitOnEnd = false;
+        clearVoiceSilenceTimer();
+        updateVoiceButtonRecordingState();
+        stopVoiceRingAnimation();
+
+        const finalQuery = searchInput?.value.trim() || voiceFinalTranscript.trim();
+        voiceFinalTranscript = '';
+
+        if (shouldSubmit && finalQuery && searchForm) {
+            clearSuggestions();
+            if (typeof searchForm.requestSubmit === 'function') {
+                searchForm.requestSubmit();
+            } else {
+                searchForm.submit();
+            }
+        }
+    };
+
+    return voiceRecognition;
+}
+
+function startVoiceSearch(): void {
+    if (!voiceSearchEnabled || !voiceSearchSupported || !searchBarVisible) return;
+
+    if (voiceRecording) {
+        stopVoiceSearch(false);
+        return;
+    }
+
+    const recognition = ensureVoiceRecognition();
+    if (!recognition) return;
+
+    voiceFinalTranscript = '';
+    voiceShouldSubmitOnEnd = true;
+    recognition.lang = getVoiceRecognitionLanguage();
+
+    playVoiceStartSound();
+    startVoiceRingAnimation();
+    scheduleVoiceSilenceStop();
+
+    try {
+        recognition.start();
+    } catch (error) {
+        console.warn('Unable to start voice recognition.', error);
+        voiceShouldSubmitOnEnd = false;
+        stopVoiceRingAnimation();
+    }
+}
+
+function updateVoiceSearchAvailability(): void {
+    const canUseVoice = voiceSearchEnabled && searchBarVisible && voiceSearchSupported;
+    if (voiceSearchBtn) {
+        voiceSearchBtn.style.display = canUseVoice ? 'flex' : 'none';
+        voiceSearchBtn.disabled = !canUseVoice;
+    }
+
+    if (toggleVoiceSearch) {
+        toggleVoiceSearch.disabled = !voiceSearchSupported;
+        toggleVoiceSearch.title = voiceSearchSupported ? '' : 'Voice recognition is not supported in this browser.';
+    }
+
+    if (!canUseVoice) {
+        if (voiceRecording) stopVoiceSearch(false);
+        stopVoiceRingAnimation();
     }
 }
 function renderSuggestions(suggestions: string[]): void {
@@ -529,6 +705,12 @@ function applyInitialClearSearch() {
     }
     updateGoogleParams();
 }
+function applyInitialVoiceSearch() {
+    if (toggleVoiceSearch) {
+        toggleVoiceSearch.checked = voiceSearchEnabled;
+    }
+    updateVoiceSearchAvailability();
+}
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
     updateWeatherVisibility(false);
@@ -740,6 +922,10 @@ document.addEventListener("DOMContentLoaded", () => {
         getCompactBarEnabled: () => compactBarEnabled,
         setCompactBarEnabled: (enabled) => { compactBarEnabled = enabled; },
         updateCompactBarStyle,
+        applyInitialVoiceSearch,
+        toggleVoiceSearch,
+        setVoiceSearchEnabled: (enabled) => { voiceSearchEnabled = enabled; },
+        updateVoiceSearchAvailability,
         searchInput,
         debounce,
         suggestionsCache,
@@ -747,6 +933,12 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchSuggestions,
         updateSelection
     });
+
+    if (voiceSearchBtn) {
+        voiceSearchBtn.addEventListener('click', () => {
+            startVoiceSearch();
+        });
+    }
     /* Weather Widget */
     bindWeatherFeature({
         applyInitialWeatherState,

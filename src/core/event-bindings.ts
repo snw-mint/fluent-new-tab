@@ -53,6 +53,10 @@ interface SearchBindingOptions {
     getCompactBarEnabled: () => boolean;
     setCompactBarEnabled: (enabled: boolean) => void;
     updateCompactBarStyle: () => void;
+    applyInitialVoiceSearch: () => void;
+    toggleVoiceSearch: HTMLInputElement | null;
+    setVoiceSearchEnabled: (enabled: boolean) => void;
+    updateVoiceSearchAvailability: () => void;
     searchInput: HTMLInputElement | null;
     debounce: (fn: (event: Event) => void, wait: number) => (event: Event) => void;
     suggestionsCache: Map<string, string[]>;
@@ -216,6 +220,17 @@ function bindSearchFeature(options: SearchBindingOptions): void {
             options.setCompactBarEnabled(target.checked);
             localStorage.setItem('compactBarEnabled', String(target.checked));
             options.updateCompactBarStyle();
+        });
+    }
+
+    options.applyInitialVoiceSearch();
+    if (options.toggleVoiceSearch) {
+        options.toggleVoiceSearch.addEventListener('change', (event) => {
+            const target = event.target as HTMLInputElement | null;
+            if (!target) return;
+            options.setVoiceSearchEnabled(target.checked);
+            localStorage.setItem('voiceSearchEnabled', String(target.checked));
+            options.updateVoiceSearchAvailability();
         });
     }
 

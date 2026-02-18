@@ -13,6 +13,7 @@ let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
 const suggestionsCache = new Map<string, string[]>();
 let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
 let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
+let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') === 'true';
 
 const CACHE_KEY = 'fluent_weather_cache';
 const CITY_KEY = 'fluent_city_data';

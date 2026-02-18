@@ -25,7 +25,8 @@
     background-color: #fff;
 }
 .search-bar.compact .search-btn,
-.search-bar.compact .current-engine-btn {
+.search-bar.compact .current-engine-btn,
+.search-bar.compact .voice-search-btn {
     width: 36px;
     height: 36px;
 }
@@ -54,6 +55,54 @@
     justify-content: center;
     border-radius: 50%;
     transition: background 0.2s;
+}
+.voice-search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+    color: #5f6368;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    isolation: isolate;
+}
+.voice-search-btn::before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid rgba(255, 59, 59, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.5);
+    opacity: 0;
+    transform: scale(0.72);
+    transition: opacity 200ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+}
+.voice-search-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.voice-search-btn svg {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    z-index: 1;
+}
+.voice-search-btn.recording {
+    color: #ff3b3b;
+}
+.voice-search-btn.recording::before {
+    opacity: 1;
+    transform: scale(1.02);
+    animation: voice-recording-pulse 1.3s ease-out infinite;
 }
 .search-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -270,3 +319,16 @@
     display: block;
     animation: pulse-red 2s infinite;
 }
+
+@keyframes voice-recording-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 59, 59, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 59, 59, 0);
+    }
+}
+

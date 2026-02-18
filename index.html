@@ -243,6 +243,14 @@
                         <span class="slider"></span>
                     </label>
                 </div>
+
+                <div class="switch-row child-setting" id="voiceSearchRow">
+                    <label for="toggleVoiceSearch" data-i18n="voiceSearchOption">Voice search</label>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleVoiceSearch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
 
             <div class="setting-group">
@@ -371,6 +379,12 @@
             <div class="divider"></div>
 
             <input type="text" name="q" id="searchInput" placeholder="Search the web" autocomplete="off" data-i18n="searchPlaceholder"> 
+
+            <button type="button" id="voiceSearchBtn" class="voice-search-btn" title="Voice search" aria-label="Voice search">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 12V13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13V12M12 17C9.79086 17 8 15.2091 8 13V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V13C16 15.2091 14.2091 17 12 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
 
             <button type="submit" class="search-btn"> 
                 <svg viewBox="0 0 24 24" width="24" height="24"><path d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5" fill="#5f6368"/></svg>
