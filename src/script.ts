@@ -125,8 +125,15 @@ function startVoiceRingAnimation(): void {
 function playVoiceStartSound(): void {
     const audio = new Audio('assets/mic-recording.mp3');
     audio.volume = 0.45;
-    audio.play().catch(() => {
-        console.warn('Voice start sound was blocked by browser policy.');
+    audio.play().catch((error: unknown) => {
+        const message = error instanceof Error ? error.message : String(error || '');
+        const isExpectedPolicyBlock =
+            message.toLowerCase().includes('notallowederror') ||
+            message.toLowerCase().includes('interact') ||
+            message.toLowerCase().includes('play() request was interrupted');
+
+        if (isExpectedPolicyBlock) return;
+        console.debug('Voice start sound could not play.', error);
     });
 }
 
@@ -382,6 +389,9 @@ function prepareCollapsible(element: HTMLElement | null): void {
 
 function setCollapsible(element: HTMLElement | null, shouldExpand: boolean, animate = true): void {
     if (!element) return;
+    if (document.body.classList.contains('animations-disabled')) {
+        animate = false;
+    }
     prepareCollapsible(element);
 
     const restoreSpacing = () => {
@@ -788,8 +798,106 @@ function applyBrandInterval() {
     setInterval(initBrand, 60000);
 }
 
+const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
+const UPDATE_NOTICE_PENDING_KEY = 'update_notice_pending';
+const UPDATE_NOTICE_VERSION_KEY = 'update_notice_version';
+
+function getStorageLocalItems(key: string | string[]): Promise<Record<string, unknown>> {
+    return new Promise((resolve) => {
+        const localStorageApi = chrome.storage?.local;
+        if (!localStorageApi) {
+            resolve({});
+            return;
+        }
+
+        localStorageApi.get(key, (items) => resolve(items || {}));
+    });
+}
+
+function setStorageLocalItems(items: Record<string, unknown>): Promise<void> {
+    return new Promise((resolve) => {
+        const localStorageApi = chrome.storage?.local;
+        if (!localStorageApi) {
+            resolve();
+            return;
+        }
+
+        localStorageApi.set(items, () => resolve());
+    });
+}
+
+function getLocalPreferencesSnapshot(): Record<string, string> {
+    const snapshot: Record<string, string> = {};
+    APP_KEYS.forEach((key) => {
+        const value = localStorage.getItem(key);
+        if (value !== null) snapshot[key] = value;
+    });
+    return snapshot;
+}
+
+async function persistPreferencesBackup(): Promise<void> {
+    const snapshot = getLocalPreferencesSnapshot();
+    await setStorageLocalItems({ [PERSISTENT_BACKUP_KEY]: snapshot });
+}
+
+async function restorePreferencesBackupIfNeeded(): Promise<boolean> {
+    const items = await getStorageLocalItems(PERSISTENT_BACKUP_KEY);
+    const backupRaw = items[PERSISTENT_BACKUP_KEY];
+    if (!backupRaw || typeof backupRaw !== 'object') return false;
+
+    const backup = backupRaw as Record<string, unknown>;
+    let restoredAny = false;
+
+    Object.entries(backup).forEach(([key, value]) => {
+        if (typeof value !== 'string') return;
+        if (localStorage.getItem(key) !== null) return;
+        localStorage.setItem(key, value);
+        restoredAny = true;
+    });
+
+    return restoredAny;
+}
+
+async function getUpdateNoticeState(): Promise<{ pending: boolean; version: string }> {
+    const items = await getStorageLocalItems([UPDATE_NOTICE_PENDING_KEY, UPDATE_NOTICE_VERSION_KEY]);
+    const pending = items[UPDATE_NOTICE_PENDING_KEY] === true;
+    const version = typeof items[UPDATE_NOTICE_VERSION_KEY] === 'string'
+        ? String(items[UPDATE_NOTICE_VERSION_KEY])
+        : '';
+    return { pending, version };
+}
+
+async function clearUpdateNoticeState(): Promise<void> {
+    const version = chrome.runtime.getManifest().version;
+    localStorage.setItem('settings_dot_seen', 'true');
+    localStorage.setItem('settings_dot_seen_version', version);
+    await setStorageLocalItems({
+        [UPDATE_NOTICE_PENDING_KEY]: false,
+        [UPDATE_NOTICE_VERSION_KEY]: version
+    });
+}
+
+function createSettingsUpdateTooltip(message: string): HTMLDivElement {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'settings-update-tooltip';
+    tooltip.textContent = message;
+    return tooltip;
+}
+
 /* --- 8. Modals & Settings --- */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    const restoredFromBackup = await restorePreferencesBackupIfNeeded();
+    if (restoredFromBackup) {
+        await persistPreferencesBackup();
+        location.reload();
+        return;
+    }
+
+    await persistPreferencesBackup();
+    window.addEventListener('beforeunload', () => {
+        void persistPreferencesBackup();
+    });
+
     /* Theme Logic */
     applyInitialTheme();
     if (themeBtns) {
@@ -836,17 +944,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /* Settings Popup */
     if (configBtn && configPopup) {
-        const dotSeen = localStorage.getItem('settings_dot_seen');
-        if (!dotSeen && settingsDot) {
+        const settingsWrapper = configBtn.closest('.settings-wrapper') as HTMLElement | null;
+        let updateTooltip: HTMLDivElement | null = null;
+
+        const updateState = await getUpdateNoticeState();
+        if (updateState.pending && settingsDot) {
             settingsDot.classList.add('active');
+            if (settingsWrapper) {
+                updateTooltip = createSettingsUpdateTooltip('New update');
+                settingsWrapper.appendChild(updateTooltip);
+            }
         }
+
         configBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             closePopups(configPopup);
             configPopup.classList.toggle('active');
             if (settingsDot && settingsDot.classList.contains('active')) {
                 settingsDot.classList.remove('active');
-                localStorage.setItem('settings_dot_seen', 'true');
+                void clearUpdateNoticeState();
+            }
+            if (updateTooltip) {
+                updateTooltip.remove();
+                updateTooltip = null;
             }
         });
         document.addEventListener('click', (e) => {
