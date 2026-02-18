@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Greeting"
   },
+  "wallpaperTitle": {
+    "message": "Wallpaper"
+  },
   "iconsStyleLabel": {
     "message": "Icon Style"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (Color)"
-  },
-  "styleOutline": {
-    "message": "Outline (Minimal)"
   },
   "weatherTitle": {
     "message": "Weather"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Compact bar"
+  },
+  "voiceSearchOption": {
+    "message": "Voice search"
   },
   "languageTitle": {
     "message": "Language"

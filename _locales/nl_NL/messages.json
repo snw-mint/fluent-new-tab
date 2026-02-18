@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Groet"
   },
+  "wallpaperTitle": {
+    "message": "Behang"
+  },
   "iconsStyleLabel": {
     "message": "Pictogramstijl"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (kleur)"
-  },
-  "styleOutline": {
-    "message": "Overzicht (minimaal)"
   },
   "weatherTitle": {
     "message": "Weer"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Compacte staaf"
+  },
+  "voiceSearchOption": {
+    "message": "Spraakgestuurd zoeken"
   },
   "languageTitle": {
     "message": "Taal"

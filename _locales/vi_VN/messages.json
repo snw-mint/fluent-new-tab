@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Chào mừng"
   },
+  "wallpaperTitle": {
+    "message": "Hình nền"
+  },
   "iconsStyleLabel": {
     "message": "Phong cách biểu tượng"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (Màu)"
-  },
-  "styleOutline": {
-    "message": "Dàn ý (Tối thiểu)"
   },
   "weatherTitle": {
     "message": "Thời tiết"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Thanh nhỏ gọn"
+  },
+  "voiceSearchOption": {
+    "message": "Tìm kiếm bằng giọng nói"
   },
   "languageTitle": {
     "message": "Ngôn ngữ"

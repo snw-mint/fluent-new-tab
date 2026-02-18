@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Hälsning"
   },
+  "wallpaperTitle": {
+    "message": "Bakgrundsbild"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (färg)"
-  },
-  "styleOutline": {
-    "message": "Översikt (minimal)"
   },
   "weatherTitle": {
     "message": "Väder"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompakt bar"
+  },
+  "voiceSearchOption": {
+    "message": "Röstsökning"
   },
   "languageTitle": {
     "message": "Språk"

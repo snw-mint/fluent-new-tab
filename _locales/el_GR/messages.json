@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Χαιρετισμός"
   },
+  "wallpaperTitle": {
+    "message": "Ταπετσαρία"
+  },
   "iconsStyleLabel": {
     "message": "Στυλ εικονιδίου"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (Έγχρωμο)"
-  },
-  "styleOutline": {
-    "message": "Περίγραμμα (Ελάχιστο)"
   },
   "weatherTitle": {
     "message": "Καιρός"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Συμπαγής μπάρα"
+  },
+  "voiceSearchOption": {
+    "message": "Φωνητική αναζήτηση"
   },
   "languageTitle": {
     "message": "Γλώσσα"

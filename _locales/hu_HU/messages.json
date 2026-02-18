@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Üdvözlet"
   },
+  "wallpaperTitle": {
+    "message": "Háttérkép"
+  },
   "iconsStyleLabel": {
     "message": "Ikon stílus"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (színes)"
-  },
-  "styleOutline": {
-    "message": "Vázlat (minimális)"
   },
   "weatherTitle": {
     "message": "Időjárás"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompakt bár"
+  },
+  "voiceSearchOption": {
+    "message": "Hangalapú keresés"
   },
   "languageTitle": {
     "message": "Nyelv"

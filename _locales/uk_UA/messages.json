@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Привітання"
   },
+  "wallpaperTitle": {
+    "message": "Шпалери"
+  },
   "iconsStyleLabel": {
     "message": "Стиль іконки"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (колір)"
-  },
-  "styleOutline": {
-    "message": "Контур (мінімальний)"
   },
   "weatherTitle": {
     "message": "Погода"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Компактний бар"
+  },
+  "voiceSearchOption": {
+    "message": "Голосовий пошук"
   },
   "languageTitle": {
     "message": "Мова"

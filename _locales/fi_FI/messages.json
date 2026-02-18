@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Tervehdys"
   },
+  "wallpaperTitle": {
+    "message": "Taustakuva"
+  },
   "iconsStyleLabel": {
     "message": "Kuvaketyyli"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (väri)"
-  },
-  "styleOutline": {
-    "message": "Yhteenveto (minimaalinen)"
   },
   "weatherTitle": {
     "message": "Sää"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompakti tanko"
+  },
+  "voiceSearchOption": {
+    "message": "Äänihaku"
   },
   "languageTitle": {
     "message": "Kieli"

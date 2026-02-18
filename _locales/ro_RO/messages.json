@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Salutare"
   },
+  "wallpaperTitle": {
+    "message": "Tapet"
+  },
   "iconsStyleLabel": {
     "message": "Stilul pictogramelor"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (Culoare)"
-  },
-  "styleOutline": {
-    "message": "Schiță (minimală)"
   },
   "weatherTitle": {
     "message": "Vremea"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Bară compactă"
+  },
+  "voiceSearchOption": {
+    "message": "Căutare vocală"
   },
   "languageTitle": {
     "message": "Limba"

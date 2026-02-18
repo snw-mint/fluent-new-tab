@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "問候"
   },
+  "wallpaperTitle": {
+    "message": "壁紙"
+  },
   "iconsStyleLabel": {
     "message": "圖示樣式"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent（彩色）"
-  },
-  "styleOutline": {
-    "message": "大綱（簡要）"
   },
   "weatherTitle": {
     "message": "天氣"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "緊湊型條狀物"
+  },
+  "voiceSearchOption": {
+    "message": "語音搜尋"
   },
   "languageTitle": {
     "message": "語言"
