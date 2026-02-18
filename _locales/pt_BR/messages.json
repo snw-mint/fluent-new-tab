@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Saudações"
   },
+  "wallpaperTitle": {
+    "message": "Papel de parede"
+  },
   "iconsStyleLabel": {
     "message": "Estilo do ícone"
-  },
-  "styleEmoji": {
-    "message": "3D Fluente (Cor)"
-  },
-  "styleOutline": {
-    "message": "Esboço (mínimo)"
   },
   "weatherTitle": {
     "message": "Clima"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Barra compacta"
+  },
+  "voiceSearchOption": {
+    "message": "Pesquisa por voz"
   },
   "languageTitle": {
     "message": "Idioma"
