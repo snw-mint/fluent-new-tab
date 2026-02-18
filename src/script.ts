@@ -337,6 +337,12 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
 function updateGreetingSettingsVisibility(show: boolean, animate = true): void {
     if (greetingOptionsDiv) setCollapsible(greetingOptionsDiv, show, animate);
 }
+function updatePerformanceMode(enabled: boolean): void {
+    document.body.classList.toggle('performance-mode', enabled);
+    if (performanceWarningNotice) {
+        performanceWarningNotice.style.display = enabled ? 'flex' : 'none';
+    }
+}
 function clearPresetSelection(): void {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
 }
@@ -711,6 +717,12 @@ function applyInitialVoiceSearch() {
     }
     updateVoiceSearchAvailability();
 }
+function applyInitialPerformanceMode() {
+    if (togglePerformanceMode) {
+        togglePerformanceMode.checked = performanceModeEnabled;
+    }
+    updatePerformanceMode(performanceModeEnabled);
+}
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
     updateWeatherVisibility(false);
@@ -823,6 +835,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.key === 'Escape' && configPopup.classList.contains('active')) {
                 configPopup.classList.remove('active');
             }
+        });
+    }
+    applyInitialPerformanceMode();
+    if (togglePerformanceMode) {
+        togglePerformanceMode.addEventListener('change', (e) => {
+            const target = getInputTarget(e);
+            if (!target) return;
+
+            performanceModeEnabled = target.checked;
+            localStorage.setItem('performanceModeEnabled', String(target.checked));
+            updatePerformanceMode(target.checked);
         });
     }
     /* Shortcuts & Modals */
