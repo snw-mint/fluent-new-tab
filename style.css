@@ -1656,6 +1656,13 @@ body[data-wallpaper-active="true"] .weather-widget:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+html:not([data-theme="dark"]) body[data-wallpaper-active="true"] .settings-wrapper:hover .settings-label,
+html:not([data-theme="dark"]) body[data-wallpaper-active="true"] .settings-wrapper:hover .settings-btn svg path {
+    color: #1f1f1f !important;
+    fill: #1f1f1f !important;
+    text-shadow: none !important;
+}
+
 /* --- 15. Wallpaper Credits Badge --- */
 .wallpaper-credits {
     position: fixed;

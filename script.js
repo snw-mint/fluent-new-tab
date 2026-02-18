@@ -154,9 +154,9 @@ function deleteShortcut(index) {
     shortcuts.splice(index, 1);
     saveAndRender();
 }
-function updateShortcutsVisibility(visible) {
+function updateShortcutsVisibility(visible, animate = true) {
     if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
-    if (rowsInputGroup) rowsInputGroup.style.display = visible ? 'block' : 'none';
+    if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
 }
 function getFluentIconFilename(code, isDay) {
     switch (code) {
@@ -259,14 +259,14 @@ function setSearchEngine(engineKey) {
         updateGoogleParams();
     }
 }
-function updateSearchSettings() {
+function updateSearchSettings(animate = true) {
     if (searchWrapper) searchWrapper.style.display = searchBarVisible ? '' : 'none';
     if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
-    const displayStyle = searchBarVisible ? 'flex' : 'none';
-    if (suggestionsRow) suggestionsRow.style.display = displayStyle;
-    if (clearSearchRow) clearSearchRow.style.display = displayStyle;
+    const showChildren = searchBarVisible;
+    if (suggestionsRow) setCollapsible(suggestionsRow, showChildren, animate);
+    if (clearSearchRow) setCollapsible(clearSearchRow, showChildren, animate);
     const compactBarRow = document.getElementById('compactBarRow');
-    if (compactBarRow) compactBarRow.style.display = displayStyle;
+    if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
 }
 function updateCompactBarStyle() {
     if (searchWrapper) {
@@ -317,12 +317,12 @@ function updateUnitButtons() {
         else btn.classList.remove('active');
     });
 }
-function updateWeatherVisibility() {
+function updateWeatherVisibility(animate = true) {
     if(!weatherWidget || !cityInputGroup) return;
     const displayStyle = weatherEnabled ? 'flex' : 'none';
     weatherWidget.style.display = displayStyle;
-    cityInputGroup.style.display = displayStyle;
-    if(weatherUnitGroup) weatherUnitGroup.style.display = displayStyle;
+    setCollapsible(cityInputGroup, weatherEnabled, animate);
+    if(weatherUnitGroup) setCollapsible(weatherUnitGroup, weatherEnabled, animate);
 }
 function renderWeather(data) {
     if (!data || !data.current_weather) return;
@@ -337,37 +337,36 @@ function renderWeather(data) {
     weatherIcon.innerHTML = `<img src="${iconPath}" alt="Weather Icon" class="fluent-icon">`;
     weatherWidget.href = `https://www.bing.com/weather/forecast?q=${currentCityData.name}`;
 }
-function updateLauncherVisibility() {
+function updateLauncherVisibility(animate = true) {
     if(appLauncherWrapper) {
         appLauncherWrapper.style.display = launcherEnabled ? 'block' : 'none';
     }
-    if(launcherSelectGroup) {
-        launcherSelectGroup.style.display = launcherEnabled ? 'block' : 'none';
-    }
+    if(launcherSelectGroup) setCollapsible(launcherSelectGroup, launcherEnabled, animate);
 }
-function updateWallpaperGridVisibility(enabled) {
+function updateWallpaperUIState(enabled, animate = true) {
     if (wallpaperGrid) {
-        wallpaperGrid.style.display = enabled ? 'grid' : 'none';
+        wallpaperGrid.dataset.collapsibleDisplay = 'grid';
+        setCollapsible(wallpaperGrid, enabled, animate);
     }
-}
-function updateWallpaperUIState(enabled) {
-    if (wallpaperGrid) {
-        wallpaperGrid.style.display = enabled ? 'grid' : 'none';
-    }
-    
+
     const container = wallpaperSourceContainer || (wallpaperSourceSelect ? wallpaperSourceSelect.closest('.wallpaper-source-options') : null);
     if (container) {
-        container.style.display = enabled ? '' : 'none';
+        setCollapsible(container, enabled, animate);
     } else if (wallpaperSourceSelect) {
-        wallpaperSourceSelect.style.display = enabled ? 'block' : 'none';
+        wallpaperSourceSelect.dataset.collapsibleDisplay = 'block';
+        setCollapsible(wallpaperSourceSelect, enabled, animate);
         const label = document.querySelector(`label[for="${wallpaperSourceSelect.id}"]`) || 
                       (wallpaperSourceSelect.previousElementSibling && wallpaperSourceSelect.previousElementSibling.tagName === 'LABEL' ? wallpaperSourceSelect.previousElementSibling : null);
-        if (label) label.style.display = enabled ? 'block' : 'none';
+        if (label) setCollapsible(label, enabled, animate);
     }
     if (toggleWallpaper) {
         const row = toggleWallpaper.closest('.switch-row');
         if (row) row.style.marginBottom = enabled ? '' : '0';
     }
+}
+
+function updateGreetingSettingsVisibility(show, animate = true) {
+    if (greetingOptionsDiv) setCollapsible(greetingOptionsDiv, show, animate);
 }
 function clearPresetSelection() {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
@@ -380,6 +379,141 @@ function highlightSelectedWallpaper(value) {
     } else {
         const target = document.querySelector(`.wallpaper-option[data-value="${value}"]`);
         if (target) target.classList.add('selected');
+    }
+}
+
+function prepareCollapsible(element) {
+    if (!element || element.dataset.collapsibleReady === 'true') return;
+    const previousDisplay = element.style.display;
+    if (previousDisplay === 'none') {
+        element.style.display = '';
+    }
+    let computedDisplay = window.getComputedStyle(element).display;
+    if (computedDisplay === 'none') {
+        computedDisplay = element.dataset.collapsibleDisplay || 'block';
+    }
+    if (previousDisplay === 'none') {
+        element.style.display = previousDisplay;
+    }
+    const computedStyles = window.getComputedStyle(element);
+    element.dataset.originalDisplay = computedDisplay;
+    element.dataset.originalMarginTop = computedStyles.marginTop;
+    element.dataset.originalMarginBottom = computedStyles.marginBottom;
+    element.dataset.originalPaddingTop = computedStyles.paddingTop;
+    element.dataset.originalPaddingBottom = computedStyles.paddingBottom;
+    element.classList.add('collapsible-section');
+    element.dataset.collapsibleReady = 'true';
+}
+
+function setCollapsible(element, shouldExpand, animate = true) {
+    if (!element) return;
+    prepareCollapsible(element);
+
+    const restoreSpacing = () => {
+        element.style.marginTop = element.dataset.originalMarginTop;
+        element.style.marginBottom = element.dataset.originalMarginBottom;
+        element.style.paddingTop = element.dataset.originalPaddingTop;
+        element.style.paddingBottom = element.dataset.originalPaddingBottom;
+    };
+
+    const transitionValue = 'height 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease, transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), margin 0.28s ease, padding 0.28s ease';
+    const currentState = element.dataset.state || 'open';
+
+    if (!animate) {
+        element.style.transition = 'none';
+        if (shouldExpand) {
+            element.style.display = element.dataset.originalDisplay;
+            restoreSpacing();
+            element.style.height = 'auto';
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            element.style.pointerEvents = 'auto';
+            element.style.overflow = '';
+            element.dataset.state = 'open';
+        } else {
+            element.style.display = element.dataset.originalDisplay;
+            element.style.height = '0px';
+            element.style.opacity = '0';
+            element.style.transform = 'scaleY(0.98) translateY(-6px)';
+            element.style.pointerEvents = 'none';
+            element.style.overflow = 'hidden';
+            element.style.marginTop = '0px';
+            element.style.marginBottom = '0px';
+            element.style.paddingTop = '0px';
+            element.style.paddingBottom = '0px';
+            element.dataset.state = 'closed';
+        }
+        requestAnimationFrame(() => { element.style.transition = ''; });
+        return;
+    }
+
+    element.style.transition = transitionValue;
+
+    if (shouldExpand) {
+        if (currentState === 'open') return;
+        element.dataset.state = 'animating';
+        element.style.display = element.dataset.originalDisplay;
+        element.style.pointerEvents = 'none';
+        element.style.overflow = 'hidden';
+
+        restoreSpacing();
+        const targetHeight = element.scrollHeight;
+
+        element.style.height = '0px';
+        element.style.opacity = '0';
+        element.style.transform = 'scaleY(0.98) translateY(-6px)';
+        element.style.marginTop = '0px';
+        element.style.marginBottom = '0px';
+        element.style.paddingTop = '0px';
+        element.style.paddingBottom = '0px';
+
+        requestAnimationFrame(() => {
+            element.style.height = `${targetHeight}px`;
+            element.style.opacity = '1';
+            element.style.transform = 'scaleY(1) translateY(0)';
+            restoreSpacing();
+        });
+
+        const onExpandEnd = (event) => {
+            if (event.propertyName !== 'height') return;
+            element.style.height = 'auto';
+            element.style.overflow = '';
+            element.style.pointerEvents = 'auto';
+            element.dataset.state = 'open';
+            element.style.transition = '';
+            element.removeEventListener('transitionend', onExpandEnd);
+        };
+        element.addEventListener('transitionend', onExpandEnd);
+    } else {
+        if (currentState === 'closed') return;
+        element.dataset.state = 'animating';
+        element.style.overflow = 'hidden';
+        element.style.pointerEvents = 'none';
+
+        restoreSpacing();
+        const startHeight = element.scrollHeight;
+        element.style.height = `${startHeight}px`;
+        element.style.opacity = '1';
+        element.style.transform = 'scaleY(1) translateY(0)';
+
+        requestAnimationFrame(() => {
+            element.style.height = '0px';
+            element.style.opacity = '0';
+            element.style.transform = 'scaleY(0.98) translateY(-6px)';
+            element.style.marginTop = '0px';
+            element.style.marginBottom = '0px';
+            element.style.paddingTop = '0px';
+            element.style.paddingBottom = '0px';
+        });
+
+        const onCollapseEnd = (event) => {
+            if (event.propertyName !== 'height') return;
+            element.dataset.state = 'closed';
+            element.style.transition = '';
+            element.style.overflow = 'hidden';
+            element.removeEventListener('transitionend', onCollapseEnd);
+        };
+        element.addEventListener('transitionend', onCollapseEnd);
     }
 }
 function saveWallpaperConfig() {
@@ -550,11 +684,9 @@ function initBrand() {
     const greetingStyle = localStorage.getItem('greetingStyle') || '3d';
     if (!showGreeting) {
         greetingWrapper.style.display = 'none';
-        if(greetingOptionsDiv) greetingOptionsDiv.style.display = 'none';
         return;
     } else {
         greetingWrapper.style.display = 'flex';
-        if(greetingOptionsDiv) greetingOptionsDiv.style.display = 'block';
     }
     
     const hour = new Date().getHours();
@@ -929,11 +1061,11 @@ function applyInitialSearchEngine() {
 function applyInitialShortcutsVisibility() {
     if(toggleShortcuts) {
         toggleShortcuts.checked = shortcutsVisible;
-        updateShortcutsVisibility(shortcutsVisible);
+        updateShortcutsVisibility(shortcutsVisible, false);
     }
 }
 function applyInitialSearchBarVisibility() {
-    updateSearchSettings();
+    updateSearchSettings(false);
     if (toggleSearchBar) {
         toggleSearchBar.checked = searchBarVisible;
     }
@@ -951,20 +1083,20 @@ function applyInitialClearSearch() {
 }
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
-    updateWeatherVisibility();
+    updateWeatherVisibility(false);
     updateUnitButtons();
     if (weatherEnabled) initWeather();
 }
 function applyInitialLauncherState() {
     if(toggleLauncher) toggleLauncher.checked = launcherEnabled;
     if(launcherProvider) launcherProvider.value = currentProvider;
-    updateLauncherVisibility();
+    updateLauncherVisibility(false);
     if(launcherEnabled) renderLauncher(currentProvider);
 }
 function applyInitialWallpaperState() {
     if (toggleWallpaper) {
         toggleWallpaper.checked = wallpaperEnabled;
-        updateWallpaperUIState(wallpaperEnabled);
+        updateWallpaperUIState(wallpaperEnabled, false);
     }
 
     // Se for API, seleciona no dropdown
@@ -1001,8 +1133,10 @@ document.addEventListener("DOMContentLoaded", () => {
     applyBrandInterval();
     if (toggleGreeting) {
         toggleGreeting.checked = localStorage.getItem('showGreeting') !== 'false';
+        updateGreetingSettingsVisibility(toggleGreeting.checked, false);
         toggleGreeting.addEventListener('change', (e) => {
             localStorage.setItem('showGreeting', e.target.checked);
+            updateGreetingSettingsVisibility(e.target.checked);
             initBrand();
         });
     }
