@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Selamlama"
   },
+  "wallpaperTitle": {
+    "message": "Duvar kağıdı"
+  },
   "iconsStyleLabel": {
     "message": "Simge Stili"
-  },
-  "styleEmoji": {
-    "message": "3D Akıcı (Renkli)"
-  },
-  "styleOutline": {
-    "message": "Özet (Minimal)"
   },
   "weatherTitle": {
     "message": "Hava durumu"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompakt çubuk"
+  },
+  "voiceSearchOption": {
+    "message": "Sesli arama"
   },
   "languageTitle": {
     "message": "Dil"
