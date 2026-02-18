@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Hilsen"
   },
+  "wallpaperTitle": {
+    "message": "Baggrund"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
-  },
-  "styleEmoji": {
-    "message": "3D Fluent (Color)"
-  },
-  "styleOutline": {
-    "message": "Oversigt (minimal)"
   },
   "weatherTitle": {
     "message": "Vejr"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompakt bar"
+  },
+  "voiceSearchOption": {
+    "message": "Stemmesøgning"
   },
   "languageTitle": {
     "message": "Sprog"
