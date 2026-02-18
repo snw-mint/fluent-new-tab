@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "none",
+    "outFile": "dist/script.js",
+    "sourceMap": false,
+    "removeComments": false,
+    "noEmitOnError": false,
+    "strict": false,
+    "skipLibCheck": true
+  },
+  "files": [
+    "src/core/types.ts",
+    "src/core/config.ts",
+    "src/core/dom-utils.ts",
+    "src/core/state.ts",
+    "src/core/dom-references.ts",
+    "src/core/services.ts",
+    "src/core/weather.ts",
+    "src/core/shortcuts.ts",
+    "src/core/wallpaper-storage.ts",
+    "src/core/launcher.ts",
+    "src/core/search.ts",
+    "src/core/greeting.ts",
+    "src/core/event-bindings.ts",
+    "src/script.ts"
+  ]
+}

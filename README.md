@@ -49,6 +49,25 @@ For the absolute latest version:
 4.  Enable **"Developer Mode"**.
 5.  Click **"Load Unpacked"** and select the unzipped folder.
 
+### Local Development (TypeScript + SCSS)
+This project now uses a build step.
+
+1. Install dependencies:
+  ```bash
+  npm install
+  ```
+2. Build extension files:
+  ```bash
+  npm run build
+  ```
+3. In `edge://extensions`, click **"Load unpacked"** and select the `dist/` folder.
+
+Source files live in `src/`:
+- `src/script.ts` → `dist/script.js`
+- `src/style.scss` → `dist/style.css`
+
+Runtime files (`script.js` and `style.css`) are generated in `dist/` only.
+
 ---
 
 ## 🛡️ Privacy Policy

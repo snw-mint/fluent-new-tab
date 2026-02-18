@@ -1,0 +1,22 @@
+/* --- Sortable --- */
+.sortable-dragging .shortcut-card {
+    background: var(--search-bg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+}
+
+.sortable-placeholder {
+    opacity: 0.5;
+}
+
+.sortable-placeholder .shortcut-card {
+    background: rgba(128, 128, 128, 0.1);
+    border: 2px dashed var(--text-color);
+    box-shadow: none;
+}
+
+.sortable-placeholder .shortcut-title,
+.sortable-placeholder img {
+    visibility: hidden;
+    opacity: 0;
+}

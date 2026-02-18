@@ -1,0 +1,20 @@
+{
+  "name": "fluent-new-tab",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Build tooling for Fluent New Tab (browser extension)",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:assets": "node tools/build.mjs",
+    "build:ts": "tsc -p tsconfig.json",
+    "build:scss": "sass src/style.scss dist/style.css --no-source-map",
+    "build": "npm run clean && npm run build:assets && npm run build:ts && npm run build:scss",
+    "watch:ts": "tsc -p tsconfig.json --watch",
+    "watch:scss": "sass --watch src/style.scss:dist/style.css --no-source-map"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "sass": "^1.92.1",
+    "typescript": "^5.9.2"
+  }
+}

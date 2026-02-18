@@ -1,0 +1,65 @@
+/* --- Header & Controls --- */
+.header-controls {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.settings-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 99px;
+    padding: 4px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+.settings-wrapper:hover {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.settings-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.settings-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.settings-btn svg {
+    width: 23px;
+    height: 23px;
+}
+.settings-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.settings-wrapper:hover .settings-label {
+    max-width: 160px;
+    opacity: 1;
+    margin-left: 12px;
+    margin-right: 8px;
+}
