@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "ご挨拶"
   },
+  "wallpaperTitle": {
+    "message": "壁紙"
+  },
   "iconsStyleLabel": {
     "message": "アイコンスタイル"
-  },
-  "styleEmoji": {
-    "message": "3D フルーエント（カラー）"
-  },
-  "styleOutline": {
-    "message": "概要（最小限）"
   },
   "weatherTitle": {
     "message": "天気"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "コンパクトバー"
+  },
+  "voiceSearchOption": {
+    "message": "音声検索"
   },
   "languageTitle": {
     "message": "言語"
