@@ -1,11 +1,14 @@
 async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null> {
     const today = new Date().toISOString().slice(0, 10);
     const cacheKey = `wallpaper_cache_${source}`;
+    const now = Date.now();
+    const CACHE_DURATION_MS = 24 * 60 * 60 * 1000;
 
     try {
         const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
-        if (cached && cached.date === today && cached.url) {
-            console.log(`Carregando ${source} do cache.`);
+        const timestamp = cached?.timestamp || 0;
+        if (cached && cached.url && timestamp > 0 && (now - timestamp) < CACHE_DURATION_MS) {
+            console.log(`Carregando ${source} do cache 24h.`);
             return cached.url;
         }
     } catch (e) { console.error('Erro ao ler cache', e); }
@@ -26,7 +29,7 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
                 creditText = `Bing: ${img.copyright || 'Daily Image'}`;
             }
         } else if (source === 'nasa') {
-            const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
+            const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW');
             if (res.status === 429) throw new Error('NASA API limit reached.');
             if (!res.ok) throw new Error(`NASA Error: ${res.status}`);
             const data = await res.json() as NasaApodResponse;
@@ -69,9 +72,10 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
         if (imageUrl) {
             localStorage.setItem(cacheKey, JSON.stringify({
                 url: imageUrl,
-                date: today,
+                timestamp: now,
                 credit: creditText
             }));
+
             return imageUrl;
         }
 

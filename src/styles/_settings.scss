@@ -282,7 +282,7 @@ input:checked:active + .slider:before {
     border-left: 2px solid rgba(0, 0, 0, 0.1); 
     margin-top: 8px;
 }
-.performance-warning-notice {
+.disable-animations-notice {
     margin-top: 8px;
     padding: 8px;
     border-radius: 8px;
@@ -295,7 +295,7 @@ input:checked:active + .slider:before {
     font-size: 12px;
     line-height: 1.4;
 }
-.performance-warning-notice img {
+.disable-animations-notice img {
     width: 18px;
     height: 18px;
     flex-shrink: 0;

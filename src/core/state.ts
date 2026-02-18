@@ -14,7 +14,10 @@ const suggestionsCache = new Map<string, string[]>();
 let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
 let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
 let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') === 'true';
-let performanceModeEnabled = localStorage.getItem('performanceModeEnabled') === 'true';
+const savedAnimationsDisabled = localStorage.getItem('animationsDisabled');
+let animationsDisabled = savedAnimationsDisabled !== null
+    ? savedAnimationsDisabled === 'true'
+    : localStorage.getItem('performanceModeEnabled') === 'true';
 
 const CACHE_KEY = 'fluent_weather_cache';
 const CITY_KEY = 'fluent_city_data';

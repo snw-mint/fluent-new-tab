@@ -19,7 +19,10 @@
     "*://*.google.com/*",
     "*://*.bing.com/*",
     "https://bing.biturl.top/*",
+    "https://peapix.com/*",
     "https://api.nasa.gov/*",
-    "https://commons.wikimedia.org/*"
+    "https://apod.nasa.gov/*",
+    "https://commons.wikimedia.org/*",
+    "https://upload.wikimedia.org/*"
   ]
 }

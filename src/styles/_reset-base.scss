@@ -58,40 +58,9 @@ body {
     transition: background-image 0.3s ease-in-out;
 }
 
-body.performance-mode *,
-body.performance-mode *::before,
-body.performance-mode *::after {
+body.animations-disabled *,
+body.animations-disabled *::before,
+body.animations-disabled *::after {
     animation: none !important;
     transition: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-body.performance-mode .settings-popup,
-body.performance-mode .launcher-popup,
-body.performance-mode .dropdown-menu,
-body.performance-mode .suggestions-container,
-body.performance-mode .setting-group,
-body.performance-mode .theme-selector,
-body.performance-mode .settings-select,
-body.performance-mode .input-row input,
-body.performance-mode .input-row button,
-body.performance-mode .backup-btn,
-body.performance-mode .performance-warning-notice {
-    background: var(--search-bg) !important;
-    background-color: var(--search-bg) !important;
-    opacity: 1 !important;
-}
-
-body.performance-mode .shortcut-dropdown.active {
-    background: var(--search-bg) !important;
-    background-color: var(--search-bg) !important;
-    opacity: 1 !important;
-}
-
-body.performance-mode .settings-popup::after,
-body.performance-mode .launcher-popup::after,
-body.performance-mode .dropdown-item::after,
-body.performance-mode .shortcut-dropdown::after {
-    opacity: 0 !important;
 }

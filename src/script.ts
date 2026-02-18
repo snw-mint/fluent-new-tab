@@ -337,10 +337,10 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
 function updateGreetingSettingsVisibility(show: boolean, animate = true): void {
     if (greetingOptionsDiv) setCollapsible(greetingOptionsDiv, show, animate);
 }
-function updatePerformanceMode(enabled: boolean): void {
-    document.body.classList.toggle('performance-mode', enabled);
-    if (performanceWarningNotice) {
-        performanceWarningNotice.style.display = enabled ? 'flex' : 'none';
+function updateAnimationsDisabled(enabled: boolean): void {
+    document.body.classList.toggle('animations-disabled', enabled);
+    if (disableAnimationsNotice) {
+        disableAnimationsNotice.style.display = enabled ? 'flex' : 'none';
     }
 }
 function clearPresetSelection(): void {
@@ -496,6 +496,33 @@ function saveWallpaperConfig(): void {
     localStorage.setItem('wallpaperType', currentWallpaperType);
     localStorage.setItem('wallpaperValue', currentWallpaperValue);
 }
+let currentWallpaperObjectUrl: string | null = null;
+
+function preloadWallpaperImage(url: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error('Failed to preload wallpaper image.'));
+        img.src = url;
+    });
+}
+
+async function applyWallpaperImage(url: string): Promise<void> {
+    if (currentWallpaperObjectUrl && currentWallpaperObjectUrl.startsWith('blob:') && currentWallpaperObjectUrl !== url) {
+        URL.revokeObjectURL(currentWallpaperObjectUrl);
+    }
+
+    try {
+        await preloadWallpaperImage(url);
+    } catch (error) {
+        console.warn('Could not preload wallpaper, applying directly.', error);
+    }
+
+    currentWallpaperObjectUrl = url.startsWith('blob:') ? url : null;
+    document.body.style.backgroundImage = `url('${url}')`;
+}
+
 async function applyWallpaperLogic() {
     if (!wallpaperEnabled) {
         document.body.style.backgroundImage = 'none';
@@ -517,7 +544,7 @@ async function applyWallpaperLogic() {
                 'preset_3': 'assets/wallpapers/fluent3.webp'
             };
             const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
-            document.body.style.backgroundImage = `url('${imageUrl}')`;
+            await applyWallpaperImage(imageUrl);
         } 
         else if (currentWallpaperType === 'upload') {
             await loadCustomWallpaper();
@@ -526,7 +553,7 @@ async function applyWallpaperLogic() {
     else if (currentWallpaperSource === 'api') {
         const url = await fetchDailyWallpaper(currentWallpaperType);
         if (url) {
-            document.body.style.backgroundImage = `url('${url}')`;
+            await applyWallpaperImage(url);
             
             // Recupera o crédito salvo no cache
             const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
@@ -549,21 +576,21 @@ async function applyWallpaperLogic() {
 }
 async function loadCustomWallpaper() {
     const body = document.body;
-        try {
-            const blob = await getWallpaperFromDB();
-            if (blob) {
-                const url = URL.createObjectURL(blob);
-                body.style.backgroundImage = `url('${url}')`;
-                body.style.backgroundSize = 'cover';
-                body.style.backgroundPosition = 'center';
-                body.style.backgroundAttachment = 'fixed';
-            } else {
-                // Fallback se não houver imagem salva
-                console.warn("Nenhum wallpaper customizado encontrado.");
-            }
-        } catch (e) {
-            console.error("Erro ao carregar wallpaper:", e);
+    try {
+        const blob = await getWallpaperFromDB();
+        if (blob) {
+            const url = URL.createObjectURL(blob);
+            await applyWallpaperImage(url);
+            body.style.backgroundSize = 'cover';
+            body.style.backgroundPosition = 'center';
+            body.style.backgroundAttachment = 'fixed';
+        } else {
+            // Fallback se não houver imagem salva
+            console.warn("Nenhum wallpaper customizado encontrado.");
         }
+    } catch (e) {
+        console.error("Erro ao carregar wallpaper:", e);
+    }
 }
 
 /* Event Handlers */
@@ -717,11 +744,11 @@ function applyInitialVoiceSearch() {
     }
     updateVoiceSearchAvailability();
 }
-function applyInitialPerformanceMode() {
-    if (togglePerformanceMode) {
-        togglePerformanceMode.checked = performanceModeEnabled;
+function applyInitialAnimationsDisabled() {
+    if (toggleDisableAnimations) {
+        toggleDisableAnimations.checked = animationsDisabled;
     }
-    updatePerformanceMode(performanceModeEnabled);
+    updateAnimationsDisabled(animationsDisabled);
 }
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
@@ -837,15 +864,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-    applyInitialPerformanceMode();
-    if (togglePerformanceMode) {
-        togglePerformanceMode.addEventListener('change', (e) => {
+    applyInitialAnimationsDisabled();
+    if (toggleDisableAnimations) {
+        toggleDisableAnimations.addEventListener('change', (e) => {
             const target = getInputTarget(e);
             if (!target) return;
 
-            performanceModeEnabled = target.checked;
-            localStorage.setItem('performanceModeEnabled', String(target.checked));
-            updatePerformanceMode(target.checked);
+            animationsDisabled = target.checked;
+            localStorage.setItem('animationsDisabled', String(target.checked));
+            localStorage.removeItem('performanceModeEnabled');
+            updateAnimationsDisabled(target.checked);
         });
     }
     /* Shortcuts & Modals */

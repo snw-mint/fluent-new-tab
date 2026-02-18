@@ -117,8 +117,9 @@ interface WeatherCache {
 type BackupPayload = Record<string, string | undefined>;
 
 interface WallpaperCacheEntry {
-    url: string;
-    date: string;
+    url?: string;
+    date?: string;
+    timestamp?: number;
     credit?: string;
 }
 

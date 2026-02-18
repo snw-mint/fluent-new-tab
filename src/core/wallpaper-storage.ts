@@ -42,37 +42,50 @@ async function getWallpaperFromDB(): Promise<Blob | null> {
     });
 }
 
+function convertImageToWebp(
+    imageSource: string,
+    maxWidth = 1920,
+    quality = 0.82
+): Promise<Blob> {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = imageSource;
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxWidth) {
+                height *= maxWidth / width;
+                width = maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx?.drawImage(img, 0, 0, width, height);
+
+            canvas.toBlob((blob) => {
+                if (blob) resolve(blob);
+                else reject('Erro na conversão para WebP');
+            }, 'image/webp', quality);
+        };
+
+        img.onerror = (error) => reject(error);
+    });
+}
+
 function processWallpaperImage(file: File): Promise<Blob> {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
 
         reader.onload = (event) => {
-            const img = new Image();
-            img.src = String((event.target as FileReader).result || '');
-
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                let width = img.width;
-                let height = img.height;
-                const MAX_WIDTH = 1920;
-
-                if (width > MAX_WIDTH) {
-                    height *= MAX_WIDTH / width;
-                    width = MAX_WIDTH;
-                }
-
-                canvas.width = width;
-                canvas.height = height;
-                ctx?.drawImage(img, 0, 0, width, height);
-                canvas.toBlob((blob) => {
-                    if (blob) resolve(blob);
-                    else reject('Erro na compressão');
-                }, 'image/webp', 0.8);
-            };
-
-            img.onerror = (error) => reject(error);
+            convertImageToWebp(String((event.target as FileReader).result || ''), 1920, 0.8)
+                .then(resolve)
+                .catch(reject);
         };
 
         reader.onerror = (error) => reject(error);
