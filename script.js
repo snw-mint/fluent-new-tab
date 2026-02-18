@@ -354,7 +354,11 @@ function updateWallpaperUIState(enabled) {
     if (wallpaperGrid) {
         wallpaperGrid.style.display = enabled ? 'grid' : 'none';
     }
-    if (wallpaperSourceSelect) {
+    
+    const container = wallpaperSourceContainer || (wallpaperSourceSelect ? wallpaperSourceSelect.closest('.wallpaper-source-options') : null);
+    if (container) {
+        container.style.display = enabled ? '' : 'none';
+    } else if (wallpaperSourceSelect) {
         wallpaperSourceSelect.style.display = enabled ? 'block' : 'none';
         const label = document.querySelector(`label[for="${wallpaperSourceSelect.id}"]`) || 
                       (wallpaperSourceSelect.previousElementSibling && wallpaperSourceSelect.previousElementSibling.tagName === 'LABEL' ? wallpaperSourceSelect.previousElementSibling : null);
@@ -399,9 +403,9 @@ async function applyWallpaperLogic() {
         updateCreditsUI('local');
         if (currentWallpaperType === 'preset') {
             const presetMap = {
-                'preset_1': 'assets/wallpapers/bg1.webp',
-                'preset_2': 'assets/wallpapers/bg2.webp',
-                'preset_3': 'assets/wallpapers/bg3.webp'
+                'preset_1': 'assets/wallpapers/fluent1.webp',
+                'preset_2': 'assets/wallpapers/fluent2.webp',
+                'preset_3': 'assets/wallpapers/fluent3.webp'
             };
             const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
             document.body.style.backgroundImage = `url('${imageUrl}')`;
@@ -514,6 +518,7 @@ const wallpaperOptions = document.querySelectorAll('.wallpaper-option:not(.uploa
 const uploadOption = document.querySelector('.upload-option');
 const uploadInput = document.getElementById('wallpaperUploadInput');
 const wallpaperSourceSelect = document.getElementById('wallpaperSource');
+const wallpaperSourceContainer = document.getElementById('wallpaperSourceContainer');
 
 /* --- 5. Event Handlers --- */
 function applyTheme(theme) {
