@@ -3,6 +3,7 @@
   "moreApps": { "message": "More Apps" },
   "settingsTitle": { "message": "Settings" },
   "greetingTitle": { "message": "Greeting" },
+  "wallpaperTitle": { "message": "Wallpaper" },
   "iconsStyleLabel": { "message": "Icon Style" },
   "styleEmoji": { "message": "3D Fluent" },
   "styleOutline": { "message": "Outline" },

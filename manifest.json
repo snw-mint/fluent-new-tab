@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "2.2",
+  "version": "3.0",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en",
   "icons": {
@@ -9,10 +9,17 @@
     "128": "assets/icon-128.png"
   },
   "chrome_url_overrides": {
-    "newtab": "index.html"
+    "newtab": "index.html" 
   },
+  "permissions": [
+    "storage", 
+    "unlimitedStorage"
+  ],
   "host_permissions": [
     "*://*.google.com/*",
-    "*://*.bing.com/*"
+    "*://*.bing.com/*",
+    "https://bing.biturl.top/*",
+    "https://api.nasa.gov/*",
+    "https://commons.wikimedia.org/*"
   ]
 }

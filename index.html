@@ -56,6 +56,56 @@
                     </button>
                 </div>
             </div>
+
+        <div class="setting-group">
+            <div class="setting-header-row">
+                <div class="group-title">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
+                        <path d="M30.9968 12C33.7582 12 35.9968 14.2386 35.9968 17C35.9968 19.7614 33.7582 22 30.9968 22C28.2354 22 25.9968 19.7614 25.9968 17C25.9968 14.2386 28.2354 12 30.9968 12ZM28.4968 17C28.4968 18.3807 29.6161 19.5 30.9968 19.5C32.3775 19.5 33.4968 18.3807 33.4968 17C33.4968 15.6193 32.3775 14.5 30.9968 14.5C29.6161 14.5 28.4968 15.6193 28.4968 17Z" fill="currentColor"></path>
+                        <path d="M6 10.75C6 8.12665 8.12665 6 10.75 6H37.25C39.8734 6 42 8.12665 42 10.75V37.25C42 38.4377 41.5641 39.5236 40.8435 40.3565C40.7898 40.4531 40.7223 40.5441 40.641 40.6268C40.5548 40.7144 40.4589 40.7866 40.3566 40.8434C39.5238 41.564 38.4378 42 37.25 42H10.75C9.55998 42 8.47218 41.5624 7.63873 40.8393C7.53919 40.7832 7.44575 40.7123 7.36158 40.6268C7.28258 40.5466 7.21664 40.4583 7.16373 40.3648C6.43884 39.5309 6 38.4417 6 37.25V10.75ZM39.5 37.25V10.75C39.5 9.50736 38.4926 8.5 37.25 8.5H10.75C9.50736 8.5 8.5 9.50736 8.5 10.75V37.25C8.5 37.4065 8.51598 37.5592 8.54639 37.7067L21.3697 25.0851C22.8291 23.6486 25.171 23.6485 26.6306 25.0849L39.454 37.7048C39.4842 37.5579 39.5 37.4058 39.5 37.25ZM10.75 39.5H37.25C37.3948 39.5 37.5364 39.4863 37.6736 39.4602L24.877 26.8668C24.3905 26.388 23.6099 26.388 23.1234 26.8668L10.3284 39.4606C10.465 39.4865 10.6059 39.5 10.75 39.5Z" fill="currentColor"></path>
+                    </svg>
+                    <span data-i18n="wallpaperTitle">Wallpaper</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggleWallpaper">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div id="wallpaperGrid" class="wallpaper-grid-container">
+                
+                <div class="wallpaper-option" data-value="preset_1">
+                    <img src="assets/wallpapers/fluent1.webp" alt="Abstract 1">
+                </div>
+
+                <div class="wallpaper-option" data-value="preset_2">
+                    <img src="assets/wallpapers/fluent2.webp" alt="Abstract 2">
+                </div>
+
+                <div class="wallpaper-option" data-value="preset_3">
+                    <img src="assets/wallpapers/fluent3.webp" alt="Abstract 3">
+                </div>
+
+                <div class="wallpaper-option upload-option" id="uploadWallpaperBtn" title="Upload Image">
+                    <input type="file" id="wallpaperUploadInput" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+                        <g fill="currentColor">
+                            <path d="M5.25021713,20.5 L18.2502171,20.5037635 C18.6644307,20.5038835 19,20.8397671 19,21.2539806 C19,21.6336764 18.7176637,21.9473899 18.3515577,21.9969463 L18.2497829,22.0037635 L5.24978287,22 C4.83556933,21.9998801 4.5,21.6639964 4.5,21.2497829 C4.5,20.8700871 4.78233634,20.5563736 5.1484423,20.5068172 L5.25021713,20.5 Z M6.21972471,7.21846694 L11.21737,2.22185426 C11.4835159,1.95576328 11.8999028,1.93145946 12.1934928,2.14902198 L12.2776129,2.2215468 L17.2810585,7.21815948 C17.5741518,7.5108525 17.5744763,7.98572612 17.2817833,8.2788194 C17.0156987,8.54526784 16.5990517,8.56975859 16.3052914,8.35210481 L16.2211234,8.27954415 L12.5,4.56423913 L12.5,18.2488622 C12.5,18.6285579 12.2178461,18.9423531 11.8517706,18.9920156 L11.75,18.9988622 C11.3703042,18.9988622 11.056509,18.7167083 11.0068466,18.3506327 L11,18.2488622 L11,4.55923913 L7.28027529,8.27923669 C7.01398122,8.54547574 6.59731504,8.56963874 6.30372605,8.35175395 L6.21961512,8.27912711 C5.95337607,8.01283303 5.92921307,7.59616685 6.14709787,7.30257787 L6.21972471,7.21846694 L11.21737,2.22185426 L6.21972471,7.21846694 Z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div id="wallpaperSourceContainer" style="margin-top: 12px; transition: opacity 0.3s;">
+            <label for="wallpaperSource" style="font-size: 11px; margin-bottom: 4px; display: block; opacity: 0.7;" data-i18n="wallpaperSourceLabel">Image Source</label>
+            <select id="wallpaperSource" class="settings-select" style="width: 100%; margin-bottom: 8px;">
+                <option value="noSource" data-i18n="nosourceOption">No Source</option>
+                <option value="bing" data-i18n="sourcebingOption">Bing</option>
+                <option value="nasa" data-i18n="sourcenasaOption">NASA (APOD)</option>
+                <option value="wikimedia" data-i18n="sourceBing">Media Commons</option>
+                </select>
+            </div>
+        </div>
         
         <div class="setting-group">
                 <div class="setting-header-row">
@@ -355,6 +405,12 @@
             </form>
         </div>
     </div>
+
+    <div id="wallpaperCredits" class="wallpaper-credits hidden">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.925 2.503a2.25 2.25 0 0 1 1.94 1.11L16.679 5h2.071A3.25 3.25 0 0 1 22 8.25v9.5A3.25 3.25 0 0 1 18.75 21H5.25A3.25 3.25 0 0 1 2 17.75v-9.5A3.25 3.25 0 0 1 5.25 5h2.08l.875-1.424a2.25 2.25 0 0 1 1.917-1.073h3.803Zm0 1.5h-3.803a.75.75 0 0 0-.574.268l-.065.09L8.39 6.141a.75.75 0 0 1-.639.358h-2.5A1.75 1.75 0 0 0 3.5 8.25v9.5c0 .966.784 1.75 1.75 1.75h13.5a1.75 1.75 0 0 0 1.75-1.75v-9.5a1.75 1.75 0 0 0-1.75-1.75h-2.5a.75.75 0 0 1-.647-.37l-1.032-1.757a.75.75 0 0 0-.646-.37ZM12 8a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="#ffffff"/></svg>
+        <span id="wallpaperCreditText"></span>
+    </div>
+
     <script src="scripts/i18n.js"></script>
     <script src="scripts/sortable.min.js"></script>
     <script src="script.js"></script>

@@ -46,6 +46,15 @@ body {
     cursor: default; 
     opacity: 0;
     transition: opacity 0.2s ease;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.6s ease-in-out;
+}
+.main-ui-container {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadinUI 0.6s ease-out 0.2s forwards;
 }
 
 body.loaded {
@@ -60,7 +69,22 @@ input, textarea {
     fill: var(--text-color);
     transition: fill 0.3s ease;
 }
-
+body[data-wallpaper-active="true"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: -1;
+    pointer-events: none;
+    animation: fadeInOverlay 0.8s ease;
+}
+body {
+    background-color: var(--bg-color);
+    transition: background-image 0.3s ease-in-out;
+}
 /* --- 3. Layout --- */
 .container {
     width: 100%;
@@ -192,8 +216,8 @@ input, textarea {
 .search-bar {
     width: 100%;
     height: 57px;
-    background: rgba(255, 255, 255, 0.87);
-    border: 3px solid var(--search-bg);
+    background: #fafafa;
+    border: 4px solid var(--search-bg);
     border-radius: 22px;
     box-shadow: 0 0 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.08);
     display: flex;
@@ -211,6 +235,8 @@ input, textarea {
 .search-bar.compact {
     height: 46px;
     border-radius: 23px;
+    border: none;
+    background-color: #fff;
 }
 .search-bar.compact .search-btn,
 .search-bar.compact .current-engine-btn {
@@ -343,7 +369,7 @@ input, textarea {
     top: calc(100% + 10px);
     left: 0;
     width: 200px; 
-    background: rgba(255, 255, 255, 0.3); 
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(30px) saturate(200%);
     -webkit-backdrop-filter: blur(30px) saturate(200%);
     border-radius: 12px;
@@ -373,6 +399,15 @@ input, textarea {
     color: var(--text-color);
     text-decoration: none;
     user-select: none;
+}
+.dropdown-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('assets/noise.png'); 
+    opacity: 0.025;
+    pointer-events: none; 
 }
 .dropdown-item:hover {
     background-color: rgba(0, 0, 0, 0.08); 
@@ -479,7 +514,7 @@ input, textarea {
 .shortcut-card {
     width: 44px; 
     height: 44px;
-    background: rgba(255, 255, 255, 0.6);
+    background: #fff;
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -558,7 +593,7 @@ input, textarea {
     border-radius: 10px;
     padding: 6px;
     z-index: 100; 
-    background: rgba(255, 255, 255, 0.35);
+   background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -567,6 +602,15 @@ input, textarea {
     transform: translateY(-6px) scale(0.96);
     pointer-events: none;
     transition: all 0.18s ease;
+}
+.shortcut-dropdown::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('assets/noise.png'); 
+    opacity: 0.20;
+    pointer-events: none; 
 }
 .shortcut-dropdown.active {
     opacity: 1;
@@ -745,9 +789,9 @@ input, textarea {
     max-height: 70vh; 
     overflow-y: auto; 
     overflow-x: hidden;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(100%);
     border: 1px solid rgba(224, 224, 224, 0.5);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 12px; 
@@ -757,6 +801,15 @@ input, textarea {
     gap: 8px; 
     transform-origin: top right; 
     animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+.settings-popup::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('assets/noise.png'); 
+    opacity: 0.15;
+    pointer-events: none; 
 }
 .settings-popup.active {
     display: flex;
@@ -1168,7 +1221,7 @@ input:checked:active + .slider:before {
     position: absolute;
     top: 48px; 
     left: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(30px) saturate(200%);
     -webkit-backdrop-filter: blur(30px) saturate(200%);
     border-radius: 8px; 
@@ -1181,6 +1234,15 @@ input:checked:active + .slider:before {
     transform-origin: top left; 
     animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
     z-index: 1000;
+}
+.launcher-popup::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('assets/noise.png'); 
+    opacity: 0.15;
+    pointer-events: none; 
 }
 .launcher-popup.active {
     display: flex;
@@ -1256,6 +1318,50 @@ input:checked:active + .slider:before {
     cursor: grabbing;
 }
 
+/* Wallpaper */
+.wallpaper-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+.wallpaper-grid-container.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.wallpaper-option {
+    aspect-ratio: 16 / 13;
+    background-color: var(--card-bg, #f3f3f3);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.1s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wallpaper-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.upload-option {
+    background-color: var(--bg-hover, rgba(0,0,0,0.05));
+    border: 1px dashed var(--text-secondary, #999);
+    color: var(--text-primary);
+}
+.wallpaper-option:hover {
+    transform: scale(1.02);
+}
+.wallpaper-option.selected {
+    border-color: var(--accent-color, #0078d4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 /* --- 10. Sortable --- */
 .sortable-dragging .shortcut-card {
     background: var(--search-bg);
@@ -1283,10 +1389,6 @@ input:checked:active + .slider:before {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-@keyframes menuPopIn {
-    0% { opacity: 0; transform: scale(0.95) translateY(-10px); }
-    100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 @keyframes menuPopIn {
     0% { opacity: 0; transform: scale(0.95) translateY(-10px); }
@@ -1331,6 +1433,16 @@ input:checked:active + .slider:before {
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 77, 79, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
 }
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadinUI {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* --- 13. Dark Mode --- */
 [data-theme="dark"] .greeting-icon.outline {
@@ -1344,7 +1456,7 @@ html[data-theme="dark"] {
     --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 [data-theme="dark"] .search-bar {
-    background: rgba(51, 51, 51, 0.87);
+    background: #3B3B3B;
 }
 [data-theme="dark"] .settings-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -1361,7 +1473,7 @@ html[data-theme="dark"] {
     background: rgba(255,255,255,0.1);
 }
 [data-theme="dark"] .shortcut-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: #373737;
     border-color: rgba(255, 255, 255, 0.1);
 }
 [data-theme="dark"] .dropdown-item:hover {
@@ -1375,7 +1487,7 @@ html[data-theme="dark"] {
     background: rgba(255, 255, 255, 0.15);
 }
 [data-theme="dark"] .dropdown-menu {
-    background: rgba(32, 32, 32, 0.6); 
+    background: rgba(32, 32, 32, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.08); 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -1389,7 +1501,7 @@ html[data-theme="dark"] {
     background-color: rgba(255,255,255,0.15);
 }
 [data-theme="dark"] .shortcut-dropdown {
-    background: rgba(32, 32, 32, 0.45);
+    background: rgba(32, 32, 32, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
 }
@@ -1411,7 +1523,7 @@ html[data-theme="dark"] {
     color: white;
 }
 [data-theme="dark"] .settings-popup {
-    background: rgba(32, 32, 32, 0.6);
+    background: rgba(32, 32, 32, 0.85);
     border: 1px solid rgb(78 78 78 / 50%);
 }
 [data-theme="dark"] .settings-popup::-webkit-scrollbar-thumb {
@@ -1470,7 +1582,7 @@ body.dark-mode .fluent-icon,
     background-color: rgba(255, 255, 255, 0.06);
 }
 [data-theme="dark"] .launcher-popup {
-    background: rgba(32, 32, 32, 0.6); 
+    background: rgba(32, 32, 32, 0.85);
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 8px 16px rgba(0,0,0,0.5);
 }
@@ -1512,4 +1624,75 @@ body.dark-mode .fluent-icon,
 }
 [data-theme="dark"] .toggle-link {
     color: #74b5e7;
+}
+
+/* =========================
+   14. Wallpaper Mode Overrides
+========================= */
+
+/* Força texto/ícones brancos na interface principal quando wallpaper está ativo */
+body[data-wallpaper-active="true"] .greeting-text,
+body[data-wallpaper-active="true"] .translate-link,
+body[data-wallpaper-active="true"] .settings-btn svg path,
+body[data-wallpaper-active="true"] .settings-label,
+body[data-wallpaper-active="true"] .weather-widget,
+body[data-wallpaper-active="true"] .launcher-btn svg path,
+body[data-wallpaper-active="true"] .shortcut-title {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Garante que ícones de imagem (Clima e Saudação Outline) fiquem brancos */
+body[data-wallpaper-active="true"] .weather-icon .fluent-icon,
+body[data-wallpaper-active="true"] .greeting-icon.outline {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
+}
+
+/* Melhora a visibilidade do hover em botões transparentes sobre o wallpaper */
+body[data-wallpaper-active="true"] .settings-btn:hover,
+body[data-wallpaper-active="true"] .launcher-btn:hover,
+body[data-wallpaper-active="true"] .weather-widget:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+html:not([data-theme="dark"]) body[data-wallpaper-active="true"] .settings-wrapper:hover .settings-label,
+html:not([data-theme="dark"]) body[data-wallpaper-active="true"] .settings-wrapper:hover .settings-btn svg path {
+    color: #1f1f1f !important;
+    fill: #1f1f1f !important;
+    text-shadow: none !important;
+}
+
+/* --- 15. Wallpaper Credits Badge --- */
+.wallpaper-credits {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.wallpaper-credits.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Estilo para o contêiner da seleção de fonte de wallpaper */
+.wallpaper-source-options {
+    flex-direction: column; /* Faz com que os itens se empilhem verticalmente */
+    gap: 6px; /* Espaçamento entre o label e o select */
+    margin-top: 8px; /* Espaçamento superior para separar de outros elementos */
 }

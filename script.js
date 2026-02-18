@@ -63,7 +63,7 @@ const launcherData = {
     ], allAppsLink: 'https://about.google/products/' }
 };
 
-const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled', 'compactBarEnabled'];
+const APP_KEYS = ['shortcuts','theme','weatherEnabled','weatherCity','shortcutsVisible','shortcutsRows','launcherEnabled','launcherProvider','showGreeting','greetingName','greetingStyle', 'userLanguage', 'clearSearchEnabled', 'compactBarEnabled', 'wallpaperEnabled', 'wallpaperSource', 'wallpaperType', 'wallpaperValue'];
 
 /* --- 2. State --- */
 let shortcuts = [];
@@ -96,6 +96,11 @@ try {
 
 let launcherEnabled = localStorage.getItem('launcherEnabled') === 'true';
 let currentProvider = localStorage.getItem('launcherProvider') || 'microsoft';
+
+let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
+let currentWallpaperSource = localStorage.getItem('wallpaperSource') || 'local'; // 'local' or 'api'
+let currentWallpaperType = localStorage.getItem('wallpaperType') || 'preset'; // 'preset', 'upload', 'bing', 'nasa'
+let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
 
 /* --- 3. Utility Functions --- */
 function debounce(func, wait) {
@@ -149,9 +154,9 @@ function deleteShortcut(index) {
     shortcuts.splice(index, 1);
     saveAndRender();
 }
-function updateShortcutsVisibility(visible) {
+function updateShortcutsVisibility(visible, animate = true) {
     if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
-    if (rowsInputGroup) rowsInputGroup.style.display = visible ? 'block' : 'none';
+    if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
 }
 function getFluentIconFilename(code, isDay) {
     switch (code) {
@@ -254,14 +259,14 @@ function setSearchEngine(engineKey) {
         updateGoogleParams();
     }
 }
-function updateSearchSettings() {
+function updateSearchSettings(animate = true) {
     if (searchWrapper) searchWrapper.style.display = searchBarVisible ? '' : 'none';
     if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
-    const displayStyle = searchBarVisible ? 'flex' : 'none';
-    if (suggestionsRow) suggestionsRow.style.display = displayStyle;
-    if (clearSearchRow) clearSearchRow.style.display = displayStyle;
+    const showChildren = searchBarVisible;
+    if (suggestionsRow) setCollapsible(suggestionsRow, showChildren, animate);
+    if (clearSearchRow) setCollapsible(clearSearchRow, showChildren, animate);
     const compactBarRow = document.getElementById('compactBarRow');
-    if (compactBarRow) compactBarRow.style.display = displayStyle;
+    if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
 }
 function updateCompactBarStyle() {
     if (searchWrapper) {
@@ -312,12 +317,12 @@ function updateUnitButtons() {
         else btn.classList.remove('active');
     });
 }
-function updateWeatherVisibility() {
+function updateWeatherVisibility(animate = true) {
     if(!weatherWidget || !cityInputGroup) return;
     const displayStyle = weatherEnabled ? 'flex' : 'none';
     weatherWidget.style.display = displayStyle;
-    cityInputGroup.style.display = displayStyle;
-    if(weatherUnitGroup) weatherUnitGroup.style.display = displayStyle;
+    setCollapsible(cityInputGroup, weatherEnabled, animate);
+    if(weatherUnitGroup) setCollapsible(weatherUnitGroup, weatherEnabled, animate);
 }
 function renderWeather(data) {
     if (!data || !data.current_weather) return;
@@ -332,13 +337,258 @@ function renderWeather(data) {
     weatherIcon.innerHTML = `<img src="${iconPath}" alt="Weather Icon" class="fluent-icon">`;
     weatherWidget.href = `https://www.bing.com/weather/forecast?q=${currentCityData.name}`;
 }
-function updateLauncherVisibility() {
+function updateLauncherVisibility(animate = true) {
     if(appLauncherWrapper) {
         appLauncherWrapper.style.display = launcherEnabled ? 'block' : 'none';
     }
-    if(launcherSelectGroup) {
-        launcherSelectGroup.style.display = launcherEnabled ? 'block' : 'none';
+    if(launcherSelectGroup) setCollapsible(launcherSelectGroup, launcherEnabled, animate);
+}
+function updateWallpaperUIState(enabled, animate = true) {
+    if (wallpaperGrid) {
+        wallpaperGrid.dataset.collapsibleDisplay = 'grid';
+        setCollapsible(wallpaperGrid, enabled, animate);
     }
+
+    const container = wallpaperSourceContainer || (wallpaperSourceSelect ? wallpaperSourceSelect.closest('.wallpaper-source-options') : null);
+    if (container) {
+        setCollapsible(container, enabled, animate);
+    } else if (wallpaperSourceSelect) {
+        wallpaperSourceSelect.dataset.collapsibleDisplay = 'block';
+        setCollapsible(wallpaperSourceSelect, enabled, animate);
+        const label = document.querySelector(`label[for="${wallpaperSourceSelect.id}"]`) || 
+                      (wallpaperSourceSelect.previousElementSibling && wallpaperSourceSelect.previousElementSibling.tagName === 'LABEL' ? wallpaperSourceSelect.previousElementSibling : null);
+        if (label) setCollapsible(label, enabled, animate);
+    }
+    if (toggleWallpaper) {
+        const row = toggleWallpaper.closest('.switch-row');
+        if (row) row.style.marginBottom = enabled ? '' : '0';
+    }
+}
+
+function updateGreetingSettingsVisibility(show, animate = true) {
+    if (greetingOptionsDiv) setCollapsible(greetingOptionsDiv, show, animate);
+}
+function clearPresetSelection() {
+    document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
+}
+function highlightSelectedWallpaper(value) {
+    clearPresetSelection();
+    if (value === 'custom' || value === 'upload') {
+        const uploadBtn = document.querySelector('.upload-option');
+        if (uploadBtn) uploadBtn.classList.add('selected');
+    } else {
+        const target = document.querySelector(`.wallpaper-option[data-value="${value}"]`);
+        if (target) target.classList.add('selected');
+    }
+}
+
+function prepareCollapsible(element) {
+    if (!element || element.dataset.collapsibleReady === 'true') return;
+    const previousDisplay = element.style.display;
+    if (previousDisplay === 'none') {
+        element.style.display = '';
+    }
+    let computedDisplay = window.getComputedStyle(element).display;
+    if (computedDisplay === 'none') {
+        computedDisplay = element.dataset.collapsibleDisplay || 'block';
+    }
+    if (previousDisplay === 'none') {
+        element.style.display = previousDisplay;
+    }
+    const computedStyles = window.getComputedStyle(element);
+    element.dataset.originalDisplay = computedDisplay;
+    element.dataset.originalMarginTop = computedStyles.marginTop;
+    element.dataset.originalMarginBottom = computedStyles.marginBottom;
+    element.dataset.originalPaddingTop = computedStyles.paddingTop;
+    element.dataset.originalPaddingBottom = computedStyles.paddingBottom;
+    element.classList.add('collapsible-section');
+    element.dataset.collapsibleReady = 'true';
+}
+
+function setCollapsible(element, shouldExpand, animate = true) {
+    if (!element) return;
+    prepareCollapsible(element);
+
+    const restoreSpacing = () => {
+        element.style.marginTop = element.dataset.originalMarginTop;
+        element.style.marginBottom = element.dataset.originalMarginBottom;
+        element.style.paddingTop = element.dataset.originalPaddingTop;
+        element.style.paddingBottom = element.dataset.originalPaddingBottom;
+    };
+
+    const transitionValue = 'height 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease, transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), margin 0.28s ease, padding 0.28s ease';
+    const currentState = element.dataset.state || 'open';
+
+    if (!animate) {
+        element.style.transition = 'none';
+        if (shouldExpand) {
+            element.style.display = element.dataset.originalDisplay;
+            restoreSpacing();
+            element.style.height = 'auto';
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            element.style.pointerEvents = 'auto';
+            element.style.overflow = '';
+            element.dataset.state = 'open';
+        } else {
+            element.style.display = element.dataset.originalDisplay;
+            element.style.height = '0px';
+            element.style.opacity = '0';
+            element.style.transform = 'scaleY(0.98) translateY(-6px)';
+            element.style.pointerEvents = 'none';
+            element.style.overflow = 'hidden';
+            element.style.marginTop = '0px';
+            element.style.marginBottom = '0px';
+            element.style.paddingTop = '0px';
+            element.style.paddingBottom = '0px';
+            element.dataset.state = 'closed';
+        }
+        requestAnimationFrame(() => { element.style.transition = ''; });
+        return;
+    }
+
+    element.style.transition = transitionValue;
+
+    if (shouldExpand) {
+        if (currentState === 'open') return;
+        element.dataset.state = 'animating';
+        element.style.display = element.dataset.originalDisplay;
+        element.style.pointerEvents = 'none';
+        element.style.overflow = 'hidden';
+
+        restoreSpacing();
+        const targetHeight = element.scrollHeight;
+
+        element.style.height = '0px';
+        element.style.opacity = '0';
+        element.style.transform = 'scaleY(0.98) translateY(-6px)';
+        element.style.marginTop = '0px';
+        element.style.marginBottom = '0px';
+        element.style.paddingTop = '0px';
+        element.style.paddingBottom = '0px';
+
+        requestAnimationFrame(() => {
+            element.style.height = `${targetHeight}px`;
+            element.style.opacity = '1';
+            element.style.transform = 'scaleY(1) translateY(0)';
+            restoreSpacing();
+        });
+
+        const onExpandEnd = (event) => {
+            if (event.propertyName !== 'height') return;
+            element.style.height = 'auto';
+            element.style.overflow = '';
+            element.style.pointerEvents = 'auto';
+            element.dataset.state = 'open';
+            element.style.transition = '';
+            element.removeEventListener('transitionend', onExpandEnd);
+        };
+        element.addEventListener('transitionend', onExpandEnd);
+    } else {
+        if (currentState === 'closed') return;
+        element.dataset.state = 'animating';
+        element.style.overflow = 'hidden';
+        element.style.pointerEvents = 'none';
+
+        restoreSpacing();
+        const startHeight = element.scrollHeight;
+        element.style.height = `${startHeight}px`;
+        element.style.opacity = '1';
+        element.style.transform = 'scaleY(1) translateY(0)';
+
+        requestAnimationFrame(() => {
+            element.style.height = '0px';
+            element.style.opacity = '0';
+            element.style.transform = 'scaleY(0.98) translateY(-6px)';
+            element.style.marginTop = '0px';
+            element.style.marginBottom = '0px';
+            element.style.paddingTop = '0px';
+            element.style.paddingBottom = '0px';
+        });
+
+        const onCollapseEnd = (event) => {
+            if (event.propertyName !== 'height') return;
+            element.dataset.state = 'closed';
+            element.style.transition = '';
+            element.style.overflow = 'hidden';
+            element.removeEventListener('transitionend', onCollapseEnd);
+        };
+        element.addEventListener('transitionend', onCollapseEnd);
+    }
+}
+function saveWallpaperConfig() {
+    localStorage.setItem('wallpaperSource', currentWallpaperSource);
+    localStorage.setItem('wallpaperType', currentWallpaperType);
+    localStorage.setItem('wallpaperValue', currentWallpaperValue);
+}
+async function applyWallpaperLogic() {
+    if (!wallpaperEnabled) {
+        document.body.style.backgroundImage = 'none';
+        document.body.removeAttribute('data-wallpaper-active');
+        return;
+    }
+
+    document.body.setAttribute('data-wallpaper-active', 'true');
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = 'fixed';
+
+    if (currentWallpaperSource === 'local') {
+        updateCreditsUI('local');
+        if (currentWallpaperType === 'preset') {
+            const presetMap = {
+                'preset_1': 'assets/wallpapers/fluent1.webp',
+                'preset_2': 'assets/wallpapers/fluent2.webp',
+                'preset_3': 'assets/wallpapers/fluent3.webp'
+            };
+            const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
+            document.body.style.backgroundImage = `url('${imageUrl}')`;
+        } 
+        else if (currentWallpaperType === 'upload') {
+            await loadCustomWallpaper();
+        }
+    } 
+    else if (currentWallpaperSource === 'api') {
+        const url = await fetchDailyWallpaper(currentWallpaperType);
+        if (url) {
+            document.body.style.backgroundImage = `url('${url}')`;
+            
+            // Recupera o crédito salvo no cache
+            const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+            try {
+                const cached = JSON.parse(localStorage.getItem(cacheKey));
+                let credit = cached ? cached.credit : '';
+                
+                // Fallbacks se não houver crédito salvo
+                if (!credit) {
+                    if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
+                    else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
+                    else if (currentWallpaperType === 'wikimedia') credit = 'Wikimedia Commons';
+                }
+                updateCreditsUI('api', credit);
+            } catch (e) {
+                updateCreditsUI('api', 'Daily Wallpaper');
+            }
+        }
+    }
+}
+async function loadCustomWallpaper() {
+    const body = document.body;
+        try {
+            const blob = await getWallpaperFromDB();
+            if (blob) {
+                const url = URL.createObjectURL(blob);
+                body.style.backgroundImage = `url('${url}')`;
+                body.style.backgroundSize = 'cover';
+                body.style.backgroundPosition = 'center';
+                body.style.backgroundAttachment = 'fixed';
+            } else {
+                // Fallback se não houver imagem salva
+                console.warn("Nenhum wallpaper customizado encontrado.");
+            }
+        } catch (e) {
+            console.error("Erro ao carregar wallpaper:", e);
+        }
 }
 
 /* --- 4. DOM References --- */
@@ -396,6 +646,13 @@ const exportBtn = document.getElementById('exportBtn');
 const importBtn = document.getElementById('importBtn');
 const importInput = document.getElementById('importInput');
 const languageSelect = document.getElementById('languageProvider');
+const toggleWallpaper = document.getElementById('toggleWallpaper');
+const wallpaperGrid = document.getElementById('wallpaperGrid');
+const wallpaperOptions = document.querySelectorAll('.wallpaper-option:not(.upload-option)');
+const uploadOption = document.querySelector('.upload-option');
+const uploadInput = document.getElementById('wallpaperUploadInput');
+const wallpaperSourceSelect = document.getElementById('wallpaperSource');
+const wallpaperSourceContainer = document.getElementById('wallpaperSourceContainer');
 
 /* --- 5. Event Handlers --- */
 function applyTheme(theme) {
@@ -427,11 +684,9 @@ function initBrand() {
     const greetingStyle = localStorage.getItem('greetingStyle') || '3d';
     if (!showGreeting) {
         greetingWrapper.style.display = 'none';
-        if(greetingOptionsDiv) greetingOptionsDiv.style.display = 'none';
         return;
     } else {
         greetingWrapper.style.display = 'flex';
-        if(greetingOptionsDiv) greetingOptionsDiv.style.display = 'block';
     }
     
     const hour = new Date().getHours();
@@ -496,6 +751,185 @@ function initBrand() {
 }
 
 /* --- 6. Core Features --- */
+const DB_NAME = 'FluentNewTabDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'wallpapers';
+
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = (event) => reject('Erro ao abrir banco de dados: ' + event.target.error);
+    });
+}
+
+async function saveWallpaperToDB(blob) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.put(blob, 'custom_wallpaper');
+
+        request.onsuccess = () => resolve(true);
+        request.onerror = () => reject('Erro ao salvar no DB');
+    });
+}
+
+async function getWallpaperFromDB() {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.get('custom_wallpaper');
+
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = () => reject('Erro ao ler do DB');
+    });
+}
+
+function processImage(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                let width = img.width;
+                let height = img.height;
+                const MAX_WIDTH = 1920;
+                
+                if (width > MAX_WIDTH) {
+                    height *= MAX_WIDTH / width;
+                    width = MAX_WIDTH;
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob((blob) => {
+                    if (blob) resolve(blob);
+                    else reject('Erro na compressão');
+                }, 'image/webp', 0.8);
+            };
+            
+            img.onerror = (err) => reject(err);
+        };
+        reader.onerror = (err) => reject(err);
+    });
+}
+
+async function fetchDailyWallpaper(source) {
+    const today = new Date().toISOString().slice(0, 10); 
+    const cacheKey = `wallpaper_cache_${source}`;
+
+    try {
+        const cached = JSON.parse(localStorage.getItem(cacheKey));
+        if (cached && cached.date === today && cached.url) {
+            console.log(`Carregando ${source} do cache.`);
+            return cached.url;
+        }
+    } catch (e) { console.error("Erro ao ler cache", e); }
+
+    console.log(`Buscando nova imagem de: ${source}...`);
+    let imageUrl = '';
+    let creditText = '';
+
+    try {
+        // --- BING (via Peapix) ---
+        if (source === 'bing') {
+            const res = await fetch('https://peapix.com/bing/feed?country=us');
+            if (!res.ok) throw new Error(`Bing Error: ${res.status}`);
+            const data = await res.json();
+            console.log("Resposta Bing:", data);
+
+            if (data && data.length > 0) {
+                const img = data[0];
+                imageUrl = img.fullUrl || img.imageUrl || img.url;
+                creditText = `Bing: ${img.copyright || 'Daily Image'}`;
+            }
+        }
+
+        // --- NASA APOD ---
+        else if (source === 'nasa') {
+            const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
+            if (res.status === 429) throw new Error("NASA API limit reached.");
+            if (!res.ok) throw new Error(`NASA Error: ${res.status}`);
+            const data = await res.json();
+            console.log("NASA response:", data);
+
+            if (data.media_type === 'image') {
+                imageUrl = data.hdurl || data.url;
+                creditText = `NASA: ${data.title}`;
+            } else {
+                throw new Error("Today NASA posted a video, not an image.");
+            }
+        }
+
+        // --- WIKIMEDIA COMMONS (PotD) ---
+        else if (source === 'wikimedia') {
+            const fetchWiki = async (date) => {
+                const u = `https://commons.wikimedia.org/w/api.php?action=query&generator=images&titles=Template:Potd/${date}&prop=imageinfo&iiprop=url|extmetadata&format=json&origin=*`;
+                const r = await fetch(u);
+                return await r.json();
+            };
+
+            let data = await fetchWiki(today);
+            console.log("Resposta Wikimedia hoje:", data);
+            let pages = data.query?.pages;
+
+            if (!pages) {
+                console.warn("Wikimedia empty today, trying yesterday...");
+                const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+                data = await fetchWiki(yesterday);
+                console.log("Wikimedia response yesterday:", data);
+                pages = data.query?.pages;
+            }
+
+            if (pages) {
+                for (const page of Object.values(pages)) {
+                    if (page?.imageinfo?.[0]) {
+                        imageUrl = page.imageinfo[0].url;
+                        const meta = page.imageinfo[0].extmetadata;
+                        creditText = meta?.Artist?.value || "Wikimedia Commons";
+                        creditText = creditText.replace(/<[^>]*>?/gm, '');
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 2. save and return
+        if (imageUrl) {
+            localStorage.setItem(cacheKey, JSON.stringify({
+                url: imageUrl,
+                date: today,
+                credit: creditText
+            }));
+            return imageUrl;
+        } else {
+            throw new Error("No image URL found in the API response.");
+        }
+
+    } catch (error) {
+        console.error(`Error while searching ${source}:`, error);
+        return null;
+    }
+}
+
+
 function fetchSuggestions(query) {
     const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
     fetch(url)
@@ -603,6 +1037,20 @@ function renderLauncher(providerKey) {
     if(launcherAllAppsLink) launcherAllAppsLink.href = data.allAppsLink;
 }
 
+function updateCreditsUI(source, creditText) {
+    const creditsContainer = document.getElementById('wallpaperCredits');
+    const creditsSpan = document.getElementById('wallpaperCreditText');
+
+    if (!creditsContainer || !creditsSpan) return;
+
+    if (source === 'local' || source === 'preset' || source === 'upload') {
+        creditsContainer.classList.add('hidden');
+    } else {
+        creditsSpan.textContent = creditText || 'Daily Wallpaper';
+        creditsContainer.classList.remove('hidden');
+    }
+}
+
 /* --- 7. UI Updates --- */
 function applyInitialTheme() {
     applyTheme(savedTheme);
@@ -613,11 +1061,11 @@ function applyInitialSearchEngine() {
 function applyInitialShortcutsVisibility() {
     if(toggleShortcuts) {
         toggleShortcuts.checked = shortcutsVisible;
-        updateShortcutsVisibility(shortcutsVisible);
+        updateShortcutsVisibility(shortcutsVisible, false);
     }
 }
 function applyInitialSearchBarVisibility() {
-    updateSearchSettings();
+    updateSearchSettings(false);
     if (toggleSearchBar) {
         toggleSearchBar.checked = searchBarVisible;
     }
@@ -635,15 +1083,33 @@ function applyInitialClearSearch() {
 }
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
-    updateWeatherVisibility();
+    updateWeatherVisibility(false);
     updateUnitButtons();
     if (weatherEnabled) initWeather();
 }
 function applyInitialLauncherState() {
     if(toggleLauncher) toggleLauncher.checked = launcherEnabled;
     if(launcherProvider) launcherProvider.value = currentProvider;
-    updateLauncherVisibility();
+    updateLauncherVisibility(false);
     if(launcherEnabled) renderLauncher(currentProvider);
+}
+function applyInitialWallpaperState() {
+    if (toggleWallpaper) {
+        toggleWallpaper.checked = wallpaperEnabled;
+        updateWallpaperUIState(wallpaperEnabled, false);
+    }
+
+    // Se for API, seleciona no dropdown
+    if (currentWallpaperSource === 'api' && wallpaperSourceSelect) {
+        wallpaperSourceSelect.value = currentWallpaperType; 
+        clearPresetSelection();
+    } else {
+        // Se for Local, seleciona no Grid e reseta dropdown
+        if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
+        highlightSelectedWallpaper(currentWallpaperValue);
+    }
+    
+    applyWallpaperLogic();
 }
 function applyBrandInterval() {
     initBrand();
@@ -667,8 +1133,10 @@ document.addEventListener("DOMContentLoaded", () => {
     applyBrandInterval();
     if (toggleGreeting) {
         toggleGreeting.checked = localStorage.getItem('showGreeting') !== 'false';
+        updateGreetingSettingsVisibility(toggleGreeting.checked, false);
         toggleGreeting.addEventListener('change', (e) => {
             localStorage.setItem('showGreeting', e.target.checked);
+            updateGreetingSettingsVisibility(e.target.checked);
             initBrand();
         });
     }
@@ -908,6 +1376,94 @@ document.addEventListener("DOMContentLoaded", () => {
             appLauncherBtn.classList.toggle('active');
         });
     }
+    
+    /* Wallpaper System */
+    applyInitialWallpaperState();
+    if (toggleWallpaper) {
+        toggleWallpaper.addEventListener('change', (e) => {
+            wallpaperEnabled = e.target.checked;
+            localStorage.setItem('wallpaperEnabled', wallpaperEnabled);
+            updateWallpaperUIState(wallpaperEnabled);
+            applyWallpaperLogic();
+        });
+    }
+    if (wallpaperOptions) {
+        wallpaperOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                if (!wallpaperEnabled) return;
+                const value = option.dataset.value;
+                
+                currentWallpaperSource = 'local';
+                currentWallpaperType = 'preset';
+                currentWallpaperValue = value;
+                
+                saveWallpaperConfig();
+
+                if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
+                highlightSelectedWallpaper(value);
+                applyWallpaperLogic();
+            });
+        });
+    }
+    if (uploadOption && uploadInput) {
+        uploadOption.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            uploadOption.style.opacity = '0.5'; 
+            
+            try {
+                console.log("Processando imagem...");
+                const processedBlob = await processImage(file);
+                
+                console.log("Salvando no DB...");
+                await saveWallpaperToDB(processedBlob);
+                
+                currentWallpaperSource = 'local';
+                currentWallpaperType = 'upload';
+                currentWallpaperValue = 'custom';
+                saveWallpaperConfig();
+
+                if (!wallpaperEnabled) {
+                    wallpaperEnabled = true;
+                    localStorage.setItem('wallpaperEnabled', 'true');
+                    if(toggleWallpaper) toggleWallpaper.checked = true;
+                    updateWallpaperUIState(true);
+                }
+
+                if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
+                highlightSelectedWallpaper('upload');
+                applyWallpaperLogic(); // Recarrega do DB para garantir
+                
+                console.log("Sucesso!");
+            } catch (error) {
+                console.error("Erro no upload:", error);
+                alert("Erro ao processar imagem. Tente uma imagem menor.");
+            } finally {
+                uploadOption.style.opacity = '1';
+                uploadInput.value = ''; 
+            }
+        });
+    }
+    
+    /* API Dropdown Logic */
+    if (wallpaperSourceSelect) {
+        wallpaperSourceSelect.addEventListener('change', async (e) => {
+            const selectedApi = e.target.value;
+            if (selectedApi === 'noSource') return;
+
+            currentWallpaperSource = 'api';
+            currentWallpaperType = selectedApi;
+            
+            saveWallpaperConfig();
+            clearPresetSelection();
+            
+            await applyWallpaperLogic();
+        });
+    }
 
     /* --- Language Settings --- */
     if (languageSelect) {
@@ -987,6 +1543,7 @@ applyInitialClearSearch();
 updateCompactBarStyle();
 applyInitialWeatherState();
 applyInitialLauncherState();
+applyInitialWallpaperState();
 initSortable();
 document.addEventListener('i18nReady', () => {
     console.log("Traduções carregadas. Iniciando interface...");
