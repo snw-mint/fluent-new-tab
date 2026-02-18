@@ -352,10 +352,18 @@ function updateWallpaperGridVisibility(enabled) {
 }
 function updateWallpaperUIState(enabled) {
     if (wallpaperGrid) {
-        wallpaperGrid.style.opacity = enabled ? '1' : '0.5';
-        wallpaperGrid.style.pointerEvents = enabled ? 'auto' : 'none';
+        wallpaperGrid.style.display = enabled ? 'grid' : 'none';
     }
-    if (wallpaperSourceSelect) wallpaperSourceSelect.disabled = !enabled;
+    if (wallpaperSourceSelect) {
+        wallpaperSourceSelect.style.display = enabled ? 'block' : 'none';
+        const label = document.querySelector(`label[for="${wallpaperSourceSelect.id}"]`) || 
+                      (wallpaperSourceSelect.previousElementSibling && wallpaperSourceSelect.previousElementSibling.tagName === 'LABEL' ? wallpaperSourceSelect.previousElementSibling : null);
+        if (label) label.style.display = enabled ? 'block' : 'none';
+    }
+    if (toggleWallpaper) {
+        const row = toggleWallpaper.closest('.switch-row');
+        if (row) row.style.marginBottom = enabled ? '' : '0';
+    }
 }
 function clearPresetSelection() {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
@@ -388,6 +396,7 @@ async function applyWallpaperLogic() {
     document.body.style.backgroundAttachment = 'fixed';
 
     if (currentWallpaperSource === 'local') {
+        updateCreditsUI('local');
         if (currentWallpaperType === 'preset') {
             const presetMap = {
                 'preset_1': 'assets/wallpapers/bg1.webp',
@@ -405,6 +414,23 @@ async function applyWallpaperLogic() {
         const url = await fetchDailyWallpaper(currentWallpaperType);
         if (url) {
             document.body.style.backgroundImage = `url('${url}')`;
+            
+            // Recupera o crédito salvo no cache
+            const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+            try {
+                const cached = JSON.parse(localStorage.getItem(cacheKey));
+                let credit = cached ? cached.credit : '';
+                
+                // Fallbacks se não houver crédito salvo
+                if (!credit) {
+                    if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
+                    else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
+                    else if (currentWallpaperType === 'wikimedia') credit = 'Wikimedia Commons';
+                }
+                updateCreditsUI('api', credit);
+            } catch (e) {
+                updateCreditsUI('api', 'Daily Wallpaper');
+            }
         }
     }
 }
@@ -872,6 +898,20 @@ function renderLauncher(providerKey) {
         launcherGrid.appendChild(link);
     });
     if(launcherAllAppsLink) launcherAllAppsLink.href = data.allAppsLink;
+}
+
+function updateCreditsUI(source, creditText) {
+    const creditsContainer = document.getElementById('wallpaperCredits');
+    const creditsSpan = document.getElementById('wallpaperCreditText');
+
+    if (!creditsContainer || !creditsSpan) return;
+
+    if (source === 'local' || source === 'preset' || source === 'upload') {
+        creditsContainer.classList.add('hidden');
+    } else {
+        creditsSpan.textContent = creditText || 'Daily Wallpaper';
+        creditsContainer.classList.remove('hidden');
+    }
 }
 
 /* --- 7. UI Updates --- */
