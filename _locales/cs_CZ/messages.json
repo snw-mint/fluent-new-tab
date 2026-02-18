@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "Pozdrav"
   },
+  "wallpaperTitle": {
+    "message": "Tapeta"
+  },
   "iconsStyleLabel": {
     "message": "Styl ikon"
-  },
-  "styleEmoji": {
-    "message": "3D plynulý (barva)"
-  },
-  "styleOutline": {
-    "message": "Nástin (minimální)"
   },
   "weatherTitle": {
     "message": "Počasí"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "Kompaktní tyčinka"
+  },
+  "voiceSearchOption": {
+    "message": "Hlasové vyhledávání"
   },
   "languageTitle": {
     "message": "Jazyk"
