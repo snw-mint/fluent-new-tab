@@ -11,14 +11,11 @@
   "greetingTitle": {
     "message": "인사말"
   },
+  "wallpaperTitle": {
+    "message": "벽지"
+  },
   "iconsStyleLabel": {
     "message": "아이콘 스타일"
-  },
-  "styleEmoji": {
-    "message": "3D 플루언트 (컬러)"
-  },
-  "styleOutline": {
-    "message": "개요 (최소)"
   },
   "weatherTitle": {
     "message": "날씨"
@@ -58,6 +55,9 @@
   },
   "compactBarOption": {
     "message": "컴팩트 바"
+  },
+  "voiceSearchOption": {
+    "message": "음성 검색"
   },
   "languageTitle": {
     "message": "언어"
