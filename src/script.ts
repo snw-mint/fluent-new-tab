@@ -533,6 +533,12 @@ function saveWallpaperConfig(): void {
 }
 let currentWallpaperObjectUrl: string | null = null;
 
+function clearEarlyWallpaperBootstrap(): void {
+    const earlyStyle = document.getElementById('early-wallpaper-style');
+    if (earlyStyle) earlyStyle.remove();
+    document.documentElement.removeAttribute('data-early-wallpaper');
+}
+
 function preloadWallpaperImage(url: string): Promise<void> {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -559,54 +565,58 @@ async function applyWallpaperImage(url: string): Promise<void> {
 }
 
 async function applyWallpaperLogic() {
-    if (!wallpaperEnabled) {
-        document.body.style.backgroundImage = 'none';
-        document.body.removeAttribute('data-wallpaper-active');
-        return;
-    }
-
-    document.body.setAttribute('data-wallpaper-active', 'true');
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = 'fixed';
-
-    if (currentWallpaperSource === 'local') {
-        updateCreditsUI('local');
-        if (currentWallpaperType === 'preset') {
-            const presetMap = {
-                'preset_1': 'assets/wallpapers/fluent1.webp',
-                'preset_2': 'assets/wallpapers/fluent2.webp',
-                'preset_3': 'assets/wallpapers/fluent3.webp'
-            };
-            const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
-            await applyWallpaperImage(imageUrl);
-        } 
-        else if (currentWallpaperType === 'upload') {
-            await loadCustomWallpaper();
+    try {
+        if (!wallpaperEnabled) {
+            document.body.style.backgroundImage = 'none';
+            document.body.removeAttribute('data-wallpaper-active');
+            return;
         }
-    } 
-    else if (currentWallpaperSource === 'api') {
-        const url = await fetchDailyWallpaper(currentWallpaperType);
-        if (url) {
-            await applyWallpaperImage(url);
-            
-            // Recupera o crédito salvo no cache
-            const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
-            try {
-                const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
-                let credit = cached ? cached.credit : '';
+
+        document.body.setAttribute('data-wallpaper-active', 'true');
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundAttachment = 'fixed';
+
+        if (currentWallpaperSource === 'local') {
+            updateCreditsUI('local');
+            if (currentWallpaperType === 'preset') {
+                const presetMap = {
+                    'preset_1': 'assets/wallpapers/fluent1.webp',
+                    'preset_2': 'assets/wallpapers/fluent2.webp',
+                    'preset_3': 'assets/wallpapers/fluent3.webp'
+                };
+                const imageUrl = presetMap[currentWallpaperValue] || presetMap['preset_1'];
+                await applyWallpaperImage(imageUrl);
+            } 
+            else if (currentWallpaperType === 'upload') {
+                await loadCustomWallpaper();
+            }
+        } 
+        else if (currentWallpaperSource === 'api') {
+            const url = await fetchDailyWallpaper(currentWallpaperType);
+            if (url) {
+                await applyWallpaperImage(url);
                 
-                // Fallbacks se não houver crédito salvo
-                if (!credit) {
-                    if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
-                    else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
-                    else if (currentWallpaperType === 'wikimedia') credit = 'Wikimedia Commons';
+                // Recupera o crédito salvo no cache
+                const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+                try {
+                    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
+                    let credit = cached ? cached.credit : '';
+                    
+                    // Fallbacks se não houver crédito salvo
+                    if (!credit) {
+                        if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
+                        else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
+                        else if (currentWallpaperType === 'wikimedia') credit = 'Wikimedia Commons';
+                    }
+                    updateCreditsUI('api', credit);
+                } catch (e) {
+                    updateCreditsUI('api', 'Daily Wallpaper');
                 }
-                updateCreditsUI('api', credit);
-            } catch (e) {
-                updateCreditsUI('api', 'Daily Wallpaper');
             }
         }
+    } finally {
+        clearEarlyWallpaperBootstrap();
     }
 }
 async function loadCustomWallpaper() {

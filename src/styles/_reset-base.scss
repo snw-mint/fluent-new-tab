@@ -58,6 +58,10 @@ body {
     transition: background-image 0.3s ease-in-out;
 }
 
+html[data-early-wallpaper="true"] body {
+    transition: none !important;
+}
+
 body.animations-disabled *,
 body.animations-disabled *::before,
 body.animations-disabled *::after {
