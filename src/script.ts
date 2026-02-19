@@ -90,8 +90,6 @@ function updateSearchSettings(animate = true): void {
     if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
     const voiceSearchRow = getById<HTMLDivElement>('voiceSearchRow');
     if (voiceSearchRow) setCollapsible(voiceSearchRow, showChildren, animate);
-    const voiceLanguageRow = getById<HTMLDivElement>('voiceLanguageRow');
-    if (voiceLanguageRow) setCollapsible(voiceLanguageRow, showChildren, animate);
     updateVoiceSearchAvailability();
 }
 function updateCompactBarStyle(): void {
@@ -158,9 +156,6 @@ function normalizeVoiceLanguage(code: string | null | undefined): string {
 }
 
 function getVoiceRecognitionLanguage(): string {
-    const fromSetting = normalizeVoiceLanguage(voiceSearchLanguage);
-    if (fromSetting) return fromSetting;
-
     const fromBrowser = normalizeVoiceLanguage(navigator.language);
     if (fromBrowser) return fromBrowser;
 
@@ -291,11 +286,6 @@ function updateVoiceSearchAvailability(): void {
     if (toggleVoiceSearch) {
         toggleVoiceSearch.disabled = !voiceSearchSupported;
         toggleVoiceSearch.title = voiceSearchSupported ? '' : 'Voice recognition is not supported in this browser.';
-    }
-
-    if (voiceLanguageSelect) {
-        voiceLanguageSelect.disabled = !voiceSearchSupported;
-        voiceLanguageSelect.title = voiceSearchSupported ? '' : 'Voice recognition is not supported in this browser.';
     }
 
     if (!canUseVoice) {
@@ -789,39 +779,6 @@ function applyInitialVoiceSearch() {
     }
     updateVoiceSearchAvailability();
 }
-
-function syncVoiceLanguageOptions(): void {
-    if (!voiceLanguageSelect) return;
-
-    const preservedAutoOption = voiceLanguageSelect.querySelector('option[value=""]')?.cloneNode(true) as HTMLOptionElement | null;
-    voiceLanguageSelect.innerHTML = '';
-
-    if (preservedAutoOption) {
-        voiceLanguageSelect.appendChild(preservedAutoOption);
-    } else {
-        const autoOption = document.createElement('option');
-        autoOption.value = '';
-        autoOption.textContent = 'Auto (Browser)';
-        voiceLanguageSelect.appendChild(autoOption);
-    }
-
-    if (languageSelect) {
-        Array.from(languageSelect.options).forEach((option) => {
-            const normalized = normalizeVoiceLanguage(option.value);
-            if (!normalized) return;
-            if (Array.from(voiceLanguageSelect.options).some((existing) => existing.value === normalized)) return;
-
-            const voiceOption = document.createElement('option');
-            voiceOption.value = normalized;
-            voiceOption.textContent = option.textContent || normalized;
-            voiceLanguageSelect.appendChild(voiceOption);
-        });
-    }
-
-    const normalizedSaved = normalizeVoiceLanguage(voiceSearchLanguage);
-    const hasSaved = normalizedSaved && Array.from(voiceLanguageSelect.options).some((option) => option.value === normalizedSaved);
-    voiceLanguageSelect.value = hasSaved ? normalizedSaved : '';
-}
 function applyInitialAnimationsDisabled() {
     if (toggleDisableAnimations) {
         toggleDisableAnimations.checked = animationsDisabled;
@@ -1259,22 +1216,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    if (voiceLanguageSelect) {
-        syncVoiceLanguageOptions();
-        voiceLanguageSelect.addEventListener('change', (e) => {
-            const target = getSelectTarget(e);
-            if (!target) return;
-
-            const normalized = normalizeVoiceLanguage(target.value);
-            voiceSearchLanguage = normalized;
-
-            if (normalized) {
-                localStorage.setItem('voiceSearchLanguage', normalized);
-            } else {
-                localStorage.removeItem('voiceSearchLanguage');
-            }
-        });
-    }
     /* Export & Import */
     if (versionDisplay) {
         try { versionDisplay.textContent = `v${chrome.runtime.getManifest().version}`; }

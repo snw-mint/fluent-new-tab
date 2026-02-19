@@ -28,7 +28,6 @@ const toggleSuggestions = getById<HTMLInputElement>('toggleSuggestions');
 const toggleClearSearch = getById<HTMLInputElement>('toggleClearSearch');
 const clearSearchRow = getById<HTMLDivElement>('clearSearchRow');
 const toggleVoiceSearch = getById<HTMLInputElement>('toggleVoiceSearch');
-const voiceLanguageSelect = getById<HTMLSelectElement>('voiceLanguageSelect');
 const toggleDisableAnimations = getById<HTMLInputElement>('toggleDisableAnimations');
 const disableAnimationsNotice = getById<HTMLDivElement>('disableAnimationsNotice');
 const suggestionsContainer = getById<HTMLDivElement>('suggestionsContainer');
