@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Röstsökning"
   },
+  "reduceMotionTitle": {
+    "message": "Minska rörelser"
+  },
+  "reduceMotionNotice": {
+    "message": "Reducerade animationer"
+  },
   "languageTitle": {
     "message": "Språk"
   },
