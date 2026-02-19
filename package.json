@@ -8,13 +8,17 @@
     "build:assets": "node tools/build.mjs",
     "build:ts": "tsc -p tsconfig.json",
     "build:scss": "sass src/style.scss dist/style.css --no-source-map",
+    "build:scss:min": "sass src/style.scss dist/style.css --no-source-map --style=compressed",
+    "build:js:min": "terser dist/script.js --compress --mangle --output dist/script.js",
     "build": "npm run clean && npm run build:assets && npm run build:ts && npm run build:scss",
+    "build:release": "npm run clean && npm run build:assets && npm run build:ts && npm run build:js:min && npm run build:scss:min",
     "watch:ts": "tsc -p tsconfig.json --watch",
     "watch:scss": "sass --watch src/style.scss:dist/style.css --no-source-map"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
     "sass": "^1.92.1",
+    "terser": "^5.44.0",
     "typescript": "^5.9.2"
   }
 }
