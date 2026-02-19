@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"
   },
+  "reduceMotionTitle": {
+    "message": "Giảm chuyển động"
+  },
+  "reduceMotionNotice": {
+    "message": "Giảm hiệu ứng động"
+  },
   "languageTitle": {
     "message": "Ngôn ngữ"
   },

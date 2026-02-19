@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
   },
+  "reduceMotionTitle": {
+    "message": "Mozgás csökkentése"
+  },
+  "reduceMotionNotice": {
+    "message": "Csökkentett animációk"
+  },
   "languageTitle": {
     "message": "Nyelv"
   },

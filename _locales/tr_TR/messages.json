@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Sesli arama"
   },
+  "reduceMotionTitle": {
+    "message": "Hareketi azaltın"
+  },
+  "reduceMotionNotice": {
+    "message": "Azaltılmış animasyonlar"
+  },
   "languageTitle": {
     "message": "Dil"
   },

@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Äänihaku"
   },
+  "reduceMotionTitle": {
+    "message": "Vähennä liikettä"
+  },
+  "reduceMotionNotice": {
+    "message": "Vähennettyjä animaatioita"
+  },
   "languageTitle": {
     "message": "Kieli"
   },

@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "語音搜尋"
   },
+  "reduceMotionTitle": {
+    "message": "減少動作"
+  },
+  "reduceMotionNotice": {
+    "message": "簡化動畫"
+  },
   "languageTitle": {
     "message": "語言"
   },

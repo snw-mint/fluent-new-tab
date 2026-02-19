@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "音声検索"
   },
+  "reduceMotionTitle": {
+    "message": "動きを減らす"
+  },
+  "reduceMotionNotice": {
+    "message": "アニメーションの削減"
+  },
   "languageTitle": {
     "message": "言語"
   },

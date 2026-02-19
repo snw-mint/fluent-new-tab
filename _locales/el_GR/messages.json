@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
   },
+  "reduceMotionTitle": {
+    "message": "Μείωση κίνησης"
+  },
+  "reduceMotionNotice": {
+    "message": "Μειωμένες κινούμενες εικόνες"
+  },
   "languageTitle": {
     "message": "Γλώσσα"
   },

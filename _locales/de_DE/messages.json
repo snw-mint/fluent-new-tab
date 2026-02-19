@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Sprachsuche"
   },
+  "reduceMotionTitle": {
+    "message": "Bewegung reduzieren"
+  },
+  "reduceMotionNotice": {
+    "message": "Reduzierte Animationen"
+  },
   "languageTitle": {
     "message": "Sprache"
   },

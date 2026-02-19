@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "음성 검색"
   },
+  "reduceMotionTitle": {
+    "message": "움직임을 줄이다"
+  },
+  "reduceMotionNotice": {
+    "message": "감소된 애니메이션"
+  },
   "languageTitle": {
     "message": "언어"
   },

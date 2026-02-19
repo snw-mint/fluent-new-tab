@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
+  "reduceMotionTitle": {
+    "message": "Omezit pohyb"
+  },
+  "reduceMotionNotice": {
+    "message": "Omezené animace"
+  },
   "languageTitle": {
     "message": "Jazyk"
   },
