@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
   },
+  "reduceMotionTitle": {
+    "message": "Beweging verminderen"
+  },
+  "reduceMotionNotice": {
+    "message": "Verminderde animaties"
+  },
   "languageTitle": {
     "message": "Taal"
   },
