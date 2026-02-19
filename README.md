@@ -9,11 +9,11 @@
 
 <p align="center">
   <a href="https://github.com/snw-mint/fluent-new-tab/releases">Installation</a> •
-  <a href="privacy.md">Privacy</a> •
-  <a href="contribuing.md">Contributing</a> •
-  <a href="translating.md">Help translate</a> •
-  <a href="licence.md">License</a> •
-  <a href="credits.md">Credits</a>
+  <a href="PRIVACY.md">Privacy</a> •
+  <a href="CONTRIBUTING.md">Contributing</a> •
+  <a href="TRANSLATING.md">Help translate</a> •
+  <a href="LICENSE.md">License</a> •
+  <a href="CREDITS.md">Credits</a>
 </p>
 
 ---
