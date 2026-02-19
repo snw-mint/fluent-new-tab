@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Căutare vocală"
   },
+  "reduceMotionTitle": {
+    "message": "Reduceți mișcarea"
+  },
+  "reduceMotionNotice": {
+    "message": "Animații reduse"
+  },
   "languageTitle": {
     "message": "Limba"
   },
