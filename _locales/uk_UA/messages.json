@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Голосовий пошук"
   },
+  "reduceMotionTitle": {
+    "message": "Зменшити рух"
+  },
+  "reduceMotionNotice": {
+    "message": "Скорочені анімації"
+  },
   "languageTitle": {
     "message": "Мова"
   },
