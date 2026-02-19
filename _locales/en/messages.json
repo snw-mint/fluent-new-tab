@@ -20,7 +20,7 @@
   "compactBarOption": { "message": "Compact bar" },
   "voiceSearchOption": { "message": "Voice search" },
   "reduceMotionTitle": { "message": "Reduce motion" },
-  "reduceMotionNotice": { "message": "All visual effects and animations were disabled." },
+  "reduceMotionNotice": { "message": "Reduced animations" },
   "languageTitle": { "message": "Language" },
   "interfaceLanguageLabel": { "message": "Interface Language" },
   "backupTitle": { "message": "Data Backup" },

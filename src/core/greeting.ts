@@ -50,6 +50,14 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
         }
     }
 
+    if (!userName) {
+        rawGreeting = rawGreeting
+            .replace(/,\s*([!?.,;:])/g, '$1')
+            .replace(/\s+([!?.,;:])/g, '$1')
+            .replace(/\s{2,}/g, ' ')
+            .trim();
+    }
+
     const finalGreetingText = rawGreeting
         .replace(/,\s*$/, '')
         .replace(/,\s*!$/, '!')

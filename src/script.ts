@@ -1200,7 +1200,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const optionExists = Array.from(languageSelect.options).some(o => o.value === browserLang);
                 if (optionExists) {
                     languageSelect.value = browserLang;
-                    localStorage.setItem('userLanguage', browserLang); 
                 } else {
                     languageSelect.value = 'en_US';
                 }
