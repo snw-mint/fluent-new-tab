@@ -90,6 +90,8 @@ function updateSearchSettings(animate = true): void {
     if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
     const voiceSearchRow = getById<HTMLDivElement>('voiceSearchRow');
     if (voiceSearchRow) setCollapsible(voiceSearchRow, showChildren, animate);
+    const voiceLanguageRow = getById<HTMLDivElement>('voiceLanguageRow');
+    if (voiceLanguageRow) setCollapsible(voiceLanguageRow, showChildren, animate);
     updateVoiceSearchAvailability();
 }
 function updateCompactBarStyle(): void {
@@ -110,7 +112,7 @@ let voiceRecording = false;
 let voiceShouldSubmitOnEnd = false;
 let voiceFinalTranscript = '';
 let voiceSilenceTimeout: number | null = null;
-const VOICE_SILENCE_MS = 3600;
+const VOICE_SILENCE_MS = 8000;
 
 function stopVoiceRingAnimation(): void {
     if (!searchWrapper) return;
@@ -119,7 +121,7 @@ function stopVoiceRingAnimation(): void {
 
 function startVoiceRingAnimation(): void {
     if (!searchWrapper) return;
-    searchWrapper.classList.remove('voice-active');
+    searchWrapper.classList.add('voice-active');
 }
 
 function playVoiceStartSound(): void {
@@ -143,9 +145,26 @@ function updateVoiceButtonRecordingState(): void {
     voiceSearchBtn.setAttribute('aria-pressed', voiceRecording ? 'true' : 'false');
 }
 
+function normalizeVoiceLanguage(code: string | null | undefined): string {
+    if (!code) return '';
+    const normalized = code.replace('_', '-').trim();
+    if (!normalized) return '';
+    try {
+        const canonical = Intl.getCanonicalLocales([normalized])[0];
+        return canonical || '';
+    } catch {
+        return '';
+    }
+}
+
 function getVoiceRecognitionLanguage(): string {
-    if (languageSelect?.value) return languageSelect.value.replace('_', '-');
-    return navigator.language || 'en-US';
+    const fromSetting = normalizeVoiceLanguage(voiceSearchLanguage);
+    if (fromSetting) return fromSetting;
+
+    const fromBrowser = normalizeVoiceLanguage(navigator.language);
+    if (fromBrowser) return fromBrowser;
+
+    return 'en-US';
 }
 
 function clearVoiceSilenceTimer(): void {
@@ -173,8 +192,8 @@ function ensureVoiceRecognition(): any {
     if (voiceRecognition) return voiceRecognition;
 
     voiceRecognition = new SpeechRecognitionCtor();
-    voiceRecognition.interimResults = true;
-    voiceRecognition.continuous = true;
+    voiceRecognition.interimResults = false;
+    voiceRecognition.continuous = false;
     voiceRecognition.maxAlternatives = 1;
 
     voiceRecognition.onstart = () => {
@@ -186,7 +205,7 @@ function ensureVoiceRecognition(): any {
 
     voiceRecognition.onresult = (event: any) => {
         if (!searchInput) return;
-        let interimTranscript = '';
+        let finalTranscript = '';
 
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
             const result = event.results[index];
@@ -194,13 +213,14 @@ function ensureVoiceRecognition(): any {
             if (!transcript) continue;
 
             if (result.isFinal) {
-                voiceFinalTranscript = `${voiceFinalTranscript} ${transcript}`.trim();
-            } else {
-                interimTranscript = `${interimTranscript} ${transcript}`.trim();
+                finalTranscript = `${finalTranscript} ${transcript}`.trim();
             }
         }
 
-        searchInput.value = `${voiceFinalTranscript} ${interimTranscript}`.trim();
+        if (finalTranscript) {
+            voiceFinalTranscript = finalTranscript;
+            searchInput.value = finalTranscript;
+        }
         scheduleVoiceSilenceStop();
     };
 
@@ -271,6 +291,11 @@ function updateVoiceSearchAvailability(): void {
     if (toggleVoiceSearch) {
         toggleVoiceSearch.disabled = !voiceSearchSupported;
         toggleVoiceSearch.title = voiceSearchSupported ? '' : 'Voice recognition is not supported in this browser.';
+    }
+
+    if (voiceLanguageSelect) {
+        voiceLanguageSelect.disabled = !voiceSearchSupported;
+        voiceLanguageSelect.title = voiceSearchSupported ? '' : 'Voice recognition is not supported in this browser.';
     }
 
     if (!canUseVoice) {
@@ -754,6 +779,39 @@ function applyInitialVoiceSearch() {
     }
     updateVoiceSearchAvailability();
 }
+
+function syncVoiceLanguageOptions(): void {
+    if (!voiceLanguageSelect) return;
+
+    const preservedAutoOption = voiceLanguageSelect.querySelector('option[value=""]')?.cloneNode(true) as HTMLOptionElement | null;
+    voiceLanguageSelect.innerHTML = '';
+
+    if (preservedAutoOption) {
+        voiceLanguageSelect.appendChild(preservedAutoOption);
+    } else {
+        const autoOption = document.createElement('option');
+        autoOption.value = '';
+        autoOption.textContent = 'Auto (Browser)';
+        voiceLanguageSelect.appendChild(autoOption);
+    }
+
+    if (languageSelect) {
+        Array.from(languageSelect.options).forEach((option) => {
+            const normalized = normalizeVoiceLanguage(option.value);
+            if (!normalized) return;
+            if (Array.from(voiceLanguageSelect.options).some((existing) => existing.value === normalized)) return;
+
+            const voiceOption = document.createElement('option');
+            voiceOption.value = normalized;
+            voiceOption.textContent = option.textContent || normalized;
+            voiceLanguageSelect.appendChild(voiceOption);
+        });
+    }
+
+    const normalizedSaved = normalizeVoiceLanguage(voiceSearchLanguage);
+    const hasSaved = normalizedSaved && Array.from(voiceLanguageSelect.options).some((option) => option.value === normalizedSaved);
+    voiceLanguageSelect.value = hasSaved ? normalizedSaved : '';
+}
 function applyInitialAnimationsDisabled() {
     if (toggleDisableAnimations) {
         toggleDisableAnimations.checked = animationsDisabled;
@@ -1188,6 +1246,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (!target) return;
             localStorage.setItem('userLanguage', target.value);
             location.reload(); 
+        });
+    }
+
+    if (voiceLanguageSelect) {
+        syncVoiceLanguageOptions();
+        voiceLanguageSelect.addEventListener('change', (e) => {
+            const target = getSelectTarget(e);
+            if (!target) return;
+
+            const normalized = normalizeVoiceLanguage(target.value);
+            voiceSearchLanguage = normalized;
+
+            if (normalized) {
+                localStorage.setItem('voiceSearchLanguage', normalized);
+            } else {
+                localStorage.removeItem('voiceSearchLanguage');
+            }
         });
     }
     /* Export & Import */

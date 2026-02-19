@@ -76,14 +76,13 @@
 .voice-search-btn::before {
     content: '';
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid rgba(255, 59, 59, 0.7);
-    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.5);
+    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0);
     opacity: 0;
-    transform: scale(0.72);
+    transform: scale(0.7);
     transition: opacity 200ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 0;
 }
@@ -98,12 +97,18 @@
     transform: translateY(1px);
 }
 .voice-search-btn.recording {
-    color: #ff3b3b;
+    color: #fff;
 }
 .voice-search-btn.recording::before {
     opacity: 1;
-    transform: scale(1.02);
+    transform: scale(1);
+    background: #ff3b3b;
     animation: voice-recording-pulse 1.3s ease-out infinite;
+}
+.voice-search-btn.recording svg,
+.voice-search-btn.recording svg path {
+    fill: none;
+    stroke: #fff;
 }
 .search-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);

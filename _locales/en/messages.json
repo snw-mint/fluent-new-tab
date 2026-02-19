@@ -19,6 +19,8 @@
   "clearSearchOption": { "message": "Clean search (Google)" },
   "compactBarOption": { "message": "Compact bar" },
   "voiceSearchOption": { "message": "Voice search" },
+  "voiceLanguageLabel": { "message": "Voice language" },
+  "voiceLanguageAutoOption": { "message": "Auto (Browser)" },
   "languageTitle": { "message": "Language" },
   "interfaceLanguageLabel": { "message": "Interface Language" },
   "backupTitle": { "message": "Data Backup" },

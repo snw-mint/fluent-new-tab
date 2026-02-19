@@ -59,6 +59,12 @@
   "voiceSearchOption": {
     "message": "Pesquisa por voz"
   },
+  "voiceLanguageLabel": {
+    "message": "Idioma da voz"
+  },
+  "voiceLanguageAutoOption": {
+    "message": "Automático (navegador)"
+  },
   "languageTitle": {
     "message": "Idioma"
   },

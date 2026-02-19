@@ -14,6 +14,7 @@ const suggestionsCache = new Map<string, string[]>();
 let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
 let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
 let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') === 'true';
+let voiceSearchLanguage = localStorage.getItem('voiceSearchLanguage') || '';
 const savedAnimationsDisabled = localStorage.getItem('animationsDisabled');
 let animationsDisabled = savedAnimationsDisabled !== null
     ? savedAnimationsDisabled === 'true'

@@ -157,6 +157,17 @@ function bindLauncherFeature(options: LauncherBindingOptions): void {
             options.appLauncherBtn?.classList.toggle('active');
         });
     }
+
+    document.addEventListener('click', (event) => {
+        const targetNode = event.target as Node | null;
+        if (!targetNode || !options.launcherPopup || !options.appLauncherBtn) return;
+        if (!options.launcherPopup.classList.contains('active')) return;
+
+        if (!options.launcherPopup.contains(targetNode) && !options.appLauncherBtn.contains(targetNode)) {
+            options.launcherPopup.classList.remove('active');
+            options.appLauncherBtn.classList.remove('active');
+        }
+    });
 }
 
 function bindSearchFeature(options: SearchBindingOptions): void {
