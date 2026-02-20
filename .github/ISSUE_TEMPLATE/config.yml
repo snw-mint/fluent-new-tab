@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: GitHub Discussions
+  - name: ❓ Questions & Discussions
     url: https://github.com/snw-mint/fluent-new-tab/discussions
-    about: Please ask and answer questions here.
+    about: Got questions? Ask here! Use Discussions for general inquiries and support.
+  - name: 🌍 Help with Translation
+    url: https://crowdin.com/project/fluent-new-tab
+    about: Contribute translations on Crowdin. No technical knowledge required!

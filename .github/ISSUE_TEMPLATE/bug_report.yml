@@ -1,20 +1,26 @@
 name: 🐞 Bug Report
-description: Create a report to help us improve.
+description: Report a bug to help us improve the extension
 title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to report this bug! Your feedback helps us improve.
+        
+        ⚠️ **Before submitting**, please:
+        - Check if this bug was already reported
+        - Try clearing your cache/local storage
+        - Test in an incognito/private window
   
   - type: dropdown
     id: version
     attributes:
       label: Which version are you using?
       options:
-        - Store Version 
+        - Store Version (Edge Add-ons)
         - Local Build
+      description: Are you using the extension from the store or building it locally?
     validations:
       required: true
 
@@ -22,23 +28,26 @@ body:
     id: browser
     attributes:
       label: Browser & Version
-      placeholder: e.g., Edge 120, Chrome 118
+      placeholder: e.g., Edge 122, Chrome 121, Firefox 120
+      description: Which browser and version are you using?
     validations:
       required: true
 
   - type: input
     id: os
     attributes:
-      label: OS
-      placeholder: Windows 11, macOS, Linux
+      label: Operating System
+      placeholder: e.g., Windows 11, macOS Sonoma, Ubuntu 22.04
+      description: Your operating system and version
     validations:
       required: true
 
   - type: textarea
     id: description
     attributes:
-      label: Description of the Bug
-      description: A clear and concise description of what the bug is.
+      label: Description
+      description: Clear and concise description of what the bug is
+      placeholder: Describe the issue you experienced...
     validations:
       required: true
 
@@ -46,12 +55,11 @@ body:
     id: steps
     attributes:
       label: Steps to Reproduce
-      description: Steps to make the bug happen.
+      description: How can we reproduce this bug?
       placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+        1. Open a new tab
+        2. Click on '...'
+        3. See the error
     validations:
       required: true
 
@@ -59,20 +67,33 @@ body:
     id: expected
     attributes:
       label: Expected Behavior
-      description: What you expected to happen.
+      description: What should happen instead?
+      placeholder: Describe the expected behavior...
     validations:
       required: true
 
   - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: Describe what you see...
+
+  - type: textarea
     id: logs
     attributes:
-      label: Screenshots/Logs
-      description: Drop images or paste console logs here.
+      label: Screenshots or Console Logs
+      description: |
+        Add screenshots to illustrate the problem.
+        For console errors: Right-click → Inspect → Console tab
+      placeholder: Paste console output or attach images...
 
   - type: checkboxes
-    id: terms
+    id: checklist
     attributes:
-      label: Checklist
+      label: ✅ Checklist
       options:
-        - label: I have checked existing issues to avoid duplicates.
+        - label: I've searched for existing issues
+          required: true
+        - label: This bug is reproducible
           required: true
