@@ -3,7 +3,7 @@ window.translationsCache = {};
 async function loadTranslations() {
     let lang = localStorage.getItem('userLanguage');
     if (!lang) {
-        lang = navigator.language.replace('-', '_');
+        lang = DEFAULT_LOCALE;
     }
     let messages = null;
     try {

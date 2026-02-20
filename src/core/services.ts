@@ -103,7 +103,23 @@ function fetchSuggestionsFromService(query: string): Promise<string[]> {
 }
 
 async function fetchCityData(query: string): Promise<CityData | null> {
-    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=pt&format=json`;
+    const resolveGeocodingLanguage = (): string => {
+        const savedLang = localStorage.getItem('userLanguage');
+        const browserLang = navigator.language || '';
+        const raw = (savedLang || browserLang || 'en').replace('_', '-').trim();
+
+        try {
+            const canonical = Intl.getCanonicalLocales([raw])[0];
+            const langOnly = canonical?.split('-')?.[0] || '';
+            if (langOnly) return langOnly;
+        } catch (e) { /* fallback below */ }
+
+        const basic = raw.split(/[-_]/)[0];
+        return basic || 'en';
+    };
+
+    const language = resolveGeocodingLanguage();
+    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=${encodeURIComponent(language)}&format=json`;
     const response = await fetch(url);
     const data = await response.json() as GeocodingResponse;
 

@@ -1192,21 +1192,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     /* --- Language Settings --- */
     if (languageSelect) {
         const savedLang = localStorage.getItem('userLanguage');
+        const defaultLang = 'en_US';
+
         if (savedLang) {
             languageSelect.value = savedLang;
         } else {
-            try {
-                const browserLang = navigator.language.replace('-', '_');
-                const optionExists = Array.from(languageSelect.options).some(o => o.value === browserLang);
-                if (optionExists) {
-                    languageSelect.value = browserLang;
-                } else {
-                    languageSelect.value = 'en_US';
-                }
-            } catch (e) {
-                console.log("Idioma auto-detect falhou, usando padrão.");
-            }
+            const optionExists = Array.from(languageSelect.options).some(o => o.value === defaultLang);
+            languageSelect.value = optionExists ? defaultLang : (languageSelect.options[0]?.value || 'en');
         }
+
         languageSelect.addEventListener('change', (e) => {
             const target = getSelectTarget(e);
             if (!target) return;
