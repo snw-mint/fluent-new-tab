@@ -115,13 +115,6 @@ html[data-theme="dark"] {
     background-color: #0078d4;
     color: white;
 }
-[data-theme="dark"] .fluent-icon {
-    filter: invert(1) brightness(2);
-}
-body.dark-mode .fluent-icon,
-[data-theme="dark"] .fluent-icon {
-    filter: invert(1) brightness(2);
-}
 [data-theme="dark"] .suggestions-container {
     background: rgba(40, 40, 40, 0.95); 
     border: 1px solid rgba(255,255,255,0.08);
@@ -197,8 +190,7 @@ body[data-wallpaper-active="true"] .shortcut-title {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Garante que ícones de imagem (Clima e Saudação Outline) fiquem brancos */
-body[data-wallpaper-active="true"] .weather-icon .fluent-icon,
+/* Garante que ícones de imagem (Saudacao Outline) fiquem brancos */
 body[data-wallpaper-active="true"] .greeting-icon.outline {
     filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
 }
