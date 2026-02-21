@@ -1,24 +1,36 @@
 :root {
     --color-bg: #faf9f8;
     --color-surface: #ffffff;
+    --color-surface-soft: rgba(255, 255, 255, 0.82);
     --color-primary: #0f6cbd;
     --color-primary-hover: #115ea3;
     --color-text-main: #242424;
     --color-text-muted: #616161;
     --color-border: #e0e0e0;
-    
-    --radius-card: 8px;
-    --radius-button: 4px;
-    
     --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 2px rgba(0, 0, 0, 0.06);
     --shadow-float: 0 8px 16px rgba(0, 0, 0, 0.14);
-    
+    --radius-card: 8px;
+    --radius-button: 4px;
     --font-stack: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root[data-theme="dark"] {
+    --color-bg: #0b0c0f;
+    --color-surface: #11131a;
+    --color-surface-soft: rgba(17, 19, 26, 0.82);
+    --color-primary: #3796ff;
+    --color-primary-hover: #2a7dd6;
+    --color-text-main: #f3f4f6;
+    --color-text-muted: #b6b9c3;
+    --color-border: #2a2d36;
+    --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.35);
+    --shadow-float: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Adiciona espaço para compensar a navbar fixa */
+    scroll-padding-top: 80px;
+    view-transition-name: root;
 }
 
 * {
@@ -39,10 +51,19 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    align-items: center;
+}
+
+.section {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--color-surface-soft);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
@@ -56,6 +77,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 60px;
+    gap: 12px;
 }
 
 .logo {
@@ -63,13 +85,21 @@ body {
     font-size: 1.1rem;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .nav-links a {
     text-decoration: none;
     color: var(--color-text-main);
-    margin-left: 20px;
     font-size: 0.9rem;
     transition: color 0.2s;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
 }
 
 .nav-links a:hover {
@@ -105,6 +135,7 @@ body {
     color: var(--color-text-muted);
     margin-bottom: 40px;
     max-width: 600px;
+    text-align: center;
 }
 
 .hero-visual-container {
@@ -112,8 +143,8 @@ body {
     max-width: 800px;
     aspect-ratio: 16 / 9;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-float);
     overflow: hidden;
     background-color: var(--color-surface);
     position: relative;
@@ -215,7 +246,6 @@ body {
 
 .features-grid {
     display: grid;
-    /* Cria as 3 colunas em desktop e se ajusta automaticamente para mobile */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
 }
@@ -244,8 +274,8 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background-color: rgba(15, 108, 189, 0.1); /* Fundo com 10% de opacidade da cor primária */
-    color: var(--color-primary); /* Pinta o SVG que está com currentColor */
+    background-color: rgba(15, 108, 189, 0.1);
+    color: var(--color-primary);
     margin-bottom: 20px;
 }
 
@@ -261,18 +291,11 @@ body {
     font-size: 0.95rem;
     line-height: 1.6;
 }
-
-
-
-
-
 .core-features-section {
     padding: 100px 0;
     background-color: var(--color-bg);
-    overflow: hidden; /* Prevent horizontal scroll from visual overlaps */
+    overflow: hidden; 
 }
-
-/* Flex container for the Z-Pattern */
 .showcase-row {
     display: flex;
     align-items: center;
@@ -280,9 +303,8 @@ body {
     position: relative;
 }
 
-/* Image styling */
 .showcase-image-wrapper {
-    width: 65%; /* Ocupa 65% da tela */
+    width: 65%;
     flex-shrink: 0;
     border-radius: 12px;
     box-shadow: var(--shadow-float);
@@ -297,27 +319,22 @@ body {
     display: block;
     object-fit: cover;
 }
-
-/* Card styling */
 .showcase-card {
-    width: 45%; /* Ocupa 45%, forçando uma interseção com a imagem */
+    width: 45%;
     padding: 40px;
     border-radius: 16px;
-    z-index: 2; /* Fica por cima da imagem */
+    z-index: 2;
 }
-
-/* Overlap magic via negative margin */
 .overlap-right {
     margin-left: -10%; 
 }
 
-/* Fluent 2 Mica Effect (Light Mode) */
 .mica-effect {
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: var(--color-surface-soft);
     backdrop-filter: blur(24px) saturate(1.5);
     -webkit-backdrop-filter: blur(24px) saturate(1.5);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-float);
 }
 
 .showcase-card h3 {
@@ -334,8 +351,6 @@ body {
     line-height: 1.6;
     margin-bottom: 24px;
 }
-
-/* Icon List Styling */
 .feature-icon-list {
     list-style: none;
     padding: 0;
@@ -354,11 +369,10 @@ body {
 }
 
 .feature-icon-list svg {
-    color: var(--color-primary); /* Uses the blue primary color */
+    color: var(--color-primary);
     flex-shrink: 0;
 }
 
-/* Responsive adjustments for mobile */
 @media (max-width: 992px) {
     .showcase-row {
         flex-direction: column;
@@ -370,27 +384,23 @@ body {
     }
     
     .showcase-card {
-        width: 90%; /* Deixa uma margem lateral no mobile */
+        width: 90%;
         margin-left: 0;
-        margin-top: -40px; /* Sobrepõe verticalmente */
+        margin-top: -40px;
         padding: 32px 24px;
-        background-color: var(--color-surface); /* Desliga o Mica no mobile para melhor leitura */
+        background-color: var(--color-surface);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
     }
 }
-
-/* Classes for the reversed Z-pattern row */
 .row-reverse {
     flex-direction: row-reverse;
 }
 
 .overlap-left {
-    margin-right: -10%; /* Puxa o card por cima da imagem pela esquerda */
+    margin-right: -10%;
     margin-left: 0;
 }
-
-/* Under the Hood Section */
 .under-the-hood {
     margin-top: 64px;
     padding-top: 64px;
@@ -440,16 +450,14 @@ body {
     font-size: 0.9rem;
     color: var(--color-text-muted);
 }
-
-/* Responsive updates for the reversed row */
 @media (max-width: 992px) {
     .row-reverse {
-        flex-direction: column; /* No mobile, volta a ficar imagem em cima, card embaixo */
+        flex-direction: column;
     }
     
     .overlap-left {
         margin-right: 0;
-        margin-left: 0; /* Centraliza igual ao outro card */
+        margin-left: 0;
     }
 }
 
@@ -482,7 +490,7 @@ body {
 
 .support-section {
     padding: 100px 0;
-    background-color: var(--color-surface); /* Usa o fundo branco para destacar */
+    background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
 }
 
@@ -507,9 +515,9 @@ body {
 }
 
 .support-card {
-    background-color: var(--color-bg); /* Fundo um pouco mais cinza para o card */
+    background-color: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: 16px; /* Bordas mais arredondadas no estilo Fluent */
+    border-radius: 16px;
     padding: 40px 32px;
     width: 100%;
     max-width: 340px;
@@ -521,29 +529,25 @@ body {
 }
 
 .support-card:hover {
-    transform: translateY(-4px); /* Elevação suave ao passar o mouse */
+    transform: translateY(-4px);
     box-shadow: var(--shadow-float);
 }
 
 .support-icon-wrapper {
     width: 64px;
     height: 64px;
-    border-radius: 50%; /* Círculo perfeito */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    color: #ffffff; /* Ícones brancos */
+    color: #ffffff;
 }
-
-/* GitHub usa a cor primária padrão da extensão */
 .github-card .support-icon-wrapper {
     background-color: var(--color-primary); 
 }
-
-/* Ko-fi usa uma cor personalizada ou uma variação vibrante */
 .kofi-card .support-icon-wrapper {
-    background-color: #FF5E5B; /* Cor clássica do Ko-fi */
+    background-color: #FF5E5B;
 }
 
 .support-card h3 {
@@ -557,7 +561,7 @@ body {
     font-size: 0.95rem;
     color: var(--color-text-muted);
     margin-bottom: 32px;
-    flex-grow: 1; /* Empurra o botão para a base do card */
+    flex-grow: 1;
 }
 
 .btn-support {
@@ -648,7 +652,6 @@ body {
     background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     padding: 64px 0 32px;
-    margin-top: 64px;
     text-align: center;
 }
 
@@ -700,4 +703,58 @@ body {
     font-size: 0.9rem;
     margin-top: 16px;
     font-weight: 500;
+}
+.theme-switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    margin-left: 24px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-switch:hover {
+    border-color: var(--color-text-muted);
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    z-index: 1;
+}
+
+.theme-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    z-index: 2;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s, box-shadow 0.2s;
+}
+.theme-switch.is-dark .theme-thumb {
+    transform: translateX(24px);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        view-transition-name: none;
+    }
 }
