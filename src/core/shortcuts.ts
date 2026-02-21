@@ -21,10 +21,27 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         const iconSrc = site.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${site.url}`;
         const link = document.createElement('div');
         link.className = 'shortcut-item';
-        link.onclick = (event) => {
-            if ((event.target as HTMLElement | null)?.closest('.menu-wrapper')) return;
+
+        link.addEventListener('auxclick', (event) => {
+            if (event.button !== 1) return;
+            const target = event.target as HTMLElement | null;
+            if (target?.closest('.menu-wrapper')) return;
+            event.preventDefault();
+            window.open(site.url, '_blank', 'noopener');
+        });
+
+        link.addEventListener('click', (event) => {
+            const target = event.target as HTMLElement | null;
+            if (target?.closest('.menu-wrapper')) return;
+
+            if (event.ctrlKey || event.metaKey) {
+                event.preventDefault();
+                window.open(site.url, '_blank', 'noopener');
+                return;
+            }
+
             window.location.href = site.url;
-        };
+        });
 
         const img = document.createElement('img');
         img.src = iconSrc;
@@ -57,7 +74,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     if (visibleShortcuts.length < maxSlots) {
         const addBtn = document.createElement('div');
         addBtn.className = 'shortcut-item add-card-wrapper';
-        addBtn.onclick = () => onOpenModal(null);
+        addBtn.addEventListener('click', () => onOpenModal(null));
         addBtn.innerHTML = `
             <div class="shortcut-card">${ICON_ADD}</div>
             <span class="shortcut-title">${window.getTranslation('addShortcutLabel')}</span>

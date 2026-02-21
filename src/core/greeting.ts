@@ -70,15 +70,19 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
     else if (textLength > 40) fontSize = '26px';
     else if (textLength > 30) fontSize = '32px';
 
-    let iconHTML = '';
-    if (greetingStyle === '3d') {
-        iconHTML = `<img src="assets/emojis/${iconName}.png" alt="${timeOfDayLabel}" class="greeting-icon" onerror="this.style.display='none'">`;
-    } else {
-        iconHTML = `<img src="assets/greetings/${iconName}.svg" alt="${timeOfDayLabel}" class="greeting-icon outline" onerror="this.style.display='none'">`;
-    }
+    const icon = document.createElement('img');
+    icon.src = greetingStyle === '3d'
+        ? `assets/emojis/${iconName}.png`
+        : `assets/greetings/${iconName}.svg`;
+    icon.alt = timeOfDayLabel;
+    icon.className = greetingStyle === '3d' ? 'greeting-icon' : 'greeting-icon outline';
+    icon.addEventListener('error', () => { icon.style.display = 'none'; });
 
-    greetingWrapper.innerHTML = `
-        ${iconHTML}
-        <h1 class="greeting-text" style="font-size: ${fontSize}; white-space: nowrap;">${finalGreetingText}</h1>
-    `;
+    const heading = document.createElement('h1');
+    heading.className = 'greeting-text';
+    heading.style.fontSize = fontSize;
+    heading.style.whiteSpace = 'nowrap';
+    heading.textContent = finalGreetingText;
+
+    greetingWrapper.replaceChildren(icon, heading);
 }

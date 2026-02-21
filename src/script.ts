@@ -691,9 +691,18 @@ function initSortable() {
         forceFallback: true,
         dragClass: "sortable-dragging",
         ghostClass: "sortable-placeholder",
-        filter: ".add-card-wrapper", 
-        
+        filter: ".add-card-wrapper, .menu-wrapper",
+        handle: ".shortcut-card",
+        delay: 120,
+        delayOnTouchOnly: true,
+        touchStartThreshold: 4,
+
+        onStart: () => {
+            shortcutsGrid.classList.add('sorting');
+        },
+
         onEnd: function (evt) {
+            shortcutsGrid.classList.remove('sorting');
             if (evt.oldIndex === evt.newIndex) return;
             const movedItem = shortcuts.splice(evt.oldIndex, 1)[0];
             shortcuts.splice(evt.newIndex, 0, movedItem);

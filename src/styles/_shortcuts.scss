@@ -22,7 +22,7 @@
 }
 .shortcut-item:hover,
 .shortcut-item:focus-within {
-    z-index: 1000;
+    z-index: 50;
 }
 .shortcut-card {
     width: 44px; 
@@ -62,7 +62,7 @@
     position: absolute;
     top: -10px;
     right: -10px;
-    z-index: 2000;
+    z-index: 60;
 }
 .menu-btn {
     width: 22px;

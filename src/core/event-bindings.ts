@@ -180,6 +180,17 @@ function bindSearchFeature(options: SearchBindingOptions): void {
         });
     }
 
+    // Close search dropdown when clicking outside the selector
+    document.addEventListener('click', (event) => {
+        const targetNode = event.target as Node | null;
+        if (!targetNode) return;
+        const dropdown = options.dropdown;
+        const engineBtn = options.engineBtn;
+        if (!dropdown || !dropdown.classList.contains('active')) return;
+        if (dropdown.contains(targetNode) || engineBtn?.contains(targetNode)) return;
+        dropdown.classList.remove('active');
+    });
+
     options.items.forEach((item) => {
         item.addEventListener('click', () => {
             const selectedEngine = item.getAttribute('data-engine');

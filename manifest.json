@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "3.0",
+  "version": "3.0.2",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en",
   "icons": {

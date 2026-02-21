@@ -23,6 +23,11 @@ interface SortableLike {
         dragClass?: string;
         ghostClass?: string;
         filter?: string;
+        handle?: string;
+        delay?: number;
+        delayOnTouchOnly?: boolean;
+        touchStartThreshold?: number;
+        onStart?: () => void;
         onEnd?: (evt: { oldIndex: number; newIndex: number }) => void;
     }) => unknown;
 }
