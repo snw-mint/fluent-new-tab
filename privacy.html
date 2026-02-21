@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Fluent New Tab</title>
+    <style>
+        :root {
+            --color-bg: #faf9f8;
+            --color-surface: #ffffff;
+            --color-primary: #0f6cbd;
+            --color-primary-hover: #115ea3;
+            --color-text-main: #242424;
+            --color-text-muted: #616161;
+            --color-border: #e0e0e0;
+            --font-stack: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 40px 24px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--color-surface);
+            padding: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--color-text-main);
+        }
+
+        .content p {
+            margin-bottom: 16px;
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+        }
+
+        .content ul {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+        }
+
+        .content a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-back:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 16px; }
+            .container { padding: 24px; }
+            h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+        
+        <header class="header">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: February 2026</p>
+        </header>
+
+        <div class="content">
+            <p>Thank you for using Fluent New Tab. Your privacy is critically important. This policy explains how your data is handled when you use the extension.</p>
+
+            <h2>1. Data Collection and Storage</h2>
+            <p><strong>Fluent New Tab does not collect, transmit, or sell your personal data.</strong></p>
+            <p>All user preferences, settings, custom shortcuts, and uploaded local wallpapers are stored completely locally on your own device using the browser's built-in storage capabilities (such as <code>localStorage</code> and <code>IndexedDB</code>). We have no access to this data.</p>
+
+            <h2>2. Third-Party Services and APIs</h2>
+            <p>To provide specific features, the extension may communicate directly from your browser to third-party services. This communication happens between your machine and the provider; no data passes through our servers.</p>
+            <ul>
+                <li><strong>Weather Widget:</strong> If enabled, the extension fetches weather data directly from the selected weather API based on the location you input.</li>
+                <li><strong>Search Bar:</strong> Queries entered in the search bar are sent directly to your chosen default search engine (e.g., Google, Bing, DuckDuckGo).</li>
+            </ul>
+
+            <h2>3. Telemetry and Analytics</h2>
+            <p>Fluent New Tab contains zero tracking scripts, analytics, or telemetry. We do not track how you use the extension, which links you click, or how long you keep the new tab open.</p>
+
+            <h2>4. Your Data, Your Control</h2>
+            <p>Because all data is stored locally, you have complete control over it. You can delete all your data at any time by:</p>
+            <ul>
+                <li>Using the "Reset to Defaults" option within the extension's settings.</li>
+                <li>Clearing your browser's local storage and cache.</li>
+                <li>Uninstalling the extension, which automatically removes its associated local data.</li>
+            </ul>
+
+            <h2>5. Open Source Transparency</h2>
+            <p>Fluent New Tab is an open-source project. You or anyone else can review the complete source code to verify exactly how the extension operates and handles data. The source code is publicly available on GitHub.</p>
+
+            <h2>6. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in the extension's features. Any updates will be reflected on this page with a revised "Last Updated" date.</p>
+
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please open an issue on our <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+        </div>
+    </div>
+
+</body>
+</html>

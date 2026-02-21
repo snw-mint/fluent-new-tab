@@ -1,0 +1,703 @@
+:root {
+    --color-bg: #faf9f8;
+    --color-surface: #ffffff;
+    --color-primary: #0f6cbd;
+    --color-primary-hover: #115ea3;
+    --color-text-main: #242424;
+    --color-text-muted: #616161;
+    --color-border: #e0e0e0;
+    
+    --radius-card: 8px;
+    --radius-button: 4px;
+    
+    --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 2px rgba(0, 0, 0, 0.06);
+    --shadow-float: 0 8px 16px rgba(0, 0, 0, 0.14);
+    
+    --font-stack: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adiciona espaço para compensar a navbar fixa */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-links a:active {
+    transform: scale(0.98);
+}
+
+.hero {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-visual-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: var(--color-surface);
+    position: relative;
+    margin-bottom: 48px;
+}
+
+.fluent-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-bg);
+}
+
+.features-grid-section {
+    padding: 80px 0;
+    background-color: var(--color-bg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 48px;
+    color: var(--color-text-main);
+}
+
+.features-grid {
+    display: grid;
+    /* Cria as 3 colunas em desktop e se ajusta automaticamente para mobile */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow-float);
+    transform: translateY(-2px);
+}
+
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(15, 108, 189, 0.1); /* Fundo com 10% de opacidade da cor primária */
+    color: var(--color-primary); /* Pinta o SVG que está com currentColor */
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text-main);
+}
+
+.feature-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+
+
+
+.core-features-section {
+    padding: 100px 0;
+    background-color: var(--color-bg);
+    overflow: hidden; /* Prevent horizontal scroll from visual overlaps */
+}
+
+/* Flex container for the Z-Pattern */
+.showcase-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 120px;
+    position: relative;
+}
+
+/* Image styling */
+.showcase-image-wrapper {
+    width: 65%; /* Ocupa 65% da tela */
+    flex-shrink: 0;
+    border-radius: 12px;
+    box-shadow: var(--shadow-float);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.showcase-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Card styling */
+.showcase-card {
+    width: 45%; /* Ocupa 45%, forçando uma interseção com a imagem */
+    padding: 40px;
+    border-radius: 16px;
+    z-index: 2; /* Fica por cima da imagem */
+}
+
+/* Overlap magic via negative margin */
+.overlap-right {
+    margin-left: -10%; 
+}
+
+/* Fluent 2 Mica Effect (Light Mode) */
+.mica-effect {
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.showcase-card h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-text-main);
+    letter-spacing: -0.01em;
+}
+
+.showcase-card p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Icon List Styling */
+.feature-icon-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-icon-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.feature-icon-list svg {
+    color: var(--color-primary); /* Uses the blue primary color */
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 992px) {
+    .showcase-row {
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+    
+    .showcase-image-wrapper {
+        width: 100%;
+    }
+    
+    .showcase-card {
+        width: 90%; /* Deixa uma margem lateral no mobile */
+        margin-left: 0;
+        margin-top: -40px; /* Sobrepõe verticalmente */
+        padding: 32px 24px;
+        background-color: var(--color-surface); /* Desliga o Mica no mobile para melhor leitura */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
+
+/* Classes for the reversed Z-pattern row */
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.overlap-left {
+    margin-right: -10%; /* Puxa o card por cima da imagem pela esquerda */
+    margin-left: 0;
+}
+
+/* Under the Hood Section */
+.under-the-hood {
+    margin-top: 64px;
+    padding-top: 64px;
+    border-top: 1px solid var(--color-border);
+}
+
+.minor-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: var(--color-text-main);
+}
+
+.minor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.minor-card {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 24px;
+    text-align: center;
+    transition: background-color 0.2s, border-color 0.2s;
+    border-radius: var(--radius-card);
+}
+
+.minor-card:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.minor-card svg {
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+.minor-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.minor-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Responsive updates for the reversed row */
+@media (max-width: 992px) {
+    .row-reverse {
+        flex-direction: column; /* No mobile, volta a ficar imagem em cima, card embaixo */
+    }
+    
+    .overlap-left {
+        margin-right: 0;
+        margin-left: 0; /* Centraliza igual ao outro card */
+    }
+}
+
+.download-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
+    text-align: center;
+}
+
+.download-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.download-section .support-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-section .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.support-section {
+    padding: 100px 0;
+    background-color: var(--color-surface); /* Usa o fundo branco para destacar */
+    border-top: 1px solid var(--color-border);
+}
+
+.support-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.support-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 48px;
+    line-height: 1.6;
+}
+
+.support-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.support-card {
+    background-color: var(--color-bg); /* Fundo um pouco mais cinza para o card */
+    border: 1px solid var(--color-border);
+    border-radius: 16px; /* Bordas mais arredondadas no estilo Fluent */
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-card);
+}
+
+.support-card:hover {
+    transform: translateY(-4px); /* Elevação suave ao passar o mouse */
+    box-shadow: var(--shadow-float);
+}
+
+.support-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%; /* Círculo perfeito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: #ffffff; /* Ícones brancos */
+}
+
+/* GitHub usa a cor primária padrão da extensão */
+.github-card .support-icon-wrapper {
+    background-color: var(--color-primary); 
+}
+
+/* Ko-fi usa uma cor personalizada ou uma variação vibrante */
+.kofi-card .support-icon-wrapper {
+    background-color: #FF5E5B; /* Cor clássica do Ko-fi */
+}
+
+.support-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+}
+
+.support-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+    flex-grow: 1; /* Empurra o botão para a base do card */
+}
+
+.btn-support {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s, opacity 0.2s;
+    text-align: center;
+}
+
+.btn-github {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-github:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-kofi {
+    background-color: #FF5E5B;
+    color: #ffffff;
+}
+
+.btn-kofi:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .download-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .download-section .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .download-section .btn-primary,
+    .download-section .btn-secondary {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        margin-left: 12px;
+        font-size: 0.85rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-content {
+        height: auto;
+        padding: 12px 0;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+    
+    .nav-links a {
+        margin-left: 0;
+        font-size: 0.8rem;
+    }
+}
+
+.site-footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 64px 0 32px;
+    margin-top: 64px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-disclaimer {
+    max-width: 600px;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.footer-disclaimer a, .footer-credit a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.footer-disclaimer a:hover, .footer-credit a:hover {
+    color: var(--color-primary);
+}
+
+.footer-credit {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: 16px;
+    font-weight: 500;
+}
