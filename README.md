@@ -8,7 +8,6 @@
 
 <p align="center">
   <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc">Add to Browser</a> •
-  <a href="https://github.com/snw-mint/fluent-new-tab">View on GitHub</a> •
   <a href="https://github.com/snw-mint/fluent-new-tab/releases">Installation</a> •
   <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy</a> •
   <a href="CONTRIBUTING.md">Contributing</a> •
