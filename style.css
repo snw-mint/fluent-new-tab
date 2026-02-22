@@ -81,8 +81,17 @@ body {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+.logo-mark {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -595,6 +604,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    .nav-content {
+        height: auto;
+        padding: 12px 0;
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
     .download-section .section-title {
         font-size: 2rem;
     }
@@ -612,39 +634,54 @@ body {
     }
     
     .nav-links a {
-        margin-left: 12px;
+        margin-left: 0;
         font-size: 0.85rem;
     }
     
     .logo {
         font-size: 1rem;
     }
+
+    .logo-mark {
+        width: 24px;
+        height: 24px;
+    }
     
     .title {
         font-size: 2rem;
     }
+
     
     .subtitle {
         font-size: 1rem;
     }
+
+    .theme-switch {
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
-    .nav-content {
-        height: auto;
-        padding: 12px 0;
-    }
-    
     .nav-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        justify-content: flex-end;
+        gap: 8px 12px;
+        justify-content: center;
+        width: 100%;
     }
     
     .nav-links a {
         margin-left: 0;
         font-size: 0.8rem;
+    }
+
+    .nav-content {
+        justify-content: center;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
     }
 }
 
