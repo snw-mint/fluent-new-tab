@@ -63,6 +63,13 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
                         const meta = page.imageinfo[0].extmetadata;
                         creditText = meta?.Artist?.value || 'Wikimedia Commons';
                         creditText = creditText.replace(/<[^>]*>?/gm, '');
+                        
+                        // Limitar o tamanho do texto de crédito para evitar quebra de layout
+                        const MAX_CREDIT_LENGTH = 120;
+                        if (creditText.length > MAX_CREDIT_LENGTH) {
+                            creditText = creditText.substring(0, MAX_CREDIT_LENGTH).trim() + '...';
+                        }
+                        
                         break;
                     }
                 }

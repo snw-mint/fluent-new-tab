@@ -1,24 +1,37 @@
 /* --- Wallpaper Credits Badge --- */
 .wallpaper-credits {
     position: fixed;
-    bottom: 15px;
-    right: 15px;
+    bottom: 12px;
+    right: 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 12px;
-    font-weight: 500;
+    gap: 5px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 10px;
+    font-weight: 400;
     z-index: 100;
     pointer-events: none;
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 280px;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+    }
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 .wallpaper-credits.hidden {
     opacity: 0;
