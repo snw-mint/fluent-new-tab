@@ -1,0 +1,14 @@
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - leading
+
+jobs:
+  check-and-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send IndexNow Request
+        run: |
+          curl -X GET "https://www.bing.com/indexnow?url=https://seu-usuario.github.io/&key=${{ secrets.INDEXNOW_KEY }}&keyLocation=https://seu-usuario.github.io/${{ secrets.INDEXNOW_KEY }}.txt"
