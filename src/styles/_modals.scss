@@ -21,7 +21,7 @@
     background: var(--search-bg);
     color: var(--text-color);
     padding: 24px;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     width: 320px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     transform: translateY(20px);
@@ -52,7 +52,7 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
     background: transparent;
     color: var(--text-color);
-    border-radius: 6px;
+    border-radius: var(--border-radius);
     font-family: inherit;
     outline: none;
 }
@@ -77,7 +77,7 @@
 }
 .btn-cancel, .btn-save {
     padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     font-weight: 500;
@@ -91,4 +91,42 @@
 .btn-save {
     background: #0078d4; 
     color: white;
+}
+
+#addModal .modal-content {
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+#addModal .modal-actions {
+    flex-direction: row-reverse;
+    justify-content: stretch;
+    margin: 24px -24px -24px;
+    padding: 24px 24px 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: #F3F3F3;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+#addModal .modal-actions .btn-cancel,
+#addModal .modal-actions .btn-save {
+    flex: 1 1 0;
+    width: 100%;
+}
+
+#addModal .btn-cancel {
+    background: #FBFBFB;
+}
+
+[data-theme="dark"] #addModal .modal-content {
+    background: #2B2B2B;
+}
+
+[data-theme="dark"] #addModal .modal-actions {
+    background: #202020;
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] #addModal .btn-cancel {
+    background: #2D2D2D;
 }

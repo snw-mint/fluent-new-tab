@@ -102,14 +102,14 @@
     top: calc(100% + 8px);
     right: 0;
     min-width: 140px;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 6px;
     z-index: 100; 
-   background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(100%);
+    border: 1px solid rgba(224, 224, 224, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(-6px) scale(0.96);
     pointer-events: none;
@@ -120,9 +120,12 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: url('assets/noise.png'); 
-    opacity: 0.20;
-    pointer-events: none; 
+    background-image: url("assets/noise.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.10;
+    pointer-events: none;
 }
 .shortcut-dropdown.active {
     opacity: 1;

@@ -23,9 +23,6 @@ html[data-theme="dark"] {
     background: rgba(50, 50, 50, 0.9);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-[data-theme="dark"] .theme-selector {
-    background: rgba(255,255,255,0.1);
-}
 [data-theme="dark"] .shortcut-card {
     background: #373737;
     border-color: rgba(255, 255, 255, 0.1);
@@ -172,12 +169,6 @@ html[data-theme="dark"] {
 [data-theme="dark"] .toggle-link {
     color: #74b5e7;
 }
-
-/* =========================
-   14. Wallpaper Mode Overrides
-========================= */
-
-/* Força texto/ícones brancos na interface principal quando wallpaper está ativo */
 body[data-wallpaper-active="true"] .greeting-text,
 body[data-wallpaper-active="true"] .translate-link,
 body[data-wallpaper-active="true"] .settings-btn svg path,
@@ -189,13 +180,9 @@ body[data-wallpaper-active="true"] .shortcut-title {
     fill: #ffffff !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* Garante que ícones de imagem (Saudacao Outline) fiquem brancos */
 body[data-wallpaper-active="true"] .greeting-icon.outline {
     filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
 }
-
-/* Melhora a visibilidade do hover em botões transparentes sobre o wallpaper */
 body[data-wallpaper-active="true"] .settings-btn:hover,
 body[data-wallpaper-active="true"] .launcher-btn:hover,
 body[data-wallpaper-active="true"] .weather-widget:hover {
@@ -207,4 +194,10 @@ html:not([data-theme="dark"]) body[data-wallpaper-active="true"] .settings-wrapp
     color: #1f1f1f !important;
     fill: #1f1f1f !important;
     text-shadow: none !important;
+}
+[data-theme="dark"] .settings-popup::after,
+[data-theme="dark"] .launcher-popup::after,
+[data-theme="dark"] .dropdown-menu::after,
+[data-theme="dark"] .shortcut-dropdown::after {
+    opacity: 0.05;
 }
