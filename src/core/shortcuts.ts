@@ -19,29 +19,8 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     visibleShortcuts.forEach((site, index) => {
         const iconSrc = site.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${site.url}`;
-        const link = document.createElement('div');
-        link.className = 'shortcut-item';
-
-        link.addEventListener('auxclick', (event) => {
-            if (event.button !== 1) return;
-            const target = event.target as HTMLElement | null;
-            if (target?.closest('.menu-wrapper')) return;
-            event.preventDefault();
-            window.open(site.url, '_blank', 'noopener');
-        });
-
-        link.addEventListener('click', (event) => {
-            const target = event.target as HTMLElement | null;
-            if (target?.closest('.menu-wrapper')) return;
-
-            if (event.ctrlKey || event.metaKey) {
-                event.preventDefault();
-                window.open(site.url, '_blank', 'noopener');
-                return;
-            }
-
-            window.location.href = site.url;
-        });
+        const item = document.createElement('div');
+        item.className = 'shortcut-item';
 
         const img = document.createElement('img');
         img.src = iconSrc;
@@ -49,26 +28,29 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         img.alt = site.name;
         img.onerror = () => { img.src = ICON_GLOBE_FALLBACK; };
 
-        link.innerHTML = `
-            <div class="shortcut-card">
-                <div class="menu-wrapper">
-                    <button class="menu-btn" title="${window.getTranslation('moreOptionsLabel')}">${ICON_MENU_DOTS}</button>
-                    <div class="shortcut-dropdown">
-                        <div class="menu-option edit-option" data-index="${index}">
-                            ${ICON_EDIT} <span>${window.getTranslation('editLabel')}</span>
-                        </div>
-                        <div class="menu-option remove-option" data-index="${index}">
-                            ${ICON_REMOVE} <span>${window.getTranslation('removeLabel')}</span>
-                        </div>
+        const card = document.createElement('a');
+        card.className = 'shortcut-card';
+        card.href = site.url;
+        card.draggable = true;
+
+        card.innerHTML = `
+            <div class="menu-wrapper">
+                <button class="menu-btn" title="${window.getTranslation('moreOptionsLabel')}">${ICON_MENU_DOTS}</button>
+                <div class="shortcut-dropdown">
+                    <div class="menu-option edit-option" data-index="${index}">
+                        ${ICON_EDIT} <span>${window.getTranslation('editLabel')}</span>
+                    </div>
+                    <div class="menu-option remove-option" data-index="${index}">
+                        ${ICON_REMOVE} <span>${window.getTranslation('removeLabel')}</span>
                     </div>
                 </div>
             </div>
-            <span class="shortcut-title">${site.name}</span>
         `;
 
-        const card = link.querySelector('.shortcut-card');
-        if (card) card.appendChild(img);
-        shortcutsGrid.appendChild(link);
+        card.appendChild(img);
+        item.appendChild(card);
+        item.insertAdjacentHTML('beforeend', `<span class="shortcut-title">${site.name}</span>`);
+        shortcutsGrid.appendChild(item);
     });
 
     if (visibleShortcuts.length < maxSlots) {
@@ -84,6 +66,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     shortcutsGrid.querySelectorAll('.menu-btn').forEach((btn) => {
         btn.addEventListener('click', (event) => {
+            event.preventDefault();
             event.stopPropagation();
             const dropdown = btn.nextElementSibling;
             onClosePopups(dropdown);
@@ -93,6 +76,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     shortcutsGrid.querySelectorAll('.edit-option').forEach((opt) => {
         opt.addEventListener('click', (event) => {
+            event.preventDefault();
             event.stopPropagation();
             onOpenModal(parseInt((opt as HTMLElement).dataset.index || '-1'));
             opt.closest('.shortcut-dropdown')?.classList.remove('active');
@@ -101,6 +85,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     shortcutsGrid.querySelectorAll('.remove-option').forEach((opt) => {
         opt.addEventListener('click', (event) => {
+            event.preventDefault();
             event.stopPropagation();
             onDeleteShortcut(parseInt((opt as HTMLElement).dataset.index || '-1'));
         });

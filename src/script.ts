@@ -686,9 +686,8 @@ async function searchCity(): Promise<void> {
 function initSortable() {
     if (!shortcutsGrid) return;
     
-    Sortable.create(shortcutsGrid, {
+    const sortableOptions = {
         animation: 200,
-        forceFallback: true,
         dragClass: "sortable-dragging",
         ghostClass: "sortable-placeholder",
         filter: ".add-card-wrapper, .menu-wrapper",
@@ -696,6 +695,14 @@ function initSortable() {
         delay: 120,
         delayOnTouchOnly: true,
         touchStartThreshold: 4,
+        setData: function (dataTransfer, dragEl) {
+            const link = dragEl.matches('.shortcut-card') ? dragEl : dragEl.querySelector('.shortcut-card');
+            const url = link?.getAttribute('href');
+            if (url) {
+                dataTransfer.setData('text/uri-list', url);
+                dataTransfer.setData('text/plain', url);
+            }
+        },
 
         onStart: () => {
             shortcutsGrid.classList.add('sorting');
@@ -708,7 +715,9 @@ function initSortable() {
             shortcuts.splice(evt.newIndex, 0, movedItem);
             saveAndRender();
         }
-    });
+    } as { setData: (dataTransfer: DataTransfer, dragEl: HTMLElement) => void };
+
+    Sortable.create(shortcutsGrid, sortableOptions as any);
 }
 async function initWeather() {
     const cachedString = localStorage.getItem(CACHE_KEY);
