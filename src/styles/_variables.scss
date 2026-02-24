@@ -1,11 +1,49 @@
-/* --- Variables --- */
+$font-body: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+$color-bg: #f9f9f9;
+$color-text: #242424;
+$color-surface: #ffffff;
+$color-surface-muted: #fafafa;
+$color-glass-bg: rgba(255, 255, 255, 0.7);
+$color-glass-border: rgba(224, 224, 224, 0.5);
+$color-glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+$color-border-subtle: rgba(0, 0, 0, 0.05);
+$color-border-strong: rgba(0, 0, 0, 0.12);
+$color-overlay-weak: rgba(0, 0, 0, 0.05);
+$color-overlay-strong: rgba(0, 0, 0, 0.08);
+$color-link: #08538c;
+$color-accent: #0078d4;
+$color-accent-contrast: #ffffff;
+$color-accent-warn: #ff4d4f;
+$color-accent-alert: #ff3b3b;
+
+$color-dark-bg: #202020;
+$color-dark-surface: #3b3b3b;
+$color-dark-card: #333333;
+$color-dark-overlay: rgba(255, 255, 255, 0.1);
+$color-dark-border: rgba(255, 255, 255, 0.08);
+$color-dark-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 10px;
+$radius-xl: 14px;
+$radius-xxl: 22px;
+$radius-pill: 99px;
+$radius-round: 50%;
+
+$shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+$shadow-card-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
+
 :root {
-    --bg-color: #f9f9f9;
-    --text-color: #242424;
-    --search-bg: #ffffff;
-    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
-    --border-color: rgba(0,0,0,0.05);
-    --border-radius: 8px;
-    --accent-color: #0078d4;
+    --bg-color: #{$color-bg};
+    --text-color: #{$color-text};
+    --search-bg: #{$color-surface};
+    --shadow-soft: #{$shadow-soft};
+    --shadow-hover: #{$shadow-hover};
+    --border-color: #{$color-border-subtle};
+    --border-radius: #{$radius-md};
+    --accent-color: #{$color-accent};
 }

@@ -1,0 +1,62 @@
+@use './variables' as *;
+
+@mixin flex-center($gap: 0) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+
+@mixin glass-panel(
+    $bg: $color-glass-bg,
+    $border: $color-glass-border,
+    $shadow: $color-glass-shadow
+) {
+    background: $bg;
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(100%);
+    border: 1px solid $border;
+    box-shadow: $shadow;
+}
+
+@mixin card-radius($radius: $radius-md) {
+    border-radius: $radius;
+}
+
+@mixin button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+@mixin hover-surface($color: $color-overlay-weak) {
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background-color: $color;
+    }
+}
+
+@mixin noise-overlay($opacity: 0.1) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("assets/noise.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: $opacity;
+    pointer-events: none;
+}
+
+@mixin shadow-soft {
+    box-shadow: $shadow-soft;
+}
+
+@mixin shadow-hover {
+    box-shadow: $shadow-hover;
+}

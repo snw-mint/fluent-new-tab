@@ -1,132 +1,155 @@
-/* --- Modals --- */
+@use './variables' as *;
+@use './mixins' as *;
+
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+
+        .modal-content {
+            transform: translateY(0);
+        }
+    }
+
+    .modal-content {
+        background: var(--search-bg);
+        color: var(--text-color);
+        padding: 24px;
+        border-radius: var(--border-radius);
+        width: 320px;
+        box-shadow: $shadow-card-strong;
+        transform: translateY(20px);
+        transition: transform 0.2s ease;
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+
+            label {
+                display: block;
+                font-size: 12px;
+                margin-bottom: 6px;
+                font-weight: 600;
+                color: var(--text-color);
+                opacity: 0.7;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid rgba(128, 128, 128, 0.3);
+                background: transparent;
+                color: var(--text-color);
+                border-radius: var(--border-radius);
+                font-family: inherit;
+                outline: none;
+
+                &:focus {
+                    border-color: $color-accent;
+                }
+            }
+        }
+
+        .toggle-link {
+            display: block;
+            font-size: 12px;
+            color: $color-link;
+            margin-bottom: 16px;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 24px;
+
+            .btn-cancel,
+            .btn-save {
+                padding: 8px 16px;
+                border-radius: $radius-sm;
+                border: none;
+                cursor: pointer;
+                font-weight: 500;
+                font-family: inherit;
+            }
+
+            .btn-cancel {
+                background: rgba(128, 128, 128, 0.15);
+                color: var(--text-color);
+            }
+
+            .btn-save {
+                background: $color-accent;
+                color: $color-accent-contrast;
+            }
+        }
+    }
 }
-.modal-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-.modal-content {
-    background: #fff;
-    background: var(--search-bg);
-    color: var(--text-color);
-    padding: 24px;
-    border-radius: var(--border-radius);
-    width: 320px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-    transform: translateY(20px);
-    transition: transform 0.2s;
-}
-.modal-overlay.active .modal-content {
-    transform: translateY(0);
-}
-.modal-content h3 {
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 600;
-}
-.input-group {
-    margin-bottom: 16px;
-}
-.input-group label {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: var(--text-color);
-    opacity: 0.7;
-}
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    background: transparent;
-    color: var(--text-color);
-    border-radius: var(--border-radius);
-    font-family: inherit;
-    outline: none;
-}
-.input-group input:focus {
-    border-color: #0078d4;
-}
-.toggle-link {
-    display: block;
-    font-size: 12px;
-    color: #08538c; 
-    margin-bottom: 16px;
-    text-decoration: none;
-}
+
 .hidden {
     display: none;
 }
-.modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 24px;
-}
-.btn-cancel, .btn-save {
-    padding: 8px 16px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-family: inherit;
-}
-.btn-cancel {
-    background: #f0f0f0;
-    background: rgba(128, 128, 128, 0.15);
-    color: var(--text-color);
-}
-.btn-save {
-    background: #0078d4; 
-    color: white;
+
+#addModal {
+    .modal-content {
+        background: $color-surface;
+        overflow: hidden;
+    }
+
+    .modal-actions {
+        flex-direction: row-reverse;
+        justify-content: stretch;
+        margin: 24px -24px -24px;
+        padding: 24px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: #f3f3f3;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+        .btn-cancel,
+        .btn-save {
+            flex: 1 1 0;
+            width: 100%;
+        }
+
+        .btn-cancel {
+            background: #fbfbfb;
+        }
+    }
 }
 
-#addModal .modal-content {
-    background: #FFFFFF;
-    overflow: hidden;
-}
+[data-theme="dark"] {
+    #addModal {
+        .modal-content {
+            background: #2b2b2b;
+        }
 
-#addModal .modal-actions {
-    flex-direction: row-reverse;
-    justify-content: stretch;
-    margin: 24px -24px -24px;
-    padding: 24px 24px 24px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    background: #F3F3F3;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
+        .modal-actions {
+            background: $color-dark-bg;
+            border-top-color: $color-dark-border;
 
-#addModal .modal-actions .btn-cancel,
-#addModal .modal-actions .btn-save {
-    flex: 1 1 0;
-    width: 100%;
-}
-
-#addModal .btn-cancel {
-    background: #FBFBFB;
-}
-
-[data-theme="dark"] #addModal .modal-content {
-    background: #2B2B2B;
-}
-
-[data-theme="dark"] #addModal .modal-actions {
-    background: #202020;
-    border-top-color: rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] #addModal .btn-cancel {
-    background: #2D2D2D;
+            .btn-cancel {
+                background: #2d2d2d;
+            }
+        }
+    }
 }

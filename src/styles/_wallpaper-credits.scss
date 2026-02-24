@@ -1,17 +1,17 @@
-/* --- Wallpaper Credits Badge --- */
+@use './variables' as *;
+@use './mixins' as *;
+
 .wallpaper-credits {
     position: fixed;
     bottom: 12px;
     right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    @include flex-center(5px);
     padding: 5px 10px;
     background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+    border-radius: $radius-xl;
     color: rgba(255, 255, 255, 0.85);
     font-size: 10px;
     font-weight: 400;
@@ -32,15 +32,15 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-}
-.wallpaper-credits.hidden {
-    opacity: 0;
-    transform: translateY(10px);
+
+    &.hidden {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 }
 
-/* Estilo para o contêiner da seleção de fonte de wallpaper */
 .wallpaper-source-options {
-    flex-direction: column; /* Faz com que os itens se empilhem verticalmente */
-    gap: 6px; /* Espaçamento entre o label e o select */
-    margin-top: 8px; /* Espaçamento superior para separar de outros elementos */
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
 }

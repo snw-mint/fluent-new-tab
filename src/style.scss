@@ -1,22 +1,5 @@
-/* =========================
-   INDEX
-   1. Variables
-   2. Reset & Base
-   3. Layout
-   4. Header & Controls
-   5. Search
-   6. Shortcuts
-   7. Modals
-   8. Settings
-   9. Widgets
-   10. Launcher
-   11. Sortable
-   12. Animations
-   13. Dark Mode
-   14. Wallpaper Credits
-========================= */
-
 @use 'styles/variables' as *;
+@use 'styles/mixins' as *;
 @use 'styles/reset-base' as *;
 @use 'styles/layout' as *;
 @use 'styles/header-controls' as *;

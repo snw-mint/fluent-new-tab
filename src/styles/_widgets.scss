@@ -1,77 +1,88 @@
-/* --- Widgets --- */
+@use './variables' as *;
+@use './mixins' as *;
+
 .weather-widget {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
+    @include flex-center(10px);
     text-decoration: none;
     color: var(--text-color);
-    font-size: 14px; 
+    font-size: 14px;
     padding: 6px 12px;
-    border-radius: 6px; 
+    border-radius: $radius-sm;
     transition: background 0.2s ease, transform 0.2s ease;
     user-select: none;
     cursor: pointer;
-    background-color: transparent; 
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgba(128, 128, 128, 0.1);
+
+        .fluent-icon {
+            transform: translateY(-2px) scale(1.1);
+        }
+    }
+
+    .weather-icon {
+        width: 30px;
+        height: 30px;
+        @include flex-center;
+    }
+
+    .fluent-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        transition: transform 0.3s ease;
+    }
+
+    .weather-city {
+        font-weight: 400;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.3s ease;
+        opacity: 0.9;
+    }
+
+    .weather-temp {
+        font-weight: 400;
+        opacity: 1;
+    }
 }
-.weather-widget:hover {
-    background-color: rgba(128, 128, 128, 0.1); 
-}
-.weather-icon {
-    width: 30px; 
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.fluent-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    transition: transform 0.3s ease;
-}
-.weather-widget:hover .fluent-icon {
-    transform: translateY(-2px) scale(1.1);
-}
-.weather-city {
-    font-weight: 400;
-    max-width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: all 0.3s ease;
-    opacity: 0.9;
-}
-.weather-temp {
-    font-weight: 400; 
-    opacity: 1;
-}
+
 .unit-toggle-row {
     display: flex;
-    gap: 8px; 
+    gap: 8px;
     width: 100%;
+
+    .unit-btn {
+        flex: 1;
+        padding: 8px;
+        background-color: $color-overlay-weak;
+        border: 1px solid transparent;
+        border-radius: $radius-md;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-color);
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &.active {
+            background-color: $color-accent;
+            color: $color-accent-contrast;
+        }
+    }
 }
-.unit-btn {
-    flex: 1; 
-    padding: 8px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border: 1px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-color);
-    transition: all 0.2s ease;
-}
-.unit-btn:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-.unit-btn.active {
-    background-color: #0078d4; 
-    color: white;
-}
-.header-controls:has(.settings-wrapper:hover) .weather-city {
-    max-width: 0;
-    opacity: 0;
-    margin-left: -4px; 
+
+.header-controls:has(.settings-wrapper:hover) {
+    .weather-city {
+        max-width: 0;
+        opacity: 0;
+        margin-left: -4px;
+    }
 }
