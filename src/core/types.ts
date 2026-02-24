@@ -65,7 +65,6 @@ interface CityData {
     name: string;
     lat: number;
     lon: number;
-    admin1?: string;
     country?: string;
 }
 
@@ -83,7 +82,6 @@ interface GeocodingResult {
     name: string;
     latitude: number;
     longitude: number;
-    admin1?: string;
     country?: string;
 }
 

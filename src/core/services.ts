@@ -132,13 +132,7 @@ async function fetchCityData(query: string): Promise<CityData | null> {
 
     if (data.results && data.results.length > 0) {
         const result = data.results[0];
-        return {
-            name: result.name,
-            lat: result.latitude,
-            lon: result.longitude,
-            admin1: result.admin1,
-            country: result.country
-        };
+        return { name: result.name, lat: result.latitude, lon: result.longitude, country: result.country };
     }
 
     return null;
