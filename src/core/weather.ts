@@ -39,6 +39,33 @@ function getFluentIconFilename(code: number, isDay: number | boolean): string {
     }
 }
 
+function getActiveLocaleSegment(): string {
+    const savedLocale = localStorage.getItem('userLanguage') || 'en';
+    const normalized = savedLocale.replace('_', '-').trim() || 'en';
+
+    try {
+        const canonical = Intl.getCanonicalLocales([normalized])[0];
+        if (canonical) return canonical.toLowerCase();
+    } catch (e) { /* fallback to normalized below */ }
+
+    return normalized.toLowerCase();
+}
+
+function buildMsnLocationPath(cityData: CityData): string {
+    const sanitize = (value?: string): string => {
+        if (!value) return '';
+        const trimmed = value.trim();
+        if (!trimmed) return '';
+        return encodeURIComponent(trimmed.replace(/\s+/g, '-'));
+    };
+
+    const city = sanitize(cityData.name) || 'city';
+    const state = sanitize(cityData.admin1);
+    const location = state ? `${city},${state}` : city;
+
+    return `/in-${location}`;
+}
+
 function renderWeatherWidget(data: WeatherApiResponse | null, weatherUnit: WeatherUnit, cityData: CityData, refs: WeatherRenderElements): void {
     if (!data?.current_weather) return;
     if (!refs.weatherCity || !refs.weatherTemp || !refs.weatherIcon || !refs.weatherWidget) return;
@@ -52,5 +79,8 @@ function renderWeatherWidget(data: WeatherApiResponse | null, weatherUnit: Weath
     refs.weatherCity.textContent = cityData.name;
     refs.weatherTemp.textContent = `${Math.round(tempValue)}${unitSymbol}`;
     refs.weatherIcon.innerHTML = `<img src="assets/weather/${filename}" alt="Weather Icon" class="fluent-icon">`;
-    refs.weatherWidget.href = `https://www.bing.com/weather/forecast?q=${cityData.name}`;
+
+    const degreeMode = isCelsius ? 'C' : 'F';
+
+    refs.weatherWidget.href = `https://www.msn.com/en-us/weather/forecast/?weadegreetype=${degreeMode}&uxmode=ruby`;
 }
