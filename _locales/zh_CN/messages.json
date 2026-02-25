@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "壁纸"
   },
+  "wallpaperSourceLabel": {
+    "message": "图片来源"
+  },
   "iconsStyleLabel": {
     "message": "图标样式"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "导入"
+  },
+  "helpLabel": {
+    "message": "需要帮助吗？"
+  },
+  "reportBugLabel": {
+    "message": "报告一个错误"
+  },
+  "requestFeatureLabel": {
+    "message": "请求功能"
   },
   "addShortcutTitle": {
     "message": "添加快捷方式"
