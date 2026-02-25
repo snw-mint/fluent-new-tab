@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Papel pintado"
   },
+  "wallpaperSourceLabel": {
+    "message": "Fuente de la imagen"
+  },
   "iconsStyleLabel": {
     "message": "Estilo de icono"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Importar"
+  },
+  "helpLabel": {
+    "message": "¿Necesitas ayuda?"
+  },
+  "reportBugLabel": {
+    "message": "Informar de un error"
+  },
+  "requestFeatureLabel": {
+    "message": "Solicitar una función"
   },
   "addShortcutTitle": {
     "message": "Añadir acceso directo"
