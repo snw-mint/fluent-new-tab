@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "壁紙"
   },
+  "wallpaperSourceLabel": {
+    "message": "画像ソース"
+  },
   "iconsStyleLabel": {
     "message": "アイコンスタイル"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "インポート"
+  },
+  "helpLabel": {
+    "message": "お困りですか？"
+  },
+  "reportBugLabel": {
+    "message": "バグを報告する"
+  },
+  "requestFeatureLabel": {
+    "message": "機能のリクエスト"
   },
   "addShortcutTitle": {
     "message": "ショートカットを追加"
