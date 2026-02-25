@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
+  "wallpaperSourceLabel": {
+    "message": "Kép forrása"
+  },
   "iconsStyleLabel": {
     "message": "Ikon stílus"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Import"
+  },
+  "helpLabel": {
+    "message": "Segítségre van szüksége?"
+  },
+  "reportBugLabel": {
+    "message": "Hiba jelentése"
+  },
+  "requestFeatureLabel": {
+    "message": "Funkció kérése"
   },
   "addShortcutTitle": {
     "message": "Parancsikon hozzáadása"
