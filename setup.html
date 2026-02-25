@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide - Fluent New Tab</title>
+    <meta name="theme-color" content="#0f6cbd">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .setup-hero {
+            padding: 48px 0 32px;
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+        }
+
+        .setup-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .setup-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 64px;
+            padding: 48px 24px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .docs-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .docs-sidebar h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .docs-sidebar ul {
+            list-style: none;
+            border-left: 2px solid var(--color-border);
+        }
+
+        .docs-sidebar a {
+            text-decoration: none;
+            color: var(--color-text-muted);
+            display: block;
+            padding: 8px 0 8px 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s, border-left-color 0.2s;
+            margin-left: -2px;
+            border-left: 2px solid transparent;
+        }
+
+        .docs-sidebar a:hover {
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+        }
+
+        .docs-content {
+            max-width: 800px;
+        }
+
+        .docs-section {
+            margin-bottom: 64px;
+            scroll-margin-top: 100px;
+        }
+
+        .docs-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .docs-section h2 svg {
+            color: var(--color-primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        .docs-section > p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .setting-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .setting-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .setting-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .setting-badge {
+            display: inline-block;
+            background-color: rgba(15, 108, 189, 0.1);
+            color: var(--color-primary);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .docs-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content" style="justify-content: space-between;">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <img class="logo-mark" src="android-chrome-512x512.png" alt="Fluent New Tab logo">
+                <span>Fluent New Tab</span>
+            </a>
+            
+            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
+                <span class="theme-icon light-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z" fill="currentColor"/></svg>
+                </span>
+                <span class="theme-icon dark-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z" fill="currentColor"/></svg>
+                </span>
+                <div class="theme-thumb"></div>
+            </button>
+        </div>
+    </nav>
+
+    <header class="setup-hero">
+        <div class="container">
+            <h1 class="setup-title">Setup & Configuration</h1>
+            <p class="setup-subtitle">Learn how to customize your workspace and understand every feature in the settings menu.</p>
+        </div>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="docs-sidebar">
+            <h4>Contents</h4>
+            <ul>
+                <li><a href="#appearance">Appearance</a></li>
+                <li><a href="#wallpaper">Wallpaper</a></li>
+                <li><a href="#greeting">Greeting</a></li>
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="#shortcuts">Shortcuts</a></li>
+                <li><a href="#launcher">App Launcher</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#advanced">Advanced & Backup</a></li>
+            </ul>
+        </aside>
+
+        <main class="docs-content">
+            
+            <section id="appearance" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="icon-fill"><path d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25" fill="currentColor"/></g></svg>
+                    Theme & Appearance
+                </h2>
+                <p>Located at the very top of the settings menu, you can quickly toggle between three main color schemes for your new tab interface.</p>
+                
+                <div class="setting-card">
+                    <h3>Light Mode</h3>
+                    <p>A clean, bright interface using the standard Fluent Design light palette. Ideal for daytime usage and well-lit environments.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Dark Mode</h3>
+                    <p>A deep, high-contrast dark palette that reduces eye strain in low-light environments and makes colors pop.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Auto Mode <span class="setting-badge">Default</span></h3>
+                    <p>Automatically syncs the extension's theme with your operating system's current color scheme (Windows/macOS settings).</p>
+                </div>
+            </section>
+
+            <section id="wallpaper" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.9968 12C33.7582 12 35.9968 14.2386 35.9968 17C35.9968 19.7614 33.7582 22 30.9968 22C28.2354 22 25.9968 19.7614 25.9968 17C25.9968 14.2386 28.2354 12 30.9968 12ZM28.4968 17C28.4968 18.3807 29.6161 19.5 30.9968 19.5C32.3775 19.5 33.4968 18.3807 33.4968 17C33.4968 15.6193 32.3775 14.5 30.9968 14.5C29.6161 14.5 28.4968 15.6193 28.4968 17Z" fill="currentColor"></path>
+                        <path d="M6 10.75C6 8.12665 8.12665 6 10.75 6H37.25C39.8734 6 42 8.12665 42 10.75V37.25C42 38.4377 41.5641 39.5236 40.8435 40.3565C40.7898 40.4531 40.7223 40.5441 40.641 40.6268C40.5548 40.7144 40.4589 40.7866 40.3566 40.8434C39.5238 41.564 38.4378 42 37.25 42H10.75C9.55998 42 8.47218 41.5624 7.63873 40.8393C7.53919 40.7832 7.44575 40.7123 7.36158 40.6268C7.28258 40.5466 7.21664 40.4583 7.16373 40.3648C6.43884 39.5309 6 38.4417 6 37.25V10.75ZM39.5 37.25V10.75C39.5 9.50736 38.4926 8.5 37.25 8.5H10.75C9.50736 8.5 8.5 9.50736 8.5 10.75V37.25C8.5 37.4065 8.51598 37.5592 8.54639 37.7067L21.3697 25.0851C22.8291 23.6486 25.171 23.6485 26.6306 25.0849L39.454 37.7048C39.4842 37.5579 39.5 37.4058 39.5 37.25ZM10.75 39.5H37.25C37.3948 39.5 37.5364 39.4863 37.6736 39.4602L24.877 26.8668C24.3905 26.388 23.6099 26.388 23.1234 26.8668L10.3284 39.4606C10.465 39.4865 10.6059 39.5 10.75 39.5Z" fill="currentColor"></path>
+                    </svg>
+                    Wallpaper
+                </h2>
+                <p>Customize the background of your new tab. If toggled off, the background will revert to a solid color based on your active theme.</p>
+                
+                <div class="setting-card">
+                    <h3>Built-in Presets</h3>
+                    <p>Choose from three default, high-quality abstract wallpapers carefully designed to match the Fluent Design aesthetic without distracting from your content.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Upload Custom Image</h3>
+                    <p>Click the upload icon to set any personal image as your background. Images are automatically optimized, converted to WebP format, and stored securely in your browser's local database.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Dynamic Image Sources</h3>
+                    <p>Instead of a static image, you can fetch a new wallpaper automatically every day from external sources: <strong>Bing Daily Image</strong>, <strong>NASA Astronomy Picture of the Day (APOD)</strong>, or <strong>Wikimedia Commons</strong>. Credits are shown in the bottom left corner.</p>
+                </div>
+            </section>
+
+            <section id="greeting" class="docs-section">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.75 12a.75.75 0 0 0-.748.818C6.282 15.892 8.552 18.5 12 18.5c3.448 0 5.717-2.608 5.998-5.682A.75.75 0 0 0 17.25 12H6.749ZM12 17c-2.257 0-3.871-1.48-4.368-3.5h8.736C15.872 15.52 14.258 17 12 17ZM15.25 8.75c-.408 0-.71.287-.758.61a.75.75 0 1 1-1.484-.22c.162-1.09 1.123-1.89 2.242-1.89s2.08.8 2.242 1.89a.75.75 0 1 1-1.484.22c-.048-.323-.35-.61-.758-.61ZM7.992 9.36c.048-.323.35-.61.758-.61.409 0 .71.287.758.61a.75.75 0 1 0 1.484-.22c-.161-1.09-1.123-1.89-2.242-1.89s-2.08.8-2.242 1.89a.75.75 0 0 0 1.484.22Z" fill="currentColor"/>
+                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM3.5 12a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0Z" fill="currentColor"/>
+                    </svg>
+                    Greeting
+                </h2>
+                <p>The large, centralized text that welcomes you every time you open a new tab. It dynamically changes based on the time of day (Morning, Afternoon, Evening, Night).</p>
+                
+                <div class="setting-card">
+                    <h3>Display Name</h3>
+                    <p>Enter your name to receive personalized greetings (e.g., "Good morning, Alex!"). Leave it blank for a standard, universal greeting.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Icon Style</h3>
+                    <p>Choose the aesthetic of the time-of-day icon displayed next to the greeting text. You can use the colorful <strong>3D Fluent</strong> emojis, or a sleek, monochromatic <strong>Outline</strong> style.</p>
+                </div>
+            </section>
+
+            <section id="weather" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.995 15.998c6.337 0 9.932 4.195 10.454 9.26h.16c4.078 0 7.384 3.298 7.384 7.365s-3.306 7.365-7.384 7.365H15.38c-4.078 0-7.384-3.297-7.384-7.365s3.306-7.365 7.384-7.365h.16c.526-5.099 4.118-9.26 10.455-9.26m0 2.495c-4.26 0-7.975 3.448-7.975 8.21 0 .755-.656 1.348-1.407 1.348h-1.42c-2.595 0-4.698 2.113-4.698 4.72 0 2.608 2.103 4.722 4.697 4.722h21.606c2.594 0 4.697-2.114 4.697-4.721s-2.103-4.722-4.697-4.722h-1.42c-.752 0-1.408-.592-1.408-1.346 0-4.824-3.714-8.21-7.975-8.21m-17.29 5.799a1.244 1.244 0 0 1-.559 1.57l-.115.054-2.311.962a1.244 1.244 0 0 1-1.067-2.243l.115-.055 2.311-.961a1.244 1.244 0 0 1 1.625.673m13-9.642-.062.02a11.8 11.8 0 0 0-2.57 1.19 5.5 5.5 0 0 0-6.826 7.95 9.3 9.3 0 0 0-2.127 1.086A7.883 7.883 0 0 1 21.704 14.65m-16.129.18.127.046 2.319.989c.63.266.932.995.675 1.629-.24.591-.883.89-1.48.71l-.126-.045-2.32-.989a1.26 1.26 0 0 1-.674-1.629c.24-.591.882-.89 1.479-.71m7.368-6.173.055.115.96 2.306a1.25 1.25 0 0 1-2.254 1.072l-.055-.115-.96-2.306a1.25 1.25 0 0 1 2.254-1.072m9.049-.56c.601.249.908.91.73 1.52l-.046.13-.992 2.276a1.264 1.264 0 0 1-2.38-.837l.046-.13.99-2.276a1.264 1.264 0 0 1 1.652-.683" fill="currentColor"/></svg>
+                    Weather
+                </h2>
+                <p>A subtle widget displayed in the top-right corner that shows the current temperature and weather conditions for your location, powered by Open-Meteo.</p>
+                
+                <div class="setting-card">
+                    <h3>Location Setup</h3>
+                    <p>Type the name of your city in the input field and click the save icon. The system will geocode the location and fetch the current meteorological data.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Temperature Unit</h3>
+                    <p>Toggle seamlessly between Celsius (°C) and Fahrenheit (°F). The conversion is applied instantly without needing to fetch data again.</p>
+                </div>
+            </section>
+
+            <section id="shortcuts" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M10.75 15A2.25 2.25 0 0 1 13 17.25v5.5A2.25 2.25 0 0 1 10.75 25h-5.5A2.25 2.25 0 0 1 3 22.75v-5.5A2.25 2.25 0 0 1 5.25 15zm12 0A2.25 2.25 0 0 1 25 17.25v5.5A2.25 2.25 0 0 1 22.75 25h-5.5A2.25 2.25 0 0 1 15 22.75v-5.5A2.25 2.25 0 0 1 17.25 15zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75M10.75 3A2.25 2.25 0 0 1 13 5.25v5.5A2.25 2.25 0 0 1 10.75 13h-5.5A2.25 2.25 0 0 1 3 10.75v-5.5A2.25 2.25 0 0 1 5.25 3zm12 0A2.25 2.25 0 0 1 25 5.25v5.5A2.25 2.25 0 0 1 22.75 13h-5.5A2.25 2.25 0 0 1 15 10.75v-5.5A2.25 2.25 0 0 1 17.25 3zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75" fill="currentColor"/></svg>
+                    Shortcuts
+                </h2>
+                <p>The grid of quick links located right below the search bar. You can add, edit, and drag-and-drop to reorder them directly on the main page.</p>
+                
+                <div class="setting-card">
+                    <h3>Grid Rows</h3>
+                    <p>Control the maximum amount of shortcuts displayed on the screen. You can limit the grid to show anywhere from 1 to 4 rows. If disabled entirely, the grid is hidden to keep the interface completely minimalist.</p>
+                </div>
+            </section>
+
+            <section id="launcher" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 12a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4" fill="currentColor"/>
+                    </svg>
+                    App Launcher
+                </h2>
+                <p>A floating button on the left side of the screen that opens a quick-access drawer to web applications.</p>
+                
+                <div class="setting-card">
+                    <h3>Ecosystem Provider</h3>
+                    <p>Select which suite of tools you use the most. The launcher will automatically populate with shortcuts and icons for <strong>Microsoft 365</strong> (Word, Teams, Copilot), <strong>Google Workspace</strong> (Docs, Drive, Gemini), or <strong>Proton AG</strong> (Mail, Calendar, Pass).</p>
+                </div>
+            </section>
+
+            <section id="search" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5" fill="currentColor"/></svg>
+                    Search
+                </h2>
+                <p>Customize the behavior and appearance of the central search bar. You can change the default search engine directly on the main page by clicking the engine icon inside the bar.</p>
+                
+                <div class="setting-card">
+                    <h3>Suggestions</h3>
+                    <p>When enabled, typing in the search bar will fetch live autocomplete suggestions to help you find what you are looking for faster.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Clear Search (Google)</h3>
+                    <p>This setting appends the <code>&udm=14</code> parameter to Google searches. It forces Google to return a clean, classic list of links, stripping away AI overviews, sponsored widgets, and shopping cards.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Compact Bar</h3>
+                    <p>Reduces the height and visual footprint of the search bar for a tighter, more refined aesthetic.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Voice Search</h3>
+                    <p>Enables the microphone icon inside the search bar, allowing you to search the web using voice recognition (requires browser permission).</p>
+                </div>
+            </section>
+
+            <section id="advanced" class="docs-section">
+                <h2>
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14h2.544Zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394l-1.67 5.013Z" fill="currentColor"/>
+                    </svg>
+                    Advanced & Backup
+                </h2>
+                
+                <div class="setting-card">
+                    <h3>Reduce Motion</h3>
+                    <p>Disables all CSS transitions, interface animations, and hover effects. This is highly recommended for older computers to improve performance, or for users who prefer an instant, snappy response.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Language</h3>
+                    <p>Force the interface language of the extension menu and greetings. It supports over 20 languages. By default, it follows your browser's language settings.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Data Backup (Export / Import)</h3>
+                    <p>Allows you to export all your configured settings, shortcuts, and preferences into a single <code>.json</code> file. You can import this file later or on another device to restore your entire setup instantly.</p>
+                </div>
+            </section>
+
+            <section id="help-links" class="docs-section" style="margin-top: 64px; border-top: 1px solid var(--color-border); padding-top: 64px;">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.523 0 10 4.478 10 10s-4.477 10-10 10S2 17.522 2 12 6.477 2 12 2m0 1.667c-4.595 0-8.333 3.738-8.333 8.333S7.405 20.333 12 20.333s8.333-3.738 8.333-8.333S16.595 3.667 12 3.667M12 15.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m0-8.75a2.75 2.75 0 0 1 2.75 2.75c0 1.01-.297 1.574-1.051 2.359l-.169.171c-.622.622-.78.886-.78 1.47a.75.75 0 0 1-1.5 0c0-1.01.297-1.574 1.051-2.359l.169-.171c.622-.622.78-.886.78-1.47a1.25 1.25 0 0 0-2.493-.128l-.007.128a.75.75 0 0 1-1.5 0A2.75 2.75 0 0 1 12 6.75" fill="currentColor"/></svg>
+                    Need More Help?
+                </h2>
+                <p>If you found an issue, have a great idea, or just need to ask a question, our GitHub community is the best place to reach out.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px;">
+                    
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: #D13438;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z" fill="currentColor"/></svg>
+                            Report a Bug
+                        </h3>
+                        <p>Something isn't working right? Let us know so we can fix it.</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: #107C10;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z" fill="currentColor"/></svg>
+                            Request Feature
+                        </h3>
+                        <p>Have an idea to make Fluent New Tab even better? Share it!</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2" fill="currentColor"/><path d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5" fill="currentColor"/><path d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21" fill="currentColor"/></svg>
+                            Ask a Question
+                        </h3>
+                        <p>Need help configuring or using a specific feature?</p>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="site-footer" style="padding: 32px 0;">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                &copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">snow mint</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.docs-section');
+            const navLinks = document.querySelectorAll('.docs-sidebar a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

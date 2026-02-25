@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & FAQ - Fluent New Tab</title>
+    <meta name="theme-color" content="#0f6cbd">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .setup-hero {
+            padding: 48px 0 32px;
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+        }
+
+        .setup-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .setup-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 64px;
+            padding: 48px 24px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .docs-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .docs-sidebar h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .docs-sidebar ul {
+            list-style: none;
+            border-left: 2px solid var(--color-border);
+        }
+
+        .docs-sidebar a {
+            text-decoration: none;
+            color: var(--color-text-muted);
+            display: block;
+            padding: 8px 0 8px 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s, border-left-color 0.2s;
+            margin-left: -2px;
+            border-left: 2px solid transparent;
+        }
+
+        .docs-sidebar a:hover {
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+        }
+
+        .docs-content {
+            max-width: 800px;
+        }
+
+        .docs-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 100px;
+        }
+
+        .docs-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .docs-section h2 svg {
+            color: var(--color-primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        .faq-item {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .faq-item h3::before {
+            content: 'Q:';
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .faq-item p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .faq-item a:hover {
+            text-decoration: underline;
+        }
+
+        .docs-section > p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .setting-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .setting-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .setting-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        code {
+            background-color: var(--color-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: var(--color-text-main);
+            border: 1px solid var(--color-border);
+        }
+
+        @media (max-width: 768px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .docs-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content" style="justify-content: space-between;">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <img class="logo-mark" src="android-chrome-512x512.png" alt="Fluent New Tab logo">
+                <span>Fluent New Tab</span>
+            </a>
+            
+            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
+                <span class="theme-icon light-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z" fill="currentColor"/></svg>
+                </span>
+                <span class="theme-icon dark-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z" fill="currentColor"/></svg>
+                </span>
+                <div class="theme-thumb"></div>
+            </button>
+        </div>
+    </nav>
+
+    <header class="setup-hero">
+        <div class="container">
+            <h1 class="setup-title">Quick Help & Troubleshooting</h1>
+            <p class="setup-subtitle">Find solutions to common problems, learn how to fix display issues, and request support.</p>
+        </div>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="docs-sidebar">
+            <h4>Contents</h4>
+            <ul>
+                <li><a href="#installation">Installation & Edge</a></li>
+                <li><a href="#performance">Performance & UI</a></li>
+                <li><a href="#weather-api">Weather Widget</a></li>
+                <li><a href="#languages">Languages & Translation</a></li>
+                <li><a href="#backup">Backup Issues</a></li>
+                <li><a href="#troubleshooting">General Fixes</a></li>
+                <li><a href="#help-links">Need More Help?</a></li>
+            </ul>
+        </aside>
+
+        <main class="docs-content">
+            
+            <section id="installation" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 2.004a3 3 0 0 1 2.994 2.819l.005.176h2.251c.867 0 1.587.631 1.726 1.46l.018.147.006.144v3.75l-1.998.001a1.5 1.5 0 0 0-1.48 1.239l-.016.132-.005.129a1.5 1.5 0 0 0 1.24 1.48l.132.015.128.005H20v3.751a1.75 1.75 0 0 1-1.607 1.745l-.143.005H16l-.005.172a3 3 0 0 1-2.638 2.803l-.18.016-.177.005a3 3 0 0 1-2.995-2.82L10 19.002H7.75a1.75 1.75 0 0 1-1.726-1.458l-.018-.148L6 17.253V15l-.164-.005a3 3 0 0 1-2.803-2.638l-.016-.18L3.012 12a3 3 0 0 1 2.824-2.995L5.999 9 6 6.75c0-.867.63-1.587 1.458-1.726l.148-.019L7.75 5 10 4.999l.005-.171a3 3 0 0 1 2.638-2.803l.18-.016zm0 1.5a1.5 1.5 0 0 0-1.493 1.356l-.007.145-.001 1.494H7.75a.25.25 0 0 0-.243.193L7.5 6.75v3.75l-1.488.001a1.5 1.5 0 0 0-.144 2.993l.144.007H7.5l.001 3.751a.25.25 0 0 0 .193.244l.057.006H11.5l.001 1.496a1.5 1.5 0 0 0 2.993.145L14.5 19l-.001-1.497h3.751a.25.25 0 0 0 .244-.192l.006-.057V15h-.524l-.18-.006a3.003 3.003 0 0 1-2.79-2.841l-.004-.177.006-.18a3 3 0 0 1 2.819-2.79l.174-.005h.498L18.5 6.75a.25.25 0 0 0-.13-.22l-.063-.024-.057-.006-3.751-.001.001-1.495a1.5 1.5 0 0 0-1.5-1.5" fill="currentColor"/></svg>
+                    Installation & Microsoft Edge
+                </h2>
+                
+                <div class="faq-item">
+                    <h3>The extension is disabled after installing on Microsoft Edge. What do I do?</h3>
+                    <p>Microsoft Edge disables third-party "New Tab" extensions by default for security reasons. To fix this:</p>
+                    <p>1. Type <code>edge://extensions/</code> in your address bar and hit Enter.<br>
+                       2. Find "Fluent New Tab" and toggle the switch to turn it on.<br>
+                       3. Open a new tab. Edge will show a warning asking if you expected this change.<br>
+                       4. Click the <strong>"Keep it anyway"</strong> button.</p>
+                </div>
+            </section>
+
+            <section id="performance" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394z" fill="currentColor"/></svg>
+                    Performance & UI Size
+                </h2>
+                
+                <div class="faq-item">
+                    <h3>The wallpaper images take a long time to load.</h3>
+                    <p>This is completely normal, especially when using the <strong>NASA APOD</strong> source. These images are often downloaded in 4K resolution.</p>
+                    <p>To ensure your browser doesn't slow down, the extension downloads the image, converts it into a compressed WebP format, and caches it locally. Depending on your computer's speed and internet connection, this conversion might cause a slight delay. This process only happens once a day when a new image is fetched.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>The extension feels very heavy or slow on my computer.</h3>
+                    <p>Fluent New Tab uses advanced CSS techniques like backdrop filters (Mica/Acrylic blur effects) and animations, which can be demanding on older hardware.</p>
+                    <p>To improve performance, go to the settings menu and enable the <strong>Reduce visual effects</strong> option. This will turn off heavy animations and disable the background blur, making the extension significantly lighter and faster.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>The interface is too small or too big for my monitor.</h3>
+                    <p>The extension scales automatically, but if you want to adjust the size of the elements, you can use your browser's native zoom feature.</p>
+                    <p>Press <code>Ctrl +</code> (or <code>Cmd +</code> on Mac) to zoom in and make things bigger, or <code>Ctrl -</code> (or <code>Cmd -</code>) to zoom out. The browser will remember this zoom level specifically for the new tab page.</p>
+                </div>
+            </section>
+
+            <section id="weather-api" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.002 8.007c3.169 0 4.966 2.097 5.228 4.63h.08a3.687 3.687 0 0 1 3.692 3.683 3.687 3.687 0 0 1-3.692 3.682H7.694a3.687 3.687 0 0 1-3.692-3.682 3.687 3.687 0 0 1 3.692-3.683h.08c.263-2.55 2.059-4.63 5.227-4.63Zm0 1.498c-2.071 0-3.877 1.633-3.877 3.889 0 .357-.319.638-.684.638h-.69c-1.261 0-2.284 1.001-2.284 2.236s1.023 2.236 2.284 2.236h10.503c1.26 0 2.283-1 2.283-2.236 0-1.235-1.022-2.236-2.283-2.236h-.691c-.365 0-.684-.28-.684-.638 0-2.285-1.806-3.89-3.877-3.89Zm-8.634 2.657a.75.75 0 0 1-.315.935l-.091.045-.926.384a.75.75 0 0 1-.666-1.34l.092-.046.926-.383a.75.75 0 0 1 .98.405m6.487-4.833-.172.058a5.8 5.8 0 0 0-1.46.758 2.442 2.442 0 0 0-2.793 3.667 4.6 4.6 0 0 0-1.366.64 3.942 3.942 0 0 1 5.791-5.122ZM2.94 7.36l.106.035.926.384a.75.75 0 0 1-.469 1.42L3.4 9.166l-.926-.384a.75.75 0 0 1 .468-1.42Zm3.815-2.986.046.091.383.927a.75.75 0 0 1-1.34.665l-.046-.091-.383-.927a.75.75 0 0 1 1.34-.665m4.354-.319a.75.75 0 0 1 .44.875l-.035.105-.383.927a.75.75 0 0 1-1.42-.469l.034-.106.384-.926a.75.75 0 0 1 .98-.406" fill="currentColor"/></svg>
+                    Weather Widget
+                </h2>
+
+                <div class="faq-item">
+                    <h3>My city doesn't load or says "not found".</h3>
+                    <p>The weather widget uses an external geocoding API to find the exact latitude and longitude of your city. If your city shares the same name with other places in the world, the system might get confused.</p>
+                    <p>If it fails to load, try being more specific by adding your state or country code. For example, instead of typing "San Jose", try typing <code>San Jose, CA</code> or <code>San Jose, Costa Rica</code>.</p>
+                </div>
+            </section>
+
+            <section id="languages" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m9.34 6.372.05.105 5.56 14.5a.755.755 0 0 1-.418.971.73.73 0 0 1-.91-.333l-.043-.092-1.433-3.737H5.06l-.094-.006-1.546 3.76a.73.73 0 0 1-.963.401.754.754 0 0 1-.427-.885l.033-.096 5.964-14.5a.73.73 0 0 1 1.314-.088Zm9.406-4.37a.75.75 0 0 1 .743.65l.007.1V7.5h1.75a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.648.743L21.245 9l-1.75-.001v7.25a.75.75 0 0 1-.648.744l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102V2.753a.75.75 0 0 1 .75-.75ZM8.81 8.748l-3.16 7.538h6.11zm1.937-6.744h5.498a.75.75 0 0 1 .743.648l.006.102v3.004c0 2.344-1.9 4.245-4.245 4.245a.75.75 0 0 1 0-1.5c1.46 0 2.654-1.14 2.74-2.578l.005-.167V3.503h-4.747a.75.75 0 0 1-.102-1.493l.102-.007h5.498-5.498Z" fill="currentColor"/></svg>
+                    Languages & Translation
+                </h2>
+
+                <div class="faq-item">
+                    <h3>My language isn't supported, or the translation is wrong/makes no sense.</h3>
+                    <p>The translations for Fluent New Tab are partially generated using the DeepL API. Because it's an AI translation, some words might be out of context, and some languages aren't supported by the API at all.</p>
+                    <p>If you spot a mistake or want to add your language, you can either open an issue on GitHub or go to our <a href="https://crowdin.com/project/fluent-new-tab" target="_blank" rel="noopener">Crowdin Project</a> and request a new language.</p>
+                    <p><strong>We need your help!</strong> You can join Crowdin as a contributor to fix wrong translations or translate the interface into your native language. Community help is the best way to make the extension accessible to everyone.</p>
+                </div>
+            </section>
+
+            <section id="backup" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.5 20a.5.5 0 0 1-.5.5h-5.732A6.5 6.5 0 0 1 11.19 22H18a2 2 0 0 0 2-2V9.828a2 2 0 0 0-.586-1.414l-5.829-5.828-.049-.04-.036-.03a2 2 0 0 0-.219-.18 1 1 0 0 0-.08-.044l-.048-.024-.05-.029c-.054-.031-.109-.063-.166-.087a2 2 0 0 0-.624-.138l-.059-.007L12.172 2H6a2 2 0 0 0-2 2v7.498a6.5 6.5 0 0 1 1.5-.422V4a.5.5 0 0 1 .5-.5h6V8a2 2 0 0 0 2 2h4.5zm-5-15.379L17.378 8.5H14a.5.5 0 0 1-.5-.5zM12 17.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0m-2.146-2.354a.5.5 0 0 0-.708 0L5.5 18.793l-1.646-1.647a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" fill="currentColor"/></svg>
+                    Backup Issues
+                </h2>
+
+                <div class="faq-item">
+                    <h3>My backup file is failing to import.</h3>
+                    <p>Ensure that the file you are trying to import is strictly in <code>.json</code> format. If you manually edited the file, make sure the syntax is valid and the keys match the original structure of the extension.</p>
+                    <p>If the file is corrupted, the extension will reject it to prevent breaking your current setup.</p>
+                </div>
+            </section>
+
+            <section id="troubleshooting" class="docs-section">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 7.751a5.75 5.75 0 0 1 8.38-5.114.75.75 0 0 1 .186 1.197L16.301 6.6l1.06 1.06 2.779-2.778a.75.75 0 0 1 1.193.179 5.75 5.75 0 0 1-6.422 8.284l-7.365 7.618a3.05 3.05 0 0 1-4.387-4.24l7.475-7.734a5.8 5.8 0 0 1-.134-1.238m5.75-4.25a4.25 4.25 0 0 0-4.067 5.489.75.75 0 0 1-.178.74l-7.768 8.035a1.55 1.55 0 1 0 2.23 2.156l7.676-7.941a.75.75 0 0 1 .775-.191 4.25 4.25 0 0 0 5.466-5.03l-2.492 2.492a.75.75 0 0 1-1.061 0L14.71 7.13a.75.75 0 0 1 0-1.06l2.466-2.467a4.3 4.3 0 0 0-.926-.102" fill="currentColor"/></svg>
+                    General Fixes
+                </h2>
+
+                <div class="faq-item">
+                    <h3>Something is failing or completely broken.</h3>
+                    <p>If a specific feature isn't working, the fastest way to fix it is to clear your browser's cache for the extension.</p>
+                    <p>If that doesn't work, go to your extensions page (<code>edge://extensions/</code> or <code>chrome://extensions/</code>), locate Fluent New Tab, and click the <strong>Reload</strong> button. This will restart the extension's background scripts.</p>
+                </div>
+            </section>
+
+            <section id="help-links" class="docs-section" style="margin-top: 64px; border-top: 1px solid var(--color-border); padding-top: 64px;">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.523 0 10 4.478 10 10s-4.477 10-10 10S2 17.522 2 12 6.477 2 12 2m0 1.667c-4.595 0-8.333 3.738-8.333 8.333S7.405 20.333 12 20.333s8.333-3.738 8.333-8.333S16.595 3.667 12 3.667M12 15.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m0-8.75a2.75 2.75 0 0 1 2.75 2.75c0 1.01-.297 1.574-1.051 2.359l-.169.171c-.622.622-.78.886-.78 1.47a.75.75 0 0 1-1.5 0c0-1.01.297-1.574 1.051-2.359l.169-.171c.622-.622.78-.886.78-1.47a1.25 1.25 0 0 0-2.493-.128l-.007.128a.75.75 0 0 1-1.5 0A2.75 2.75 0 0 1 12 6.75" fill="currentColor"/></svg>
+                    Need More Help?
+                </h2>
+                <p>If you found an issue, have a great idea, or just need to ask a question, our GitHub community is the best place to reach out.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px;">
+                    
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: #D13438;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z" fill="currentColor"/></svg>
+                            Report a Bug
+                        </h3>
+                        <p>Something isn't working right? Let us know so we can fix it.</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: #107C10;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z" fill="currentColor"/></svg>
+                            Request Feature
+                        </h3>
+                        <p>Have an idea to make Fluent New Tab even better? Share it!</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank" rel="noopener noreferrer" class="setting-card" style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+                        <h3 style="color: var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2" fill="currentColor"/><path d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5" fill="currentColor"/><path d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21" fill="currentColor"/></svg>
+                            Ask a Question
+                        </h3>
+                        <p>Need help configuring or using a specific feature?</p>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="site-footer" style="padding: 32px 0;">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                &copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">snow mint</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.docs-section');
+            const navLinks = document.querySelectorAll('.docs-sidebar a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
