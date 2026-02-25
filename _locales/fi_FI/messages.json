@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
+  "wallpaperSourceLabel": {
+    "message": "Kuvan lähde"
+  },
   "iconsStyleLabel": {
     "message": "Kuvaketyyli"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Tuonti"
+  },
+  "helpLabel": {
+    "message": "Tarvitsetko apua?"
+  },
+  "reportBugLabel": {
+    "message": "Ilmoita virheestä"
+  },
+  "requestFeatureLabel": {
+    "message": "Pyydä ominaisuus"
   },
   "addShortcutTitle": {
     "message": "Lisää pikakuvake"
