@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Tapeta"
   },
+  "wallpaperSourceLabel": {
+    "message": "Zdroj obrázku"
+  },
   "iconsStyleLabel": {
     "message": "Styl ikon"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Import"
+  },
+  "helpLabel": {
+    "message": "Potřebujete pomoc?"
+  },
+  "reportBugLabel": {
+    "message": "Nahlásit chybu"
+  },
+  "requestFeatureLabel": {
+    "message": "Požádat o funkci"
   },
   "addShortcutTitle": {
     "message": "Přidat zástupce"
