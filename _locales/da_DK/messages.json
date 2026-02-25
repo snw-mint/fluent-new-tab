@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Baggrund"
   },
+  "wallpaperSourceLabel": {
+    "message": "Image Source"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Import"
+  },
+  "helpLabel": {
+    "message": "Need Help?"
+  },
+  "reportBugLabel": {
+    "message": "Report a bug"
+  },
+  "requestFeatureLabel": {
+    "message": "Request a feature"
   },
   "addShortcutTitle": {
     "message": "Tilføj genvej"
