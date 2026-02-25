@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Behang"
   },
+  "wallpaperSourceLabel": {
+    "message": "Image Source"
+  },
   "iconsStyleLabel": {
     "message": "Pictogramstijl"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Importeren"
+  },
+  "helpLabel": {
+    "message": "Need Help?"
+  },
+  "reportBugLabel": {
+    "message": "Report a bug"
+  },
+  "requestFeatureLabel": {
+    "message": "Request a feature"
   },
   "addShortcutTitle": {
     "message": "Snelkoppeling toevoegen"
