@@ -11,6 +11,8 @@ if (!existsSync(dist)) {
 const copyMap = [
   ['manifest.json', 'manifest.json'],
   ['index.html', 'index.html'],
+  ['welcome.html', 'welcome.html'],
+  ['background', 'background'],
   ['assets', 'assets'],
   ['scripts', 'scripts'],
   ['_locales', '_locales']
