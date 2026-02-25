@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Tapete"
   },
+  "wallpaperSourceLabel": {
+    "message": "Bildquelle"
+  },
   "iconsStyleLabel": {
     "message": "Symbolstil"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Import"
+  },
+  "helpLabel": {
+    "message": "Benötigen Sie Hilfe?"
+  },
+  "reportBugLabel": {
+    "message": "Einen Fehler melden"
+  },
+  "requestFeatureLabel": {
+    "message": "Funktion anfordern"
   },
   "addShortcutTitle": {
     "message": "Verknüpfung hinzufügen"
