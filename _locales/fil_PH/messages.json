@@ -1,0 +1,320 @@
+{
+  "appsTitle": {
+    "message": "Mga Apps"
+  },
+  "moreApps": {
+    "message": "More Apps"
+  },
+  "settingsTitle": {
+    "message": "Settings"
+  },
+  "greetingTitle": {
+    "message": "Greeting"
+  },
+  "wallpaperTitle": {
+    "message": "Wallpaper"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Source ng Image"
+  },
+  "iconsStyleLabel": {
+    "message": "Icon Style"
+  },
+  "weatherTitle": {
+    "message": "Weather"
+  },
+  "shortcutsTitle": {
+    "message": "Mga Shortcut"
+  },
+  "rows1": {
+    "message": "1 Row"
+  },
+  "rows2": {
+    "message": "2 mga Rows"
+  },
+  "rowsLabel": {
+    "message": "Mga Rows"
+  },
+  "rows3": {
+    "message": "3 mga Rows"
+  },
+  "rows4": {
+    "message": "4 na mga Rows"
+  },
+  "appLauncherTitle": {
+    "message": "App Launcher"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosystem"
+  },
+  "searchTitle": {
+    "message": "Search"
+  },
+  "suggestionsOption": {
+    "message": "Mga Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "Malinis na search (Google)"
+  },
+  "compactBarOption": {
+    "message": "Compact bar"
+  },
+  "voiceSearchOption": {
+    "message": "Voice search"
+  },
+  "reduceMotionTitle": {
+    "message": "I-reduce ang motion"
+  },
+  "reduceMotionNotice": {
+    "message": "I-reduce ang mga animations"
+  },
+  "languageTitle": {
+    "message": "Wika"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Interface ng Wika"
+  },
+  "backupTitle": {
+    "message": "Backup ng Data"
+  },
+  "exportOption": {
+    "message": "I-export"
+  },
+  "importOption": {
+    "message": "I-import"
+  },
+  "helpLabel": {
+    "message": "Need ng Tulong?"
+  },
+  "reportBugLabel": {
+    "message": "Mag-report ng bug"
+  },
+  "requestFeatureLabel": {
+    "message": "Mag-request ng feature"
+  },
+  "addShortcutTitle": {
+    "message": "I-Add Shortcut"
+  },
+  "editShortcutTitle": {
+    "message": "I-Edit Shortcut"
+  },
+  "shortcutNameLabel": {
+    "message": "Pangalan"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Custom na Icon"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ng Icon"
+  },
+  "btnCancel": {
+    "message": "I-Cancel"
+  },
+  "btnSave": {
+    "message": "I-Save"
+  },
+  "searchPlaceholder": {
+    "message": "Mag-search sa web"
+  },
+  "namePlaceholder": {
+    "message": "Pangalan mo (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "City mo"
+  },
+  "addShortcutLabel": {
+    "message": "I-add"
+  },
+  "editLabel": {
+    "message": "I-edit"
+  },
+  "removeLabel": {
+    "message": "I-remove"
+  },
+  "moreOptionsLabel": {
+    "message": "More options"
+  },
+  "greetMorning1": {
+    "message": "Good morning sa'yo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Bangon na $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Sana maganda ang araw mo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Kumusta, $NAME$! Ready ka na?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Tara mag-start na tayo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Good afternoon sa'yo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Musta ka na, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Sana ok ikaw, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Galingan mo, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Mag-focus at maging productive, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Good evening sa'yo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "Relax time na, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "I hope na kalmado ang evening mo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Pahinga na, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "I-enjoy mo ang gabi mo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Sana peaceful ang gabi mo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "Gising ka pa, $NAME$? Pahinga well!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "I-enjoy mo ang mga quiet hours mo, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Good night, $NAME$. Kita kits bukas!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Magpupuyat ka, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  }
+}
