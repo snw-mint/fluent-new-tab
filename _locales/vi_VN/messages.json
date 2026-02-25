@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Hình nền"
   },
+  "wallpaperSourceLabel": {
+    "message": "Nguồn hình ảnh"
+  },
   "iconsStyleLabel": {
     "message": "Phong cách biểu tượng"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Nhập khẩu"
+  },
+  "helpLabel": {
+    "message": "Cần trợ giúp?"
+  },
+  "reportBugLabel": {
+    "message": "Báo cáo lỗi"
+  },
+  "requestFeatureLabel": {
+    "message": "Yêu cầu tính năng"
   },
   "addShortcutTitle": {
     "message": "Thêm lối tắt"
