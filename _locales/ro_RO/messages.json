@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Tapet"
   },
+  "wallpaperSourceLabel": {
+    "message": "Sursa imaginii"
+  },
   "iconsStyleLabel": {
     "message": "Stilul pictogramelor"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Import"
+  },
+  "helpLabel": {
+    "message": "Ai nevoie de ajutor?"
+  },
+  "reportBugLabel": {
+    "message": "Raportează o eroare"
+  },
+  "requestFeatureLabel": {
+    "message": "Solicitați o funcție"
   },
   "addShortcutTitle": {
     "message": "Adăugați scurtătură"
