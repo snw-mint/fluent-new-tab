@@ -52,5 +52,6 @@ function renderWeatherWidget(data: WeatherApiResponse | null, weatherUnit: Weath
     refs.weatherCity.textContent = cityData.name;
     refs.weatherTemp.textContent = `${Math.round(tempValue)}${unitSymbol}`;
     refs.weatherIcon.innerHTML = `<img src="assets/weather/${filename}" alt="Weather Icon" class="fluent-icon">`;
-    refs.weatherWidget.href = `https://www.bing.com/weather/forecast?q=${cityData.name}`;
+    const degreeType = isCelsius ? 'C' : 'F';
+    refs.weatherWidget.href = `https://www.msn.com/en-ph/weather/forecast/?weadegreetype=${degreeType}&uxmode=ruby`;
 }
