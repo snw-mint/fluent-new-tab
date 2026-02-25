@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Papier peint"
   },
+  "wallpaperSourceLabel": {
+    "message": "Source de l'image"
+  },
   "iconsStyleLabel": {
     "message": "Style icône"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Importation"
+  },
+  "helpLabel": {
+    "message": "Besoin d'aide ?"
+  },
+  "reportBugLabel": {
+    "message": "Signaler un bug"
+  },
+  "requestFeatureLabel": {
+    "message": "Demander une fonctionnalité"
   },
   "addShortcutTitle": {
     "message": "Ajouter un raccourci"

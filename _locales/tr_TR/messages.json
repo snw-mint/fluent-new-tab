@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
+  "wallpaperSourceLabel": {
+    "message": "Görsel Kaynağı"
+  },
   "iconsStyleLabel": {
     "message": "Simge Stili"
   },
@@ -78,7 +81,16 @@
     "message": "Dışa aktar"
   },
   "importOption": {
-    "message": "İthalat"
+    "message": "İçeri aktar"
+  },
+  "helpLabel": {
+    "message": "Yardıma mı ihtiyacınız var?"
+  },
+  "reportBugLabel": {
+    "message": "Bir hata bildir"
+  },
+  "requestFeatureLabel": {
+    "message": "Özellik isteği"
   },
   "addShortcutTitle": {
     "message": "Kısayol Ekle"

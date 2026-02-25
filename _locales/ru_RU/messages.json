@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Обои"
   },
+  "wallpaperSourceLabel": {
+    "message": "Источник изображения"
+  },
   "iconsStyleLabel": {
     "message": "Стиль значка"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Импорт"
+  },
+  "helpLabel": {
+    "message": "Нужна помощь?"
+  },
+  "reportBugLabel": {
+    "message": "Сообщить об ошибке"
+  },
+  "requestFeatureLabel": {
+    "message": "Запросить функцию"
   },
   "addShortcutTitle": {
     "message": "Добавить ярлык"

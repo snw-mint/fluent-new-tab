@@ -1,144 +1,144 @@
 {
   "appsTitle": {
-    "message": "Aplikacje"
+    "message": "Mga Apps"
   },
   "moreApps": {
-    "message": "Więcej aplikacji"
+    "message": "More Apps"
   },
   "settingsTitle": {
-    "message": "Ustawienia"
+    "message": "Settings"
   },
   "greetingTitle": {
-    "message": "Powitanie"
+    "message": "Greeting"
   },
   "wallpaperTitle": {
-    "message": "Tapeta"
+    "message": "Wallpaper"
   },
   "wallpaperSourceLabel": {
-    "message": "Źródło obrazu"
+    "message": "Source ng Image"
   },
   "iconsStyleLabel": {
-    "message": "Styl ikony"
+    "message": "Icon Style"
   },
   "weatherTitle": {
-    "message": "Pogoda"
+    "message": "Weather"
   },
   "shortcutsTitle": {
-    "message": "Skróty"
+    "message": "Mga Shortcut"
   },
   "rows1": {
-    "message": "1 rząd"
+    "message": "1 Row"
   },
   "rows2": {
-    "message": "2 rzędy"
+    "message": "2 mga Rows"
   },
   "rowsLabel": {
-    "message": "Rzędy"
+    "message": "Mga Rows"
   },
   "rows3": {
-    "message": "3 rzędy"
+    "message": "3 mga Rows"
   },
   "rows4": {
-    "message": "4 rzędy"
+    "message": "4 na mga Rows"
   },
   "appLauncherTitle": {
-    "message": "Program uruchamiający aplikacje"
+    "message": "App Launcher"
   },
   "ecosystemLabel": {
-    "message": "Ekosystem"
+    "message": "Ecosystem"
   },
   "searchTitle": {
-    "message": "Wyszukiwanie"
+    "message": "Search"
   },
   "suggestionsOption": {
-    "message": "Sugestie"
+    "message": "Mga Suggestions"
   },
   "clearSearchOption": {
-    "message": "Czyste wyszukiwanie (Google)"
+    "message": "Malinis na search (Google)"
   },
   "compactBarOption": {
-    "message": "Kompaktowy bar"
+    "message": "Compact bar"
   },
   "voiceSearchOption": {
-    "message": "Wyszukiwanie głosowe"
+    "message": "Voice search"
   },
   "reduceMotionTitle": {
-    "message": "Ogranicz ruch"
+    "message": "I-reduce ang motion"
   },
   "reduceMotionNotice": {
-    "message": "Zmniejszone animacje"
+    "message": "I-reduce ang mga animations"
   },
   "languageTitle": {
-    "message": "Język"
+    "message": "Wika"
   },
   "interfaceLanguageLabel": {
-    "message": "Język interfejsu"
+    "message": "Interface ng Wika"
   },
   "backupTitle": {
-    "message": "Kopia zapasowa danych"
+    "message": "Backup ng Data"
   },
   "exportOption": {
-    "message": "Eksport"
+    "message": "I-export"
   },
   "importOption": {
-    "message": "Import"
+    "message": "I-import"
   },
   "helpLabel": {
-    "message": "Potrzebujesz pomocy?"
+    "message": "Need ng Tulong?"
   },
   "reportBugLabel": {
-    "message": "Zgłoś błąd"
+    "message": "Mag-report ng bug"
   },
   "requestFeatureLabel": {
-    "message": "Poproś o funkcję"
+    "message": "Mag-request ng feature"
   },
   "addShortcutTitle": {
-    "message": "Dodaj skrót"
+    "message": "I-Add Shortcut"
   },
   "editShortcutTitle": {
-    "message": "Edytuj skrót"
+    "message": "I-Edit Shortcut"
   },
   "shortcutNameLabel": {
-    "message": "Nazwa"
+    "message": "Pangalan"
   },
   "shortcutUrlLabel": {
-    "message": "adres URL"
+    "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Ikona niestandardowa"
+    "message": "Custom na Icon"
   },
   "faviconUrlLabel": {
-    "message": "Adres URL ikony"
+    "message": "URL ng Icon"
   },
   "btnCancel": {
-    "message": "Anuluj"
+    "message": "I-Cancel"
   },
   "btnSave": {
-    "message": "Zapisz"
+    "message": "I-Save"
   },
   "searchPlaceholder": {
-    "message": "Wyszukaj w Internecie"
+    "message": "Mag-search sa web"
   },
   "namePlaceholder": {
-    "message": "Twoje imię i nazwisko (opcjonalnie)"
+    "message": "Pangalan mo (optional)"
   },
   "cityPlaceholder": {
-    "message": "Twoje miasto"
+    "message": "City mo"
   },
   "addShortcutLabel": {
-    "message": "Dodaj"
+    "message": "I-add"
   },
   "editLabel": {
-    "message": "Edytuj"
+    "message": "I-edit"
   },
   "removeLabel": {
-    "message": "Usuń"
+    "message": "I-remove"
   },
   "moreOptionsLabel": {
-    "message": "Więcej opcji"
+    "message": "More options"
   },
   "greetMorning1": {
-    "message": "Dzień dobry, $NAME$",
+    "message": "Good morning sa'yo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -147,7 +147,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Wstawaj i świeć, $NAME$!",
+    "message": "Bangon na $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -156,7 +156,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Życzę Ci cudownego dnia, $NAME$",
+    "message": "Sana maganda ang araw mo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -165,7 +165,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Witaj, $NAME$! Gotowy na dzisiejszy dzień?",
+    "message": "Kumusta, $NAME$! Ready ka na?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -174,7 +174,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Zacznijmy dzień dobrze, $NAME$",
+    "message": "Tara mag-start na tayo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -183,7 +183,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Dzień dobry, $NAME$",
+    "message": "Good afternoon sa'yo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -192,7 +192,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Miło cię widzieć, $NAME$",
+    "message": "Musta ka na, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -201,7 +201,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Mam nadzieję, że wszystko u Ciebie w porządku. $NAME$",
+    "message": "Sana ok ikaw, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -210,7 +210,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Tak trzymaj, $NAME$!",
+    "message": "Galingan mo, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -219,7 +219,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Zachowaj koncentrację i produktywność, $NAME$",
+    "message": "Mag-focus at maging productive, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -228,7 +228,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Dobry wieczór, $NAME$",
+    "message": "Good evening sa'yo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -237,7 +237,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Czas się zrelaksować, $NAME$",
+    "message": "Relax time na, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -246,7 +246,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Życzę spokojnego wieczoru, $NAME$",
+    "message": "I hope na kalmado ang evening mo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -255,7 +255,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Czas na relaks, $NAME$",
+    "message": "Pahinga na, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -264,7 +264,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Miłego wieczoru, $NAME$",
+    "message": "I-enjoy mo ang gabi mo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -273,7 +273,7 @@
     }
   },
   "greetNight1": {
-    "message": "Mam nadzieję, że spędzasz spokojną noc, $NAME$",
+    "message": "Sana peaceful ang gabi mo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -282,7 +282,7 @@
     }
   },
   "greetNight2": {
-    "message": "Nadal nie śpisz, $NAME$? Życzę spokojnego snu!",
+    "message": "Gising ka pa, $NAME$? Pahinga well!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -291,7 +291,7 @@
     }
   },
   "greetNight3": {
-    "message": "Ciesz się spokojnymi chwilami, $NAME$",
+    "message": "I-enjoy mo ang mga quiet hours mo, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -300,7 +300,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobranoc, $NAME$. Do zobaczenia jutro!",
+    "message": "Good night, $NAME$. Kita kits bukas!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +309,7 @@
     }
   },
   "greetNight5": {
-    "message": "Długo nie śpisz dzisiaj, $NAME$?",
+    "message": "Magpupuyat ka, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

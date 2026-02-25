@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Шпалери"
   },
+  "wallpaperSourceLabel": {
+    "message": "Джерело зображення"
+  },
   "iconsStyleLabel": {
     "message": "Стиль іконки"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Імпорт"
+  },
+  "helpLabel": {
+    "message": "Потрібна допомога?"
+  },
+  "reportBugLabel": {
+    "message": "Повідомити про помилку"
+  },
+  "requestFeatureLabel": {
+    "message": "Запросити функцію"
   },
   "addShortcutTitle": {
     "message": "Додати ярлик"

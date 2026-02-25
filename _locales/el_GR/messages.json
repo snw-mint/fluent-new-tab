@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
+  "wallpaperSourceLabel": {
+    "message": "Πηγή εικόνας"
+  },
   "iconsStyleLabel": {
     "message": "Στυλ εικονιδίου"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Εισαγωγή"
+  },
+  "helpLabel": {
+    "message": "Χρειάζεστε βοήθεια;"
+  },
+  "reportBugLabel": {
+    "message": "Αναφορά σφάλματος"
+  },
+  "requestFeatureLabel": {
+    "message": "Ζητήστε μια λειτουργία"
   },
   "addShortcutTitle": {
     "message": "Προσθήκη συντόμευσης"

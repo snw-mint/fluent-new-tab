@@ -14,6 +14,9 @@
   "wallpaperTitle": {
     "message": "Papel de parede"
   },
+  "wallpaperSourceLabel": {
+    "message": "Fonte da imagem"
+  },
   "iconsStyleLabel": {
     "message": "Estilo do ícone"
   },
@@ -79,6 +82,15 @@
   },
   "importOption": {
     "message": "Importar"
+  },
+  "helpLabel": {
+    "message": "Precisa de ajuda?"
+  },
+  "reportBugLabel": {
+    "message": "Relatar um erro"
+  },
+  "requestFeatureLabel": {
+    "message": "Solicitar um recurso"
   },
   "addShortcutTitle": {
     "message": "Adicionar atalho"
