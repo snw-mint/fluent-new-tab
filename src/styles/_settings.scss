@@ -374,6 +374,27 @@
     }
 }
 
+.settings-footer-help {
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .footer-help-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+    }
+}
+
 .backup-row {
     display: flex;
     gap: 8px;
