@@ -1056,8 +1056,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
     if (toggleCustomIcon) {
-        toggleCustomIcon.addEventListener('click', (e) => {
-            e.preventDefault();
+        toggleCustomIcon.addEventListener('click', () => {
             if(customIconGroup) customIconGroup.classList.toggle('hidden');
         });
     }

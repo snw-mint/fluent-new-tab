@@ -1,6 +1,18 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+@keyframes modal-zoom-out-in {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -17,7 +29,9 @@
         pointer-events: all;
 
         .modal-content {
-            transform: translateY(0);
+            opacity: 1;
+            transform: scale(1);
+            animation: modal-zoom-out-in 0.14s ease-out;
         }
     }
 
@@ -26,10 +40,13 @@
         color: var(--text-color);
         padding: 24px;
         border-radius: var(--border-radius);
-        width: 320px;
+        width: fit-content;
+        min-width: 400px;
+        max-width: calc(100vw - 32px);
         box-shadow: $shadow-card-strong;
-        transform: translateY(20px);
-        transition: transform 0.2s ease;
+        opacity: 0;
+        transform: scale(1);
+        transition: opacity 0.16s ease;
 
         h3 {
             margin-bottom: 20px;
@@ -65,18 +82,6 @@
             }
         }
 
-        .toggle-link {
-            display: block;
-            font-size: 12px;
-            color: $color-link;
-            margin-bottom: 16px;
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
         .modal-actions {
             display: flex;
             justify-content: flex-end;
@@ -91,6 +96,7 @@
                 cursor: pointer;
                 font-weight: 500;
                 font-family: inherit;
+                white-space: nowrap;
             }
 
             .btn-cancel {
@@ -119,6 +125,7 @@
     .modal-actions {
         flex-direction: row-reverse;
         justify-content: stretch;
+        flex-wrap: nowrap;
         margin: 24px -24px -24px;
         padding: 24px;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
