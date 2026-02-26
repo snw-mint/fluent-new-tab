@@ -72,3 +72,19 @@
         revealTheme(isDark ? 'light' : 'dark');
     });
 })();
+
+(() => {
+    const heroVideo = document.getElementById('hero-video');
+    const heroFallback = document.getElementById('hero-fallback');
+    if (!(heroVideo instanceof HTMLVideoElement) || !(heroFallback instanceof HTMLImageElement)) return;
+
+    const pinFallbackImage = () => {
+        heroVideo.pause();
+        heroVideo.classList.add('hidden');
+        heroFallback.classList.remove('hidden');
+    };
+
+    heroVideo.removeAttribute('loop');
+    heroVideo.addEventListener('ended', pinFallbackImage, { once: true });
+    heroVideo.addEventListener('error', pinFallbackImage, { once: true });
+})();
