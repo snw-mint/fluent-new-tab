@@ -48,11 +48,13 @@
         }
 
         .shortcut-title {
+            display: block;
             margin-top: 6px;
             font-size: 12px;
             color: var(--text-color);
             font-weight: 500;
             text-align: center;
+            text-decoration: none;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -158,13 +160,11 @@
 
         &.add-card-wrapper {
             .shortcut-card {
-                background: rgba(255, 255, 255, 0.3);
-                border: 1px dashed rgba(0, 0, 0, 0.2);
+                background: #ffffff;
             }
 
             &:hover .shortcut-card {
-                background: rgba(255, 255, 255, 0.6);
-                border-color: rgba(0, 0, 0, 0.5);
+                background: #efefef;
             }
         }
 

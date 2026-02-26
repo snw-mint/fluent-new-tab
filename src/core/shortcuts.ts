@@ -49,7 +49,13 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
         card.appendChild(img);
         item.appendChild(card);
-        item.insertAdjacentHTML('beforeend', `<span class="shortcut-title">${site.name}</span>`);
+
+        const titleLink = document.createElement('a');
+        titleLink.className = 'shortcut-title';
+        titleLink.href = site.url;
+        titleLink.textContent = site.name;
+        item.appendChild(titleLink);
+
         shortcutsGrid.appendChild(item);
     });
 

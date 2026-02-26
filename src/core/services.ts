@@ -8,12 +8,12 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
         const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
         const timestamp = cached?.timestamp || 0;
         if (cached && cached.url && timestamp > 0 && (now - timestamp) < CACHE_DURATION_MS) {
-            console.log(`Carregando ${source} do cache 24h.`);
+            console.log(`Loading ${source} from 24h cache.`);
             return cached.url;
         }
-    } catch (e) { console.error('Erro ao ler cache', e); }
+    } catch (e) { console.error('Error reading cache', e); }
 
-    console.log(`Buscando nova imagem de: ${source}...`);
+    console.log(`Fetching new image from: ${source}...`);
     let imageUrl = '';
     let creditText = '';
 
@@ -110,28 +110,56 @@ function fetchSuggestionsFromService(query: string): Promise<string[]> {
 }
 
 async function fetchCityData(query: string): Promise<CityData | null> {
-    const resolveGeocodingLanguage = (): string => {
-        const savedLang = localStorage.getItem('userLanguage');
-        const browserLang = navigator.language || '';
-        const raw = (savedLang || browserLang || 'en').replace('_', '-').trim();
+    const language = 'en';
 
-        try {
-            const canonical = Intl.getCanonicalLocales([raw])[0];
-            const langOnly = canonical?.split('-')?.[0] || '';
-            if (langOnly) return langOnly;
-        } catch (e) { /* fallback below */ }
+    const normalizeText = (value: string): string => value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
 
-        const basic = raw.split(/[-_]/)[0];
-        return basic || 'en';
+    const queryParts = query.split(',').map((part) => normalizeText(part)).filter(Boolean);
+    const primaryTerm = queryParts[0] || normalizeText(query);
+    const qualifiers = queryParts.slice(1);
+
+    const scoreResult = (result: GeocodingResult): number => {
+        const name = normalizeText(result.name || '');
+        const country = normalizeText(result.country || '');
+        const countryCode = normalizeText(result.country_code || '');
+        const admin1 = normalizeText(result.admin1 || '');
+        const admin2 = normalizeText(result.admin2 || '');
+        const admin3 = normalizeText(result.admin3 || '');
+        const context = [country, countryCode, admin1, admin2, admin3].filter(Boolean);
+
+        let score = 0;
+
+        if (name === primaryTerm) score += 200;
+        else if (name.startsWith(primaryTerm)) score += 120;
+        else if (name.includes(primaryTerm)) score += 70;
+
+        qualifiers.forEach((qualifier) => {
+            if (context.some((part) => part === qualifier)) {
+                score += 90;
+            } else if (context.some((part) => part.includes(qualifier))) {
+                score += 45;
+            }
+        });
+
+        if (qualifiers.length > 0 && score > 0) {
+            const matchesAllQualifiers = qualifiers.every((qualifier) => context.some((part) => part.includes(qualifier)));
+            if (matchesAllQualifiers) score += 40;
+        }
+
+        return score;
     };
 
-    const language = resolveGeocodingLanguage();
-    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=${encodeURIComponent(language)}&format=json`;
+    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=${encodeURIComponent(language)}&format=json`;
     const response = await fetch(url);
     const data = await response.json() as GeocodingResponse;
 
     if (data.results && data.results.length > 0) {
-        const result = data.results[0];
+        const sorted = [...data.results].sort((a, b) => scoreResult(b) - scoreResult(a));
+        const result = sorted[0];
         return { name: result.name, lat: result.latitude, lon: result.longitude, country: result.country };
     }
 

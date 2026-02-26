@@ -340,9 +340,9 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
             options.uploadOption!.style.opacity = '0.5';
 
             try {
-                console.log('Processando imagem...');
+                console.log('Processing image...');
                 const processedBlob = await options.processWallpaperImage(file);
-                console.log('Salvando no DB...');
+                console.log('Saving to database...');
                 await options.saveWallpaperToDB(processedBlob);
 
                 options.setWallpaperSource('local');
@@ -360,10 +360,10 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
                 if (options.wallpaperSourceSelect) options.wallpaperSourceSelect.value = 'noSource';
                 options.highlightSelectedWallpaper('upload');
                 await options.applyWallpaperLogic();
-                console.log('Sucesso!');
+                console.log('Success!');
             } catch (error) {
-                console.error('Erro no upload:', error);
-                alert('Erro ao processar imagem. Tente uma imagem menor.');
+                console.error('Upload error:', error);
+                alert('Error processing image. Try a smaller image.');
             } finally {
                 options.uploadOption!.style.opacity = '1';
                 if (options.uploadInput) options.uploadInput.value = '';

@@ -628,11 +628,11 @@ async function loadCustomWallpaper() {
             body.style.backgroundPosition = 'center';
             body.style.backgroundAttachment = 'fixed';
         } else {
-            // Fallback se não houver imagem salva
-            console.warn("Nenhum wallpaper customizado encontrado.");
+            // Fallback when there is no saved image
+            console.warn("No custom wallpaper found.");
         }
     } catch (e) {
-        console.error("Erro ao carregar wallpaper:", e);
+        console.error("Failed to load wallpaper:", e);
     }
 }
 
@@ -687,7 +687,7 @@ async function searchCity(): Promise<void> {
             localStorage.setItem(CITY_KEY, JSON.stringify(currentCityData));
             cityInput.value = cityData.name;
             fetchWeatherFromAPI(true);
-        } else { alert('City not found / Cidade não encontrada.'); }
+        } else { alert('City not found.'); }
     } catch (error) { alert('Error searching city.'); }
     finally { saveCityBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'; }
 }
@@ -1344,7 +1344,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 /* --- 9. Post-i18n Refresh --- */
 document.addEventListener('i18nReady', () => {
-    console.log("Traduções carregadas. Iniciando interface...");
+    console.log("Translations loaded. Starting interface...");
     applyBrandInterval();
     renderShortcuts();
 });

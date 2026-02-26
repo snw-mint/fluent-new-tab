@@ -83,6 +83,10 @@ interface GeocodingResult {
     latitude: number;
     longitude: number;
     country?: string;
+    country_code?: string;
+    admin1?: string;
+    admin2?: string;
+    admin3?: string;
 }
 
 interface GeocodingResponse {

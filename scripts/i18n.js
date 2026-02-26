@@ -9,13 +9,13 @@ async function loadTranslations() {
     try {
         messages = await fetchLocale(lang);
     } catch (e) {
-        console.warn(`Idioma ${lang} não encontrado. Tentando fallback.`);
+        console.warn(`Language ${lang} not found. Trying fallback.`);
     }
     if (!messages) {
         try {
             messages = await fetchLocale(DEFAULT_LOCALE);
         } catch (e) {
-            console.error("Erro crítico: Arquivo de idioma padrão (en) não encontrado!");
+            console.error("Critical error: default language file (en) not found!");
             return;
         }
     }
@@ -27,7 +27,7 @@ async function loadTranslations() {
 async function fetchLocale(localeCode) {
     const url = chrome.runtime.getURL(`_locales/${localeCode}/messages.json`);
     const response = await fetch(url);
-    if (!response.ok) throw new Error('Arquivo não encontrado');
+    if (!response.ok) throw new Error('File not found');
     return await response.json();
 }
 function applyToDOM(messages) {
