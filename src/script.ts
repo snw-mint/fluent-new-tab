@@ -937,9 +937,11 @@ async function restorePreferencesBackupIfNeeded(): Promise<boolean> {
 async function getUpdateNoticeState(): Promise<{ pending: boolean; version: string }> {
     const items = await getStorageLocalItems([UPDATE_NOTICE_PENDING_KEY, UPDATE_NOTICE_VERSION_KEY]);
     const pending = items[UPDATE_NOTICE_PENDING_KEY] === true;
-    const version = typeof items[UPDATE_NOTICE_VERSION_KEY] === 'string'
+    const manifestVersion = chrome.runtime.getManifest().version;
+    const storedVersion = typeof items[UPDATE_NOTICE_VERSION_KEY] === 'string'
         ? String(items[UPDATE_NOTICE_VERSION_KEY])
         : '';
+    const version = manifestVersion || storedVersion;
     return { pending, version };
 }
 
@@ -953,11 +955,74 @@ async function clearUpdateNoticeState(): Promise<void> {
     });
 }
 
-function createSettingsUpdateTooltip(message: string): HTMLDivElement {
-    const tooltip = document.createElement('div');
-    tooltip.className = 'settings-update-tooltip';
-    tooltip.textContent = message;
-    return tooltip;
+function getLocalizedUpdateMessage(messageKey: string, substitutions: string[] = []): string {
+    const translated = window.getTranslation(messageKey);
+    if (translated && translated !== messageKey) {
+        let resolved = translated;
+        substitutions.forEach((value, index) => {
+            resolved = resolved.replace(new RegExp(`\\$${index + 1}\\$`, 'g'), value);
+        });
+
+        if (substitutions[0]) {
+            resolved = resolved.replace(/\$VERSION\$/g, substitutions[0]);
+        }
+
+        return resolved;
+    }
+
+    try {
+        const fallback = chrome.i18n.getMessage(messageKey, substitutions);
+        if (fallback) return fallback;
+    } catch (error) {
+        console.warn(`Failed to resolve i18n message: ${messageKey}`);
+    }
+
+    if (messageKey === 'updateNoticePrefix') {
+        return `Fluent New Tab has been updated to version ${substitutions[0] || ''}, `;
+    }
+
+    if (messageKey === 'updateNoticeChangelog') {
+        return 'see changelog';
+    }
+
+    return messageKey;
+}
+
+function showUpdateReleaseNotice(version: string): void {
+    const notice = document.createElement('div');
+    notice.className = 'update-release-notice';
+
+    const icon = document.createElement('span');
+    icon.className = 'update-release-notice-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = '<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.442 1.442 0 0 0 1.327-.872l.613-1.864a2.872 2.872 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.876 2.876 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.877 2.877 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.887 2.887 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm-.374-4.25a4.054 4.054 0 0 0-.363-.413h.003a4.394 4.394 0 0 0-1.72-1.063l-1.6-.508 1.611-.524a4.4 4.4 0 0 0 1.69-1.065 4.448 4.448 0 0 0 1.041-1.708l.515-1.582.516 1.587a4.374 4.374 0 0 0 2.781 2.773l1.62.522-1.59.515a4.379 4.379 0 0 0-2.774 2.775l-.515 1.582-.515-1.585a4.368 4.368 0 0 0-.7-1.306Zm8.041 9.297a1.123 1.123 0 0 1-.41-.549l-.328-1.007a1.293 1.293 0 0 0-.821-.823l-.991-.323A1.148 1.148 0 0 1 13 16.997a1.143 1.143 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005Zm-1.03-3.783A2.789 2.789 0 0 1 17 18.708a2.794 2.794 0 0 1 1.7-1.7 2.813 2.813 0 0 1-1.718-1.708A2.806 2.806 0 0 1 15.3 17Z" fill="#212121"/></svg>';
+
+    const prefix = document.createElement('span');
+    prefix.className = 'update-release-notice-prefix';
+    prefix.textContent = getLocalizedUpdateMessage('updateNoticePrefix', [`v${version}`]);
+
+    const changelogLink = document.createElement('a');
+    changelogLink.className = 'update-release-notice-link';
+    changelogLink.href = 'https://github.com/snw-mint/fluent-new-tab/releases';
+    changelogLink.target = '_blank';
+    changelogLink.rel = 'noopener noreferrer';
+    changelogLink.textContent = getLocalizedUpdateMessage('updateNoticeChangelog');
+
+    notice.append(icon, prefix, changelogLink);
+    document.body.appendChild(notice);
+
+    requestAnimationFrame(() => {
+        notice.classList.add('visible');
+    });
+
+    const hideNotice = (): void => {
+        notice.classList.remove('visible');
+        window.setTimeout(() => {
+            notice.remove();
+        }, 220);
+    };
+
+    window.setTimeout(hideNotice, 10000);
 }
 
 /* --- 8. Modals & Settings --- */
@@ -1020,30 +1085,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     /* Settings Popup */
     if (configBtn && configPopup) {
-        const settingsWrapper = configBtn.closest('.settings-wrapper') as HTMLElement | null;
-        let updateTooltip: HTMLDivElement | null = null;
-
         const updateState = await getUpdateNoticeState();
-        if (updateState.pending && settingsDot) {
-            settingsDot.classList.add('active');
-            if (settingsWrapper) {
-                updateTooltip = createSettingsUpdateTooltip('New update');
-                settingsWrapper.appendChild(updateTooltip);
-            }
+        if (updateState.pending) {
+            showUpdateReleaseNotice(updateState.version || chrome.runtime.getManifest().version);
+            await clearUpdateNoticeState();
         }
 
         configBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             closePopups(configPopup);
             configPopup.classList.toggle('active');
-            if (settingsDot && settingsDot.classList.contains('active')) {
-                settingsDot.classList.remove('active');
-                void clearUpdateNoticeState();
-            }
-            if (updateTooltip) {
-                updateTooltip.remove();
-                updateTooltip = null;
-            }
         });
         document.addEventListener('click', (e) => {
             const targetNode = e.target as Node | null;

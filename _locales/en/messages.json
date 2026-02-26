@@ -43,6 +43,11 @@
   "editLabel": { "message": "Edit" },
   "removeLabel": { "message": "Remove" },
   "moreOptionsLabel": { "message": "More options" },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab has been updated to version $VERSION$, ",
+    "placeholders": { "version": { "content": "$1", "example": "v3.1" } }
+  },
+  "updateNoticeChangelog": { "message": "see changelog" },
 
   "greetMorning1": {
     "message": "Good morning, $NAME$",

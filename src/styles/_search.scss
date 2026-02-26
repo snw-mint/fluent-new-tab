@@ -254,24 +254,6 @@
         }
     }
 
-    .notification-dot {
-        position: absolute;
-        top: 6px;
-        right: 6px;
-        width: 8px;
-        height: 8px;
-        background-color: $color-accent-warn;
-        border-radius: $radius-round;
-        z-index: 10;
-        pointer-events: none;
-        display: none;
-        box-shadow: 0 0 0 0 rgba($color-accent-warn, 0.7);
-
-        &.active {
-            display: block;
-            animation: pulse-red 2s infinite;
-        }
-    }
 }
 
 @keyframes voice-recording-pulse {

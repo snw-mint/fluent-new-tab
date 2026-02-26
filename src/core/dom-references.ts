@@ -10,7 +10,6 @@ const rowsSelect = getById<HTMLSelectElement>('rowsSelect');
 const rowsInputGroup = getById<HTMLDivElement>('rowsInputGroup');
 const configBtn = getById<HTMLButtonElement>('settingsBtn');
 const configPopup = getById<HTMLDivElement>('settingsPopup');
-const settingsDot = getById<HTMLSpanElement>('settingsDot');
 const greetingWrapper = document.querySelector<HTMLElement>('.logo-wrapper');
 const greetingOptionsDiv = getById<HTMLDivElement>('greetingOptions');
 const toggleGreeting = getById<HTMLInputElement>('toggleGreeting');
