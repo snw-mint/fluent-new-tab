@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Daha fazla seçenek"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab, $VERSION$sürümüne güncellendi. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "değişiklik günlüğünü gör"
+  },
   "greetMorning1": {
     "message": "Günaydın, $NAME$",
     "placeholders": {

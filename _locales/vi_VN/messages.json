@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Nhiều tùy chọn hơn"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Xem nhật ký thay đổi"
+  },
   "greetMorning1": {
     "message": "Chào buổi sáng, $NAME$",
     "placeholders": {

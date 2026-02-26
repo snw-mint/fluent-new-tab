@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "추가 옵션"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab이 버전 $VERSION$으로 업데이트되었습니다. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "변경 내역 보기"
+  },
   "greetMorning1": {
     "message": "좋은 아침입니다. $NAME$",
     "placeholders": {

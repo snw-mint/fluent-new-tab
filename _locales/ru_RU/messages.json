@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Дополнительные опции"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab был обновлен до версии $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "см. журнал изменений"
+  },
   "greetMorning1": {
     "message": "Доброе утро, $NAME$",
     "placeholders": {

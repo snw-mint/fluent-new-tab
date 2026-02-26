@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Mai multe opțiuni"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "vezi jurnalul modificărilor"
+  },
   "greetMorning1": {
     "message": "Bună dimineața, $NAME$",
     "placeholders": {
