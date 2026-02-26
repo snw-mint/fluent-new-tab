@@ -877,6 +877,7 @@ function applyBrandInterval() {
 const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
 const UPDATE_NOTICE_PENDING_KEY = 'update_notice_pending';
 const UPDATE_NOTICE_VERSION_KEY = 'update_notice_version';
+let pendingUpdateNoticeVersion: string | null = null;
 
 function getStorageLocalItems(key: string | string[]): Promise<Record<string, unknown>> {
     return new Promise((resolve) => {
@@ -970,13 +971,6 @@ function getLocalizedUpdateMessage(messageKey: string, substitutions: string[] =
         return resolved;
     }
 
-    try {
-        const fallback = chrome.i18n.getMessage(messageKey, substitutions);
-        if (fallback) return fallback;
-    } catch (error) {
-        console.warn(`Failed to resolve i18n message: ${messageKey}`);
-    }
-
     if (messageKey === 'updateNoticePrefix') {
         return `Fluent New Tab has been updated to version ${substitutions[0] || ''}, `;
     }
@@ -986,6 +980,13 @@ function getLocalizedUpdateMessage(messageKey: string, substitutions: string[] =
     }
 
     return messageKey;
+}
+
+function showPendingUpdateNoticeIfAny(): void {
+    if (!pendingUpdateNoticeVersion) return;
+    showUpdateReleaseNotice(pendingUpdateNoticeVersion);
+    pendingUpdateNoticeVersion = null;
+    void clearUpdateNoticeState();
 }
 
 function showUpdateReleaseNotice(version: string): void {
@@ -1087,8 +1088,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (configBtn && configPopup) {
         const updateState = await getUpdateNoticeState();
         if (updateState.pending) {
-            showUpdateReleaseNotice(updateState.version || chrome.runtime.getManifest().version);
-            await clearUpdateNoticeState();
+            pendingUpdateNoticeVersion = updateState.version || chrome.runtime.getManifest().version;
+            if (document.body.classList.contains('loaded')) {
+                showPendingUpdateNoticeIfAny();
+            }
         }
 
         configBtn.addEventListener('click', (e) => {
@@ -1396,6 +1399,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* --- 9. Post-i18n Refresh --- */
 document.addEventListener('i18nReady', () => {
     console.log("Translations loaded. Starting interface...");
+    showPendingUpdateNoticeIfAny();
     applyBrandInterval();
     renderShortcuts();
 });
