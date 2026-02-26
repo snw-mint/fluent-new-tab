@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "음성 검색"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "효과 감소"
+  },
   "reduceMotionTitle": {
     "message": "움직임을 줄이다"
   },
-  "reduceMotionNotice": {
-    "message": "감소된 애니메이션"
+  "reduceBlurOption": {
+    "message": "흐림 감소"
   },
   "languageTitle": {
     "message": "언어"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "수입"
-  },
-  "helpLabel": {
-    "message": "도움이 필요하신가요?"
-  },
-  "reportBugLabel": {
-    "message": "버그 신고하기"
-  },
-  "requestFeatureLabel": {
-    "message": "기능 요청"
   },
   "addShortcutTitle": {
     "message": "바로 가기 추가"
