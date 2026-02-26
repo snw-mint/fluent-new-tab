@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "更多選項"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab 已更新至版本 $VERSION$， ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "查看變更記錄"
+  },
   "greetMorning1": {
     "message": "早安， $NAME$",
     "placeholders": {
