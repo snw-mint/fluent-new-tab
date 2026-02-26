@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "その他のオプション"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab はバージョン $VERSION$に更新されました。 ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "変更履歴を参照"
+  },
   "greetMorning1": {
     "message": "おはようございます。 $NAME$",
     "placeholders": {
