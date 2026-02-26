@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Περισσότερες επιλογές"
   },
+  "updateNoticePrefix": {
+    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "δείτε το αρχείο αλλαγών"
+  },
   "greetMorning1": {
     "message": "Καλημέρα, $NAME$",
     "placeholders": {
