@@ -334,6 +334,14 @@ function updateLauncherVisibility(animate = true): void {
         launcherSelectGroup
     }, setCollapsible);
 }
+function updateReducedEffectsVisibility(enabled: boolean, animate = true): void {
+    if (reducedEffectsOptions) setCollapsible(reducedEffectsOptions, enabled, animate);
+    if (toggleReducedEffects) toggleReducedEffects.checked = enabled;
+    [toggleDisableAnimations, toggleDisableBlur].forEach((input) => {
+        if (!input) return;
+        input.disabled = !enabled;
+    });
+}
 function updateWallpaperUIState(enabled: boolean, animate = true): void {
     if (wallpaperGrid) {
         wallpaperGrid.dataset.collapsibleDisplay = 'grid';
@@ -361,9 +369,9 @@ function updateGreetingSettingsVisibility(show: boolean, animate = true): void {
 }
 function updateAnimationsDisabled(enabled: boolean): void {
     document.body.classList.toggle('animations-disabled', enabled);
-    if (disableAnimationsNotice) {
-        disableAnimationsNotice.style.display = enabled ? 'flex' : 'none';
-    }
+}
+function updateBlurDisabled(enabled: boolean): void {
+    document.body.classList.toggle('blur-reduced', enabled);
 }
 function clearPresetSelection(): void {
     document.querySelectorAll('.wallpaper-option').forEach(opt => opt.classList.remove('selected'));
@@ -791,6 +799,25 @@ function applyInitialClearSearch() {
     }
     updateGoogleParams();
 }
+function applyInitialReducedEffectsState() {
+    updateReducedEffectsVisibility(reducedEffectsEnabled, false);
+
+    // If master is off, ensure child toggles and states are off to stay consistent.
+    if (!reducedEffectsEnabled) {
+        if (animationsDisabled) {
+            animationsDisabled = false;
+            localStorage.setItem('animationsDisabled', 'false');
+            updateAnimationsDisabled(false);
+            if (toggleDisableAnimations) toggleDisableAnimations.checked = false;
+        }
+        if (blurDisabled) {
+            blurDisabled = false;
+            localStorage.setItem('blurDisabled', 'false');
+            updateBlurDisabled(false);
+            if (toggleDisableBlur) toggleDisableBlur.checked = false;
+        }
+    }
+}
 function applyInitialVoiceSearch() {
     if (toggleVoiceSearch) {
         toggleVoiceSearch.checked = voiceSearchEnabled;
@@ -802,6 +829,12 @@ function applyInitialAnimationsDisabled() {
         toggleDisableAnimations.checked = animationsDisabled;
     }
     updateAnimationsDisabled(animationsDisabled);
+}
+function applyInitialBlurDisabled() {
+    if (toggleDisableBlur) {
+        toggleDisableBlur.checked = blurDisabled;
+    }
+    updateBlurDisabled(blurDisabled);
 }
 function applyInitialWeatherState() {
     if (cityInput) cityInput.value = currentCityData.name;
@@ -1028,6 +1061,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
     applyInitialAnimationsDisabled();
+    applyInitialBlurDisabled();
+    applyInitialReducedEffectsState();
     if (toggleDisableAnimations) {
         toggleDisableAnimations.addEventListener('change', (e) => {
             const target = getInputTarget(e);
@@ -1037,6 +1072,39 @@ document.addEventListener("DOMContentLoaded", async () => {
             localStorage.setItem('animationsDisabled', String(target.checked));
             localStorage.removeItem('performanceModeEnabled');
             updateAnimationsDisabled(target.checked);
+        });
+    }
+    if (toggleDisableBlur) {
+        toggleDisableBlur.addEventListener('change', (e) => {
+            const target = getInputTarget(e);
+            if (!target) return;
+
+            blurDisabled = target.checked;
+            localStorage.setItem('blurDisabled', String(target.checked));
+            updateBlurDisabled(target.checked);
+        });
+    }
+    if (toggleReducedEffects) {
+        toggleReducedEffects.addEventListener('change', (e) => {
+            const target = getInputTarget(e);
+            if (!target) return;
+
+            reducedEffectsEnabled = target.checked;
+            localStorage.setItem('reducedEffectsEnabled', String(reducedEffectsEnabled));
+            if (!reducedEffectsEnabled) {
+                // Turning off the group also turns off both sub-options.
+                if (toggleDisableAnimations) toggleDisableAnimations.checked = false;
+                animationsDisabled = false;
+                localStorage.setItem('animationsDisabled', 'false');
+                updateAnimationsDisabled(false);
+
+                if (toggleDisableBlur) toggleDisableBlur.checked = false;
+                blurDisabled = false;
+                localStorage.setItem('blurDisabled', 'false');
+                updateBlurDisabled(false);
+            }
+
+            updateReducedEffectsVisibility(reducedEffectsEnabled);
         });
     }
     /* Shortcuts & Modals */

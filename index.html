@@ -71,9 +71,7 @@
                     <span class="slider"></span>
                 </label>
             </div>
-
             <div id="wallpaperGrid" class="wallpaper-grid-container">
-                
                 <div class="wallpaper-option" data-value="preset_1">
                     <img src="assets/wallpapers/fluent1.webp" alt="Abstract 1">
                 </div>
@@ -88,7 +86,6 @@
 
                 <div class="wallpaper-option upload-option" id="uploadWallpaperBtn" title="Upload Image">
                     <input type="file" id="wallpaperUploadInput" accept="image/png, image/jpeg, image/webp" style="display: none;">
-                    
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
                         <g fill="currentColor">
                             <path d="M5.25021713,20.5 L18.2502171,20.5037635 C18.6644307,20.5038835 19,20.8397671 19,21.2539806 C19,21.6336764 18.7176637,21.9473899 18.3515577,21.9969463 L18.2497829,22.0037635 L5.24978287,22 C4.83556933,21.9998801 4.5,21.6639964 4.5,21.2497829 C4.5,20.8700871 4.78233634,20.5563736 5.1484423,20.5068172 L5.25021713,20.5 Z M6.21972471,7.21846694 L11.21737,2.22185426 C11.4835159,1.95576328 11.8999028,1.93145946 12.1934928,2.14902198 L12.2776129,2.2215468 L17.2810585,7.21815948 C17.5741518,7.5108525 17.5744763,7.98572612 17.2817833,8.2788194 C17.0156987,8.54526784 16.5990517,8.56975859 16.3052914,8.35210481 L16.2211234,8.27954415 L12.5,4.56423913 L12.5,18.2488622 C12.5,18.6285579 12.2178461,18.9423531 11.8517706,18.9920156 L11.75,18.9988622 C11.3703042,18.9988622 11.056509,18.7167083 11.0068466,18.3506327 L11,18.2488622 L11,4.55923913 L7.28027529,8.27923669 C7.01398122,8.54547574 6.59731504,8.56963874 6.30372605,8.35175395 L6.21961512,8.27912711 C5.95337607,8.01283303 5.92921307,7.59616685 6.14709787,7.30257787 L6.21972471,7.21846694 L11.21737,2.22185426 L6.21972471,7.21846694 Z"></path>
@@ -96,13 +93,14 @@
                     </svg>
                 </div>
             </div>
+
             <div id="wallpaperSourceContainer" style="margin-top: 12px; transition: opacity 0.3s;">
-            <label for="wallpaperSource" style="font-size: 11px; margin-bottom: 4px; display: block; opacity: 0.7;" data-i18n="wallpaperSourceLabel">Image Source</label>
-            <select id="wallpaperSource" class="settings-select" style="width: 100%; margin-bottom: 8px;">
-                <option value="noSource" data-i18n="nosourceOption">No Source</option>
-                <option value="bing" data-i18n="sourcebingOption">Bing</option>
-                <option value="nasa" data-i18n="sourcenasaOption">NASA (APOD)</option>
-                <option value="wikimedia" data-i18n="sourceBing">Media Commons</option>
+                <label for="wallpaperSource" style="font-size: 11px; margin-bottom: 4px; display: block; opacity: 0.7;" data-i18n="wallpaperSourceLabel">Image Source</label>
+                <select id="wallpaperSource" class="settings-select" style="width: 100%; margin-bottom: 8px;">
+                    <option value="noSource" data-i18n="nosourceOption">No Source</option>
+                    <option value="bing" data-i18n="sourcebingOption">Bing</option>
+                    <option value="nasa" data-i18n="sourcenasaOption">NASA (APOD)</option>
+                    <option value="wikimedia" data-i18n="sourceBing">Media Commons</option>
                 </select>
             </div>
         </div>
@@ -259,17 +257,30 @@
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14h2.544Zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394l-1.67 5.013Z" fill="currentColor"/>
                         </svg>
-                        <span data-i18n="reduceMotionTitle">Reduce motion</span>
+                        <span data-i18n="reduceVisualEffectsTitle">Reduce effects</span>
                     </div>
                     <label class="switch">
-                        <input type="checkbox" id="toggleDisableAnimations">
+                        <input type="checkbox" id="toggleReducedEffects" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
 
-                <div id="disableAnimationsNotice" class="disable-animations-notice" style="display: none;">
-                    <img src="assets/emojis/warning.png" alt="Warning">
-                    <span data-i18n="reduceMotionNotice">All visual effects and animations were disabled.</span>
+                <div id="reducedEffectsOptions">
+                    <div class="switch-row child-setting">
+                        <label for="toggleDisableAnimations" data-i18n="reduceMotionTitle">Reduce motion</label>
+                        <label class="switch">
+                            <input type="checkbox" id="toggleDisableAnimations">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row child-setting">
+                        <label for="toggleDisableBlur" data-i18n="reduceBlurOption">Reduce blur</label>
+                        <label class="switch">
+                            <input type="checkbox" id="toggleDisableBlur">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
 
@@ -343,27 +354,28 @@
                     </button>
                 </div>
             </div>
-            
-            <div class="settings-footer-help">
-                <a href="https://snw-mint.github.io/fluent-new-tab/help.html" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Help" aria-label="Help" data-i18n="helpLabel">
-                    <span>Need Help</span>
-                </a>
-                <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Report a bug" aria-label="Report a bug" data-i18n="reportBugLabel">
-                    <span>Report bug</span>
-                </a>
-                <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Request a feature" aria-label="Request a feature" data-i18n="requestFeatureLabel">
-                    <span>Request feature</span>
-                </a>
-            </div>
 
             <div class="settings-footer">
-                <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay" class="footer-link">v1.0</a>
-                <span class="footer-text">by <a href="https://github.com/snw-mint" target="_blank" class="footer-link">Snow Mint</a></span>
-                <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" class="footer-icon-link" title="Source Code">
-                    <svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/>
-                    </svg>
-                </a>
+                <div class="settings-footer-help">
+                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Help" aria-label="Help" data-i18n="helpLabel">
+                        <span>Need Help</span>
+                    </a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Report a bug" aria-label="Report a bug" data-i18n="reportBugLabel">
+                        <span>Report bug</span>
+                    </a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Request a feature" aria-label="Request a feature" data-i18n="requestFeatureLabel">
+                        <span>Request feature</span>
+                    </a>
+                </div>
+                <div class="settings-footer-meta">
+                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay" class="footer-link">v1.0</a>
+                    <span class="footer-text">by <a href="https://github.com/snw-mint" target="_blank" class="footer-link">Snow Mint</a></span>
+                    <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" class="footer-icon-link" title="Source Code">
+                        <svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

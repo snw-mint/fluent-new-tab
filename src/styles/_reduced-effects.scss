@@ -1,0 +1,55 @@
+@use './variables' as *;
+
+body.blur-reduced {
+    .settings-popup,
+    .dropdown-menu,
+    .suggestions-container,
+    .shortcut-dropdown,
+    .menu-wrapper .shortcut-dropdown,
+    .launcher-popup {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: var(--search-bg) !important;
+        border: 1px solid var(--border-color) !important;
+        box-shadow: var(--shadow-soft) !important;
+
+        &::after {
+            opacity: 0 !important;
+        }
+    }
+
+    .settings-wrapper {
+        backdrop-filter: none;
+
+        &:hover {
+            backdrop-filter: none;
+            background: var(--search-bg);
+            box-shadow: var(--shadow-soft);
+        }
+    }
+
+    .modal-overlay {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .launcher-label {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .wallpaper-credits {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--search-bg);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-soft);
+
+        svg path {
+            fill: currentColor !important;
+        }
+    }
+}

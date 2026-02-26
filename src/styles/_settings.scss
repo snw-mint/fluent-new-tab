@@ -52,10 +52,6 @@
     @include glass-panel;
     @include card-radius($radius-md);
 
-    &::after {
-        @include noise-overlay;
-    }
-
     > * {
         position: relative;
         z-index: 1;
@@ -310,29 +306,18 @@
     margin-top: 8px;
 }
 
-.disable-animations-notice {
-    margin-top: 8px;
-    padding: 8px;
-    border-radius: $radius-md;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--text-color);
-    @include flex-center(8px);
-    align-items: center;
-    font-size: 12px;
-    line-height: 1.4;
-
-    img {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-    }
+#reducedEffectsOptions {
+    display: flex;
+    flex-direction: column;
 }
 
 .settings-footer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
+    width: 100%;
+    container-type: inline-size;
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -356,6 +341,38 @@
         opacity: 0.7;
     }
 
+    .settings-footer-help {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+
+        .footer-help-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: clamp(8px, 4cqw, 11px);
+            white-space: nowrap;
+
+            &:not(:first-child)::before {
+                content: '|';
+                margin: 0 8px;
+                opacity: 0.45;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .settings-footer-meta {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
     .footer-icon-link {
         @include flex-center;
         color: var(--text-color);
@@ -370,27 +387,6 @@
             width: 16px;
             height: 16px;
             fill: var(--text-color);
-        }
-    }
-}
-
-.settings-footer-help {
-    margin-top: 6px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-
-    .footer-help-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 11px;
-
-        svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
         }
     }
 }

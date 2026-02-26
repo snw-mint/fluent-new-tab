@@ -48,7 +48,7 @@
     background-image: url("assets/noise.webp");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     opacity: $opacity;
     pointer-events: none;
 }

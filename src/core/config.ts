@@ -53,5 +53,5 @@ const APP_KEYS: string[] = [
     'shortcuts', 'theme', 'weatherEnabled', 'fluent_city_data', 'shortcutsVisible', 'shortcutsRows',
     'launcherEnabled', 'launcherProvider', 'showGreeting', 'greetingName', 'greetingStyle',
     'userLanguage', 'clearSearchEnabled', 'compactBarEnabled', 'voiceSearchEnabled', 'wallpaperEnabled',
-    'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled'
+    'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled', 'blurDisabled', 'reducedEffectsEnabled'
 ];
