@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Lisää vaihtoehtoja"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab on päivitetty versioon $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "katso muutosloki"
+  },
   "greetMorning1": {
     "message": "Hyvää huomenta, $NAME$",
     "placeholders": {
