@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Effecten verminderen"
+  },
   "reduceMotionTitle": {
     "message": "Beweging verminderen"
   },
-  "reduceMotionNotice": {
-    "message": "Verminderde animaties"
+  "reduceBlurOption": {
+    "message": "Onscherpte verminderen"
   },
   "languageTitle": {
     "message": "Taal"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Importeren"
-  },
-  "helpLabel": {
-    "message": "Hulp nodig?"
-  },
-  "reportBugLabel": {
-    "message": "Een bug melden"
-  },
-  "requestFeatureLabel": {
-    "message": "Een functie aanvragen"
   },
   "addShortcutTitle": {
     "message": "Snelkoppeling toevoegen"
