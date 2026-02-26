@@ -141,7 +141,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "see changelog"
+    "message": "tingnan ang changelog"
   },
   "greetMorning1": {
     "message": "Good morning sa'yo, $NAME$",
