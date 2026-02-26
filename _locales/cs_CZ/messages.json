@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Snížit účinky"
+  },
   "reduceMotionTitle": {
     "message": "Omezit pohyb"
   },
-  "reduceMotionNotice": {
-    "message": "Omezené animace"
+  "reduceBlurOption": {
+    "message": "Snížit rozmazání"
   },
   "languageTitle": {
     "message": "Jazyk"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Import"
-  },
-  "helpLabel": {
-    "message": "Potřebujete pomoc?"
-  },
-  "reportBugLabel": {
-    "message": "Nahlásit chybu"
-  },
-  "requestFeatureLabel": {
-    "message": "Požádat o funkci"
   },
   "addShortcutTitle": {
     "message": "Přidat zástupce"
