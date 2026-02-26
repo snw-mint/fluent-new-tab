@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Giảm tác động"
+  },
   "reduceMotionTitle": {
     "message": "Giảm chuyển động"
   },
-  "reduceMotionNotice": {
-    "message": "Giảm hiệu ứng động"
+  "reduceBlurOption": {
+    "message": "Giảm mờ"
   },
   "languageTitle": {
     "message": "Ngôn ngữ"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Nhập khẩu"
-  },
-  "helpLabel": {
-    "message": "Cần trợ giúp?"
-  },
-  "reportBugLabel": {
-    "message": "Báo cáo lỗi"
-  },
-  "requestFeatureLabel": {
-    "message": "Yêu cầu tính năng"
   },
   "addShortcutTitle": {
     "message": "Thêm lối tắt"
