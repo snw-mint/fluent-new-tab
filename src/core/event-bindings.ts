@@ -244,6 +244,7 @@ function bindSearchFeature(options: SearchBindingOptions): void {
             options.updateCompactBarStyle();
         });
     }
+    options.updateCompactBarStyle();
 
     options.applyInitialVoiceSearch();
     if (options.toggleVoiceSearch) {
