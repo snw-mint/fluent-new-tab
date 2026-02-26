@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "語音搜尋"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "減少效果"
+  },
   "reduceMotionTitle": {
     "message": "減少動作"
   },
-  "reduceMotionNotice": {
-    "message": "簡化動畫"
+  "reduceBlurOption": {
+    "message": "減少模糊"
   },
   "languageTitle": {
     "message": "語言"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "匯入"
-  },
-  "helpLabel": {
-    "message": "需要幫助嗎？"
-  },
-  "reportBugLabel": {
-    "message": "回報錯誤"
-  },
-  "requestFeatureLabel": {
-    "message": "申請功能"
   },
   "addShortcutTitle": {
     "message": "新增捷徑"
