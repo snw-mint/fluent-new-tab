@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "Weitere Optionen"
   },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab wurde auf die Version $VERSION$aktualisiert. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "siehe Änderungsprotokoll"
+  },
   "greetMorning1": {
     "message": "Guten Morgen, $NAME$",
     "placeholders": {
