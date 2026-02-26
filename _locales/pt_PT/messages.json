@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Pesquisa por voz"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Reduzir efeitos"
+  },
   "reduceMotionTitle": {
     "message": "Reduzir o movimento"
   },
-  "reduceMotionNotice": {
-    "message": "Animações reduzidas"
+  "reduceBlurOption": {
+    "message": "Reduzir o desfoque"
   },
   "languageTitle": {
     "message": "Idioma"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Importar"
-  },
-  "helpLabel": {
-    "message": "Precisa de ajuda?"
-  },
-  "reportBugLabel": {
-    "message": "Relatar um erro"
-  },
-  "requestFeatureLabel": {
-    "message": "Solicitar um recurso"
   },
   "addShortcutTitle": {
     "message": "Adicionar atalho"

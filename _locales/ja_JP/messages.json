@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "音声検索"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "効果を低減する"
+  },
   "reduceMotionTitle": {
     "message": "動きを減らす"
   },
-  "reduceMotionNotice": {
-    "message": "アニメーションの削減"
+  "reduceBlurOption": {
+    "message": "ぼやけを軽減する"
   },
   "languageTitle": {
     "message": "言語"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "インポート"
-  },
-  "helpLabel": {
-    "message": "お困りですか？"
-  },
-  "reportBugLabel": {
-    "message": "バグを報告する"
-  },
-  "requestFeatureLabel": {
-    "message": "機能のリクエスト"
   },
   "addShortcutTitle": {
     "message": "ショートカットを追加"

@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Sesli arama"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Etkileri azaltın"
+  },
   "reduceMotionTitle": {
     "message": "Hareketi azaltın"
   },
-  "reduceMotionNotice": {
-    "message": "Azaltılmış animasyonlar"
+  "reduceBlurOption": {
+    "message": "Bulanıklığı azaltın"
   },
   "languageTitle": {
     "message": "Dil"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "İçeri aktar"
-  },
-  "helpLabel": {
-    "message": "Yardıma mı ihtiyacınız var?"
-  },
-  "reportBugLabel": {
-    "message": "Bir hata bildir"
-  },
-  "requestFeatureLabel": {
-    "message": "Özellik isteği"
   },
   "addShortcutTitle": {
     "message": "Kısayol Ekle"

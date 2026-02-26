@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Голосовий пошук"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Зменшити ефекти"
+  },
   "reduceMotionTitle": {
     "message": "Зменшити рух"
   },
-  "reduceMotionNotice": {
-    "message": "Скорочені анімації"
+  "reduceBlurOption": {
+    "message": "Зменшити розмитість"
   },
   "languageTitle": {
     "message": "Мова"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Імпорт"
-  },
-  "helpLabel": {
-    "message": "Потрібна допомога?"
-  },
-  "reportBugLabel": {
-    "message": "Повідомити про помилку"
-  },
-  "requestFeatureLabel": {
-    "message": "Запросити функцію"
   },
   "addShortcutTitle": {
     "message": "Додати ярлик"

@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Csökkentse a hatásokat"
+  },
   "reduceMotionTitle": {
     "message": "Mozgás csökkentése"
   },
-  "reduceMotionNotice": {
-    "message": "Csökkentett animációk"
+  "reduceBlurOption": {
+    "message": "Élesség javítása"
   },
   "languageTitle": {
     "message": "Nyelv"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Import"
-  },
-  "helpLabel": {
-    "message": "Segítségre van szüksége?"
-  },
-  "reportBugLabel": {
-    "message": "Hiba jelentése"
-  },
-  "requestFeatureLabel": {
-    "message": "Funkció kérése"
   },
   "addShortcutTitle": {
     "message": "Parancsikon hozzáadása"

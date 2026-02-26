@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Röstsökning"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Minska effekterna"
+  },
   "reduceMotionTitle": {
     "message": "Minska rörelser"
   },
-  "reduceMotionNotice": {
-    "message": "Reducerade animationer"
+  "reduceBlurOption": {
+    "message": "Minska oskärpa"
   },
   "languageTitle": {
     "message": "Språk"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Import"
-  },
-  "helpLabel": {
-    "message": "Behöver du hjälp?"
-  },
-  "reportBugLabel": {
-    "message": "Rapportera ett fel"
-  },
-  "requestFeatureLabel": {
-    "message": "Begär en funktion"
   },
   "addShortcutTitle": {
     "message": "Lägg till genväg"

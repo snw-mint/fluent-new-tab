@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Μείωση των επιπτώσεων"
+  },
   "reduceMotionTitle": {
     "message": "Μείωση κίνησης"
   },
-  "reduceMotionNotice": {
-    "message": "Μειωμένες κινούμενες εικόνες"
+  "reduceBlurOption": {
+    "message": "Μείωση της θολότητας"
   },
   "languageTitle": {
     "message": "Γλώσσα"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Εισαγωγή"
-  },
-  "helpLabel": {
-    "message": "Χρειάζεστε βοήθεια;"
-  },
-  "reportBugLabel": {
-    "message": "Αναφορά σφάλματος"
-  },
-  "requestFeatureLabel": {
-    "message": "Ζητήστε μια λειτουργία"
   },
   "addShortcutTitle": {
     "message": "Προσθήκη συντόμευσης"

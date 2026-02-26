@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Voice search"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "I-reduce ang effects"
+  },
   "reduceMotionTitle": {
     "message": "I-reduce ang motion"
   },
-  "reduceMotionNotice": {
-    "message": "I-reduce ang mga animations"
+  "reduceBlurOption": {
+    "message": "I-reduce ang blur"
   },
   "languageTitle": {
     "message": "Wika"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "I-import"
-  },
-  "helpLabel": {
-    "message": "Need ng Tulong?"
-  },
-  "reportBugLabel": {
-    "message": "Mag-report ng bug"
-  },
-  "requestFeatureLabel": {
-    "message": "Mag-request ng feature"
   },
   "addShortcutTitle": {
     "message": "I-Add Shortcut"

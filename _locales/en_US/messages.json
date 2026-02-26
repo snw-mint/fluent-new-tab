@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Voice search"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Reduce effects"
+  },
   "reduceMotionTitle": {
     "message": "Reduce motion"
   },
-  "reduceMotionNotice": {
-    "message": "All animations are disabled"
+  "reduceBlurOption": {
+    "message": "Reduce blur"
   },
   "languageTitle": {
     "message": "Language"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Import"
-  },
-  "helpLabel": {
-    "message": "Need Help?"
-  },
-  "reportBugLabel": {
-    "message": "Report a bug"
-  },
-  "requestFeatureLabel": {
-    "message": "Request a feature"
   },
   "addShortcutTitle": {
     "message": "Add Shortcut"

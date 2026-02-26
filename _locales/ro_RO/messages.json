@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "Căutare vocală"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "Reduceți efectele"
+  },
   "reduceMotionTitle": {
     "message": "Reduceți mișcarea"
   },
-  "reduceMotionNotice": {
-    "message": "Animații reduse"
+  "reduceBlurOption": {
+    "message": "Reduceți neclaritatea"
   },
   "languageTitle": {
     "message": "Limba"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "Import"
-  },
-  "helpLabel": {
-    "message": "Ai nevoie de ajutor?"
-  },
-  "reportBugLabel": {
-    "message": "Raportează o eroare"
-  },
-  "requestFeatureLabel": {
-    "message": "Solicitați o funcție"
   },
   "addShortcutTitle": {
     "message": "Adăugați scurtătură"
