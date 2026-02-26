@@ -131,6 +131,18 @@
   "moreOptionsLabel": {
     "message": "További lehetőségek"
   },
+  "updateNoticePrefix": {
+    "message": "A Fluent New Tab frissült a $VERSION$verzióra. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "lásd a változásnaplót"
+  },
   "greetMorning1": {
     "message": "Jó reggelt! $NAME$",
     "placeholders": {
