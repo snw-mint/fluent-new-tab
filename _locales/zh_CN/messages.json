@@ -62,11 +62,14 @@
   "voiceSearchOption": {
     "message": "语音搜索"
   },
+  "reduceVisualEffectsTitle": {
+    "message": "减少影响"
+  },
   "reduceMotionTitle": {
     "message": "减少运动"
   },
-  "reduceMotionNotice": {
-    "message": "简化动画"
+  "reduceBlurOption": {
+    "message": "减少模糊"
   },
   "languageTitle": {
     "message": "语言"
@@ -82,15 +85,6 @@
   },
   "importOption": {
     "message": "导入"
-  },
-  "helpLabel": {
-    "message": "需要帮助吗？"
-  },
-  "reportBugLabel": {
-    "message": "报告一个错误"
-  },
-  "requestFeatureLabel": {
-    "message": "请求功能"
   },
   "addShortcutTitle": {
     "message": "添加快捷方式"
