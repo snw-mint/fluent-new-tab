@@ -70,7 +70,7 @@
             </div>
 
             <div class="hero-actions">
-                <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc" class="btn-primary">Add to Browser</a>
+                <button class="btn-primary" data-install-trigger>Add to Browser</button>
                 <a href="https://github.com/snw-mint/fluent-new-tab" class="btn-secondary">View on GitHub</a>
             </div>
         </div>
@@ -251,7 +251,7 @@
             <p class="support-subtitle">Experience a better new tab page today. Available for Microsoft Edge and Chromium-based browsers.</p>
             
             <div class="hero-actions">
-                <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc" class="btn-primary">Add to Browser</a>
+                <button class="btn-primary" data-install-trigger>Add to Browser</button>
                 <a href="https://github.com/snw-mint/fluent-new-tab" class="btn-secondary">View on GitHub</a>
             </div>
         </div>
@@ -307,6 +307,46 @@
             </div>
             
         </div>
+<div id="install-modal" class="fluent-modal" aria-hidden="true">
+    <div class="fluent-modal-overlay" data-modal-close></div>
+    <div class="fluent-modal-content solid-dialog">
+        <div class="modal-header">
+            <h3>Choose your browser</h3>
+            <button class="modal-close" data-modal-close aria-label="Close modal">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.22 6.22a.75.75 0 0 1 1.06 0L12 10.94l4.72-4.72a.75.75 0 1 1 1.06 1.06L13.06 12l4.72 4.72a.75.75 0 1 1-1.06 1.06L12 13.06l-4.72 4.72a.75.75 0 0 1-1.06-1.06L10.94 12 6.22 7.28a.75.75 0 0 1 0-1.06Z" fill="currentColor"/></svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="browser-row">
+                
+                <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc" class="browser-card" data-browser="edge" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/edge.svg" alt="Edge" class="browser-icon">
+                    <span class="browser-name">Edge</span>
+                    <span class="status-badge dynamic-badge"></span>
+                </a>
+
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" class="browser-card" data-browser="firefox" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/firefox.svg" alt="Firefox" class="browser-icon">
+                    <span class="browser-name">Firefox</span>
+                    <span class="status-badge dynamic-badge"></span>
+                </a>
+
+                <div class="browser-card disabled" data-browser="chrome">
+                    <img src="assets/chrome.svg" alt="Chrome" class="browser-icon">
+                    <span class="browser-name">Chrome</span>
+                    <span class="status-badge static-badge">Soon</span>
+                </div>
+
+                <a href="https://github.com/snw-mint/fluent-new-tab/releases" class="browser-card" data-browser="other" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/other.svg" alt="Other" class="browser-icon">
+                    <span class="browser-name">Other</span>
+                    <span class="status-badge static-badge">Manual</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
     </footer>
     <script src="script.js"></script>
 </body>

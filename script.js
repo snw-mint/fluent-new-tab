@@ -72,3 +72,64 @@
         revealTheme(isDark ? 'light' : 'dark');
     });
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Modal Toggle Logic
+    const modal = document.getElementById('install-modal');
+    const openButtons = document.querySelectorAll('[data-install-trigger]');
+    const closeElements = document.querySelectorAll('[data-modal-close]');
+
+    const openModal = () => {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+    };
+
+    openButtons.forEach(btn => btn.addEventListener('click', openModal));
+    closeElements.forEach(el => el.addEventListener('click', closeModal));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Browser Detection Logic
+    const detectBrowser = () => {
+        const userAgent = navigator.userAgent;
+        let currentBrowser = 'other';
+
+        if (userAgent.includes('Firefox')) {
+            currentBrowser = 'firefox';
+        } else if (userAgent.includes('Edg/')) {
+            currentBrowser = 'edge';
+        } else if (userAgent.includes('Chrome')) {
+            currentBrowser = 'chrome';
+        }
+
+        const cards = document.querySelectorAll('.browser-card');
+        
+        cards.forEach(card => {
+            const dynamicBadge = card.querySelector('.dynamic-badge');
+            
+            if (card.dataset.browser === currentBrowser) {
+                card.classList.add('highlighted');
+                if (dynamicBadge) {
+                    dynamicBadge.textContent = 'Recommended';
+                }
+            } else {
+                card.classList.remove('highlighted');
+                if (dynamicBadge) {
+                    dynamicBadge.textContent = '';
+                }
+            }
+        });
+    };
+
+    detectBrowser();
+});

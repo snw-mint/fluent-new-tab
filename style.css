@@ -795,3 +795,181 @@ body {
         view-transition-name: none;
     }
 }
+
+/* Fluent Modal Base */
+.fluent-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.fluent-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fluent-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Solid Fluent 2 Dialog */
+.solid-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 520px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.fluent-modal.active .solid-dialog {
+    transform: scale(1) translateY(0);
+}
+
+[data-theme="dark"] .solid-dialog {
+    background: #2b2b2b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: inherit;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Horizontal Row Layout */
+.browser-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.browser-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 16px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+}
+
+.browser-card:hover:not(.disabled) {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .browser-card:hover:not(.disabled) {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.browser-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.browser-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 4px;
+}
+
+.browser-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Badges */
+.status-badge {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    min-height: 16px; 
+}
+
+.static-badge {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .static-badge {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Highlighted State */
+.browser-card.highlighted {
+    background: rgba(15, 108, 189, 0.05);
+    border: 1px solid rgba(15, 108, 189, 0.4);
+}
+
+[data-theme="dark"] .browser-card.highlighted {
+    background: rgba(15, 108, 189, 0.15);
+    border: 1px solid rgba(15, 108, 189, 0.6);
+}
+
+.browser-card.highlighted .dynamic-badge {
+    background: var(--theme-color, #0f6cbd);
+    color: #ffffff;
+}
+
+/* Hide empty dynamic badges to keep layout tight */
+.dynamic-badge:empty {
+    display: none;
+}
