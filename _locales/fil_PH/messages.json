@@ -75,7 +75,7 @@
     "message": "Wika"
   },
   "interfaceLanguageLabel": {
-    "message": "Interface ng Wika"
+    "message": "Wika sa Interface"
   },
   "backupTitle": {
     "message": "Backup ng Data"
@@ -132,7 +132,7 @@
     "message": "More options"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab has been updated to version $VERSION$, ",
+    "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
