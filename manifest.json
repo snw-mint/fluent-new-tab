@@ -16,8 +16,7 @@
   },
   "permissions": [
     "storage", 
-    "unlimitedStorage",
-    "tabs"
+    "unlimitedStorage"
   ],
   "host_permissions": [
     "https://www.google.com/*",
