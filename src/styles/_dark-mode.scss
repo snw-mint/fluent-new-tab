@@ -160,7 +160,26 @@ html[data-theme="dark"] {
     }
 
     .child-setting {
-        border-left-color: rgba(255, 255, 255, 0.1);
+        border-left: none;
+    }
+
+    .fluent-checkbox {
+        .checkbox-box {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.45);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        &:hover .checkbox-box {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 1px var(--accent-color);
+        }
+
+        input:checked + .checkbox-box {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 1px var(--accent-color);
+        }
     }
 
     .backup-btn {
