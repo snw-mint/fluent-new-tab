@@ -64,6 +64,21 @@
             margin-right: 8px;
         }
     }
+
+    &:has(.settings-popup.active) {
+        .settings-wrapper {
+            background: rgba($color-accent-contrast, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            .settings-label {
+                max-width: 160px;
+                opacity: 1;
+                margin-left: 12px;
+                margin-right: 8px;
+            }
+        }
+    }
 }
 
 .update-release-notice {

@@ -80,7 +80,8 @@
     }
 }
 
-.header-controls:has(.settings-wrapper:hover) {
+.header-controls:has(.settings-wrapper:hover),
+.header-controls:has(.settings-popup.active) {
     .weather-city {
         max-width: 0;
         opacity: 0;

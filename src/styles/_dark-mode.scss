@@ -28,6 +28,13 @@ html[data-theme="dark"] {
         }
     }
 
+    .header-controls:has(.settings-popup.active) {
+        .settings-wrapper {
+            background: rgba(50, 50, 50, 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    }
+
     .settings-btn:hover,
     .current-engine-btn:hover,
     .dropdown-item:hover,
