@@ -25,7 +25,7 @@
 
     if (!initialWallpaperUrl && wallpaperSource === 'api') {
         const cacheKey = `wallpaper_cache_${wallpaperType}`;
-        const cacheDuration = 24 * 60 * 60 * 1000;
+        const cacheDuration = 10 * 60 * 60 * 1000;
 
         try {
             const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');

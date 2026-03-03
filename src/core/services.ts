@@ -2,13 +2,13 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
     const today = new Date().toISOString().slice(0, 10);
     const cacheKey = `wallpaper_cache_${source}`;
     const now = Date.now();
-    const CACHE_DURATION_MS = 24 * 60 * 60 * 1000;
+    const CACHE_DURATION_MS = 10 * 60 * 60 * 1000;
 
     try {
         const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
         const timestamp = cached?.timestamp || 0;
         if (cached && cached.url && timestamp > 0 && (now - timestamp) < CACHE_DURATION_MS) {
-            console.log(`Loading ${source} from 24h cache.`);
+            console.log(`Loading ${source} from 10h cache.`);
             return cached.url;
         }
     } catch (e) { console.error('Error reading cache', e); }
@@ -29,16 +29,36 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
                 creditText = `Bing: ${img.copyright || 'Daily Image'}`;
             }
         } else if (source === 'nasa') {
-            const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW');
-            if (res.status === 429) throw new Error('NASA API limit reached.');
-            if (!res.ok) throw new Error(`NASA Error: ${res.status}`);
-            const data = await res.json() as NasaApodResponse;
+            const fetchNasaApod = async (date?: string): Promise<NasaApodResponse> => {
+                const url = date
+                    ? `https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&date=${encodeURIComponent(date)}`
+                    : 'https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW';
+                const response = await fetch(url);
+                if (response.status === 429) throw new Error('NASA API limit reached.');
+                if (!response.ok) throw new Error(`NASA Error: ${response.status}`);
+                return await response.json() as NasaApodResponse;
+            };
 
-            if (data.media_type === 'image') {
-                imageUrl = data.hdurl || data.url || '';
-                creditText = `NASA: ${data.title || 'APOD'}`;
-            } else {
-                throw new Error('Today NASA posted a video, not an image.');
+            const todayData = await fetchNasaApod();
+            const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+
+            if (todayData.media_type === 'image') {
+                imageUrl = todayData.url || todayData.hdurl || '';
+                creditText = `NASA: ${todayData.title || 'APOD'}`;
+            } else if (todayData.media_type === 'video') {
+                try {
+                    const yesterdayData = await fetchNasaApod(yesterday);
+                    if (yesterdayData.media_type === 'image') {
+                        imageUrl = yesterdayData.url || yesterdayData.hdurl || '';
+                        creditText = `NASA: ${yesterdayData.title || 'APOD'}`;
+                    }
+                } catch (fallbackError) {
+                    console.error('NASA fallback (yesterday) failed:', fallbackError);
+                }
+            }
+
+            if (!imageUrl) {
+                throw new Error('NASA APOD did not return a usable image.');
             }
         } else if (source === 'wikimedia') {
             const fetchWiki = async (date: string): Promise<WikimediaQueryResponse> => {
