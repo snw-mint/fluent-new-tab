@@ -39,7 +39,7 @@ body {
         content: "";
         position: fixed;
         inset: 0;
-        background: linear-gradient(180deg,rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(180deg,rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
         z-index: -1;
         pointer-events: none;
         animation: fadeInOverlay 0.8s ease;
