@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "katso muutosloki"
   },
+  "nasaApodVideoNotice": {
+    "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
+  },
   "greetMorning1": {
     "message": "Hyvää huomenta, $NAME$",
     "placeholders": {
