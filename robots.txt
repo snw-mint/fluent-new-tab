@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snw-mint.github.io/fluent-new-tab/sitemap.xml
