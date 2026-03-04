@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "vezi jurnalul modificărilor"
   },
+  "nasaApodVideoNotice": {
+    "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Păstrați în schimb imaginea de fundal actuală."
+  },
   "greetMorning1": {
     "message": "Bună dimineața, $NAME$",
     "placeholders": {
