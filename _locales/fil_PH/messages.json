@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "tingnan ang changelog"
   },
+  "nasaApodVideoNotice": {
+    "message": "Today's APOD is a video or unavailable. Keeping your current wallpaper instead."
+  },
   "greetMorning1": {
     "message": "Good morning sa'yo, $NAME$",
     "placeholders": {
