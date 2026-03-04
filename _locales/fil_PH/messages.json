@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "tingnan ang changelog"
   },
+  "nasaApodVideoNotice": {
+    "message": "Video ou unavailable ang APOD ngayon. Gamitin muna natin ang current wallpaper mo."
+  },
   "greetMorning1": {
     "message": "Good morning sa'yo, $NAME$",
     "placeholders": {

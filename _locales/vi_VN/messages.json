@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "Xem nhật ký thay đổi"
   },
+  "nasaApodVideoNotice": {
+    "message": "Hình ảnh APOD hôm nay là một video hoặc không khả dụng. Bạn có thể giữ hình nền hiện tại của mình thay thế."
+  },
   "greetMorning1": {
     "message": "Chào buổi sáng, $NAME$",
     "placeholders": {

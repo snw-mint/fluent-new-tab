@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "ver registo de alterações"
   },
+  "nasaApodVideoNotice": {
+    "message": "O APOD de hoje é um vídeo ou está indisponível. Mantendo o seu papel de parede atual."
+  },
   "greetMorning1": {
     "message": "Bom dia, $NAME$",
     "placeholders": {

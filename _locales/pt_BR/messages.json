@@ -66,10 +66,10 @@
     "message": "Reduzir efeitos"
   },
   "reduceMotionTitle": {
-    "message": "Reduzir o movimento"
+    "message": "Reduzir movimento"
   },
   "reduceBlurOption": {
-    "message": "Reduzir o desfoque"
+    "message": "Reduzir desfoque"
   },
   "languageTitle": {
     "message": "Idioma"
@@ -141,7 +141,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "veja o registro de alterações"
+    "message": "Veja as notas de alterações"
+  },
+  "nasaApodVideoNotice": {
+    "message": "O APOD de hoje é um vídeo ou está indisponível. Mantendo o seu papel de parede atual."
   },
   "greetMorning1": {
     "message": "Bom dia, $NAME$",

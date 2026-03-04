@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "voir le journal des modifications"
   },
+  "nasaApodVideoNotice": {
+    "message": "L'APOD d'aujourd'hui est une vidéo ou n'est pas disponible. Vous conservez votre fond d'écran actuel à la place."
+  },
   "greetMorning1": {
     "message": "Bonjour, $NAME$",
     "placeholders": {

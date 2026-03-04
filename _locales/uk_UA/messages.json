@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "дивитися журнал змін"
   },
+  "nasaApodVideoNotice": {
+    "message": "Сьогоднішній APOD — це відео або недоступний. Замість цього збережіть поточну заставку."
+  },
   "greetMorning1": {
     "message": "Доброго ранку, $NAME$",
     "placeholders": {

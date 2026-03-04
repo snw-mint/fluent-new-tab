@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "変更履歴を参照"
   },
+  "nasaApodVideoNotice": {
+    "message": "本日のAPODは動画または利用不可です。代わりに現在の壁紙を表示します。"
+  },
   "greetMorning1": {
     "message": "おはようございます。 $NAME$",
     "placeholders": {

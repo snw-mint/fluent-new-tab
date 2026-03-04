@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "查看變更記錄"
   },
+  "nasaApodVideoNotice": {
+    "message": "今日的APOD為影片或無法提供。請繼續使用您當前的桌布。"
+  },
   "greetMorning1": {
     "message": "早安， $NAME$",
     "placeholders": {

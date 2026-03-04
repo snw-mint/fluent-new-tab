@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "查看变更日志"
   },
+  "nasaApodVideoNotice": {
+    "message": "今日APOD为视频或无法访问。将保留您当前的壁纸。"
+  },
   "greetMorning1": {
     "message": "早上好， $NAME$",
     "placeholders": {

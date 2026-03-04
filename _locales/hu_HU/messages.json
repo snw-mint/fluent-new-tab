@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "lásd a változásnaplót"
   },
+  "nasaApodVideoNotice": {
+    "message": "A mai APOD egy videó, vagy nem elérhető. Helyette a jelenlegi háttérképet tartjuk meg."
+  },
   "greetMorning1": {
     "message": "Jó reggelt! $NAME$",
     "placeholders": {

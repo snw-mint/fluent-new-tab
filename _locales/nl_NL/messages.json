@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "zie changelog"
   },
+  "nasaApodVideoNotice": {
+    "message": "De APOD van vandaag is een video of is niet beschikbaar. In plaats daarvan behoudt u uw huidige achtergrond."
+  },
   "greetMorning1": {
     "message": "Goedemorgen, $NAME$",
     "placeholders": {
