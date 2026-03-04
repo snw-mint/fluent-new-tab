@@ -33,7 +33,39 @@
     <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/">
     <link rel="alternate" hreflang="en" href="https://snw-mint.github.io/fluent-new-tab/">
     <link rel="stylesheet" href="style.css">
-    <script type="application/ld+json">
+    <script id="navigation-schema" type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": "Why Install",
+                    "url": "https://snw-mint.github.io/fluent-new-tab/#why-install"
+                },
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": "Features",
+                    "url": "https://snw-mint.github.io/fluent-new-tab/#core-features"
+                },
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": "Reviews",
+                    "url": "https://snw-mint.github.io/fluent-new-tab/#reviews"
+                },
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": "Download",
+                    "url": "https://snw-mint.github.io/fluent-new-tab/#download"
+                },
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": "Support",
+                    "url": "https://snw-mint.github.io/fluent-new-tab/#support"
+                }
+            ]
+        }
+    </script>
+    <script id="software-schema" type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -43,6 +75,19 @@
             "description": "A beautiful, privacy-focused new tab extension with customizable shortcuts, weather widgets, and Fluent Design aesthetics.",
             "url": "https://snw-mint.github.io/fluent-new-tab/",
             "image": "https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.5,
+                "bestRating": 5,
+                "ratingCount": 16
+            },
+            "interactionStatistic": {
+                "@type": "InteractionCounter",
+                "interactionType": {
+                    "@type": "UseAction"
+                },
+                "userInteractionCount": 701
+            },
             "author": {
                 "@type": "Person",
                 "name": "snow mint",
@@ -71,6 +116,7 @@
             <div class="nav-links">
                 <a href="#why-install">Why Install</a>
                 <a href="#core-features">Features</a>
+                <a href="#reviews">Reviews</a>
                 <a href="#download">Download</a>
                 <a href="#support">Support</a>
                 
@@ -307,6 +353,33 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-section" data-rating-section>
+        <div class="container">
+            <h2 class="section-title">User Reviews</h2>
+            <p class="support-subtitle">Public rating data from Microsoft Edge Add-ons.</p>
+
+            <div class="reviews-grid">
+                <article class="review-stat-card">
+                    <p class="review-label">Users</p>
+                    <p class="review-value" id="edge-users">701</p>
+                </article>
+
+                <article class="review-stat-card">
+                    <p class="review-label">Average Rating</p>
+                    <p class="review-value"><span id="edge-rating">4.5</span><span class="review-inline">/5</span></p>
+                    <p class="review-stars" aria-label="4.5 out of 5 stars" id="edge-stars">★★★★☆</p>
+                </article>
+
+                <article class="review-stat-card">
+                    <p class="review-label">Reviews</p>
+                    <p class="review-value" id="edge-review-count">16</p>
+                </article>
+            </div>
+
+            <p class="review-meta">Source: <a id="edge-source-link" href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a> · Updated: <span id="edge-last-updated">2026-03-04</span></p>
         </div>
     </section>
 
