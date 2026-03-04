@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "δείτε το αρχείο αλλαγών"
   },
+  "nasaApodVideoNotice": {
+    "message": "Το σημερινό APOD είναι ένα βίντεο ή δεν είναι διαθέσιμο. Διατηρήστε την τρέχουσα ταπετσαρία σας."
+  },
   "greetMorning1": {
     "message": "Καλημέρα, $NAME$",
     "placeholders": {
