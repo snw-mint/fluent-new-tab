@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "değişiklik günlüğünü gör"
   },
+  "nasaApodVideoNotice": {
+    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınızı koruyun."
+  },
   "greetMorning1": {
     "message": "Günaydın, $NAME$",
     "placeholders": {
