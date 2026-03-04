@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "zobacz dziennik zmian"
   },
+  "nasaApodVideoNotice": {
+    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowaj aktualną tapetę."
+  },
   "greetMorning1": {
     "message": "Dzień dobry, $NAME$",
     "placeholders": {
