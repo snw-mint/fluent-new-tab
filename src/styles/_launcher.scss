@@ -81,30 +81,6 @@
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
-
-        .launcher-label {
-            position: absolute;
-            bottom: 8px;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(4px);
-            color: $color-accent-contrast;
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: $radius-sm;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(2px);
-            transition: opacity 0.1s ease, transform 0.1s ease;
-            white-space: nowrap;
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        &:hover .launcher-label {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.4s;
-        }
     }
 
     .launcher-footer {

@@ -30,9 +30,10 @@ function renderLauncherApps(data: LauncherProviderData | undefined, refs: Launch
         const link = document.createElement('a');
         link.href = app.url;
         link.className = 'launcher-item';
+        link.title = app.name;
+        link.setAttribute('aria-label', app.name);
         link.innerHTML = `
             <img src="${app.icon}" class="launcher-icon" alt="${app.name}">
-            <span class="launcher-label">${app.name}</span>
         `;
         refs.launcherGrid?.appendChild(link);
     });
