@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "se ändringslogg"
   },
+  "nasaApodVideoNotice": {
+    "message": "Dagens APOD är en video eller otillgänglig. Vi behåller din nuvarande bakgrundsbild istället."
+  },
   "greetMorning1": {
     "message": "God morgon, $NAME$",
     "placeholders": {
