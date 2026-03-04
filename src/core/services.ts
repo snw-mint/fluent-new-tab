@@ -48,7 +48,7 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
             const todayData = await fetchNasaApod();
 
             if (todayData.media_type === 'image') {
-                imageUrl = todayData.url || todayData.hdurl || '';
+                imageUrl = todayData.hdurl || todayData.url || '';
                 creditText = `NASA: ${todayData.title || 'APOD'}`;
             } else {
                 notifyWallpaperApiWarning(todayData.media_type === 'video' ? 'video' : 'unavailable');

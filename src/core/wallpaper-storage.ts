@@ -18,24 +18,24 @@ function openWallpaperDB(): Promise<IDBDatabase> {
     });
 }
 
-async function saveWallpaperToDB(blob: Blob): Promise<boolean> {
+async function saveWallpaperToDB(blob: Blob, keyName: string = 'custom_wallpaper'): Promise<boolean> {
     const db = await openWallpaperDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
         const store = transaction.objectStore(WALLPAPER_STORE_NAME);
-        const request = store.put(blob, 'custom_wallpaper');
+        const request = store.put(blob, keyName);
 
         request.onsuccess = () => resolve(true);
         request.onerror = () => reject('Erro ao salvar no DB');
     });
 }
 
-async function getWallpaperFromDB(): Promise<Blob | null> {
+async function getWallpaperFromDB(keyName: string = 'custom_wallpaper'): Promise<Blob | null> {
     const db = await openWallpaperDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readonly');
         const store = transaction.objectStore(WALLPAPER_STORE_NAME);
-        const request = store.get('custom_wallpaper');
+        const request = store.get(keyName);
 
         request.onsuccess = (event) => resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
         request.onerror = () => reject('Erro ao ler do DB');

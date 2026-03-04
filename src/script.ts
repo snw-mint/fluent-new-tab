@@ -562,6 +562,33 @@ async function applyWallpaperImage(url: string): Promise<void> {
     document.body.style.backgroundImage = `url('${url}')`;
 }
 
+async function getOptimizedApiWallpaper(remoteUrl: string, source: string): Promise<string> {
+    const cacheKey = `api_wallpaper_${source}`;
+    const lastProcessedUrl = localStorage.getItem(`${cacheKey}_url`);
+    if (lastProcessedUrl === remoteUrl) {
+        const cachedBlob = await getWallpaperFromDB(cacheKey);
+        if (cachedBlob) {
+            return URL.createObjectURL(cachedBlob);
+        }
+    }
+    try {
+        const response = await fetch(remoteUrl);
+        const blob = await response.blob();
+        const tempUrl = URL.createObjectURL(blob);
+        
+        const webpBlob = await convertImageToWebp(tempUrl, 1920, 0.82);
+        URL.revokeObjectURL(tempUrl);
+        
+        await saveWallpaperToDB(webpBlob, cacheKey);
+        localStorage.setItem(`${cacheKey}_url`, remoteUrl);
+        
+        return URL.createObjectURL(webpBlob);
+    } catch (error) {
+        console.warn(`Compression failed for ${source}, using original URL.`, error);
+        return remoteUrl;
+    }
+}
+
 async function applyWallpaperLogic() {
     try {
         if (!wallpaperEnabled) {
@@ -593,15 +620,16 @@ async function applyWallpaperLogic() {
         else if (currentWallpaperSource === 'api') {
             const url = await fetchDailyWallpaper(currentWallpaperType);
             if (url) {
-                await applyWallpaperImage(url);
+                // Intercept and compress the API image before applying
+                const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
+                await applyWallpaperImage(optimizedUrl);
                 
-                // Recupera o crédito salvo no cache
+                // Retrieve the saved credit from cache
                 const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
                 try {
                     const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
                     let credit = cached ? cached.credit : '';
                     
-                    // Fallbacks se não houver crédito salvo
                     if (!credit) {
                         if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
                         else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
