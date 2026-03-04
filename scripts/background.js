@@ -18,7 +18,7 @@ const DEFAULT_INSTALL_PREFERENCES = {
   clearSearchEnabled: 'false',
   compactBarEnabled: 'false',
   voiceSearchEnabled: 'true',
-  wallpaperEnabled: 'true',
+  wallpaperEnabled: 'false',
   wallpaperSource: 'api',
   wallpaperType: 'bing',
   wallpaperValue: 'preset_1',

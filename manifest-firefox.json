@@ -12,7 +12,20 @@
     "newtab": "index.html" 
   },
   "background": {
-    "service_worker": "scripts/background.js"
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fluentnewtab@dreyw",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
   },
   "permissions": [
     "storage", 

@@ -1,0 +1,35 @@
+name: Publish Firefox Add-on
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Firefox release artifact
+        run: |
+          gh release download ${{ github.ref_name }} --pattern "*firefox*.zip" --dir .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Unzip Firefox build
+        run: |
+          unzip *firefox*.zip -d extension
+
+      - name: Install web-ext
+        run: npm install -g web-ext@7
+
+      - name: Submit and publish to AMO
+        run: |
+          web-ext sign \
+            --channel=listed \
+            --source-dir=extension \
+            --api-key="$FIREFOX_JWT_ISSUER" \
+            --api-secret="$FIREFOX_JWT_SECRET"
+        env:
+          FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
