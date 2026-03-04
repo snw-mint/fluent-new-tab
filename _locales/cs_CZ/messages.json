@@ -143,6 +143,9 @@
   "updateNoticeChangelog": {
     "message": "viz seznam změn"
   },
+  "nasaApodVideoNotice": {
+    "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
+  },
   "greetMorning1": {
     "message": "Dobré ráno, $NAME$",
     "placeholders": {
