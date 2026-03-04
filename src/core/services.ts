@@ -17,6 +17,12 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
     let imageUrl = '';
     let creditText = '';
 
+    const notifyWallpaperApiWarning = (reason: string): void => {
+        window.dispatchEvent(new CustomEvent('wallpaper-api-warning', {
+            detail: { source, reason }
+        }));
+    };
+
     try {
         if (source === 'bing') {
             const res = await fetch('https://peapix.com/bing/feed?country=us');
@@ -40,25 +46,13 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
             };
 
             const todayData = await fetchNasaApod();
-            const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 
             if (todayData.media_type === 'image') {
                 imageUrl = todayData.url || todayData.hdurl || '';
                 creditText = `NASA: ${todayData.title || 'APOD'}`;
-            } else if (todayData.media_type === 'video') {
-                try {
-                    const yesterdayData = await fetchNasaApod(yesterday);
-                    if (yesterdayData.media_type === 'image') {
-                        imageUrl = yesterdayData.url || yesterdayData.hdurl || '';
-                        creditText = `NASA: ${yesterdayData.title || 'APOD'}`;
-                    }
-                } catch (fallbackError) {
-                    console.error('NASA fallback (yesterday) failed:', fallbackError);
-                }
-            }
-
-            if (!imageUrl) {
-                throw new Error('NASA APOD did not return a usable image.');
+            } else {
+                notifyWallpaperApiWarning(todayData.media_type === 'video' ? 'video' : 'unavailable');
+                return null;
             }
         } else if (source === 'wikimedia') {
             const fetchWiki = async (date: string): Promise<WikimediaQueryResponse> => {
@@ -108,6 +102,7 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
 
         throw new Error('No image URL found in the API response.');
     } catch (error) {
+        if (source === 'nasa') notifyWallpaperApiWarning('error');
         console.error(`Error while searching ${source}:`, error);
         return null;
     }

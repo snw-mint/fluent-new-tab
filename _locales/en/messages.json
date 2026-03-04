@@ -48,6 +48,9 @@
     "placeholders": { "version": { "content": "$1", "example": "v3.1" } }
   },
   "updateNoticeChangelog": { "message": "see changelog" },
+  "nasaApodVideoNotice": {
+    "message": "Today's APOD is a video or unavailable. Keeping your current wallpaper instead."
+  },
 
   "greetMorning1": {
     "message": "Good morning, $NAME$",
