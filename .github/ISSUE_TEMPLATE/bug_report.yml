@@ -32,7 +32,7 @@ body:
       label: Extension Version
       description: Are you using the extension from the store or building it locally?
       options:
-        - Store Version (Edge Add-ons)
+        - Store Version
         - Local Build
     validations:
       required: true
