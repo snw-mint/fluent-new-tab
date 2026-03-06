@@ -12,24 +12,37 @@ body:
         - Check if this bug was already reported
         - Try clearing your cache/local storage
         - Test in an incognito/private window
-  
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      options:
+        - Microsoft Edge
+        - Mozilla Firefox
+        - Google Chrome
+        - Other Chromium-based
+    validations:
+      required: true
+
   - type: dropdown
     id: version
     attributes:
-      label: Which version are you using?
+      label: Extension Version
+      description: Are you using the extension from the store or building it locally?
       options:
         - Store Version (Edge Add-ons)
         - Local Build
-      description: Are you using the extension from the store or building it locally?
     validations:
       required: true
 
   - type: input
-    id: browser
+    id: browser_version
     attributes:
-      label: Browser & Version
-      placeholder: e.g., Edge 122, Chrome 121, Firefox 120
-      description: Which browser and version are you using?
+      label: Browser Version
+      placeholder: e.g., Edge 122, Firefox 120
+      description: What version of the browser are you using?
     validations:
       required: true
 
