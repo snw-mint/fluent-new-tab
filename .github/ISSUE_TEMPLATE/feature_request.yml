@@ -1,14 +1,42 @@
 name: 🚀 Feature Request
 description: Suggest a new feature or improvement
 title: "[Feature]: "
-labels: ["feature"]
+labels: ["feature request"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please fill in the details below.
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Is this feature request specific to a browser? Select all that apply or choose "All browsers".
+      options:
+        - All browsers
+        - Microsoft Edge
+        - Mozilla Firefox
+        - Google Chrome
+        - Other Chromium-based
+    validations:
+      required: true
+
   - type: textarea
     id: description
     attributes:
       label: Description
       description: What feature would you like to see?
       placeholder: "Describe your idea briefly..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why would this feature be useful? What problem does it solve?
+      placeholder: "Explain the use case or problem this would solve..."
     validations:
       required: true
 
