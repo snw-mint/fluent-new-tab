@@ -39,10 +39,15 @@ interface Window {
     getTranslation: (key: string) => string;
 }
 
+type ShortcutItemType = 'link' | 'folder';
+
 interface Shortcut {
+    id?: string;
+    type?: ShortcutItemType;
     name: string;
-    url: string;
-    customIcon: string | null;
+    url?: string;
+    customIcon?: string | null;
+    children?: Shortcut[];
 }
 
 interface EngineConfig {

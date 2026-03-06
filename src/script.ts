@@ -63,9 +63,18 @@ function renderShortcuts(): void {
         shortcutsGrid,
         rowsSelect,
         shortcuts,
+        currentFolderId: currentFolderId,
         onOpenModal: openModal,
-        onDeleteShortcut: deleteShortcut,
-        onClosePopups: closePopups
+        onDeleteShortcut: deleteShortcut, // Keep your existing variable/function here
+        onClosePopups: closePopups, // Keep your existing variable/function here
+        onOpenFolder: (id: string) => {
+            currentFolderId = id;
+            // CALL YOUR RENDER FUNCTION HERE
+        },
+        onGoBack: () => {
+            currentFolderId = null;
+            // CALL YOUR RENDER FUNCTION HERE
+        }
     });
 }
 function setSearchEngine(engineKey: keyof typeof engines): void {

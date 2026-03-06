@@ -5,6 +5,8 @@ catch (e) { shortcuts = []; }
 
 let allowedRows = parseInt(localStorage.getItem('shortcutsRows') || '2');
 let shortcutsVisible = localStorage.getItem('shortcutsVisible') !== 'false';
+let currentFolderId: string | null = null;
+let foldersEnabled = localStorage.getItem('foldersEnabled') === 'true';
 
 const savedTheme = (localStorage.getItem('theme') || 'auto') as ThemeMode;
 const savedEngine = (localStorage.getItem('searchEngine') || 'bing') as keyof typeof engines;
