@@ -35,16 +35,25 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     const availableSlots = isInsideFolder ? maxSlots - 1 : maxSlots;
     const visibleShortcuts = activeArray.slice(0, availableSlots);
 
-    if (isInsideFolder) {
+        if (isInsideFolder) {
         const backBtn = document.createElement('div');
         backBtn.className = 'shortcut-item folder-back-btn';
+        
+        const backText = window.getTranslation('backLabel');
+        const finalBackText = (backText && backText !== 'backLabel') ? backText : 'Back';
+
         backBtn.innerHTML = `
-            <div class="shortcut-card" style="display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(150,150,150,0.1);">
-                ${BACK_ICON_SVG}
-            </div>
-            <span class="shortcut-title">${window.getTranslation('backLabel') || 'Back'}</span>
+            <a class="shortcut-card" href="#" style="display: flex; align-items: center; justify-content: center; color: inherit; text-decoration: none;">
+                <div class="shortcut-icon" style="display: flex; align-items: center; justify-content: center;">
+                    ${BACK_ICON_SVG}
+                </div>
+            </a>
+            <span class="shortcut-title">${finalBackText}</span>
         `;
-        backBtn.addEventListener('click', onGoBack);
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            onGoBack();
+        });
         shortcutsGrid.appendChild(backBtn);
     }
 
@@ -52,38 +61,28 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         const isFolder = itemData.type === 'folder';
         const item = document.createElement('div');
         item.className = 'shortcut-item';
-        const card = document.createElement(isFolder ? 'div' : 'a'); 
+        const card = document.createElement('a');
         card.className = 'shortcut-card';
+        card.href = isFolder ? '#' : (itemData.url || '#');
         card.draggable = true;
+        card.style.color = 'inherit'; 
+        card.style.textDecoration = 'none';
 
         if (isFolder) {
             card.style.display = 'flex';
-            card.style.alignItems = 'center';
-            card.style.justifyContent = 'center';
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', (e) => {
-                if (!(e.target as HTMLElement).closest('.menu-btn')) {
-                    onOpenFolder(itemData.id!);
-                }
-            });
-        } else {
-            (card as HTMLAnchorElement).href = itemData.url || '#';
         }
 
-        let cardContent = '';
-        if (isFolder) {
-            cardContent = FOLDER_ICON_SVG;
-        }
+        const cardContent = isFolder ? FOLDER_ICON_SVG : '';
 
         card.innerHTML = `
             ${cardContent}
             <div class="menu-wrapper">
                 <button class="menu-btn" title="${window.getTranslation('moreOptionsLabel')}">${typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...'}</button>
                 <div class="shortcut-dropdown">
-                    <div class="menu-option edit-option" data-index="${index}">
+                    <div class="menu-option edit-option">
                         ${typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E'} <span>${window.getTranslation('editLabel')}</span>
                     </div>
-                    <div class="menu-option remove-option" data-index="${index}">
+                    <div class="menu-option remove-option">
                         ${typeof ICON_REMOVE !== 'undefined' ? ICON_REMOVE : 'R'} <span>${window.getTranslation('removeLabel')}</span>
                     </div>
                 </div>
@@ -99,17 +98,74 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             card.prepend(img);
         }
 
+        /* =========================================
+           BLINDAGEM DE EVENTOS (EVENT BUBBLING FIX)
+           ========================================= */
+
+        // 1. O clique principal do Card
+        card.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            
+            // Se o clique foi em qualquer lugar DENTRO do menu, nós abortamos a ação do card!
+            if (target.closest('.menu-wrapper')) {
+                e.preventDefault(); // Evita que o href="#" jogue a tela pro topo
+                return;
+            }
+
+            // Se for pasta, abre a pasta
+            if (isFolder) {
+                e.preventDefault();
+                onOpenFolder(itemData.id!);
+            }
+        });
+
+        // 2. Os cliques isolados do Menu
+        const menuBtn = card.querySelector('.menu-btn');
+        const editOpt = card.querySelector('.edit-option');
+        const removeOpt = card.querySelector('.remove-option');
+        const dropdown = card.querySelector('.shortcut-dropdown');
+
+        menuBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Impede que o clique suba para o card
+            onClosePopups(dropdown);
+            dropdown?.classList.toggle('active');
+        });
+
+        editOpt?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown?.classList.remove('active');
+            onOpenModal(index); // O índice está seguro aqui via closure!
+        });
+
+        removeOpt?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown?.classList.remove('active');
+            onDeleteShortcut(index); // O índice está seguro aqui via closure!
+        });
+
         item.appendChild(card);
 
-        const titleLink = document.createElement(isFolder ? 'div' : 'a');
+        // 3. Título abaixo do atalho
+        const titleLink = document.createElement('a');
         titleLink.className = 'shortcut-title';
-        if (!isFolder) (titleLink as HTMLAnchorElement).href = itemData.url || '#';
+        titleLink.href = isFolder ? '#' : (itemData.url || '#');
         titleLink.textContent = itemData.name;
+        
+        if (isFolder) {
+            titleLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                onOpenFolder(itemData.id!);
+            });
+        }
+        
         item.appendChild(titleLink);
-
         shortcutsGrid.appendChild(item);
     });
 
+    // Adiciona o botão de "+" no final, se houver espaço
     if (visibleShortcuts.length < availableSlots) {
         const addBtn = document.createElement('div');
         addBtn.className = 'shortcut-item add-card-wrapper';
@@ -121,30 +177,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         shortcutsGrid.appendChild(addBtn);
     }
 
-    shortcutsGrid.querySelectorAll('.menu-btn').forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            const dropdown = btn.nextElementSibling;
-            onClosePopups(dropdown);
-            dropdown?.classList.toggle('active');
-        });
-    });
-
-    shortcutsGrid.querySelectorAll('.edit-option').forEach((opt) => {
-        opt.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            onOpenModal(parseInt((opt as HTMLElement).dataset.index || '-1'));
-            opt.closest('.shortcut-dropdown')?.classList.remove('active');
-        });
-    });
-
-    shortcutsGrid.querySelectorAll('.remove-option').forEach((opt) => {
-        opt.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            onDeleteShortcut(parseInt((opt as HTMLElement).dataset.index || '-1'));
-        });
-    });
+    // AVISO IMPORTANTE: Remova todos os shortcutsGrid.querySelectorAll(...) 
+    // que ficavam aqui no final da função! Eles não são mais necessários 
+    // e causarão eventos duplicados se você mantê-los.
 }

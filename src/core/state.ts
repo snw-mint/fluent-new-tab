@@ -1,5 +1,5 @@
 let shortcuts: Shortcut[] = [];
-let editingIndex = -1;
+let editingIndex: number | null = null;
 try { shortcuts = (JSON.parse(localStorage.getItem('shortcuts') || '[]') as Shortcut[]) || []; }
 catch (e) { shortcuts = []; }
 

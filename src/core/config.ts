@@ -50,7 +50,7 @@ const launcherData: Record<string, LauncherProviderData> = {
 };
 
 const APP_KEYS: string[] = [
-    'shortcuts', 'theme', 'weatherEnabled', 'fluent_city_data', 'shortcutsVisible', 'shortcutsRows',
+    'shortcuts', 'theme', 'weatherEnabled', 'fluent_city_data', 'shortcutsVisible', 'shortcutsRows', 'foldersEnabled',
     'launcherEnabled', 'launcherProvider', 'showGreeting', 'greetingName', 'greetingStyle',
     'userLanguage', 'searchEngine', 'searchBarVisible', 'suggestionsEnabled', 'clearSearchEnabled',
     'compactBarEnabled', 'voiceSearchEnabled', 'weatherUnit', 'wallpaperEnabled',

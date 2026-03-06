@@ -122,11 +122,39 @@
     }
 }
 
+.type-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 24px 16px;
+    border-radius: $radius-md;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-weight: 600;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    &:active {
+        transform: scale(0.96);
+    }
+}
+
 .hidden {
     display: none;
 }
 
-#addModal {
+#addModal,
+#chooseTypeModal,
+#addFolderModal {
     .modal-content {
         background: $color-surface;
         overflow: hidden;
@@ -155,7 +183,9 @@
 }
 
 [data-theme="dark"] {
-    #addModal {
+    #addModal,
+    #chooseTypeModal,
+    #addFolderModal {
         .modal-content {
             background: #2b2b2b;
         }

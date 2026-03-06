@@ -7,7 +7,13 @@ function debounce<T extends unknown[]>(func: (...args: T) => void, wait: number)
     };
 }
 function closeModal(): void {
+    hideAllModals();
+    editingIndex = null;
+}
+function hideAllModals(): void {
     if (addModal) addModal.classList.remove('active');
+    if (chooseTypeModal) chooseTypeModal.classList.remove('active');
+    if (addFolderModal) addFolderModal.classList.remove('active');
 }
 function closePopups(except: Element | null = null): void {
     if (configPopup && configPopup !== except) configPopup.classList.remove('active');
@@ -23,40 +29,83 @@ function closePopups(except: Element | null = null): void {
 
 function openModal(index: number | null = null): void {
     editingIndex = index;
-    if (addModal) {
-        addModal.classList.add('active');
-        const modalTitle = document.querySelector('.modal-content h3');
-        const inputName = getInputById('inputName');
-        const inputUrl = getInputById('inputUrl');
-        const inputIcon = getInputById('inputIcon');
-        if (index !== null && shortcuts[index]) {
-            const item = shortcuts[index];
-            if (inputName) inputName.value = item.name;
-            if (inputUrl) inputUrl.value = item.url;
-            if (inputIcon) inputIcon.value = item.customIcon || '';
-            if (modalTitle) modalTitle.textContent = window.getTranslation('editShortcutTitle');
-            if (item.customIcon && customIconGroup) customIconGroup.classList.remove('hidden');
-        } else {
-            if (inputName) inputName.value = '';
-            if (inputUrl) inputUrl.value = '';
-            if (inputIcon) inputIcon.value = '';
-            if (modalTitle) modalTitle.textContent = window.getTranslation('addShortcutTitle');
-            if (customIconGroup) customIconGroup.classList.add('hidden');
-        }
-        setTimeout(() => inputName?.focus(), 100);
+
+    const currentArray = getActiveShortcutsList();
+    const existingItem = index !== null ? currentArray[index] : null;
+
+    if (existingItem?.type === 'folder') {
+        openFolderModal(existingItem.name, true);
+        return;
     }
+    if (index === null && foldersEnabled && !currentFolderId) {
+        openChooseTypeModal();
+        return;
+    }
+    openShortcutModal(existingItem);
+}
+function openChooseTypeModal(): void {
+    hideAllModals();
+    if (chooseTypeModal) chooseTypeModal.classList.add('active');
+}
+function openFolderModal(name = '', isEditing = false): void {
+    hideAllModals();
+    if (!addFolderModal || !inputFolderName) return;
+    addFolderModal.classList.add('active');
+if (folderModalTitle) {
+        const tKey = isEditing ? 'editFolderTitle' : 'addFolderTitle';
+        const fallback = isEditing ? 'Edit Folder' : 'Add Folder';
+        const translated = window.getTranslation(tKey);
+        const safeText = translated && translated !== tKey && translated.toLowerCase() !== 'edit' ? translated : fallback;
+        folderModalTitle.textContent = safeText;
+    }
+    inputFolderName.value = name;
+    setTimeout(() => inputFolderName.focus(), 100);
+}
+function openShortcutModal(existingItem: Shortcut | null): void {
+    hideAllModals();
+    if (!addModal) return;
+
+    addModal.classList.add('active');
+    const modalTitle = addModal.querySelector('.modal-content h3');
+    const inputName = getInputById('inputName');
+    const inputUrl = getInputById('inputUrl');
+    const inputIcon = getInputById('inputIcon');
+
+    if (existingItem) {
+        if (inputName) inputName.value = existingItem.name;
+        if (inputUrl) inputUrl.value = existingItem.url || '';
+        if (inputIcon) inputIcon.value = existingItem.customIcon || '';
+        if (modalTitle) modalTitle.textContent = window.getTranslation('editShortcutTitle');
+        if (existingItem.customIcon && customIconGroup) customIconGroup.classList.remove('hidden');
+    } else {
+        if (inputName) inputName.value = '';
+        if (inputUrl) inputUrl.value = '';
+        if (inputIcon) inputIcon.value = '';
+        if (modalTitle) modalTitle.textContent = window.getTranslation('addShortcutTitle');
+        if (customIconGroup) customIconGroup.classList.add('hidden');
+    }
+    setTimeout(() => inputName?.focus(), 100);
+}
+function getActiveShortcutsList(): Shortcut[] {
+    if (currentFolderId) {
+        const folder = shortcuts.find(s => s.id === currentFolderId);
+        if (folder && folder.children) return folder.children;
+    }
+    return shortcuts;
 }
 function saveAndRender(): void {
     localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
     renderShortcuts();
 }
 function deleteShortcut(index: number): void {
-    shortcuts.splice(index, 1);
+    const targetArray = getActiveShortcutsList();
+    targetArray.splice(index, 1);
     saveAndRender();
 }
 function updateShortcutsVisibility(visible: boolean, animate = true): void {
     if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
     if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
+    if (foldersRow) setCollapsible(foldersRow, visible, animate);
 }
 function renderShortcuts(): void {
     renderShortcutsGrid({
@@ -65,15 +114,15 @@ function renderShortcuts(): void {
         shortcuts,
         currentFolderId: currentFolderId,
         onOpenModal: openModal,
-        onDeleteShortcut: deleteShortcut, // Keep your existing variable/function here
-        onClosePopups: closePopups, // Keep your existing variable/function here
+        onDeleteShortcut: deleteShortcut,
+        onClosePopups: closePopups,
         onOpenFolder: (id: string) => {
             currentFolderId = id;
-            // CALL YOUR RENDER FUNCTION HERE
+            renderShortcuts();
         },
         onGoBack: () => {
             currentFolderId = null;
-            // CALL YOUR RENDER FUNCTION HERE
+            renderShortcuts();
         }
     });
 }
@@ -819,6 +868,9 @@ function applyInitialShortcutsVisibility() {
         updateShortcutsVisibility(shortcutsVisible, false);
     }
 }
+function applyInitialFoldersSetting() {
+    if (toggleFolders) toggleFolders.checked = foldersEnabled;
+}
 function applyInitialSearchBarVisibility() {
     updateSearchSettings(false);
     if (toggleSearchBar) {
@@ -1254,11 +1306,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (addModal) {
-        addModal.addEventListener('click', (e) => {
-            if (e.target === addModal) closeModal();
+    [addModal, chooseTypeModal, addFolderModal].forEach((modal) => {
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
-    }
+    });
     if (toggleCustomIcon) {
         toggleCustomIcon.addEventListener('click', () => {
             if(customIconGroup) customIconGroup.classList.toggle('hidden');
@@ -1270,24 +1322,91 @@ document.addEventListener("DOMContentLoaded", async () => {
             const inputName = getInputById('inputName');
             const inputUrl = getInputById('inputUrl');
             const inputIcon = getInputById('inputIcon');
-            if (!inputName || !inputUrl || !inputIcon) return;
+            if (!inputName || !inputUrl) return;
 
-            let url = inputUrl.value;
-            if (!url.startsWith('http')) url = 'https://' + url;
-            const newShortcut = {
+            let url = inputUrl.value || '';
+            if (url && !/^https?:\/\//i.test(url)) url = 'https://' + url;
+            const newShortcut: Shortcut = {
+                type: 'link',
                 name: inputName.value,
                 url: url,
-                customIcon: inputIcon.value || null
+                customIcon: inputIcon?.value || null
             };
+            const targetArray = getActiveShortcutsList();
+
             if (editingIndex !== null && editingIndex >= 0) {
-                shortcuts[editingIndex] = newShortcut;
+                targetArray[editingIndex] = { ...targetArray[editingIndex], ...newShortcut };
             } else {
-                shortcuts.push(newShortcut);
+                const limit = currentFolderId ? 39 : (allowedRows * 10);
+                if (targetArray.length >= limit) {
+                    alert('Limite de atalhos atingido!');
+                    return;
+                }
+                targetArray.push(newShortcut);
             }
+            
             saveAndRender();
+            editingIndex = null;
             closeModal();
         });
     }
+
+    const btnChooseLink = document.getElementById('btnChooseLink');
+    const btnChooseFolder = document.getElementById('btnChooseFolder');
+    const closeChooseTypeBtn = document.getElementById('closeChooseTypeBtn');
+    const closeFolderModalBtn = document.getElementById('closeFolderModalBtn');
+    const folderForm = document.getElementById('folderForm');
+
+    if (closeChooseTypeBtn) closeChooseTypeBtn.addEventListener('click', closeModal);
+    if (closeFolderModalBtn) closeFolderModalBtn.addEventListener('click', closeModal);
+
+    // Quando clica no Card de Shortcut
+    if (btnChooseLink) {
+        btnChooseLink.addEventListener('click', () => {
+            openShortcutModal(null);
+        });
+    }
+
+    // Quando clica no Card de Folder
+    if (btnChooseFolder) {
+        btnChooseFolder.addEventListener('click', () => {
+            editingIndex = null;
+            openFolderModal('', false);
+        });
+    }
+
+    // Salvando a Pasta Limpa
+    if (folderForm) {
+        folderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const folderNameInput = inputFolderName;
+            if (!folderNameInput) return;
+
+            const targetArray = shortcuts; // Folders live only at root level
+            if (editingIndex !== null && editingIndex >= 0 && targetArray[editingIndex]) {
+                targetArray[editingIndex] = { ...targetArray[editingIndex], name: folderNameInput.value };
+            } else {
+                const limit = allowedRows * 10;
+                if (targetArray.length >= limit) {
+                    alert('Limite de atalhos atingido!');
+                    return;
+                }
+                targetArray.push({
+                    id: 'folder_' + Date.now().toString(),
+                    type: 'folder',
+                    name: folderNameInput.value,
+                    children: []
+                });
+            }
+            foldersEnabled = true;
+            if (toggleFolders) toggleFolders.checked = true;
+            localStorage.setItem('foldersEnabled', 'true');
+            saveAndRender();
+            editingIndex = null;
+            closeModal();
+        });
+    }
+
     /* Shortcuts Rows */
     if (rowsSelect) {
         rowsSelect.value = String(allowedRows);
@@ -1304,6 +1423,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     /* Shortcuts Visibility */
     applyInitialShortcutsVisibility();
+    applyInitialFoldersSetting();
     if(toggleShortcuts) {
         toggleShortcuts.addEventListener('change', (e) => {
             const target = getInputTarget(e);
@@ -1311,6 +1431,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             const isVisible = target.checked;
             updateShortcutsVisibility(isVisible);
             localStorage.setItem('shortcutsVisible', String(isVisible));
+        });
+    }
+    if (toggleFolders) {
+        toggleFolders.addEventListener('change', (e) => {
+            const target = getInputTarget(e);
+            if (!target) return;
+            foldersEnabled = target.checked;
+            localStorage.setItem('foldersEnabled', String(foldersEnabled));
         });
     }
     const toggleCompact = getById<HTMLInputElement>('toggleCompactBar');
