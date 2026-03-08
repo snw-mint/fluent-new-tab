@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Importa"
   },
+  "addFolderTitle": {
+    "message": "Aggiungi cartella"
+  },
+  "editFolderTitle": {
+    "message": "Modifica cartella"
+  },
+  "backLabel": {
+    "message": "Indietro"
+  },
   "addShortcutTitle": {
     "message": "Aggiungi collegamento"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "L'APOD di oggi è un video o non è disponibile. Mantieni invece il tuo sfondo attuale."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Elimina cartella"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Sei sicuro di voler eliminare la cartella \"$FOLDER$\"? Tutti i collegamenti al suo interno verranno rimossi.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Disattivare le cartelle?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Tutte le cartelle e i relativi collegamenti verranno eliminati. Questa operazione non può essere annullata, a meno che non si disponga di un backup."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Elimina cartelle"
+  },
+  "warningKeepEnabled": {
+    "message": "Mantieni abilitato"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Aggiungi $ECOSYSTEM$ App?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Questo creerà una cartella con 9 app $ECOSYSTEM$ nei tuoi collegamenti. Continuare?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Aggiungi cartella"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Nessuna app disponibile"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Nessuna app disponibile per questo ecosistema."
+  },
+  "shortcutsLimitReached": {
+    "message": "Limite di scorciatoie raggiunto!"
+  },
+  "warningGridFullTitle": {
+    "message": "La griglia è piena"
+  },
+  "warningGridFullMessage": {
+    "message": "Hai raggiunto il limite massimo di collegamenti $LIMIT$ nella schermata principale. Elimina alcuni elementi o raggruppali in una cartella per liberare spazio.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "La cartella è piena"
+  },
+  "warningFolderFullMessage": {
+    "message": "Questa cartella ha raggiunto il limite massimo di $LIMIT$ elementi. Rimuovere alcuni collegamenti prima di aggiungerne di nuovi.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Ripristinare il backup?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Questo sostituirà le impostazioni e le scorciatoie attuali con i dati del file di backup."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Ripristina"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "File di backup non valido"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Il file selezionato non è un backup valido."
+  },
+  "warningUnderstood": {
+    "message": "Capito."
+  },
+  "warningClose": {
+    "message": "Chiudi"
   },
   "greetMorning1": {
     "message": "Buongiorno, $NAME$",

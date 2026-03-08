@@ -86,6 +86,15 @@
   "importOption": {
     "message": "수입"
   },
+  "addFolderTitle": {
+    "message": "폴더 추가"
+  },
+  "editFolderTitle": {
+    "message": "폴더 편집"
+  },
+  "backLabel": {
+    "message": "뒤로"
+  },
   "addShortcutTitle": {
     "message": "바로 가기 추가"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "오늘의 APOD는 동영상 또는 이용 불가능합니다. 현재 배경화면을 유지합니다."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "폴더 삭제"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "\"$FOLDER$\" 폴더를 삭제하시겠습니까? 해당 폴더 내의 모든 바로 가기가 제거됩니다.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "폴더 비활성화?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "모든 폴더와 해당 바로가기가 삭제됩니다. 백업이 없는 경우 이 작업은 되돌릴 수 없습니다."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "폴더 삭제"
+  },
+  "warningKeepEnabled": {
+    "message": "활성화 상태 유지"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ 앱 추가?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "이 작업은 바로 가기에 9개의 $ECOSYSTEM$ 앱이 포함된 폴더를 생성합니다. 계속하시겠습니까?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "폴더 추가"
+  },
+  "launcherNoAppsTitle": {
+    "message": "사용 가능한 앱이 없습니다."
+  },
+  "launcherNoAppsAvailable": {
+    "message": "이 생태계에는 사용할 수 있는 앱이 없습니다."
+  },
+  "shortcutsLimitReached": {
+    "message": "바로가기 제한에 도달했습니다!"
+  },
+  "warningGridFullTitle": {
+    "message": "그리드가 가득 찼습니다"
+  },
+  "warningGridFullMessage": {
+    "message": "메인 화면의 $LIMIT$ 바로 가기 최대 한도에 도달했습니다. 공간을 확보하려면 일부 항목을 삭제하거나 폴더로 그룹화하세요.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "폴더가 가득 찼습니다"
+  },
+  "warningFolderFullMessage": {
+    "message": "이 폴더는 $LIMIT$ 항목의 절대 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로 가기를 제거하십시오.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "백업을 복원하시겠습니까?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "이 작업은 현재 설정 및 바로 가기를 백업 파일 데이터로 대체합니다."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "복원"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "잘못된 백업 파일"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "선택한 파일은 유효한 백업 파일이 아닙니다."
+  },
+  "warningUnderstood": {
+    "message": "알겠습니다."
+  },
+  "warningClose": {
+    "message": "닫기"
   },
   "greetMorning1": {
     "message": "좋은 아침입니다. $NAME$",

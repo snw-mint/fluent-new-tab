@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Tuonti"
   },
+  "addFolderTitle": {
+    "message": "Lisää kansio"
+  },
+  "editFolderTitle": {
+    "message": "Muokkaa kansiota"
+  },
+  "backLabel": {
+    "message": "Takaisin"
+  },
   "addShortcutTitle": {
     "message": "Lisää pikakuvake"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Poista kansio"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Haluatko varmasti poistaa kansion \"$FOLDER$\"? Kaikki sen sisältämät pikakuvakkeet poistetaan.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Poista kansiot käytöstä?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Kaikki kansiot ja niiden pikakuvakkeet poistetaan. Tätä ei voi peruuttaa, ellei sinulla ole varmuuskopiota."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Poista kansiot"
+  },
+  "warningKeepEnabled": {
+    "message": "Pidä käytössä"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Lisää $ECOSYSTEM$ -sovellukset?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Tämä luo kansion, jossa on 9 $ECOSYSTEM$ -sovellusta pikakuvakkeisiin. Jatkatko?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Lisää kansio"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Sovelluksia ei ole saatavilla"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
+  },
+  "shortcutsLimitReached": {
+    "message": "Pikakuvakkeiden raja saavutettu!"
+  },
+  "warningGridFullTitle": {
+    "message": "Ruudukko on täynnä"
+  },
+  "warningGridFullMessage": {
+    "message": "Olet saavuttanut pääruudulla olevien pikakuvakkeiden enimmäismäärän $LIMIT$ . Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Kansio on täynnä"
+  },
+  "warningFolderFullMessage": {
+    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteiden absoluuttisen rajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Palautetaanko varmuuskopio?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Tämä korvaa nykyiset asetuksesi ja pikakuvakkeesi varmuuskopiotiedoston tiedoilla."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Palauta"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Virheellinen varmuuskopiotiedosto"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
+  },
+  "warningUnderstood": {
+    "message": "Ymmärretty"
+  },
+  "warningClose": {
+    "message": "Sulje"
   },
   "greetMorning1": {
     "message": "Hyvää huomenta, $NAME$",

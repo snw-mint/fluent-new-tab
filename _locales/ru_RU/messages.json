@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Импорт"
   },
+  "addFolderTitle": {
+    "message": "Добавить папку"
+  },
+  "editFolderTitle": {
+    "message": "Редактировать папку"
+  },
+  "backLabel": {
+    "message": "Назад"
+  },
   "addShortcutTitle": {
     "message": "Добавить ярлык"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Сегодняшний APOD — это видео или недоступно. Вместо этого сохраняйте текущие обои."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Удалить папку"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Вы уверены, что хотите удалить папку «$FOLDER$»? Все ярлыки, находящиеся в ней, будут удалены.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Отключить папки?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Все папки и их ярлыки будут удалены. Это действие нельзя отменить, если у вас нет резервной копии."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Удалить папки"
+  },
+  "warningKeepEnabled": {
+    "message": "Оставить включенным"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Добавить $ECOSYSTEM$ Приложения?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Это создаст папку с 9 приложениями $ECOSYSTEM$ в ваших ярлыках. Продолжить?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Добавить папку"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Нет доступных приложений"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Для этой экосистемы нет доступных приложений."
+  },
+  "shortcutsLimitReached": {
+    "message": "Предельное количество ярлыков достигнуто!"
+  },
+  "warningGridFullTitle": {
+    "message": "Сетка заполнена"
+  },
+  "warningGridFullMessage": {
+    "message": "Вы достигли максимального предела $LIMIT$ ярлыков на главном экране. Удалите некоторые элементы или сгруппируйте их в папку, чтобы освободить место.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Папка переполнена"
+  },
+  "warningFolderFullMessage": {
+    "message": "Эта папка достигла абсолютного предела $LIMIT$ элементов. Пожалуйста, удалите некоторые ярлыки, прежде чем добавлять новые.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Восстановить резервную копию?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Это заменит ваши текущие настройки и ярлыки данными из файла резервной копии."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Восстановить"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Недействительный файл резервной копии"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Выбранный файл не является действительной резервной копией."
+  },
+  "warningUnderstood": {
+    "message": "Понятно"
+  },
+  "warningClose": {
+    "message": "Закрыть"
   },
   "greetMorning1": {
     "message": "Доброе утро, $NAME$",

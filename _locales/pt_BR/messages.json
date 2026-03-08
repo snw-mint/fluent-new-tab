@@ -42,7 +42,7 @@
     "message": "4 linhas"
   },
   "appLauncherTitle": {
-    "message": "Iniciador de aplicativos"
+    "message": "Iniciador de apps"
   },
   "ecosystemLabel": {
     "message": "Ecossistema"
@@ -85,6 +85,15 @@
   },
   "importOption": {
     "message": "Importar"
+  },
+  "addFolderTitle": {
+    "message": "Adicionar pasta"
+  },
+  "editFolderTitle": {
+    "message": "Editar pasta"
+  },
+  "backLabel": {
+    "message": "Voltar"
   },
   "addShortcutTitle": {
     "message": "Adicionar atalho"
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "O APOD de hoje é um vídeo ou está indisponível. Mantendo o seu papel de parede atual."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Excluir pasta"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Tem certeza de que deseja excluir a pasta “$FOLDER$”? Todos os atalhos dentro dela serão removidos.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Desativar pastas?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Todas as pastas e seus atalhos serão excluídos. Isso não pode ser desfeito, a menos que você tenha um backup."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Excluir pastas"
+  },
+  "warningKeepEnabled": {
+    "message": "Manter ativado"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Adicionar aplicativos $ECOSYSTEM$?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Isso criará uma pasta com 9 $ECOSYSTEM$ apps em seus atalhos. Deseja continuar?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Adicionar pasta"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Não há aplicativos disponíveis"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Não há aplicativos disponíveis para este ecossistema."
+  },
+  "shortcutsLimitReached": {
+    "message": "Limite de atalhos atingido!"
+  },
+  "warningGridFullTitle": {
+    "message": "A grade está cheia"
+  },
+  "warningGridFullMessage": {
+    "message": "Você atingiu o limite máximo de atalhos de $LIMIT$ na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "A pasta está cheia"
+  },
+  "warningFolderFullMessage": {
+    "message": "Esta pasta atingiu o limite máximo de $LIMIT$ itens. Remova alguns atalhos antes de adicionar novos.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Restaurar backup?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Isso substituirá suas configurações e atalhos atuais pelos dados do arquivo de backup."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Restaurar"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Arquivo de backup inválido"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "O arquivo selecionado não é um backup válido."
+  },
+  "warningUnderstood": {
+    "message": "Entendido"
+  },
+  "warningClose": {
+    "message": "Fechar"
   },
   "greetMorning1": {
     "message": "Bom dia, $NAME$",

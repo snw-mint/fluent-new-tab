@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Přidat složku"
+  },
+  "editFolderTitle": {
+    "message": "Upravit složku"
+  },
+  "backLabel": {
+    "message": "Zpět"
+  },
   "addShortcutTitle": {
     "message": "Přidat zástupce"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Odstranit složku"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Opravdu chcete smazat složku „$FOLDER$“? Všechny zkratky v ní budou odstraněny.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Zakázat složky?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Všechny složky a jejich zástupce budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Odstranit složky"
+  },
+  "warningKeepEnabled": {
+    "message": "Nechat zapnuté"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Přidat $ECOSYSTEM$ Aplikace?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Tím se ve vašich zkratkách vytvoří složka s 9 aplikacemi $ECOSYSTEM$ . Pokračovat?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Přidat složku"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Žádné dostupné aplikace"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Pro tento ekosystém nejsou k dispozici žádné aplikace."
+  },
+  "shortcutsLimitReached": {
+    "message": "Limit zkratek dosažen!"
+  },
+  "warningGridFullTitle": {
+    "message": "Mřížka je plná"
+  },
+  "warningGridFullMessage": {
+    "message": "Dosáhli jste maximálního limitu zkratek na hlavní obrazovce $LIMIT$ . Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Složka je plná"
+  },
+  "warningFolderFullMessage": {
+    "message": "Tato složka dosáhla absolutního limitu položek $LIMIT$ . Před přidáním nových položek prosím odstraňte některé zástupce.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Obnovit zálohu?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Tím se nahradí vaše aktuální nastavení a zkratky daty ze záložního souboru."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Obnovit"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Neplatný záložní soubor"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Vybraný soubor není platnou zálohou."
+  },
+  "warningUnderstood": {
+    "message": "Rozumím."
+  },
+  "warningClose": {
+    "message": "Zavřít"
   },
   "greetMorning1": {
     "message": "Dobré ráno, $NAME$",

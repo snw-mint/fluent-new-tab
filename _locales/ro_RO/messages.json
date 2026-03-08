@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Adăugați folder"
+  },
+  "editFolderTitle": {
+    "message": "Editare folder"
+  },
+  "backLabel": {
+    "message": "Înapoi"
+  },
   "addShortcutTitle": {
     "message": "Adăugați scurtătură"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Păstrați în schimb imaginea de fundal actuală."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Ștergeți folderul"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Sunteți sigur că doriți să ștergeți folderul „$FOLDER$”? Toate comenzile rapide din acesta vor fi eliminate.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Dezactivați folderele?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Toate folderele și comenzile rapide ale acestora vor fi șterse. Această operațiune nu poate fi anulată, cu excepția cazului în care aveți o copie de rezervă."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Ștergeți folderele"
+  },
+  "warningKeepEnabled": {
+    "message": "Păstrați activat"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Adăugați aplicațiile $ECOSYSTEM$?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Aceasta va crea un folder cu 9 aplicații $ECOSYSTEM$ în comenzile rapide. Continuați?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Adăugați folder"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Nu sunt disponibile aplicații"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Nu există aplicații disponibile pentru acest ecosistem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Limita de comenzi rapide atinsă!"
+  },
+  "warningGridFullTitle": {
+    "message": "Rețeaua este plină"
+  },
+  "warningGridFullMessage": {
+    "message": "Ați atins limita maximă de comenzi rapide $LIMIT$ pe ecranul principal. Ștergeți unele elemente sau grupați-le într-un folder pentru a elibera spațiu.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Dosarul este plin"
+  },
+  "warningFolderFullMessage": {
+    "message": "Acest folder a atins limita maximă de $LIMIT$ elemente. Vă rugăm să ștergeți unele comenzi rapide înainte de a adăuga altele noi.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Restaurați copia de rezervă?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Aceasta va înlocui setările și comenzile rapide actuale cu datele din fișierul de rezervă."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Restaurare"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Fișier de rezervă invalid"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Fișierul selectat nu este o copie de rezervă validă."
+  },
+  "warningUnderstood": {
+    "message": "Am înțeles."
+  },
+  "warningClose": {
+    "message": "Închide"
   },
   "greetMorning1": {
     "message": "Bună dimineața, $NAME$",

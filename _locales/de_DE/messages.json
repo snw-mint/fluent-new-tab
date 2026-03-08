@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Ordner hinzufügen"
+  },
+  "editFolderTitle": {
+    "message": "Ordner bearbeiten"
+  },
+  "backLabel": {
+    "message": "Zurück"
+  },
   "addShortcutTitle": {
     "message": "Verknüpfung hinzufügen"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Das heutige APOD ist ein Video oder nicht verfügbar. Stattdessen wird Ihr aktuelles Hintergrundbild beibehalten."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Ordner löschen"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Möchten Sie den Ordner „$FOLDER$“ wirklich löschen? Alle darin enthaltenen Verknüpfungen werden entfernt.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Ordner deaktivieren?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Alle Ordner und ihre Verknüpfungen werden gelöscht. Dies kann nicht rückgängig gemacht werden, es sei denn, Sie haben eine Sicherungskopie."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Ordner löschen"
+  },
+  "warningKeepEnabled": {
+    "message": "Aktiviert lassen"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ -Apps hinzufügen?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Dadurch wird ein Ordner mit 9 Apps von „ $ECOSYSTEM$ “ in Ihren Verknüpfungen erstellt. Möchten Sie fortfahren?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Ordner hinzufügen"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Keine Apps verfügbar"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Für dieses Ökosystem sind keine Apps verfügbar."
+  },
+  "shortcutsLimitReached": {
+    "message": "Die Anzahl der Verknüpfungen ist erreicht!"
+  },
+  "warningGridFullTitle": {
+    "message": "Das Raster ist voll"
+  },
+  "warningGridFullMessage": {
+    "message": "Sie haben die maximale Anzahl von Verknüpfungen auf dem Hauptbildschirm von $LIMIT$ erreicht. Löschen Sie einige Elemente oder gruppieren Sie sie in einem Ordner, um Speicherplatz freizugeben.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Ordner ist voll"
+  },
+  "warningFolderFullMessage": {
+    "message": "Dieser Ordner hat die absolute Höchstgrenze von $LIMIT$ Elementen erreicht. Bitte entfernen Sie einige Verknüpfungen, bevor Sie neue hinzufügen.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Sicherung wiederherstellen?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Dadurch werden Ihre aktuellen Einstellungen und Verknüpfungen durch die Daten der Sicherungsdatei ersetzt."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Wiederherstellen"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Ungültige Sicherungsdatei"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Die ausgewählte Datei ist keine gültige Sicherung."
+  },
+  "warningUnderstood": {
+    "message": "Verstanden"
+  },
+  "warningClose": {
+    "message": "Schließen"
   },
   "greetMorning1": {
     "message": "Guten Morgen, $NAME$",

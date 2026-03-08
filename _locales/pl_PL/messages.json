@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Dodaj folder"
+  },
+  "editFolderTitle": {
+    "message": "Edytuj folder"
+  },
+  "backLabel": {
+    "message": "Powrót"
+  },
   "addShortcutTitle": {
     "message": "Dodaj skrót"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowaj aktualną tapetę."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Usuń folder"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Czy na pewno chcesz usunąć folder „$FOLDER$”? Wszystkie skróty znajdujące się w nim zostaną usunięte.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Wyłączyć foldery?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Wszystkie foldery i ich skróty zostaną usunięte. Nie można tego cofnąć, chyba że masz kopię zapasową."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Usuń foldery"
+  },
+  "warningKeepEnabled": {
+    "message": "Pozostaw włączone"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Dodaj aplikacje $ECOSYSTEM$?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Spowoduje to utworzenie folderu z 9 aplikacjami $ECOSYSTEM$ w skrótach. Kontynuować?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Dodaj folder"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Brak dostępnych aplikacji"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Brak aplikacji dostępnych dla tego ekosystemu."
+  },
+  "shortcutsLimitReached": {
+    "message": "Osiągnięto limit skrótów!"
+  },
+  "warningGridFullTitle": {
+    "message": "Siatka jest pełna"
+  },
+  "warningGridFullMessage": {
+    "message": "Osiągnąłeś maksymalny limit skrótów na ekranie głównym $LIMIT$ . Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Folder jest pełny"
+  },
+  "warningFolderFullMessage": {
+    "message": "Ten folder osiągnął maksymalną liczbę elementów $LIMIT$ . Proszę usunąć niektóre skróty przed dodaniem nowych.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Przywrócić kopię zapasową?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Spowoduje to zastąpienie bieżących ustawień i skrótów danymi z pliku kopii zapasowej."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Przywróć"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Nieprawidłowy plik kopii zapasowej"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Wybrany plik nie jest prawidłową kopią zapasową."
+  },
+  "warningUnderstood": {
+    "message": "Rozumiem."
+  },
+  "warningClose": {
+    "message": "Zamknij"
   },
   "greetMorning1": {
     "message": "Dzień dobry, $NAME$",

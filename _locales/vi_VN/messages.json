@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Nhập khẩu"
   },
+  "addFolderTitle": {
+    "message": "Thêm thư mục"
+  },
+  "editFolderTitle": {
+    "message": "Chỉnh sửa thư mục"
+  },
+  "backLabel": {
+    "message": "Quay lại"
+  },
   "addShortcutTitle": {
     "message": "Thêm lối tắt"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Hình ảnh APOD hôm nay là một video hoặc không khả dụng. Bạn có thể giữ hình nền hiện tại của mình thay thế."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Xóa thư mục"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Bạn có chắc chắn muốn xóa thư mục \"$FOLDER$\" không? Tất cả các lối tắt bên trong thư mục đó sẽ bị xóa.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Tắt thư mục?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Tất cả các thư mục và các lối tắt của chúng sẽ bị xóa. Việc này không thể hoàn tác trừ khi bạn có bản sao lưu."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Xóa thư mục"
+  },
+  "warningKeepEnabled": {
+    "message": "Giữ trạng thái bật"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Thêm ứng dụng \" $ECOSYSTEM$\"?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Điều này sẽ tạo ra một thư mục chứa 9 ứng dụng $ECOSYSTEM$ trong mục Lối tắt của bạn. Tiếp tục?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Thêm thư mục"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Không có ứng dụng nào có sẵn."
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Không có ứng dụng nào có sẵn cho hệ sinh thái này."
+  },
+  "shortcutsLimitReached": {
+    "message": "Giới hạn phím tắt đã đạt!"
+  },
+  "warningGridFullTitle": {
+    "message": "Lưới đã đầy"
+  },
+  "warningGridFullMessage": {
+    "message": "Bạn đã đạt đến giới hạn tối đa của các phím tắt trên màn hình chính tại địa chỉ $LIMIT$ . Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Thư mục đã đầy"
+  },
+  "warningFolderFullMessage": {
+    "message": "Thư mục này đã đạt đến giới hạn tối đa của các mục trong thư mục \" $LIMIT$ \". Vui lòng xóa một số lối tắt trước khi thêm các lối tắt mới.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Khôi phục bản sao lưu?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Điều này sẽ thay thế các cài đặt và phím tắt hiện tại của bạn bằng dữ liệu từ tệp sao lưu."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Khôi phục"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Tệp sao lưu không hợp lệ"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
+  },
+  "warningUnderstood": {
+    "message": "Đã hiểu"
+  },
+  "warningClose": {
+    "message": "Đóng"
   },
   "greetMorning1": {
     "message": "Chào buổi sáng, $NAME$",

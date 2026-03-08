@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Mappa hozzáadása"
+  },
+  "editFolderTitle": {
+    "message": "Mappa szerkesztése"
+  },
+  "backLabel": {
+    "message": "Vissza"
+  },
   "addShortcutTitle": {
     "message": "Parancsikon hozzáadása"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "A mai APOD egy videó, vagy nem elérhető. Helyette a jelenlegi háttérképet tartjuk meg."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Mappa törlése"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Biztosan törölni szeretné a „$FOLDER$” mappát? A mappában található összes parancsikon törlésre kerül.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Mappák letiltása?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Minden mappa és azok parancsikonjai törlésre kerülnek. Ez visszafordíthatatlan, hacsak nincs biztonsági másolatod."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Mappák törlése"
+  },
+  "warningKeepEnabled": {
+    "message": "Engedélyezve tartás"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ alkalmazások hozzáadása?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Ezzel egy mappa jön létre, amelyben 9 $ECOSYSTEM$ alkalmazás található a parancsikonok között. Folytatni kívánja?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Mappa hozzáadása"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Nincs elérhető alkalmazás"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Ehhez az ökoszisztémához nincs elérhető alkalmazás."
+  },
+  "shortcutsLimitReached": {
+    "message": "A gyorsbillentyűk korlátja elérve!"
+  },
+  "warningGridFullTitle": {
+    "message": "A rács megtelt"
+  },
+  "warningGridFullMessage": {
+    "message": "Elérte a főképernyőn a $LIMIT$ parancsikonok maximális számát. Töröljön néhány elemet, vagy csoportosítsa őket egy mappába, hogy helyet szabadítson fel.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "A mappa megtelt"
+  },
+  "warningFolderFullMessage": {
+    "message": "Ez a mappa elérte a $LIMIT$ elemek abszolút határát. Kérjük, távolítson el néhány parancsikont, mielőtt újakat adna hozzá.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Biztonsági másolat visszaállítása?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Ezzel a jelenlegi beállítások és parancsikonok helyébe a biztonsági másolat fájljának adatai lépnek."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Visszaállítás"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Érvénytelen biztonsági másolat fájl"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "A kiválasztott fájl nem érvényes biztonsági másolat."
+  },
+  "warningUnderstood": {
+    "message": "Értettem."
+  },
+  "warningClose": {
+    "message": "Bezárás"
   },
   "greetMorning1": {
     "message": "Jó reggelt! $NAME$",

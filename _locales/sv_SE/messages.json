@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Lägg till mapp"
+  },
+  "editFolderTitle": {
+    "message": "Redigera mapp"
+  },
+  "backLabel": {
+    "message": "Tillbaka"
+  },
   "addShortcutTitle": {
     "message": "Lägg till genväg"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD är en video eller otillgänglig. Vi behåller din nuvarande bakgrundsbild istället."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Ta bort mapp"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Är du säker på att du vill ta bort mappen \"$FOLDER$\"? Alla genvägar i mappen kommer att tas bort.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Inaktivera mappar?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Alla mappar och deras genvägar kommer att raderas. Detta kan inte ångras om du inte har en säkerhetskopia."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Ta bort mappar"
+  },
+  "warningKeepEnabled": {
+    "message": "Håll aktiverat"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Lägg till $ECOSYSTEM$ Appar?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Detta kommer att skapa en mapp med 9 $ECOSYSTEM$ appar i dina genvägar. Fortsätta?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Lägg till mapp"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Inga appar tillgängliga"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Inga appar tillgängliga för detta ekosystem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Genvägsgränsen har nåtts!"
+  },
+  "warningGridFullTitle": {
+    "message": "Nätet är fullt"
+  },
+  "warningGridFullMessage": {
+    "message": "Du har nått den maximala gränsen för $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Mappen är full"
+  },
+  "warningFolderFullMessage": {
+    "message": "Denna mapp har nått den absoluta gränsen för $LIMIT$ objekt. Ta bort några genvägar innan du lägger till nya.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Återställ säkerhetskopia?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Detta kommer att ersätta dina nuvarande inställningar och genvägar med data från säkerhetskopian."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Återställ"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Ogiltig säkerhetskopieringsfil"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Den valda filen är inte en giltig säkerhetskopia."
+  },
+  "warningUnderstood": {
+    "message": "Förstått"
+  },
+  "warningClose": {
+    "message": "Stäng"
   },
   "greetMorning1": {
     "message": "God morgon, $NAME$",

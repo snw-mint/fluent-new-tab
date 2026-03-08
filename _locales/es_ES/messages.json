@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Importar"
   },
+  "addFolderTitle": {
+    "message": "Añadir carpeta"
+  },
+  "editFolderTitle": {
+    "message": "Editar carpeta"
+  },
+  "backLabel": {
+    "message": "Atrás"
+  },
   "addShortcutTitle": {
     "message": "Añadir acceso directo"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "El APOD de hoy es un vídeo o no está disponible. En su lugar, mantendremos tu fondo de pantalla actual."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Eliminar carpeta"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "¿Está seguro de que desea eliminar la carpeta «$FOLDER$»? Se eliminarán todos los accesos directos que contiene.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "¿Desactivar carpetas?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Se eliminarán todas las carpetas y sus accesos directos. Esto no se puede deshacer a menos que tengas una copia de seguridad."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Eliminar carpetas"
+  },
+  "warningKeepEnabled": {
+    "message": "Mantener habilitado"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "¿Añadir $ECOSYSTEM$ Apps?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Esto creará una carpeta con 9 aplicaciones de $ECOSYSTEM$ en tus accesos directos. ¿Continuar?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Añadir carpeta"
+  },
+  "launcherNoAppsTitle": {
+    "message": "No hay aplicaciones disponibles."
+  },
+  "launcherNoAppsAvailable": {
+    "message": "No hay aplicaciones disponibles para este ecosistema."
+  },
+  "shortcutsLimitReached": {
+    "message": "¡Se ha alcanzado el límite de accesos directos!"
+  },
+  "warningGridFullTitle": {
+    "message": "La red está llena"
+  },
+  "warningGridFullMessage": {
+    "message": "Has alcanzado el límite máximo de accesos directos de $LIMIT$ en la pantalla principal. Elimina algunos elementos o agrúpalos en una carpeta para liberar espacio.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "La carpeta está llena"
+  },
+  "warningFolderFullMessage": {
+    "message": "Esta carpeta ha alcanzado el límite absoluto de $LIMIT$ elementos. Elimine algunos accesos directos antes de añadir otros nuevos.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "¿Restaurar copia de seguridad?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Esto sustituirá su configuración actual y sus accesos directos por los datos del archivo de copia de seguridad."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Restaurar"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Archivo de copia de seguridad no válido"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "El archivo seleccionado no es una copia de seguridad válida."
+  },
+  "warningUnderstood": {
+    "message": "Entendido."
+  },
+  "warningClose": {
+    "message": "Cerrar"
   },
   "greetMorning1": {
     "message": "Buenos días, $NAME$",
@@ -264,7 +372,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Es hora de relajarse. $NAME$",
+    "message": "Es hora de relajarse, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -273,7 +381,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Disfruta de tu velada. $NAME$",
+    "message": "Disfruta de tu velada, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +417,7 @@
     }
   },
   "greetNight4": {
-    "message": "Buenas noches, $NAME$. ¡Hasta mañana!",
+    "message": "Buenas noches, $NAME$, ¡Hasta mañana!",
     "placeholders": {
       "name": {
         "content": "$1",

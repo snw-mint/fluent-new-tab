@@ -86,6 +86,15 @@
   "importOption": {
     "message": "匯入"
   },
+  "addFolderTitle": {
+    "message": "新增資料夾"
+  },
+  "editFolderTitle": {
+    "message": "編輯資料夾"
+  },
+  "backLabel": {
+    "message": "返回"
+  },
   "addShortcutTitle": {
     "message": "新增捷徑"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "今日的APOD為影片或無法提供。請繼續使用您當前的桌布。"
+  },
+  "warningDeleteFolderTitle": {
+    "message": "刪除資料夾"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "您確定要刪除資料夾「$FOLDER$」嗎？該資料夾內的所有捷徑都將被移除。",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "停用資料夾？"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "所有資料夾及其捷徑都將被刪除。除非您備有備份，否則此操作無法撤銷。"
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "刪除資料夾"
+  },
+  "warningKeepEnabled": {
+    "message": "保持啟用"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "新增 $ECOSYSTEM$ 應用程式？",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "這將為您的捷徑建立一個包含 9 個 $ECOSYSTEM$ 應用程式的資料夾。繼續？",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "新增資料夾"
+  },
+  "launcherNoAppsTitle": {
+    "message": "沒有可用應用程式"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "此生態系統目前沒有可用應用程式。"
+  },
+  "shortcutsLimitReached": {
+    "message": "捷徑使用上限已達！"
+  },
+  "warningGridFullTitle": {
+    "message": "網格已滿"
+  },
+  "warningGridFullMessage": {
+    "message": "您已達到主畫面中 $LIMIT$ 快捷方式的最大限制。請刪除部分項目或將其歸類至資料夾以釋放空間。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "資料夾已滿"
+  },
+  "warningFolderFullMessage": {
+    "message": "此資料夾已達到 $LIMIT$ 項目的絕對上限。請先移除部分捷徑，再新增其他項目。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "還原備份？"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "此操作將以備份檔案中的資料取代您當前的設定與捷徑。"
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "還原"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "無效的備份檔案"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "所選檔案並非有效的備份檔。"
+  },
+  "warningUnderstood": {
+    "message": "明白了"
+  },
+  "warningClose": {
+    "message": "關閉"
   },
   "greetMorning1": {
     "message": "早安， $NAME$",

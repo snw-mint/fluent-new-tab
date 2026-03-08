@@ -86,6 +86,15 @@
   "importOption": {
     "message": "İçeri aktar"
   },
+  "addFolderTitle": {
+    "message": "Klasör Ekle"
+  },
+  "editFolderTitle": {
+    "message": "Klasörü Düzenle"
+  },
+  "backLabel": {
+    "message": "Geri"
+  },
   "addShortcutTitle": {
     "message": "Kısayol Ekle"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınızı koruyun."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Klasörü Sil"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "\"$FOLDER$\" klasörünü silmek istediğinizden emin misiniz? İçindeki tüm kısayollar silinecektir.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Klasörleri devre dışı bırakmak mı?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Tüm klasörler ve kısayolları silinecektir. Yedeklemeniz yoksa bu işlem geri alınamaz."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Klasörleri Sil"
+  },
+  "warningKeepEnabled": {
+    "message": "Etkin Tut"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ uygulamalarını eklemek ister misiniz?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Bu, kısayollarınızda 9 adet $ECOSYSTEM$ uygulaması içeren bir klasör oluşturacaktır. Devam etmek istiyor musunuz?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Klasör Ekle"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Kullanılabilir uygulama yok"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Bu ekosistem için mevcut uygulama yoktur."
+  },
+  "shortcutsLimitReached": {
+    "message": "Kısayol sınırı ulaşıldı!"
+  },
+  "warningGridFullTitle": {
+    "message": "Izgara Dolu"
+  },
+  "warningGridFullMessage": {
+    "message": "Ana ekranda $LIMIT$ kısayollarının maksimum sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Klasör Dolu"
+  },
+  "warningFolderFullMessage": {
+    "message": "Bu klasör, $LIMIT$ öğelerinin mutlak sınırına ulaşmıştır. Yeni kısayollar eklemeden önce bazı kısayolları silin.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Yedeklemeyi geri yüklemek ister misiniz?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Bu, mevcut ayarlarınızı ve kısayollarınızı yedekleme dosyası verileriyle değiştirecektir."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Geri yükle"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Geçersiz Yedekleme Dosyası"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Seçilen dosya geçerli bir yedekleme dosyası değildir."
+  },
+  "warningUnderstood": {
+    "message": "Anlaşıldı"
+  },
+  "warningClose": {
+    "message": "Kapat"
   },
   "greetMorning1": {
     "message": "Günaydın, $NAME$",

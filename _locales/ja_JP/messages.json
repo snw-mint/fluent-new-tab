@@ -86,6 +86,15 @@
   "importOption": {
     "message": "インポート"
   },
+  "addFolderTitle": {
+    "message": "フォルダを追加"
+  },
+  "editFolderTitle": {
+    "message": "フォルダを編集"
+  },
+  "backLabel": {
+    "message": "戻る"
+  },
   "addShortcutTitle": {
     "message": "ショートカットを追加"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "本日のAPODは動画または利用不可です。代わりに現在の壁紙を表示します。"
+  },
+  "warningDeleteFolderTitle": {
+    "message": "フォルダを削除"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "「$FOLDER$」フォルダーを削除してもよろしいですか？このフォルダー内のすべてのショートカットが削除されます。",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "フォルダを無効化しますか？"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "すべてのフォルダーとそのショートカットが削除されます。バックアップがない限り、この操作は元に戻せません。"
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "フォルダを削除する"
+  },
+  "warningKeepEnabled": {
+    "message": "有効のままにする"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ アプリを追加しますか？",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "これにより、ショートカットに9つの $ECOSYSTEM$ アプリを含むフォルダが作成されます。続行しますか？",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "フォルダを追加"
+  },
+  "launcherNoAppsTitle": {
+    "message": "利用可能なアプリはありません"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "このエコシステム向けのアプリはありません。"
+  },
+  "shortcutsLimitReached": {
+    "message": "ショートカットの上限に達しました！"
+  },
+  "warningGridFullTitle": {
+    "message": "グリッドが満杯です"
+  },
+  "warningGridFullMessage": {
+    "message": "メイン画面の $LIMIT$ ショートカットが上限に達しました。スペースを空けるために、いくつかの項目を削除するか、フォルダにまとめてください。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "フォルダがいっぱいです"
+  },
+  "warningFolderFullMessage": {
+    "message": "このフォルダは $LIMIT$ アイテムの絶対上限に達しました。新しいアイテムを追加する前に、いくつかのショートカットを削除してください。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "バックアップを復元しますか？"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "これにより、現在の設定とショートカットがバックアップファイルのデータで置き換えられます。"
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "復元"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "無効なバックアップファイル"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "選択されたファイルは有効なバックアップではありません。"
+  },
+  "warningUnderstood": {
+    "message": "承知しました"
+  },
+  "warningClose": {
+    "message": "閉じる"
   },
   "greetMorning1": {
     "message": "おはようございます。 $NAME$",

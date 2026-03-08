@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Import"
   },
+  "addFolderTitle": {
+    "message": "Tilføj mappe"
+  },
+  "editFolderTitle": {
+    "message": "Rediger mappe"
+  },
+  "backLabel": {
+    "message": "Tilbage"
+  },
   "addShortcutTitle": {
     "message": "Tilføj genvej"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD er en video eller er ikke tilgængelig. Vi viser i stedet dit nuværende baggrundsbillede."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Slet mappe"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Er du sikker på, at du vil slette mappen \"$FOLDER$\"? Alle genveje i mappen vil blive slettet.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Deaktivere mapper?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Alle mapper og deres genveje vil blive slettet. Dette kan ikke fortrydes, medmindre du har en sikkerhedskopi."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Slet mapper"
+  },
+  "warningKeepEnabled": {
+    "message": "Hold aktiveret"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Tilføj $ECOSYSTEM$ Apps?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Dette vil oprette en mappe med 9 $ECOSYSTEM$ apps i dine genveje. Fortsæt?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Tilføj mappe"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Ingen apps tilgængelige"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Der er ingen apps tilgængelige for dette økosystem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Grænsen for genveje er nået!"
+  },
+  "warningGridFullTitle": {
+    "message": "Gitteret er fuldt"
+  },
+  "warningGridFullMessage": {
+    "message": "Du har nået den maksimale grænse for $LIMIT$ genveje på hovedskærmen. Slet nogle elementer eller grupper dem i en mappe for at frigøre plads.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Mappen er fuld"
+  },
+  "warningFolderFullMessage": {
+    "message": "Denne mappe har nået den absolutte grænse for $LIMIT$ elementer. Fjern nogle genveje, før du tilføjer nye.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Gendanne sikkerhedskopi?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Dette vil erstatte dine nuværende indstillinger og genveje med dataene fra sikkerhedskopifilen."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Gendan"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Ugyldig sikkerhedskopifil"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Den valgte fil er ikke en gyldig sikkerhedskopi."
+  },
+  "warningUnderstood": {
+    "message": "Forstået"
+  },
+  "warningClose": {
+    "message": "Luk"
   },
   "greetMorning1": {
     "message": "Godmorgen, $NAME$",

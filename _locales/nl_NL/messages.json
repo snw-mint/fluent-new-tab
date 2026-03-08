@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Importeren"
   },
+  "addFolderTitle": {
+    "message": "Map toevoegen"
+  },
+  "editFolderTitle": {
+    "message": "Map bewerken"
+  },
+  "backLabel": {
+    "message": "Terug"
+  },
   "addShortcutTitle": {
     "message": "Snelkoppeling toevoegen"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "De APOD van vandaag is een video of is niet beschikbaar. In plaats daarvan behoudt u uw huidige achtergrond."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Map verwijderen"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Weet u zeker dat u de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Mappen uitschakelen?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij u een back-up hebt."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Mappen verwijderen"
+  },
+  "warningKeepEnabled": {
+    "message": "Ingeschakeld houden"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ -apps toevoegen?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in uw snelkoppelingen aangemaakt. Doorgaan?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Map toevoegen"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Geen apps beschikbaar"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Er zijn geen apps beschikbaar voor dit ecosysteem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Limiet voor snelkoppelingen bereikt!"
+  },
+  "warningGridFullTitle": {
+    "message": "Het raster is vol"
+  },
+  "warningGridFullMessage": {
+    "message": "Je hebt de maximale limiet van $LIMIT$ snelkoppelingen op het hoofdscherm bereikt. Verwijder enkele items of groepeer ze in een map om ruimte vrij te maken.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Map is vol"
+  },
+  "warningFolderFullMessage": {
+    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat u nieuwe toevoegt.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Back-up herstellen?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Hierdoor worden uw huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Herstellen"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Ongeldig back-upbestand"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Het geselecteerde bestand is geen geldige back-up."
+  },
+  "warningUnderstood": {
+    "message": "Begrepen"
+  },
+  "warningClose": {
+    "message": "Sluiten"
   },
   "greetMorning1": {
     "message": "Goedemorgen, $NAME$",
