@@ -87,13 +87,13 @@
     "message": "Tuonti"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Lisää kansio"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Muokkaa kansiota"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Takaisin"
   },
   "addShortcutTitle": {
     "message": "Lisää pikakuvake"
@@ -156,10 +156,10 @@
     "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Poista kansio"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Haluatko varmasti poistaa kansion \"$FOLDER$\"? Kaikki sen sisältämät pikakuvakkeet poistetaan.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Poista kansiot käytöstä?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Kaikki kansiot ja niiden pikakuvakkeet poistetaan. Tätä ei voi peruuttaa, ellei sinulla ole varmuuskopiota."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Poista kansiot"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Pidä käytössä"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Lisää $ECOSYSTEM$ -sovellukset?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Tämä luo kansion, jossa on 9 $ECOSYSTEM$ -sovellusta pikakuvakkeisiin. Jatkatko?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Lisää kansio"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Sovelluksia ei ole saatavilla"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Pikakuvakkeiden raja saavutettu!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Ruudukko on täynnä"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Olet saavuttanut pääruudulla olevien pikakuvakkeiden enimmäismäärän $LIMIT$ . Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Kansio on täynnä"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteiden absoluuttisen rajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Palautetaanko varmuuskopio?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Tämä korvaa nykyiset asetuksesi ja pikakuvakkeesi varmuuskopiotiedoston tiedoilla."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Palauta"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Virheellinen varmuuskopiotiedosto"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Ymmärretty"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Sulje"
   },
   "greetMorning1": {
     "message": "Hyvää huomenta, $NAME$",
