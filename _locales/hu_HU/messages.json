@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Mappa hozzáadása"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Mappa szerkesztése"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Vissza"
   },
   "addShortcutTitle": {
     "message": "Parancsikon hozzáadása"
@@ -156,10 +156,10 @@
     "message": "A mai APOD egy videó, vagy nem elérhető. Helyette a jelenlegi háttérképet tartjuk meg."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Mappa törlése"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Biztosan törölni szeretné a „$FOLDER$” mappát? A mappában található összes parancsikon törlésre kerül.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Mappák letiltása?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Minden mappa és azok parancsikonjai törlésre kerülnek. Ez visszafordíthatatlan, hacsak nincs biztonsági másolatod."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Mappák törlése"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Engedélyezve tartás"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "$ECOSYSTEM$ alkalmazások hozzáadása?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Ezzel egy mappa jön létre, amelyben 9 $ECOSYSTEM$ alkalmazás található a parancsikonok között. Folytatni kívánja?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Mappa hozzáadása"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Nincs elérhető alkalmazás"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Ehhez az ökoszisztémához nincs elérhető alkalmazás."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "A gyorsbillentyűk korlátja elérve!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "A rács megtelt"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Elérte a főképernyőn a $LIMIT$ parancsikonok maximális számát. Töröljön néhány elemet, vagy csoportosítsa őket egy mappába, hogy helyet szabadítson fel.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "A mappa megtelt"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Ez a mappa elérte a $LIMIT$ elemek abszolút határát. Kérjük, távolítson el néhány parancsikont, mielőtt újakat adna hozzá.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Biztonsági másolat visszaállítása?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Ezzel a jelenlegi beállítások és parancsikonok helyébe a biztonsági másolat fájljának adatai lépnek."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Visszaállítás"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Érvénytelen biztonsági másolat fájl"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "A kiválasztott fájl nem érvényes biztonsági másolat."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Értettem."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Bezárás"
   },
   "greetMorning1": {
     "message": "Jó reggelt! $NAME$",
