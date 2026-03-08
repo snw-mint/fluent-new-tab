@@ -87,13 +87,13 @@
     "message": "Importation"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Ajouter un dossier"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Modifier le dossier"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Retour"
   },
   "addShortcutTitle": {
     "message": "Ajouter un raccourci"
@@ -156,10 +156,10 @@
     "message": "L'APOD d'aujourd'hui est une vidéo ou n'est pas disponible. Vous conservez votre fond d'écran actuel à la place."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Supprimer le dossier"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Êtes-vous sûr de vouloir supprimer le dossier «$FOLDER$» ? Tous les raccourcis qu'il contient seront supprimés.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Désactiver les dossiers ?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Tous les dossiers et leurs raccourcis seront supprimés. Cette opération ne peut être annulée, sauf si vous disposez d'une sauvegarde."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Supprimer les dossiers"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Garder activé"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Ajouter $ECOSYSTEM$ Applications ?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Cela créera un dossier contenant 9 applications $ECOSYSTEM$ dans vos raccourcis. Continuer ?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Ajouter un dossier"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Aucune application disponible"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Aucune application disponible pour cet écosystème."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limite de raccourcis atteinte !"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "La grille est pleine"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Vous avez atteint la limite maximale de raccourcis $LIMIT$ sur l'écran principal. Supprimez certains éléments ou regroupez-les dans un dossier pour libérer de l'espace.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Le dossier est plein"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Ce dossier a atteint la limite absolue de $LIMIT$ éléments. Veuillez supprimer certains raccourcis avant d'en ajouter de nouveaux.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Restaurer la sauvegarde ?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Cela remplacera vos paramètres et raccourcis actuels par les données du fichier de sauvegarde."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Restaurer"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Fichier de sauvegarde invalide"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Le fichier sélectionné n'est pas une sauvegarde valide."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Compris."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Fermer"
   },
   "greetMorning1": {
     "message": "Bonjour, $NAME$",
