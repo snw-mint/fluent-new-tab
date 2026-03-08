@@ -24,6 +24,18 @@ function closePopups(except: Element | null = null): void {
         if (menu !== except) menu.classList.remove('active');
     });
     if (dropdown && dropdown !== except) dropdown.classList.remove('active');
+
+    syncShortcutDropdownState();
+}
+
+function syncShortcutDropdownState(): void {
+    const hasActiveDropdown = Boolean(shortcutsGrid?.querySelector('.shortcut-dropdown.active'));
+    if (shortcutsGrid) shortcutsGrid.classList.toggle('dropdown-open', hasActiveDropdown);
+
+    document.querySelectorAll('.menu-wrapper').forEach((wrapper) => {
+        const isOpen = Boolean(wrapper.querySelector('.shortcut-dropdown.active'));
+        wrapper.classList.toggle('dropdown-open', isOpen);
+    });
 }
 
 function openModal(index: number | null = null): void {
@@ -1629,6 +1641,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 dropdown.classList.remove('active');
             }
         });
+        syncShortcutDropdownState();
     });
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     [addModal, chooseTypeModal, addFolderModal].forEach((modal) => {

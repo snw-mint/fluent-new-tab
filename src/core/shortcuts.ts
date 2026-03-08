@@ -180,6 +180,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             const dropdown = menuBtn.closest('.menu-wrapper')?.querySelector('.shortcut-dropdown');
             onClosePopups(dropdown);
             dropdown?.classList.toggle('active');
+            syncShortcutDropdownState();
             return;
         }
 
@@ -234,6 +235,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         const dropdown = card.querySelector('.shortcut-dropdown');
         onClosePopups(dropdown);
         dropdown?.classList.add('active');
+        syncShortcutDropdownState();
     };
 
     shortcutsGrid.onclick = handleGridClick;

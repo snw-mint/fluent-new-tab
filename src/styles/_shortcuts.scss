@@ -27,6 +27,10 @@
             z-index: 50;
         }
 
+        &:has(.shortcut-dropdown.active) {
+            z-index: 100;
+        }
+
         .shortcut-card {
             width: 44px;
             height: 44px;
@@ -103,7 +107,7 @@
                 right: 0;
                 min-width: 140px;
                 padding: 6px;
-                z-index: 100;
+                z-index: 1000;
                 opacity: 0;
                 transform: translateY(-6px) scale(0.96);
                 pointer-events: none;
@@ -158,6 +162,8 @@
             }
         }
 
+// ... (resto do código de .shortcut-item)
+        
         &.add-card-wrapper {
             .shortcut-card {
                 background: #ffffff;
@@ -174,5 +180,16 @@
             opacity: 1;
             transform: scale(1);
         }
+
+    }
+    &:has(.shortcut-dropdown.active) .shortcut-item {
+        pointer-events: none;
+    }
+    .shortcut-item:has(.shortcut-dropdown.active) {
+        pointer-events: auto;
+    }
+    &:has(.shortcut-dropdown.active) .shortcut-item:not(:has(.shortcut-dropdown.active)) .menu-btn {
+        opacity: 0;
+        transform: scale(0.5);
     }
 }
