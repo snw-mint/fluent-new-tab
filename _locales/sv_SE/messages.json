@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Lägg till mapp"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Redigera mapp"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Tillbaka"
   },
   "addShortcutTitle": {
     "message": "Lägg till genväg"
@@ -156,10 +156,10 @@
     "message": "Dagens APOD är en video eller otillgänglig. Vi behåller din nuvarande bakgrundsbild istället."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Ta bort mapp"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Är du säker på att du vill ta bort mappen \"$FOLDER$\"? Alla genvägar i mappen kommer att tas bort.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Inaktivera mappar?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Alla mappar och deras genvägar kommer att raderas. Detta kan inte ångras om du inte har en säkerhetskopia."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Ta bort mappar"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Håll aktiverat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Lägg till $ECOSYSTEM$ Appar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Detta kommer att skapa en mapp med 9 $ECOSYSTEM$ appar i dina genvägar. Fortsätta?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Lägg till mapp"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Inga appar tillgängliga"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Inga appar tillgängliga för detta ekosystem."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Genvägsgränsen har nåtts!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Nätet är fullt"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Du har nått den maximala gränsen för $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Mappen är full"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Denna mapp har nått den absoluta gränsen för $LIMIT$ objekt. Ta bort några genvägar innan du lägger till nya.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Återställ säkerhetskopia?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Detta kommer att ersätta dina nuvarande inställningar och genvägar med data från säkerhetskopian."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Återställ"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Ogiltig säkerhetskopieringsfil"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Den valda filen är inte en giltig säkerhetskopia."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Förstått"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Stäng"
   },
   "greetMorning1": {
     "message": "God morgon, $NAME$",
