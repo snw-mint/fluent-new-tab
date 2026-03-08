@@ -30,6 +30,7 @@
   "importOption": { "message": "Import" },
   "addFolderTitle": { "message": "Add Folder" },
   "editFolderTitle": { "message": "Edit Folder" },
+  "chooseTypeTitle": { "message": "Create New" },
   "backLabel": { "message": "Back" },
   "addShortcutTitle": { "message": "Add Shortcut" },
   "editShortcutTitle": { "message": "Edit Shortcut" },

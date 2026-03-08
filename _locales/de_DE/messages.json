@@ -12,7 +12,7 @@
     "message": "Begrüßung"
   },
   "wallpaperTitle": {
-    "message": "Tapete"
+    "message": "Hintergrundbild"
   },
   "wallpaperSourceLabel": {
     "message": "Bildquelle"
@@ -42,7 +42,7 @@
     "message": "4 Reihen"
   },
   "appLauncherTitle": {
-    "message": "App-Starter"
+    "message": "App-Launcher"
   },
   "ecosystemLabel": {
     "message": "Ökosystem"
@@ -57,7 +57,7 @@
     "message": "Saubere Suche (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakte Stange"
+    "message": "Kompakte Leiste"
   },
   "voiceSearchOption": {
     "message": "Sprachsuche"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Ordner hinzufügen"
+  },
+  "chooseTypeTitle": {
+    "message": "Neu erstellen"
   },
   "editFolderTitle": {
     "message": "Ordner bearbeiten"
@@ -141,7 +144,7 @@
     "message": "Weitere Optionen"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab wurde auf die Version $VERSION$aktualisiert. ",
+    "message": "Fluent New Tab wurde auf Version $VERSION$ aktualisiert, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -180,7 +183,7 @@
     "message": "Aktiviert lassen"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ -Apps hinzufügen?",
+    "message": "$ECOSYSTEM$-Apps hinzufügen?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +192,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Dadurch wird ein Ordner mit 9 Apps von „ $ECOSYSTEM$ “ in Ihren Verknüpfungen erstellt. Möchten Sie fortfahren?",
+    "message": "Dadurch wird ein Ordner mit 9 $ECOSYSTEM$-Apps in Ihren Verknüpfungen erstellt. Möchten Sie fortfahren?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Es ist schön, dich zu sehen. $NAME$",
+    "message": "Es ist schön, dich zu sehen, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Ich hoffe, es geht Ihnen gut. $NAME$",
+    "message": "Ich hoffe, es geht Ihnen gut, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

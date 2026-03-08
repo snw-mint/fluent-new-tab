@@ -63,7 +63,7 @@
     "message": "Φωνητική αναζήτηση"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Μείωση των επιπτώσεων"
+    "message": "Μείωση εφέ"
   },
   "reduceMotionTitle": {
     "message": "Μείωση κίνησης"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Προσθήκη φακέλου"
+  },
+  "chooseTypeTitle": {
+    "message": "Δημιουργία νέου"
   },
   "editFolderTitle": {
     "message": "Επεξεργασία φακέλου"
@@ -141,7 +144,7 @@
     "message": "Περισσότερες επιλογές"
   },
   "updateNoticePrefix": {
-    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
+    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
   },
   "warningUnderstood": {
-    "message": "Κατάλαβα."
+    "message": "Κατάλαβα"
   },
   "warningClose": {
     "message": "Κλείσιμο"

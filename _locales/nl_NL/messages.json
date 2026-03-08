@@ -12,7 +12,7 @@
     "message": "Groet"
   },
   "wallpaperTitle": {
-    "message": "Behang"
+    "message": "Achtergrond"
   },
   "wallpaperSourceLabel": {
     "message": "Afbeeldingsbron"
@@ -57,7 +57,7 @@
     "message": "Schone zoekopdracht (Google)"
   },
   "compactBarOption": {
-    "message": "Compacte staaf"
+    "message": "Compacte balk"
   },
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Map toevoegen"
+  },
+  "chooseTypeTitle": {
+    "message": "Nieuw maken"
   },
   "editFolderTitle": {
     "message": "Map bewerken"
@@ -180,7 +183,7 @@
     "message": "Ingeschakeld houden"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ -apps toevoegen?",
+    "message": "$ECOSYSTEM$-apps toevoegen?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",

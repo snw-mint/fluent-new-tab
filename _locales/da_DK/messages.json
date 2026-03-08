@@ -78,7 +78,7 @@
     "message": "Grænsefladesprog"
   },
   "backupTitle": {
-    "message": "Databackup"
+    "message": "Sikkerhedskopi af data"
   },
   "exportOption": {
     "message": "Eksport"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Tilføj mappe"
+  },
+  "chooseTypeTitle": {
+    "message": "Opret ny"
   },
   "editFolderTitle": {
     "message": "Rediger mappe"
@@ -180,7 +183,7 @@
     "message": "Hold aktiveret"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Tilføj $ECOSYSTEM$ Apps?",
+    "message": "Tilføj $ECOSYSTEM$ apps?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Jeg håber, du har det godt. $NAME$",
+    "message": "Jeg håber, du har det godt, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

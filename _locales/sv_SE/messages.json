@@ -42,7 +42,7 @@
     "message": "4 rader"
   },
   "appLauncherTitle": {
-    "message": "App-startprogram"
+    "message": "Launcher för appar"
   },
   "ecosystemLabel": {
     "message": "Ekosystem"
@@ -57,7 +57,7 @@
     "message": "Ren sökning (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakt bar"
+    "message": "Kompakt fält"
   },
   "voiceSearchOption": {
     "message": "Röstsökning"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Lägg till mapp"
+  },
+  "chooseTypeTitle": {
+    "message": "Skapa ny"
   },
   "editFolderTitle": {
     "message": "Redigera mapp"
@@ -141,7 +144,7 @@
     "message": "Fler alternativ"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab har uppdaterats till version $VERSION$, ",
+    "message": "Fluent New Tab har uppdaterats till version $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -180,7 +183,7 @@
     "message": "Håll aktiverat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Lägg till $ECOSYSTEM$ Appar?",
+    "message": "Lägg till $ECOSYSTEM$‑appar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "Nätet är fullt"
   },
   "warningGridFullMessage": {
-    "message": "Du har nått den maximala gränsen för $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
+    "message": "Du har nått den maximala gränsen på $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -381,7 +384,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Ha en trevlig kväll! $NAME$",
+    "message": "Ha en trevlig kväll, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

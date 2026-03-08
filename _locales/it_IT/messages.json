@@ -12,10 +12,10 @@
     "message": "Saluto"
   },
   "wallpaperTitle": {
-    "message": "Carta da parati"
+    "message": "Sfondo"
   },
   "wallpaperSourceLabel": {
-    "message": "Fonte immagine"
+    "message": "Sorgente immagine"
   },
   "iconsStyleLabel": {
     "message": "Stile icona"
@@ -42,7 +42,7 @@
     "message": "4 file"
   },
   "appLauncherTitle": {
-    "message": "Avvio applicazioni"
+    "message": "Launcher applicazioni"
   },
   "ecosystemLabel": {
     "message": "Ecosistema"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Aggiungi cartella"
+  },
+  "chooseTypeTitle": {
+    "message": "Crea nuovo"
   },
   "editFolderTitle": {
     "message": "Modifica cartella"

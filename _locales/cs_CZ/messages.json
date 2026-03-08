@@ -12,7 +12,7 @@
     "message": "Pozdrav"
   },
   "wallpaperTitle": {
-    "message": "Tapeta"
+    "message": "Pozadí"
   },
   "wallpaperSourceLabel": {
     "message": "Zdroj obrázku"
@@ -57,13 +57,13 @@
     "message": "Čisté vyhledávání (Google)"
   },
   "compactBarOption": {
-    "message": "Kompaktní tyčinka"
+    "message": "Kompaktní lišta"
   },
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Snížit účinky"
+    "message": "Omezit efekty"
   },
   "reduceMotionTitle": {
     "message": "Omezit pohyb"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Přidat složku"
+  },
+  "chooseTypeTitle": {
+    "message": "Vytvořit nový"
   },
   "editFolderTitle": {
     "message": "Upravit složku"
@@ -180,7 +183,7 @@
     "message": "Nechat zapnuté"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Přidat $ECOSYSTEM$ Aplikace?",
+    "message": "Přidat aplikace $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +192,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Tím se ve vašich zkratkách vytvoří složka s 9 aplikacemi $ECOSYSTEM$ . Pokračovat?",
+    "message": "Tím se ve vašich zkratkách vytvoří složka s 9 aplikacemi $ECOSYSTEM$. Pokračovat?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "Mřížka je plná"
   },
   "warningGridFullMessage": {
-    "message": "Dosáhli jste maximálního limitu zkratek na hlavní obrazovce $LIMIT$ . Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
+    "message": "Dosáhli jste maximálního limitu $LIMIT$ zkratek na hlavní obrazovce. Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,7 +228,7 @@
     "message": "Složka je plná"
   },
   "warningFolderFullMessage": {
-    "message": "Tato složka dosáhla absolutního limitu položek $LIMIT$ . Před přidáním nových položek prosím odstraňte některé zástupce.",
+    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zástupce.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "Vybraný soubor není platnou zálohou."
   },
   "warningUnderstood": {
-    "message": "Rozumím."
+    "message": "Rozumím"
   },
   "warningClose": {
     "message": "Zavřít"

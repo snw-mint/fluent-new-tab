@@ -89,6 +89,9 @@
   "addFolderTitle": {
     "message": "Add Folder"
   },
+  "chooseTypeTitle": {
+    "message": "Create New"
+  },
   "editFolderTitle": {
     "message": "Edit Folder"
   },
@@ -141,7 +144,7 @@
     "message": "More options"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab has been updated to version $VERSION$, ",
+    "message": "Fluent New Tab has been updated to version $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",

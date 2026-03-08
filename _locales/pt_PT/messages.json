@@ -30,19 +30,19 @@
     "message": "1 linha"
   },
   "rows2": {
-    "message": "2 filas"
+    "message": "2 linhas"
   },
   "rowsLabel": {
     "message": "Linhas"
   },
   "rows3": {
-    "message": "3 filas"
+    "message": "3 linhas"
   },
   "rows4": {
     "message": "4 linhas"
   },
   "appLauncherTitle": {
-    "message": "Iniciador de aplicações"
+    "message": "Launcher de apps"
   },
   "ecosystemLabel": {
     "message": "Ecossistema"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Adicionar pasta"
+  },
+  "chooseTypeTitle": {
+    "message": "Criar novo"
   },
   "editFolderTitle": {
     "message": "Editar pasta"
@@ -141,7 +144,7 @@
     "message": "Mais opções"
   },
   "updateNoticePrefix": {
-    "message": "O Fluent New Tab foi atualizado para a versão $VERSION$, ",
+    "message": "O Fluent New Tab foi atualizado para a versão $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -180,7 +183,7 @@
     "message": "Manter ativado"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Adicionar $ECOSYSTEM$ Apps?",
+    "message": "Adicionar apps $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +192,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Isso criará uma pasta com 9 $ECOSYSTEM$ aplicativos nos seus atalhos. Continuar?",
+    "message": "Isso criará uma pasta com 9 apps $ECOSYSTEM$ nos seus atalhos. Continuar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "A rede está cheia"
   },
   "warningGridFullMessage": {
-    "message": "Você atingiu o limite máximo de atalhos do $LIMIT$ na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
+    "message": "Você atingiu o limite máximo de $LIMIT$ atalhos na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,7 +228,7 @@
     "message": "A pasta está cheia"
   },
   "warningFolderFullMessage": {
-    "message": "Esta pasta atingiu o limite absoluto de itens $LIMIT$ . Remova alguns atalhos antes de adicionar novos.",
+    "message": "Esta pasta atingiu o limite absoluto de $LIMIT$ itens. Remova alguns atalhos antes de adicionar novos.",
     "placeholders": {
       "limit": {
         "content": "$1",

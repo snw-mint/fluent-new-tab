@@ -63,7 +63,7 @@
     "message": "音声検索"
   },
   "reduceVisualEffectsTitle": {
-    "message": "効果を低減する"
+    "message": "エフェクトを減らす"
   },
   "reduceMotionTitle": {
     "message": "動きを減らす"
@@ -81,13 +81,16 @@
     "message": "データバックアップ"
   },
   "exportOption": {
-    "message": "輸出"
+    "message": "エクスポート"
   },
   "importOption": {
     "message": "インポート"
   },
   "addFolderTitle": {
     "message": "フォルダを追加"
+  },
+  "chooseTypeTitle": {
+    "message": "新規作成"
   },
   "editFolderTitle": {
     "message": "フォルダを編集"
@@ -141,7 +144,7 @@
     "message": "その他のオプション"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab はバージョン $VERSION$に更新されました。 ",
+    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました、",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -255,7 +258,7 @@
     "message": "閉じる"
   },
   "greetMorning1": {
-    "message": "おはようございます。 $NAME$",
+    "message": "おはようございます、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -264,7 +267,7 @@
     }
   },
   "greetMorning2": {
-    "message": "さあ、目を覚ませ、 $NAME$！",
+    "message": "さあ、目を覚ませ、$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -273,7 +276,7 @@
     }
   },
   "greetMorning3": {
-    "message": "素敵な一日をお過ごしください。 $NAME$",
+    "message": "素敵な一日をお過ごしください、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -282,7 +285,7 @@
     }
   },
   "greetMorning4": {
-    "message": "こんにちは、 $NAME$！今日は準備万端ですか？",
+    "message": "こんにちは、$NAME$！今日は準備万端ですか？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -291,7 +294,7 @@
     }
   },
   "greetMorning5": {
-    "message": "一日を良いスタートで始めよう $NAME$",
+    "message": "一日を良いスタートで始めよう、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -300,7 +303,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "こんにちは。 $NAME$",
+    "message": "こんにちは、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "お会いできて嬉しいです。 $NAME$",
+    "message": "お会いできて嬉しいです、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "お元気でいらっしゃいますように。 $NAME$",
+    "message": "お元気でいらっしゃいますように、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -336,7 +339,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "集中力を保ち、生産性を維持しましょう。 $NAME$",
+    "message": "集中力を保ち、生産性を維持しましょう、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -345,7 +348,7 @@
     }
   },
   "greetEvening1": {
-    "message": "こんばんは、 $NAME$",
+    "message": "こんばんは、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -354,7 +357,7 @@
     }
   },
   "greetEvening2": {
-    "message": "くつろぐ時間です。 $NAME$",
+    "message": "くつろぐ時間です、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -363,7 +366,7 @@
     }
   },
   "greetEvening3": {
-    "message": "穏やかな夜をお過ごしください。 $NAME$",
+    "message": "穏やかな夜をお過ごしください、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -372,7 +375,7 @@
     }
   },
   "greetEvening4": {
-    "message": "くつろぐ時間だ、 $NAME$",
+    "message": "くつろぐ時間だ、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -381,7 +384,7 @@
     }
   },
   "greetEvening5": {
-    "message": "良い夜を。 $NAME$",
+    "message": "良い夜を、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -390,7 +393,7 @@
     }
   },
   "greetNight1": {
-    "message": "穏やかな夜をお過ごしください。 $NAME$",
+    "message": "穏やかな夜をお過ごしください、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -399,7 +402,7 @@
     }
   },
   "greetNight2": {
-    "message": "まだ起きてる？ $NAME$？早く休んでね！",
+    "message": "まだ起きてるの、$NAME$？ 早く休んでね！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -408,7 +411,7 @@
     }
   },
   "greetNight3": {
-    "message": "静かな時間を楽しんでください。 $NAME$",
+    "message": "静かな時間を楽しんでください、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -417,7 +420,7 @@
     }
   },
   "greetNight4": {
-    "message": "おやすみ、 $NAME$。また明日！",
+    "message": "おやすみ、$NAME$。また明日！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -426,7 +429,7 @@
     }
   },
   "greetNight5": {
-    "message": "今夜は遅くまで起きてる、 $NAME$？",
+    "message": "今夜は遅くまで起きてるの、$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",

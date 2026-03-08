@@ -12,7 +12,7 @@
     "message": "인사말"
   },
   "wallpaperTitle": {
-    "message": "벽지"
+    "message": "배경화면"
   },
   "wallpaperSourceLabel": {
     "message": "이미지 출처"
@@ -63,10 +63,10 @@
     "message": "음성 검색"
   },
   "reduceVisualEffectsTitle": {
-    "message": "효과 감소"
+    "message": "효과 줄이기"
   },
   "reduceMotionTitle": {
-    "message": "움직임을 줄이다"
+    "message": "움직임 줄이기"
   },
   "reduceBlurOption": {
     "message": "흐림 감소"
@@ -81,13 +81,16 @@
     "message": "데이터 백업"
   },
   "exportOption": {
-    "message": "수출"
+    "message": "내보내기"
   },
   "importOption": {
-    "message": "수입"
+    "message": "가져오기"
   },
   "addFolderTitle": {
     "message": "폴더 추가"
+  },
+  "chooseTypeTitle": {
+    "message": "새로 만들기"
   },
   "editFolderTitle": {
     "message": "폴더 편집"
@@ -141,7 +144,7 @@
     "message": "추가 옵션"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab이 버전 $VERSION$으로 업데이트되었습니다. ",
+    "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -255,7 +258,7 @@
     "message": "닫기"
   },
   "greetMorning1": {
-    "message": "좋은 아침입니다. $NAME$",
+    "message": "좋은 아침입니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -264,7 +267,7 @@
     }
   },
   "greetMorning2": {
-    "message": "일어나서 빛을 발하라, $NAME$!",
+    "message": "일어나서 빛을 발해요, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -273,7 +276,7 @@
     }
   },
   "greetMorning3": {
-    "message": "멋진 하루 되시길 바랍니다. $NAME$",
+    "message": "멋진 하루 되시길 바랍니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -300,7 +303,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "안녕하세요. $NAME$",
+    "message": "안녕하세요, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "만나서 반갑습니다. $NAME$",
+    "message": "만나서 반갑습니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "잘 지내고 계시길 바랍니다. $NAME$",
+    "message": "잘 지내고 계시길 바랍니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -336,7 +339,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "집중력을 유지하고 생산적으로 일하세요. $NAME$",
+    "message": "집중력을 유지하고 생산적으로 일하세요, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -345,7 +348,7 @@
     }
   },
   "greetEvening1": {
-    "message": "좋은 저녁입니다. $NAME$",
+    "message": "좋은 저녁입니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -354,7 +357,7 @@
     }
   },
   "greetEvening2": {
-    "message": "이제 휴식을 취할 시간입니다. $NAME$",
+    "message": "이제 휴식을 취할 시간입니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -363,7 +366,7 @@
     }
   },
   "greetEvening3": {
-    "message": "평온한 저녁 되시길 바랍니다. $NAME$",
+    "message": "평온한 저녁 되시길 바랍니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -390,7 +393,7 @@
     }
   },
   "greetNight1": {
-    "message": "평온한 밤 보내고 계시길 바랍니다. $NAME$",
+    "message": "평온한 밤 보내고 계시길 바랍니다, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

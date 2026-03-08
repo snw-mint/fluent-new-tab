@@ -12,7 +12,7 @@
     "message": "Saludo"
   },
   "wallpaperTitle": {
-    "message": "Papel pintado"
+    "message": "Fondo de pantalla"
   },
   "wallpaperSourceLabel": {
     "message": "Fuente de la imagen"
@@ -42,7 +42,7 @@
     "message": "4 filas"
   },
   "appLauncherTitle": {
-    "message": "Iniciador de aplicaciones"
+    "message": "Lanzador de aplicaciones"
   },
   "ecosystemLabel": {
     "message": "Ecosistema"
@@ -63,7 +63,7 @@
     "message": "Búsqueda por voz"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Reducir los efectos"
+    "message": "Reducir efectos"
   },
   "reduceMotionTitle": {
     "message": "Reducir el movimiento"
@@ -95,6 +95,9 @@
   "backLabel": {
     "message": "Atrás"
   },
+    "chooseTypeTitle": {
+      "message": "Crear nuevo"
+    },
   "addShortcutTitle": {
     "message": "Añadir acceso directo"
   },
@@ -180,7 +183,7 @@
     "message": "Mantener habilitado"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "¿Añadir $ECOSYSTEM$ Apps?",
+    "message": "¿Añadir apps de $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +192,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Esto creará una carpeta con 9 aplicaciones de $ECOSYSTEM$ en tus accesos directos. ¿Continuar?",
+    "message": "Esto creará una carpeta con 9 apps de $ECOSYSTEM$ en tus accesos directos. ¿Continuar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -201,7 +204,7 @@
     "message": "Añadir carpeta"
   },
   "launcherNoAppsTitle": {
-    "message": "No hay aplicaciones disponibles."
+    "message": "No hay aplicaciones disponibles"
   },
   "launcherNoAppsAvailable": {
     "message": "No hay aplicaciones disponibles para este ecosistema."
@@ -249,7 +252,7 @@
     "message": "El archivo seleccionado no es una copia de seguridad válida."
   },
   "warningUnderstood": {
-    "message": "Entendido."
+    "message": "Entendido"
   },
   "warningClose": {
     "message": "Cerrar"
@@ -291,7 +294,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Empecemos bien el día. $NAME$",
+    "message": "Empecemos bien el día, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Me alegro de verte. $NAME$",
+    "message": "Me alegro de verte, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Espero que estés bien. $NAME$",
+    "message": "Espero que estés bien, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -336,7 +339,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Mantén la concentración y la productividad. $NAME$",
+    "message": "Mantén la concentración y la productividad, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -390,7 +393,7 @@
     }
   },
   "greetNight1": {
-    "message": "Espero que estés pasando una noche tranquila. $NAME$",
+    "message": "Espero que estés pasando una noche tranquila, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

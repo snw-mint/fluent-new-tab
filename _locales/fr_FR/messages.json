@@ -12,7 +12,7 @@
     "message": "Salutation"
   },
   "wallpaperTitle": {
-    "message": "Papier peint"
+    "message": "Fond d'écran"
   },
   "wallpaperSourceLabel": {
     "message": "Source de l'image"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Ajouter un dossier"
+  },
+  "chooseTypeTitle": {
+    "message": "Créer un nouvel élément"
   },
   "editFolderTitle": {
     "message": "Modifier le dossier"
@@ -180,7 +183,7 @@
     "message": "Garder activé"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Ajouter $ECOSYSTEM$ Applications ?",
+    "message": "Ajouter les applications $ECOSYSTEM$ ?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "Le fichier sélectionné n'est pas une sauvegarde valide."
   },
   "warningUnderstood": {
-    "message": "Compris."
+    "message": "Compris"
   },
   "warningClose": {
     "message": "Fermer"
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Je suis content de vous voir. $NAME$",
+    "message": "Je suis content de vous voir, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

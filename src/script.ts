@@ -198,12 +198,16 @@ function deleteShortcut(index: number): void {
     const item = targetArray[index];
 
     if (item && item.type === 'folder') {
-        const folderName = item.name || 'Folder';
+        const folderName = item.name || getLocalizedWarningText('warningDeleteFolderTitle', 'Folder');
         warningModal.show({
-            title: 'Delete Folder',
-            message: `Are you sure you want to delete the folder "${folderName}"? All shortcuts inside it will be removed.`,
-            confirmText: 'Delete',
-            cancelText: 'Cancel',
+            title: getLocalizedWarningText('warningDeleteFolderTitle', 'Delete Folder'),
+            message: getLocalizedWarningText(
+                'warningDeleteFolderMessage',
+                'Are you sure you want to delete the folder "$FOLDER$"? All shortcuts inside it will be removed.',
+                { FOLDER: folderName }
+            ),
+            confirmText: getLocalizedWarningText('removeLabel', 'Remove'),
+            cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
             confirmVariant: 'danger',
             onConfirm: () => {
                 if (currentFolderId === item.id) currentFolderId = null;
@@ -1754,10 +1758,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (!wantsEnable) {
                 warningModal.show({
-                    title: 'Disable Folders?',
-                    message: 'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
-                    confirmText: 'Delete Folders',
-                    cancelText: 'Keep Enabled',
+                    title: getLocalizedWarningText('warningDeleteFoldersTitle', 'Disable Folders?'),
+                    message: getLocalizedWarningText('warningDeleteFoldersMessage', 'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.'),
+                    confirmText: getLocalizedWarningText('warningDeleteFoldersConfirm', 'Delete Folders'),
+                    cancelText: getLocalizedWarningText('warningKeepEnabled', 'Keep Enabled'),
                     confirmVariant: 'danger',
                     onConfirm: () => {
                         shortcuts = shortcuts.filter((item) => item.type !== 'folder' && !Array.isArray(item.children));

@@ -42,7 +42,7 @@
     "message": "4 ряда"
   },
   "appLauncherTitle": {
-    "message": "Запуск приложений"
+    "message": "Лаунчер приложений"
   },
   "ecosystemLabel": {
     "message": "Экосистема"
@@ -57,7 +57,7 @@
     "message": "Чистый поиск (Google)"
   },
   "compactBarOption": {
-    "message": "Компактный бар"
+    "message": "Компактная панель"
   },
   "voiceSearchOption": {
     "message": "Голосовой поиск"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Добавить папку"
+  },
+  "chooseTypeTitle": {
+    "message": "Создать новый"
   },
   "editFolderTitle": {
     "message": "Редактировать папку"
@@ -141,7 +144,7 @@
     "message": "Дополнительные опции"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab был обновлен до версии $VERSION$, ",
+    "message": "Fluent New Tab был обновлен до версии $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -153,7 +156,7 @@
     "message": "см. журнал изменений"
   },
   "nasaApodVideoNotice": {
-    "message": "Сегодняшний APOD — это видео или недоступно. Вместо этого сохраняйте текущие обои."
+    "message": "Сегодняшний APOD — это видео или недоступен. Сохраняем текущие обои."
   },
   "warningDeleteFolderTitle": {
     "message": "Удалить папку"
@@ -180,7 +183,7 @@
     "message": "Оставить включенным"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Добавить $ECOSYSTEM$ Приложения?",
+    "message": "Добавить приложения $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",

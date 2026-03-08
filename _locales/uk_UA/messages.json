@@ -42,7 +42,7 @@
     "message": "4 ряди"
   },
   "appLauncherTitle": {
-    "message": "Запуск програми"
+    "message": "Лаунчер додатків"
   },
   "ecosystemLabel": {
     "message": "Екосистема"
@@ -57,7 +57,7 @@
     "message": "Чистий пошук (Google)"
   },
   "compactBarOption": {
-    "message": "Компактний бар"
+    "message": "Компактна панель"
   },
   "voiceSearchOption": {
     "message": "Голосовий пошук"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Додати папку"
+  },
+  "chooseTypeTitle": {
+    "message": "Створити нове"
   },
   "editFolderTitle": {
     "message": "Редагувати папку"
@@ -141,7 +144,7 @@
     "message": "Більше опцій"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab оновлено до версії $VERSION$, ",
+    "message": "Fluent New Tab оновлено до версії $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -153,7 +156,7 @@
     "message": "дивитися журнал змін"
   },
   "nasaApodVideoNotice": {
-    "message": "Сьогоднішній APOD — це відео або недоступний. Замість цього збережіть поточну заставку."
+    "message": "Сьогоднішній APOD — це відео або недоступний. Залишаємо поточні шпалери."
   },
   "warningDeleteFolderTitle": {
     "message": "Видалити папку"
@@ -180,7 +183,7 @@
     "message": "Залишити увімкненим"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Додати $ECOSYSTEM$ Додатки?",
+    "message": "Додати додатки $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",

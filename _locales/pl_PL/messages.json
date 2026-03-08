@@ -42,7 +42,7 @@
     "message": "4 rzędy"
   },
   "appLauncherTitle": {
-    "message": "Program uruchamiający aplikacje"
+    "message": "Launcher aplikacji"
   },
   "ecosystemLabel": {
     "message": "Ekosystem"
@@ -57,7 +57,7 @@
     "message": "Czyste wyszukiwanie (Google)"
   },
   "compactBarOption": {
-    "message": "Kompaktowy bar"
+    "message": "Kompaktowy pasek"
   },
   "voiceSearchOption": {
     "message": "Wyszukiwanie głosowe"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Dodaj folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Utwórz nowy"
   },
   "editFolderTitle": {
     "message": "Edytuj folder"
@@ -213,7 +216,7 @@
     "message": "Siatka jest pełna"
   },
   "warningGridFullMessage": {
-    "message": "Osiągnąłeś maksymalny limit skrótów na ekranie głównym $LIMIT$ . Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
+    "message": "Osiągnąłeś maksymalny limit $LIMIT$ skrótów na ekranie głównym. Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,7 +228,7 @@
     "message": "Folder jest pełny"
   },
   "warningFolderFullMessage": {
-    "message": "Ten folder osiągnął maksymalną liczbę elementów $LIMIT$ . Proszę usunąć niektóre skróty przed dodaniem nowych.",
+    "message": "Ten folder osiągnął maksymalną liczbę $LIMIT$ elementów. Proszę usunąć niektóre skróty przed dodaniem nowych.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "Wybrany plik nie jest prawidłową kopią zapasową."
   },
   "warningUnderstood": {
-    "message": "Rozumiem."
+    "message": "Rozumiem"
   },
   "warningClose": {
     "message": "Zamknij"
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Mam nadzieję, że wszystko u Ciebie w porządku. $NAME$",
+    "message": "Mam nadzieję, że wszystko u Ciebie w porządku, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

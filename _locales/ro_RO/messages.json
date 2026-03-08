@@ -42,7 +42,7 @@
     "message": "4 rânduri"
   },
   "appLauncherTitle": {
-    "message": "Lansator de aplicații"
+    "message": "Launcher de aplicații"
   },
   "ecosystemLabel": {
     "message": "Ecosistem"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Adăugați folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Creează nou"
   },
   "editFolderTitle": {
     "message": "Editare folder"
@@ -141,7 +144,7 @@
     "message": "Mai multe opțiuni"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$, ",
+    "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "Rețeaua este plină"
   },
   "warningGridFullMessage": {
-    "message": "Ați atins limita maximă de comenzi rapide $LIMIT$ pe ecranul principal. Ștergeți unele elemente sau grupați-le într-un folder pentru a elibera spațiu.",
+    "message": "Ați atins limita maximă de $LIMIT$ comenzi rapide pe ecranul principal. Ștergeți unele elemente sau grupați-le într-un folder pentru a elibera spațiu.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "Fișierul selectat nu este o copie de rezervă validă."
   },
   "warningUnderstood": {
-    "message": "Am înțeles."
+    "message": "Am înțeles"
   },
   "warningClose": {
     "message": "Închide"
@@ -381,7 +384,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Să aveți o seară plăcută! $NAME$",
+    "message": "Să aveți o seară plăcută, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

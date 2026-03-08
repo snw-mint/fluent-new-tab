@@ -42,7 +42,7 @@
     "message": "4 Satır"
   },
   "appLauncherTitle": {
-    "message": "Uygulama Başlatıcı"
+    "message": "Uygulama başlatıcısı"
   },
   "ecosystemLabel": {
     "message": "Ekosistem"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Klasör Ekle"
+  },
+  "chooseTypeTitle": {
+    "message": "Yeni oluştur"
   },
   "editFolderTitle": {
     "message": "Klasörü Düzenle"
@@ -141,7 +144,7 @@
     "message": "Daha fazla seçenek"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab, $VERSION$sürümüne güncellendi. ",
+    "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -153,7 +156,7 @@
     "message": "değişiklik günlüğünü gör"
   },
   "nasaApodVideoNotice": {
-    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınızı koruyun."
+    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Mevcut duvar kağıdınızı koruyoruz."
   },
   "warningDeleteFolderTitle": {
     "message": "Klasörü Sil"
@@ -213,7 +216,7 @@
     "message": "Izgara Dolu"
   },
   "warningGridFullMessage": {
-    "message": "Ana ekranda $LIMIT$ kısayollarının maksimum sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
+    "message": "Ana ekranda $LIMIT$ kısayol sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,7 +228,7 @@
     "message": "Klasör Dolu"
   },
   "warningFolderFullMessage": {
-    "message": "Bu klasör, $LIMIT$ öğelerinin mutlak sınırına ulaşmıştır. Yeni kısayollar eklemeden önce bazı kısayolları silin.",
+    "message": "Bu klasör $LIMIT$ öğe sınırına ulaştı. Yeni kısayollar eklemeden önce bazı kısayolları silin.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -291,7 +294,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Güne doğru bir başlangıç yapalım. $NAME$",
+    "message": "Güne doğru bir başlangıç yapalım, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Seni görmek güzel. $NAME$",
+    "message": "Seni görmek güzel, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Umarım iyisindir. $NAME$",
+    "message": "Umarım iyisindir, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -354,7 +357,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Rahatlamanın zamanı geldi. $NAME$",
+    "message": "Rahatlamanın zamanı geldi, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -390,7 +393,7 @@
     }
   },
   "greetNight1": {
-    "message": "Umarım huzurlu bir gece geçiriyorsunuzdur. $NAME$",
+    "message": "Umarım huzurlu bir gece geçiriyorsundur, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

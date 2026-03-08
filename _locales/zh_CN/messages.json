@@ -57,13 +57,13 @@
     "message": "干净搜索（谷歌）"
   },
   "compactBarOption": {
-    "message": "紧凑型条形物"
+    "message": "紧凑栏"
   },
   "voiceSearchOption": {
     "message": "语音搜索"
   },
   "reduceVisualEffectsTitle": {
-    "message": "减少影响"
+    "message": "减少效果"
   },
   "reduceMotionTitle": {
     "message": "减少运动"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "添加文件夹"
+  },
+  "chooseTypeTitle": {
+    "message": "新建"
   },
   "editFolderTitle": {
     "message": "编辑文件夹"
@@ -141,7 +144,7 @@
     "message": "更多选项"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab 已更新至版本 $VERSION$， ",
+    "message": "Fluent New Tab 已更新至版本 $VERSION$。",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -255,7 +258,7 @@
     "message": "关闭"
   },
   "greetMorning1": {
-    "message": "早上好， $NAME$",
+    "message": "早上好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -264,7 +267,7 @@
     }
   },
   "greetMorning2": {
-    "message": "起床啦， $NAME$！",
+    "message": "起床啦，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -273,7 +276,7 @@
     }
   },
   "greetMorning3": {
-    "message": "祝您度过美好的一天， $NAME$",
+    "message": "祝您度过美好的一天，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -282,7 +285,7 @@
     }
   },
   "greetMorning4": {
-    "message": "你好呀， $NAME$！准备好迎接今天了吗？",
+    "message": "你好呀，$NAME$！准备好迎接今天了吗？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -291,7 +294,7 @@
     }
   },
   "greetMorning5": {
-    "message": "让我们以正确的方式开始新的一天。 $NAME$",
+    "message": "让我们以正确的方式开始新的一天，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -300,7 +303,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "下午好， $NAME$",
+    "message": "下午好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -309,7 +312,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "见到你真好。 $NAME$",
+    "message": "见到你真好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "希望你一切安好。 $NAME$",
+    "message": "希望你一切安好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -327,7 +330,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "继续保持出色表现， $NAME$！",
+    "message": "继续保持出色表现，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -336,7 +339,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "保持专注，高效工作。 $NAME$",
+    "message": "保持专注、高效工作，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -345,7 +348,7 @@
     }
   },
   "greetEvening1": {
-    "message": "晚上好， $NAME$",
+    "message": "晚上好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -354,7 +357,7 @@
     }
   },
   "greetEvening2": {
-    "message": "是时候放松了。 $NAME$",
+    "message": "是时候放松了，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -363,7 +366,7 @@
     }
   },
   "greetEvening3": {
-    "message": "愿你度过一个宁静的夜晚。 $NAME$",
+    "message": "愿你度过一个宁静的夜晚，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -372,7 +375,7 @@
     }
   },
   "greetEvening4": {
-    "message": "是时候放松一下了， $NAME$",
+    "message": "是时候放松一下了，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -381,7 +384,7 @@
     }
   },
   "greetEvening5": {
-    "message": "祝您晚上愉快， $NAME$",
+    "message": "祝您晚上愉快，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -390,7 +393,7 @@
     }
   },
   "greetNight1": {
-    "message": "愿你今夜安好。 $NAME$",
+    "message": "愿你今夜安好，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -408,7 +411,7 @@
     }
   },
   "greetNight3": {
-    "message": "享受这宁静的时光， $NAME$",
+    "message": "享受这宁静的时光，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

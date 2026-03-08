@@ -89,6 +89,9 @@
   "addFolderTitle": {
     "message": "Thêm thư mục"
   },
+  "chooseTypeTitle": {
+    "message": "Tạo mới"
+  },
   "editFolderTitle": {
     "message": "Chỉnh sửa thư mục"
   },
@@ -141,7 +144,7 @@
     "message": "Nhiều tùy chọn hơn"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$, ",
+    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -153,7 +156,7 @@
     "message": "Xem nhật ký thay đổi"
   },
   "nasaApodVideoNotice": {
-    "message": "Hình ảnh APOD hôm nay là một video hoặc không khả dụng. Bạn có thể giữ hình nền hiện tại của mình thay thế."
+    "message": "APOD hôm nay là video hoặc không khả dụng. Chúng tôi giữ nguyên hình nền hiện tại của bạn."
   },
   "warningDeleteFolderTitle": {
     "message": "Xóa thư mục"
@@ -180,7 +183,7 @@
     "message": "Giữ trạng thái bật"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Thêm ứng dụng \" $ECOSYSTEM$\"?",
+    "message": "Thêm ứng dụng $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "Lưới đã đầy"
   },
   "warningGridFullMessage": {
-    "message": "Bạn đã đạt đến giới hạn tối đa của các phím tắt trên màn hình chính tại địa chỉ $LIMIT$ . Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
+    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ phím tắt trên màn hình chính. Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,7 +228,7 @@
     "message": "Thư mục đã đầy"
   },
   "warningFolderFullMessage": {
-    "message": "Thư mục này đã đạt đến giới hạn tối đa của các mục trong thư mục \" $LIMIT$ \". Vui lòng xóa một số lối tắt trước khi thêm các lối tắt mới.",
+    "message": "Thư mục này đã đạt đến giới hạn tối đa $LIMIT$ mục. Vui lòng xóa một số lối tắt trước khi thêm các lối tắt mới.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Tôi hy vọng bạn đang khỏe mạnh. $NAME$",
+    "message": "Tôi hy vọng bạn đang khỏe mạnh, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

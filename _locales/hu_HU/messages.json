@@ -63,13 +63,13 @@
     "message": "Hangalapú keresés"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Csökkentse a hatásokat"
+    "message": "Effektek csökkentése"
   },
   "reduceMotionTitle": {
     "message": "Mozgás csökkentése"
   },
   "reduceBlurOption": {
-    "message": "Élesség javítása"
+    "message": "Elmosódás csökkentése"
   },
   "languageTitle": {
     "message": "Nyelv"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Mappa hozzáadása"
+  },
+  "chooseTypeTitle": {
+    "message": "Új létrehozása"
   },
   "editFolderTitle": {
     "message": "Mappa szerkesztése"
@@ -141,7 +144,7 @@
     "message": "További lehetőségek"
   },
   "updateNoticePrefix": {
-    "message": "A Fluent New Tab frissült a $VERSION$verzióra. ",
+    "message": "A Fluent New Tab frissült a $VERSION$ verzióra, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -249,7 +252,7 @@
     "message": "A kiválasztott fájl nem érvényes biztonsági másolat."
   },
   "warningUnderstood": {
-    "message": "Értettem."
+    "message": "Értettem"
   },
   "warningClose": {
     "message": "Bezárás"

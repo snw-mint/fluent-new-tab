@@ -15,7 +15,7 @@
     "message": "Wallpaper"
   },
   "wallpaperSourceLabel": {
-    "message": "Source ng Image"
+    "message": "Pinagmulan ng larawan"
   },
   "iconsStyleLabel": {
     "message": "Icon Style"
@@ -30,16 +30,16 @@
     "message": "1 Row"
   },
   "rows2": {
-    "message": "2 mga Rows"
+    "message": "2 Rows"
   },
   "rowsLabel": {
-    "message": "Mga Rows"
+    "message": "Rows"
   },
   "rows3": {
-    "message": "3 mga Rows"
+    "message": "3 Rows"
   },
   "rows4": {
-    "message": "4 na mga Rows"
+    "message": "4 Rows"
   },
   "appLauncherTitle": {
     "message": "App Launcher"
@@ -63,13 +63,13 @@
     "message": "Voice search"
   },
   "reduceVisualEffectsTitle": {
-    "message": "I-reduce ang effects"
+    "message": "Bawasan ang effects"
   },
   "reduceMotionTitle": {
-    "message": "I-reduce ang motion"
+    "message": "Bawasan ang motion"
   },
   "reduceBlurOption": {
-    "message": "I-reduce ang blur"
+    "message": "Bawasan ang blur"
   },
   "languageTitle": {
     "message": "Wika"
@@ -92,6 +92,9 @@
   "editFolderTitle": {
     "message": "Edit Folder"
   },
+    "chooseTypeTitle": {
+      "message": "Lumikha ng bago"
+    },
   "backLabel": {
     "message": "Back"
   },
@@ -153,7 +156,7 @@
     "message": "tingnan ang changelog"
   },
   "nasaApodVideoNotice": {
-    "message": "Video ou unavailable ang APOD ngayon. Gamitin muna natin ang current wallpaper mo."
+    "message": "Video o hindi available ang APOD ngayon. Gagamitin muna natin ang current wallpaper mo."
   },
   "warningDeleteFolderTitle": {
     "message": "Delete Folder"

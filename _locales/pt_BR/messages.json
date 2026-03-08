@@ -42,7 +42,7 @@
     "message": "4 linhas"
   },
   "appLauncherTitle": {
-    "message": "Iniciador de apps"
+    "message": "Launcher de apps"
   },
   "ecosystemLabel": {
     "message": "Ecossistema"
@@ -88,6 +88,9 @@
   },
   "addFolderTitle": {
     "message": "Adicionar pasta"
+  },
+  "chooseTypeTitle": {
+    "message": "Criar novo"
   },
   "editFolderTitle": {
     "message": "Editar pasta"
@@ -189,7 +192,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Isso criará uma pasta com 9 $ECOSYSTEM$ apps em seus atalhos. Deseja continuar?",
+    "message": "Isso criará uma pasta com 9 apps $ECOSYSTEM$ em seus atalhos. Deseja continuar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -213,7 +216,7 @@
     "message": "A grade está cheia"
   },
   "warningGridFullMessage": {
-    "message": "Você atingiu o limite máximo de atalhos de $LIMIT$ na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
+    "message": "Você atingiu o limite máximo de $LIMIT$ atalhos na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -318,7 +321,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Espero que você esteja bem. $NAME$",
+    "message": "Espero que você esteja bem, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
