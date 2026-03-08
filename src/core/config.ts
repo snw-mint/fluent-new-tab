@@ -46,11 +46,11 @@ const launcherData: Record<string, LauncherProviderData> = {
         { name: 'Meet', url: 'https://meet.google.com', icon: 'assets/apps/google/meet.svg' },
         { name: 'Music', url: 'https://music.youtube.com', icon: 'assets/apps/google/music.svg' },
         { name: 'Web Store', url: 'https://chromewebstore.google.com', icon: 'assets/apps/google/store.svg' }
-    ], allAppsLink: 'https://about.google/products/' }
+    ], allAppsLink: 'https://about.google/products/#:~:text=google%20products' }
 };
 
 const APP_KEYS: string[] = [
-    'shortcuts', 'theme', 'weatherEnabled', 'fluent_city_data', 'shortcutsVisible', 'shortcutsRows',
+    'shortcuts', 'theme', 'weatherEnabled', 'fluent_city_data', 'shortcutsVisible', 'shortcutsRows', 'foldersEnabled',
     'launcherEnabled', 'launcherProvider', 'showGreeting', 'greetingName', 'greetingStyle',
     'userLanguage', 'searchEngine', 'searchBarVisible', 'suggestionsEnabled', 'clearSearchEnabled',
     'compactBarEnabled', 'voiceSearchEnabled', 'weatherUnit', 'wallpaperEnabled',

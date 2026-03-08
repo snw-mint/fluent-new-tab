@@ -1,4 +1,3 @@
-/* Utility Functions */
 function debounce<T extends unknown[]>(func: (...args: T) => void, wait: number): (...args: T) => void {
     let timeout: number;
     return function (...args: T): void {
@@ -7,7 +6,13 @@ function debounce<T extends unknown[]>(func: (...args: T) => void, wait: number)
     };
 }
 function closeModal(): void {
+    hideAllModals();
+    editingIndex = null;
+}
+function hideAllModals(): void {
     if (addModal) addModal.classList.remove('active');
+    if (chooseTypeModal) chooseTypeModal.classList.remove('active');
+    if (addFolderModal) addFolderModal.classList.remove('active');
 }
 function closePopups(except: Element | null = null): void {
     if (configPopup && configPopup !== except) configPopup.classList.remove('active');
@@ -23,49 +28,217 @@ function closePopups(except: Element | null = null): void {
 
 function openModal(index: number | null = null): void {
     editingIndex = index;
-    if (addModal) {
-        addModal.classList.add('active');
-        const modalTitle = document.querySelector('.modal-content h3');
-        const inputName = getInputById('inputName');
-        const inputUrl = getInputById('inputUrl');
-        const inputIcon = getInputById('inputIcon');
-        if (index !== null && shortcuts[index]) {
-            const item = shortcuts[index];
-            if (inputName) inputName.value = item.name;
-            if (inputUrl) inputUrl.value = item.url;
-            if (inputIcon) inputIcon.value = item.customIcon || '';
-            if (modalTitle) modalTitle.textContent = window.getTranslation('editShortcutTitle');
-            if (item.customIcon && customIconGroup) customIconGroup.classList.remove('hidden');
-        } else {
-            if (inputName) inputName.value = '';
-            if (inputUrl) inputUrl.value = '';
-            if (inputIcon) inputIcon.value = '';
-            if (modalTitle) modalTitle.textContent = window.getTranslation('addShortcutTitle');
-            if (customIconGroup) customIconGroup.classList.add('hidden');
-        }
-        setTimeout(() => inputName?.focus(), 100);
+
+    const currentArray = getActiveShortcutsList();
+    const existingItem = index !== null ? currentArray[index] : null;
+
+    if (existingItem?.type === 'folder') {
+        openFolderModal(existingItem.name, true);
+        return;
+    }
+    if (index === null && foldersEnabled && !currentFolderId) {
+        openChooseTypeModal();
+        return;
+    }
+    openShortcutModal(existingItem);
+}
+function openChooseTypeModal(): void {
+    hideAllModals();
+    if (chooseTypeModal) chooseTypeModal.classList.add('active');
+}
+function openFolderModal(name = '', isEditing = false): void {
+    hideAllModals();
+    if (!addFolderModal || !inputFolderName) return;
+    addFolderModal.classList.add('active');
+if (folderModalTitle) {
+        const tKey = isEditing ? 'editFolderTitle' : 'addFolderTitle';
+        const fallback = isEditing ? 'Edit Folder' : 'Add Folder';
+        const translated = window.getTranslation(tKey);
+        const safeText = translated && translated !== tKey && translated.toLowerCase() !== 'edit' ? translated : fallback;
+        folderModalTitle.textContent = safeText;
+    }
+    inputFolderName.value = name;
+    setTimeout(() => inputFolderName.focus(), 100);
+}
+function openShortcutModal(existingItem: Shortcut | null): void {
+    hideAllModals();
+    if (!addModal) return;
+
+    addModal.classList.add('active');
+    const modalTitle = addModal.querySelector('.modal-content h3');
+    const inputName = getInputById('inputName');
+    const inputUrl = getInputById('inputUrl');
+    const inputIcon = getInputById('inputIcon');
+
+    if (existingItem) {
+        if (inputName) inputName.value = existingItem.name;
+        if (inputUrl) inputUrl.value = existingItem.url || '';
+        if (inputIcon) inputIcon.value = existingItem.customIcon || '';
+        if (modalTitle) modalTitle.textContent = window.getTranslation('editShortcutTitle');
+        setCustomIconVisibility(Boolean(existingItem.customIcon));
+    } else {
+        if (inputName) inputName.value = '';
+        if (inputUrl) inputUrl.value = '';
+        if (inputIcon) inputIcon.value = '';
+        if (modalTitle) modalTitle.textContent = window.getTranslation('addShortcutTitle');
+        setCustomIconVisibility(false);
+    }
+    setTimeout(() => inputName?.focus(), 100);
+}
+
+function setCustomIconVisibility(show: boolean): void {
+    if (!customIconGroup || !toggleCustomIcon) return;
+    const inputIcon = document.getElementById('inputIcon') as HTMLInputElement | null;
+    customIconGroup.classList.toggle('hidden', !show);
+    toggleCustomIcon.classList.toggle('expanded', show);
+    toggleCustomIcon.setAttribute('aria-expanded', show ? 'true' : 'false');
+    if (!show && inputIcon) {
+        inputIcon.value = '';
     }
 }
+
+function initCustomIconToggle(): void {
+    if (!toggleCustomIcon || !customIconGroup) return;
+    const inputIcon = getInputById('inputIcon');
+
+    toggleCustomIcon.addEventListener('click', () => {
+        const isHidden = customIconGroup.classList.contains('hidden');
+
+        if (isHidden) {
+            setCustomIconVisibility(true);
+            if (inputIcon) {
+                setTimeout(() => inputIcon.focus(), 50);
+            }
+        } else {
+            setCustomIconVisibility(false);
+        }
+    });
+}
+function getActiveShortcutsList(): Shortcut[] {
+    if (currentFolderId) {
+        const folder = shortcuts.find(s => s.id === currentFolderId);
+        if (folder && folder.children) return folder.children;
+    }
+    return shortcuts;
+}
+
+interface WarningModalOptions {
+    title: string;
+    message: string;
+    confirmText?: string;
+    cancelText?: string;
+    confirmVariant?: 'accent' | 'danger';
+    onConfirm: () => void;
+    onCancel?: () => void;
+}
+
+class WarningModalManager {
+    private overlay: HTMLElement;
+    private titleEl: HTMLElement;
+    private messageEl: HTMLElement;
+    private btnConfirm: HTMLButtonElement;
+    private btnCancel: HTMLButtonElement;
+    private handleKeydownBound: (event: KeyboardEvent) => void;
+
+    constructor() {
+        this.overlay = document.getElementById('warningModal') as HTMLElement;
+        this.titleEl = document.getElementById('warning-modal-title') as HTMLElement;
+        this.messageEl = document.getElementById('warning-modal-message') as HTMLElement;
+        this.btnConfirm = document.getElementById('warning-btn-confirm') as HTMLButtonElement;
+        this.btnCancel = document.getElementById('warning-btn-cancel') as HTMLButtonElement;
+        this.handleKeydownBound = this.handleKeydown.bind(this);
+    }
+
+    public show(options: WarningModalOptions): void {
+        const confirmVariant = options.confirmVariant || 'accent';
+        this.titleEl.textContent = options.title;
+        this.messageEl.textContent = options.message;
+        this.btnConfirm.textContent = options.confirmText || 'Confirm';
+        this.btnCancel.textContent = options.cancelText || 'Cancel';
+        this.btnConfirm.classList.toggle('btn-danger', confirmVariant === 'danger');
+        this.btnConfirm.classList.toggle('btn-save', confirmVariant !== 'danger');
+
+        this.overlay.classList.add('active');
+        document.addEventListener('keydown', this.handleKeydownBound);
+
+        this.btnConfirm.onclick = () => {
+            this.close();
+            options.onConfirm();
+        };
+
+        this.btnCancel.onclick = () => {
+            this.close();
+            if (options.onCancel) options.onCancel();
+        };
+    }
+
+    private close(): void {
+        this.overlay.classList.remove('active');
+        document.removeEventListener('keydown', this.handleKeydownBound);
+        this.btnConfirm.onclick = null;
+        this.btnCancel.onclick = null;
+    }
+
+    private handleKeydown(event: KeyboardEvent): void {
+        if (!this.overlay.classList.contains('active')) return;
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        this.btnConfirm.click();
+    }
+}
+
+const warningModal = new WarningModalManager();
+
 function saveAndRender(): void {
     localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
     renderShortcuts();
 }
 function deleteShortcut(index: number): void {
-    shortcuts.splice(index, 1);
+    const targetArray = getActiveShortcutsList();
+    const item = targetArray[index];
+
+    if (item && item.type === 'folder') {
+        const folderName = item.name || 'Folder';
+        warningModal.show({
+            title: 'Delete Folder',
+            message: `Are you sure you want to delete the folder "${folderName}"? All shortcuts inside it will be removed.`,
+            confirmText: 'Delete',
+            cancelText: 'Cancel',
+            confirmVariant: 'danger',
+            onConfirm: () => {
+                if (currentFolderId === item.id) currentFolderId = null;
+                targetArray.splice(index, 1);
+                saveAndRender();
+            }
+        });
+        return;
+    }
+
+    targetArray.splice(index, 1);
     saveAndRender();
 }
 function updateShortcutsVisibility(visible: boolean, animate = true): void {
     if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
     if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
+    if (foldersRow) setCollapsible(foldersRow, visible, animate);
 }
 function renderShortcuts(): void {
     renderShortcutsGrid({
         shortcutsGrid,
         rowsSelect,
         shortcuts,
+        currentFolderId: currentFolderId,
         onOpenModal: openModal,
         onDeleteShortcut: deleteShortcut,
-        onClosePopups: closePopups
+        onClosePopups: closePopups,
+        onOpenFolder: (id: string) => {
+            currentFolderId = id;
+            renderShortcuts();
+        },
+        onGoBack: () => {
+            currentFolderId = null;
+            renderShortcuts();
+        }
     });
 }
 function setSearchEngine(engineKey: keyof typeof engines): void {
@@ -620,11 +793,8 @@ async function applyWallpaperLogic() {
         else if (currentWallpaperSource === 'api') {
             const url = await fetchDailyWallpaper(currentWallpaperType);
             if (url) {
-                // Intercept and compress the API image before applying
                 const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
-                await applyWallpaperImage(optimizedUrl);
-                
-                // Retrieve the saved credit from cache
+                await applyWallpaperImage(optimizedUrl);               
                 const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
                 try {
                     const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
@@ -656,7 +826,6 @@ async function loadCustomWallpaper() {
             body.style.backgroundPosition = 'center';
             body.style.backgroundAttachment = 'fixed';
         } else {
-            // Fallback when there is no saved image
             console.warn("No custom wallpaper found.");
         }
     } catch (e) {
@@ -664,7 +833,6 @@ async function loadCustomWallpaper() {
     }
 }
 
-/* Event Handlers */
 function applyTheme(theme: ThemeMode): void {
     if (themeBtns) {
         themeBtns.forEach((btn) => btn.classList.toggle("active", btn.dataset.theme === theme));
@@ -691,7 +859,6 @@ function initBrand() {
     initGreetingBrand(greetingWrapper);
 }
 
-/* --- 6. Core Features --- */
 function fetchSuggestions(query: string): void {
     fetchSuggestionsFromService(query).then((suggestions) => {
         if (!searchInput || searchInput.value.trim().toLowerCase() !== query.toLowerCase()) return;
@@ -719,6 +886,93 @@ async function searchCity(): Promise<void> {
     } catch (error) { alert('Error searching city.'); }
     finally { saveCityBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'; }
 }
+
+const MAX_MAIN_GRID_ITEMS = 40;
+const MAX_FOLDER_GRID_ROWS = 4;
+const MAX_FOLDER_CAPACITY = (MAX_FOLDER_GRID_ROWS * 10) - 1;
+
+function deriveShortcutNameFromUrl(rawUrl: string): string {
+    try {
+        const host = new URL(rawUrl).hostname.replace(/^www\./i, '');
+        if (!host) return 'New Shortcut';
+        return host.charAt(0).toUpperCase() + host.slice(1);
+    } catch {
+        return 'New Shortcut';
+    }
+}
+
+function showGridLimitWarning(currentLimit: number, isFolderGrid: boolean): void {
+    const title = isFolderGrid
+        ? getLocalizedWarningText('warningFolderFullTitle', 'Folder is Full')
+        : getLocalizedWarningText('warningGridFullTitle', 'Grid is Full');
+    const message = isFolderGrid
+        ? getLocalizedWarningText('warningFolderFullMessage', 'This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.', { LIMIT: String(currentLimit) })
+        : getLocalizedWarningText('warningGridFullMessage', 'You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.', { LIMIT: String(currentLimit) });
+
+    warningModal.show({
+        title,
+        message,
+        confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+        cancelText: getLocalizedWarningText('warningClose', 'Close'),
+        confirmVariant: 'accent',
+        onConfirm: () => {}
+    });
+}
+
+function bindExternalShortcutDrop(): void {
+    if (!shortcutsGrid) return;
+
+    shortcutsGrid.addEventListener('dragover', (event) => {
+        if (!event.dataTransfer) return;
+        const hasUrl = Array.from(event.dataTransfer.types).some((type) => type === 'text/uri-list' || type === 'text/plain' || type === 'text/html');
+        if (!hasUrl) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'copy';
+    });
+
+    shortcutsGrid.addEventListener('drop', (event) => {
+        event.preventDefault();
+
+        // Ignore internal Sortable drops to avoid creating duplicate shortcuts.
+        if (shortcutsGrid.classList.contains('sorting')) return;
+        if (!event.dataTransfer) return;
+
+        const targetArray = getActiveShortcutsList();
+        const isFolderGrid = Boolean(currentFolderId);
+        const effectiveLimit = isFolderGrid ? MAX_FOLDER_CAPACITY : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+        if (targetArray.length >= effectiveLimit) {
+            showGridLimitWarning(effectiveLimit, isFolderGrid);
+            return;
+        }
+
+        let droppedUrl = event.dataTransfer.getData('text/uri-list') || event.dataTransfer.getData('text/plain');
+        let droppedName = '';
+
+        const htmlData = event.dataTransfer.getData('text/html');
+        if (htmlData) {
+            const parser = new DOMParser();
+            const parsedDoc = parser.parseFromString(htmlData, 'text/html');
+            const anchor = parsedDoc.querySelector('a');
+
+            if (anchor) {
+                droppedUrl = anchor.href || droppedUrl;
+                droppedName = anchor.textContent?.trim() || '';
+            }
+        }
+
+        if (!droppedUrl || !/^https?:\/\//i.test(droppedUrl)) return;
+        if (!droppedName) droppedName = deriveShortcutNameFromUrl(droppedUrl);
+
+        targetArray.push({
+            type: 'link',
+            name: droppedName,
+            url: droppedUrl,
+            customIcon: null
+        });
+        saveAndRender();
+    });
+}
+
 function initSortable() {
     if (!shortcutsGrid) return;
     
@@ -726,7 +980,8 @@ function initSortable() {
         animation: 200,
         dragClass: "sortable-dragging",
         ghostClass: "sortable-placeholder",
-        filter: ".add-card-wrapper, .menu-wrapper",
+        draggable: ".shortcut-item:not(.add-card-wrapper):not(.folder-back-btn)",
+        filter: ".add-card-wrapper, .menu-wrapper, .folder-back-btn",
         handle: ".shortcut-card",
         delay: 120,
         delayOnTouchOnly: true,
@@ -744,11 +999,29 @@ function initSortable() {
             shortcutsGrid.classList.add('sorting');
         },
 
+        onMove: (evt: { related?: HTMLElement | null }) => {
+            const related = evt.related;
+            if (!related) return true;
+            if (related.classList.contains('add-card-wrapper')) return false;
+            if (related.classList.contains('folder-back-btn')) return false;
+            return true;
+        },
+
         onEnd: function (evt) {
             shortcutsGrid.classList.remove('sorting');
             if (evt.oldIndex === evt.newIndex) return;
-            const movedItem = shortcuts.splice(evt.oldIndex, 1)[0];
-            shortcuts.splice(evt.newIndex, 0, movedItem);
+
+            const targetArray = getActiveShortcutsList();
+            const isInsideFolder = targetArray !== shortcuts;
+            const indexOffset = isInsideFolder ? 1 : 0;
+            const oldIndex = evt.oldIndex - indexOffset;
+            const newIndex = evt.newIndex - indexOffset;
+
+            if (oldIndex < 0 || newIndex < 0) return;
+
+            const movedItem = targetArray.splice(oldIndex, 1)[0];
+            if (!movedItem) return;
+            targetArray.splice(newIndex, 0, movedItem);
             saveAndRender();
         }
     } as { setData: (dataTransfer: DataTransfer, dragEl: HTMLElement) => void };
@@ -783,6 +1056,120 @@ function renderLauncher(providerKey: keyof typeof launcherData): void {
     });
 }
 
+function toTitleCase(value: string): string {
+    if (!value) return '';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function getLocalizedWarningText(key: string, fallback: string, replacements?: Record<string, string>): string {
+    let text = window.getTranslation(key);
+    if (!text || text === key) text = fallback;
+
+    if (replacements) {
+        Object.entries(replacements).forEach(([token, value]) => {
+            text = text.replace(new RegExp(`\\$${token}\\$`, 'g'), value);
+        });
+    }
+
+    return text;
+}
+
+function getLauncherProviderKey(): keyof typeof launcherData {
+    const rawProvider = launcherProvider?.value as keyof typeof launcherData | undefined;
+    if (rawProvider && launcherData[rawProvider]) return rawProvider;
+    return currentProvider;
+}
+
+function getLauncherFolderName(providerKey: keyof typeof launcherData): string {
+    const label = launcherProvider?.selectedOptions?.[0]?.textContent?.trim();
+    if (label) return label;
+    return toTitleCase(String(providerKey));
+}
+
+function createFolderFromLauncher(providerKey: keyof typeof launcherData): boolean {
+    const providerData = launcherData[providerKey];
+    if (!providerData?.apps?.length) return false;
+
+    const folderName = getLauncherFolderName(providerKey);
+    const newFolder: Shortcut = {
+        id: `folder_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
+        type: 'folder',
+        name: folderName,
+        children: providerData.apps.slice(0, 9).map((app) => ({
+            type: 'link',
+            name: app.name,
+            url: app.url,
+            customIcon: app.icon
+        }))
+    };
+
+    const limit = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+    if (shortcuts.length >= limit) {
+        warningModal.show({
+            title: getLocalizedWarningText('warningGridFullTitle', 'Grid is Full'),
+            message: getLocalizedWarningText(
+                'warningGridFullMessage',
+                'You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.',
+                { LIMIT: String(limit) }
+            ),
+            confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+            cancelText: getLocalizedWarningText('warningClose', 'Close'),
+            onConfirm: () => {}
+        });
+        return false;
+    }
+
+    shortcuts.push(newFolder);
+    foldersEnabled = true;
+    if (toggleFolders) toggleFolders.checked = true;
+    localStorage.setItem('foldersEnabled', 'true');
+    updateLauncherFooterVariant();
+    saveAndRender();
+    closePopups();
+    return true;
+}
+
+function bindLauncherFolderButton(): void {
+    if (!btnLauncherToFolder) return;
+
+    btnLauncherToFolder.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const providerKey = getLauncherProviderKey();
+        const providerData = launcherData[providerKey];
+        const ecosystemName = getLauncherFolderName(providerKey);
+
+        if (!providerData?.apps?.length) {
+            warningModal.show({
+                title: getLocalizedWarningText('launcherNoAppsTitle', 'No Apps Available'),
+                message: getLocalizedWarningText('launcherNoAppsAvailable', 'No apps available for this ecosystem.'),
+                confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+                cancelText: getLocalizedWarningText('warningClose', 'Close'),
+                confirmVariant: 'accent',
+                onConfirm: () => {}
+            });
+            return;
+        }
+
+        warningModal.show({
+            title: getLocalizedWarningText('warningAddEcosystemAppsTitle', `Add ${ecosystemName} Apps?`, { ECOSYSTEM: ecosystemName }),
+            message: getLocalizedWarningText('warningAddEcosystemAppsMessage', `This will create a folder with 9 ${ecosystemName} apps in your shortcuts. Continue?`, { ECOSYSTEM: ecosystemName }),
+            confirmText: getLocalizedWarningText('warningAddFolderConfirm', 'Add Folder'),
+            cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+            confirmVariant: 'accent',
+            onConfirm: () => {
+                createFolderFromLauncher(providerKey);
+            }
+        });
+    });
+}
+
+function updateLauncherFooterVariant(): void {
+    if (!launcherPopup) return;
+    launcherPopup.classList.toggle('folders-enabled', foldersEnabled);
+}
+
 function updateCreditsUI(source: string, creditText?: string) {
     const creditsContainer = getById<HTMLDivElement>('wallpaperCredits');
     const creditsSpan = getById<HTMLSpanElement>('wallpaperCreditText');
@@ -797,7 +1184,6 @@ function updateCreditsUI(source: string, creditText?: string) {
     }
 }
 
-/* --- 7. UI Updates --- */
 function applyInitialTheme() {
     applyTheme(savedTheme);
 }
@@ -809,6 +1195,10 @@ function applyInitialShortcutsVisibility() {
         toggleShortcuts.checked = shortcutsVisible;
         updateShortcutsVisibility(shortcutsVisible, false);
     }
+}
+function applyInitialFoldersSetting() {
+    if (toggleFolders) toggleFolders.checked = foldersEnabled;
+    updateLauncherFooterVariant();
 }
 function applyInitialSearchBarVisibility() {
     updateSearchSettings(false);
@@ -830,7 +1220,6 @@ function applyInitialClearSearch() {
 function applyInitialReducedEffectsState() {
     updateReducedEffectsVisibility(reducedEffectsEnabled, false);
 
-    // If master is off, ensure child toggles and states are off to stay consistent.
     if (!reducedEffectsEnabled) {
         if (animationsDisabled) {
             animationsDisabled = false;
@@ -882,12 +1271,10 @@ function applyInitialWallpaperState() {
         updateWallpaperUIState(wallpaperEnabled, false);
     }
 
-    // Se for API, seleciona no dropdown
     if (currentWallpaperSource === 'api' && wallpaperSourceSelect) {
         wallpaperSourceSelect.value = currentWallpaperType; 
         clearPresetSelection();
     } else {
-        // Se for Local, seleciona no Grid e reseta dropdown
         if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
         highlightSelectedWallpaper(currentWallpaperValue);
     }
@@ -905,6 +1292,7 @@ function applyBrandInterval() {
 const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
 const UPDATE_NOTICE_PENDING_KEY = 'update_notice_pending';
 const UPDATE_NOTICE_VERSION_KEY = 'update_notice_version';
+const SHORTCUTS_TREE_BACKUP_KEY = 'shortcutsTree';
 let pendingUpdateNoticeVersion: string | null = null;
 
 function getStorageLocalItems(key: string | string[]): Promise<Record<string, unknown>> {
@@ -1093,7 +1481,6 @@ function showUpdateReleaseNotice(version: string): void {
     window.setTimeout(hideNotice, 10000);
 }
 
-/* --- 8. Modals & Settings --- */
 document.addEventListener("DOMContentLoaded", async () => {
     const restoredFromBackup = await restorePreferencesBackupIfNeeded();
     if (restoredFromBackup) {
@@ -1113,7 +1500,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         void persistPreferencesBackup();
     });
 
-    /* Theme Logic */
     applyInitialTheme();
     if (themeBtns) {
         themeBtns.forEach((btn) => {
@@ -1125,7 +1511,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         });
     }
-    /* Greeting System */
     applyBrandInterval();
     if (toggleGreeting) {
         toggleGreeting.checked = localStorage.getItem('showGreeting') !== 'false';
@@ -1157,7 +1542,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             initBrand();
         });
     }
-    /* Settings Popup */
     if (configBtn && configPopup) {
         const updateState = await getUpdateNoticeState();
         if (updateState.pending) {
@@ -1219,7 +1603,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             reducedEffectsEnabled = target.checked;
             localStorage.setItem('reducedEffectsEnabled', String(reducedEffectsEnabled));
             if (!reducedEffectsEnabled) {
-                // Turning off the group also turns off both sub-options.
                 if (toggleDisableAnimations) toggleDisableAnimations.checked = false;
                 animationsDisabled = false;
                 localStorage.setItem('animationsDisabled', 'false');
@@ -1234,7 +1617,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             updateReducedEffectsVisibility(reducedEffectsEnabled);
         });
     }
-    /* Shortcuts & Modals */
     document.addEventListener('click', (e) => {
         const targetNode = e.target as Node | null;
         if (!targetNode) return;
@@ -1245,41 +1627,101 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (addModal) {
-        addModal.addEventListener('click', (e) => {
-            if (e.target === addModal) closeModal();
+    [addModal, chooseTypeModal, addFolderModal].forEach((modal) => {
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
-    }
-    if (toggleCustomIcon) {
-        toggleCustomIcon.addEventListener('click', () => {
-            if(customIconGroup) customIconGroup.classList.toggle('hidden');
-        });
-    }
+    });
+    initCustomIconToggle();
     if (shortcutForm) {
         shortcutForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const inputName = getInputById('inputName');
             const inputUrl = getInputById('inputUrl');
             const inputIcon = getInputById('inputIcon');
-            if (!inputName || !inputUrl || !inputIcon) return;
+            if (!inputName || !inputUrl) return;
 
-            let url = inputUrl.value;
-            if (!url.startsWith('http')) url = 'https://' + url;
-            const newShortcut = {
+            let url = inputUrl.value || '';
+            if (url && !/^https?:\/\//i.test(url)) url = 'https://' + url;
+            const newShortcut: Shortcut = {
+                type: 'link',
                 name: inputName.value,
                 url: url,
-                customIcon: inputIcon.value || null
+                customIcon: inputIcon?.value || null
             };
+            const targetArray = getActiveShortcutsList();
+
             if (editingIndex !== null && editingIndex >= 0) {
-                shortcuts[editingIndex] = newShortcut;
+                targetArray[editingIndex] = { ...targetArray[editingIndex], ...newShortcut };
             } else {
-                shortcuts.push(newShortcut);
+                const limit = currentFolderId ? MAX_FOLDER_CAPACITY : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+                if (targetArray.length >= limit) {
+                    showGridLimitWarning(limit, Boolean(currentFolderId));
+                    return;
+                }
+                targetArray.push(newShortcut);
             }
+            
             saveAndRender();
+            editingIndex = null;
             closeModal();
         });
     }
-    /* Shortcuts Rows */
+
+    const btnChooseLink = document.getElementById('btnChooseLink');
+    const btnChooseFolder = document.getElementById('btnChooseFolder');
+    const closeChooseTypeBtn = document.getElementById('closeChooseTypeBtn');
+    const closeFolderModalBtn = document.getElementById('closeFolderModalBtn');
+    const folderForm = document.getElementById('folderForm');
+
+    if (closeChooseTypeBtn) closeChooseTypeBtn.addEventListener('click', closeModal);
+    if (closeFolderModalBtn) closeFolderModalBtn.addEventListener('click', closeModal);
+
+    if (btnChooseLink) {
+        btnChooseLink.addEventListener('click', () => {
+            openShortcutModal(null);
+        });
+    }
+
+    if (btnChooseFolder) {
+        btnChooseFolder.addEventListener('click', () => {
+            editingIndex = null;
+            openFolderModal('', false);
+        });
+    }
+
+    if (folderForm) {
+        folderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const folderNameInput = inputFolderName;
+            if (!folderNameInput) return;
+
+            const targetArray = shortcuts;
+            if (editingIndex !== null && editingIndex >= 0 && targetArray[editingIndex]) {
+                targetArray[editingIndex] = { ...targetArray[editingIndex], name: folderNameInput.value };
+            } else {
+                const limit = allowedRows * 10;
+                if (targetArray.length >= limit) {
+                    showGridLimitWarning(limit, false);
+                    return;
+                }
+                targetArray.push({
+                    id: 'folder_' + Date.now().toString(),
+                    type: 'folder',
+                    name: folderNameInput.value,
+                    children: []
+                });
+            }
+            foldersEnabled = true;
+            if (toggleFolders) toggleFolders.checked = true;
+            localStorage.setItem('foldersEnabled', 'true');
+            updateLauncherFooterVariant();
+            saveAndRender();
+            editingIndex = null;
+            closeModal();
+        });
+    }
+
     if (rowsSelect) {
         rowsSelect.value = String(allowedRows);
         rowsSelect.addEventListener('change', (e) => {
@@ -1292,9 +1734,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     renderShortcuts();
     initSortable();
-
-    /* Shortcuts Visibility */
+    bindExternalShortcutDrop();
     applyInitialShortcutsVisibility();
+    applyInitialFoldersSetting();
     if(toggleShortcuts) {
         toggleShortcuts.addEventListener('change', (e) => {
             const target = getInputTarget(e);
@@ -1302,6 +1744,39 @@ document.addEventListener("DOMContentLoaded", async () => {
             const isVisible = target.checked;
             updateShortcutsVisibility(isVisible);
             localStorage.setItem('shortcutsVisible', String(isVisible));
+        });
+    }
+    if (toggleFolders) {
+        toggleFolders.addEventListener('change', (e) => {
+            const target = getInputTarget(e);
+            if (!target) return;
+            const wantsEnable = target.checked;
+
+            if (!wantsEnable) {
+                warningModal.show({
+                    title: 'Disable Folders?',
+                    message: 'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
+                    confirmText: 'Delete Folders',
+                    cancelText: 'Keep Enabled',
+                    confirmVariant: 'danger',
+                    onConfirm: () => {
+                        shortcuts = shortcuts.filter((item) => item.type !== 'folder' && !Array.isArray(item.children));
+                        foldersEnabled = false;
+                        currentFolderId = null;
+                        localStorage.setItem('foldersEnabled', 'false');
+                        updateLauncherFooterVariant();
+                        saveAndRender();
+                    },
+                    onCancel: () => {
+                        target.checked = true;
+                    }
+                });
+                return;
+            }
+
+            foldersEnabled = true;
+            localStorage.setItem('foldersEnabled', 'true');
+            updateLauncherFooterVariant();
         });
     }
     const toggleCompact = getById<HTMLInputElement>('toggleCompactBar');
@@ -1347,7 +1822,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             startVoiceSearch();
         });
     }
-    /* Weather Widget */
     bindWeatherFeature({
         applyInitialWeatherState,
         toggleWeather,
@@ -1363,7 +1837,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         searchCity
     });
 
-    /* App Launcher */
     bindLauncherFeature({
         applyInitialLauncherState,
         toggleLauncher,
@@ -1378,8 +1851,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         launcherPopup,
         closePopups
     });
+    bindLauncherFolderButton();
     
-    /* Wallpaper System */
     bindWallpaperFeature({
         applyInitialWallpaperState,
         toggleWallpaper,
@@ -1401,7 +1874,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         clearPresetSelection
     });
 
-    /* --- Language Settings --- */
     if (languageSelect) {
         const savedLang = localStorage.getItem('userLanguage');
         const defaultLang = 'en_US';
@@ -1421,7 +1893,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    /* Export & Import */
     if (versionDisplay) {
         try { versionDisplay.textContent = `v${chrome.runtime.getManifest().version}`; }
         catch (e) { versionDisplay.textContent = 'v1.0'; }
@@ -1433,6 +1904,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const value = localStorage.getItem(key);
                 if (value !== null) backupData[key] = value;
             });
+
+            // Dedicated key with the complete shortcuts tree (folders + children shortcuts).
+            backupData[SHORTCUTS_TREE_BACKUP_KEY] = localStorage.getItem('shortcuts') || '[]';
+
             backupData._backupDate = new Date().toISOString();
             const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -1454,14 +1929,36 @@ document.addEventListener("DOMContentLoaded", async () => {
             reader.onload = (event) => {
                 try {
                     const data = JSON.parse(String((event.target as FileReader).result || '{}')) as BackupPayload;
-                    if (confirm('Restore backup? This will replace current settings.')) {
-                        APP_KEYS.forEach(key => {
-                            const value = data[key];
-                            if (typeof value === 'string') localStorage.setItem(key, value);
-                        });
-                        location.reload();
-                    }
-                } catch (error) { alert('Invalid backup file.'); }
+                    warningModal.show({
+                        title: getLocalizedWarningText('warningRestoreBackupTitle', 'Restore Backup?'),
+                        message: getLocalizedWarningText('warningRestoreBackupMessage', 'This will replace your current settings and shortcuts with the backup file data.'),
+                        confirmText: getLocalizedWarningText('warningRestoreBackupConfirm', 'Restore'),
+                        cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+                        confirmVariant: 'danger',
+                        onConfirm: () => {
+                            APP_KEYS.forEach(key => {
+                                const value = data[key];
+                                if (typeof value === 'string') localStorage.setItem(key, value);
+                            });
+
+                            const treeBackup = data[SHORTCUTS_TREE_BACKUP_KEY];
+                            if (typeof treeBackup === 'string') {
+                                localStorage.setItem('shortcuts', treeBackup);
+                            }
+
+                            location.reload();
+                        }
+                    });
+                } catch (error) {
+                    warningModal.show({
+                        title: getLocalizedWarningText('warningInvalidBackupTitle', 'Invalid Backup File'),
+                        message: getLocalizedWarningText('warningInvalidBackupMessage', 'The selected file is not a valid backup.'),
+                        confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+                        cancelText: getLocalizedWarningText('warningClose', 'Close'),
+                        confirmVariant: 'accent',
+                        onConfirm: () => {}
+                    });
+                }
                 importInput.value = '';
             };
             reader.readAsText(file);
@@ -1469,7 +1966,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-/* --- 9. Post-i18n Refresh --- */
 document.addEventListener('i18nReady', () => {
     console.log("Translations loaded. Starting interface...");
     showPendingUpdateNoticeIfAny();
