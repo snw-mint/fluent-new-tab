@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Přidat složku"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Upravit složku"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Zpět"
   },
   "addShortcutTitle": {
     "message": "Přidat zástupce"
@@ -156,10 +156,10 @@
     "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Odstranit složku"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Opravdu chcete smazat složku „$FOLDER$“? Všechny zkratky v ní budou odstraněny.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Zakázat složky?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Všechny složky a jejich zástupce budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Odstranit složky"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Nechat zapnuté"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Přidat $ECOSYSTEM$ Aplikace?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Tím se ve vašich zkratkách vytvoří složka s 9 aplikacemi $ECOSYSTEM$ . Pokračovat?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Přidat složku"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Žádné dostupné aplikace"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Pro tento ekosystém nejsou k dispozici žádné aplikace."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limit zkratek dosažen!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Mřížka je plná"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Dosáhli jste maximálního limitu zkratek na hlavní obrazovce $LIMIT$ . Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Složka je plná"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Tato složka dosáhla absolutního limitu položek $LIMIT$ . Před přidáním nových položek prosím odstraňte některé zástupce.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Obnovit zálohu?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Tím se nahradí vaše aktuální nastavení a zkratky daty ze záložního souboru."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Obnovit"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Neplatný záložní soubor"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Vybraný soubor není platnou zálohou."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Rozumím."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Zavřít"
   },
   "greetMorning1": {
     "message": "Dobré ráno, $NAME$",
