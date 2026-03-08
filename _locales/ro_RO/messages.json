@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Adăugați folder"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Editare folder"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Înapoi"
   },
   "addShortcutTitle": {
     "message": "Adăugați scurtătură"
@@ -156,10 +156,10 @@
     "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Păstrați în schimb imaginea de fundal actuală."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Ștergeți folderul"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Sunteți sigur că doriți să ștergeți folderul „$FOLDER$”? Toate comenzile rapide din acesta vor fi eliminate.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Dezactivați folderele?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Toate folderele și comenzile rapide ale acestora vor fi șterse. Această operațiune nu poate fi anulată, cu excepția cazului în care aveți o copie de rezervă."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Ștergeți folderele"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Păstrați activat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Adăugați aplicațiile $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Aceasta va crea un folder cu 9 aplicații $ECOSYSTEM$ în comenzile rapide. Continuați?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Adăugați folder"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Nu sunt disponibile aplicații"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Nu există aplicații disponibile pentru acest ecosistem."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limita de comenzi rapide atinsă!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Rețeaua este plină"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Ați atins limita maximă de comenzi rapide $LIMIT$ pe ecranul principal. Ștergeți unele elemente sau grupați-le într-un folder pentru a elibera spațiu.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Dosarul este plin"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Acest folder a atins limita maximă de $LIMIT$ elemente. Vă rugăm să ștergeți unele comenzi rapide înainte de a adăuga altele noi.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Restaurați copia de rezervă?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Aceasta va înlocui setările și comenzile rapide actuale cu datele din fișierul de rezervă."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Restaurare"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Fișier de rezervă invalid"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Fișierul selectat nu este o copie de rezervă validă."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Am înțeles."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Închide"
   },
   "greetMorning1": {
     "message": "Bună dimineața, $NAME$",
