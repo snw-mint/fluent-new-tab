@@ -87,13 +87,13 @@
     "message": "Importa"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Aggiungi cartella"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Modifica cartella"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Indietro"
   },
   "addShortcutTitle": {
     "message": "Aggiungi collegamento"
@@ -156,10 +156,10 @@
     "message": "L'APOD di oggi è un video o non è disponibile. Mantieni invece il tuo sfondo attuale."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Elimina cartella"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Sei sicuro di voler eliminare la cartella \"$FOLDER$\"? Tutti i collegamenti al suo interno verranno rimossi.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Disattivare le cartelle?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Tutte le cartelle e i relativi collegamenti verranno eliminati. Questa operazione non può essere annullata, a meno che non si disponga di un backup."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Elimina cartelle"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Mantieni abilitato"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Aggiungi $ECOSYSTEM$ App?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Questo creerà una cartella con 9 app $ECOSYSTEM$ nei tuoi collegamenti. Continuare?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Aggiungi cartella"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Nessuna app disponibile"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Nessuna app disponibile per questo ecosistema."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limite di scorciatoie raggiunto!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "La griglia è piena"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Hai raggiunto il limite massimo di collegamenti $LIMIT$ nella schermata principale. Elimina alcuni elementi o raggruppali in una cartella per liberare spazio.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "La cartella è piena"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Questa cartella ha raggiunto il limite massimo di $LIMIT$ elementi. Rimuovere alcuni collegamenti prima di aggiungerne di nuovi.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Ripristinare il backup?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Questo sostituirà le impostazioni e le scorciatoie attuali con i dati del file di backup."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Ripristina"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "File di backup non valido"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Il file selezionato non è un backup valido."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Capito."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Chiudi"
   },
   "greetMorning1": {
     "message": "Buongiorno, $NAME$",
