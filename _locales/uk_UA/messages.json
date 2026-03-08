@@ -87,13 +87,13 @@
     "message": "Імпорт"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Додати папку"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Редагувати папку"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Назад"
   },
   "addShortcutTitle": {
     "message": "Додати ярлик"
@@ -156,10 +156,10 @@
     "message": "Сьогоднішній APOD — це відео або недоступний. Замість цього збережіть поточну заставку."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Видалити папку"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Ви впевнені, що хочете видалити папку «$FOLDER$»? Усі ярлики, що містяться в ній, будуть видалені.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Вимкнути папки?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Всі папки та їх ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Видалити папки"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Залишити увімкненим"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Додати $ECOSYSTEM$ Додатки?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Це створить папку з 9 додатками $ECOSYSTEM$ у ваших ярликах. Продовжити?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Додати папку"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Немає доступних додатків"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Для цієї екосистеми немає доступних додатків."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Досягнуто межу скорочень!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Сітка заповнена"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Ви досягли максимального обмеження $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Папка переповнена"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Ця папка досягла абсолютного обмеження $LIMIT$ елементів. Будь ласка, видаліть деякі ярлики, перш ніж додавати нові.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Відновити резервну копію?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Це замінить ваші поточні налаштування та ярлики даними з файлу резервної копії."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Відновити"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Недійсний файл резервної копії"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Вибраний файл не є дійсним резервним копією."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Зрозуміло"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Закрити"
   },
   "greetMorning1": {
     "message": "Доброго ранку, $NAME$",
