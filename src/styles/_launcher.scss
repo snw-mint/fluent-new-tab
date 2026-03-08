@@ -48,10 +48,6 @@
     @include card-radius($radius-md);
     overflow: hidden;
 
-    &::after {
-        @include noise-overlay;
-    }
-
     &.active {
         display: flex;
     }

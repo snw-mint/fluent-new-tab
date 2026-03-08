@@ -115,10 +115,6 @@
                 @include glass-panel;
                 @include card-radius($radius-md);
 
-                &::after {
-                    @include noise-overlay;
-                }
-
                 &.active {
                     opacity: 1;
                     transform: translateY(0) scale(1);

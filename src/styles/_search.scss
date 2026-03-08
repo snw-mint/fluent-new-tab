@@ -168,10 +168,6 @@
         @include glass-panel;
         @include card-radius($radius-md);
 
-        &::after {
-            @include noise-overlay;
-        }
-
         &.active {
             display: flex;
         }

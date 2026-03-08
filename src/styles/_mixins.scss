@@ -40,19 +40,6 @@
     }
 }
 
-@mixin noise-overlay($opacity: 0.1) {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: url("assets/noise.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    opacity: $opacity;
-    pointer-events: none;
-}
-
 @mixin shadow-soft {
     box-shadow: $shadow-soft;
 }
