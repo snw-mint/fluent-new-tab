@@ -87,13 +87,13 @@
     "message": "Importar"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Añadir carpeta"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Editar carpeta"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Atrás"
   },
   "addShortcutTitle": {
     "message": "Añadir acceso directo"
@@ -156,10 +156,10 @@
     "message": "El APOD de hoy es un vídeo o no está disponible. En su lugar, mantendremos tu fondo de pantalla actual."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Eliminar carpeta"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "¿Está seguro de que desea eliminar la carpeta «$FOLDER$»? Se eliminarán todos los accesos directos que contiene.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "¿Desactivar carpetas?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Se eliminarán todas las carpetas y sus accesos directos. Esto no se puede deshacer a menos que tengas una copia de seguridad."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Eliminar carpetas"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Mantener habilitado"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "¿Añadir $ECOSYSTEM$ Apps?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Esto creará una carpeta con 9 aplicaciones de $ECOSYSTEM$ en tus accesos directos. ¿Continuar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Añadir carpeta"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "No hay aplicaciones disponibles."
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "No hay aplicaciones disponibles para este ecosistema."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "¡Se ha alcanzado el límite de accesos directos!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "La red está llena"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Has alcanzado el límite máximo de accesos directos de $LIMIT$ en la pantalla principal. Elimina algunos elementos o agrúpalos en una carpeta para liberar espacio.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "La carpeta está llena"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Esta carpeta ha alcanzado el límite absoluto de $LIMIT$ elementos. Elimine algunos accesos directos antes de añadir otros nuevos.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "¿Restaurar copia de seguridad?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Esto sustituirá su configuración actual y sus accesos directos por los datos del archivo de copia de seguridad."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Restaurar"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Archivo de copia de seguridad no válido"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "El archivo seleccionado no es una copia de seguridad válida."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Entendido."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Cerrar"
   },
   "greetMorning1": {
     "message": "Buenos días, $NAME$",
@@ -372,7 +372,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Es hora de relajarse. $NAME$",
+    "message": "Es hora de relajarse, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -381,7 +381,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Disfruta de tu velada. $NAME$",
+    "message": "Disfruta de tu velada, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -417,7 +417,7 @@
     }
   },
   "greetNight4": {
-    "message": "Buenas noches, $NAME$. ¡Hasta mañana!",
+    "message": "Buenas noches, $NAME$, ¡Hasta mañana!",
     "placeholders": {
       "name": {
         "content": "$1",
