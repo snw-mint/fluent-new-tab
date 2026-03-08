@@ -86,6 +86,15 @@
   "importOption": {
     "message": "Importar"
   },
+  "addFolderTitle": {
+    "message": "Add Folder"
+  },
+  "editFolderTitle": {
+    "message": "Edit Folder"
+  },
+  "backLabel": {
+    "message": "Back"
+  },
   "addShortcutTitle": {
     "message": "Adicionar atalho"
   },
@@ -145,6 +154,105 @@
   },
   "nasaApodVideoNotice": {
     "message": "O APOD de hoje é um vídeo ou está indisponível. Mantendo o seu papel de parede atual."
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Delete Folder"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Disable Folders?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Delete Folders"
+  },
+  "warningKeepEnabled": {
+    "message": "Keep Enabled"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Add $ECOSYSTEM$ Apps?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Add Folder"
+  },
+  "launcherNoAppsTitle": {
+    "message": "No Apps Available"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "No apps available for this ecosystem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Shortcuts limit reached!"
+  },
+  "warningGridFullTitle": {
+    "message": "Grid is Full"
+  },
+  "warningGridFullMessage": {
+    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Folder is Full"
+  },
+  "warningFolderFullMessage": {
+    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Restore Backup?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "This will replace your current settings and shortcuts with the backup file data."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Restore"
+  },
+  "warningInvalidBackupTitle": {
+    "message": "Invalid Backup File"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "The selected file is not a valid backup."
+  },
+  "warningUnderstood": {
+    "message": "Understood"
+  },
+  "warningClose": {
+    "message": "Close"
   },
   "greetMorning1": {
     "message": "Bom dia, $NAME$",
