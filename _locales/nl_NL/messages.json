@@ -87,13 +87,13 @@
     "message": "Importeren"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Map toevoegen"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Map bewerken"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Terug"
   },
   "addShortcutTitle": {
     "message": "Snelkoppeling toevoegen"
@@ -156,10 +156,10 @@
     "message": "De APOD van vandaag is een video of is niet beschikbaar. In plaats daarvan behoudt u uw huidige achtergrond."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Map verwijderen"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Weet u zeker dat u de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Mappen uitschakelen?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij u een back-up hebt."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Mappen verwijderen"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Ingeschakeld houden"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "$ECOSYSTEM$ -apps toevoegen?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in uw snelkoppelingen aangemaakt. Doorgaan?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Map toevoegen"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Geen apps beschikbaar"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Er zijn geen apps beschikbaar voor dit ecosysteem."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limiet voor snelkoppelingen bereikt!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Het raster is vol"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Je hebt de maximale limiet van $LIMIT$ snelkoppelingen op het hoofdscherm bereikt. Verwijder enkele items of groepeer ze in een map om ruimte vrij te maken.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Map is vol"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat u nieuwe toevoegt.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Back-up herstellen?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Hierdoor worden uw huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Herstellen"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Ongeldig back-upbestand"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Het geselecteerde bestand is geen geldige back-up."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Begrepen"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Sluiten"
   },
   "greetMorning1": {
     "message": "Goedemorgen, $NAME$",
