@@ -87,13 +87,13 @@
     "message": "Εισαγωγή"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Προσθήκη φακέλου"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Επεξεργασία φακέλου"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Πίσω"
   },
   "addShortcutTitle": {
     "message": "Προσθήκη συντόμευσης"
@@ -156,10 +156,10 @@
     "message": "Το σημερινό APOD είναι ένα βίντεο ή δεν είναι διαθέσιμο. Διατηρήστε την τρέχουσα ταπετσαρία σας."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Διαγραφή φακέλου"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε το φάκελο \"$FOLDER$\"; Όλες οι συντομεύσεις που περιέχει θα διαγραφούν.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Απενεργοποίηση φακέλων;"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Όλοι οι φάκελοι και οι συντομεύσεις τους θα διαγραφούν. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί, εκτός εάν έχετε δημιουργήσει αντίγραφο ασφαλείας."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Διαγραφή φακέλων"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Διατήρηση ενεργοποίησης"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Προσθήκη εφαρμογών $ECOSYSTEM$;",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Αυτό θα δημιουργήσει ένα φάκελο με 9 εφαρμογές $ECOSYSTEM$ στις συντομεύσεις σας. Θέλετε να συνεχίσετε;",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Προσθήκη φακέλου"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Δεν υπάρχουν διαθέσιμες εφαρμογές"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Δεν υπάρχουν διαθέσιμες εφαρμογές για αυτό το οικοσύστημα."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Το όριο των συντομεύσεων έχει επιτευχθεί!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Το πλέγμα είναι γεμάτο"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Έχετε φτάσει στο μέγιστο όριο των συντομεύσεων $LIMIT$ στην κύρια οθόνη. Διαγράψτε ορισμένα στοιχεία ή ομαδοποιήστε τα σε ένα φάκελο για να ελευθερώσετε χώρο.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Ο φάκελος είναι γεμάτος"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Αυτός ο φάκελος έχει φτάσει το απόλυτο όριο των $LIMIT$ στοιχείων. Παρακαλώ αφαιρέστε μερικές συντομεύσεις πριν προσθέσετε νέες.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Επαναφορά αντιγράφου ασφαλείας;"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Αυτό θα αντικαταστήσει τις τρέχουσες ρυθμίσεις και συντομεύσεις σας με τα δεδομένα του αρχείου αντιγράφου ασφαλείας."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Επαναφορά"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Μη έγκυρο αρχείο αντιγράφου ασφαλείας"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Κατάλαβα."
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Κλείσιμο"
   },
   "greetMorning1": {
     "message": "Καλημέρα, $NAME$",
