@@ -87,13 +87,13 @@
     "message": "İçeri aktar"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Klasör Ekle"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Klasörü Düzenle"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Geri"
   },
   "addShortcutTitle": {
     "message": "Kısayol Ekle"
@@ -156,10 +156,10 @@
     "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınızı koruyun."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Klasörü Sil"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "\"$FOLDER$\" klasörünü silmek istediğinizden emin misiniz? İçindeki tüm kısayollar silinecektir.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Klasörleri devre dışı bırakmak mı?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Tüm klasörler ve kısayolları silinecektir. Yedeklemeniz yoksa bu işlem geri alınamaz."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Klasörleri Sil"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Etkin Tut"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "$ECOSYSTEM$ uygulamalarını eklemek ister misiniz?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Bu, kısayollarınızda 9 adet $ECOSYSTEM$ uygulaması içeren bir klasör oluşturacaktır. Devam etmek istiyor musunuz?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Klasör Ekle"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Kullanılabilir uygulama yok"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Bu ekosistem için mevcut uygulama yoktur."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Kısayol sınırı ulaşıldı!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Izgara Dolu"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Ana ekranda $LIMIT$ kısayollarının maksimum sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Klasör Dolu"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Bu klasör, $LIMIT$ öğelerinin mutlak sınırına ulaşmıştır. Yeni kısayollar eklemeden önce bazı kısayolları silin.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Yedeklemeyi geri yüklemek ister misiniz?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Bu, mevcut ayarlarınızı ve kısayollarınızı yedekleme dosyası verileriyle değiştirecektir."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Geri yükle"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Geçersiz Yedekleme Dosyası"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Seçilen dosya geçerli bir yedekleme dosyası değildir."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Anlaşıldı"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Kapat"
   },
   "greetMorning1": {
     "message": "Günaydın, $NAME$",
