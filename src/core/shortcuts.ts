@@ -19,6 +19,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     if (!shortcutsGrid) return;
 
     shortcutsGrid.innerHTML = '';
+    const fragment = document.createDocumentFragment();
     const COLUMNS = 10;
     const currentRows = rowsSelect ? parseInt(rowsSelect.value) : (parseInt(localStorage.getItem('shortcutsRows') || '2') || 2);
     const maxSlots = currentRows * COLUMNS;
@@ -40,6 +41,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         if (isInsideFolder) {
         const backBtn = document.createElement('div');
         backBtn.className = 'shortcut-item folder-back-btn';
+        backBtn.dataset.action = 'go-back';
         
         const backText = window.getTranslation('backLabel');
         const finalBackText = (backText && backText !== 'backLabel') ? backText : 'Back';
@@ -53,23 +55,23 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             <span class="shortcut-title">${finalBackText}</span>
         `;
         backBtn.setAttribute('draggable', 'false');
-        backBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            onGoBack();
-        });
-        shortcutsGrid.appendChild(backBtn);
+        fragment.appendChild(backBtn);
     }
 
     visibleShortcuts.forEach((itemData, index) => {
         const isFolder = itemData.type === 'folder';
         const item = document.createElement('div');
         item.className = 'shortcut-item';
+        item.dataset.index = index.toString();
+        item.dataset.type = isFolder ? 'folder' : 'shortcut';
+        if (itemData.id) item.dataset.id = itemData.id;
         const card = document.createElement('a');
         card.className = 'shortcut-card';
         card.href = isFolder ? '#' : (itemData.url || '#');
         card.draggable = true;
         card.style.color = 'inherit'; 
         card.style.textDecoration = 'none';
+        card.dataset.action = 'open-shortcut';
 
         if (isFolder) {
             card.style.display = 'flex';
@@ -101,53 +103,10 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             card.prepend(img);
         }
 
-        /* =========================================
-           BLINDAGEM DE EVENTOS (EVENT BUBBLING FIX)
-           ========================================= */
-
-        // 1. O clique principal do Card
-        card.addEventListener('click', (e) => {
-            const target = e.target as HTMLElement;
-            
-            // Se o clique foi em qualquer lugar DENTRO do menu, nós abortamos a ação do card!
-            if (target.closest('.menu-wrapper')) {
-                e.preventDefault(); // Evita que o href="#" jogue a tela pro topo
-                return;
-            }
-
-            // Se for pasta, abre a pasta
-            if (isFolder) {
-                e.preventDefault();
-                onOpenFolder(itemData.id!);
-            }
-        });
-
-        // 2. Os cliques isolados do Menu
-        const menuBtn = card.querySelector('.menu-btn');
         const editOpt = card.querySelector('.edit-option');
         const removeOpt = card.querySelector('.remove-option');
-        const dropdown = card.querySelector('.shortcut-dropdown');
-
-        menuBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // Impede que o clique suba para o card
-            onClosePopups(dropdown);
-            dropdown?.classList.toggle('active');
-        });
-
-        editOpt?.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown?.classList.remove('active');
-            onOpenModal(index); // O índice está seguro aqui via closure!
-        });
-
-        removeOpt?.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown?.classList.remove('active');
-            onDeleteShortcut(index); // O índice está seguro aqui via closure!
-        });
+        editOpt?.setAttribute('data-index', index.toString());
+        removeOpt?.setAttribute('data-index', index.toString());
 
         item.appendChild(card);
 
@@ -156,31 +115,127 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         titleLink.className = 'shortcut-title';
         titleLink.href = isFolder ? '#' : (itemData.url || '#');
         titleLink.textContent = itemData.name;
-        
-        if (isFolder) {
-            titleLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                onOpenFolder(itemData.id!);
-            });
-        }
+        titleLink.dataset.action = isFolder ? 'open-folder-title' : 'open-shortcut-title';
+        titleLink.dataset.index = index.toString();
         
         item.appendChild(titleLink);
-        shortcutsGrid.appendChild(item);
+        fragment.appendChild(item);
     });
 
     // Adiciona o botão de "+" no final, se houver espaço
     if (visibleShortcuts.length < availableSlots) {
         const addBtn = document.createElement('div');
         addBtn.className = 'shortcut-item add-card-wrapper';
-        addBtn.addEventListener('click', () => onOpenModal(null));
+        addBtn.dataset.action = 'add-shortcut';
         addBtn.innerHTML = `
             <div class="shortcut-card">${typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+'}</div>
             <span class="shortcut-title">${window.getTranslation('addShortcutLabel')}</span>
         `;
-        shortcutsGrid.appendChild(addBtn);
+        fragment.appendChild(addBtn);
     }
 
-    // AVISO IMPORTANTE: Remova todos os shortcutsGrid.querySelectorAll(...) 
-    // que ficavam aqui no final da função! Eles não são mais necessários 
-    // e causarão eventos duplicados se você mantê-los.
+    shortcutsGrid.appendChild(fragment);
+
+    const handleGridClick = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+
+        const backBtn = target.closest('.folder-back-btn');
+        if (backBtn) {
+            event.preventDefault();
+            onGoBack();
+            return;
+        }
+
+        const addBtn = target.closest('.add-card-wrapper');
+        if (addBtn) {
+            event.preventDefault();
+            onOpenModal(null);
+            return;
+        }
+
+        const editOpt = target.closest('.edit-option') as HTMLElement | null;
+        if (editOpt) {
+            event.preventDefault();
+            event.stopPropagation();
+            onClosePopups();
+            const editIndex = parseInt(editOpt.dataset.index || '-1', 10);
+            if (editIndex > -1) onOpenModal(editIndex);
+            return;
+        }
+
+        const removeOpt = target.closest('.remove-option') as HTMLElement | null;
+        if (removeOpt) {
+            event.preventDefault();
+            event.stopPropagation();
+            onClosePopups();
+            const removeIndex = parseInt(removeOpt.dataset.index || '-1', 10);
+            if (removeIndex > -1) onDeleteShortcut(removeIndex);
+            return;
+        }
+
+        const menuBtn = target.closest('.menu-btn');
+        if (menuBtn) {
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = menuBtn.closest('.menu-wrapper')?.querySelector('.shortcut-dropdown');
+            onClosePopups(dropdown);
+            dropdown?.classList.toggle('active');
+            return;
+        }
+
+        const dropdownContent = target.closest('.shortcut-dropdown');
+        if (dropdownContent) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
+
+        const card = target.closest('.shortcut-card');
+        if (card) {
+            const item = card.closest('.shortcut-item');
+            const isFolder = item?.dataset.type === 'folder';
+            const folderId = item?.dataset.id;
+
+            if (card.querySelector('.menu-wrapper')?.contains(target)) {
+                event.preventDefault();
+                return;
+            }
+
+            if (isFolder && folderId) {
+                event.preventDefault();
+                onOpenFolder(folderId);
+                return;
+            }
+
+            onClosePopups();
+            return;
+        }
+
+        const titleLink = target.closest('.shortcut-title');
+        if (titleLink) {
+            const item = titleLink.closest('.shortcut-item');
+            const isFolder = item?.dataset.type === 'folder';
+            const folderId = item?.dataset.id;
+            if (isFolder && folderId) {
+                event.preventDefault();
+                onOpenFolder(folderId);
+                return;
+            }
+            return;
+        }
+    };
+
+    const handleGridContext = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+        const card = target.closest('.shortcut-card');
+        if (!card) return;
+
+        event.preventDefault();
+        const dropdown = card.querySelector('.shortcut-dropdown');
+        onClosePopups(dropdown);
+        dropdown?.classList.add('active');
+    };
+
+    shortcutsGrid.onclick = handleGridClick;
+    shortcutsGrid.oncontextmenu = handleGridContext;
 }
