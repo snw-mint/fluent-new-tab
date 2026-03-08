@@ -87,13 +87,13 @@
     "message": "Импорт"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Добавить папку"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Редактировать папку"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Назад"
   },
   "addShortcutTitle": {
     "message": "Добавить ярлык"
@@ -156,10 +156,10 @@
     "message": "Сегодняшний APOD — это видео или недоступно. Вместо этого сохраняйте текущие обои."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Удалить папку"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Вы уверены, что хотите удалить папку «$FOLDER$»? Все ярлыки, находящиеся в ней, будут удалены.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Отключить папки?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Все папки и их ярлыки будут удалены. Это действие нельзя отменить, если у вас нет резервной копии."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Удалить папки"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Оставить включенным"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Добавить $ECOSYSTEM$ Приложения?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Это создаст папку с 9 приложениями $ECOSYSTEM$ в ваших ярлыках. Продолжить?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Добавить папку"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Нет доступных приложений"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Для этой экосистемы нет доступных приложений."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Предельное количество ярлыков достигнуто!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Сетка заполнена"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Вы достигли максимального предела $LIMIT$ ярлыков на главном экране. Удалите некоторые элементы или сгруппируйте их в папку, чтобы освободить место.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Папка переполнена"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Эта папка достигла абсолютного предела $LIMIT$ элементов. Пожалуйста, удалите некоторые ярлыки, прежде чем добавлять новые.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Восстановить резервную копию?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Это заменит ваши текущие настройки и ярлыки данными из файла резервной копии."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Восстановить"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Недействительный файл резервной копии"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Выбранный файл не является действительной резервной копией."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Понятно"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Закрыть"
   },
   "greetMorning1": {
     "message": "Доброе утро, $NAME$",
