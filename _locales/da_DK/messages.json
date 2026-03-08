@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Tilføj mappe"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Rediger mappe"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Tilbage"
   },
   "addShortcutTitle": {
     "message": "Tilføj genvej"
@@ -156,10 +156,10 @@
     "message": "Dagens APOD er en video eller er ikke tilgængelig. Vi viser i stedet dit nuværende baggrundsbillede."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Slet mappe"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Er du sikker på, at du vil slette mappen \"$FOLDER$\"? Alle genveje i mappen vil blive slettet.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Deaktivere mapper?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Alle mapper og deres genveje vil blive slettet. Dette kan ikke fortrydes, medmindre du har en sikkerhedskopi."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Slet mapper"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Hold aktiveret"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Tilføj $ECOSYSTEM$ Apps?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Dette vil oprette en mappe med 9 $ECOSYSTEM$ apps i dine genveje. Fortsæt?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Tilføj mappe"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Ingen apps tilgængelige"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Der er ingen apps tilgængelige for dette økosystem."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Grænsen for genveje er nået!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Gitteret er fuldt"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Du har nået den maksimale grænse for $LIMIT$ genveje på hovedskærmen. Slet nogle elementer eller grupper dem i en mappe for at frigøre plads.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Mappen er fuld"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Denne mappe har nået den absolutte grænse for $LIMIT$ elementer. Fjern nogle genveje, før du tilføjer nye.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Gendanne sikkerhedskopi?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Dette vil erstatte dine nuværende indstillinger og genveje med dataene fra sikkerhedskopifilen."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Gendan"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Ugyldig sikkerhedskopifil"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Den valgte fil er ikke en gyldig sikkerhedskopi."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Forstået"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Luk"
   },
   "greetMorning1": {
     "message": "Godmorgen, $NAME$",
