@@ -127,6 +127,7 @@ interface WarningModalOptions {
     message: string;
     confirmText?: string;
     cancelText?: string;
+    confirmVariant?: 'accent' | 'danger';
     onConfirm: () => void;
     onCancel?: () => void;
 }
@@ -149,10 +150,13 @@ class WarningModalManager {
     }
 
     public show(options: WarningModalOptions): void {
+        const confirmVariant = options.confirmVariant || 'accent';
         this.titleEl.textContent = options.title;
         this.messageEl.textContent = options.message;
         this.btnConfirm.textContent = options.confirmText || 'Confirm';
         this.btnCancel.textContent = options.cancelText || 'Cancel';
+        this.btnConfirm.classList.toggle('btn-danger', confirmVariant === 'danger');
+        this.btnConfirm.classList.toggle('btn-save', confirmVariant !== 'danger');
 
         this.overlay.classList.add('active');
         document.addEventListener('keydown', this.handleKeydownBound);
@@ -200,6 +204,7 @@ function deleteShortcut(index: number): void {
             message: `Are you sure you want to delete the folder "${folderName}"? All shortcuts inside it will be removed.`,
             confirmText: 'Delete',
             cancelText: 'Cancel',
+            confirmVariant: 'danger',
             onConfirm: () => {
                 if (currentFolderId === item.id) currentFolderId = null;
                 targetArray.splice(index, 1);
@@ -881,6 +886,93 @@ async function searchCity(): Promise<void> {
     } catch (error) { alert('Error searching city.'); }
     finally { saveCityBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'; }
 }
+
+const MAX_MAIN_GRID_ITEMS = 40;
+const MAX_FOLDER_GRID_ROWS = 4;
+const MAX_FOLDER_CAPACITY = (MAX_FOLDER_GRID_ROWS * 10) - 1;
+
+function deriveShortcutNameFromUrl(rawUrl: string): string {
+    try {
+        const host = new URL(rawUrl).hostname.replace(/^www\./i, '');
+        if (!host) return 'New Shortcut';
+        return host.charAt(0).toUpperCase() + host.slice(1);
+    } catch {
+        return 'New Shortcut';
+    }
+}
+
+function showGridLimitWarning(currentLimit: number, isFolderGrid: boolean): void {
+    const title = isFolderGrid
+        ? getLocalizedWarningText('warningFolderFullTitle', 'Folder is Full')
+        : getLocalizedWarningText('warningGridFullTitle', 'Grid is Full');
+    const message = isFolderGrid
+        ? getLocalizedWarningText('warningFolderFullMessage', 'This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.', { LIMIT: String(currentLimit) })
+        : getLocalizedWarningText('warningGridFullMessage', 'You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.', { LIMIT: String(currentLimit) });
+
+    warningModal.show({
+        title,
+        message,
+        confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+        cancelText: getLocalizedWarningText('warningClose', 'Close'),
+        confirmVariant: 'accent',
+        onConfirm: () => {}
+    });
+}
+
+function bindExternalShortcutDrop(): void {
+    if (!shortcutsGrid) return;
+
+    shortcutsGrid.addEventListener('dragover', (event) => {
+        if (!event.dataTransfer) return;
+        const hasUrl = Array.from(event.dataTransfer.types).some((type) => type === 'text/uri-list' || type === 'text/plain' || type === 'text/html');
+        if (!hasUrl) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'copy';
+    });
+
+    shortcutsGrid.addEventListener('drop', (event) => {
+        event.preventDefault();
+
+        // Ignore internal Sortable drops to avoid creating duplicate shortcuts.
+        if (shortcutsGrid.classList.contains('sorting')) return;
+        if (!event.dataTransfer) return;
+
+        const targetArray = getActiveShortcutsList();
+        const isFolderGrid = Boolean(currentFolderId);
+        const effectiveLimit = isFolderGrid ? MAX_FOLDER_CAPACITY : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+        if (targetArray.length >= effectiveLimit) {
+            showGridLimitWarning(effectiveLimit, isFolderGrid);
+            return;
+        }
+
+        let droppedUrl = event.dataTransfer.getData('text/uri-list') || event.dataTransfer.getData('text/plain');
+        let droppedName = '';
+
+        const htmlData = event.dataTransfer.getData('text/html');
+        if (htmlData) {
+            const parser = new DOMParser();
+            const parsedDoc = parser.parseFromString(htmlData, 'text/html');
+            const anchor = parsedDoc.querySelector('a');
+
+            if (anchor) {
+                droppedUrl = anchor.href || droppedUrl;
+                droppedName = anchor.textContent?.trim() || '';
+            }
+        }
+
+        if (!droppedUrl || !/^https?:\/\//i.test(droppedUrl)) return;
+        if (!droppedName) droppedName = deriveShortcutNameFromUrl(droppedUrl);
+
+        targetArray.push({
+            type: 'link',
+            name: droppedName,
+            url: droppedUrl,
+            customIcon: null
+        });
+        saveAndRender();
+    });
+}
+
 function initSortable() {
     if (!shortcutsGrid) return;
     
@@ -969,6 +1061,19 @@ function toTitleCase(value: string): string {
     return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+function getLocalizedWarningText(key: string, fallback: string, replacements?: Record<string, string>): string {
+    let text = window.getTranslation(key);
+    if (!text || text === key) text = fallback;
+
+    if (replacements) {
+        Object.entries(replacements).forEach(([token, value]) => {
+            text = text.replace(new RegExp(`\\$${token}\\$`, 'g'), value);
+        });
+    }
+
+    return text;
+}
+
 function getLauncherProviderKey(): keyof typeof launcherData {
     const rawProvider = launcherProvider?.value as keyof typeof launcherData | undefined;
     if (rawProvider && launcherData[rawProvider]) return rawProvider;
@@ -998,9 +1103,19 @@ function createFolderFromLauncher(providerKey: keyof typeof launcherData): boole
         }))
     };
 
-    const limit = allowedRows * 10;
+    const limit = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
     if (shortcuts.length >= limit) {
-        alert('Limite de atalhos atingido!');
+        warningModal.show({
+            title: getLocalizedWarningText('warningGridFullTitle', 'Grid is Full'),
+            message: getLocalizedWarningText(
+                'warningGridFullMessage',
+                'You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.',
+                { LIMIT: String(limit) }
+            ),
+            confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+            cancelText: getLocalizedWarningText('warningClose', 'Close'),
+            onConfirm: () => {}
+        });
         return false;
     }
 
@@ -1026,15 +1141,23 @@ function bindLauncherFolderButton(): void {
         const ecosystemName = getLauncherFolderName(providerKey);
 
         if (!providerData?.apps?.length) {
-            alert('No apps available for this ecosystem.');
+            warningModal.show({
+                title: getLocalizedWarningText('launcherNoAppsTitle', 'No Apps Available'),
+                message: getLocalizedWarningText('launcherNoAppsAvailable', 'No apps available for this ecosystem.'),
+                confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+                cancelText: getLocalizedWarningText('warningClose', 'Close'),
+                confirmVariant: 'accent',
+                onConfirm: () => {}
+            });
             return;
         }
 
         warningModal.show({
-            title: `Add ${ecosystemName} Apps?`,
-            message: `This will create a folder with 9 ${ecosystemName} apps in your shortcuts. Continue?`,
-            confirmText: 'Add Folder',
-            cancelText: 'Cancel',
+            title: getLocalizedWarningText('warningAddEcosystemAppsTitle', `Add ${ecosystemName} Apps?`, { ECOSYSTEM: ecosystemName }),
+            message: getLocalizedWarningText('warningAddEcosystemAppsMessage', `This will create a folder with 9 ${ecosystemName} apps in your shortcuts. Continue?`, { ECOSYSTEM: ecosystemName }),
+            confirmText: getLocalizedWarningText('warningAddFolderConfirm', 'Add Folder'),
+            cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+            confirmVariant: 'accent',
             onConfirm: () => {
                 createFolderFromLauncher(providerKey);
             }
@@ -1169,6 +1292,7 @@ function applyBrandInterval() {
 const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
 const UPDATE_NOTICE_PENDING_KEY = 'update_notice_pending';
 const UPDATE_NOTICE_VERSION_KEY = 'update_notice_version';
+const SHORTCUTS_TREE_BACKUP_KEY = 'shortcutsTree';
 let pendingUpdateNoticeVersion: string | null = null;
 
 function getStorageLocalItems(key: string | string[]): Promise<Record<string, unknown>> {
@@ -1530,9 +1654,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (editingIndex !== null && editingIndex >= 0) {
                 targetArray[editingIndex] = { ...targetArray[editingIndex], ...newShortcut };
             } else {
-                const limit = currentFolderId ? 39 : (allowedRows * 10);
+                const limit = currentFolderId ? MAX_FOLDER_CAPACITY : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
                 if (targetArray.length >= limit) {
-                    alert('Limite de atalhos atingido!');
+                    showGridLimitWarning(limit, Boolean(currentFolderId));
                     return;
                 }
                 targetArray.push(newShortcut);
@@ -1578,7 +1702,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             } else {
                 const limit = allowedRows * 10;
                 if (targetArray.length >= limit) {
-                    alert('Limite de atalhos atingido!');
+                    showGridLimitWarning(limit, false);
                     return;
                 }
                 targetArray.push({
@@ -1610,6 +1734,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     renderShortcuts();
     initSortable();
+    bindExternalShortcutDrop();
     applyInitialShortcutsVisibility();
     applyInitialFoldersSetting();
     if(toggleShortcuts) {
@@ -1633,6 +1758,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     message: 'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
                     confirmText: 'Delete Folders',
                     cancelText: 'Keep Enabled',
+                    confirmVariant: 'danger',
                     onConfirm: () => {
                         shortcuts = shortcuts.filter((item) => item.type !== 'folder' && !Array.isArray(item.children));
                         foldersEnabled = false;
@@ -1778,6 +1904,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const value = localStorage.getItem(key);
                 if (value !== null) backupData[key] = value;
             });
+
+            // Dedicated key with the complete shortcuts tree (folders + children shortcuts).
+            backupData[SHORTCUTS_TREE_BACKUP_KEY] = localStorage.getItem('shortcuts') || '[]';
+
             backupData._backupDate = new Date().toISOString();
             const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -1799,14 +1929,36 @@ document.addEventListener("DOMContentLoaded", async () => {
             reader.onload = (event) => {
                 try {
                     const data = JSON.parse(String((event.target as FileReader).result || '{}')) as BackupPayload;
-                    if (confirm('Restore backup? This will replace current settings.')) {
-                        APP_KEYS.forEach(key => {
-                            const value = data[key];
-                            if (typeof value === 'string') localStorage.setItem(key, value);
-                        });
-                        location.reload();
-                    }
-                } catch (error) { alert('Invalid backup file.'); }
+                    warningModal.show({
+                        title: getLocalizedWarningText('warningRestoreBackupTitle', 'Restore Backup?'),
+                        message: getLocalizedWarningText('warningRestoreBackupMessage', 'This will replace your current settings and shortcuts with the backup file data.'),
+                        confirmText: getLocalizedWarningText('warningRestoreBackupConfirm', 'Restore'),
+                        cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+                        confirmVariant: 'danger',
+                        onConfirm: () => {
+                            APP_KEYS.forEach(key => {
+                                const value = data[key];
+                                if (typeof value === 'string') localStorage.setItem(key, value);
+                            });
+
+                            const treeBackup = data[SHORTCUTS_TREE_BACKUP_KEY];
+                            if (typeof treeBackup === 'string') {
+                                localStorage.setItem('shortcuts', treeBackup);
+                            }
+
+                            location.reload();
+                        }
+                    });
+                } catch (error) {
+                    warningModal.show({
+                        title: getLocalizedWarningText('warningInvalidBackupTitle', 'Invalid Backup File'),
+                        message: getLocalizedWarningText('warningInvalidBackupMessage', 'The selected file is not a valid backup.'),
+                        confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
+                        cancelText: getLocalizedWarningText('warningClose', 'Close'),
+                        confirmVariant: 'accent',
+                        onConfirm: () => {}
+                    });
+                }
                 importInput.value = '';
             };
             reader.readAsText(file);

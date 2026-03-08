@@ -74,8 +74,28 @@
     "placeholders": { "ecosystem": { "content": "$1", "example": "Google Workspace" } }
   },
   "warningAddFolderConfirm": { "message": "Add Folder" },
+  "launcherNoAppsTitle": { "message": "No Apps Available" },
   "launcherNoAppsAvailable": { "message": "No apps available for this ecosystem." },
   "shortcutsLimitReached": { "message": "Shortcuts limit reached!" },
+  "warningGridFullTitle": { "message": "Grid is Full" },
+  "warningGridFullMessage": {
+    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "placeholders": { "limit": { "content": "$1", "example": "40" } }
+  },
+  "warningFolderFullTitle": { "message": "Folder is Full" },
+  "warningFolderFullMessage": {
+    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "placeholders": { "limit": { "content": "$1", "example": "39" } }
+  },
+  "warningRestoreBackupTitle": { "message": "Restore Backup?" },
+  "warningRestoreBackupMessage": {
+    "message": "This will replace your current settings and shortcuts with the backup file data."
+  },
+  "warningRestoreBackupConfirm": { "message": "Restore" },
+  "warningInvalidBackupTitle": { "message": "Invalid Backup File" },
+  "warningInvalidBackupMessage": { "message": "The selected file is not a valid backup." },
+  "warningUnderstood": { "message": "Understood" },
+  "warningClose": { "message": "Close" },
 
   "greetMorning1": {
     "message": "Good morning, $NAME$",

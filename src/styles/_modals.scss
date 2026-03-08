@@ -249,7 +249,8 @@
         border-radius: 0 0 var(--border-radius) var(--border-radius);
 
         .btn-cancel,
-        .btn-danger {
+        .btn-danger,
+        .btn-save {
             flex: 1 1 0;
             width: 100%;
         }
