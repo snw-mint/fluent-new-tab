@@ -46,6 +46,7 @@
     z-index: 1000;
     @include glass-panel($border: var(--border-color));
     @include card-radius($radius-md);
+    overflow: hidden;
 
     &::after {
         @include noise-overlay;
@@ -83,20 +84,81 @@
         }
     }
 
-    .launcher-footer {
-        text-align: center;
-        font-size: 12px;
-        color: $color-link;
-        text-decoration: none;
-        padding: 8px 0 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    .launcher-footer-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-top: 4px;
-        opacity: 0.8;
-        transition: opacity 0.2s ease;
+        padding: 8px 0 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
 
-        &:hover {
-            opacity: 1;
+        .btn-icon {
+            display: none;
+        }
+
+        .launcher-all-link {
+            font-size: 12px;
+            color: var(--accent-color);
             text-decoration: none;
+            opacity: 0.92;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.folders-enabled {
+        .launcher-footer-actions {
+            position: relative;
+            isolation: isolate;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 4px -12px -12px;
+            padding: 7px 12px;
+            background: transparent;
+            border-radius: 0 0 $radius-md $radius-md;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: rgba(255, 255, 255, 0.34);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .btn-icon {
+                @include button-reset;
+                display: inline-flex;
+                width: 28px;
+                height: 28px;
+                border-radius: $radius-sm;
+                @include flex-center;
+                color: var(--text-color);
+                background: transparent;
+                border: none;
+                transition: background-color 0.2s ease, color 0.2s ease;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.12);
+                    color: $color-accent;
+                }
+            }
+
+            .launcher-all-link {
+                opacity: 0.9;
+            }
         }
     }
 }

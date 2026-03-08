@@ -49,6 +49,7 @@ const appLauncherBtn = getById<HTMLButtonElement>('appLauncherBtn');
 const launcherPopup = getById<HTMLDivElement>('launcherPopup');
 const launcherGrid = getById<HTMLDivElement>('launcherGrid');
 const launcherAllAppsLink = getById<HTMLAnchorElement>('launcherAllAppsLink');
+const btnLauncherToFolder = getById<HTMLButtonElement>('btn-launcher-to-folder');
 const toggleLauncher = getById<HTMLInputElement>('toggleLauncher');
 const launcherProvider = getById<HTMLSelectElement>('launcherProvider');
 const launcherSelectGroup = getById<HTMLDivElement>('launcherSelectGroup');

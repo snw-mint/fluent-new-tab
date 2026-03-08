@@ -964,6 +964,89 @@ function renderLauncher(providerKey: keyof typeof launcherData): void {
     });
 }
 
+function toTitleCase(value: string): string {
+    if (!value) return '';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function getLauncherProviderKey(): keyof typeof launcherData {
+    const rawProvider = launcherProvider?.value as keyof typeof launcherData | undefined;
+    if (rawProvider && launcherData[rawProvider]) return rawProvider;
+    return currentProvider;
+}
+
+function getLauncherFolderName(providerKey: keyof typeof launcherData): string {
+    const label = launcherProvider?.selectedOptions?.[0]?.textContent?.trim();
+    if (label) return label;
+    return toTitleCase(String(providerKey));
+}
+
+function createFolderFromLauncher(providerKey: keyof typeof launcherData): boolean {
+    const providerData = launcherData[providerKey];
+    if (!providerData?.apps?.length) return false;
+
+    const folderName = getLauncherFolderName(providerKey);
+    const newFolder: Shortcut = {
+        id: `folder_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
+        type: 'folder',
+        name: folderName,
+        children: providerData.apps.slice(0, 9).map((app) => ({
+            type: 'link',
+            name: app.name,
+            url: app.url,
+            customIcon: app.icon
+        }))
+    };
+
+    const limit = allowedRows * 10;
+    if (shortcuts.length >= limit) {
+        alert('Limite de atalhos atingido!');
+        return false;
+    }
+
+    shortcuts.push(newFolder);
+    foldersEnabled = true;
+    if (toggleFolders) toggleFolders.checked = true;
+    localStorage.setItem('foldersEnabled', 'true');
+    updateLauncherFooterVariant();
+    saveAndRender();
+    closePopups();
+    return true;
+}
+
+function bindLauncherFolderButton(): void {
+    if (!btnLauncherToFolder) return;
+
+    btnLauncherToFolder.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const providerKey = getLauncherProviderKey();
+        const providerData = launcherData[providerKey];
+        const ecosystemName = getLauncherFolderName(providerKey);
+
+        if (!providerData?.apps?.length) {
+            alert('No apps available for this ecosystem.');
+            return;
+        }
+
+        warningModal.show({
+            title: `Add ${ecosystemName} Apps?`,
+            message: `This will create a folder with 9 ${ecosystemName} apps in your shortcuts. Continue?`,
+            confirmText: 'Add Folder',
+            cancelText: 'Cancel',
+            onConfirm: () => {
+                createFolderFromLauncher(providerKey);
+            }
+        });
+    });
+}
+
+function updateLauncherFooterVariant(): void {
+    if (!launcherPopup) return;
+    launcherPopup.classList.toggle('folders-enabled', foldersEnabled);
+}
+
 function updateCreditsUI(source: string, creditText?: string) {
     const creditsContainer = getById<HTMLDivElement>('wallpaperCredits');
     const creditsSpan = getById<HTMLSpanElement>('wallpaperCreditText');
@@ -992,6 +1075,7 @@ function applyInitialShortcutsVisibility() {
 }
 function applyInitialFoldersSetting() {
     if (toggleFolders) toggleFolders.checked = foldersEnabled;
+    updateLauncherFooterVariant();
 }
 function applyInitialSearchBarVisibility() {
     updateSearchSettings(false);
@@ -1507,6 +1591,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             foldersEnabled = true;
             if (toggleFolders) toggleFolders.checked = true;
             localStorage.setItem('foldersEnabled', 'true');
+            updateLauncherFooterVariant();
             saveAndRender();
             editingIndex = null;
             closeModal();
@@ -1553,6 +1638,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         foldersEnabled = false;
                         currentFolderId = null;
                         localStorage.setItem('foldersEnabled', 'false');
+                        updateLauncherFooterVariant();
                         saveAndRender();
                     },
                     onCancel: () => {
@@ -1564,6 +1650,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             foldersEnabled = true;
             localStorage.setItem('foldersEnabled', 'true');
+            updateLauncherFooterVariant();
         });
     }
     const toggleCompact = getById<HTMLInputElement>('toggleCompactBar');
@@ -1638,6 +1725,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         launcherPopup,
         closePopups
     });
+    bindLauncherFolderButton();
     
     bindWallpaperFeature({
         applyInitialWallpaperState,

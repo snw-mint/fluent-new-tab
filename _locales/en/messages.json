@@ -54,6 +54,28 @@
   "nasaApodVideoNotice": {
     "message": "Today's APOD is a video or unavailable. Keeping your current wallpaper instead."
   },
+  "warningDeleteFolderTitle": { "message": "Delete Folder" },
+  "warningDeleteFolderMessage": {
+    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "placeholders": { "folder": { "content": "$1", "example": "Work" } }
+  },
+  "warningDeleteFoldersTitle": { "message": "Disable Folders?" },
+  "warningDeleteFoldersMessage": {
+    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+  },
+  "warningDeleteFoldersConfirm": { "message": "Delete Folders" },
+  "warningKeepEnabled": { "message": "Keep Enabled" },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Add $ECOSYSTEM$ Apps?",
+    "placeholders": { "ecosystem": { "content": "$1", "example": "Google Workspace" } }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "placeholders": { "ecosystem": { "content": "$1", "example": "Google Workspace" } }
+  },
+  "warningAddFolderConfirm": { "message": "Add Folder" },
+  "launcherNoAppsAvailable": { "message": "No apps available for this ecosystem." },
+  "shortcutsLimitReached": { "message": "Shortcuts limit reached!" },
 
   "greetMorning1": {
     "message": "Good morning, $NAME$",

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="scripts/theme-loader.js"></script> 
-</head>
-<body>
+    </head>
+    <body>
 
     <div class="left-controls">
         <div class="app-launcher-wrapper" id="appLauncherWrapper" style="display: none;">
@@ -21,7 +21,14 @@
                     <span class="launcher-title" data-i18n="appsTitle">Apps</span>
                 </div>
                 <div class="launcher-grid" id="launcherGrid"></div>
-                <a href="#" id="launcherAllAppsLink" class="launcher-footer" target="_blank" data-i18n="moreApps">More Apps &rarr;</a>
+                <div class="launcher-footer-actions">
+                    <button type="button" id="btn-launcher-to-folder" class="btn-icon" title="Add ecosystem as folder">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Zm0 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17ZM12 7a.75.75 0 0 1 .75.75v3.5h3.5a.75.75 0 0 1 0 1.5h-3.5v3.5a.75.75 0 0 1-1.5 0v-3.5h-3.5a.75.75 0 0 1 0-1.5h3.5v-3.5A.75.75 0 0 1 12 7Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <a href="#" id="launcherAllAppsLink" class="launcher-all-link" target="_blank" data-i18n="moreApps">More Apps &rarr;</a>
+                </div>
             </div>
         </div>
     </div>

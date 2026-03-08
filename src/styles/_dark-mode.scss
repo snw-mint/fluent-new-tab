@@ -102,7 +102,7 @@ html[data-theme="dark"] {
         color: $color-accent-contrast;
     }
 
-    .launcher-footer,
+    .launcher-all-link,
     .settings-footer .footer-link {
         color: var(--text-color);
     }
@@ -186,8 +186,26 @@ html[data-theme="dark"] {
     }
 
     .settings-footer,
-    .launcher-footer {
+    .launcher-footer-actions {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .launcher-popup.folders-enabled {
+        .launcher-footer-actions {
+            &::before {
+                background: rgba(32, 32, 32, 0.52);
+            }
+
+            .btn-icon {
+                background: transparent;
+                color: var(--text-color);
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.12);
+                    color: var(--accent-color);
+                }
+            }
+        }
     }
 
     .child-setting {
