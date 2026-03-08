@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use './variables' as *;
 @use './mixins' as *;
 
@@ -94,12 +95,19 @@
 
         .modal-actions {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: row-reverse;
+            justify-content: stretch;
+            flex-wrap: nowrap;
+            margin: 24px -24px -24px;
+            padding: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f3f3f3;
             gap: 8px;
-            margin-top: 24px;
 
             .btn-cancel,
             .btn-save {
+                flex: 1 1 0;
+                width: 100%;
                 padding: 8px 16px;
                 border-radius: $radius-sm;
                 border: none;
@@ -112,14 +120,26 @@
             .btn-cancel {
                 background: rgba(128, 128, 128, 0.15);
                 color: var(--text-color);
+
+                &:hover {
+                    background: rgba(128, 128, 128, 0.25);
+                }
             }
 
             .btn-save {
                 background: $color-accent;
                 color: $color-accent-contrast;
+
+                &:hover {
+                    background: color.adjust($color-accent, $lightness: -5%);
+                }
             }
         }
     }
+}
+
+#chooseTypeForm {
+    font-family: $font-body;
 }
 
 .type-card {
@@ -130,16 +150,17 @@
     gap: 8px;
     padding: 24px 16px;
     border-radius: $radius-md;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #f3f3f3;
     cursor: pointer;
     transition: all 0.2s ease;
     color: var(--text-color);
     font-weight: 600;
+    font-family: $font-body;
 
     &:hover {
-        background: rgba(0, 0, 0, 0.06);
-        border-color: rgba(0, 0, 0, 0.2);
+        background: #ededed;
+        border-color: rgba(0, 0, 0, 0.24);
         transform: translateY(-2px);
     }
     
@@ -158,6 +179,9 @@
     .modal-content {
         background: $color-surface;
         overflow: hidden;
+        width: 400px;
+        min-width: 400px;
+        max-width: calc(100vw - 32px);
     }
 
     .modal-actions {
@@ -182,21 +206,114 @@
     }
 }
 
-[data-theme="dark"] {
-    #addModal,
-    #chooseTypeModal,
-    #addFolderModal {
-        .modal-content {
-            background: #2b2b2b;
+.btn-danger {
+    background: #9F213A;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: $radius-sm;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background: color.adjust(#9F213A, $lightness: -8%);
+    }
+}
+
+#warningModal {
+    .modal-content {
+        background: $color-surface;
+        overflow: hidden;
+        width: 400px;
+        min-width: 400px;
+        max-width: calc(100vw - 32px);
+    }
+
+    #warning-modal-message {
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .modal-actions {
+        flex-direction: row;
+        justify-content: stretch;
+        flex-wrap: nowrap;
+        margin: 24px -24px -24px;
+        padding: 24px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: #f3f3f3;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+        .btn-cancel,
+        .btn-danger {
+            flex: 1 1 0;
+            width: 100%;
         }
 
-        .modal-actions {
-            background: $color-dark-bg;
-            border-top-color: $color-dark-border;
+        .btn-cancel {
+            background: #fbfbfb;
+        }
+    }
+}
 
-            .btn-cancel {
-                background: #2d2d2d;
+.expandable-section {
+    margin-bottom: 24px;
+
+    .btn-expander {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        color: var(--text-color);
+        opacity: 0.7;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 4px 0;
+        font-family: inherit;
+        transition: opacity 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .chevron-icon {
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        &.expanded {
+            opacity: 1;
+            color: var(--accent-color);
+
+            .chevron-icon {
+                transform: rotate(-180deg);
             }
         }
+    }
+
+    #customIconGroup {
+        margin-top: 12px;
+        margin-bottom: 0;
+
+        &:not(.hidden) {
+            animation: slide-down-fade 0.25s ease-out forwards;
+        }
+    }
+}
+
+@keyframes slide-down-fade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

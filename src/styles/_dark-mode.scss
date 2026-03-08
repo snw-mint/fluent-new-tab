@@ -284,3 +284,47 @@ html:not([data-theme="dark"]) {
         }
     }
 }
+[data-theme="dark"] {
+    #addModal,
+    #chooseTypeModal,
+    #addFolderModal {
+        .modal-content {
+            background: #2b2b2b;
+        }
+
+        .modal-actions {
+            background: $color-dark-bg;
+            border-top-color: $color-dark-border;
+
+            .btn-cancel {
+                background: #2d2d2d;
+            }
+        }
+    }
+
+    .type-card {
+        background: #202020;
+        border-color: $color-dark-border;
+
+        &:hover {
+            background: #2a2a2a;
+            border-color: rgba(255, 255, 255, 0.16);
+        }
+    }
+}
+[data-theme="dark"] {
+    #warningModal {
+        .modal-content {
+            background: #2b2b2b;
+        }
+
+        .modal-actions {
+            background: $color-dark-bg;
+            border-top-color: $color-dark-border;
+
+            .btn-cancel {
+                background: #2d2d2d;
+            }
+        }
+    }
+}

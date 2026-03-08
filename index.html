@@ -464,17 +464,28 @@
                     <label data-i18n="shortcutNameLabel">Name</label>
                     <input type="text" id="inputName" required placeholder="Ex: YouTube">
                 </div>
+                
                 <div class="input-group">
                     <label data-i18n="shortcutUrlLabel">URL</label>
                     <input type="text" id="inputUrl" required placeholder="youtube.com">
                 </div>
-                <div id="customIconGroup" class="input-group hidden">
-                    <label data-i18n="faviconUrlLabel">Icon URL</label>
-                    <input type="text" id="inputIcon" placeholder="https://...">
+                
+                <div class="expandable-section">
+                    <button type="button" id="toggleCustomIcon" class="btn-expander" aria-expanded="false">
+                        <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" class="chevron-icon">
+                            <path d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        <span data-i18n="addFaviconLabel">Custom Icon</span>
+                    </button>
+                    
+                    <div id="customIconGroup" class="input-group hidden">
+                        <label data-i18n="faviconUrlLabel">Icon URL</label>
+                        <input type="url" id="inputIcon" placeholder="https://...">
+                    </div>
                 </div>
+
                 <div class="modal-actions">
                     <button type="button" id="closeModalBtn" class="btn-cancel" data-i18n="btnCancel">Cancel</button>
-                    <button type="button" id="toggleCustomIcon" class="btn-cancel" data-i18n="addFaviconLabel">Custom Icon</button>
                     <button type="submit" class="btn-save" data-i18n="btnSave">Save</button>
                 </div>
             </form>
@@ -482,7 +493,7 @@
     </div>
 
     <div id="chooseTypeModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 360px;">
+        <div class="modal-content">
             <form id="chooseTypeForm">
                 <h3 style="text-align: center; margin-bottom: 20px;" data-i18n="chooseTypeTitle">Create New</h3>
                 <div style="display: flex; gap: 12px;">
@@ -515,6 +526,18 @@
                     <button type="submit" class="btn-save" data-i18n="btnSave">Save</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div id="warningModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="warning-modal-title"></h3>
+            <p id="warning-modal-message" style="margin-bottom: 24px; font-size: 14px; color: var(--text-color); opacity: 0.8; line-height: 1.5;"></p>
+            
+            <div class="modal-actions">
+                <button id="warning-btn-confirm" class="btn-danger"></button>
+                <button id="warning-btn-cancel" class="btn-cancel"></button>
+            </div>
         </div>
     </div>
 
