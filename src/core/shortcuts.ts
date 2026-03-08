@@ -192,7 +192,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
         const card = target.closest('.shortcut-card');
         if (card) {
-            const item = card.closest('.shortcut-item');
+            const item = card.closest('.shortcut-item') as HTMLElement | null;
             const isFolder = item?.dataset.type === 'folder';
             const folderId = item?.dataset.id;
 
@@ -213,7 +213,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
         const titleLink = target.closest('.shortcut-title');
         if (titleLink) {
-            const item = titleLink.closest('.shortcut-item');
+            const item = titleLink.closest('.shortcut-item') as HTMLElement | null;
             const isFolder = item?.dataset.type === 'folder';
             const folderId = item?.dataset.id;
             if (isFolder && folderId) {
