@@ -87,13 +87,13 @@
     "message": "インポート"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "フォルダを追加"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "フォルダを編集"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "戻る"
   },
   "addShortcutTitle": {
     "message": "ショートカットを追加"
@@ -156,10 +156,10 @@
     "message": "本日のAPODは動画または利用不可です。代わりに現在の壁紙を表示します。"
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "フォルダを削除"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "「$FOLDER$」フォルダーを削除してもよろしいですか？このフォルダー内のすべてのショートカットが削除されます。",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "フォルダを無効化しますか？"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "すべてのフォルダーとそのショートカットが削除されます。バックアップがない限り、この操作は元に戻せません。"
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "フォルダを削除する"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "有効のままにする"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "$ECOSYSTEM$ アプリを追加しますか？",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "これにより、ショートカットに9つの $ECOSYSTEM$ アプリを含むフォルダが作成されます。続行しますか？",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "フォルダを追加"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "利用可能なアプリはありません"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "このエコシステム向けのアプリはありません。"
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "ショートカットの上限に達しました！"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "グリッドが満杯です"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "メイン画面の $LIMIT$ ショートカットが上限に達しました。スペースを空けるために、いくつかの項目を削除するか、フォルダにまとめてください。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "フォルダがいっぱいです"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "このフォルダは $LIMIT$ アイテムの絶対上限に達しました。新しいアイテムを追加する前に、いくつかのショートカットを削除してください。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "バックアップを復元しますか？"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "これにより、現在の設定とショートカットがバックアップファイルのデータで置き換えられます。"
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "復元"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "無効なバックアップファイル"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "選択されたファイルは有効なバックアップではありません。"
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "承知しました"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "閉じる"
   },
   "greetMorning1": {
     "message": "おはようございます。 $NAME$",
