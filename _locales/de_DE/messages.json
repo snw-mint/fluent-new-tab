@@ -87,13 +87,13 @@
     "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Ordner hinzufügen"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Ordner bearbeiten"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Zurück"
   },
   "addShortcutTitle": {
     "message": "Verknüpfung hinzufügen"
@@ -156,10 +156,10 @@
     "message": "Das heutige APOD ist ein Video oder nicht verfügbar. Stattdessen wird Ihr aktuelles Hintergrundbild beibehalten."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Ordner löschen"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Möchten Sie den Ordner „$FOLDER$“ wirklich löschen? Alle darin enthaltenen Verknüpfungen werden entfernt.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Ordner deaktivieren?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Alle Ordner und ihre Verknüpfungen werden gelöscht. Dies kann nicht rückgängig gemacht werden, es sei denn, Sie haben eine Sicherungskopie."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Ordner löschen"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Aktiviert lassen"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "$ECOSYSTEM$ -Apps hinzufügen?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Dadurch wird ein Ordner mit 9 Apps von „ $ECOSYSTEM$ “ in Ihren Verknüpfungen erstellt. Möchten Sie fortfahren?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Ordner hinzufügen"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Keine Apps verfügbar"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Für dieses Ökosystem sind keine Apps verfügbar."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Die Anzahl der Verknüpfungen ist erreicht!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Das Raster ist voll"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Sie haben die maximale Anzahl von Verknüpfungen auf dem Hauptbildschirm von $LIMIT$ erreicht. Löschen Sie einige Elemente oder gruppieren Sie sie in einem Ordner, um Speicherplatz freizugeben.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Ordner ist voll"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Dieser Ordner hat die absolute Höchstgrenze von $LIMIT$ Elementen erreicht. Bitte entfernen Sie einige Verknüpfungen, bevor Sie neue hinzufügen.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Sicherung wiederherstellen?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Dadurch werden Ihre aktuellen Einstellungen und Verknüpfungen durch die Daten der Sicherungsdatei ersetzt."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Wiederherstellen"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Ungültige Sicherungsdatei"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Die ausgewählte Datei ist keine gültige Sicherung."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Verstanden"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Schließen"
   },
   "greetMorning1": {
     "message": "Guten Morgen, $NAME$",
