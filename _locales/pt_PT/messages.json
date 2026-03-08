@@ -87,13 +87,13 @@
     "message": "Importar"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "Adicionar pasta"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "Editar pasta"
   },
   "backLabel": {
-    "message": "Back"
+    "message": "Voltar"
   },
   "addShortcutTitle": {
     "message": "Adicionar atalho"
@@ -156,10 +156,10 @@
     "message": "O APOD de hoje é um vídeo ou está indisponível. Mantendo o seu papel de parede atual."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "Eliminar pasta"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Tem a certeza de que deseja eliminar a pasta «$FOLDER$»? Todos os atalhos dentro dela serão removidos.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -168,19 +168,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "Desativar pastas?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Todas as pastas e seus atalhos serão eliminados. Isso não pode ser desfeito, a menos que tenha uma cópia de segurança."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "Eliminar pastas"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "Manter ativado"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "Adicionar $ECOSYSTEM$ Apps?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -189,7 +189,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Isso criará uma pasta com 9 $ECOSYSTEM$ aplicativos nos seus atalhos. Continuar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -198,22 +198,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "Adicionar pasta"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Não há aplicações disponíveis"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Não há aplicações disponíveis para este ecossistema."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Limite de atalhos atingido!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "A rede está cheia"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Você atingiu o limite máximo de atalhos do $LIMIT$ na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -222,10 +222,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "A pasta está cheia"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Esta pasta atingiu o limite absoluto de itens $LIMIT$ . Remova alguns atalhos antes de adicionar novos.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -234,25 +234,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "Restaurar backup?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Isso substituirá as suas configurações e atalhos atuais pelos dados do ficheiro de backup."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "Restaurar"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Ficheiro de backup inválido"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "O ficheiro selecionado não é um backup válido."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Entendido"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "Fechar"
   },
   "greetMorning1": {
     "message": "Bom dia, $NAME$",
