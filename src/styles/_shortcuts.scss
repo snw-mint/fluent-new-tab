@@ -158,6 +158,14 @@
             }
         }
 
+        &[data-type="folder"].folder-drag-hover {
+            .shortcut-card {
+                transform: scale(1.08) !important;
+                box-shadow: 0 0 0 2px var(--accent-color), 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+                transition: all 0.2s ease !important;
+            }
+        }
+
 // ... (resto do código de .shortcut-item)
         
         &.add-card-wrapper {

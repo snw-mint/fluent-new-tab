@@ -1024,6 +1024,32 @@ function bindExternalShortcutDrop(): void {
 
 function initSortable() {
     if (!shortcutsGrid) return;
+
+    let hoveredFolderEl: HTMLElement | null = null;
+
+    const clearFolderHover = (): void => {
+        if (hoveredFolderEl) hoveredFolderEl.classList.remove('folder-drag-hover');
+        hoveredFolderEl = null;
+    };
+
+    const getClientPoint = (event: Event | null | undefined): { x: number; y: number } | null => {
+        if (!event) return null;
+        if ('clientX' in event && 'clientY' in event) {
+            const mouseEvt = event as MouseEvent;
+            return { x: mouseEvt.clientX, y: mouseEvt.clientY };
+        }
+        const touchEvt = event as TouchEvent;
+        const touch = touchEvt.touches?.[0] || touchEvt.changedTouches?.[0];
+        if (touch) return { x: touch.clientX, y: touch.clientY };
+        return null;
+    };
+
+    const isPointOutsideGrid = (event: Event | null | undefined): boolean => {
+        const point = getClientPoint(event);
+        if (!point || !shortcutsGrid) return false;
+        const rect = shortcutsGrid.getBoundingClientRect();
+        return point.x < rect.left || point.x > rect.right || point.y < rect.top || point.y > rect.bottom;
+    };
     
     const sortableOptions = {
         animation: 200,
@@ -1048,29 +1074,95 @@ function initSortable() {
             shortcutsGrid.classList.add('sorting');
         },
 
-        onMove: (evt: { related?: HTMLElement | null }) => {
-            const related = evt.related;
-            if (!related) return true;
-            if (related.classList.contains('add-card-wrapper')) return false;
-            if (related.classList.contains('folder-back-btn')) return false;
+        onMove: (evt: any) => {
+            document.querySelectorAll('.folder-drag-hover').forEach(el => el.classList.remove('folder-drag-hover'));
+
+            const relatedEl = evt.related as HTMLElement | null;
+            if (relatedEl?.classList.contains('add-card-wrapper')) return false;
+            if (relatedEl?.classList.contains('folder-back-btn')) return false;
+
+            const draggedEl = (evt?.dragged || evt?.item) as HTMLElement | null;
+            const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
+
+            if (!currentFolderId && !isDraggingFolder && relatedEl?.dataset?.type === 'folder') {
+                hoveredFolderEl = relatedEl;
+                relatedEl.classList.add('folder-drag-hover');
+                return false; // Prevent Sortable from swapping with folder; signals drop target
+            }
+
+            hoveredFolderEl = null;
             return true;
         },
 
-        onEnd: function (evt) {
+        onEnd: function (evt: any) {
             shortcutsGrid.classList.remove('sorting');
-            if (evt.oldIndex === evt.newIndex) return;
 
+            const draggedEl = evt?.item as HTMLElement | null;
             const targetArray = getActiveShortcutsList();
             const isInsideFolder = targetArray !== shortcuts;
             const indexOffset = isInsideFolder ? 1 : 0;
-            const oldIndex = evt.oldIndex - indexOffset;
-            const newIndex = evt.newIndex - indexOffset;
+            const adjustedOldIndex = (evt.oldIndex ?? -1) - indexOffset;
+            const adjustedNewIndex = (evt.newIndex ?? -1) - indexOffset;
 
-            if (oldIndex < 0 || newIndex < 0) return;
+            const originalEvent = evt?.originalEvent as Event | null;
+            const folderDropTarget = (!isInsideFolder && hoveredFolderEl && hoveredFolderEl.dataset.type === 'folder') ? hoveredFolderEl : null;
+            const droppingOutsideGrid = isInsideFolder && isPointOutsideGrid(originalEvent);
+            clearFolderHover();
 
-            const movedItem = targetArray.splice(oldIndex, 1)[0];
+            if (adjustedOldIndex < 0) return;
+
+            const movedItem = targetArray[adjustedOldIndex];
             if (!movedItem) return;
-            targetArray.splice(newIndex, 0, movedItem);
+
+            if (!isInsideFolder && folderDropTarget) {
+                const folderId = folderDropTarget.dataset.id;
+                const folderShortcut = shortcuts.find((s) => s.id === folderId && s.type === 'folder');
+                if (!folderShortcut) {
+                    saveAndRender();
+                    return;
+                }
+
+                if (movedItem.type === 'folder') {
+                    saveAndRender();
+                    return;
+                }
+
+                const folderChildren = folderShortcut.children || [];
+                if (folderChildren.length >= MAX_FOLDER_CAPACITY) {
+                    showGridLimitWarning(MAX_FOLDER_CAPACITY, true);
+                    saveAndRender();
+                    return;
+                }
+
+                targetArray.splice(adjustedOldIndex, 1);
+                folderShortcut.children = folderChildren;
+                folderChildren.push(movedItem);
+                saveAndRender();
+                return;
+            }
+
+            if (droppingOutsideGrid) {
+                const maxMain = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+                if (shortcuts.length >= maxMain) {
+                    showGridLimitWarning(maxMain, false);
+                    saveAndRender();
+                    return;
+                }
+
+                targetArray.splice(adjustedOldIndex, 1);
+                shortcuts.push(movedItem);
+                currentFolderId = null;
+                saveAndRender();
+                return;
+            }
+
+            if (evt.oldIndex === evt.newIndex) return;
+
+            if (adjustedNewIndex < 0) return;
+
+            const reorderedItem = targetArray.splice(adjustedOldIndex, 1)[0];
+            if (!reorderedItem) return;
+            targetArray.splice(adjustedNewIndex, 0, reorderedItem);
             saveAndRender();
         }
     } as { setData: (dataTransfer: DataTransfer, dragEl: HTMLElement) => void };
