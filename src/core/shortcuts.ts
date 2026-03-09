@@ -96,6 +96,8 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
         if (!isFolder) {
             const img = document.createElement('img');
+            img.decoding = 'async';
+            img.loading = 'lazy';
             img.src = itemData.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${itemData.url}`;
             img.className = 'shortcut-icon';
             img.alt = itemData.name;

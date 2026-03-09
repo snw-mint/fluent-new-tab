@@ -239,23 +239,56 @@ function updateShortcutsVisibility(visible: boolean, animate = true): void {
     if (foldersRow) setCollapsible(foldersRow, visible, animate);
 }
 function renderShortcuts(): void {
-    renderShortcutsGrid({
-        shortcutsGrid,
-        rowsSelect,
-        shortcuts,
-        currentFolderId: currentFolderId,
-        onOpenModal: openModal,
-        onDeleteShortcut: deleteShortcut,
-        onClosePopups: closePopups,
-        onOpenFolder: (id: string) => {
-            currentFolderId = id;
-            renderShortcuts();
-        },
-        onGoBack: () => {
-            currentFolderId = null;
-            renderShortcuts();
+    const performRender = (): void => {
+        renderShortcutsGrid({
+            shortcutsGrid,
+            rowsSelect,
+            shortcuts,
+            currentFolderId: currentFolderId,
+            onOpenModal: openModal,
+            onDeleteShortcut: deleteShortcut,
+            onClosePopups: closePopups,
+            onOpenFolder: handleOpenFolder,
+            onGoBack: handleGoBack
+        });
+    };
+
+    const animateAndRender = (nextFolderId: string | null): void => {
+        if (!shortcutsGrid) {
+            currentFolderId = nextFolderId;
+            performRender();
+            return;
         }
-    });
+
+        shortcutsGrid.classList.add('fluent-pure-fade-out');
+
+        window.setTimeout(() => {
+            currentFolderId = nextFolderId;
+            performRender();
+
+            shortcutsGrid.classList.remove('fluent-pure-fade-out');
+            shortcutsGrid.classList.remove('fluent-pure-fade-in');
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    shortcutsGrid.classList.add('fluent-pure-fade-in');
+                    shortcutsGrid.addEventListener('animationend', () => {
+                        shortcutsGrid.classList.remove('fluent-pure-fade-in');
+                    }, { once: true });
+                });
+            });
+        }, 150);
+    };
+
+    const handleOpenFolder = (id: string): void => {
+        animateAndRender(id);
+    };
+
+    const handleGoBack = (): void => {
+        animateAndRender(null);
+    };
+
+    performRender();
 }
 function setSearchEngine(engineKey: keyof typeof engines): void {
     const config = engines[engineKey];
