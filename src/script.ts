@@ -519,11 +519,12 @@ function renderSuggestions(suggestions: string[]): void {
     renderSuggestionsUI(suggestions, {
         suggestionsContainer,
         searchInput,
-        searchForm
+        searchForm,
+        searchWrapper
     }, clearSuggestions);
 }
 function clearSuggestions(): void {
-    clearSuggestionsUI(suggestionsContainer);
+    clearSuggestionsUI(suggestionsContainer, searchWrapper);
 }
 function updateSelection(items: HTMLElement[], index: number): void {
     updateSuggestionSelectionUI(items, index, searchInput);

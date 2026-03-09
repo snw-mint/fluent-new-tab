@@ -2,25 +2,28 @@ interface SearchSuggestionRefs {
     suggestionsContainer: HTMLDivElement | null;
     searchInput: HTMLInputElement | null;
     searchForm: HTMLFormElement | null;
+    searchWrapper?: HTMLElement | null;
 }
 
-function clearSuggestionsUI(suggestionsContainer: HTMLDivElement | null): void {
+function clearSuggestionsUI(suggestionsContainer: HTMLDivElement | null, searchWrapper?: HTMLElement | null): void {
+    if (searchWrapper) searchWrapper.classList.remove('suggestions-open');
     if (!suggestionsContainer) return;
     suggestionsContainer.innerHTML = '';
     suggestionsContainer.classList.remove('active');
 }
 
 function renderSuggestionsUI(suggestions: string[], refs: SearchSuggestionRefs, onClear: () => void): void {
-    const { suggestionsContainer, searchInput, searchForm } = refs;
+    const { suggestionsContainer, searchInput, searchForm, searchWrapper } = refs;
     if (!suggestionsContainer) return;
 
     suggestionsContainer.innerHTML = '';
     if (suggestions.length === 0) {
         suggestionsContainer.classList.remove('active');
+        if (searchWrapper) searchWrapper.classList.remove('suggestions-open');
         return;
     }
 
-    const iconSvg = `<svg class="suggestion-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>`;
+    const iconSvg = `<svg class="suggestion-icon" viewBox="0 0 24 24"><path d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5" fill="#5f6368"/></svg>`;
 
     suggestions.forEach((text) => {
         const div = document.createElement('div');
@@ -42,6 +45,7 @@ function renderSuggestionsUI(suggestions: string[], refs: SearchSuggestionRefs, 
     });
 
     suggestionsContainer.classList.add('active');
+    if (searchWrapper) searchWrapper.classList.add('suggestions-open');
 }
 
 function updateSuggestionSelectionUI(items: HTMLElement[], index: number, searchInput: HTMLInputElement | null): void {

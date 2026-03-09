@@ -15,6 +15,15 @@
     z-index: 100;
     margin-bottom: 10px;
 
+    &.suggestions-open {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15) !important;
+        border-radius: var(--border-radius);
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-bottom-color: transparent !important;
+        transition: box-shadow 0.2s ease;
+    }
+
     &:hover,
     &:focus-within {
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 6px 16px rgba(0, 0, 0, 0.12);
@@ -250,6 +259,86 @@
         }
     }
 
+    &.suggestions-open {
+        border-radius: $radius-xxl !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15) !important;
+        background-color: #FBFBFB !important;
+        border-color: #FFFFFF !important;
+        border-bottom-color: transparent !important;
+
+        .suggestions-container {
+            top: 100%;
+            left: -4px;
+            width: calc(100% + 8px);
+            margin-top: 0 !important;
+            border-top: none !important;           
+            background-color: #FBFBFB !important;
+            border-left: 4px solid #FFFFFF !important;
+            border-right: 4px solid #FFFFFF !important;
+            border-bottom: 4px solid #FFFFFF !important;
+            
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-left-radius: $radius-xxl !important;
+            border-bottom-right-radius: $radius-xxl !important;
+            
+            box-shadow: none !important;
+            animation: fluentDrawerOpen 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+            transform-origin: top;
+        }
+    }
+
+    [data-theme="dark"] &.suggestions-open {
+        background-color: #3B3B3B !important;
+        border-color: #333333 !important;
+        border-bottom-color: transparent !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+
+        .suggestions-container {
+            background-color: #3B3B3B !important;
+            border-left-color: #333333 !important;
+            border-right-color: #333333 !important;
+            border-bottom-color: #333333 !important;
+        }
+    }
+
+    &.compact.suggestions-open {
+        background-color: #FFFFFF !important;
+        border-color: transparent !important;
+
+        .suggestions-container {
+            left: 0;
+            width: 100%;
+            border: none !important;
+            background-color: #FFFFFF !important;
+            
+            border-bottom-left-radius: $radius-xxl + 1px !important;
+            border-bottom-right-radius: $radius-xxl + 1px !important;
+        }
+    }
+
+    [data-theme="dark"] &.compact.suggestions-open {
+        background-color: #3B3B3B !important;
+
+        .suggestions-container {
+            background-color: #3B3B3B !important;
+        }
+    }
+}
+
+
+@keyframes fluentDrawerOpen {
+    from {
+        opacity: 0;
+        transform: scaleY(0.96) translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1) translateY(0);
+    }
 }
 
 @keyframes voice-recording-pulse {
