@@ -14,3 +14,30 @@
 @use 'styles/dark-mode' as *;
 @use 'styles/reduced-effects' as *;
 @use 'styles/wallpaper-credits' as *;
+
+/* Elegant global drop zone indicator */
+body.dragging-out-of-folder::before {
+	content: '';
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	border: 2px dashed var(--accent-color);
+	border-radius: calc(var(--border-radius) + 8px);
+	background: rgba(0, 120, 212, 0.03);
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 0;
+	animation: fluentFadeIn 0.2s ease forwards;
+}
+
+[data-theme="dark"] body.dragging-out-of-folder::before {
+	background: rgba(255, 255, 255, 0.02);
+}
+
+@keyframes fluentFadeIn {
+	to {
+		opacity: 1;
+	}
+}

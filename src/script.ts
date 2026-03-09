@@ -1026,6 +1026,8 @@ function initSortable() {
     if (!shortcutsGrid) return;
 
     let hoveredFolderEl: HTMLElement | null = null;
+    const BODY_DRAG_CLASS = 'dragging-out-of-folder';
+    let globalDragOverHandler: ((event: DragEvent) => void) | null = null;
 
     const clearFolderHover = (): void => {
         if (hoveredFolderEl) hoveredFolderEl.classList.remove('folder-drag-hover');
@@ -1042,6 +1044,17 @@ function initSortable() {
         const touch = touchEvt.touches?.[0] || touchEvt.changedTouches?.[0];
         if (touch) return { x: touch.clientX, y: touch.clientY };
         return null;
+    };
+
+    const setBodyDragOverlay = (enabled: boolean): void => {
+        document.body.classList.toggle(BODY_DRAG_CLASS, enabled);
+    };
+
+    const detachGlobalDragOver = (): void => {
+        if (globalDragOverHandler) {
+            document.removeEventListener('dragover', globalDragOverHandler, true);
+            globalDragOverHandler = null;
+        }
     };
 
     const isPointOutsideGrid = (event: Event | null | undefined): boolean => {
@@ -1070,11 +1083,25 @@ function initSortable() {
             }
         },
 
-        onStart: () => {
+        onStart: (evt: any) => {
             shortcutsGrid.classList.add('sorting');
+
+            const draggedEl = (evt?.item || evt?.dragged) as HTMLElement | null;
+            const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
+            const insideFolder = Boolean(currentFolderId);
+
+            if (insideFolder && !isDraggingFolder) {
+                globalDragOverHandler = (event: DragEvent) => {
+                    const outsideGrid = isPointOutsideGrid(event);
+                    setBodyDragOverlay(outsideGrid);
+                    event.preventDefault();
+                    if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+                };
+                document.addEventListener('dragover', globalDragOverHandler, true);
+            }
         },
 
-        onMove: (evt: any) => {
+        onMove: (evt: any, originalEvent: DragEvent | TouchEvent | MouseEvent) => {
             document.querySelectorAll('.folder-drag-hover').forEach(el => el.classList.remove('folder-drag-hover'));
 
             const relatedEl = evt.related as HTMLElement | null;
@@ -1083,6 +1110,14 @@ function initSortable() {
 
             const draggedEl = (evt?.dragged || evt?.item) as HTMLElement | null;
             const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
+            const insideFolder = Boolean(currentFolderId);
+
+            const outsideGrid = insideFolder && isPointOutsideGrid(originalEvent);
+            setBodyDragOverlay(outsideGrid);
+            if (outsideGrid && originalEvent && 'dataTransfer' in originalEvent && originalEvent.dataTransfer) {
+                originalEvent.preventDefault();
+                originalEvent.dataTransfer.dropEffect = 'move';
+            }
 
             if (!currentFolderId && !isDraggingFolder && relatedEl?.dataset?.type === 'folder') {
                 hoveredFolderEl = relatedEl;
@@ -1096,6 +1131,8 @@ function initSortable() {
 
         onEnd: function (evt: any) {
             shortcutsGrid.classList.remove('sorting');
+            setBodyDragOverlay(false);
+            detachGlobalDragOver();
 
             const draggedEl = evt?.item as HTMLElement | null;
             const targetArray = getActiveShortcutsList();
@@ -1151,7 +1188,6 @@ function initSortable() {
 
                 targetArray.splice(adjustedOldIndex, 1);
                 shortcuts.push(movedItem);
-                currentFolderId = null;
                 saveAndRender();
                 return;
             }
