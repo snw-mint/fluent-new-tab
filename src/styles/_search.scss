@@ -7,7 +7,7 @@
     background: $color-surface-muted;
     border: 4px solid var(--search-bg);
     border-radius: $radius-xxl;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 2px, rgb(0 0 0 / 4%) 0px 4px 4px;
     @include flex-center;
     padding: 0 13px 0 5px;
     transition: box-shadow 0.2s ease, transform 0.1s ease;
