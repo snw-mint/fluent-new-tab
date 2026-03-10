@@ -6,7 +6,14 @@
     }
 
     const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
-    if (!wallpaperEnabled) return;
+    
+    if (!wallpaperEnabled) {
+        // Blocks the overlay from rendering at millisecond zero to prevent FOUC
+        const hideOverlayStyle = document.createElement('style');
+        hideOverlayStyle.textContent = '.wallpaper-overlay { display: none !important; }';
+        document.head.appendChild(hideOverlayStyle);
+        return;
+    }
 
     const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
     const wallpaperType = localStorage.getItem('wallpaperType') || 'preset';
