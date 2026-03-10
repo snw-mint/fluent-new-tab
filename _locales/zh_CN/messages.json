@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "图片来源"
   },
+  "overlayLabel": {
+    "message": "图像叠加"
+  },
   "iconsStyleLabel": {
     "message": "图标样式"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "添加文件夹"
   },
-  "chooseTypeTitle": {
-    "message": "新建"
-  },
   "editFolderTitle": {
     "message": "编辑文件夹"
+  },
+  "chooseTypeTitle": {
+    "message": "新建"
   },
   "backLabel": {
     "message": "返回"
