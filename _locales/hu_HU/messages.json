@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Kép forrása"
   },
+  "overlayLabel": {
+    "message": "Kép átfedés"
+  },
   "iconsStyleLabel": {
     "message": "Ikon stílus"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Mappa hozzáadása"
   },
-  "chooseTypeTitle": {
-    "message": "Új létrehozása"
-  },
   "editFolderTitle": {
     "message": "Mappa szerkesztése"
+  },
+  "chooseTypeTitle": {
+    "message": "Új létrehozása"
   },
   "backLabel": {
     "message": "Vissza"
