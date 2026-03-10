@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Nguồn hình ảnh"
   },
+  "overlayLabel": {
+    "message": "Lớp phủ hình ảnh"
+  },
   "iconsStyleLabel": {
     "message": "Phong cách biểu tượng"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Thêm thư mục"
   },
-  "chooseTypeTitle": {
-    "message": "Tạo mới"
-  },
   "editFolderTitle": {
     "message": "Chỉnh sửa thư mục"
+  },
+  "chooseTypeTitle": {
+    "message": "Tạo mới"
   },
   "backLabel": {
     "message": "Quay lại"
