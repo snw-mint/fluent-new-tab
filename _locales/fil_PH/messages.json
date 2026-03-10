@@ -3,13 +3,13 @@
     "message": "Mga Apps"
   },
   "moreApps": {
-    "message": "More Apps"
+    "message": "Iba pang Apps"
   },
   "settingsTitle": {
     "message": "Settings"
   },
   "greetingTitle": {
-    "message": "Greeting"
+    "message": "Pagbati"
   },
   "wallpaperTitle": {
     "message": "Wallpaper"
@@ -17,11 +17,14 @@
   "wallpaperSourceLabel": {
     "message": "Pinagmulan ng larawan"
   },
+  "overlayLabel": {
+    "message": "Image Overlay"
+  },
   "iconsStyleLabel": {
-    "message": "Icon Style"
+    "message": "Style ng Icon"
   },
   "weatherTitle": {
-    "message": "Weather"
+    "message": "Panahon"
   },
   "shortcutsTitle": {
     "message": "Mga Shortcut"
@@ -54,7 +57,7 @@
     "message": "Mga Suggestions"
   },
   "clearSearchOption": {
-    "message": "Malinis na search (Google)"
+    "message": "I-clear ang search (Google)"
   },
   "compactBarOption": {
     "message": "Compact bar"
@@ -87,16 +90,16 @@
     "message": "I-import"
   },
   "addFolderTitle": {
-    "message": "Add Folder"
+    "message": "I-add ang Folder"
   },
   "editFolderTitle": {
-    "message": "Edit Folder"
+    "message": "I-edit ang Folder"
   },
-    "chooseTypeTitle": {
-      "message": "Lumikha ng bago"
-    },
+  "chooseTypeTitle": {
+    "message": "Lumikha ng bago"
+  },
   "backLabel": {
-    "message": "Back"
+    "message": "Bumalik"
   },
   "addShortcutTitle": {
     "message": "I-Add Shortcut"
@@ -141,7 +144,7 @@
     "message": "I-remove"
   },
   "moreOptionsLabel": {
-    "message": "More options"
+    "message": "Iba pang options"
   },
   "updateNoticePrefix": {
     "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
@@ -159,10 +162,10 @@
     "message": "Video o hindi available ang APOD ngayon. Gagamitin muna natin ang current wallpaper mo."
   },
   "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
+    "message": "I-Delete ang Folder"
   },
   "warningDeleteFolderMessage": {
-    "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
+    "message": "Sure ka ba na gusto mong i-delete ang folder na \"$FOLDER$\"? Ang lahat ng shortcuts sa loob ay mare-remove.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -171,19 +174,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
+    "message": "I-Disable ang Folders?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
+    "message": "Made-delete ang lahat ng folders at shortcuts nito. Hindi na ito maibabalik maliban kung may backup ka."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
+    "message": "I-Delete ang Folders"
   },
   "warningKeepEnabled": {
-    "message": "Keep Enabled"
+    "message": "I-keep na Enabled"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Add $ECOSYSTEM$ Apps?",
+    "message": "I-add ang $ECOSYSTEM$ Apps?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -192,7 +195,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
+    "message": "Gagawa ito ng folder na may 9 $ECOSYSTEM$ apps sa mga shortcuts mo. Ituloy?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -201,22 +204,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Add Folder"
+    "message": "I-add ang Folder"
   },
   "launcherNoAppsTitle": {
-    "message": "No Apps Available"
+    "message": "Walang Available na Apps"
   },
   "launcherNoAppsAvailable": {
-    "message": "No apps available for this ecosystem."
+    "message": "Walang available na apps para sa ecosystem na ito."
   },
   "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
+    "message": "Na-reach na ang shortcuts limit!"
   },
   "warningGridFullTitle": {
-    "message": "Grid is Full"
+    "message": "Full na ang Grid"
   },
   "warningGridFullMessage": {
-    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
+    "message": "Na-reach mo na ang maximum limit na $LIMIT$ shortcuts sa main screen. Mag-delete ng ilang items o i-group sila sa isang folder para magkaroon ng space.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -225,10 +228,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder is Full"
+    "message": "Full na ang Folder"
   },
   "warningFolderFullMessage": {
-    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "message": "Na-reach na ng folder na ito ang limit na $LIMIT$ items. Paki-remove ang ibang shortcuts bago mag-add ng bago.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -237,25 +240,25 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
+    "message": "I-Restore ang Backup?"
   },
   "warningRestoreBackupMessage": {
-    "message": "This will replace your current settings and shortcuts with the backup file data."
+    "message": "Ire-replace nito ang current settings at shortcuts mo gamit ang data ng backup file."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Restore"
+    "message": "I-Restore"
   },
   "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+    "message": "Invalid na Backup File"
   },
   "warningInvalidBackupMessage": {
-    "message": "The selected file is not a valid backup."
+    "message": "Hindi valid na backup ang file na napili."
   },
   "warningUnderstood": {
-    "message": "Understood"
+    "message": "Naintindihan"
   },
   "warningClose": {
-    "message": "Close"
+    "message": "I-Close"
   },
   "greetMorning1": {
     "message": "Good morning sa'yo, $NAME$",
