@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Görsel Kaynağı"
   },
+  "overlayLabel": {
+    "message": "Görüntü Kaplaması"
+  },
   "iconsStyleLabel": {
     "message": "Simge Stili"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Klasör Ekle"
   },
-  "chooseTypeTitle": {
-    "message": "Yeni oluştur"
-  },
   "editFolderTitle": {
     "message": "Klasörü Düzenle"
+  },
+  "chooseTypeTitle": {
+    "message": "Yeni oluştur"
   },
   "backLabel": {
     "message": "Geri"
