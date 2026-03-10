@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Źródło obrazu"
   },
+  "overlayLabel": {
+    "message": "Nakładka obrazu"
+  },
   "iconsStyleLabel": {
     "message": "Styl ikony"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Dodaj folder"
   },
-  "chooseTypeTitle": {
-    "message": "Utwórz nowy"
-  },
   "editFolderTitle": {
     "message": "Edytuj folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Utwórz nowy"
   },
   "backLabel": {
     "message": "Powrót"
