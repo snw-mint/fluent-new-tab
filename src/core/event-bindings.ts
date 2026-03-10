@@ -84,6 +84,11 @@ interface WallpaperBindingOptions {
     processWallpaperImage: (file: File) => Promise<Blob>;
     saveWallpaperToDB: (blob: Blob) => Promise<boolean>;
     clearPresetSelection: () => void;
+    overlayToggleBtn: HTMLElement | null;
+    overlaySliderContainer: HTMLDivElement | null;
+    overlaySlider: HTMLInputElement | null;
+    updateOverlaySliderProgress: (slider: HTMLInputElement) => void;
+    setOverlayOpacity: (value: string, persist?: boolean) => void;
 }
 
 function bindWeatherFeature(options: WeatherBindingOptions): void {
@@ -303,6 +308,28 @@ function bindSearchFeature(options: SearchBindingOptions): void {
 
 function bindWallpaperFeature(options: WallpaperBindingOptions): void {
     options.applyInitialWallpaperState();
+
+    if (options.overlayToggleBtn) {
+        options.overlayToggleBtn.addEventListener('click', () => {
+            options.overlayToggleBtn?.classList.toggle('expanded');
+            options.overlaySliderContainer?.classList.toggle('collapsed');
+        });
+    }
+
+    if (options.overlaySlider) {
+        options.overlaySlider.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement | null;
+            if (!target) return;
+            options.updateOverlaySliderProgress(target);
+            options.setOverlayOpacity(target.value);
+        });
+
+        options.overlaySlider.addEventListener('change', (event) => {
+            const target = event.target as HTMLInputElement | null;
+            if (!target) return;
+            options.setOverlayOpacity(target.value, true);
+        });
+    }
 
     if (options.toggleWallpaper) {
         options.toggleWallpaper.addEventListener('change', (event) => {

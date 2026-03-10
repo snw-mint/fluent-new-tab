@@ -16,6 +16,8 @@
     </head>
     <body>
 
+    <div class="wallpaper-overlay"></div>
+
     <div class="left-controls">
         <div class="app-launcher-wrapper" id="appLauncherWrapper" style="display: none;">
             <button id="appLauncherBtn" class="launcher-btn" title="Apps">
@@ -112,6 +114,16 @@
                     <option value="nasa" data-i18n="sourcenasaOption">NASA (APOD)</option>
                     <option value="wikimedia" data-i18n="sourceBing">Media Commons</option>
                 </select>
+            </div>
+
+            <div class="setting-item collapsible-setting" id="wallpaperOverlaySetting">
+                <div class="setting-header" id="overlay-toggle-btn">
+                    <span class="setting-label" style="font-size: 11px; margin-bottom: 4px; display: block; opacity: 0.7;" data-i18n="overlayLabel">Image Overlay</span>
+                    <svg class="chevron-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.397 5.554a.75.75 0 0 1 1.05-.15l2.553 2.043 2.553-2.043a.75.75 0 0 1 .94 1.168l-3 2.4a.75.75 0 0 1-.94 0l-3-2.4a.75.75 0 0 1-.156-1.018Z" fill="currentColor"/></svg>
+                </div>
+                <div class="setting-content collapsed" id="overlay-slider-container">
+                    <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="0.7" step="0.05" value="0.2">
+                </div>
             </div>
         </div>
         

@@ -45,3 +45,4 @@ let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 let currentWallpaperSource = (localStorage.getItem('wallpaperSource') || 'local') as WallpaperSource;
 let currentWallpaperType = (localStorage.getItem('wallpaperType') || 'preset') as WallpaperType;
 let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
+let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';

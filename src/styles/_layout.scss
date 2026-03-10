@@ -56,3 +56,23 @@
         color: var(--link-color, var(--text-color));
     }
 }
+
+.wallpaper-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    opacity: var(--overlay-opacity, 0.2);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.1s ease;
+}
+
+/* Ensure main content and greetings float above the wallpaper overlay */
+.container,
+.greeting-container {
+    position: relative;
+    z-index: 10;
+}

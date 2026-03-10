@@ -5,6 +5,7 @@
   "greetingTitle": { "message": "Greeting" },
   "wallpaperTitle": { "message": "Wallpaper" },
   "wallpaperSourceLabel": { "message": "Image Source" },
+  "overlayLabel": { "message": "Image Overlay" },
   "iconsStyleLabel": { "message": "Icon Style" },
   "weatherTitle": { "message": "Weather" },
   "shortcutsTitle": { "message": "Shortcuts" },

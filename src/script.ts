@@ -559,6 +559,15 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
                   (wallpaperSourceSelect.previousElementSibling && wallpaperSourceSelect.previousElementSibling.tagName === 'LABEL' ? wallpaperSourceSelect.previousElementSibling : null)) as HTMLElement | null;
         if (label) setCollapsible(label, enabled, animate);
     }
+
+    const overlaySetting = wallpaperOverlaySetting || (overlaySliderContainer?.closest('.collapsible-setting') as HTMLElement | null);
+    if (overlaySetting) {
+        overlaySetting.dataset.collapsibleDisplay = 'block';
+        setCollapsible(overlaySetting, enabled, animate);
+    }
+
+    if (overlaySlider) updateOverlaySliderProgress(overlaySlider);
+    setOverlayOpacity(wallpaperOverlay, false);
     if (toggleWallpaper) {
         const row = toggleWallpaper.closest('.switch-row');
         if (row) (row as HTMLElement).style.marginBottom = enabled ? '' : '0';
@@ -725,6 +734,33 @@ function setCollapsible(element: HTMLElement | null, shouldExpand: boolean, anim
         element.addEventListener('transitionend', onCollapseEnd);
     }
 }
+
+function updateOverlaySliderProgress(slider: HTMLInputElement): void {
+    const value = parseFloat(slider.value);
+    const min = parseFloat(slider.min || '0');
+    const max = parseFloat(slider.max || '1');
+    const range = (max - min) || 1;
+    const percentage = ((value - min) / range) * 100;
+    slider.style.setProperty('--slider-progress', `${percentage}%`);
+}
+
+const MAX_OVERLAY_OPACITY = 0.7;
+
+function setOverlayOpacity(value: string, persist = false): void {
+    const parsed = Math.min(Math.max(parseFloat(value) || 0, 0), MAX_OVERLAY_OPACITY);
+    const normalized = parsed.toString();
+    wallpaperOverlay = normalized;
+    if (persist) localStorage.setItem('wallpaperOverlay', normalized);
+
+    const targetValue = wallpaperEnabled ? normalized : '0';
+    document.documentElement.style.setProperty('--overlay-opacity', targetValue);
+
+    if (overlaySlider && overlaySlider.value !== normalized) {
+        overlaySlider.value = normalized;
+        updateOverlaySliderProgress(overlaySlider);
+    }
+}
+
 function saveWallpaperConfig(): void {
     localStorage.setItem('wallpaperSource', currentWallpaperSource);
     localStorage.setItem('wallpaperType', currentWallpaperType);
@@ -792,6 +828,7 @@ async function getOptimizedApiWallpaper(remoteUrl: string, source: string): Prom
 
 async function applyWallpaperLogic() {
     try {
+        setOverlayOpacity(wallpaperOverlay, false);
         if (!wallpaperEnabled) {
             document.body.style.backgroundImage = 'none';
             document.body.removeAttribute('data-wallpaper-active');
@@ -1434,6 +1471,7 @@ function applyInitialWallpaperState() {
         if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
         highlightSelectedWallpaper(currentWallpaperValue);
     }
+    setOverlayOpacity(wallpaperOverlay, false);
     
     applyWallpaperLogic();
 }
@@ -2019,6 +2057,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         applyWallpaperLogic,
         wallpaperOptions,
         wallpaperSourceSelect,
+        overlayToggleBtn,
+        overlaySliderContainer,
+        overlaySlider,
+        updateOverlaySliderProgress,
+        setOverlayOpacity,
         setWallpaperSource: (source) => { currentWallpaperSource = source; },
         setWallpaperType: (type) => { currentWallpaperType = type; },
         setWallpaperValue: (value) => { currentWallpaperValue = value; },

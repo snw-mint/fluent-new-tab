@@ -46,6 +46,9 @@
     const style = document.createElement('style');
     style.id = 'early-wallpaper-style';
     style.textContent = `body { background-image: url('${initialWallpaperUrl}'); background-size: cover; background-position: center; background-attachment: fixed; }`;
-    document.head.appendChild(style);
-    document.documentElement.setAttribute('data-early-wallpaper', 'true');
+    
+    setTimeout(() => {
+        document.head.appendChild(style);
+        document.documentElement.setAttribute('data-early-wallpaper', 'true');
+    }, 100);
 })();
