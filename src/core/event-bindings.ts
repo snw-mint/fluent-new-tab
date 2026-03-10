@@ -318,6 +318,8 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
 
     if (options.overlaySlider) {
         options.overlaySlider.addEventListener('input', (event) => {
+            const antiFlickerBlock = document.getElementById('anti-flicker-overlay');
+            if (antiFlickerBlock) antiFlickerBlock.remove();
             const target = event.target as HTMLInputElement | null;
             if (!target) return;
             options.updateOverlaySliderProgress(target);

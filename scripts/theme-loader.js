@@ -10,6 +10,7 @@
     if (!wallpaperEnabled) {
         // Blocks the overlay from rendering at millisecond zero to prevent FOUC
         const hideOverlayStyle = document.createElement('style');
+        hideOverlayStyle.id = 'anti-flicker-overlay';
         hideOverlayStyle.textContent = '.wallpaper-overlay { display: none !important; }';
         document.head.appendChild(hideOverlayStyle);
         return;
