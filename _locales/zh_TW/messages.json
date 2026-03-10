@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "圖片來源"
   },
+  "overlayLabel": {
+    "message": "影像疊加"
+  },
   "iconsStyleLabel": {
     "message": "圖示樣式"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "新增資料夾"
   },
-  "chooseTypeTitle": {
-    "message": "建立新項目"
-  },
   "editFolderTitle": {
     "message": "編輯資料夾"
+  },
+  "chooseTypeTitle": {
+    "message": "建立新項目"
   },
   "backLabel": {
     "message": "返回"
