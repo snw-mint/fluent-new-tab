@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Πηγή εικόνας"
   },
+  "overlayLabel": {
+    "message": "Επικάλυψη εικόνας"
+  },
   "iconsStyleLabel": {
     "message": "Στυλ εικονιδίου"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Προσθήκη φακέλου"
   },
-  "chooseTypeTitle": {
-    "message": "Δημιουργία νέου"
-  },
   "editFolderTitle": {
     "message": "Επεξεργασία φακέλου"
+  },
+  "chooseTypeTitle": {
+    "message": "Δημιουργία νέου"
   },
   "backLabel": {
     "message": "Πίσω"
