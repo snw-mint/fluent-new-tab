@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Afbeeldingsbron"
   },
+  "overlayLabel": {
+    "message": "Afbeeldingsoverlay"
+  },
   "iconsStyleLabel": {
     "message": "Pictogramstijl"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Map toevoegen"
   },
-  "chooseTypeTitle": {
-    "message": "Nieuw maken"
-  },
   "editFolderTitle": {
     "message": "Map bewerken"
+  },
+  "chooseTypeTitle": {
+    "message": "Nieuw maken"
   },
   "backLabel": {
     "message": "Terug"

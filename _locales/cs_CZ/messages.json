@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Zdroj obrázku"
   },
+  "overlayLabel": {
+    "message": "Překrytí obrázku"
+  },
   "iconsStyleLabel": {
     "message": "Styl ikon"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Přidat složku"
   },
-  "chooseTypeTitle": {
-    "message": "Vytvořit nový"
-  },
   "editFolderTitle": {
     "message": "Upravit složku"
+  },
+  "chooseTypeTitle": {
+    "message": "Vytvořit nový"
   },
   "backLabel": {
     "message": "Zpět"

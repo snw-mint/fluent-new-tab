@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Billedkilde"
   },
+  "overlayLabel": {
+    "message": "Billedoverlay"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Tilføj mappe"
   },
-  "chooseTypeTitle": {
-    "message": "Opret ny"
-  },
   "editFolderTitle": {
     "message": "Rediger mappe"
+  },
+  "chooseTypeTitle": {
+    "message": "Opret ny"
   },
   "backLabel": {
     "message": "Tilbage"

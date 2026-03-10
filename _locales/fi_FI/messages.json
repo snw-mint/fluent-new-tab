@@ -1,153 +1,153 @@
 {
   "appsTitle": {
-    "message": "Aplikacje"
+    "message": "Sovellukset"
   },
   "moreApps": {
-    "message": "Więcej aplikacji"
+    "message": "Lisää sovelluksia"
   },
   "settingsTitle": {
-    "message": "Ustawienia"
+    "message": "Asetukset"
   },
   "greetingTitle": {
-    "message": "Powitanie"
+    "message": "Tervehdys"
   },
   "wallpaperTitle": {
-    "message": "Tapeta"
+    "message": "Taustakuva"
   },
   "wallpaperSourceLabel": {
-    "message": "Źródło obrazu"
+    "message": "Kuvan lähde"
   },
   "overlayLabel": {
-    "message": "Nakładka obrazu"
+    "message": "Kuvan peitto"
   },
   "iconsStyleLabel": {
-    "message": "Styl ikony"
+    "message": "Kuvaketyyli"
   },
   "weatherTitle": {
-    "message": "Pogoda"
+    "message": "Sää"
   },
   "shortcutsTitle": {
-    "message": "Skróty"
+    "message": "Pikakuvakkeet"
   },
   "rows1": {
-    "message": "1 rząd"
+    "message": "1 rivi"
   },
   "rows2": {
-    "message": "2 rzędy"
+    "message": "2 riviä"
   },
   "rowsLabel": {
-    "message": "Rzędy"
+    "message": "Rivit"
   },
   "rows3": {
-    "message": "3 rzędy"
+    "message": "3 riviä"
   },
   "rows4": {
-    "message": "4 rzędy"
+    "message": "4 riviä"
   },
   "appLauncherTitle": {
-    "message": "Launcher aplikacji"
+    "message": "Sovellusten käynnistin"
   },
   "ecosystemLabel": {
-    "message": "Ekosystem"
+    "message": "Ekosysteemi"
   },
   "searchTitle": {
-    "message": "Wyszukiwanie"
+    "message": "Haku"
   },
   "suggestionsOption": {
-    "message": "Sugestie"
+    "message": "Ehdotukset"
   },
   "clearSearchOption": {
-    "message": "Czyste wyszukiwanie (Google)"
+    "message": "Puhdas haku (Google)"
   },
   "compactBarOption": {
-    "message": "Kompaktowy pasek"
+    "message": "Kompakti tanko"
   },
   "voiceSearchOption": {
-    "message": "Wyszukiwanie głosowe"
+    "message": "Äänihaku"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Zmniejsz efekty"
+    "message": "Vähennä vaikutuksia"
   },
   "reduceMotionTitle": {
-    "message": "Ogranicz ruch"
+    "message": "Vähennä liikettä"
   },
   "reduceBlurOption": {
-    "message": "Zmniejsz rozmycie"
+    "message": "Vähennä epätarkkuutta"
   },
   "languageTitle": {
-    "message": "Język"
+    "message": "Kieli"
   },
   "interfaceLanguageLabel": {
-    "message": "Język interfejsu"
+    "message": "Käyttöliittymän kieli"
   },
   "backupTitle": {
-    "message": "Kopia zapasowa danych"
+    "message": "Tietojen varmuuskopiointi"
   },
   "exportOption": {
-    "message": "Eksport"
+    "message": "Vienti"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Tuonti"
   },
   "addFolderTitle": {
-    "message": "Dodaj folder"
+    "message": "Lisää kansio"
   },
   "editFolderTitle": {
-    "message": "Edytuj folder"
+    "message": "Muokkaa kansiota"
   },
   "chooseTypeTitle": {
-    "message": "Utwórz nowy"
+    "message": "Luo uusi"
   },
   "backLabel": {
-    "message": "Powrót"
+    "message": "Takaisin"
   },
   "addShortcutTitle": {
-    "message": "Dodaj skrót"
+    "message": "Lisää pikakuvake"
   },
   "editShortcutTitle": {
-    "message": "Edytuj skrót"
+    "message": "Muokkaa pikakuvaketta"
   },
   "shortcutNameLabel": {
-    "message": "Nazwa"
+    "message": "Nimi"
   },
   "shortcutUrlLabel": {
-    "message": "adres URL"
+    "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Ikona niestandardowa"
+    "message": "Mukautettu kuvake"
   },
   "faviconUrlLabel": {
-    "message": "Adres URL ikony"
+    "message": "Kuvakkeen URL-osoite"
   },
   "btnCancel": {
-    "message": "Anuluj"
+    "message": "Peruuta"
   },
   "btnSave": {
-    "message": "Zapisz"
+    "message": "Tallenna"
   },
   "searchPlaceholder": {
-    "message": "Wyszukaj w Internecie"
+    "message": "Hae verkosta"
   },
   "namePlaceholder": {
-    "message": "Twoje imię i nazwisko (opcjonalnie)"
+    "message": "Nimesi (valinnainen)"
   },
   "cityPlaceholder": {
-    "message": "Twoje miasto"
+    "message": "Sinun kaupunkisi"
   },
   "addShortcutLabel": {
-    "message": "Dodaj"
+    "message": "Lisää"
   },
   "editLabel": {
-    "message": "Edytuj"
+    "message": "Muokkaa"
   },
   "removeLabel": {
-    "message": "Usuń"
+    "message": "Poista"
   },
   "moreOptionsLabel": {
-    "message": "Więcej opcji"
+    "message": "Lisää vaihtoehtoja"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$, ",
+    "message": "Fluent New Tab on päivitetty versioon $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -156,16 +156,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "zobacz dziennik zmian"
+    "message": "katso muutosloki"
   },
   "nasaApodVideoNotice": {
-    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowaj aktualną tapetę."
+    "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
   },
   "warningDeleteFolderTitle": {
-    "message": "Usuń folder"
+    "message": "Poista kansio"
   },
   "warningDeleteFolderMessage": {
-    "message": "Czy na pewno chcesz usunąć folder „$FOLDER$”? Wszystkie skróty znajdujące się w nim zostaną usunięte.",
+    "message": "Haluatko varmasti poistaa kansion \"$FOLDER$\"? Kaikki sen sisältämät pikakuvakkeet poistetaan.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -174,19 +174,19 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Wyłączyć foldery?"
+    "message": "Poista kansiot käytöstä?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Wszystkie foldery i ich skróty zostaną usunięte. Nie można tego cofnąć, chyba że masz kopię zapasową."
+    "message": "Kaikki kansiot ja niiden pikakuvakkeet poistetaan. Tätä ei voi peruuttaa, ellei sinulla ole varmuuskopiota."
   },
   "warningDeleteFoldersConfirm": {
-    "message": "Usuń foldery"
+    "message": "Poista kansiot"
   },
   "warningKeepEnabled": {
-    "message": "Pozostaw włączone"
+    "message": "Pidä käytössä"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Dodaj aplikacje $ECOSYSTEM$?",
+    "message": "Lisää $ECOSYSTEM$ -sovellukset?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -195,7 +195,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Spowoduje to utworzenie folderu z 9 aplikacjami $ECOSYSTEM$ w skrótach. Kontynuować?",
+    "message": "Tämä luo kansion, jossa on 9 $ECOSYSTEM$ -sovellusta pikakuvakkeisiin. Jatkatko?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -204,22 +204,22 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Dodaj folder"
+    "message": "Lisää kansio"
   },
   "launcherNoAppsTitle": {
-    "message": "Brak dostępnych aplikacji"
+    "message": "Sovelluksia ei ole saatavilla"
   },
   "launcherNoAppsAvailable": {
-    "message": "Brak aplikacji dostępnych dla tego ekosystemu."
+    "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
   },
   "shortcutsLimitReached": {
-    "message": "Osiągnięto limit skrótów!"
+    "message": "Pikakuvakkeiden raja saavutettu!"
   },
   "warningGridFullTitle": {
-    "message": "Siatka jest pełna"
+    "message": "Ruudukko on täynnä"
   },
   "warningGridFullMessage": {
-    "message": "Osiągnąłeś maksymalny limit $LIMIT$ skrótów na ekranie głównym. Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
+    "message": "Olet saavuttanut pääruudulla olevien pikakuvakkeiden enimmäismäärän $LIMIT$ . Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -228,10 +228,10 @@
     }
   },
   "warningFolderFullTitle": {
-    "message": "Folder jest pełny"
+    "message": "Kansio on täynnä"
   },
   "warningFolderFullMessage": {
-    "message": "Ten folder osiągnął maksymalną liczbę $LIMIT$ elementów. Proszę usunąć niektóre skróty przed dodaniem nowych.",
+    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteiden absoluuttisen rajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -240,28 +240,28 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Przywrócić kopię zapasową?"
+    "message": "Palautetaanko varmuuskopio?"
   },
   "warningRestoreBackupMessage": {
-    "message": "Spowoduje to zastąpienie bieżących ustawień i skrótów danymi z pliku kopii zapasowej."
+    "message": "Tämä korvaa nykyiset asetuksesi ja pikakuvakkeesi varmuuskopiotiedoston tiedoilla."
   },
   "warningRestoreBackupConfirm": {
-    "message": "Przywróć"
+    "message": "Palauta"
   },
   "warningInvalidBackupTitle": {
-    "message": "Nieprawidłowy plik kopii zapasowej"
+    "message": "Virheellinen varmuuskopiotiedosto"
   },
   "warningInvalidBackupMessage": {
-    "message": "Wybrany plik nie jest prawidłową kopią zapasową."
+    "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
   },
   "warningUnderstood": {
-    "message": "Rozumiem"
+    "message": "Ymmärretty"
   },
   "warningClose": {
-    "message": "Zamknij"
+    "message": "Sulje"
   },
   "greetMorning1": {
-    "message": "Dzień dobry, $NAME$",
+    "message": "Hyvää huomenta, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -270,7 +270,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Wstawaj i świeć, $NAME$!",
+    "message": "Herää ja nouse, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -279,7 +279,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Życzę Ci cudownego dnia, $NAME$",
+    "message": "Toivotan sinulle ihanaa päivää, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -288,7 +288,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Witaj, $NAME$! Gotowy na dzisiejszy dzień?",
+    "message": "Hei, $NAME$! Oletko valmis tänään?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -297,7 +297,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Zacznijmy dzień dobrze, $NAME$",
+    "message": "Aloitetaan päivä oikein, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -306,7 +306,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Dzień dobry, $NAME$",
+    "message": "Hyvää iltapäivää, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -315,7 +315,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Miło cię widzieć, $NAME$",
+    "message": "On mukava nähdä sinua. $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -324,7 +324,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Mam nadzieję, że wszystko u Ciebie w porządku, $NAME$",
+    "message": "Toivottavasti voit hyvin, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -333,7 +333,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Tak trzymaj, $NAME$!",
+    "message": "Jatka samaan malliin, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Zachowaj koncentrację i produktywność, $NAME$",
+    "message": "Pysy keskittyneenä ja tuotteliaana, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -351,7 +351,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Dobry wieczór, $NAME$",
+    "message": "Hyvää iltaa, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -360,7 +360,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Czas się zrelaksować, $NAME$",
+    "message": "On aika rentoutua, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Życzę spokojnego wieczoru, $NAME$",
+    "message": "Toivotan teille rauhallista iltaa, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Czas na relaks, $NAME$",
+    "message": "Aika rentoutua, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Miłego wieczoru, $NAME$",
+    "message": "Nauti illastasi, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetNight1": {
-    "message": "Mam nadzieję, że spędzasz spokojną noc, $NAME$",
+    "message": "Toivottavasti sinulla on rauhallinen yö, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetNight2": {
-    "message": "Nadal nie śpisz, $NAME$? Życzę spokojnego snu!",
+    "message": "Oletko vielä hereillä, $NAME$? Nuku pian hyvin!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -414,7 +414,7 @@
     }
   },
   "greetNight3": {
-    "message": "Ciesz się spokojnymi chwilami, $NAME$",
+    "message": "Nauti hiljaisista hetkistä, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobranoc, $NAME$. Do zobaczenia jutro!",
+    "message": "Hyvää yötä, $NAME$. Nähdään huomenna!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetNight5": {
-    "message": "Długo nie śpisz dzisiaj, $NAME$?",
+    "message": "Myöhään yöllä, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
