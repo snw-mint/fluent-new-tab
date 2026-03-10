@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Источник изображения"
   },
+  "overlayLabel": {
+    "message": "Наложение изображения"
+  },
   "iconsStyleLabel": {
     "message": "Стиль значка"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Добавить папку"
   },
-  "chooseTypeTitle": {
-    "message": "Создать новый"
-  },
   "editFolderTitle": {
     "message": "Редактировать папку"
+  },
+  "chooseTypeTitle": {
+    "message": "Создать новый"
   },
   "backLabel": {
     "message": "Назад"
