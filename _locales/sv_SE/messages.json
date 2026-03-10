@@ -17,6 +17,9 @@
   "wallpaperSourceLabel": {
     "message": "Bildkälla"
   },
+  "overlayLabel": {
+    "message": "Bildöverlägg"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
   },
@@ -89,11 +92,11 @@
   "addFolderTitle": {
     "message": "Lägg till mapp"
   },
-  "chooseTypeTitle": {
-    "message": "Skapa ny"
-  },
   "editFolderTitle": {
     "message": "Redigera mapp"
+  },
+  "chooseTypeTitle": {
+    "message": "Skapa ny"
   },
   "backLabel": {
     "message": "Tillbaka"
