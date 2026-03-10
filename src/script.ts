@@ -254,30 +254,8 @@ function renderShortcuts(): void {
     };
 
     const animateAndRender = (nextFolderId: string | null): void => {
-        if (!shortcutsGrid) {
-            currentFolderId = nextFolderId;
-            performRender();
-            return;
-        }
-
-        shortcutsGrid.classList.add('fluent-pure-fade-out');
-
-        window.setTimeout(() => {
-            currentFolderId = nextFolderId;
-            performRender();
-
-            shortcutsGrid.classList.remove('fluent-pure-fade-out');
-            shortcutsGrid.classList.remove('fluent-pure-fade-in');
-
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    shortcutsGrid.classList.add('fluent-pure-fade-in');
-                    shortcutsGrid.addEventListener('animationend', () => {
-                        shortcutsGrid.classList.remove('fluent-pure-fade-in');
-                    }, { once: true });
-                });
-            });
-        }, 150);
+        currentFolderId = nextFolderId;
+        performRender();
     };
 
     const handleOpenFolder = (id: string): void => {
