@@ -42,7 +42,14 @@
             const cachedUrl = typeof cached?.url === 'string' ? cached.url : '';
 
             if (cachedUrl && timestamp > 0 && (now - timestamp) < cacheDuration) {
-                initialWallpaperUrl = cachedUrl;
+                try {
+                    const parsed = new URL(cachedUrl);
+                    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+                        initialWallpaperUrl = cachedUrl;
+                    }
+                } catch {
+                    initialWallpaperUrl = null;
+                }
             }
         } catch {
             initialWallpaperUrl = null;
