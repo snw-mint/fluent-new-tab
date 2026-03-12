@@ -208,7 +208,8 @@
                 <li><a href="#shortcuts">Shortcuts</a></li>
                 <li><a href="#launcher">App Launcher</a></li>
                 <li><a href="#search">Search</a></li>
-                <li><a href="#advanced">Advanced & Backup</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#utilities">Utilities</a></li>
             </ul>
         </aside>
 
@@ -256,6 +257,10 @@
                 <div class="setting-card">
                     <h3>Dynamic Image Sources</h3>
                     <p>Instead of a static image, you can fetch a new wallpaper automatically every day from external sources: <strong>Bing Daily Image</strong>, <strong>NASA Astronomy Picture of the Day (APOD)</strong>, or <strong>Wikimedia Commons</strong>. Credits are shown in the bottom left corner.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Overlay Opacity <span class="setting-badge">New</span></h3>
+                    <p>Fine-tune how much the wallpaper blends into the background with a dedicated opacity slider ranging from 0% to 60%. Useful for improving text readability over bright or high-contrast images.</p>
                 </div>
             </section>
 
@@ -307,6 +312,14 @@
                     <h3>Grid Rows</h3>
                     <p>Control the maximum amount of shortcuts displayed on the screen. You can limit the grid to show anywhere from 1 to 4 rows. If disabled entirely, the grid is hidden to keep the interface completely minimalist.</p>
                 </div>
+                <div class="setting-card">
+                    <h3>Folders <span class="setting-badge">New</span></h3>
+                    <p>Enable folder support to organize your shortcuts grid into groups. When active, the <strong>Add</strong> button lets you choose between adding a shortcut or a new folder. Each folder holds up to 39 shortcuts and supports a custom name. Drag shortcuts onto a folder card to move them inside, or drag them back out to the main grid to remove them from the folder.</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Drag &amp; Drop from Favorites Bar <span class="setting-badge">New</span></h3>
+                    <p>Drag bookmarks directly from the browser's favorites bar and drop them into the shortcuts grid or into an open folder. You can also drag a shortcut from the main grid onto a folder card and release to move it inside.</p>
+                </div>
             </section>
 
             <section id="launcher" class="docs-section">
@@ -321,6 +334,10 @@
                 <div class="setting-card">
                     <h3>Ecosystem Provider</h3>
                     <p>Select which suite of tools you use the most. The launcher will automatically populate with shortcuts and icons for <strong>Microsoft 365</strong> (Word, Teams, Copilot), <strong>Google Workspace</strong> (Docs, Drive, Gemini), or <strong>Proton AG</strong> (Mail, Calendar, Pass).</p>
+                </div>
+                <div class="setting-card">
+                    <h3>Convert App to Folder <span class="setting-badge">New</span></h3>
+                    <p>Turn any App Launcher app into a shortcut folder for even faster access directly from the shortcuts grid. Click the <strong>+</strong> icon on an app card to trigger the conversion. The <strong>Folders</strong> feature must be enabled in the Shortcuts settings for this option to be available.</p>
                 </div>
             </section>
 
@@ -337,7 +354,7 @@
                 </div>
                 <div class="setting-card">
                     <h3>Clear Search (Google)</h3>
-                    <p>This setting appends the <code>&udm=14</code> parameter to Google searches. It forces Google to return a clean, classic list of links, stripping away AI overviews, sponsored widgets, and shopping cards.</p>
+                    <p>This setting appends the <code translate="no">&udm=14</code> parameter to Google searches. It forces Google to return a clean, classic list of links, stripping away AI overviews, sponsored widgets, and shopping cards.</p>
                 </div>
                 <div class="setting-card">
                     <h3>Compact Bar</h3>
@@ -349,25 +366,41 @@
                 </div>
             </section>
 
-            <section id="advanced" class="docs-section">
+            <section id="performance" class="docs-section">
                 <h2>
                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14h2.544Zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394l-1.67 5.013Z" fill="currentColor"/>
                     </svg>
-                    Advanced & Backup
+                    Performance
                 </h2>
-                
+                <p>Fine-tune how the extension renders and animates to best match your hardware and personal preference.</p>
+
                 <div class="setting-card">
                     <h3>Reduce Motion</h3>
-                    <p>Disables all CSS transitions, interface animations, and hover effects. This is highly recommended for older computers to improve performance, or for users who prefer an instant, snappy response.</p>
+                    <p>Disables all CSS transitions, interface animations, and hover effects. Highly recommended for older computers or for users who prefer an instant, snappy response.</p>
                 </div>
                 <div class="setting-card">
+                    <h3>Reduce Blur</h3>
+                    <p>Turns off backdrop blur effects used throughout the interface. Blur filters can be GPU-intensive — disabling them noticeably improves rendering performance on lower-end devices.</p>
+                </div>
+            </section>
+
+            <section id="utilities" class="docs-section">
+                <h2>
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 6.252V7H4.25A2.25 2.25 0 0 0 2 9.25v8.497a2.25 2.25 0 0 0 2.25 2.25h15.5a2.25 2.25 0 0 0 2.25-2.25V9.25A2.25 2.25 0 0 0 19.75 7H17v-.748a2.25 2.25 0 0 0-2.25-2.25h-5.5A2.25 2.25 0 0 0 7 6.252Zm2.25-.75h5.5a.75.75 0 0 1 .75.75V7h-7v-.748a.75.75 0 0 1 .75-.75Zm-2.25 3h1.5V8.5h7v.002H17V8.5h2.75a.75.75 0 0 1 .75.75v2.25h-3v-.75a.75.75 0 0 0-1.5 0v.75H8v-.75a.75.75 0 0 0-1.5 0v.75h-3V9.25a.75.75 0 0 1 .75-.75H7v.002ZM16 13v1.25a.75.75 0 0 0 1.5 0V13h3v4.747a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V13h3v1.25a.75.75 0 0 0 1.5 0V13h8Z" fill="currentColor"/>
+                    </svg>
+                    Utilities
+                </h2>
+                <p>Language settings and data management tools to keep your setup organized and portable.</p>
+
+                <div class="setting-card">
                     <h3>Language</h3>
-                    <p>Force the interface language of the extension menu and greetings. It supports over 20 languages. By default, it follows your browser's language settings.</p>
+                    <p>Set the interface language for the extension menu and greetings. It supports over 20 languages. The default language is <strong>English</strong>, which is also used as a fallback whenever a translation is missing or unavailable. Found a translation error or want to request a new language? Contribute on <a href="https://crowdin.com/project/fluent-new-tab" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">Crowdin</a>.</p>
                 </div>
                 <div class="setting-card">
                     <h3>Data Backup (Export / Import)</h3>
-                    <p>Allows you to export all your configured settings, shortcuts, and preferences into a single <code>.json</code> file. You can import this file later or on another device to restore your entire setup instantly.</p>
+                    <p>Allows you to export all your configured settings, shortcuts, and preferences into a single <code translate="no">.json</code> file. You can import this file later or on another device to restore your entire setup instantly.</p>
                 </div>
             </section>
 

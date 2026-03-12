@@ -267,10 +267,17 @@
                 <div class="faq-item">
                     <h3>The extension is disabled after installing on Microsoft Edge. What do I do?</h3>
                     <p>Microsoft Edge disables third-party "New Tab" extensions by default for security reasons. To fix this:</p>
-                    <p>1. Type <code>edge://extensions/</code> in your address bar and hit Enter.<br>
+                    <p>1. Type <code translate="no">edge://extensions/</code> in your address bar and hit Enter.<br>
                        2. Find "Fluent New Tab" and toggle the switch to turn it on.<br>
                        3. Open a new tab. Edge will show a warning asking if you expected this change.<br>
                        4. Click the <strong>"Keep it anyway"</strong> button.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>My extension disables itself or shows a security popup.</h3>
+                    <p>Browsers like <strong>Edge</strong> and <strong>Chrome</strong> can show security prompts in some situations, especially when using <strong>Developer Mode</strong> or loading the extension as <strong>unpacked</strong>. This behavior is controlled by the browser, not only by the extension.</p>
+                    <p>In rare cases, the browser can also disable an extension automatically after an update if new permissions are added to the manifest. When that happens, you need to re-enable the extension and accept the new permissions prompt.</p>
+                    <p>It is always a good idea to check the changelog after updates. If new permissions are ever required for new features, it will be documented there. Permission changes are uncommon, and we always try to ship new features without requesting new permissions to avoid mass deactivation.</p>
                 </div>
             </section>
 
@@ -348,7 +355,28 @@
                 <div class="faq-item">
                     <h3>Something is failing or completely broken.</h3>
                     <p>If a specific feature isn't working, the fastest way to fix it is to clear your browser's cache for the extension.</p>
-                    <p>If that doesn't work, go to your extensions page (<code>edge://extensions/</code> or <code>chrome://extensions/</code>), locate Fluent New Tab, and click the <strong>Reload</strong> button. This will restart the extension's background scripts.</p>
+                    <p>If that doesn't work, go to your extensions page (<code translate="no">edge://extensions/</code> or <code translate="no">chrome://extensions/</code>), locate Fluent New Tab, and click the <strong>Reload</strong> button. This will restart the extension's background scripts.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Drag &amp; Drop from Favorites Bar is not working.</h3>
+                    <p>Make sure the browser favorites/bookmarks bar is visible and that you are dragging from that bar directly. Some browser policies or privacy extensions may block drag events on extension pages.</p>
+                    <p>If it still fails, try disabling conflicting extensions temporarily and reload Fluent New Tab.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>I cannot find folder options in Shortcuts.</h3>
+                    <p>The folder actions only appear after enabling <strong>Folders</strong> in Shortcuts settings. Once enabled, the Add flow will include folder creation and drag-to-folder behavior.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Convert App to Folder is missing in App Launcher.</h3>
+                    <p>This action depends on the Shortcuts folder system. Enable <strong>Folders</strong> first, then use the <strong>+</strong> icon on the app card to convert it into a folder shortcut.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Overlay Opacity does not seem to change anything.</h3>
+                    <p>Overlay Opacity only affects active wallpapers. If wallpaper is turned off, or if you are using a plain background color, the slider will have no visible effect.</p>
                 </div>
             </section>
 
