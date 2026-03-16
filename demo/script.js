@@ -497,7 +497,7 @@ function renderShortcutsGrid(options) {
             if (!targetIconSrc) {
                 try {
                     const parsedUrl = new URL(itemData.url);
-                    targetIconSrc = `https://icons.duckduckgo.com/ip3/${parsedUrl.hostname}.ico`;
+                    targetIconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(parsedUrl.hostname)}&sz=64`;
                 }
                 catch (error) {
                     targetIconSrc = 'invalid-url';

@@ -1,18 +1,25 @@
 const DEFAULT_LOCALE = 'en';
 window.translationsCache = {};
 
-function getLocalesBaseUrl() {
+function getLocalesBaseUrls() {
     const scriptEl = document.currentScript ||
         Array.from(document.scripts).find(script => script.src && script.src.includes('scripts/i18n.js'));
 
     if (scriptEl && scriptEl.src) {
-        return new URL('../_locales/', scriptEl.src).toString();
+        const demoRoot = new URL('../', scriptEl.src);
+        return [
+            new URL('_locales/', demoRoot).toString(),
+            new URL('locales/', demoRoot).toString()
+        ];
     }
 
-    return new URL('_locales/', window.location.href).toString();
+    return [
+        new URL('_locales/', window.location.href).toString(),
+        new URL('locales/', window.location.href).toString()
+    ];
 }
 
-const LOCALES_BASE_URL = getLocalesBaseUrl();
+const LOCALES_BASE_URLS = getLocalesBaseUrls();
 
 async function loadTranslations() {
     let lang = localStorage.getItem('userLanguage');
@@ -40,10 +47,19 @@ async function loadTranslations() {
     document.body.classList.add('loaded');
 }
 async function fetchLocale(localeCode) {
-    const url = `${LOCALES_BASE_URL}${localeCode}/messages.json`;
-    const response = await fetch(url, { cache: 'no-store' });
-    if (!response.ok) throw new Error('File not found');
-    return await response.json();
+    const attemptedUrls = [];
+
+    for (const baseUrl of LOCALES_BASE_URLS) {
+        const url = `${baseUrl}${localeCode}/messages.json`;
+        attemptedUrls.push(url);
+
+        const response = await fetch(url, { cache: 'no-store' });
+        if (response.ok) {
+            return await response.json();
+        }
+    }
+
+    throw new Error(`Locale file not found. Tried: ${attemptedUrls.join(', ')}`);
 }
 function applyToDOM(messages) {
     const elements = document.querySelectorAll('[data-i18n]');
