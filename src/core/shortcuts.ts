@@ -97,13 +97,27 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         if (!isFolder) {
             const img = document.createElement('img');
             img.decoding = 'async';
-            img.src = itemData.customIcon || `https://www.google.com/s2/favicons?sz=64&domain_url=${itemData.url}`;
             img.className = 'shortcut-icon';
             img.alt = itemData.name;
+
+            let targetIconSrc = itemData.customIcon;
+
+            if (!targetIconSrc) {
+                try {
+                    const parsedUrl = new URL(itemData.url);
+                    targetIconSrc = `https://icons.duckduckgo.com/ip3/${parsedUrl.hostname}.ico`;
+                } catch (error) {
+                    targetIconSrc = 'invalid-url'; 
+                }
+            }
+
+            img.src = targetIconSrc;
+
             img.onerror = function() {
                 img.onerror = null;
                 img.src = 'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
             };
+            
             card.prepend(img);
         }
 
@@ -114,7 +128,6 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
         item.appendChild(card);
 
-        // 3. Título abaixo do atalho
         const titleLink = document.createElement('a');
         titleLink.className = 'shortcut-title';
         titleLink.href = isFolder ? '#' : (itemData.url || '#');
@@ -126,7 +139,6 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         fragment.appendChild(item);
     });
 
-    // Adiciona o botão de "+" no final, se houver espaço
     if (visibleShortcuts.length < availableSlots) {
         const addBtn = document.createElement('div');
         addBtn.className = 'shortcut-item add-card-wrapper';
