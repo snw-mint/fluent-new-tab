@@ -1,5 +1,19 @@
 const DEFAULT_LOCALE = 'en';
 window.translationsCache = {};
+
+function getLocalesBaseUrl() {
+    const scriptEl = document.currentScript ||
+        Array.from(document.scripts).find(script => script.src && script.src.includes('scripts/i18n.js'));
+
+    if (scriptEl && scriptEl.src) {
+        return new URL('../_locales/', scriptEl.src).toString();
+    }
+
+    return new URL('_locales/', window.location.href).toString();
+}
+
+const LOCALES_BASE_URL = getLocalesBaseUrl();
+
 async function loadTranslations() {
     let lang = localStorage.getItem('userLanguage');
     if (!lang) {
@@ -16,6 +30,7 @@ async function loadTranslations() {
             messages = await fetchLocale(DEFAULT_LOCALE);
         } catch (e) {
             console.error("Critical error: default language file (en) not found!");
+            document.body.classList.add('loaded');
             return;
         }
     }
@@ -25,7 +40,7 @@ async function loadTranslations() {
     document.body.classList.add('loaded');
 }
 async function fetchLocale(localeCode) {
-    const url = `_locales/${localeCode}/messages.json`;
+    const url = `${LOCALES_BASE_URL}${localeCode}/messages.json`;
     const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) throw new Error('File not found');
     return await response.json();
