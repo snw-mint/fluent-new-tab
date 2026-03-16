@@ -1061,6 +1061,38 @@ body {
 .dynamic-badge:empty {
     display: none;
 }
+
+.mobile-warning-dialog {
+    max-width: 460px;
+}
+
+.mobile-warning-message {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+[data-theme="dark"] .mobile-warning-message {
+    color: #d1d5db;
+}
+
+.mobile-warning-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mobile-blocked-action {
+    cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+    .mobile-blocked-action {
+        opacity: 0.95;
+    }
+}
+
 .featured-section {
     padding: 40px 0;
     text-align: center;

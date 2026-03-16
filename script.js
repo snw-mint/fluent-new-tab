@@ -188,7 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal Toggle Logic
     const modal = document.getElementById('install-modal');
     const openButtons = document.querySelectorAll('[data-install-trigger]');
+    const liveDemoButtons = document.querySelectorAll('[data-live-demo-trigger]');
     const closeElements = document.querySelectorAll('[data-modal-close]');
+    const mobileWarningModal = document.getElementById('mobile-warning-modal');
+    const mobileWarningTitle = document.getElementById('mobile-warning-title');
+    const mobileWarningMessage = document.getElementById('mobile-warning-message');
+    const mobileWarningCloseElements = document.querySelectorAll('[data-mobile-warning-close]');
+
+    const warningContent = {
+        install: {
+            title: 'Not available on mobile',
+            message: 'Sorry, Fluent New Tab is not available for mobile devices.'
+        },
+        demo: {
+            title: 'Desktop recommended',
+            message: 'For the best demo experience, please open it on a computer.'
+        }
+    };
+
+    const isMobileBlockedDevice = () => {
+        const hasTouchPointer = window.matchMedia('(pointer: coarse)').matches;
+        const mobileViewport = window.matchMedia('(max-width: 900px)').matches;
+        const mobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return (hasTouchPointer && mobileViewport) || mobileUserAgent;
+    };
 
     const openModal = () => {
         modal.classList.add('active');
@@ -200,13 +223,59 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.setAttribute('aria-hidden', 'true');
     };
 
+    const openMobileWarning = (type) => {
+        if (!mobileWarningModal || !mobileWarningTitle || !mobileWarningMessage) return;
+        const content = warningContent[type] || warningContent.install;
+        mobileWarningTitle.textContent = content.title;
+        mobileWarningMessage.textContent = content.message;
+        mobileWarningModal.classList.add('active');
+        mobileWarningModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeMobileWarning = () => {
+        if (!mobileWarningModal) return;
+        mobileWarningModal.classList.remove('active');
+        mobileWarningModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const applyMobileBlockedStyles = () => {
+        const shouldBlock = isMobileBlockedDevice();
+        [...openButtons, ...liveDemoButtons].forEach((element) => {
+            element.classList.toggle('mobile-blocked-action', shouldBlock);
+            element.setAttribute('aria-disabled', shouldBlock ? 'true' : 'false');
+        });
+    };
+
     if (modal) {
-        openButtons.forEach(btn => btn.addEventListener('click', openModal));
+        openButtons.forEach(btn => btn.addEventListener('click', (event) => {
+            if (isMobileBlockedDevice()) {
+                event.preventDefault();
+                closeModal();
+                openMobileWarning('install');
+                return;
+            }
+            openModal();
+        }));
+
+        liveDemoButtons.forEach(btn => btn.addEventListener('click', (event) => {
+            if (isMobileBlockedDevice()) {
+                event.preventDefault();
+                openMobileWarning('demo');
+            }
+        }));
+
         closeElements.forEach(el => el.addEventListener('click', closeModal));
+        mobileWarningCloseElements.forEach(el => el.addEventListener('click', closeMobileWarning));
+
+        applyMobileBlockedStyles();
+        window.addEventListener('resize', applyMobileBlockedStyles);
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
+            }
+            if (e.key === 'Escape' && mobileWarningModal?.classList.contains('active')) {
+                closeMobileWarning();
             }
         });
     }

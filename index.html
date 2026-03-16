@@ -148,7 +148,7 @@
 
             <div class="hero-actions">
                 <button class="btn-primary" data-install-trigger>Add to Browser</button>
-                <a href="demo/index.html" class="btn-secondary">Live Demo</a>
+                <a href="demo/index.html" class="btn-secondary" data-live-demo-trigger>Live Demo</a>
                 <a href="https://github.com/snw-mint/fluent-new-tab" class="btn-secondary">View on GitHub</a>
             </div>
         </div>
@@ -483,6 +483,23 @@
                     <span class="status-badge static-badge">Manual</span>
                 </a>
 
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mobile-warning-modal" class="fluent-modal" aria-hidden="true">
+    <div class="fluent-modal-overlay" data-mobile-warning-close></div>
+    <div class="fluent-modal-content solid-dialog mobile-warning-dialog">
+        <div class="modal-header">
+            <h3 id="mobile-warning-title">Not available on mobile</h3>
+            <button class="modal-close" data-mobile-warning-close aria-label="Close warning modal">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.22 6.22a.75.75 0 0 1 1.06 0L12 10.94l4.72-4.72a.75.75 0 1 1 1.06 1.06L13.06 12l4.72 4.72a.75.75 0 1 1-1.06 1.06L12 13.06l-4.72 4.72a.75.75 0 0 1-1.06-1.06L10.94 12 6.22 7.28a.75.75 0 0 1 0-1.06Z" fill="currentColor"/></svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p id="mobile-warning-message" class="mobile-warning-message">Sorry, Fluent New Tab is not available for mobile devices.</p>
+            <div class="mobile-warning-actions">
+                <button type="button" class="btn-primary" data-mobile-warning-close>Understood</button>
             </div>
         </div>
     </div>
