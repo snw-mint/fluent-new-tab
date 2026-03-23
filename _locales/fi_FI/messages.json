@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Pikakuvakkeet"
   },
+  "enableFoldersLabel": {
+    "message": "Ota kansiot käyttöön"
+  },
   "rows1": {
     "message": "1 rivi"
   },
