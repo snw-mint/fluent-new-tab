@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Mga Shortcut"
   },
+  "enableFoldersLabel": {
+    "message": "Enable Folders"
+  },
   "rows1": {
     "message": "1 Row"
   },
