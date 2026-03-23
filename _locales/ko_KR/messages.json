@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "바로가기"
   },
+  "enableFoldersLabel": {
+    "message": "폴더 활성화"
+  },
   "rows1": {
     "message": "1 행"
   },
