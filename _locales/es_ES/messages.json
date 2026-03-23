@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Atajos"
   },
+  "enableFoldersLabel": {
+    "message": "Habilitar carpetas"
+  },
   "rows1": {
     "message": "1 fila"
   },

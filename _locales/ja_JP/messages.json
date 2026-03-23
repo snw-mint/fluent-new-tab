@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "ショートカット"
   },
+  "enableFoldersLabel": {
+    "message": "フォルダを有効にする"
+  },
   "rows1": {
     "message": "1行"
   },

@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Горячие клавиши"
   },
+  "enableFoldersLabel": {
+    "message": "Включить папки"
+  },
   "rows1": {
     "message": "1 ряд"
   },

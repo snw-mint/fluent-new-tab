@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Ярлики"
   },
+  "enableFoldersLabel": {
+    "message": "Увімкнути папки"
+  },
   "rows1": {
     "message": "1 ряд"
   },

@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Atalhos"
   },
+  "enableFoldersLabel": {
+    "message": "Ativar pastas"
+  },
   "rows1": {
     "message": "1 linha"
   },

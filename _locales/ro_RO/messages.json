@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Căi rapide"
   },
+  "enableFoldersLabel": {
+    "message": "Activează folderele"
+  },
   "rows1": {
     "message": "1 rând"
   },

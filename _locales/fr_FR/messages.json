@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Raccourcis"
   },
+  "enableFoldersLabel": {
+    "message": "Activer les dossiers"
+  },
   "rows1": {
     "message": "1 rangée"
   },

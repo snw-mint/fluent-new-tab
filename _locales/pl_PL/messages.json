@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Skróty"
   },
+  "enableFoldersLabel": {
+    "message": "Włącz foldery"
+  },
   "rows1": {
     "message": "1 rząd"
   },

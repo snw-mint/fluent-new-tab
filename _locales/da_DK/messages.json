@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Genveje"
   },
+  "enableFoldersLabel": {
+    "message": "Aktivér mapper"
+  },
   "rows1": {
     "message": "1 række"
   },

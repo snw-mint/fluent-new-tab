@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Scorciatoie"
   },
+  "enableFoldersLabel": {
+    "message": "Abilita cartelle"
+  },
   "rows1": {
     "message": "1 riga"
   },
