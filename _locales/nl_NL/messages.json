@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Snelkoppelingen"
   },
+  "enableFoldersLabel": {
+    "message": "Mappen inschakelen"
+  },
   "rows1": {
     "message": "1 rij"
   },
