@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Genvägar"
   },
+  "enableFoldersLabel": {
+    "message": "Aktivera mappar"
+  },
   "rows1": {
     "message": "1 rad"
   },
