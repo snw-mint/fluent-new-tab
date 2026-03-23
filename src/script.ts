@@ -998,13 +998,13 @@ function bindExternalShortcutDrop(): void {
     shortcutsGrid.addEventListener('drop', (event) => {
         event.preventDefault();
 
-        // Ignore internal Sortable drops to avoid creating duplicate shortcuts.
         if (shortcutsGrid.classList.contains('sorting')) return;
         if (!event.dataTransfer) return;
 
         const targetArray = getActiveShortcutsList();
         const isFolderGrid = Boolean(currentFolderId);
         const effectiveLimit = isFolderGrid ? MAX_FOLDER_CAPACITY : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+        
         if (targetArray.length >= effectiveLimit) {
             showGridLimitWarning(effectiveLimit, isFolderGrid);
             return;
@@ -1026,6 +1026,18 @@ function bindExternalShortcutDrop(): void {
         }
 
         if (!droppedUrl || !/^https?:\/\//i.test(droppedUrl)) return;
+
+        try {
+            const parsedHost = new URL(droppedUrl).hostname.toLowerCase();
+            const cleanedName = droppedName.toLowerCase().replace(/^https?:\/\//, '').replace(/\/$/, '');
+            
+            if (cleanedName === parsedHost || cleanedName === droppedUrl.toLowerCase()) {
+                droppedName = ''; 
+            }
+        } catch (error) {
+            console.warn('URL parsing failed during drop evaluation', error);
+        }
+
         if (!droppedName) droppedName = deriveShortcutNameFromUrl(droppedUrl);
 
         targetArray.push({
@@ -2104,8 +2116,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const value = localStorage.getItem(key);
                 if (value !== null) backupData[key] = value;
             });
-
-            // Dedicated key with the complete shortcuts tree (folders + children shortcuts).
             backupData[SHORTCUTS_TREE_BACKUP_KEY] = localStorage.getItem('shortcuts') || '[]';
 
             backupData._backupDate = new Date().toISOString();
