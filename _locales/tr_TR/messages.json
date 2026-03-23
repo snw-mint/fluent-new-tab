@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Kısayollar"
   },
+  "enableFoldersLabel": {
+    "message": "Klasörleri Etkinleştir"
+  },
   "rows1": {
     "message": "1 Sıra"
   },
