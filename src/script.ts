@@ -960,12 +960,12 @@ function deriveShortcutNameFromUrl(rawUrl: string): string {
     try {
         const host = new URL(rawUrl).hostname.replace(/^www\./i, '');
         if (!host) return 'New Shortcut';
-        return host.charAt(0).toUpperCase() + host.slice(1);
+        const name = host.split('.')[0];
+        return name.charAt(0).toUpperCase() + name.slice(1);
     } catch {
         return 'New Shortcut';
     }
 }
-
 function showGridLimitWarning(currentLimit: number, isFolderGrid: boolean): void {
     const title = isFolderGrid
         ? getLocalizedWarningText('warningFolderFullTitle', 'Folder is Full')
