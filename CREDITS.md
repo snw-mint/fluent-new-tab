@@ -10,9 +10,9 @@ The core design language of this extension is based on Microsoft's **Fluent Desi
     * [Fluent Icons](https://fluenticons.co/outlined/) by Colton Griffith.
 * **Brand Assets:** Brand icons (search engines, ecosystems) provided by [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page).
 * **Wallpapers:**
-    * [fluent1.webp](assets/wallpapers/fluent1.webp) — Photo by [Muriel Liu](https://unsplash.com/@muriel_1) on [Unsplash](https://unsplash.com/photos/a-group-of-blue-vases-sitting-on-top-of-a-table-pXpDfLRlgco).
-    * [fluent2.webp](assets/wallpapers/fluent2.webp) — Photo by [Bhautik Patel](https://unsplash.com/@bhautik_patel3) on [Unsplash](https://unsplash.com/photos/a-close-up-of-a-cell-phone-with-a-red-background-5rotZfQu3PM).
-    * [fluent3.webp](assets/wallpapers/fluent3.webp) — Photo by [Alex Shuper](https://unsplash.com/@alexshuperart) on [Unsplash](https://unsplash.com/photos/a-pile-of-purple-plastic-cups-sitting-on-top-of-a-table-ZuRP1hx7OMo).
+    * [fluent1.webp](assets/wallpapers/fluent1.webp) — Photo by [Pietro De Grandi](https://unsplash.com/@cedricletsch) on [Unsplash](https://unsplash.com/photos/three-brown-wooden-boat-on-blue-lake-water-taken-at-daytime-T7K4aEPoGGk).
+    * [fluent2.webp](assets/wallpapers/fluent2.webp) — Photo by [Tim Foster](https://unsplash.com/@timberfoster) on [Unsplash](https://unsplash.com/photos/golden-gate-bridge-california-o4mP43oPGHk).
+    * [fluent3.webp](assets/wallpapers/fluent3.webp) — Photo by [Cedric Letsch](https://unsplash.com/@alexshuperart) on [Unsplash](https://unsplash.com/photos/aerial-view-of-city-during-daytime-FPdyoYNdvaM).
 
 ## ☁️ APIs & Services
 * **Weather Data:** Weather forecasts are provided by [Open-Meteo](https://open-meteo.com/) (Non-commercial use).
