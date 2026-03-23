@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"
   },
+  "enableFoldersLabel": {
+    "message": "Mappák engedélyezése"
+  },
   "rows1": {
     "message": "1 sor"
   },
