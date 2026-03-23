@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "Schnellzugriffe"
   },
+  "enableFoldersLabel": {
+    "message": "Ordner aktivieren"
+  },
   "rows1": {
     "message": "1 Reihe"
   },
