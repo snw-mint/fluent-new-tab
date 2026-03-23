@@ -1113,6 +1113,7 @@ function initSortable() {
 
         onStart: (evt: any) => {
             shortcutsGrid.classList.add('sorting');
+            document.body.classList.add('is-sorting-shortcuts');
 
             const draggedEl = (evt?.item || evt?.dragged) as HTMLElement | null;
             const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
@@ -1159,6 +1160,7 @@ function initSortable() {
 
         onEnd: function (evt: any) {
             shortcutsGrid.classList.remove('sorting');
+            document.body.classList.remove('is-sorting-shortcuts');
             setBodyDragOverlay(false);
             detachGlobalDragOver();
 
