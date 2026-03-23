@@ -26,7 +26,9 @@ async function saveWallpaperToDB(blob: Blob, keyName: string = 'custom_wallpaper
         const request = store.put(blob, keyName);
 
         request.onsuccess = () => resolve(true);
-        request.onerror = () => reject('Erro ao salvar no DB');
+        request.onerror = () => reject(new Error(
+            'Cannot save wallpaper. You may have hit the maximum storage capacity.'
+        ));
     });
 }
 
@@ -83,7 +85,7 @@ function processWallpaperImage(file: File): Promise<Blob> {
         reader.readAsDataURL(file);
 
         reader.onload = (event) => {
-            convertImageToWebp(String((event.target as FileReader).result || ''), 1920, 0.8)
+            convertImageToWebp(String((event.target as FileReader).result || ''), 3840, 0.92)
                 .then(resolve)
                 .catch(reject);
         };
