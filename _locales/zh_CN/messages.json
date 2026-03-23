@@ -29,6 +29,9 @@
   "shortcutsTitle": {
     "message": "快捷方式"
   },
+  "enableFoldersLabel": {
+    "message": "启用文件夹"
+  },
   "rows1": {
     "message": "1 行"
   },
