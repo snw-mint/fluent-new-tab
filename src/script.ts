@@ -1263,6 +1263,8 @@ function renderLauncher(providerKey: keyof typeof launcherData): void {
     });
 }
 
+document.getElementById('id').innerHTML = '...';
+
 function toTitleCase(value: string): string {
     if (!value) return '';
     return value.charAt(0).toUpperCase() + value.slice(1);
