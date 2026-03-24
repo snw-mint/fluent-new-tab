@@ -304,6 +304,23 @@
                     <p>The extension scales automatically, but if you want to adjust the size of the elements, you can use your browser's native zoom feature.</p>
                     <p>Press <code>Ctrl +</code> (or <code>Cmd +</code> on Mac) to zoom in and make things bigger, or <code>Ctrl -</code> (or <code>Cmd -</code>) to zoom out. The browser will remember this zoom level specifically for the new tab page.</p>
                 </div>
+
+                <div class="faq-item">
+                    <h3>Why are custom wallpapers resized to 4K resolution?</h3>
+                    <p>To ensure your browser remains fast and responsive. Images larger than 4K (like 8K photos) consume a massive amount of RAM when decoded by the browser, which can cause significant lag every time you open a new tab.</p>
+                    <p>When you upload an oversized image, our system automatically resizes it to a maximum width of <strong>3840px (4K)</strong> and converts it to a highly optimized WebP format. This provides the "sweet spot" between crystal-clear visual quality and instant loading times.</p>
+                    <p><strong>Tip:</strong> For the absolute best performance, we recommend uploading images that match your monitor's native resolution.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>I got a "Storage Full" or "Quota Exceeded" error when uploading a wallpaper.</h3>
+                    <p>The extension saves your custom wallpapers directly inside your browser's local database (IndexedDB) so they load instantly without needing an internet connection. Browsers strictly limit how much space extensions can use.</p>
+                    <p>If you see this error, your browser's storage quota for your current profile is full. To fix this:</p>
+                    <p>1. Try uploading an image with a smaller file size or lower resolution.<br>
+                       2. Clear your browser's cache and temporary site data to free up local storage space.<br>
+                       3. Ensure your hard drive (C: drive) isn't completely full, as browsers dynamically adjust storage limits based on available disk space.</p>
+                </div>
+                
             </section>
 
             <section id="weather-api" class="docs-section">
