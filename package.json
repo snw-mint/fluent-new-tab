@@ -13,7 +13,8 @@
     "build": "npm run clean && npm run build:assets && npm run build:ts && npm run build:scss",
     "build:release": "npm run clean && npm run build:assets && npm run build:ts && npm run build:js:min && npm run build:scss:min",
     "watch:ts": "tsc -p tsconfig.json --watch",
-    "watch:scss": "sass --watch src/style.scss:dist/style.css --no-source-map"
+    "watch:scss": "sass --watch src/style.scss:dist/style.css --no-source-map",
+    "update-policy": "gh gist edit c9d8f1959b8377ab1b2b046deca70224 -f manifest.json ./manifest.json"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
