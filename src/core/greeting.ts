@@ -11,7 +11,10 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
     }
     greetingWrapper.style.display = 'flex';
 
-    const hour = new Date().getHours();
+    const now = new Date();
+    const hour = now.getHours();
+    const dayOfWeek = now.getDay(); // Sunday is 0, Monday is 1, etc.
+
     let timeKeyPrefix = 'greetMorning';
     let iconName = 'sun';
     let timeOfDayLabel = 'morning';
@@ -34,17 +37,53 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
         timeOfDayLabel = 'night';
     }
 
-    const seed = new Date().getMinutes();
-    const randomIndex = (seed % 5) + 1;
-    const translationKey = `${timeKeyPrefix}${randomIndex}`;
+    let translationKey = '';
+    const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5; // Monday to Friday
+
+    if (isWeekday) {
+        if (hour >= 5 && hour < 12) {
+            translationKey = 'greetWeekMorning';
+        } else if (hour >= 12 && hour < 19) {
+            translationKey = 'greetWeekAfternoon';
+        } else if (hour >= 19 || hour < 5) {
+            translationKey = 'greetWeekNight';
+        }
+    }
+    
+    if (!translationKey) {
+        const seed = now.getMinutes();
+        const randomIndex = (seed % 5) + 1;
+        translationKey = `${timeKeyPrefix}${randomIndex}`;
+    }
+    
+    const dayOfWeekKey = `weekday_${dayOfWeek}`;
+    let currentDayName = '';
+    const dayMessage = window.getTranslation(dayOfWeekKey);
+    if (dayMessage && dayMessage !== dayOfWeekKey) {
+        currentDayName = dayMessage;
+    } else {
+        try {
+            currentDayName = chrome.i18n.getMessage(dayOfWeekKey);
+        } catch (error) {
+            // fallback to English if translation not found
+            const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            currentDayName = weekdays[dayOfWeek];
+        }
+    }
 
     let rawGreeting = '';
     const message = window.getTranslation(translationKey);
     if (message && message !== translationKey) {
-        rawGreeting = message.replace(/\$NAME\$/g, userName);
+        rawGreeting = message
+            .replace(/\$WEEK\$/g, currentDayName)
+            .replace(/\$NAME\$/g, userName);
     } else {
         try {
-            rawGreeting = chrome.i18n.getMessage(translationKey, [userName]);
+            if (translationKey.startsWith('greetWeek')) {
+                 rawGreeting = chrome.i18n.getMessage(translationKey, [currentDayName, userName]);
+            } else {
+                 rawGreeting = chrome.i18n.getMessage(translationKey, [userName]);
+            }
         } catch (error) {
             rawGreeting = translationKey;
         }
