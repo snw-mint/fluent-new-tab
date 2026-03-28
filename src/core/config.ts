@@ -54,5 +54,6 @@ const APP_KEYS: string[] = [
     'launcherEnabled', 'launcherProvider', 'showGreeting', 'greetingName', 'greetingStyle',
     'userLanguage', 'searchEngine', 'searchBarVisible', 'suggestionsEnabled', 'clearSearchEnabled',
     'compactBarEnabled', 'voiceSearchEnabled', 'weatherUnit', 'wallpaperEnabled',
-    'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled', 'blurDisabled', 'reducedEffectsEnabled'
+    'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled', 'blurDisabled', 'reducedEffectsEnabled',
+    'accentColorEnabled', 'accentColorMode', 'accentColorValue', 'accentColorSurfaces'
 ];

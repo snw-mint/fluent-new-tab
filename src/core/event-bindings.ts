@@ -127,6 +127,83 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
   }
 }
 
+interface AccentColorBindingOptions {
+  applyInitialAccentState: () => void;
+  toggleAccentColor: HTMLInputElement | null;
+  accentColorOptions: HTMLDivElement | null;
+  setCollapsibleFn: (element: HTMLElement | null, shouldExpand: boolean, animate?: boolean) => void;
+  accentPresetsRow: HTMLDivElement | null;
+  accentCustomColor: HTMLInputElement | null;
+  applyAccentColor: (color: string) => void;
+}
+
+function bindAccentColorFeature(options: AccentColorBindingOptions): void {
+  options.applyInitialAccentState();
+  if (options.toggleAccentColor) {
+    options.toggleAccentColor.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const isEnabled = target.checked;
+      localStorage.setItem("accentColorEnabled", String(isEnabled));
+      options.setCollapsibleFn(options.accentColorOptions, isEnabled, true);
+      const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
+      options.applyAccentColor(isEnabled ? savedColor : "#0078D4");
+    });
+  }
+
+  if (options.accentPresetsRow) {
+    const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
+    const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
+
+    presetBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        if ((e.target as HTMLElement).tagName === "INPUT") return;
+
+        presetBtns.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        const color = btn.getAttribute("data-color");
+
+        if (color && color !== "auto") {
+          localStorage.setItem("accentColorValue", color);
+          localStorage.setItem("accentColorMode", "manual");
+          options.applyAccentColor(color);
+          if (toggleAuto) toggleAuto.checked = false;
+        } else if (color === "auto") {
+          localStorage.setItem("accentColorMode", "auto");
+          if (toggleAuto) toggleAuto.checked = true;
+        }
+      });
+    });
+  }
+
+  if (options.accentCustomColor) {
+    const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
+    const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
+    options.accentCustomColor.addEventListener("input", (event) => {
+      const target = event.target as HTMLInputElement;
+      if (!target || !customBtn) return;
+
+      const color = target.value;
+      customBtn.style.backgroundColor = color;
+      const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
+      allBtns?.forEach((b) => b.classList.remove("selected"));
+      customBtn.classList.add("selected");
+      options.applyAccentColor(color);
+    });
+    options.accentCustomColor.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement;
+      if (!target) return;
+
+      const color = target.value;
+      localStorage.setItem("accentColorValue", color);
+      localStorage.setItem("accentColorMode", "manual");
+      if (toggleAuto) toggleAuto.checked = false;
+    });
+  }
+}
+
 function bindLauncherFeature(options: LauncherBindingOptions): void {
   options.applyInitialLauncherState();
 
@@ -185,7 +262,6 @@ function bindSearchFeature(options: SearchBindingOptions): void {
     });
   }
 
-  // Close search dropdown when clicking outside the selector
   document.addEventListener("click", (event) => {
     const targetNode = event.target as Node | null;
     if (!targetNode) return;

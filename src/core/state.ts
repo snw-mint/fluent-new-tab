@@ -46,3 +46,8 @@ let currentWallpaperSource = (localStorage.getItem('wallpaperSource') || 'local'
 let currentWallpaperType = (localStorage.getItem('wallpaperType') || 'preset') as WallpaperType;
 let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
 let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
+
+let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
+let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
+let accentColorValue = localStorage.getItem('accentColorValue') || '#0078d4';
+let accentColorSurfaces = localStorage.getItem('accentColorSurfaces') === 'true';

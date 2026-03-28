@@ -12,7 +12,7 @@ $color-border-strong: rgba(0, 0, 0, 0.12);
 $color-overlay-weak: rgba(0, 0, 0, 0.05);
 $color-overlay-strong: rgba(0, 0, 0, 0.08);
 $color-link: #08538c;
-$color-accent: #0078d4;
+$color-accent: var(--accent-color);
 $color-accent-contrast: #ffffff;
 $color-accent-warn: #ff4d4f;
 $color-accent-alert: #ff3b3b;
@@ -45,5 +45,5 @@ $shadow-card-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
     --shadow-hover: #{$shadow-hover};
     --border-color: #{$color-border-subtle};
     --border-radius: #{$radius-md};
-    --accent-color: #{$color-accent};
+    --accent-color: #0078d4;
 }
