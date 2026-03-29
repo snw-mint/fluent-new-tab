@@ -77,7 +77,6 @@
       top: -10px;
       right: -10px;
       z-index: 60;
-
       .menu-btn {
         @include button-reset;
         width: 22px;
@@ -90,16 +89,14 @@
         opacity: 0;
         transform: scale(0.5);
         transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-
         svg {
           width: 16px;
           height: 16px;
           fill: currentColor;
         }
-
         &:hover {
           background-color: var(--accent-color);
-          color: $color-accent-contrast;
+          color: var(--accent-contrast-color);
           transform: scale(1.1);
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }

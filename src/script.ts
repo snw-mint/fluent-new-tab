@@ -925,6 +925,7 @@ async function loadCustomWallpaper() {
 const DEFAULT_ACCENT_COLOR = "#0078D4";
 function applyAccentColor(color: string): void {
   document.documentElement.style.setProperty("--accent-color", color);
+  setAccentContrastColor(color);
 }
 
 function applyInitialAccentColorState() {
@@ -936,6 +937,19 @@ function applyInitialAccentColorState() {
   if (toggleAccentSurfaces) toggleAccentSurfaces.checked = accentColorSurfaces;
   const colorToApply = accentColorEnabled ? accentColorValue : DEFAULT_ACCENT_COLOR;
   applyAccentColor(colorToApply);
+}
+function setAccentContrastColor(hexColor: string): void {
+    const hex = hexColor.replace('#', '');
+    
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+    const contrastColor = yiq >= 128 ? '#202020' : '#FFFFFF';
+
+    document.documentElement.style.setProperty('--accent-contrast-color', contrastColor);
 }
 function applyTheme(theme: ThemeMode): void {
   if (themeBtns) {

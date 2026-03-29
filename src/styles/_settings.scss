@@ -237,7 +237,7 @@
 
     &.active {
       background: var(--accent-color);
-      color: $color-accent-contrast;
+      color: var(--accent-contrast-color);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
@@ -262,21 +262,17 @@
   display: inline-block;
   width: 40px;
   height: 20px;
-
   input {
     opacity: 0;
     width: 0;
     height: 0;
-
     &:checked + .slider {
       background-color: var(--accent-color);
       border-color: var(--accent-color);
-
       &:before {
-        background-color: $color-accent-contrast;
+        background-color: var(--accent-contrast-color);
         left: calc(100% - 15px);
       }
-
       &:hover {
         background-color: var(--accent-color);
         opacity: 0.9;
@@ -335,7 +331,6 @@
   height: 20px;
   flex-shrink: 0;
   cursor: pointer;
-
   input {
     position: absolute;
     inset: 0;
@@ -343,7 +338,6 @@
     margin: 0;
     cursor: pointer;
   }
-
   .checkbox-box {
     width: 13px;
     height: 13px;
@@ -359,7 +353,6 @@
       border-color 160ms ease,
       box-shadow 160ms ease,
       transform 160ms ease;
-
     svg {
       width: 16px;
       height: 16px;
@@ -368,9 +361,8 @@
       transition:
         opacity 120ms ease,
         transform 160ms ease;
-
       path {
-        fill: $color-accent-contrast;
+        fill: var(--accent-contrast-color);
       }
     }
   }

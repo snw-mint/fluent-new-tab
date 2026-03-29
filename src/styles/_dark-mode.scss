@@ -249,7 +249,7 @@ html[data-theme="dark"] {
     }
 
     input:checked + .slider:before {
-        background-color: #000;
+        background-color: var(--accent-contrast-color);
     }
 
     .switch:hover .slider {
