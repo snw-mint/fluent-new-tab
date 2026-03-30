@@ -139,17 +139,29 @@ interface AccentColorBindingOptions {
 
 function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   options.applyInitialAccentState();
-  if (options.toggleAccentColor) {
-    options.toggleAccentColor.addEventListener("change", (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
+  const savedMode = localStorage.getItem("accentColorMode") || "auto";
+  const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
 
-      const isEnabled = target.checked;
-      localStorage.setItem("accentColorEnabled", String(isEnabled));
-      options.setCollapsibleFn(options.accentColorOptions, isEnabled, true);
-      const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
-      options.applyAccentColor(isEnabled ? savedColor : "#0078D4");
-    });
+  if (options.accentPresetsRow) {
+    const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
+    presetBtns.forEach((b) => b.classList.remove("selected"));
+
+    if (savedMode === "auto") {
+      const autoBtn = options.accentPresetsRow.querySelector('[data-color="auto"]');
+      if (autoBtn) autoBtn.classList.add("selected");
+    } else {
+      const presetBtn = options.accentPresetsRow.querySelector(`[data-color="${savedColor}"]`);
+      if (presetBtn) {
+        presetBtn.classList.add("selected");
+      } else if (options.accentCustomColor) {
+        const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
+        if (customBtn) {
+          customBtn.classList.add("selected");
+          customBtn.style.backgroundColor = savedColor;
+        }
+        options.accentCustomColor.value = savedColor;
+      }
+    }
   }
 
   if (options.accentPresetsRow) {
