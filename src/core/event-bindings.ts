@@ -135,12 +135,12 @@ interface AccentColorBindingOptions {
   accentPresetsRow: HTMLDivElement | null;
   accentCustomColor: HTMLInputElement | null;
   applyAccentColor: (color: string) => void;
+  applyWallpaperLogic: () => Promise<void> | void;
 }
 
 function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   options.applyInitialAccentState();
 
-  // 1. Destaca o botão salvo visualmente ao carregar a página
   const savedMode = localStorage.getItem("accentColorMode") || "auto";
   const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
 
@@ -166,7 +166,6 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     }
   }
 
-  // 2. Evento do Switch Principal (Recolher e Desativar)
   if (options.toggleAccentColor) {
     options.toggleAccentColor.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -180,10 +179,43 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     });
   }
 
-  // 3. Evento de clique nos botões de cores pré-definidas
+  const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
+
+  if (toggleAuto) {
+    toggleAuto.addEventListener("change", async (event) => {
+      const target = event.target as HTMLInputElement;
+
+      if (target.checked) {
+        localStorage.setItem("accentColorMode", "auto");
+
+        const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
+        allBtns?.forEach((b) => b.classList.remove("selected"));
+        const autoBtn = options.accentPresetsRow?.querySelector('[data-color="auto"]');
+        if (autoBtn) autoBtn.classList.add("selected");
+
+        await options.applyWallpaperLogic();
+      } else {
+        localStorage.setItem("accentColorMode", "manual");
+
+        const currentSavedColor = localStorage.getItem("accentColorValue") || "#0078D4";
+        options.applyAccentColor(currentSavedColor);
+
+        const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
+        allBtns?.forEach((b) => b.classList.remove("selected"));
+        const presetBtn = options.accentPresetsRow?.querySelector(`[data-color="${currentSavedColor}"]`);
+
+        if (presetBtn) {
+          presetBtn.classList.add("selected");
+        } else if (options.accentCustomColor) {
+          const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
+          if (customBtn) customBtn.classList.add("selected");
+        }
+      }
+    });
+  }
+
   if (options.accentPresetsRow) {
     const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
-    const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
 
     presetBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -202,15 +234,14 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
         } else if (color === "auto") {
           localStorage.setItem("accentColorMode", "auto");
           if (toggleAuto) toggleAuto.checked = true;
+          void options.applyWallpaperLogic();
         }
       });
     });
   }
 
-  // 4. Evento do Color Picker Customizado
   if (options.accentCustomColor) {
     const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
-    const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
     options.accentCustomColor.addEventListener("input", (event) => {
       const target = event.target as HTMLInputElement;
       if (!target || !customBtn) return;

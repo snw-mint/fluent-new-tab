@@ -870,13 +870,14 @@ async function applyWallpaperLogic() {
     if (currentWallpaperSource === "local") {
       updateCreditsUI("local");
       if (currentWallpaperType === "preset") {
-        const presetMap = {
+        const presetMap: Record<string, string> = {
           preset_1: "assets/wallpapers/fluent1.webp",
           preset_2: "assets/wallpapers/fluent2.webp",
           preset_3: "assets/wallpapers/fluent3.webp",
         };
         const imageUrl = presetMap[currentWallpaperValue] || presetMap["preset_1"];
         await applyWallpaperImage(imageUrl);
+        void handleAutoAccentColor(imageUrl, `preset_${currentWallpaperValue}`);
       } else if (currentWallpaperType === "upload") {
         await loadCustomWallpaper();
       }
@@ -885,6 +886,7 @@ async function applyWallpaperLogic() {
       if (url) {
         const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
         await applyWallpaperImage(optimizedUrl);
+        void handleAutoAccentColor(optimizedUrl, `api_${currentWallpaperType}_${url}`);
         const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
         try {
           const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as WallpaperCacheEntry | null;
@@ -905,6 +907,7 @@ async function applyWallpaperLogic() {
     clearEarlyWallpaperBootstrap();
   }
 }
+
 async function loadCustomWallpaper() {
   const body = document.body;
   try {
@@ -915,6 +918,8 @@ async function loadCustomWallpaper() {
       body.style.backgroundSize = "cover";
       body.style.backgroundPosition = "center";
       body.style.backgroundAttachment = "fixed";
+
+      void handleAutoAccentColor(url, `upload_${blob.size}`);
     } else {
       console.warn("No custom wallpaper found.");
     }
@@ -922,10 +927,80 @@ async function loadCustomWallpaper() {
     console.error("Failed to load wallpaper:", e);
   }
 }
+
 const DEFAULT_ACCENT_COLOR = "#0078D4";
 function applyAccentColor(color: string): void {
   document.documentElement.style.setProperty("--accent-color", color);
   setAccentContrastColor(color);
+}
+
+async function getAverageColorFromImage(imageUrl: string): Promise<string> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) return resolve("#0078D4");
+
+      const size = 10;
+      canvas.width = size;
+      canvas.height = size;
+      ctx.drawImage(img, 0, 0, size, size);
+
+      try {
+        const data = ctx.getImageData(0, 0, size, size).data;
+        let r = 0,
+          g = 0,
+          b = 0,
+          count = 0;
+
+        for (let i = 0; i < data.length; i += 4) {
+          const alpha = data[i + 3];
+          if (alpha < 128) continue;
+
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+          count++;
+        }
+
+        if (count === 0) return resolve("#0078D4");
+
+        r = Math.floor(r / count);
+        g = Math.floor(g / count);
+        b = Math.floor(b / count);
+
+        const hex = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+        resolve(hex);
+      } catch (error) {
+        resolve("#0078D4");
+      }
+    };
+
+    img.onerror = () => resolve("#0078D4");
+    img.src = imageUrl;
+  });
+}
+
+async function handleAutoAccentColor(imageUrl: string, wallpaperId: string): Promise<void> {
+  const mode = localStorage.getItem("accentColorMode") || "auto";
+  if (mode !== "auto") return;
+
+  const cachedId = localStorage.getItem("autoAccentColorId");
+  const cachedColor = localStorage.getItem("autoAccentColorValue");
+
+  if (cachedId === wallpaperId && cachedColor) {
+    applyAccentColor(cachedColor);
+    return;
+  }
+
+  const extractedColor = await getAverageColorFromImage(imageUrl);
+  localStorage.setItem("autoAccentColorId", wallpaperId);
+  localStorage.setItem("autoAccentColorValue", extractedColor);
+
+  applyAccentColor(extractedColor);
 }
 
 function applyInitialAccentColorState() {
@@ -939,17 +1014,17 @@ function applyInitialAccentColorState() {
   applyAccentColor(colorToApply);
 }
 function setAccentContrastColor(hexColor: string): void {
-    const hex = hexColor.replace('#', '');
-    
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
+  const hex = hexColor.replace("#", "");
 
-    const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
 
-    const contrastColor = yiq >= 128 ? '#202020' : '#FFFFFF';
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
 
-    document.documentElement.style.setProperty('--accent-contrast-color', contrastColor);
+  const contrastColor = yiq >= 128 ? "#202020" : "#FFFFFF";
+
+  document.documentElement.style.setProperty("--accent-contrast-color", contrastColor);
 }
 function applyTheme(theme: ThemeMode): void {
   if (themeBtns) {
@@ -1809,6 +1884,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     accentPresetsRow,
     accentCustomColor,
     applyAccentColor,
+    applyWallpaperLogic,
   });
   applyBrandInterval();
   if (toggleGreeting) {
