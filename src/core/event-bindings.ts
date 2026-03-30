@@ -139,6 +139,8 @@ interface AccentColorBindingOptions {
 
 function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   options.applyInitialAccentState();
+
+  // 1. Destaca o botão salvo visualmente ao carregar a página
   const savedMode = localStorage.getItem("accentColorMode") || "auto";
   const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
 
@@ -164,6 +166,21 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     }
   }
 
+  // 2. Evento do Switch Principal (Recolher e Desativar)
+  if (options.toggleAccentColor) {
+    options.toggleAccentColor.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const isEnabled = target.checked;
+      localStorage.setItem("accentColorEnabled", String(isEnabled));
+      options.setCollapsibleFn(options.accentColorOptions, isEnabled, true);
+      const color = localStorage.getItem("accentColorValue") || "#0078D4";
+      options.applyAccentColor(isEnabled ? color : "#0078D4");
+    });
+  }
+
+  // 3. Evento de clique nos botões de cores pré-definidas
   if (options.accentPresetsRow) {
     const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
     const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
@@ -190,6 +207,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     });
   }
 
+  // 4. Evento do Color Picker Customizado
   if (options.accentCustomColor) {
     const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
     const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
