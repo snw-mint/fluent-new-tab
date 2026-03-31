@@ -167,6 +167,9 @@
         top: calc(100% + 8px);
         left: 0;
         width: 180px;
+        max-height: 250px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         padding: 6px;
         display: none;
         flex-direction: column;
@@ -176,6 +179,25 @@
         animation: menuPopIn 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
         @include glass-panel;
         @include card-radius($radius-md);
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            margin: 4px 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(130, 130, 130, 0.4);
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(130, 130, 130, 0.7);
+            width: 4px;
+        }
 
         &.active {
             display: flex;
