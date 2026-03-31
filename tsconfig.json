@@ -16,6 +16,7 @@
     "src/core/dom-utils.ts",
     "src/core/state.ts",
     "src/core/dom-references.ts",
+    "src/core/color.ts",
     "src/core/services.ts",
     "src/core/weather.ts",
     "src/core/shortcuts.ts",
