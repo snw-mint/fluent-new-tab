@@ -888,17 +888,19 @@ async function applyWallpaperLogic() {
         const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
         await applyWallpaperImage(optimizedUrl);
         void handleAutoAccentColor(optimizedUrl, `api_${currentWallpaperType}_${url}`);
-        const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
         try {
-          const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as WallpaperCacheEntry | null;
+          const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as any;
           let credit = cached ? cached.credit : "";
+          let creditUrl = cached ? cached.creditUrl : ""; // Lê a URL do cache
 
           if (!credit) {
             if (currentWallpaperType === "bing") credit = "Microsoft Bing";
             else if (currentWallpaperType === "nasa") credit = "NASA APOD";
             else if (currentWallpaperType === "wikimedia") credit = "Wikimedia Commons";
           }
-          updateCreditsUI("api", credit);
+          // Passa a URL como terceiro parâmetro
+          updateCreditsUI("api", credit, creditUrl);
         } catch (e) {
           updateCreditsUI("api", "Daily Wallpaper");
         }
@@ -1414,7 +1416,7 @@ function updateLauncherFooterVariant(): void {
   launcherPopup.classList.toggle("folders-enabled", foldersEnabled);
 }
 
-function updateCreditsUI(source: string, creditText?: string) {
+function updateCreditsUI(source: string, creditText?: string, creditUrl?: string) {
   const creditsContainer = getById<HTMLDivElement>("wallpaperCredits");
   const creditsSpan = getById<HTMLSpanElement>("wallpaperCreditText");
 
@@ -1423,7 +1425,30 @@ function updateCreditsUI(source: string, creditText?: string) {
   if (source === "local" || source === "preset" || source === "upload") {
     creditsContainer.classList.add("hidden");
   } else {
-    creditsSpan.textContent = creditText || "Daily Wallpaper";
+    creditsSpan.innerHTML = '';
+    
+    const textToShow = creditText || "Daily Wallpaper";
+
+    if (creditUrl) {
+      // Cria um link se houver URL
+      const a = document.createElement('a');
+      a.href = creditUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = textToShow;
+      a.className = 'wallpaper-credit-link';
+      
+      a.style.color = 'inherit';
+      a.style.textDecoration = 'underline';
+      a.style.pointerEvents = 'auto';
+      a.style.cursor = 'pointer';
+      
+      creditsSpan.appendChild(a);
+    } else {
+      // Fallback para apenas texto
+      creditsSpan.textContent = textToShow;
+    }
+    
     creditsContainer.classList.remove("hidden");
   }
 }

@@ -5,12 +5,16 @@
 }
 
 html[data-theme="dark"] {
-  --bg-color: #{$color-dark-bg};
-  --text-color: #{$color-accent-contrast};
-  --search-bg: #{$color-dark-card};
-  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
-  --border-color: #{$color-dark-border};
+    --bg-color: #{$color-dark-bg};
+    --text-color: #{$color-accent-contrast};
+    --search-bg: #{$color-dark-card};
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
+    --border-color: #{$color-dark-border};
+    --surface-solid-primary: #373737;
+    --surface-solid-secondary: #3b3b3b;
+    --surface-blur-base: rgba(32, 32, 32, 0.80);
+    --surface-blur-tint: rgba(0, 0, 0, 0); 
 }
 
 [data-theme="dark"] {

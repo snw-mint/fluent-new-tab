@@ -65,6 +65,9 @@ async function getAverageColorFromImage(imageUrl: string): Promise<string> {
 }
 
 async function handleAutoAccentColor(imageUrl: string, wallpaperId: string): Promise<void> {
+  const isEnabled = localStorage.getItem("accentColorEnabled") === "true";
+  if (!isEnabled) return;
+
   const mode = localStorage.getItem("accentColorMode") || "auto";
   if (mode !== "auto") return;
 

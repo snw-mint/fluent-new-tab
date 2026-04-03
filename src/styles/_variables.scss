@@ -46,4 +46,8 @@ $shadow-card-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
     --border-color: #{$color-border-subtle};
     --border-radius: #{$radius-md};
     --accent-color: #0078d4;
+    --surface-solid-primary: #ffffff;
+    --surface-solid-secondary: #fbfbfb;
+    --surface-blur-base: rgba(255, 255, 255, 0.9);
+    --surface-blur-tint: rgba(255, 255, 255, 0);
 }

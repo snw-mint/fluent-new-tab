@@ -174,6 +174,25 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
       const isEnabled = target.checked;
       localStorage.setItem("accentColorEnabled", String(isEnabled));
       options.setCollapsibleFn(options.accentColorOptions, isEnabled, true);
+
+          if (!isEnabled) {
+            const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
+            if (toggleAuto && toggleAuto.checked) {
+              toggleAuto.checked = false;
+              localStorage.setItem("accentColorMode", "manual");
+              const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
+              allBtns?.forEach((b) => b.classList.remove("selected"));
+              const currentSavedColor = localStorage.getItem("accentColorValue") || "#0078D4";
+              const presetBtn = options.accentPresetsRow?.querySelector(`[data-color="${currentSavedColor}"]`);
+              if (presetBtn) presetBtn.classList.add("selected");
+            }
+            const toggleSurfaces = document.getElementById("toggleAccentSurfaces") as HTMLInputElement | null;
+            if (toggleSurfaces && toggleSurfaces.checked) {
+              toggleSurfaces.checked = false;
+              localStorage.setItem("accentColorSurfaces", "false");
+            }
+          }
+
       const color = localStorage.getItem("accentColorValue") || "#0078D4";
       options.applyAccentColor(isEnabled ? color : "#0078D4");
     });

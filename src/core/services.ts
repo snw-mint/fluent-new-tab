@@ -7,15 +7,16 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
     try {
         const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null') as WallpaperCacheEntry | null;
         const timestamp = cached?.timestamp || 0;
-        if (cached && cached.url && timestamp > 0 && (now - timestamp) < CACHE_DURATION_MS) {
+        if (cached && cached.url && timestamp > 0 && (now - timestamp) < CACHE_DURATION_MS && 'creditUrl' in cached) {
             console.log(`Loading ${source} from 10h cache.`);
             return cached.url;
         }
     } catch (e) { console.error('Error reading cache', e); }
 
-    console.log(`Fetching new image from: ${source}...`);
+console.log(`Fetching new image from: ${source}...`);
     let imageUrl = '';
     let creditText = '';
+    let creditUrl = '';
 
     const notifyWallpaperApiWarning = (reason: string): void => {
         window.dispatchEvent(new CustomEvent('wallpaper-api-warning', {
@@ -27,22 +28,25 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
         if (source === 'bing') {
             const res = await fetch('https://peapix.com/bing/feed?country=us');
             if (!res.ok) throw new Error(`Bing Error: ${res.status}`);
-            const data = await res.json() as BingWallpaperItem[];
+            const data = await res.json() as any[];
 
             if (data && data.length > 0) {
                 const img = data[0];
                 imageUrl = img.fullUrl || img.imageUrl || img.url || '';
                 creditText = `Bing: ${img.copyright || 'Daily Image'}`;
+                // O peapix ou bing geralmente retornam copyrightLink ou copyrightlink
+                creditUrl = img.copyrightLink || img.copyrightlink || img.url || ''; 
             }
         } else if (source === 'nasa') {
-            const fetchNasaApod = async (date?: string): Promise<NasaApodResponse> => {
+            // ... (mantenha a requisição da NASA igual)
+            const fetchNasaApod = async (date?: string): Promise<any> => {
                 const url = date
                     ? `https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&date=${encodeURIComponent(date)}`
                     : 'https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW';
                 const response = await fetch(url);
                 if (response.status === 429) throw new Error('NASA API limit reached.');
                 if (!response.ok) throw new Error(`NASA Error: ${response.status}`);
-                return await response.json() as NasaApodResponse;
+                return await response.json();
             };
 
             const todayData = await fetchNasaApod();
@@ -50,15 +54,16 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
             if (todayData.media_type === 'image') {
                 imageUrl = todayData.hdurl || todayData.url || '';
                 creditText = `NASA: ${todayData.title || 'APOD'}`;
+                creditUrl = 'https://apod.nasa.gov/apod/astropix.html'; 
             } else {
                 notifyWallpaperApiWarning(todayData.media_type === 'video' ? 'video' : 'unavailable');
                 return null;
             }
         } else if (source === 'wikimedia') {
-            const fetchWiki = async (date: string): Promise<WikimediaQueryResponse> => {
-                const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=images&titles=Template:Potd/${date}&prop=imageinfo&iiprop=url|extmetadata&format=json&origin=*`;
+            const fetchWiki = async (date: string): Promise<any> => {
+                const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=images&titles=Template:Potd/${date}&prop=imageinfo&iiprop=url|extmetadata|descriptionurl&format=json&origin=*`;
                 const response = await fetch(url);
-                return await response.json() as WikimediaQueryResponse;
+                return await response.json();
             };
 
             let data = await fetchWiki(today);
@@ -71,19 +76,19 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
             }
 
             if (pages) {
-                for (const page of Object.values(pages)) {
+                for (const page of Object.values<any>(pages)) {
                     if (page?.imageinfo?.[0]) {
                         imageUrl = page.imageinfo[0].url;
+                        creditUrl = page.imageinfo[0].descriptionurl || '';
+                        
                         const meta = page.imageinfo[0].extmetadata;
                         creditText = meta?.Artist?.value || 'Wikimedia Commons';
                         creditText = creditText.replace(/<[^>]*>?/gm, '');
                         
-                        // Limitar o tamanho do texto de crédito para evitar quebra de layout
                         const MAX_CREDIT_LENGTH = 120;
                         if (creditText.length > MAX_CREDIT_LENGTH) {
                             creditText = creditText.substring(0, MAX_CREDIT_LENGTH).trim() + '...';
                         }
-                        
                         break;
                     }
                 }
@@ -94,7 +99,8 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
             localStorage.setItem(cacheKey, JSON.stringify({
                 url: imageUrl,
                 timestamp: now,
-                credit: creditText
+                credit: creditText,
+                creditUrl: creditUrl
             }));
 
             return imageUrl;

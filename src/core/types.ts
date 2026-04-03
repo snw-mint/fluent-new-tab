@@ -144,6 +144,7 @@ interface WallpaperCacheEntry {
     date?: string;
     timestamp?: number;
     credit?: string;
+    creditUrl?: string;
 }
 
 type ThemeMode = 'light' | 'dark' | 'auto';
