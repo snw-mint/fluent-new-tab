@@ -13,7 +13,7 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
 
     const now = new Date();
     const hour = now.getHours();
-    const dayOfWeek = now.getDay(); // Sunday is 0, Monday is 1, etc.
+    const dayOfWeek = now.getDay();
 
     let timeKeyPrefix = 'greetMorning';
     let iconName = 'sun';
@@ -109,19 +109,23 @@ function initGreetingBrand(greetingWrapper: HTMLElement | null): void {
     else if (textLength > 40) fontSize = '26px';
     else if (textLength > 30) fontSize = '32px';
 
-    const icon = document.createElement('img');
-    icon.src = greetingStyle === '3d'
-        ? `assets/emojis/${iconName}.png`
-        : `assets/greetings/${iconName}.svg`;
-    icon.alt = timeOfDayLabel;
-    icon.className = greetingStyle === '3d' ? 'greeting-icon' : 'greeting-icon outline';
-    icon.addEventListener('error', () => { icon.style.display = 'none'; });
-
     const heading = document.createElement('h1');
     heading.className = 'greeting-text';
     heading.style.fontSize = fontSize;
     heading.style.whiteSpace = 'nowrap';
     heading.textContent = finalGreetingText;
 
-    greetingWrapper.replaceChildren(icon, heading);
+    if (greetingStyle === 'none') {
+        greetingWrapper.replaceChildren(heading);
+    } else {
+        const icon = document.createElement('img');
+        icon.src = greetingStyle === '3d'
+            ? `assets/emojis/${iconName}.png`
+            : `assets/greetings/${iconName}.svg`;
+        icon.alt = timeOfDayLabel;
+        icon.className = greetingStyle === '3d' ? 'greeting-icon' : 'greeting-icon outline';
+        icon.addEventListener('error', () => { icon.style.display = 'none'; });
+
+        greetingWrapper.replaceChildren(icon, heading);
+    }
 }
