@@ -1,27 +1,17 @@
-# Acknowledgements and Credits
+# Credits
 
-This project was made possible thanks to the following open-source projects, APIs, and design resources.
-
-## 🎨 Design & UI
-The core design language of this extension is based on Microsoft's **Fluent Design System**.
-* **Design System:** [Fluent 2 Design System](https://fluent2.microsoft.design/) by Microsoft.
-* **Icons:**
-    * [Fluent UI Icons (Outlined)](https://www.svgrepo.com/collection/fluent-ui-icons-outlined/) via SVG Repo.
-    * [Fluent Icons](https://fluenticons.co/outlined/) by Colton Griffith.
-* **Brand Assets:** Brand icons (search engines, ecosystems) provided by [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page).
-* **Wallpapers:**
-    * [fluent1.webp](assets/wallpapers/fluent1.webp) — Photo by [Pietro De Grandi](https://unsplash.com/@cedricletsch) on [Unsplash](https://unsplash.com/photos/three-brown-wooden-boat-on-blue-lake-water-taken-at-daytime-T7K4aEPoGGk).
-    * [fluent2.webp](assets/wallpapers/fluent2.webp) — Photo by [Tim Foster](https://unsplash.com/@timberfoster) on [Unsplash](https://unsplash.com/photos/golden-gate-bridge-california-o4mP43oPGHk).
-    * [fluent3.webp](assets/wallpapers/fluent3.webp) — Photo by [Cedric Letsch](https://unsplash.com/@alexshuperart) on [Unsplash](https://unsplash.com/photos/aerial-view-of-city-during-daytime-FPdyoYNdvaM).
-
-## ☁️ APIs & Services
-* **Weather Data:** Weather forecasts are provided by [Open-Meteo](https://open-meteo.com/) (Non-commercial use).
-* **Translation:**
-    * Automated translations powered by [DeepL API](https://www.deepl.com/).
-    * Localization management via [Crowdin](https://crowdin.com/).
-
-## 📦 Libraries & Core
-* **Sortable.js:** Drag-and-drop functionality powered by [Sortable.js](https://sortablejs.github.io/Sortable/).
-
----
-*All trademarks, logos, and brand names are the property of their respective owners. Use of these names, trademarks, and brands does not imply endorsement.*
+- [TypeScript](https://www.typescriptlang.org) / [Apache 2.0](https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt) - [Homepage](https://www.typescriptlang.org)
+- [Sass](https://sass-lang.com) / [MIT](https://github.com/sass/dart-sass/blob/main/LICENSE) - [Homepage](https://sass-lang.com)
+- [Terser](https://terser.org) / [BSD-2-Clause](https://github.com/terser/terser/blob/master/LICENSE) - [Homepage](https://terser.org)
+- [Rimraf](https://github.com/isaacs/rimraf) / [BlueOak-1.0.0](https://github.com/isaacs/rimraf/blob/main/LICENSE) - [Homepage](https://github.com/isaacs/rimraf)
+- [Sortable.js](https://sortablejs.github.io/Sortable/) / [MIT](https://github.com/SortableJS/Sortable/blob/master/LICENSE) - [Homepage](https://sortablejs.github.io/Sortable/)
+- [Fluent Design System](https://fluent2.microsoft.design) / [MIT](https://github.com/microsoft/fluentui/blob/master/LICENSE) - [Homepage](https://fluent2.microsoft.design)
+- [Vemetric](https://github.com/Vemetric/favicon-api) / [MIT](https://github.com/vemetric/favicon-api/blob/main/LICENSE) - [Homepage](https://vemetric.com/favicon-api)
+- [MeteoCons](https://github.com/basmilius/weather-icons) / [MIT](https://github.com/basmilius/weather-icons/blob/dev/LICENSE) - [Homepage](https://bas.dev/work/meteocons)
+- [Open-Meteo](https://open-meteo.com) / [Attribution 4.0 International](https://open-meteo.com/en/license) - [Homepage](https://open-meteo.com)
+- [DeepL](https://www.deepl.com) / [Proprietary](https://www.deepl.com/pro-license) - [Homepage](https://www.deepl.com)
+- [Crowdin](https://crowdin.com) / [Proprietary](https://crowdin.com/page/terms) - [Homepage](https://crowdin.com)
+- [Unsplash](https://unsplash.com) / [Unsplash License](https://unsplash.com/license) - [Homepage](https://unsplash.com)
+- [Wikimedia Commons](https://commons.wikimedia.org) / [Multiple Licenses](https://commons.wikimedia.org/wiki/Commons:Licensing) - [Homepage](https://commons.wikimedia.org)
+- [Pexels](https://www.pexels.com) / [Pexels License](https://www.pexels.com/license/) - [Homepage](https://www.pexels.com)
+- [Peapix](https://peapix.com/api) / [Homepage](https://peapix.com)
