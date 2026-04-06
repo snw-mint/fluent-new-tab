@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & FAQ - Fluent New Tab</title>
+    <meta name="description" content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs, request features and contact our community.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/support.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Support & FAQ - Fluent New Tab">
+    <meta property="og:description" content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs and request features.">
+    <meta property="og:url" content="https://snw-mint.github.io/fluent-new-tab/support.html">
+    <meta property="og:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Support & FAQ - Fluent New Tab">
+    <meta property="twitter:description" content="Technical support for Fluent New Tab extension. Report bugs and request features.">
+    <meta property="twitter:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
+    <meta name="theme-color" content="#0f6cbd">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <style>
+        .support-hero {
+            padding: 48px 0 32px;
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+        }
+
+        .support-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .support-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        .support-content {
+            padding: 64px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(100vh - 400px);
+        }
+
+        .help-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 100px;
+        }
+
+        .help-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .help-section h2 svg {
+            color: var(--color-primary);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .help-section > p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .help-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .help-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .help-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .help-card svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .help-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .help-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .support-title {
+                font-size: 2rem;
+            }
+            .support-content {
+                padding: 40px 16px;
+            }
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+            .help-section {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        
+        <header class="support-hero">
+            <div class="container">
+                <h1 class="support-title">Support & FAQ</h1>
+                <p class="support-subtitle">Whether you're looking for help, reporting a bug, requesting a feature, asking a question, or sending me an email, you'll need a GitHub account.</p>
+            </div>
+        </header>
+
+        <main class="support-content">
+                <div class="help-grid">
+                    
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="help-card">
+                        <h3 style="color: #D13438;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z" fill="currentColor"/>
+                            </svg>
+                            Report a Bug
+                        </h3>
+                        <p>Something not working? Let me know so we can fix it.</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="help-card">
+                        <h3 style="color: #107C10;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z" fill="currentColor"/>
+                            </svg>
+                            Request a Feature
+                        </h3>
+                        <p>Have an idea to improve Fluent New Tab? Share it!</p>
+                    </a>
+
+                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank" rel="noopener noreferrer" class="help-card">
+                        <h3 style="color: var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2" fill="currentColor"/><path d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5" fill="currentColor"/><path d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21" fill="currentColor"/>
+                            </svg>
+                            Ask a Question
+                        </h3>
+                        <p>Need help configuring or using a specific feature?</p>
+                    </a>
+
+                    <a href="mailto:snw-mint@outlook.com" class="help-card">
+                        <h3 style="color: #8661C5;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <path d="M5.25 4h13.5a3.25 3.25 0 0 1 3.245 3.066L22 7.25v9.5a3.25 3.25 0 0 1-3.066 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75v-9.5a3.25 3.25 0 0 1 3.066-3.245L5.25 4h13.5-13.5ZM20.5 9.373l-8.15 4.29a.75.75 0 0 1-.603.043l-.096-.042L3.5 9.374v7.376a1.75 1.75 0 0 0 1.606 1.744l.144.006h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143V9.373ZM18.75 5.5H5.25a1.75 1.75 0 0 0-1.744 1.606L3.5 7.25v.429l8.5 4.473 8.5-4.474V7.25a1.75 1.75 0 0 0-1.607-1.744L18.75 5.5Z" fill="currentColor"/>
+                            </svg>
+                            Direct Contact
+                        </h3>
+                        <p>Send me an email for personalized support.</p>
+                    </a>
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer" style="padding: 48px 0 32px; margin-top: 64px; border-top: 1px solid var(--color-border);">
+            <div class="container" style="text-align: center;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">
+                    &copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">snow mint</a>.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
