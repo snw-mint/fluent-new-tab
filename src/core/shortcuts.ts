@@ -105,7 +105,9 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             if (!targetIconSrc) {
                 try {
                     const parsedUrl = new URL(itemData.url);
-                    targetIconSrc = `https://icons.duckduckgo.com/ip3/${parsedUrl.hostname}.ico`;
+                    const hostname = parsedUrl.hostname;
+                    
+                    targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
                 } catch (error) {
                     targetIconSrc = 'invalid-url'; 
                 }
