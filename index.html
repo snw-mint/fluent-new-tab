@@ -233,35 +233,69 @@
             <div class="setting-group">
                 <div class="setting-header-row">
                     <div class="group-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.75 12a.75.75 0 0 0-.748.818C6.282 15.892 8.552 18.5 12 18.5c3.448 0 5.717-2.608 5.998-5.682A.75.75 0 0 0 17.25 12H6.749ZM12 17c-2.257 0-3.871-1.48-4.368-3.5h8.736C15.872 15.52 14.258 17 12 17ZM15.25 8.75c-.408 0-.71.287-.758.61a.75.75 0 1 1-1.484-.22c.162-1.09 1.123-1.89 2.242-1.89s2.08.8 2.242 1.89a.75.75 0 1 1-1.484.22c-.048-.323-.35-.61-.758-.61ZM7.992 9.36c.048-.323.35-.61.758-.61.409 0 .71.287.758.61a.75.75 0 1 0 1.484-.22c-.161-1.09-1.123-1.89-2.242-1.89s-2.08.8-2.242 1.89a.75.75 0 0 0 1.484.22Z"
-                                fill="currentColor" />
-                            <path
-                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM3.5 12a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0Z"
-                                fill="currentColor" />
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 22a.75.75 0 0 1-.102-1.493l.102-.007h1.749v-2.498H4.25a2.25 2.25 0 0 1-2.245-2.096L2 15.752V5.25a2.25 2.25 0 0 1 2.096-2.245L4.25 3h15.499a2.25 2.25 0 0 1 2.245 2.096l.005.154v10.502a2.25 2.25 0 0 1-2.096 2.245l-.154.005h-4.25V20.5h1.751a.75.75 0 0 1 .102 1.494L17.25 22H6.75Zm7.248-3.998h-4l.001 2.498h4l-.001-2.498ZM19.748 4.5H4.25a.75.75 0 0 0-.743.648L3.5 5.25v10.502c0 .38.282.694.648.743l.102.007h15.499a.75.75 0 0 0 .743-.648l.007-.102V5.25a.75.75 0 0 0-.648-.743l-.102-.007Z" fill="currentColor"/>
                         </svg>
-                        <span data-i18n="greetingTitle">Greeting</span>
+                        <span data-i18n="displayTitle">Display</span>
                     </div>
                     <label class="switch">
-                        <input type="checkbox" id="toggleGreeting" checked>
+                        <input type="checkbox" id="toggleDisplay" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
 
-                <div id="greetingOptions">
-                    <div class="input-row" style="margin-top: 4px;">
-                        <input type="text" id="greetingNameInput" placeholder="Your Name (Optional)" maxlength="20"
-                            data-i18n="namePlaceholder">
+                <div id="displayMainOptions" style="margin-top: 8px;">
+                    <select id="displayTypeSelect" class="settings-select" style="margin-bottom: 12px; width: 100%;">
+                        <option value="greeting" data-i18n="displayGreeting">Greeting</option>
+                        <option value="time" data-i18n="displayTime">Time</option>
+                        <option value="date" data-i18n="displayDate">Date</option>
+                        <option value="timedate" data-i18n="displayTimeDate">Time & Date</option>
+                    </select>
+
+                    <div id="subGreeting" class="display-sub-setting">
+                        <div class="input-row">
+                            <input type="text" id="greetingNameInput" placeholder="Your Name (Optional)" maxlength="20" data-i18n="namePlaceholder">
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <label style="font-size: 11px; margin-bottom: 2px; display: block; opacity: 0.7;" data-i18n="iconsStyleLabel">Icon Style</label>
+                            <select id="greetingStyleSelect" class="settings-select" style="width: 100%;">
+                                <option value="none" data-i18n="styleNone">None</option>
+                                <option value="3d" data-i18n="styleEmoji">3D Fluent (Color)</option>
+                                <option value="outline" data-i18n="styleOutline">Outline (Minimal)</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div style="margin-top: 8px;">
-                        <label style="font-size: 11px; margin-bottom: 2px; display: block; opacity: 0.7;"
-                            data-i18n="iconsStyleLabel">Icon Style</label>
-                        <select id="greetingStyleSelect" class="settings-select">
-                            <option value="none" data-i18n="styleNone">None</option>
-                            <option value="3d" data-i18n="styleEmoji">3D Fluent (Color)</option>
-                            <option value="outline" data-i18n="styleOutline">Outline (Minimal)</option>
+                    <div id="subTime" class="display-sub-setting" style="display: none;">
+                        <div class="switch-row child-setting">
+                            <label for="toggleSeconds" data-i18n="showSecondsLabel">Show seconds</label>
+                            <label class="fluent-checkbox">
+                                <input type="checkbox" id="toggleSeconds">
+                                <span class="checkbox-box" aria-hidden="true">
+                                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z" fill="#212121" />
+                                    </svg>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="switch-row child-setting">
+                            <label for="toggle12Hour" data-i18n="use12HourLabel">12-hour format (AM/PM)</label>
+                            <label class="fluent-checkbox">
+                                <input type="checkbox" id="toggle12Hour">
+                                <span class="checkbox-box" aria-hidden="true">
+                                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z" fill="#212121" />
+                                    </svg>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="subDate" class="display-sub-setting" style="display: none;">
+                        <label style="font-size: 11px; margin-bottom: 2px; display: block; opacity: 0.7;" data-i18n="dateFormatLabel">Format</label>
+                        <select id="dateFormatSelect" class="settings-select" style="width: 100%;">
+                            <option value="text" data-i18n="dateText">Written (e.g., April 8)</option>
+                            <option value="numeric" data-i18n="dateNumeric">Numeric (e.g., 04/08/2026)</option>
                         </select>
                     </div>
                 </div>
