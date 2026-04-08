@@ -3,14 +3,14 @@
 
 .left-controls {
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 0.9375rem;
+    left: 0.9375rem;
     z-index: 500;
 
     .launcher-btn {
         @include button-reset;
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         border: 1px solid transparent;
         border-radius: $radius-lg;
         @include flex-center;
@@ -22,8 +22,8 @@
         }
 
         svg {
-            width: 20px;
-            height: 20px;
+            width: 1.25rem;
+            height: 1.25rem;
 
             path {
                 fill: var(--text-color);
@@ -35,12 +35,12 @@
 
 .launcher-popup {
     position: absolute;
-    top: 48px;
+    top: 3rem;
     left: 0;
-    padding: 12px;
+    padding: 0.75rem;
     display: none;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5rem;
     transform-origin: top left;
     animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
     z-index: 1000;
@@ -62,8 +62,8 @@
         @include flex-center;
         flex-direction: column;
         text-decoration: none;
-        width: 70px;
-        height: 70px;
+        width: 4.375rem;
+        height: 4.375rem;
         border-radius: $radius-lg;
         position: relative;
         transition: background-color 0.1s linear;
@@ -73,10 +73,10 @@
         }
 
         .launcher-icon {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
         }
     }
 
@@ -84,8 +84,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 4px;
-        padding: 8px 0 0;
+        margin-top: 0.25rem;
+        padding: 0.5rem 0 0;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
 
         .btn-icon {
@@ -93,7 +93,7 @@
         }
 
         .launcher-all-link {
-            font-size: 12px;
+            font-size: 0.75rem;
             color: var(--accent-color);
             text-decoration: none;
             opacity: 0.92;
@@ -111,9 +111,9 @@
             position: relative;
             isolation: isolate;
             justify-content: space-between;
-            gap: 10px;
-            margin: 4px -12px -12px;
-            padding: 7px 12px;
+            gap: 0.625rem;
+            margin: 0.25rem -0.75rem -0.75rem;
+            padding: 0.4375rem 0.75rem;
             background: transparent;
             border-radius: 0 0 $radius-md $radius-md;
 
@@ -137,8 +137,8 @@
             .btn-icon {
                 @include button-reset;
                 display: inline-flex;
-                width: 28px;
-                height: 28px;
+                width: 1.75rem;
+                height: 1.75rem;
                 border-radius: $radius-sm;
                 @include flex-center;
                 color: var(--text-color);
@@ -169,9 +169,9 @@
 .wallpaper-grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin-top: 12px;
-    padding-bottom: 4px;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
     transition: opacity 0.3s ease;
 
     &.disabled {
@@ -183,7 +183,7 @@
         aspect-ratio: 16 / 13;
         background-color: var(--card-bg, #f3f3f3);
         border-radius: $radius-sm;
-        border: 2px solid transparent;
+        border: 0.125rem solid transparent;
         cursor: pointer;
         overflow: hidden;
         position: relative;
@@ -208,7 +208,7 @@
 
         &.selected {
             border-color: var(--accent-color, $color-accent);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
         }
     }
 }

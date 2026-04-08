@@ -1,5 +1,11 @@
 @use './variables' as *;
 
+html {
+    // Set a fluid font size that scales with the viewport width.
+    // This makes all `rem` units scale proportionally.
+    font-size: clamp(0.875rem, 0.3vw + 0.64rem, 1.75rem);
+}
+
 * {
     margin: 0;
     padding: 0;
