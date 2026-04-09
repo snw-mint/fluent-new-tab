@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Image Overlay"
   },
+  "accentColorTitle": {
+    "message": "Accent Color"
+  },
+  "accentWallpaperOption": {
+    "message": "Kunin sa wallpaper"
+  },
+  "styleNone": {
+    "message": "Wala"
+  },
   "iconsStyleLabel": {
     "message": "Style ng Icon"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "I-Close"
+  },
+  "weekday_0": {
+    "message": "Sunday"
+  },
+  "weekday_1": {
+    "message": "Monday"
+  },
+  "weekday_2": {
+    "message": "Tuesday"
+  },
+  "weekday_3": {
+    "message": "Wednesday"
+  },
+  "weekday_4": {
+    "message": "Thursday"
+  },
+  "weekday_5": {
+    "message": "Friday"
+  },
+  "weekday_6": {
+    "message": "Saturday"
+  },
+  "greetWeekMorning": {
+    "message": "Sana'y maganda ang $WEEK$ mo, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Musta ang $WEEK$ mo, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, musta ang $WEEK$ mo?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Good morning sa'yo, $NAME$",
