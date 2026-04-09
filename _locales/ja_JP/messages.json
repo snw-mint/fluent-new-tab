@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "画像オーバーレイ"
   },
+  "accentColorTitle": {
+    "message": "アクセントカラー"
+  },
+  "accentWallpaperOption": {
+    "message": "壁紙から取得"
+  },
+  "styleNone": {
+    "message": "なし"
+  },
   "iconsStyleLabel": {
     "message": "アイコンスタイル"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "閉じる"
+  },
+  "weekday_0": {
+    "message": "日曜日"
+  },
+  "weekday_1": {
+    "message": "月曜日"
+  },
+  "weekday_2": {
+    "message": "火曜日"
+  },
+  "weekday_3": {
+    "message": "水曜日"
+  },
+  "weekday_4": {
+    "message": "木曜日"
+  },
+  "weekday_5": {
+    "message": "金曜日"
+  },
+  "weekday_6": {
+    "message": "土曜日"
+  },
+  "greetWeekMorning": {
+    "message": "素敵な一日を！ $WEEK$、 $NAME$！",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$WEEK$ の進捗はどうですか、 $NAME$ さん？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$、 $WEEK$ はどうでしたか？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "おはようございます、$NAME$",
