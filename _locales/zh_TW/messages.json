@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "影像疊加"
   },
+  "accentColorTitle": {
+    "message": "點綴色"
+  },
+  "accentWallpaperOption": {
+    "message": "從壁紙取得"
+  },
+  "styleNone": {
+    "message": "無"
+  },
   "iconsStyleLabel": {
     "message": "圖示樣式"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "關閉"
+  },
+  "weekday_0": {
+    "message": "星期日"
+  },
+  "weekday_1": {
+    "message": "星期一"
+  },
+  "weekday_2": {
+    "message": "星期二"
+  },
+  "weekday_3": {
+    "message": "星期三"
+  },
+  "weekday_4": {
+    "message": "星期四"
+  },
+  "weekday_5": {
+    "message": "星期五"
+  },
+  "weekday_6": {
+    "message": "星期六"
+  },
+  "greetWeekMorning": {
+    "message": "祝您玩得開心！ $WEEK$， $NAME$！",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "你的 $WEEK$ 進展如何， $NAME$？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, 你覺得 $WEEK$ 怎麼樣？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "早安，$NAME$",
