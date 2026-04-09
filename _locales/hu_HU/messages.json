@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Kép átfedés"
   },
+  "accentColorTitle": {
+    "message": "Kiemelő szín"
+  },
+  "accentWallpaperOption": {
+    "message": "Háttérképek"
+  },
+  "styleNone": {
+    "message": "Nincs"
+  },
   "iconsStyleLabel": {
     "message": "Ikon stílus"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Bezárás"
+  },
+  "weekday_0": {
+    "message": "vasárnap"
+  },
+  "weekday_1": {
+    "message": "hétfő"
+  },
+  "weekday_2": {
+    "message": "kedd"
+  },
+  "weekday_3": {
+    "message": "szerda"
+  },
+  "weekday_4": {
+    "message": "csütörtök"
+  },
+  "weekday_5": {
+    "message": "péntek"
+  },
+  "weekday_6": {
+    "message": "szombat"
+  },
+  "greetWeekMorning": {
+    "message": "Kellemes szórakozást a $WEEK$és a $NAME$ oldalakon!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Hogy megy a $WEEK$ oldalad, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$Na, milyen volt a $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Jó reggelt! $NAME$",
