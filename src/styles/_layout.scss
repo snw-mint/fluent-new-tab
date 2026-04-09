@@ -1,108 +1,107 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .container {
-  width: 100%;
-  max-width: 50rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.125rem;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding-bottom: 10vh;
-  position: relative;
-  z-index: 10;
+    width: 100%;
+    max-width: 55.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: 10vh;
 }
 
 .logo-wrapper {
-  @include flex-center(0.75rem);
-  margin-bottom: 1.5rem;
-  animation: fadeIn 0.5s ease-out;
+    @include flex-center(0.75rem);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .greeting-text {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
 }
 
 .time-date-text {
-  font-size: 5rem;
-  line-height: 1;
-  letter-spacing: -0.02em;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    
+    .time-date-sub {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 400;
+        opacity: 0.7;
+        margin-top: 0.5rem;
+        letter-spacing: normal;
+    }
 
-  .time-date-sub {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 400;
-    opacity: 0.7;
-    margin-top: 0.5rem;
-    letter-spacing: normal;
-  }
+    .time-seconds {
+        opacity: 0.5;
+    }
 
-  .time-seconds {
-    opacity: 0.5;
-  }
-
-  .time-ampm {
-    font-size: 0.35em;
-    margin-left: 0.15rem;
-    opacity: 0.8;
-    font-weight: 600;
-    text-transform: uppercase;
-    vertical-align: super;
-  }
+    .time-ampm {
+        font-size: 0.35em;
+        margin-left: 0.15rem;
+        opacity: 0.8;
+        font-weight: 600;
+        text-transform: uppercase;
+        vertical-align: super;
+    }
 }
 
 .greeting-icon {
-  width: 3rem;
-  height: 3rem;
-  object-fit: contain;
-  margin-right: 0.75rem;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    margin-right: 0.75rem;
 }
 
 .divider {
-  width: 1px;
-  height: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 0 0.5rem;
+    width: 1px;
+    height: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 0.5rem;
 }
 
 .translate-link {
-  display: block;
-  margin: 0.3125rem 0 0.125rem;
-  font-size: 0.6875rem;
-  color: var(--text-color);
-  opacity: 0.7;
-  text-decoration: none;
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
+    display: block;
+    margin: 0.3125rem 0 0.125rem;
+    font-size: 0.6875rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
 
-  &:hover {
-    text-decoration: underline;
-    opacity: 1;
-    color: var(--link-color, var(--text-color));
-  }
+    &:hover {
+        text-decoration: underline;
+        opacity: 1;
+        color: var(--link-color, var(--text-color));
+    }
 }
 
 .wallpaper-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  opacity: var(--overlay-opacity, 0.2);
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.1s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    opacity: var(--overlay-opacity, 0.2);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.1s ease;
 }
 
+/* Ensure main content and greetings float above the wallpaper overlay */
+.container,
 .greeting-container {
-  position: relative;
-  z-index: 10;
+    position: relative;
+    z-index: 10;
 }

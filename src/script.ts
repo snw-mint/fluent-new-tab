@@ -602,14 +602,16 @@ function updateDisplaySettingsVisibility(show: boolean, animate = true): void {
   if (displayMainOptions) setCollapsible(displayMainOptions, show, animate);
 }
 
-function updateDisplaySubSettingsUI(selectedType: string): void {
+function updateDisplaySubSettingsUI(preset: string): void {
   if (subGreeting) subGreeting.style.display = 'none';
   if (subTime) subTime.style.display = 'none';
   if (subDate) subDate.style.display = 'none';
-
-  if (selectedType === 'greeting' && subGreeting) subGreeting.style.display = 'block';
-  if ((selectedType === 'time' || selectedType === 'timedate') && subTime) subTime.style.display = 'block';
-  if ((selectedType === 'date' || selectedType === 'timedate') && subDate) subDate.style.display = 'block';
+  if (preset === 'greeting' && subGreeting) {
+    subGreeting.style.display = 'block';
+  } else if (preset === 'timedate') {
+    if (subTime) subTime.style.display = 'block';
+    if (subDate) subDate.style.display = 'block';
+  }
 }
 function updateAnimationsDisabled(enabled: boolean): void {
   document.body.classList.toggle("animations-disabled", enabled);
@@ -1809,17 +1811,53 @@ if (toggleDisplay) {
     });
   }
 
-  if (displayTypeSelect) {
-    const savedType = localStorage.getItem("displayType") || "greeting";
-    displayTypeSelect.value = savedType;
-    updateDisplaySubSettingsUI(savedType);
+if (displayTypeSelect) {
+    // We now use a new key 'displayPreset' to remember the exact dropdown choice
+    const savedPreset = localStorage.getItem("displayPreset") || "greeting";
+    displayTypeSelect.value = savedPreset;
+    updateDisplaySubSettingsUI(savedPreset);
 
     displayTypeSelect.addEventListener("change", (e) => {
       const target = getSelectTarget(e);
       if (!target) return;
-      const selectedType = target.value;
-      localStorage.setItem("displayType", selectedType);
-      updateDisplaySubSettingsUI(selectedType);
+      const preset = target.value;
+      localStorage.setItem("displayPreset", preset);
+
+      // The Translator: Converts the preset into the specific settings the clock needs
+      if (preset === 'greeting') {
+        localStorage.setItem("displayType", "greeting");
+      } else if (preset === 'time_24') {
+        localStorage.setItem("displayType", "time");
+        localStorage.setItem("use12Hour", "false");
+        localStorage.setItem("showSeconds", "false");
+      } else if (preset === 'time_24_sec') {
+        localStorage.setItem("displayType", "time");
+        localStorage.setItem("use12Hour", "false");
+        localStorage.setItem("showSeconds", "true");
+      } else if (preset === 'time_12') {
+        localStorage.setItem("displayType", "time");
+        localStorage.setItem("use12Hour", "true");
+        localStorage.setItem("showSeconds", "false");
+      } else if (preset === 'time_12_sec') {
+        localStorage.setItem("displayType", "time");
+        localStorage.setItem("use12Hour", "true");
+        localStorage.setItem("showSeconds", "true");
+      }
+      else if (preset === 'date_text') {
+        localStorage.setItem("displayType", "date");
+        localStorage.setItem("dateFormat", "text");
+      } else if (preset === 'date_numeric') {
+        localStorage.setItem("displayType", "date");
+        localStorage.setItem("dateFormat", "numeric");
+      } else if (preset === 'timedate') {
+        localStorage.setItem("displayType", "timedate");
+      }
+
+      if (toggleSeconds) toggleSeconds.checked = localStorage.getItem("showSeconds") === "true";
+      if (toggle12Hour) toggle12Hour.checked = localStorage.getItem("use12Hour") === "true";
+      if (dateFormatSelect) dateFormatSelect.value = localStorage.getItem("dateFormat") || "text";
+
+      updateDisplaySubSettingsUI(preset);
       initBrand();
     });
   }
