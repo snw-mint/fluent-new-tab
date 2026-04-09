@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Afbeeldingsoverlay"
   },
+  "accentColorTitle": {
+    "message": "Accentkleur"
+  },
+  "accentWallpaperOption": {
+    "message": "Download als achtergrond"
+  },
+  "styleNone": {
+    "message": "Geen"
+  },
   "iconsStyleLabel": {
     "message": "Pictogramstijl"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Sluiten"
+  },
+  "weekday_0": {
+    "message": "zondag"
+  },
+  "weekday_1": {
+    "message": "maandag"
+  },
+  "weekday_2": {
+    "message": "dinsdag"
+  },
+  "weekday_3": {
+    "message": "woensdag"
+  },
+  "weekday_4": {
+    "message": "donderdag"
+  },
+  "weekday_5": {
+    "message": "vrijdag"
+  },
+  "weekday_6": {
+    "message": "zaterdag"
+  },
+  "greetWeekMorning": {
+    "message": "Veel plezier op $WEEK$en $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Hoe gaat het met je $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, hoe was je $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Goedemorgen, $NAME$",
