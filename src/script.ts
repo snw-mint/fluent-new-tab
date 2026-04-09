@@ -1,4 +1,3 @@
-/// <reference path="./core/color.ts" />
 function debounce<T extends unknown[]>(func: (...args: T) => void, wait: number): (...args: T) => void {
   let timeout: number;
   return function (...args: T): void {
@@ -599,8 +598,18 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
   }
 }
 
-function updateGreetingSettingsVisibility(show: boolean, animate = true): void {
-  if (greetingOptionsDiv) setCollapsible(greetingOptionsDiv, show, animate);
+function updateDisplaySettingsVisibility(show: boolean, animate = true): void {
+  if (displayMainOptions) setCollapsible(displayMainOptions, show, animate);
+}
+
+function updateDisplaySubSettingsUI(selectedType: string): void {
+  if (subGreeting) subGreeting.style.display = 'none';
+  if (subTime) subTime.style.display = 'none';
+  if (subDate) subDate.style.display = 'none';
+
+  if (selectedType === 'greeting' && subGreeting) subGreeting.style.display = 'block';
+  if ((selectedType === 'time' || selectedType === 'timedate') && subTime) subTime.style.display = 'block';
+  if ((selectedType === 'date' || selectedType === 'timedate') && subDate) subDate.style.display = 'block';
 }
 function updateAnimationsDisabled(enabled: boolean): void {
   document.body.classList.toggle("animations-disabled", enabled);
@@ -888,18 +897,17 @@ async function applyWallpaperLogic() {
         const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
         await applyWallpaperImage(optimizedUrl);
         void handleAutoAccentColor(optimizedUrl, `api_${currentWallpaperType}_${url}`);
-const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+    const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
         try {
           const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as any;
           let credit = cached ? cached.credit : "";
-          let creditUrl = cached ? cached.creditUrl : ""; // Lê a URL do cache
+          let creditUrl = cached ? cached.creditUrl : ""; 
 
           if (!credit) {
             if (currentWallpaperType === "bing") credit = "Microsoft Bing";
             else if (currentWallpaperType === "nasa") credit = "NASA APOD";
             else if (currentWallpaperType === "wikimedia") credit = "Wikimedia Commons";
           }
-          // Passa a URL como terceiro parâmetro
           updateCreditsUI("api", credit, creditUrl);
         } catch (e) {
           updateCreditsUI("api", "Daily Wallpaper");
@@ -932,7 +940,7 @@ async function loadCustomWallpaper() {
 }
 
 function initBrand() {
-  initGreetingBrand(greetingWrapper);
+  initDisplayWidget(greetingWrapper);
 }
 
 function fetchSuggestions(query: string): void {
@@ -1181,7 +1189,7 @@ function initSortable() {
       if (!currentFolderId && !isDraggingFolder && relatedEl?.dataset?.type === "folder") {
         hoveredFolderEl = relatedEl;
         relatedEl.classList.add("folder-drag-hover");
-        return false; // Prevent Sortable from swapping with folder; signals drop target
+        return false;
       }
 
       hoveredFolderEl = null;
@@ -1430,7 +1438,6 @@ function updateCreditsUI(source: string, creditText?: string, creditUrl?: string
     const textToShow = creditText || "Daily Wallpaper";
 
     if (creditUrl) {
-      // Cria um link se houver URL
       const a = document.createElement('a');
       a.href = creditUrl;
       a.target = '_blank';
@@ -1445,7 +1452,6 @@ function updateCreditsUI(source: string, creditText?: string, creditUrl?: string
       
       creditsSpan.appendChild(a);
     } else {
-      // Fallback para apenas texto
       creditsSpan.textContent = textToShow;
     }
     
@@ -1789,33 +1795,83 @@ document.addEventListener("DOMContentLoaded", async () => {
     applyWallpaperLogic,
   });
   applyBrandInterval();
-  if (toggleGreeting) {
-    toggleGreeting.checked = localStorage.getItem("showGreeting") !== "false";
-    updateGreetingSettingsVisibility(toggleGreeting.checked, false);
-    toggleGreeting.addEventListener("change", (e) => {
+
+if (toggleDisplay) {
+    toggleDisplay.checked = localStorage.getItem("displayEnabled") !== "false";
+    updateDisplaySettingsVisibility(toggleDisplay.checked, false);
+    toggleDisplay.addEventListener("change", (e) => {
       const target = getInputTarget(e);
       if (!target) return;
       const checked = target.checked;
-      localStorage.setItem("showGreeting", String(checked));
-      updateGreetingSettingsVisibility(checked);
+      localStorage.setItem("displayEnabled", String(checked));
+      updateDisplaySettingsVisibility(checked);
       initBrand();
     });
   }
-  if (greetingNameInput) {
-    greetingNameInput.value = localStorage.getItem("greetingName") || "";
+
+  if (displayTypeSelect) {
+    const savedType = localStorage.getItem("displayType") || "greeting";
+    displayTypeSelect.value = savedType;
+    updateDisplaySubSettingsUI(savedType);
+
+    displayTypeSelect.addEventListener("change", (e) => {
+      const target = getSelectTarget(e);
+      if (!target) return;
+      const selectedType = target.value;
+      localStorage.setItem("displayType", selectedType);
+      updateDisplaySubSettingsUI(selectedType);
+      initBrand();
+    });
+  }
+
+  if (toggleSeconds) {
+    toggleSeconds.checked = localStorage.getItem("showSeconds") === "true";
+    toggleSeconds.addEventListener("change", (e) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      localStorage.setItem("showSeconds", String(target.checked));
+      initBrand();
+    });
+  }
+
+  if (toggle12Hour) {
+    toggle12Hour.checked = localStorage.getItem("use12Hour") === "true";
+    toggle12Hour.addEventListener("change", (e) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      localStorage.setItem("use12Hour", String(target.checked));
+      initBrand();
+    });
+  }
+
+  if (dateFormatSelect) {
+    dateFormatSelect.value = localStorage.getItem("dateFormat") || "text";
+    dateFormatSelect.addEventListener("change", (e) => {
+      const target = getSelectTarget(e);
+      if (!target) return;
+      localStorage.setItem("dateFormat", target.value);
+      initBrand();
+    });
+  }
+
+if (greetingNameInput) {
+    greetingNameInput.value = localStorage.getItem("greetingName") || ""; 
     greetingNameInput.addEventListener("input", (e) => {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem("greetingName", target.value);
+      if (greetingWrapper) greetingWrapper.dataset.lastMinute = '';
       initBrand();
     });
   }
+
   if (greetingStyleSelect) {
     greetingStyleSelect.value = localStorage.getItem("greetingStyle") || "3d";
     greetingStyleSelect.addEventListener("change", (e) => {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem("greetingStyle", target.value);
+      if (greetingWrapper) greetingWrapper.dataset.lastMinute = '';
       initBrand();
     });
   }
