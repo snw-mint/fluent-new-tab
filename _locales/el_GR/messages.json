@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
   },
+  "accentColorTitle": {
+    "message": "Χρώμα λεπτομέρειας"
+  },
+  "accentWallpaperOption": {
+    "message": "Λήψη από την ταπετσαρία"
+  },
+  "styleNone": {
+    "message": "Κανένα"
+  },
   "iconsStyleLabel": {
     "message": "Στυλ εικονιδίου"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Κλείσιμο"
+  },
+  "weekday_0": {
+    "message": "Κυριακή"
+  },
+  "weekday_1": {
+    "message": "Δευτέρα"
+  },
+  "weekday_2": {
+    "message": "Τρίτη"
+  },
+  "weekday_3": {
+    "message": "Τετάρτη"
+  },
+  "weekday_4": {
+    "message": "Πέμπτη"
+  },
+  "weekday_5": {
+    "message": "Παρασκευή"
+  },
+  "weekday_6": {
+    "message": "Σάββατο"
+  },
+  "greetWeekMorning": {
+    "message": "Καλή διασκέδαση στο $WEEK$και στο $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Πώς πάει το $WEEK$ σου, $NAME$;",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$Λοιπόν, πώς πήγε το $WEEK$;",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Καλημέρα, $NAME$",

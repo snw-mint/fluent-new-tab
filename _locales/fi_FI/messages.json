@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Kuvan peitto"
   },
+  "accentColorTitle": {
+    "message": "Korostusväri"
+  },
+  "accentWallpaperOption": {
+    "message": "Lataa taustakuvana"
+  },
+  "styleNone": {
+    "message": "Ei mitään"
+  },
   "iconsStyleLabel": {
     "message": "Kuvaketyyli"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Sulje"
+  },
+  "weekday_0": {
+    "message": "sunnuntai"
+  },
+  "weekday_1": {
+    "message": "maanantai"
+  },
+  "weekday_2": {
+    "message": "tiistai"
+  },
+  "weekday_3": {
+    "message": "keskiviikko"
+  },
+  "weekday_4": {
+    "message": "torstai"
+  },
+  "weekday_5": {
+    "message": "perjantai"
+  },
+  "weekday_6": {
+    "message": "lauantai"
+  },
+  "greetWeekMorning": {
+    "message": "Hauskaa päivää! $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Miten sinulla menee, $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, miten sujui $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Hyvää huomenta, $NAME$",

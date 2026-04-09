@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Překrytí obrázku"
   },
+  "accentColorTitle": {
+    "message": "Doplňková barva"
+  },
+  "accentWallpaperOption": {
+    "message": "Stáhnout jako tapetu"
+  },
+  "styleNone": {
+    "message": "Žádné"
+  },
   "iconsStyleLabel": {
     "message": "Styl ikon"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Zavřít"
+  },
+  "weekday_0": {
+    "message": "neděle"
+  },
+  "weekday_1": {
+    "message": "pondělí"
+  },
+  "weekday_2": {
+    "message": "úterý"
+  },
+  "weekday_3": {
+    "message": "středa"
+  },
+  "weekday_4": {
+    "message": "čtvrtek"
+  },
+  "weekday_5": {
+    "message": "pátek"
+  },
+  "weekday_6": {
+    "message": "sobota"
+  },
+  "greetWeekMorning": {
+    "message": "Přejeme vám příjemné chvíle na stránkách $WEEK$a $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Jak se ti daří s $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$A jak se ti líbilo $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Dobré ráno, $NAME$",

@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
   },
+  "accentColorTitle": {
+    "message": "Màu nhấn"
+  },
+  "accentWallpaperOption": {
+    "message": "Tải về từ hình nền"
+  },
+  "styleNone": {
+    "message": "Không có"
+  },
   "iconsStyleLabel": {
     "message": "Phong cách biểu tượng"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Đóng"
+  },
+  "weekday_0": {
+    "message": "Chủ nhật"
+  },
+  "weekday_1": {
+    "message": "Thứ Hai"
+  },
+  "weekday_2": {
+    "message": "Thứ Ba"
+  },
+  "weekday_3": {
+    "message": "Thứ Tư"
+  },
+  "weekday_4": {
+    "message": "Thứ Năm"
+  },
+  "weekday_5": {
+    "message": "Thứ Sáu"
+  },
+  "weekday_6": {
+    "message": "Thứ Bảy"
+  },
+  "greetWeekMorning": {
+    "message": "Chúc bạn có một ngày tuyệt vời tại $WEEK$và $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Công việc tại $WEEK$ của bạn thế nào rồi, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, chuyến đi đến $WEEK$ của bạn thế nào?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Chào buổi sáng, $NAME$",

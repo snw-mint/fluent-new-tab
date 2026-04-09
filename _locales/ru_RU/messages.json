@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Наложение изображения"
   },
+  "accentColorTitle": {
+    "message": "Акцентный цвет"
+  },
+  "accentWallpaperOption": {
+    "message": "Скачать обои"
+  },
+  "styleNone": {
+    "message": "Нет"
+  },
   "iconsStyleLabel": {
     "message": "Стиль значка"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Закрыть"
+  },
+  "weekday_0": {
+    "message": "воскресенье"
+  },
+  "weekday_1": {
+    "message": "понедельник"
+  },
+  "weekday_2": {
+    "message": "вторник"
+  },
+  "weekday_3": {
+    "message": "среда"
+  },
+  "weekday_4": {
+    "message": "четверг"
+  },
+  "weekday_5": {
+    "message": "пятница"
+  },
+  "weekday_6": {
+    "message": "суббота"
+  },
+  "greetWeekMorning": {
+    "message": "Желаем вам приятного просмотра: $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Как у тебя дела, $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, как прошло ваше мероприятие « $WEEK$»?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Доброе утро, $NAME$",

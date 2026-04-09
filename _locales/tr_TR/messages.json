@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Görüntü Kaplaması"
   },
+  "accentColorTitle": {
+    "message": "Vurgu Rengi"
+  },
+  "accentWallpaperOption": {
+    "message": "Duvar kağıdından al"
+  },
+  "styleNone": {
+    "message": "Yok"
+  },
   "iconsStyleLabel": {
     "message": "Simge Stili"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Kapat"
+  },
+  "weekday_0": {
+    "message": "Pazar"
+  },
+  "weekday_1": {
+    "message": "Pazartesi"
+  },
+  "weekday_2": {
+    "message": "Salı"
+  },
+  "weekday_3": {
+    "message": "Çarşamba"
+  },
+  "weekday_4": {
+    "message": "Perşembe"
+  },
+  "weekday_5": {
+    "message": "Cuma"
+  },
+  "weekday_6": {
+    "message": "Cumartesi"
+  },
+  "greetWeekMorning": {
+    "message": "İyi eğlenceler! $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$WEEK$ 'daki işlerin nasıl gidiyor, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$Peki, $WEEK$ nasıl geçti?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Günaydın, $NAME$",
