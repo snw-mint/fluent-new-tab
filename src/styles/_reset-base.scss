@@ -1,9 +1,23 @@
 @use './variables' as *;
 
 html {
-    // Set a fluid font size that scales with the viewport width.
-    // This makes all `rem` units scale proportionally.
-    font-size: clamp(0.875rem, 0.3vw + 0.64rem, 1.75rem);
+    font-size: 90%;
+
+    @media (min-width: 1920px) and (min-height: 1080px) {
+        font-size: 125%;
+    }
+
+    @media (min-width: 2560px) and (max-height: 1439px) {
+        font-size: 135%; 
+    }
+
+    @media (min-width: 2560px) and (min-height: 1440px) {
+        font-size: 160%;
+    }
+
+    @media (min-width: 3840px) and (min-height: 2160px) {
+        font-size: 200%;
+    }
 }
 
 * {
@@ -74,4 +88,41 @@ textarea {
 
 html[data-early-wallpaper="true"] body {
     transition: none !important;
+}
+
+.modal-content input,
+.modal-content button,
+.modal-actions button,
+.btn-danger,
+.btn-save,
+.btn-cancel,
+#warning-modal-message {
+    font-size: 1rem !important; 
+}
+
+.modal-content .input-group label {
+    font-size: 0.875rem !important; 
+}
+
+.child-setting label {
+    font-size: 0.875rem !important; 
+}
+
+.search-btn svg,
+.backup-btn svg,
+.folder-back-btn svg,
+.shortcut-item[data-type="folder"] .shortcut-card svg {
+    width: 1.5rem !important;  /* ~24px */
+    height: 1.5rem !important;
+}
+
+.add-card-wrapper .shortcut-card svg {
+    width: 1.75rem !important; /* ~28px */
+    height: 1.75rem !important;
+}
+
+.launcher-btn svg,
+.settings-btn svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
 }

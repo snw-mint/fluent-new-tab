@@ -3,19 +3,19 @@
 
 .settings-select {
   width: 100%;
-  height: 32px;
-  padding: 6px 30px 6px 10px;
+  height: 2rem;
+  padding: 0.375rem 1.875rem 0.375rem 0.625rem;
   border-radius: $radius-sm;
   border: 1px solid rgba(0, 0, 0, 0.16);
   background-color: rgba(255, 255, 255, 0.92);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.5 8 10.5 12 6.5' fill='none' stroke='%23333333' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 9px center;
-  background-size: 14px 14px;
-  font-size: 13px;
+  background-position: right 0.5625rem center;
+  background-size: 0.875rem 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text-color);
-  margin-top: 5px;
+  margin-top: 0.3125rem;
   outline: none;
   cursor: pointer;
   appearance: none;
@@ -32,17 +32,17 @@
 }
 
 .group-title {
-  @include flex-center(10px);
-  margin-bottom: 12px;
+  @include flex-center(0.625rem);
+  margin-bottom: 0.75rem;
   color: var(--text-color);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   align-items: center;
   justify-content: flex-start;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     fill: currentColor;
   }
 }
@@ -53,16 +53,17 @@
 
 .settings-popup {
   position: absolute;
-  top: 50px;
+  top: 3.125rem;
   right: 0;
-  width: 260px;
-  max-height: 70vh;
+  width: 16.25rem;
+  /* Limita a altura para não ficar esticado em telas grandes */
+  max-height: min(70vh, 42rem); 
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 12px;
+  padding: 0.75rem;
   display: none;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   isolation: isolate;
   transform-origin: top right;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
@@ -103,25 +104,25 @@
 
   &-title {
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 4px 0 5px;
+    margin: 0.25rem 0 0.3125rem;
     color: var(--text-color);
   }
 
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 0.375rem;
   }
 
   &::-webkit-scrollbar-track {
     background: transparent;
-    margin: 4px 0;
+    margin: 0.25rem 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    border: 2px solid transparent;
+    border-radius: 1.25rem;
+    border: 0.125rem solid transparent;
     background-clip: content-box;
 
     &:hover {
@@ -135,18 +136,18 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: $radius-md;
-  padding: 10px;
+  padding: 0.625rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
   gap: 0;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 
   .setting-header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 32px;
-    margin-bottom: 4px;
+    min-height: 2rem;
+    margin-bottom: 0.25rem;
 
     .group-title {
       margin-bottom: 0;
@@ -154,26 +155,26 @@
   }
 
   .setting-content-only {
-    padding-top: 4px;
+    padding-top: 0.25rem;
   }
 }
 
 .input-row {
   display: flex;
-  gap: 6px;
+  gap: 0.375rem;
   width: 100%;
   align-items: center;
 
   input {
     flex: 1;
     min-width: 0;
-    padding: 8px 10px;
-    height: 32px;
+    padding: 0.5rem 0.625rem;
+    height: 2rem;
     border-radius: $radius-sm;
     border: 1px solid rgba(0, 0, 0, 0.16);
     background: rgba(255, 255, 255, 0.92);
     color: var(--text-color);
-    font-size: 13px;
+    font-size: 0.8125rem;
     outline: none;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
     transition: box-shadow 0.2s ease;
@@ -193,8 +194,8 @@
 
   button {
     flex-shrink: 0;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     padding: 0;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -218,7 +219,7 @@
 .theme-selector {
   display: flex;
   border-radius: $radius-xl;
-  gap: 4px;
+  gap: 0.25rem;
 
   .theme-btn {
     color: var(--text-color);
@@ -227,7 +228,7 @@
     background: transparent;
     border-radius: $radius-md;
     cursor: pointer;
-    padding: 6px;
+    padding: 0.375rem;
     @include flex-center;
     transition: background 0.2s ease;
 
@@ -238,12 +239,12 @@
     &.active {
       background: var(--accent-color);
       color: var(--accent-contrast-color);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
     }
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: 1.25rem;
+      height: 1.25rem;
       fill: currentColor;
       transition: fill 0.3s ease;
     }
@@ -254,14 +255,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 20px;
+  width: 2.5rem;
+  height: 1.25rem;
   input {
     opacity: 0;
     width: 0;
@@ -271,7 +272,7 @@
       border-color: var(--accent-color);
       &:before {
         background-color: var(--accent-contrast-color);
-        left: calc(100% - 15px);
+        left: calc(100% - 0.9375rem);
       }
       &:hover {
         background-color: var(--accent-color);
@@ -285,7 +286,7 @@
     cursor: pointer;
     inset: 0;
     background-color: transparent;
-    border-radius: 99px;
+    border-radius: 99rem;
     border: 1px solid #616161;
     box-sizing: border-box;
     transition:
@@ -295,9 +296,9 @@
     &:before {
       content: "";
       position: absolute;
-      height: 12px;
-      width: 12px;
-      left: 3px;
+      height: 0.75rem;
+      width: 0.75rem;
+      left: 0.1875rem;
       top: 50%;
       transform: translateY(-50%) scale(1);
       background-color: #616161;
@@ -327,8 +328,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
   cursor: pointer;
   input {
@@ -339,9 +340,9 @@
     cursor: pointer;
   }
   .checkbox-box {
-    width: 13px;
-    height: 13px;
-    border-radius: 2px;
+    width: 0.8125rem;
+    height: 0.8125rem;
+    border-radius: 0.125rem;
     border: 1px solid rgba(0, 0, 0, 0.28);
     background: rgba(255, 255, 255, 0.82);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
@@ -354,8 +355,8 @@
       box-shadow 160ms ease,
       transform 160ms ease;
     svg {
-      width: 16px;
-      height: 16px;
+      width: 1rem;
+      height: 1rem;
       opacity: 0;
       transform: scale(0.85);
       transition:
@@ -373,8 +374,8 @@
   }
 
   input:focus-visible + .checkbox-box {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--accent-color);
+    outline-offset: 0.125rem;
   }
 
   input:active + .checkbox-box {
@@ -397,10 +398,10 @@
   margin-left: 0;
   padding-left: 0;
   border-left: none;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 
   label {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
@@ -413,18 +414,19 @@
   display: flex;
   flex-direction: column;
 }
+
 .color-presets-row {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: space-between;
-  margin-top: 14px;
-  margin-bottom: 6px;
-  padding: 0 4px;
+  margin-top: 0.875rem;
+  margin-bottom: 0.375rem;
+  padding: 0 0.25rem;
 
   .color-preset-btn {
     @include button-reset;
-    width: 22px;
-    height: 22px;
+    width: 1.375rem;
+    height: 1.375rem;
     border-radius: $radius-sm;
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
@@ -433,17 +435,17 @@
       transform 0.2s ease,
       box-shadow 0.2s ease,
       border-color 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
 
     &:hover {
       transform: scale(1.15);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     }
     &.selected {
-      border: 2px solid var(--search-bg);
+      border: 0.125rem solid var(--search-bg);
       box-shadow:
-        0 0 0 2px var(--accent-color),
-        0 2px 5px rgba(0, 0, 0, 0.2);
+        0 0 0 0.125rem var(--accent-color),
+        0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
       transform: scale(1.05);
     }
 
@@ -459,8 +461,8 @@
       justify-content: center;
 
       svg {
-        width: 14px;
-        height: 14px;
+        width: 0.875rem;
+        height: 0.875rem;
         opacity: 0.8;
         pointer-events: none;
       }
@@ -476,13 +478,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   width: 100%;
   container-type: inline-size;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--text-color);
 
   .footer-link {
@@ -514,12 +516,12 @@
     .footer-help-link {
       display: inline-flex;
       align-items: center;
-      font-size: clamp(8px, 4cqw, 11px);
+      font-size: clamp(0.5rem, 4cqw, 0.6875rem);
       white-space: nowrap;
 
       &:not(:first-child)::before {
         content: "|";
-        margin: 0 8px;
+        margin: 0 0.5rem;
         opacity: 0.65;
         text-decoration: none;
       }
@@ -531,7 +533,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .footer-icon-link {
@@ -545,8 +547,8 @@
     }
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 1rem;
+      height: 1rem;
       fill: var(--text-color);
     }
   }
@@ -554,8 +556,8 @@
 
 .backup-row {
   display: flex;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 
   .backup-btn {
     flex: 1;
@@ -563,15 +565,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px 6px;
+    gap: 0.375rem;
+    padding: 0.625rem 0.375rem;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.5);
     border-radius: $radius-sm;
     cursor: pointer;
     color: var(--text-color);
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 500;
     font-family: inherit;
     transition: all 0.2s ease;
@@ -600,7 +602,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 8px 0;
+    padding: 0.5rem 0;
 
     .chevron-icon {
       transition: transform 0.2s ease;
@@ -616,9 +618,9 @@
     transition:
       max-height 0.2s ease,
       opacity 0.2s ease;
-    max-height: 50px;
+    max-height: 3.125rem;
     opacity: 1;
-    padding-top: 4px;
+    padding-top: 0.25rem;
 
     &.collapsed {
       max-height: 0;
@@ -632,25 +634,25 @@
 input[type="range"].fluent-slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 4px;
-  border-radius: 2px;
+  height: 0.25rem;
+  border-radius: 0.125rem;
   background: linear-gradient(
     to right,
     var(--accent-color) var(--slider-progress, 20%),
     var(--search-bg) var(--slider-progress, 20%)
   );
   outline: none;
-  margin: 8px 0;
+  margin: 0.5rem 0;
 }
 
 input[type="range"].fluent-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   background: var(--accent-color);
-  border: 4px solid #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.25rem solid #ffffff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.1s;
 }

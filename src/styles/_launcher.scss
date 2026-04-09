@@ -88,6 +88,11 @@
         padding: 0.5rem 0 0;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
 
+        svg {
+            width: 1.25rem !important;
+            height: 1.25rem !important;
+        }
+
         .btn-icon {
             display: none;
         }

@@ -192,11 +192,11 @@ function renderGreeting(wrapper: HTMLElement): void {
     .replace(/,\s*\?$/, "?")
     .trim();
 
-  let fontSize = "40px";
+  let fontSize = "2.5rem";
   const textLength = finalGreetingText.length;
-  if (textLength > 50) fontSize = "22px";
-  else if (textLength > 40) fontSize = "26px";
-  else if (textLength > 30) fontSize = "32px";
+  if (textLength > 50) fontSize = "1.375rem";
+  else if (textLength > 40) fontSize = "1.625rem";
+  else if (textLength > 30) fontSize = "2rem";
 
   const heading = document.createElement("h1");
   heading.className = "greeting-text";
