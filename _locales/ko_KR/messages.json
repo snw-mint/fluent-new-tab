@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "이미지 오버레이"
   },
+  "accentColorTitle": {
+    "message": "포인트 컬러"
+  },
+  "accentWallpaperOption": {
+    "message": "배경화면에서 가져오기"
+  },
+  "styleNone": {
+    "message": "없음"
+  },
   "iconsStyleLabel": {
     "message": "아이콘 스타일"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "닫기"
+  },
+  "weekday_0": {
+    "message": "일요일"
+  },
+  "weekday_1": {
+    "message": "월요일"
+  },
+  "weekday_2": {
+    "message": "화요일"
+  },
+  "weekday_3": {
+    "message": "수요일"
+  },
+  "weekday_4": {
+    "message": "목요일"
+  },
+  "weekday_5": {
+    "message": "금요일"
+  },
+  "weekday_6": {
+    "message": "토요일"
+  },
+  "greetWeekMorning": {
+    "message": "즐거운 시간 보내세요! $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$WEEK$ 는 어떻게 진행되고 있나요, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, $WEEK$ 는 어땠나요?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "좋은 아침입니다, $NAME$",
