@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Sovrapposizione immagine"
   },
+  "accentColorTitle": {
+    "message": "Colore di accento"
+  },
+  "accentWallpaperOption": {
+    "message": "Scarica dallo sfondo"
+  },
+  "styleNone": {
+    "message": "Nessuno"
+  },
   "iconsStyleLabel": {
     "message": "Stile icona"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Chiudi"
+  },
+  "weekday_0": {
+    "message": "domenica"
+  },
+  "weekday_1": {
+    "message": "Lunedì"
+  },
+  "weekday_2": {
+    "message": "martedì"
+  },
+  "weekday_3": {
+    "message": "mercoledì"
+  },
+  "weekday_4": {
+    "message": "giovedì"
+  },
+  "weekday_5": {
+    "message": "venerdì"
+  },
+  "weekday_6": {
+    "message": "sabato"
+  },
+  "greetWeekMorning": {
+    "message": "Buon $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Come va il tuo $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$Allora, com'è andata la tua visita su $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Buongiorno, $NAME$",
