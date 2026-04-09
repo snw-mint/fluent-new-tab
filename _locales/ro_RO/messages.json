@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Suprapunere imagine"
   },
+  "accentColorTitle": {
+    "message": "Culoare de accent"
+  },
+  "accentWallpaperOption": {
+    "message": "Descărcați de pe Wallpaper"
+  },
+  "styleNone": {
+    "message": "Niciuna"
+  },
   "iconsStyleLabel": {
     "message": "Stilul pictogramelor"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Închide"
+  },
+  "weekday_0": {
+    "message": "Duminică"
+  },
+  "weekday_1": {
+    "message": "Luni"
+  },
+  "weekday_2": {
+    "message": "marți"
+  },
+  "weekday_3": {
+    "message": "miercuri"
+  },
+  "weekday_4": {
+    "message": "joi"
+  },
+  "weekday_5": {
+    "message": "vineri"
+  },
+  "weekday_6": {
+    "message": "sâmbătă"
+  },
+  "greetWeekMorning": {
+    "message": "Vă doresc mult succes pe $WEEK$și $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Cum merge treaba cu $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, cum a fost experiența ta cu $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Bună dimineața, $NAME$",
