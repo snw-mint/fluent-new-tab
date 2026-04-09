@@ -3,8 +3,8 @@
 
 .header-controls {
     position: fixed;
-    top: 0.625rem;
-    right: 0.9375rem;
+    top: 0.9375rem;
+    right: 0.6875rem;
     z-index: 500;
     @include flex-center(0.5rem);
 
@@ -26,8 +26,8 @@
 
         .settings-btn {
             @include button-reset;
-            width: 2rem;
-            height: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: $radius-round;
             @include flex-center;
             transition: background 0.2s ease;
@@ -37,13 +37,13 @@
             }
 
             svg {
-                width: 1.4375rem;
-                height: 1.4375rem;
+                width: 1.5rem;
+                height: 1.5rem;
             }
         }
 
         .settings-label {
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
             font-weight: 500;
             color: var(--text-color);
             background: transparent;

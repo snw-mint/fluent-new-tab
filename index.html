@@ -230,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="setting-group">
+<div class="setting-group">
                 <div class="setting-header-row">
                     <div class="group-title">
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -247,9 +247,12 @@
                 <div id="displayMainOptions" style="margin-top: 8px;">
                     <select id="displayTypeSelect" class="settings-select" style="margin-bottom: 12px; width: 100%;">
                         <option value="greeting" data-i18n="displayGreeting">Greeting</option>
-                        <option value="time" data-i18n="displayTime">Time</option>
-                        <option value="date" data-i18n="displayDate">Date</option>
-                        <option value="timedate" data-i18n="displayTimeDate">Time & Date</option>
+                        <option value="time_24">Time: 23:00</option>
+                        <option value="time_24_sec">Time: 23:00:00</option>
+                        <option value="time_12">Time: 11:00 PM</option>
+                        <option value="date_text" data-i18n="dateText">Date: April 8, 2026</option>
+                        <option value="date_numeric" data-i18n="dateNumeric">Date: 08/04/2026</option>
+                        <option value="timedate" data-i18n="displayTimeDate">Time &amp; Date (Advanced)</option>
                     </select>
 
                     <div id="subGreeting" class="display-sub-setting">
@@ -298,8 +301,7 @@
                             <option value="numeric" data-i18n="dateNumeric">Numeric (e.g., 04/08/2026)</option>
                         </select>
                     </div>
-                </div>
-            </div>
+                </div> </div>
 
             <div class="setting-group">
                 <div class="setting-header-row">
