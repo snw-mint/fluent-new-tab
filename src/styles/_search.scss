@@ -3,13 +3,13 @@
 
 .search-bar {
     width: 100%;
-    height: 3.5625rem;
+    height: 4rem;
     background: $color-surface-muted;
     border: 0.25rem solid var(--search-bg);
     border-radius: $radius-xxl;
     box-shadow: rgba(0, 0, 0, 0.08) 0rem 0rem 0.125rem, rgb(0 0 0 / 4%) 0rem 0.25rem 0.25rem;
     @include flex-center;
-    padding: 0 0.8125rem 0 0.3125rem;
+    padding: 0 1rem 0 0.5rem;
     transition: box-shadow 0.2s ease, transform 0.1s ease;
     position: relative;
     z-index: 100;
@@ -30,7 +30,7 @@
     }
 
     &.compact {
-        height: 2.875rem;
+        height: 3.25rem;
         border-radius: calc(#{$radius-xxl} + 1px);
         border: none;
         background-color: var(--search-bg);
@@ -38,12 +38,12 @@
         .search-btn,
         .current-engine-btn,
         .voice-search-btn {
-            width: 2.25rem;
-            height: 2.25rem;
+            width: 2.5rem;
+            height: 2.5rem;
         }
 
         input {
-            font-size: 0.9375rem;
+            font-size: 1rem;
         }
     }
 
@@ -53,17 +53,17 @@
         border: none;
         outline: none;
         background: transparent;
-        font-size: 1.0625rem;
+        font-size: 1.125rem;
         font-family: inherit;
         color: var(--text-color);
-        padding-left: 0.25rem;
+        padding-left: 0.5rem;
     }
 
     .search-btn,
     .voice-search-btn {
         @include button-reset;
-        width: 2.75rem;
-        height: 2.75rem;
+        width: 3rem;
+        height: 3rem;
         @include flex-center;
         border-radius: $radius-round;
         transition: background 0.2s ease, color 0.2s ease;
@@ -90,8 +90,8 @@
         &::before {
             content: "";
             position: absolute;
-            width: 1.875rem;
-            height: 1.875rem;
+            width: 2.125rem;
+            height: 2.125rem;
             border-radius: $radius-round;
             background: transparent;
             box-shadow: 0 0 0 0 rgba($color-accent-alert, 0);
@@ -102,8 +102,8 @@
         }
 
         svg {
-            width: 1.625rem;
-            height: 1.625rem;
+            width: 1.75rem;
+            height: 1.75rem;
             position: relative;
             z-index: 1;
             transform: translateY(0.0625rem);
@@ -135,8 +135,8 @@
 
         .current-engine-btn {
             @include button-reset;
-            width: 2.75rem;
-            height: 2.75rem;
+            width: 3rem;
+            height: 3rem;
             border: 1px solid transparent;
             border-radius: $radius-md;
             @include flex-center;
@@ -153,8 +153,8 @@
             }
 
             img {
-                width: 1.5rem;
-                height: 1.5rem;
+                width: 1.625rem;
+                height: 1.625rem;
                 display: block;
                 object-fit: contain;
                 filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
@@ -230,7 +230,7 @@
 
     .suggestions-container {
         position: absolute;
-        top: 3.5rem;
+        top: 3.875rem;
         left: 0;
         width: 100%;
         padding: 0.375rem;
@@ -248,10 +248,10 @@
         }
 
         .suggestion-item {
-            padding: 0.625rem 1rem;
+            padding: 0.75rem 1rem;
             border-radius: $radius-xl;
             cursor: pointer;
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: var(--text-color);
             transition: all 0.1s ease;
             @include flex-center(0.75rem);
@@ -266,8 +266,8 @@
             }
 
             .suggestion-icon {
-                width: 1rem;
-                height: 1rem;
+                width: 1.125rem;
+                height: 1.125rem;
                 opacity: 0.6;
 
                 path {

@@ -1838,7 +1838,12 @@ if (displayTypeSelect) {
         localStorage.setItem("displayType", "time");
         localStorage.setItem("use12Hour", "true");
         localStorage.setItem("showSeconds", "false");
-      } else if (preset === 'date_text') {
+      } else if (preset === 'time_12_sec') {
+        localStorage.setItem("displayType", "time");
+        localStorage.setItem("use12Hour", "true");
+        localStorage.setItem("showSeconds", "true");
+      }
+      else if (preset === 'date_text') {
         localStorage.setItem("displayType", "date");
         localStorage.setItem("dateFormat", "text");
       } else if (preset === 'date_numeric') {
@@ -1846,8 +1851,11 @@ if (displayTypeSelect) {
         localStorage.setItem("dateFormat", "numeric");
       } else if (preset === 'timedate') {
         localStorage.setItem("displayType", "timedate");
-        // We don't overwrite the toggles here, we let the user configure them via the UI
       }
+
+      if (toggleSeconds) toggleSeconds.checked = localStorage.getItem("showSeconds") === "true";
+      if (toggle12Hour) toggle12Hour.checked = localStorage.getItem("use12Hour") === "true";
+      if (dateFormatSelect) dateFormatSelect.value = localStorage.getItem("dateFormat") || "text";
 
       updateDisplaySubSettingsUI(preset);
       initBrand();
