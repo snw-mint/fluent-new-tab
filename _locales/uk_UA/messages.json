@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Накладення зображення"
   },
+  "accentColorTitle": {
+    "message": "Акцентний колір"
+  },
+  "accentWallpaperOption": {
+    "message": "Завантажити з сайту Wallpaper"
+  },
+  "styleNone": {
+    "message": "Немає"
+  },
   "iconsStyleLabel": {
     "message": "Стиль іконки"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Закрити"
+  },
+  "weekday_0": {
+    "message": "неділя"
+  },
+  "weekday_1": {
+    "message": "понеділок"
+  },
+  "weekday_2": {
+    "message": "вівторок"
+  },
+  "weekday_3": {
+    "message": "середа"
+  },
+  "weekday_4": {
+    "message": "четвер"
+  },
+  "weekday_5": {
+    "message": "п'ятниця"
+  },
+  "weekday_6": {
+    "message": "субота"
+  },
+  "greetWeekMorning": {
+    "message": "Бажаємо вам чудового відпочинку на $WEEK$та $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Як справи з $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, як пройшов твій $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "Доброго ранку, $NAME$",
