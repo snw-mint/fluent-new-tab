@@ -20,6 +20,15 @@
   "overlayLabel": {
     "message": "Bildöverlägg"
   },
+  "accentColorTitle": {
+    "message": "Accentfärg"
+  },
+  "accentWallpaperOption": {
+    "message": "Hämta från bakgrundsbild"
+  },
+  "styleNone": {
+    "message": "Inget"
+  },
   "iconsStyleLabel": {
     "message": "Ikonstil"
   },
@@ -262,6 +271,66 @@
   },
   "warningClose": {
     "message": "Stäng"
+  },
+  "weekday_0": {
+    "message": "söndag"
+  },
+  "weekday_1": {
+    "message": "måndag"
+  },
+  "weekday_2": {
+    "message": "tisdag"
+  },
+  "weekday_3": {
+    "message": "onsdag"
+  },
+  "weekday_4": {
+    "message": "torsdag"
+  },
+  "weekday_5": {
+    "message": "fredag"
+  },
+  "weekday_6": {
+    "message": "lördag"
+  },
+  "greetWeekMorning": {
+    "message": "Ha en trevlig dag! $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Hur går det med din $WEEK$ , $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, hur var din $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
   },
   "greetMorning1": {
     "message": "God morgon, $NAME$",
