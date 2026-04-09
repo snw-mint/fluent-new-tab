@@ -56,5 +56,6 @@ const APP_KEYS: string[] = [
     'userLanguage', 'searchEngine', 'searchBarVisible', 'suggestionsEnabled', 'clearSearchEnabled',
     'compactBarEnabled', 'voiceSearchEnabled', 'weatherUnit', 'wallpaperEnabled',
     'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled', 'blurDisabled', 'reducedEffectsEnabled',
-    'accentColorEnabled', 'accentColorMode', 'accentColorValue', 'accentColorSurfaces'
+    'accentColorEnabled', 'accentColorMode', 'accentColorValue', 'accentColorSurfaces', 'displayEnabled', 'displayType', 
+    'showSeconds', 'use12Hour', 'dateFormat'
 ];

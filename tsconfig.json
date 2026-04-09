@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
+    "rootDir": "./src",
     "target": "ES2020",
     "lib": ["ES2020", "DOM"],
     "module": "none",
@@ -23,7 +25,7 @@
     "src/core/wallpaper-storage.ts",
     "src/core/launcher.ts",
     "src/core/search.ts",
-    "src/core/greeting.ts",
+    "src/core/display.ts",
     "src/core/event-bindings.ts",
     "src/script.ts"
   ]

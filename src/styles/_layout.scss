@@ -27,6 +27,35 @@
     margin: 0;
 }
 
+.time-date-text {
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    
+    .time-date-sub {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 400;
+        opacity: 0.7;
+        margin-top: 0.5rem;
+        letter-spacing: normal;
+    }
+
+    .time-seconds {
+        opacity: 0.5;
+    }
+
+    .time-ampm {
+        font-size: 0.35em;
+        margin-left: 0.15rem;
+        opacity: 0.8;
+        font-weight: 600;
+        text-transform: uppercase;
+        vertical-align: super;
+    }
+}
+
 .greeting-icon {
     width: 3rem;
     height: 3rem;
