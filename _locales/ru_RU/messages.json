@@ -24,7 +24,7 @@
     "message": "Акцентный цвет"
   },
   "accentWallpaperOption": {
-    "message": "Скачать обои"
+    "message": "Извлечь из обоев"
   },
   "styleNone": {
     "message": "Нет"
@@ -36,25 +36,25 @@
     "message": "Погода"
   },
   "shortcutsTitle": {
-    "message": "Горячие клавиши"
+    "message": "Ярлыки"
   },
   "enableFoldersLabel": {
     "message": "Включить папки"
   },
   "rows1": {
-    "message": "1 ряд"
+    "message": "1 строка"
   },
   "rows2": {
-    "message": "2 ряда"
+    "message": "2 строки"
   },
   "rowsLabel": {
-    "message": "Ряды"
+    "message": "Строки"
   },
   "rows3": {
-    "message": "3 ряда"
+    "message": "3 строки"
   },
   "rows4": {
-    "message": "4 ряда"
+    "message": "4 строки"
   },
   "appLauncherTitle": {
     "message": "Лаунчер приложений"
@@ -69,7 +69,7 @@
     "message": "Предложения"
   },
   "clearSearchOption": {
-    "message": "Чистый поиск (Google)"
+    "message": "Обычный поиск (Google)"
   },
   "compactBarOption": {
     "message": "Компактная панель"
@@ -96,10 +96,10 @@
     "message": "Резервное копирование данных"
   },
   "exportOption": {
-    "message": "Экспорт"
+    "message": "Экспортировать"
   },
   "importOption": {
-    "message": "Импорт"
+    "message": "Импортировать"
   },
   "addFolderTitle": {
     "message": "Добавить папку"
@@ -168,10 +168,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "см. журнал изменений"
+    "message": "Посмотреть список изменений"
   },
   "nasaApodVideoNotice": {
-    "message": "Сегодняшний APOD — это видео или недоступен. Сохраняем текущие обои."
+    "message": "Сегодняшнее APOD — это видео или недоступно. Вместо этого сохранены ваши текущие обои."
   },
   "warningDeleteFolderTitle": {
     "message": "Удалить папку"
@@ -225,13 +225,13 @@
     "message": "Для этой экосистемы нет доступных приложений."
   },
   "shortcutsLimitReached": {
-    "message": "Предельное количество ярлыков достигнуто!"
+    "message": "Достигнут лимит ярлыков!"
   },
   "warningGridFullTitle": {
     "message": "Сетка заполнена"
   },
   "warningGridFullMessage": {
-    "message": "Вы достигли максимального предела $LIMIT$ ярлыков на главном экране. Удалите некоторые элементы или сгруппируйте их в папку, чтобы освободить место.",
+    "message": "Вы достигли максимального лимита в $LIMIT$ ярлыков на главном экране. Удалите некоторые элементы или сгруппируйте их в папку, чтобы освободить место.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -243,7 +243,7 @@
     "message": "Папка переполнена"
   },
   "warningFolderFullMessage": {
-    "message": "Эта папка достигла абсолютного предела $LIMIT$ элементов. Пожалуйста, удалите некоторые ярлыки, прежде чем добавлять новые.",
+    "message": "Эта папка достигла максимального лимита в $LIMIT$ элементов. Пожалуйста, удалите некоторые ярлыки перед добавлением новых.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -273,28 +273,28 @@
     "message": "Закрыть"
   },
   "weekday_0": {
-    "message": "воскресенье"
+    "message": "Воскресенье"
   },
   "weekday_1": {
-    "message": "понедельник"
+    "message": "Понедельник"
   },
   "weekday_2": {
-    "message": "вторник"
+    "message": "Вторник"
   },
   "weekday_3": {
-    "message": "среда"
+    "message": "Среда"
   },
   "weekday_4": {
-    "message": "четверг"
+    "message": "Четверг"
   },
   "weekday_5": {
-    "message": "пятница"
+    "message": "Пятница"
   },
   "weekday_6": {
-    "message": "суббота"
+    "message": "Суббота"
   },
   "greetWeekMorning": {
-    "message": "Желаем вам приятного просмотра: $WEEK$, $NAME$!",
+    "message": "Сегодня $WEEK$. Отличного дня, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Как у тебя дела, $WEEK$ , $NAME$?",
+    "message": "Как проходит ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, как прошло ваше мероприятие « $WEEK$»?",
+    "message": "Как прошел ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Проснись и пой, $NAME$!",
+    "message": "Начинается новый день, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -351,7 +351,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Желаю вам прекрасного дня, $NAME$",
+    "message": "Прекрасного дня, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -360,7 +360,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Привет, $NAME$! Готов к сегодняшнему дню?",
+    "message": "Привет, $NAME$! Готовы к новому дню?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Давайте начнем день правильно, $NAME$",
+    "message": "Начнем этот день отлично, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Рад тебя видеть, $NAME$",
+    "message": "Приятно вас видеть, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Продолжайте в том же духе, $NAME$!",
+    "message": "Так держать, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Пришло время расслабиться, $NAME$",
+    "message": "Время отдыхать, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -450,7 +450,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Время расслабиться, $NAME$",
+    "message": "Самое время для отдыха, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetNight1": {
-    "message": "Надеюсь, у вас спокойная ночь, $NAME$",
+    "message": "Спокойной ночи, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Все еще не спишь, $NAME$? Скорее иди отдыхай!",
+    "message": "Все еще не спите, $NAME$? Пора отдыхать!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -486,7 +486,7 @@
     }
   },
   "greetNight3": {
-    "message": "Наслаждайтесь тихими часами, $NAME$",
+    "message": "Наслаждайтесь тишиной, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -504,7 +504,7 @@
     }
   },
   "greetNight5": {
-    "message": "Сегодня поздно ложишься, $NAME$?",
+    "message": "Засиделись допоздна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

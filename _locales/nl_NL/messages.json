@@ -24,7 +24,7 @@
     "message": "Accentkleur"
   },
   "accentWallpaperOption": {
-    "message": "Download als achtergrond"
+    "message": "Extraheren uit achtergrond"
   },
   "styleNone": {
     "message": "Geen"
@@ -69,7 +69,7 @@
     "message": "Suggesties"
   },
   "clearSearchOption": {
-    "message": "Schone zoekopdracht (Google)"
+    "message": "Eenvoudig zoeken (Google)"
   },
   "compactBarOption": {
     "message": "Compacte balk"
@@ -141,10 +141,10 @@
     "message": "Zoek op het web"
   },
   "namePlaceholder": {
-    "message": "Uw naam (optioneel)"
+    "message": "Je naam (optioneel)"
   },
   "cityPlaceholder": {
-    "message": "Uw stad"
+    "message": "Je stad"
   },
   "addShortcutLabel": {
     "message": "Toevoegen"
@@ -159,7 +159,7 @@
     "message": "Meer opties"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$, ",
+    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -168,16 +168,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "zie changelog"
+    "message": "Bekijk changelog"
   },
   "nasaApodVideoNotice": {
-    "message": "De APOD van vandaag is een video of is niet beschikbaar. In plaats daarvan behoudt u uw huidige achtergrond."
+    "message": "De APOD van vandaag is een video of is niet beschikbaar. Je huidige achtergrond wordt in plaats daarvan behouden."
   },
   "warningDeleteFolderTitle": {
     "message": "Map verwijderen"
   },
   "warningDeleteFolderMessage": {
-    "message": "Weet u zeker dat u de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
+    "message": "Weet je zeker dat je de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -189,7 +189,7 @@
     "message": "Mappen uitschakelen?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij u een back-up hebt."
+    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij je een back-up hebt."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Mappen verwijderen"
@@ -207,7 +207,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in uw snelkoppelingen aangemaakt. Doorgaan?",
+    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in je snelkoppelingen aangemaakt. Doorgaan?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -243,7 +243,7 @@
     "message": "Map is vol"
   },
   "warningFolderFullMessage": {
-    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat u nieuwe toevoegt.",
+    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat je nieuwe toevoegt.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -255,7 +255,7 @@
     "message": "Back-up herstellen?"
   },
   "warningRestoreBackupMessage": {
-    "message": "Hierdoor worden uw huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
+    "message": "Hierdoor worden je huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
   },
   "warningRestoreBackupConfirm": {
     "message": "Herstellen"
@@ -273,28 +273,28 @@
     "message": "Sluiten"
   },
   "weekday_0": {
-    "message": "zondag"
+    "message": "Zondag"
   },
   "weekday_1": {
-    "message": "maandag"
+    "message": "Maandag"
   },
   "weekday_2": {
-    "message": "dinsdag"
+    "message": "Dinsdag"
   },
   "weekday_3": {
-    "message": "woensdag"
+    "message": "Woensdag"
   },
   "weekday_4": {
-    "message": "donderdag"
+    "message": "Donderdag"
   },
   "weekday_5": {
-    "message": "vrijdag"
+    "message": "Vrijdag"
   },
   "weekday_6": {
-    "message": "zaterdag"
+    "message": "Zaterdag"
   },
   "greetWeekMorning": {
-    "message": "Veel plezier op $WEEK$en $NAME$!",
+    "message": "Vandaag is het $WEEK$. Fijne dag, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Hoe gaat het met je $WEEK$ , $NAME$?",
+    "message": "Hoe verloopt je $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, hoe was je $WEEK$?",
+    "message": "Hoe was je $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Opstaan, $NAME$!",
+    "message": "Een nieuwe dag begint, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Ik wens je een rustige avond, $NAME$",
+    "message": "Een rustige avond gewenst, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Nog wakker, $NAME$? Rust snel goed uit!",
+    "message": "Nog wakker, $NAME$? Slaap lekker straks!",
     "placeholders": {
       "name": {
         "content": "$1",

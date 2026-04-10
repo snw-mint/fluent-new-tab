@@ -24,7 +24,7 @@
     "message": "Kolor akcentujący"
   },
   "accentWallpaperOption": {
-    "message": "Pobierz z tapety"
+    "message": "Wyodrębnij z tapety"
   },
   "styleNone": {
     "message": "Brak"
@@ -42,19 +42,19 @@
     "message": "Włącz foldery"
   },
   "rows1": {
-    "message": "1 rząd"
+    "message": "1 wiersz"
   },
   "rows2": {
-    "message": "2 rzędy"
+    "message": "2 wiersze"
   },
   "rowsLabel": {
-    "message": "Rzędy"
+    "message": "Wiersze"
   },
   "rows3": {
-    "message": "3 rzędy"
+    "message": "3 wiersze"
   },
   "rows4": {
-    "message": "4 rzędy"
+    "message": "4 wiersze"
   },
   "appLauncherTitle": {
     "message": "Launcher aplikacji"
@@ -69,7 +69,7 @@
     "message": "Sugestie"
   },
   "clearSearchOption": {
-    "message": "Czyste wyszukiwanie (Google)"
+    "message": "Proste wyszukiwanie (Google)"
   },
   "compactBarOption": {
     "message": "Kompaktowy pasek"
@@ -96,10 +96,10 @@
     "message": "Kopia zapasowa danych"
   },
   "exportOption": {
-    "message": "Eksport"
+    "message": "Eksportuj"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importuj"
   },
   "addFolderTitle": {
     "message": "Dodaj folder"
@@ -123,7 +123,7 @@
     "message": "Nazwa"
   },
   "shortcutUrlLabel": {
-    "message": "adres URL"
+    "message": "Adres URL"
   },
   "addFaviconLabel": {
     "message": "Ikona niestandardowa"
@@ -159,7 +159,7 @@
     "message": "Więcej opcji"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$, ",
+    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -168,10 +168,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "zobacz dziennik zmian"
+    "message": "Zobacz dziennik zmian"
   },
   "nasaApodVideoNotice": {
-    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowaj aktualną tapetę."
+    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowana zostanie Twoja obecna tapeta."
   },
   "warningDeleteFolderTitle": {
     "message": "Usuń folder"
@@ -243,7 +243,7 @@
     "message": "Folder jest pełny"
   },
   "warningFolderFullMessage": {
-    "message": "Ten folder osiągnął maksymalną liczbę $LIMIT$ elementów. Proszę usunąć niektóre skróty przed dodaniem nowych.",
+    "message": "Ten folder osiągnął maksymalny limit $LIMIT$ elementów. Usuń kilka skrótów przed dodaniem nowych.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -273,28 +273,28 @@
     "message": "Zamknij"
   },
   "weekday_0": {
-    "message": "niedziela"
+    "message": "Niedziela"
   },
   "weekday_1": {
-    "message": "poniedziałek"
+    "message": "Poniedziałek"
   },
   "weekday_2": {
-    "message": "wtorek"
+    "message": "Wtorek"
   },
   "weekday_3": {
-    "message": "środa"
+    "message": "Środa"
   },
   "weekday_4": {
-    "message": "czwartek"
+    "message": "Czwartek"
   },
   "weekday_5": {
-    "message": "piątek"
+    "message": "Piątek"
   },
   "weekday_6": {
-    "message": "sobota"
+    "message": "Sobota"
   },
   "greetWeekMorning": {
-    "message": "Życzę udanej zabawy na stronach $WEEK$i $NAME$!",
+    "message": "Dziś jest $WEEK$. Miłego dnia, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Jak tam idzie z $WEEK$ , $NAME$?",
+    "message": "Jak Ci mija $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$Jak ci się podobała strona $WEEK$?",
+    "message": "Jak Ci minął $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Wstawaj i świeć, $NAME$!",
+    "message": "Zaczyna się nowy dzień, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -351,7 +351,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Życzę Ci cudownego dnia, $NAME$",
+    "message": "Cudownego dnia, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -360,7 +360,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Witaj, $NAME$! Gotowy na dzisiejszy dzień?",
+    "message": "Witaj, $NAME$! Wszystko gotowe na dziś?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Zacznijmy dzień dobrze, $NAME$",
+    "message": "Zacznijmy ten dzień dobrze, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Miło cię widzieć, $NAME$",
+    "message": "Miło Cię widzieć, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Tak trzymaj, $NAME$!",
+    "message": "Oby tak dalej, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -414,7 +414,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Zachowaj koncentrację i produktywność, $NAME$",
+    "message": "Owocnej pracy, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Czas się zrelaksować, $NAME$",
+    "message": "Czas na relaks, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Życzę spokojnego wieczoru, $NAME$",
+    "message": "Spokojnego wieczoru, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetNight1": {
-    "message": "Mam nadzieję, że spędzasz spokojną noc, $NAME$",
+    "message": "Spokojnej nocy, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Nadal nie śpisz, $NAME$? Życzę spokojnego snu!",
+    "message": "Jeszcze nie śpisz, $NAME$? Czas na odpoczynek!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -495,7 +495,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobranoc, $NAME$. Do zobaczenia jutro!",
+    "message": "Dobranoc, $NAME$. Do jutra!",
     "placeholders": {
       "name": {
         "content": "$1",

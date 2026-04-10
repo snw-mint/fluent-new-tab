@@ -24,7 +24,7 @@
     "message": "Accentfärg"
   },
   "accentWallpaperOption": {
-    "message": "Hämta från bakgrundsbild"
+    "message": "Extrahera från bakgrund"
   },
   "styleNone": {
     "message": "Inget"
@@ -69,7 +69,7 @@
     "message": "Förslag"
   },
   "clearSearchOption": {
-    "message": "Ren sökning (Google)"
+    "message": "Enkel sökning (Google)"
   },
   "compactBarOption": {
     "message": "Kompakt fält"
@@ -96,10 +96,10 @@
     "message": "Säkerhetskopiering av data"
   },
   "exportOption": {
-    "message": "Export"
+    "message": "Exportera"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importera"
   },
   "addFolderTitle": {
     "message": "Lägg till mapp"
@@ -168,7 +168,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "se ändringslogg"
+    "message": "Visa ändringsloggen"
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD är en video eller otillgänglig. Vi behåller din nuvarande bakgrundsbild istället."
@@ -195,10 +195,10 @@
     "message": "Ta bort mappar"
   },
   "warningKeepEnabled": {
-    "message": "Håll aktiverat"
+    "message": "Behåll aktiverat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Lägg till $ECOSYSTEM$‑appar?",
+    "message": "Lägg till $ECOSYSTEM$-appar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -207,7 +207,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Detta kommer att skapa en mapp med 9 $ECOSYSTEM$ appar i dina genvägar. Fortsätta?",
+    "message": "Detta skapar en mapp med 9 $ECOSYSTEM$-appar bland dina genvägar. Vill du fortsätta?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -273,28 +273,28 @@
     "message": "Stäng"
   },
   "weekday_0": {
-    "message": "söndag"
+    "message": "Söndag"
   },
   "weekday_1": {
-    "message": "måndag"
+    "message": "Måndag"
   },
   "weekday_2": {
-    "message": "tisdag"
+    "message": "Tisdag"
   },
   "weekday_3": {
-    "message": "onsdag"
+    "message": "Onsdag"
   },
   "weekday_4": {
-    "message": "torsdag"
+    "message": "Torsdag"
   },
   "weekday_5": {
-    "message": "fredag"
+    "message": "Fredag"
   },
   "weekday_6": {
-    "message": "lördag"
+    "message": "Lördag"
   },
   "greetWeekMorning": {
-    "message": "Ha en trevlig dag! $WEEK$, $NAME$!",
+    "message": "Idag är det $WEEK$. Ha en fantastisk dag, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Hur går det med din $WEEK$ , $NAME$?",
+    "message": "Hur har din $WEEK$ varit hittills, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, hur var din $WEEK$?",
+    "message": "Hur var din $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Upp och hoppa, $NAME$!",
+    "message": "En ny dag väntar, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -360,7 +360,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Hej, $NAME$! Är du redo för idag?",
+    "message": "Hej $NAME$! Är du redo för dagen?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Låt oss börja dagen på rätt sätt, $NAME$",
+    "message": "Låt oss få en bra start på dagen, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Är du fortfarande vaken, $NAME$? Vila dig snart!",
+    "message": "Är du fortfarande vaken, $NAME$? Dags att vila snart!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -504,7 +504,7 @@
     }
   },
   "greetNight5": {
-    "message": "Upp sent ikväll, $NAME$?",
+    "message": "Uppe sent ikväll, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

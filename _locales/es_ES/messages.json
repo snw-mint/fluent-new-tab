@@ -24,7 +24,7 @@
     "message": "Color de contraste"
   },
   "accentWallpaperOption": {
-    "message": "Descargar como fondo de pantalla"
+    "message": "Extraer del fondo de pantalla"
   },
   "styleNone": {
     "message": "Ninguno"
@@ -69,7 +69,7 @@
     "message": "Sugerencias"
   },
   "clearSearchOption": {
-    "message": "Búsqueda limpia (Google)"
+    "message": "Búsqueda simple (Google)"
   },
   "compactBarOption": {
     "message": "Barra compacta"
@@ -159,7 +159,7 @@
     "message": "Más opciones"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab se ha actualizado a la versión $VERSION$, ",
+    "message": "Fluent New Tab se ha actualizado a la versión $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -279,7 +279,7 @@
     "message": "Lunes"
   },
   "weekday_2": {
-    "message": "martes"
+    "message": "Martes"
   },
   "weekday_3": {
     "message": "Miércoles"
@@ -294,7 +294,7 @@
     "message": "Sábado"
   },
   "greetWeekMorning": {
-    "message": "¡Que lo pases muy bien en $WEEK$y $NAME$!",
+    "message": "¡Que tengas un excelente $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "¿Cómo va tu $WEEK$ , $NAME$?",
+    "message": "¿Cómo va tu $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$¿Qué tal te fue en $WEEK$?",
+    "message": "¿Qué tal tu $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "¡Levántate y brilla, $NAME$!",
+    "message": "¡Empieza un nuevo día, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Es hora de relajarse. $NAME$",
+    "message": "Es hora de relajarse, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -495,7 +495,7 @@
     }
   },
   "greetNight4": {
-    "message": "Buenas noches, $NAME$, ¡Hasta mañana!",
+    "message": "Buenas noches, $NAME$. ¡Hasta mañana!",
     "placeholders": {
       "name": {
         "content": "$1",

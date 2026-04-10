@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "E aí $NAME$, como foi o sua $WEEK$?",
+    "message": "E aí $NAME$, como foi a sua $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",

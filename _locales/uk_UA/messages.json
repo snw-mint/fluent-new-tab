@@ -24,7 +24,7 @@
     "message": "Акцентний колір"
   },
   "accentWallpaperOption": {
-    "message": "Завантажити з сайту Wallpaper"
+    "message": "Витягти зі шпалер"
   },
   "styleNone": {
     "message": "Немає"
@@ -42,19 +42,19 @@
     "message": "Увімкнути папки"
   },
   "rows1": {
-    "message": "1 ряд"
+    "message": "1 рядок"
   },
   "rows2": {
-    "message": "2 ряди"
+    "message": "2 рядки"
   },
   "rowsLabel": {
-    "message": "Ряди"
+    "message": "Рядки"
   },
   "rows3": {
-    "message": "3 ряди"
+    "message": "3 рядки"
   },
   "rows4": {
-    "message": "4 ряди"
+    "message": "4 рядки"
   },
   "appLauncherTitle": {
     "message": "Лаунчер додатків"
@@ -69,7 +69,7 @@
     "message": "Пропозиції"
   },
   "clearSearchOption": {
-    "message": "Чистий пошук (Google)"
+    "message": "Звичайний пошук (Google)"
   },
   "compactBarOption": {
     "message": "Компактна панель"
@@ -96,10 +96,10 @@
     "message": "Резервне копіювання даних"
   },
   "exportOption": {
-    "message": "Експорт"
+    "message": "Експортувати"
   },
   "importOption": {
-    "message": "Імпорт"
+    "message": "Імпортувати"
   },
   "addFolderTitle": {
     "message": "Додати папку"
@@ -108,7 +108,7 @@
     "message": "Редагувати папку"
   },
   "chooseTypeTitle": {
-    "message": "Створити нове"
+    "message": "Створити новий"
   },
   "backLabel": {
     "message": "Назад"
@@ -126,10 +126,10 @@
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Іконка на замовлення"
+    "message": "Власний значок"
   },
   "faviconUrlLabel": {
-    "message": "URL-адреса піктограми"
+    "message": "URL-адреса значка"
   },
   "btnCancel": {
     "message": "Скасувати"
@@ -141,7 +141,7 @@
     "message": "Пошук в Інтернеті"
   },
   "namePlaceholder": {
-    "message": "Ваше ім'я (не обов'язково)"
+    "message": "Ваше ім'я (необов'язково)"
   },
   "cityPlaceholder": {
     "message": "Ваше місто"
@@ -168,10 +168,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "дивитися журнал змін"
+    "message": "Переглянути журнал змін"
   },
   "nasaApodVideoNotice": {
-    "message": "Сьогоднішній APOD — це відео або недоступний. Залишаємо поточні шпалери."
+    "message": "Сьогоднішній APOD — це відео або він недоступний. Натомість залишаються ваші поточні шпалери."
   },
   "warningDeleteFolderTitle": {
     "message": "Видалити папку"
@@ -189,13 +189,13 @@
     "message": "Вимкнути папки?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Всі папки та їх ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
+    "message": "Усі папки та їхні ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Видалити папки"
   },
   "warningKeepEnabled": {
-    "message": "Залишити увімкненим"
+    "message": "Залишити увімкненими"
   },
   "warningAddEcosystemAppsTitle": {
     "message": "Додати додатки $ECOSYSTEM$?",
@@ -225,13 +225,13 @@
     "message": "Для цієї екосистеми немає доступних додатків."
   },
   "shortcutsLimitReached": {
-    "message": "Досягнуто межу скорочень!"
+    "message": "Досягнуто ліміту ярликів!"
   },
   "warningGridFullTitle": {
     "message": "Сітка заповнена"
   },
   "warningGridFullMessage": {
-    "message": "Ви досягли максимального обмеження $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
+    "message": "Ви досягли максимального ліміту в $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -243,7 +243,7 @@
     "message": "Папка переповнена"
   },
   "warningFolderFullMessage": {
-    "message": "Ця папка досягла абсолютного обмеження $LIMIT$ елементів. Будь ласка, видаліть деякі ярлики, перш ніж додавати нові.",
+    "message": "Ця папка досягла максимального ліміту в $LIMIT$ елементів. Будь ласка, видаліть кілька ярликів перед додаванням нових.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -264,7 +264,7 @@
     "message": "Недійсний файл резервної копії"
   },
   "warningInvalidBackupMessage": {
-    "message": "Вибраний файл не є дійсним резервним копією."
+    "message": "Вибраний файл не є дійсною резервною копією."
   },
   "warningUnderstood": {
     "message": "Зрозуміло"
@@ -273,28 +273,28 @@
     "message": "Закрити"
   },
   "weekday_0": {
-    "message": "неділя"
+    "message": "Неділя"
   },
   "weekday_1": {
-    "message": "понеділок"
+    "message": "Понеділок"
   },
   "weekday_2": {
-    "message": "вівторок"
+    "message": "Вівторок"
   },
   "weekday_3": {
-    "message": "середа"
+    "message": "Середа"
   },
   "weekday_4": {
-    "message": "четвер"
+    "message": "Четвер"
   },
   "weekday_5": {
-    "message": "п'ятниця"
+    "message": "П'ятниця"
   },
   "weekday_6": {
-    "message": "субота"
+    "message": "Субота"
   },
   "greetWeekMorning": {
-    "message": "Бажаємо вам чудового відпочинку на $WEEK$та $NAME$!",
+    "message": "Сьогодні $WEEK$. Чудового дня, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Як справи з $WEEK$ , $NAME$?",
+    "message": "Як проходить ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, як пройшов твій $WEEK$?",
+    "message": "Як пройшов ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Прокидайся і посміхайся, $NAME$!",
+    "message": "Починається новий день, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -360,7 +360,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Привіт, $NAME$! Готові до сьогоднішнього дня?",
+    "message": "Вітаємо, $NAME$! Готові до нового дня?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Почнемо день правильно, $NAME$",
+    "message": "Почнімо цей день чудово, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Радий бачити вас, $NAME$",
+    "message": "Раді бачити вас, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Продовжуйте у тому ж дусі, $NAME$!",
+    "message": "Продовжуйте в тому ж дусі, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Настав час відпочити, $NAME$",
+    "message": "Час відпочити, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Ще не спиш, $NAME$? Скоро відпочинь!",
+    "message": "Ще не спите, $NAME$? Час відпочивати!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -495,7 +495,7 @@
     }
   },
   "greetNight4": {
-    "message": "Доброї ночі, $NAME$. До завтра!",
+    "message": "Надобраніч, $NAME$. До завтра!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -504,7 +504,7 @@
     }
   },
   "greetNight5": {
-    "message": "Сьогодні пізно лягаю спати, $NAME$?",
+    "message": "Засиділися допізна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

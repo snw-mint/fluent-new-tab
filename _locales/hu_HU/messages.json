@@ -24,7 +24,7 @@
     "message": "Kiemelő szín"
   },
   "accentWallpaperOption": {
-    "message": "Háttérképek"
+    "message": "Kinyerés a háttérképből"
   },
   "styleNone": {
     "message": "Nincs"
@@ -69,10 +69,10 @@
     "message": "Javaslatok"
   },
   "clearSearchOption": {
-    "message": "Tiszta keresés (Google)"
+    "message": "Egyszerű keresés (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakt bár"
+    "message": "Kompakt sáv"
   },
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
@@ -96,10 +96,10 @@
     "message": "Adatmentés"
   },
   "exportOption": {
-    "message": "Export"
+    "message": "Exportálás"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importálás"
   },
   "addFolderTitle": {
     "message": "Mappa hozzáadása"
@@ -141,10 +141,10 @@
     "message": "Keresés az interneten"
   },
   "namePlaceholder": {
-    "message": "A neved (opcionális)"
+    "message": "Neved (opcionális)"
   },
   "cityPlaceholder": {
-    "message": "A te városod"
+    "message": "Városod"
   },
   "addShortcutLabel": {
     "message": "Hozzáadás"
@@ -159,7 +159,7 @@
     "message": "További lehetőségek"
   },
   "updateNoticePrefix": {
-    "message": "A Fluent New Tab frissült a $VERSION$ verzióra, ",
+    "message": "A Fluent New Tab frissült a $VERSION$ verzióra. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -168,7 +168,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "lásd a változásnaplót"
+    "message": "Változásnapló megtekintése"
   },
   "nasaApodVideoNotice": {
     "message": "A mai APOD egy videó, vagy nem elérhető. Helyette a jelenlegi háttérképet tartjuk meg."
@@ -177,7 +177,7 @@
     "message": "Mappa törlése"
   },
   "warningDeleteFolderMessage": {
-    "message": "Biztosan törölni szeretné a „$FOLDER$” mappát? A mappában található összes parancsikon törlésre kerül.",
+    "message": "Biztosan törölni szeretnéd a(z) „$FOLDER$” mappát? A benne lévő összes parancsikon törlésre kerül.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -195,7 +195,7 @@
     "message": "Mappák törlése"
   },
   "warningKeepEnabled": {
-    "message": "Engedélyezve tartás"
+    "message": "Maradjon engedélyezve"
   },
   "warningAddEcosystemAppsTitle": {
     "message": "$ECOSYSTEM$ alkalmazások hozzáadása?",
@@ -207,7 +207,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Ezzel egy mappa jön létre, amelyben 9 $ECOSYSTEM$ alkalmazás található a parancsikonok között. Folytatni kívánja?",
+    "message": "Ezzel egy mappa jön létre 9 $ECOSYSTEM$ alkalmazással a parancsikonjaid között. Folytatni szeretnéd?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -231,7 +231,7 @@
     "message": "A rács megtelt"
   },
   "warningGridFullMessage": {
-    "message": "Elérte a főképernyőn a $LIMIT$ parancsikonok maximális számát. Töröljön néhány elemet, vagy csoportosítsa őket egy mappába, hogy helyet szabadítson fel.",
+    "message": "Elérted a főképernyőn a $LIMIT$ parancsikonos maximális korlátot. Törölj néhány elemet, vagy csoportosítsd őket egy mappába, hogy helyet szabadíts fel.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -243,7 +243,7 @@
     "message": "A mappa megtelt"
   },
   "warningFolderFullMessage": {
-    "message": "Ez a mappa elérte a $LIMIT$ elemek abszolút határát. Kérjük, távolítson el néhány parancsikont, mielőtt újakat adna hozzá.",
+    "message": "Ez a mappa elérte a $LIMIT$ elem maximális határát. Kérlek, távolíts el néhány parancsikont, mielőtt újakat adnál hozzá.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -255,7 +255,7 @@
     "message": "Biztonsági másolat visszaállítása?"
   },
   "warningRestoreBackupMessage": {
-    "message": "Ezzel a jelenlegi beállítások és parancsikonok helyébe a biztonsági másolat fájljának adatai lépnek."
+    "message": "Ez felülírja a jelenlegi beállításaidat és parancsikonjaidat a biztonsági másolat fájljában lévő adatokkal."
   },
   "warningRestoreBackupConfirm": {
     "message": "Visszaállítás"
@@ -273,28 +273,28 @@
     "message": "Bezárás"
   },
   "weekday_0": {
-    "message": "vasárnap"
+    "message": "Vasárnap"
   },
   "weekday_1": {
-    "message": "hétfő"
+    "message": "Hétfő"
   },
   "weekday_2": {
-    "message": "kedd"
+    "message": "Kedd"
   },
   "weekday_3": {
-    "message": "szerda"
+    "message": "Szerda"
   },
   "weekday_4": {
-    "message": "csütörtök"
+    "message": "Csütörtök"
   },
   "weekday_5": {
-    "message": "péntek"
+    "message": "Péntek"
   },
   "weekday_6": {
-    "message": "szombat"
+    "message": "Szombat"
   },
   "greetWeekMorning": {
-    "message": "Kellemes szórakozást a $WEEK$és a $NAME$ oldalakon!",
+    "message": "Ma $WEEK$ van. Legyen nagyszerű napod, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Hogy megy a $WEEK$ oldalad, $NAME$?",
+    "message": "Hogy telik a $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$Na, milyen volt a $WEEK$?",
+    "message": "Milyen volt a $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -333,7 +333,7 @@
     }
   },
   "greetMorning1": {
-    "message": "Jó reggelt! $NAME$",
+    "message": "Jó reggelt, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ébredj és ragyogj, $NAME$!",
+    "message": "Új nap vár, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -351,7 +351,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Kívánok Önnek egy csodálatos napot, $NAME$",
+    "message": "Csodálatos napot kívánok, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Kezdjük jól a napot! $NAME$",
+    "message": "Kezdjük jól a napot, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Jó napot kívánok! $NAME$",
+    "message": "Szép délutánt, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "További sok sikert, $NAME$!",
+    "message": "Csak így tovább, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -414,7 +414,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Maradjon koncentrált és produktív, $NAME$",
+    "message": "Maradj fókuszált és produktív, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Jó estét! $NAME$",
+    "message": "Jó estét, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Kellemes estét kívánok, $NAME$",
+    "message": "Nyugodt estét kívánok, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -459,7 +459,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Élvezze az estét! $NAME$",
+    "message": "Élvezd az estét, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetNight1": {
-    "message": "Remélem, nyugodt éjszakád van, $NAME$",
+    "message": "Remélem, nyugodt éjszakád lesz, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -486,7 +486,7 @@
     }
   },
   "greetNight3": {
-    "message": "Élvezze a csendes órákat, $NAME$",
+    "message": "Élvezd a csendes órákat, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",

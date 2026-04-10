@@ -24,7 +24,7 @@
     "message": "Vurgu Rengi"
   },
   "accentWallpaperOption": {
-    "message": "Duvar kağıdından al"
+    "message": "Duvar kağıdından çıkar"
   },
   "styleNone": {
     "message": "Yok"
@@ -42,22 +42,22 @@
     "message": "Klasörleri Etkinleştir"
   },
   "rows1": {
-    "message": "1 Sıra"
+    "message": "1 Satır"
   },
   "rows2": {
-    "message": "2 Sıra"
+    "message": "2 Satır"
   },
   "rowsLabel": {
     "message": "Satırlar"
   },
   "rows3": {
-    "message": "3 Sıra"
+    "message": "3 Satır"
   },
   "rows4": {
     "message": "4 Satır"
   },
   "appLauncherTitle": {
-    "message": "Uygulama başlatıcısı"
+    "message": "Uygulama Başlatıcı"
   },
   "ecosystemLabel": {
     "message": "Ekosistem"
@@ -69,22 +69,22 @@
     "message": "Öneriler"
   },
   "clearSearchOption": {
-    "message": "Temiz arama (Google)"
+    "message": "Sade arama (Google)"
   },
   "compactBarOption": {
     "message": "Kompakt çubuk"
   },
   "voiceSearchOption": {
-    "message": "Sesli arama"
+    "message": "Sesli Arama"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Etkileri azaltın"
+    "message": "Efektleri azalt"
   },
   "reduceMotionTitle": {
-    "message": "Hareketi azaltın"
+    "message": "Hareketi azalt"
   },
   "reduceBlurOption": {
-    "message": "Bulanıklığı azaltın"
+    "message": "Bulanıklığı azalt"
   },
   "languageTitle": {
     "message": "Dil"
@@ -108,7 +108,7 @@
     "message": "Klasörü Düzenle"
   },
   "chooseTypeTitle": {
-    "message": "Yeni oluştur"
+    "message": "Yeni Oluştur"
   },
   "backLabel": {
     "message": "Geri"
@@ -138,7 +138,7 @@
     "message": "Kaydet"
   },
   "searchPlaceholder": {
-    "message": "İnternette ara"
+    "message": "Web'de ara"
   },
   "namePlaceholder": {
     "message": "Adınız (isteğe bağlı)"
@@ -156,7 +156,7 @@
     "message": "Kaldır"
   },
   "moreOptionsLabel": {
-    "message": "Daha fazla seçenek"
+    "message": "Daha Fazla Seçenek"
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",
@@ -168,10 +168,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "değişiklik günlüğünü gör"
+    "message": "Değişiklik günlüğünü gör"
   },
   "nasaApodVideoNotice": {
-    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Mevcut duvar kağıdınızı koruyoruz."
+    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınız korunuyor."
   },
   "warningDeleteFolderTitle": {
     "message": "Klasörü Sil"
@@ -186,7 +186,7 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Klasörleri devre dışı bırakmak mı?"
+    "message": "Klasörler devre dışı bırakılsın mı?"
   },
   "warningDeleteFoldersMessage": {
     "message": "Tüm klasörler ve kısayolları silinecektir. Yedeklemeniz yoksa bu işlem geri alınamaz."
@@ -198,7 +198,7 @@
     "message": "Etkin Tut"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ uygulamalarını eklemek ister misiniz?",
+    "message": "$ECOSYSTEM$ uygulamaları eklensin mi?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -225,7 +225,7 @@
     "message": "Bu ekosistem için mevcut uygulama yoktur."
   },
   "shortcutsLimitReached": {
-    "message": "Kısayol sınırı ulaşıldı!"
+    "message": "Kısayol sınırına ulaşıldı!"
   },
   "warningGridFullTitle": {
     "message": "Izgara Dolu"
@@ -243,7 +243,7 @@
     "message": "Klasör Dolu"
   },
   "warningFolderFullMessage": {
-    "message": "Bu klasör $LIMIT$ öğe sınırına ulaştı. Yeni kısayollar eklemeden önce bazı kısayolları silin.",
+    "message": "Bu klasör $LIMIT$ öğelik mutlak sınıra ulaştı. Lütfen yeni öğeler eklemeden önce bazı kısayolları kaldırın.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -252,7 +252,7 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Yedeklemeyi geri yüklemek ister misiniz?"
+    "message": "Yedekleme geri yüklensin mi?"
   },
   "warningRestoreBackupMessage": {
     "message": "Bu, mevcut ayarlarınızı ve kısayollarınızı yedekleme dosyası verileriyle değiştirecektir."
@@ -264,7 +264,7 @@
     "message": "Geçersiz Yedekleme Dosyası"
   },
   "warningInvalidBackupMessage": {
-    "message": "Seçilen dosya geçerli bir yedekleme dosyası değildir."
+    "message": "Seçilen dosya geçerli bir yedekleme değil."
   },
   "warningUnderstood": {
     "message": "Anlaşıldı"
@@ -294,7 +294,7 @@
     "message": "Cumartesi"
   },
   "greetWeekMorning": {
-    "message": "İyi eğlenceler! $WEEK$, $NAME$!",
+    "message": "Bugün $WEEK$. Harika bir gün dilerim, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -307,7 +307,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "$WEEK$ 'daki işlerin nasıl gidiyor, $NAME$?",
+    "message": "Bugün $WEEK$ nasıl geçiyor, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$Peki, $WEEK$ nasıl geçti?",
+    "message": "Peki, $WEEK$ günün nasıl geçti, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -342,7 +342,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Uyan ve parla, $NAME$!",
+    "message": "Yeni bir gün başlıyor, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -351,7 +351,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Harika bir gün geçirmenizi dilerim, $NAME$",
+    "message": "Harika bir gün dilerim, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Güne doğru bir başlangıç yapalım, $NAME$",
+    "message": "Güne harika bir başlangıç yapalım, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "$NAME$, harika işine devam et!",
+    "message": "Harika çalışmaya devam et, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -414,7 +414,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Odaklanın ve üretken olun, $NAME$",
+    "message": "Odaklan ve üretken kal, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,24 +432,6 @@
     }
   },
   "greetEvening2": {
-    "message": "Rahatlamanın zamanı geldi, $NAME$",
-    "placeholders": {
-      "name": {
-        "content": "$1",
-        "example": "User"
-      }
-    }
-  },
-  "greetEvening3": {
-    "message": "Sakin bir akşam dilerim, $NAME$",
-    "placeholders": {
-      "name": {
-        "content": "$1",
-        "example": "User"
-      }
-    }
-  },
-  "greetEvening4": {
     "message": "Rahatlama zamanı, $NAME$",
     "placeholders": {
       "name": {
@@ -458,8 +440,26 @@
       }
     }
   },
+  "greetEvening3": {
+    "message": "Huzurlu bir akşam dilerim, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Dinlenme vakti, $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
   "greetEvening5": {
-    "message": "İyi akşamlar, $NAME$",
+    "message": "Akşamın tadını çıkar, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetNight1": {
-    "message": "Umarım huzurlu bir gece geçiriyorsundur, $NAME$",
+    "message": "Umarım huzurlu bir gece geçirirsin, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetNight2": {
-    "message": "Hala uyanık mısın, $NAME$? Yakında iyi dinlen!",
+    "message": "Hâlâ uyanık mısın, $NAME$? İyi dinlenmeler!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -486,7 +486,7 @@
     }
   },
   "greetNight3": {
-    "message": "Sessiz saatlerin tadını çıkarın, $NAME$",
+    "message": "Sessiz saatlerin tadını çıkar, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -504,7 +504,7 @@
     }
   },
   "greetNight5": {
-    "message": "Bu gece geç saatlere kadar uyanık mısın, $NAME$?",
+    "message": "Bu gece geç saatlere kadar ayaktasın, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
