@@ -36,6 +36,10 @@
             --font-stack: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
+        html {
+            font-size: clamp(14px, 1.05vw, 40px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -48,29 +52,29 @@
             color: var(--color-text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            padding: 40px 24px;
+            padding: 2.5rem 1.5rem;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 50rem;
             margin: 0 auto;
             background-color: var(--color-surface);
-            padding: 48px;
-            border-radius: 12px;
+            padding: 3rem;
+            border-radius: 0.75rem;
             border: 1px solid var(--color-border);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
         }
 
         .header {
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
             border-bottom: 1px solid var(--color-border);
-            padding-bottom: 24px;
+            padding-bottom: 1.5rem;
         }
 
         h1 {
             font-size: 2.25rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
 
@@ -82,26 +86,26 @@
         .content h2 {
             font-size: 1.5rem;
             font-weight: 600;
-            margin: 32px 0 16px;
+            margin: 2rem 0 1rem;
             color: var(--color-text-main);
         }
 
         .content p {
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             color: var(--color-text-muted);
             font-size: 1.05rem;
         }
 
         .content ul,
         .content ol {
-            margin-bottom: 24px;
-            padding-left: 24px;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
             color: var(--color-text-muted);
             font-size: 1.05rem;
         }
 
         .content li {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
 
         .content a {
@@ -115,7 +119,7 @@
 
         .nav-back {
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             color: var(--color-primary);
             text-decoration: none;
             font-weight: 500;
@@ -126,34 +130,43 @@
             text-decoration: underline;
         }
 
-        /* Gist Embed Styles */
         .gist {
             border: 1px solid var(--color-border);
-            border-radius: 8px;
-            margin: 24px 0 !important;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0 !important;
             font-size: 0.95rem;
-            line-height: 1.5;
         }
+        
+        .gist table,
+        .gist tr,
+        .gist td,
+        .gist .blob-num,
+        .gist .blob-code {
+            line-height: 1.6 !important;
+            font-size: 1em !important;
+        }
+
         .gist .gist-file {
             border: none !important;
             margin: 0 !important;
         }
+        
         .gist .gist-data {
             border-bottom: none !important;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             overflow: hidden;
         }
+        
         .gist .gist-meta {
-            display: none !important; /* Hide the footer link to the Gist */
+            display: none !important;
         }
-
-        @media (max-width: 600px) {
+        @media (max-width: 37.5rem) {
             body {
-                padding: 16px;
+                padding: 1rem;
             }
 
             .container {
-                padding: 24px;
+                padding: 1.5rem;
             }
 
             h1 {
@@ -185,11 +198,13 @@
             <h2 id="2-your-data-stays-on-your-device">2. Your Data Stays On Your Device</h2>
             <p>All your settings—including preferences, custom shortcuts, and uploaded wallpapers—are stored locally on
                 your computer using the browser&#39;s built-in storage (<code>localStorage</code> and
-                <code>IndexedDB</code>). This data is yours and yours alone; we have no access to it.</p>
+                <code>IndexedDB</code>). This data is yours and yours alone; we have no access to it.
+            </p>
             <h2 id="3-third-party-services-how-features-work">3. Third-Party Services: How Features Work</h2>
             <p>To provide features like weather and dynamic content, the extension needs to request information from
                 external services. This communication happens directly between your browser and the service provider.
-                <strong>No data ever passes through our servers.</strong></p>
+                <strong>No data ever passes through our servers.</strong>
+            </p>
             <p>Below is a list of all third-party services used and why:</p>
             <ul>
                 <li><strong>Search Suggestions:</strong> When you type in the search bar, queries are sent to your
@@ -205,24 +220,41 @@
                 </li>
             </ul>
             <h2 id="4-permissions-explained">4. Permissions Explained</h2>
-            <p>To ensure full transparency, below is the full `manifest.json` file, which declares all permissions the extension requires. Following the file, you'll find a detailed explanation of each permission requested.</p>
+            <p>To ensure full transparency, below is the full `manifest.json` file, which declares all permissions the
+                extension requires. Following the file, you'll find a detailed explanation of each permission requested.
+            </p>
             <script src="https://gist.github.com/snw-mint/c9d8f1959b8377ab1b2b046deca70224.js"></script>
 
             <h3>General Permissions</h3>
             <ul>
-                <li><code>storage</code>: This permission is essential for saving your personal settings, such as your preferred theme, custom shortcuts, and widget configurations, directly on your local device.</li>
-                <li><code>unlimitedStorage</code>: This permission allows the extension to store larger files locally, such as high-resolution custom wallpapers that you upload from your computer. It prevents the browser from deleting your wallpapers if it runs low on storage space.</li>
+                <li><code>storage</code>: This permission is essential for saving your personal settings, such as your
+                    preferred theme, custom shortcuts, and widget configurations, directly on your local device.</li>
+                <li><code>unlimitedStorage</code>: This permission allows the extension to store larger files locally,
+                    such as high-resolution custom wallpapers that you upload from your computer. It prevents the
+                    browser from deleting your wallpapers if it runs low on storage space.</li>
             </ul>
 
             <h3>Host Permissions</h3>
-            <p>These permissions allow the extension to communicate with specific external services to fetch dynamic content. The extension can <strong>only</strong> interact with these approved domains, and no data is sent to our servers. It's important to note that the extension will only contact a service if you have explicitly enabled the feature that requires it (e.g., enabling the weather widget or selecting a dynamic wallpaper).</p>
+            <p>These permissions allow the extension to communicate with specific external services to fetch dynamic
+                content. The extension can <strong>only</strong> interact with these approved domains, and no data is
+                sent to our servers. It's important to note that the extension will only contact a service if you have
+                explicitly enabled the feature that requires it (e.g., enabling the weather widget or selecting a
+                dynamic wallpaper).</p>
             <ul>
-                <li><code>https://www.google.com/*</code> and <code>https://suggestqueries.google.com/*</code>: Used to provide search suggestions when you type in the search bar with Google as your selected search engine.</li>
-                <li><code>https://peapix.com/*</code> and <code>https://img.peapix.com/*</code>: Used to fetch the daily Bing Wallpaper when this dynamic background option is selected.</li>
-                <li><code>https://api.nasa.gov/*</code> and <code>https://apod.nasa.gov/*</code>: Used to fetch the daily "Astronomy Picture of the Day" from NASA when this dynamic background option is selected.</li>
-                <li><code>https://commons.wikimedia.org/*</code> and <code>https://upload.wikimedia.org/*</code>: Used to fetch the "Picture of the Day" from Wikimedia Commons when this dynamic background option is selected.</li>
-                <li><code>https://geocoding-api.open-meteo.com/*</code>: Used to convert a city name into geographic coordinates (latitude and longitude) for the weather widget.</li>
-                <li><code>https://api.open-meteo.com/*</code>: After getting coordinates, this is used to fetch the current weather forecast data from Open-Meteo.</li>
+                <li><code>https://www.google.com/*</code> and <code>https://suggestqueries.google.com/*</code>: Used to
+                    provide search suggestions when you type in the search bar with Google as your selected search
+                    engine.</li>
+                <li><code>https://peapix.com/*</code> and <code>https://img.peapix.com/*</code>: Used to fetch the daily
+                    Bing Wallpaper when this dynamic background option is selected.</li>
+                <li><code>https://api.nasa.gov/*</code> and <code>https://apod.nasa.gov/*</code>: Used to fetch the
+                    daily "Astronomy Picture of the Day" from NASA when this dynamic background option is selected.</li>
+                <li><code>https://commons.wikimedia.org/*</code> and <code>https://upload.wikimedia.org/*</code>: Used
+                    to fetch the "Picture of the Day" from Wikimedia Commons when this dynamic background option is
+                    selected.</li>
+                <li><code>https://geocoding-api.open-meteo.com/*</code>: Used to convert a city name into geographic
+                    coordinates (latitude and longitude) for the weather widget.</li>
+                <li><code>https://api.open-meteo.com/*</code>: After getting coordinates, this is used to fetch the
+                    current weather forecast data from Open-Meteo.</li>
             </ul>
             <h2 id="5-you-are-in-control">5. You Are in Control</h2>
             <p>Because all data is stored on your device, you have complete control. You can delete all your data at any
