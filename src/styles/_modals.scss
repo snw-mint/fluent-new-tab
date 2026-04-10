@@ -150,6 +150,12 @@
     font-family: $font-body;
 }
 
+.choose-type-grid {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
 .type-card {
     flex: 1;
     display: flex;
@@ -165,6 +171,12 @@
     color: var(--text-color);
     font-weight: 600;
     font-family: $font-body;
+
+    svg {
+        width: 1.875rem; 
+        height: 1.875rem;
+        flex-shrink: 0;
+    }
 
     &:hover {
         background: #ededed;
