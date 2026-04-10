@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Στυλ εικονιδίου"
   },
+  "displayTitle": {
+    "message": "Οθόνη"
+  },
+  "displayGreeting": {
+    "message": "Χαιρετισμός"
+  },
+  "time24Option": {
+    "message": "Ώρα: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Ώρα με δευτερόλεπτα: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Ώρα: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Ώρα με δευτερόλεπτα: 11:00:00 μ.μ."
+  },
+  "dateText": {
+    "message": "Ημερομηνία σύνταξης (π.χ. 8 Απριλίου)"
+  },
+  "dateNumeric": {
+    "message": "Αριθμητική μορφή (π.χ. 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Ώρα &amp; Ημερομηνία (Για προχωρημένους)"
+  },
+  "showSecondsLabel": {
+    "message": "Εμφάνιση δευτερολέπτων"
+  },
+  "use12HourLabel": {
+    "message": "Χρησιμοποιήστε τη μορφή 12 ωρών"
+  },
+  "dateFormatLabel": {
+    "message": "Μορφή"
+  },
   "weatherTitle": {
     "message": "Καιρός"
   },

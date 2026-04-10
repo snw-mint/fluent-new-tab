@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Stilul pictogramelor"
   },
+  "displayTitle": {
+    "message": "Afișare"
+  },
+  "displayGreeting": {
+    "message": "Salutare"
+  },
+  "time24Option": {
+    "message": "Ora: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Ora cu secunde: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Ora: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Ora cu secunde: 23:00:00"
+  },
+  "dateText": {
+    "message": "Scris (de exemplu, 8 aprilie)"
+  },
+  "dateNumeric": {
+    "message": "Numeric (de exemplu, 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Ora &amp; Data (Avansat)"
+  },
+  "showSecondsLabel": {
+    "message": "Afișează secundele"
+  },
+  "use12HourLabel": {
+    "message": "Utilizați formatul de 12 ore"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
   "weatherTitle": {
     "message": "Vremea"
   },
