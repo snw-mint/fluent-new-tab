@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "问候"
   },
-  "time24Option": {
-    "message": "时间：23:00"
-  },
-  "time24SecOption": {
-    "message": "带秒的时间：23:00:00"
-  },
-  "time12Option": {
-    "message": "时间：晚上11:00"
-  },
-  "time12SecOption": {
-    "message": "时间（含秒）：晚上11:00:00"
-  },
-  "dateText": {
-    "message": "书写日期（例如：4月8日）"
-  },
-  "dateNumeric": {
-    "message": "数字格式（例如：2026年4月8日）"
-  },
-  "displayTimeDate": {
-    "message": "时间 &amp; 日期（高级）"
-  },
   "showSecondsLabel": {
     "message": "显示秒"
   },

@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "Greeting"
   },
-  "time24Option": {
-    "message": "Time: 23:00"
-  },
-  "time24SecOption": {
-    "message": "Time with seconds: 23:00:00"
-  },
-  "time12Option": {
-    "message": "Time: 11:00 PM"
-  },
-  "time12SecOption": {
-    "message": "Time with seconds: 11:00:00 PM"
-  },
-  "dateText": {
-    "message": "Written (e.g., April 8)"
-  },
-  "dateNumeric": {
-    "message": "Numeric (e.g., 04/08/2026)"
-  },
-  "displayTimeDate": {
-    "message": "Time &amp; Date (Advanced)"
-  },
   "showSecondsLabel": {
     "message": "Show seconds"
   },

@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "Привітання"
   },
-  "time24Option": {
-    "message": "Час: 23:00"
-  },
-  "time24SecOption": {
-    "message": "Час із секундами: 23:00:00"
-  },
-  "time12Option": {
-    "message": "Час: 23:00"
-  },
-  "time12SecOption": {
-    "message": "Час із секундами: 23:00:00"
-  },
-  "dateText": {
-    "message": "Дата (наприклад, 8 квітня)"
-  },
-  "dateNumeric": {
-    "message": "Числовий (наприклад, 04/08/2026)"
-  },
-  "displayTimeDate": {
-    "message": "Час &amp; Дата (розширений режим)"
-  },
   "showSecondsLabel": {
     "message": "Показати секунди"
   },

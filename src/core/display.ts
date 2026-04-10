@@ -70,9 +70,11 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   }
 
   if (type === "date" || type === "timedate") {
-    dateString = new Intl.DateTimeFormat(locale, {
-      dateStyle: dateFormat === "numeric" ? "short" : "long",
-    }).format(now);
+    const dateOptions: Intl.DateTimeFormatOptions = dateFormat === "numeric"
+      ? { day: "2-digit", month: "2-digit", year: "numeric" }
+      : { dateStyle: "long" };
+      
+    dateString = new Intl.DateTimeFormat(locale, dateOptions).format(now);
   }
 
   let textElement = wrapper.querySelector(".dynamic-display-anchor") as HTMLElement;
@@ -208,7 +210,7 @@ function renderGreeting(wrapper: HTMLElement): void {
     wrapper.replaceChildren(heading);
   } else {
     const icon = document.createElement("img");
-    icon.src = greetingStyle === "3d" ? `assets/emojis/${iconName}.png` : `assets/greetings/${iconName}.svg`;
+    icon.src = greetingStyle === "3d" ? `assets/emojis/${iconName}.webp` : `assets/greetings/${iconName}.svg`;
     icon.alt = timeOfDayLabel;
     icon.className = greetingStyle === "3d" ? "greeting-icon" : "greeting-icon outline";
     icon.addEventListener("error", () => {

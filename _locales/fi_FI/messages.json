@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "Tervehdys"
   },
-  "time24Option": {
-    "message": "Aika: 23.00"
-  },
-  "time24SecOption": {
-    "message": "Aika sekunteineen: 23:00:00"
-  },
-  "time12Option": {
-    "message": "Aika: klo 23.00"
-  },
-  "time12SecOption": {
-    "message": "Aika sekunteineen: 23:00:00"
-  },
-  "dateText": {
-    "message": "Kirjoitettu (esim. 8. huhtikuuta)"
-  },
-  "dateNumeric": {
-    "message": "Numero (esim. 04.08.2026)"
-  },
-  "displayTimeDate": {
-    "message": "Aika &amp; Päivämäärä (lisäasetukset)"
-  },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },

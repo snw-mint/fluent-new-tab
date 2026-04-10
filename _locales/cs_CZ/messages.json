@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "Pozdrav"
   },
-  "time24Option": {
-    "message": "Čas: 23:00"
-  },
-  "time24SecOption": {
-    "message": "Čas včetně sekund: 23:00:00"
-  },
-  "time12Option": {
-    "message": "Čas: 23:00"
-  },
-  "time12SecOption": {
-    "message": "Čas včetně sekund: 23:00:00"
-  },
-  "dateText": {
-    "message": "Datum (např. 8. dubna)"
-  },
-  "dateNumeric": {
-    "message": "Číselný (např. 04.08.2026)"
-  },
-  "displayTimeDate": {
-    "message": "Čas &amp; Datum (pokročilé)"
-  },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },

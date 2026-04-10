@@ -38,27 +38,6 @@
   "displayGreeting": {
     "message": "Üdvözlet"
   },
-  "time24Option": {
-    "message": "Időpont: 23:00"
-  },
-  "time24SecOption": {
-    "message": "Idő másodpercekkel: 23:00:00"
-  },
-  "time12Option": {
-    "message": "Időpont: 23:00"
-  },
-  "time12SecOption": {
-    "message": "Idő másodpercekkel: 23:00:00"
-  },
-  "dateText": {
-    "message": "Írásbeli (pl. április 8.)"
-  },
-  "dateNumeric": {
-    "message": "Szám (pl.: 2026.04.08.)"
-  },
-  "displayTimeDate": {
-    "message": "Idő &amp; Dátum (haladó)"
-  },
   "showSecondsLabel": {
     "message": "Másodpercek megjelenítése"
   },
