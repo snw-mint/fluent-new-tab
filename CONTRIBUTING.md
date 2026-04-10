@@ -1,4 +1,4 @@
-# 👋 Welcome to Fluent New Tab Contributing Guide
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" /> Welcome to Fluent New Tab Contributing Guide
 
 Thank you for your interest in contributing to **Fluent New Tab**! We are thrilled to have you here.
 
@@ -6,7 +6,7 @@ This project is built with **Vanilla HTML + TypeScript + SCSS** to ensure maximu
 
 ---
 
-## 🛠️ Development Setup
+## Development Setup
 
 Since this is a browser extension, the dev flow is still simple, but now includes a build step.
 
@@ -28,7 +28,7 @@ Since this is a browser extension, the dev flow is still simple, but now include
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 Here is an overview of the project's file organization:
 
@@ -78,7 +78,7 @@ fluent-new-tab/
 
 ---
 
-## 📐 Coding Guidelines
+## Coding Guidelines
 
 ### TypeScript
 *   **Syntax:** Use modern **ES6+** syntax (Arrow functions, `const`/`let`, Async/Await).
@@ -98,7 +98,7 @@ fluent-new-tab/
 
 ---
 
-## 🚀 Submitting a Pull Request
+## Submitting a Pull Request
 
 Ready to contribute? Follow these standard steps:
 
@@ -114,4 +114,4 @@ Ready to contribute? Follow these standard steps:
 - [ ] Did you test your changes in **Light Mode**?
 - [ ] Did you test your changes in **Dark Mode**?
 
-We look forward to your code! Happy coding! 🚀
+We look forward to your code! Happy coding! 
