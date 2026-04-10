@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Pictogramstijl"
   },
+  "displayTitle": {
+    "message": "Weergave"
+  },
+  "displayGreeting": {
+    "message": "Groet"
+  },
+  "time24Option": {
+    "message": "Tijd: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Tijd met seconden: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Tijd: 23.00 uur"
+  },
+  "time12SecOption": {
+    "message": "Tijd met seconden: 23:00:00"
+  },
+  "dateText": {
+    "message": "Geschreven (bijv. 8 april)"
+  },
+  "dateNumeric": {
+    "message": "Getal (bijv. 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Tijd &amp; Datum (Geavanceerd)"
+  },
+  "showSecondsLabel": {
+    "message": "Seconden weergeven"
+  },
+  "use12HourLabel": {
+    "message": "Gebruik de 12-uursnotatie"
+  },
+  "dateFormatLabel": {
+    "message": "Indeling"
+  },
   "weatherTitle": {
     "message": "Weer"
   },

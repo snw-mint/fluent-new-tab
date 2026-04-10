@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Phong cách biểu tượng"
   },
+  "displayTitle": {
+    "message": "Màn hình"
+  },
+  "displayGreeting": {
+    "message": "Chào mừng"
+  },
+  "time24Option": {
+    "message": "Thời gian: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Thời gian (bao gồm giây): 23:00:00"
+  },
+  "time12Option": {
+    "message": "Thời gian: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Thời gian (bao gồm giây): 11:00:00 tối"
+  },
+  "dateText": {
+    "message": "Được ghi (ví dụ: ngày 8 tháng 4)"
+  },
+  "dateNumeric": {
+    "message": "Số (ví dụ: 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Thời gian &amp; Ngày (Nâng cao)"
+  },
+  "showSecondsLabel": {
+    "message": "Hiển thị giây"
+  },
+  "use12HourLabel": {
+    "message": "Sử dụng định dạng 12 giờ"
+  },
+  "dateFormatLabel": {
+    "message": "Định dạng"
+  },
   "weatherTitle": {
     "message": "Thời tiết"
   },

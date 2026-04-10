@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Simge Stili"
   },
+  "displayTitle": {
+    "message": "Ekran"
+  },
+  "displayGreeting": {
+    "message": "Selamlama"
+  },
+  "time24Option": {
+    "message": "Saat: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Saniye dahil saat: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Saat: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Saat ve saniye: 23:00:00"
+  },
+  "dateText": {
+    "message": "Tarih (örn. 8 Nisan)"
+  },
+  "dateNumeric": {
+    "message": "Sayısal (örn. 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Saat &amp; Tarih (Gelişmiş)"
+  },
+  "showSecondsLabel": {
+    "message": "Saniyeleri göster"
+  },
+  "use12HourLabel": {
+    "message": "12 saatlik formatı kullanın"
+  },
+  "dateFormatLabel": {
+    "message": "Biçim"
+  },
   "weatherTitle": {
     "message": "Hava durumu"
   },

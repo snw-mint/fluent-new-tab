@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "アイコンスタイル"
   },
+  "displayTitle": {
+    "message": "表示"
+  },
+  "displayGreeting": {
+    "message": "ご挨拶"
+  },
+  "time24Option": {
+    "message": "時間：23:00"
+  },
+  "time24SecOption": {
+    "message": "時刻（秒を含む）：23:00:00"
+  },
+  "time12Option": {
+    "message": "時間：午後11時"
+  },
+  "time12SecOption": {
+    "message": "時刻（秒を含む）：午後11時00分00秒"
+  },
+  "dateText": {
+    "message": "日付（例：4月8日）"
+  },
+  "dateNumeric": {
+    "message": "数字（例：2026年4月8日）"
+  },
+  "displayTimeDate": {
+    "message": "時間 &amp; 日付（詳細）"
+  },
+  "showSecondsLabel": {
+    "message": "秒を表示"
+  },
+  "use12HourLabel": {
+    "message": "12時間表記を使用する"
+  },
+  "dateFormatLabel": {
+    "message": "形式"
+  },
   "weatherTitle": {
     "message": "天気"
   },

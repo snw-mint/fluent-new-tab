@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "아이콘 스타일"
   },
+  "displayTitle": {
+    "message": "표시"
+  },
+  "displayGreeting": {
+    "message": "인사말"
+  },
+  "time24Option": {
+    "message": "시간: 23:00"
+  },
+  "time24SecOption": {
+    "message": "시간(초 포함): 23:00:00"
+  },
+  "time12Option": {
+    "message": "시간: 오후 11시"
+  },
+  "time12SecOption": {
+    "message": "시간(초 포함): 오후 11:00:00"
+  },
+  "dateText": {
+    "message": "작성일 (예: 4월 8일)"
+  },
+  "dateNumeric": {
+    "message": "숫자 형식 (예: 2026년 4월 8일)"
+  },
+  "displayTimeDate": {
+    "message": "시간 &amp; 날짜 (고급)"
+  },
+  "showSecondsLabel": {
+    "message": "초 표시"
+  },
+  "use12HourLabel": {
+    "message": "12시간 형식을 사용하세요"
+  },
+  "dateFormatLabel": {
+    "message": "서식"
+  },
   "weatherTitle": {
     "message": "날씨"
   },

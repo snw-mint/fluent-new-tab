@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Symbolstil"
   },
+  "displayTitle": {
+    "message": "Anzeige"
+  },
+  "displayGreeting": {
+    "message": "Begrüßung"
+  },
+  "time24Option": {
+    "message": "Zeit: 23:00 Uhr"
+  },
+  "time24SecOption": {
+    "message": "Uhrzeit mit Sekunden: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Zeit: 23:00 Uhr"
+  },
+  "time12SecOption": {
+    "message": "Uhrzeit mit Sekunden: 23:00:00 Uhr"
+  },
+  "dateText": {
+    "message": "Datum (z. B. 8. April)"
+  },
+  "dateNumeric": {
+    "message": "Numerisch (z. B. 08.04.2026)"
+  },
+  "displayTimeDate": {
+    "message": "Uhrzeit &amp; Datum (Erweitert)"
+  },
+  "showSecondsLabel": {
+    "message": "Sekunden anzeigen"
+  },
+  "use12HourLabel": {
+    "message": "12-Stunden-Format verwenden"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
   "weatherTitle": {
     "message": "Wetter"
   },
