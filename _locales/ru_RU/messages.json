@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Стиль значка"
   },
+  "displayTitle": {
+    "message": "Отображение"
+  },
+  "displayGreeting": {
+    "message": "Приветствие"
+  },
+  "time24Option": {
+    "message": "Время: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Время с указанием секунд: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Время: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Время с указанием секунд: 23:00:00"
+  },
+  "dateText": {
+    "message": "Дата (например, 8 апреля)"
+  },
+  "dateNumeric": {
+    "message": "Числовой формат (например, 04.08.2026)"
+  },
+  "displayTimeDate": {
+    "message": "Время &amp; Дата (Расширенный режим)"
+  },
+  "showSecondsLabel": {
+    "message": "Показать секунды"
+  },
+  "use12HourLabel": {
+    "message": "Используйте 12-часовой формат"
+  },
+  "dateFormatLabel": {
+    "message": "Формат"
+  },
   "weatherTitle": {
     "message": "Погода"
   },
