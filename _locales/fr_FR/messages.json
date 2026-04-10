@@ -24,7 +24,7 @@
     "message": "Couleur d'accent"
   },
   "accentWallpaperOption": {
-    "message": "Télécharger le fond d'écran"
+    "message": "Extraire du fond d'écran"
   },
   "styleNone": {
     "message": "Aucun"
@@ -105,7 +105,7 @@
     "message": "Suggestions"
   },
   "clearSearchOption": {
-    "message": "Recherche propre (Google)"
+    "message": "Recherche simple (Google)"
   },
   "compactBarOption": {
     "message": "Barre compacte"
@@ -132,10 +132,10 @@
     "message": "Sauvegarde des données"
   },
   "exportOption": {
-    "message": "Exportation"
+    "message": "Exporter"
   },
   "importOption": {
-    "message": "Importation"
+    "message": "Importer"
   },
   "addFolderTitle": {
     "message": "Ajouter un dossier"
@@ -144,7 +144,7 @@
     "message": "Modifier le dossier"
   },
   "chooseTypeTitle": {
-    "message": "Créer un nouvel élément"
+    "message": "Créer un nouveau"
   },
   "backLabel": {
     "message": "Retour"
@@ -195,7 +195,7 @@
     "message": "Plus d'options"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab a été mis à jour vers la version $VERSION$, ",
+    "message": "Fluent New Tab a été mis à jour vers la version $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -204,16 +204,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "voir le journal des modifications"
+    "message": "Voir le journal des modifications"
   },
   "nasaApodVideoNotice": {
-    "message": "L'APOD d'aujourd'hui est une vidéo ou n'est pas disponible. Vous conservez votre fond d'écran actuel à la place."
+    "message": "L'APOD d'aujourd'hui est une vidéo ou n'est pas disponible. Votre fond d'écran actuel est conservé à la place."
   },
   "warningDeleteFolderTitle": {
     "message": "Supprimer le dossier"
   },
   "warningDeleteFolderMessage": {
-    "message": "Êtes-vous sûr de vouloir supprimer le dossier «$FOLDER$» ? Tous les raccourcis qu'il contient seront supprimés.",
+    "message": "Êtes-vous sûr de vouloir supprimer le dossier « $FOLDER$ » ? Tous les raccourcis qu'il contient seront supprimés.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -309,28 +309,28 @@
     "message": "Fermer"
   },
   "weekday_0": {
-    "message": "dimanche"
+    "message": "Dimanche"
   },
   "weekday_1": {
-    "message": "lundi"
+    "message": "Lundi"
   },
   "weekday_2": {
-    "message": "mardi"
+    "message": "Mardi"
   },
   "weekday_3": {
-    "message": "mercredi"
+    "message": "Mercredi"
   },
   "weekday_4": {
-    "message": "jeudi"
+    "message": "Jeudi"
   },
   "weekday_5": {
     "message": "Vendredi"
   },
   "weekday_6": {
-    "message": "samedi"
+    "message": "Samedi"
   },
   "greetWeekMorning": {
-    "message": "Bonne visite sur $WEEK$et $NAME$!",
+    "message": "Passez un excellent $WEEK$, $NAME$ !",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Comment ça se passe pour ton $WEEK$ , $NAME$?",
+    "message": "Comment se passe votre $WEEK$, $NAME$ ?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$Alors, comment s'est passée ta visite sur $WEEK$?",
+    "message": "Comment s'est passé votre $WEEK$, $NAME$ ?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Debout, $NAME$!",
+    "message": "Une nouvelle journée commence, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Bonjour, $NAME$! Prêt pour aujourd'hui ?",
+    "message": "Bonjour, $NAME$ ! Prêt pour aujourd'hui ?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Je suis content de vous voir, $NAME$",
+    "message": "Ravi de vous voir, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Continuez votre excellent travail, $NAME$!",
+    "message": "Continuez votre excellent travail, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "Toujours éveillé, $NAME$? Repose-toi bien bientôt !",
+    "message": "Toujours éveillé, $NAME$ ? Reposez-vous bien !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "Tu es debout tard ce soir, $NAME$?",
+    "message": "Debout tard ce soir, $NAME$ ?",
     "placeholders": {
       "name": {
         "content": "$1",

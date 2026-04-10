@@ -21,10 +21,10 @@
     "message": "Billedoverlay"
   },
   "accentColorTitle": {
-    "message": "Kontrastfarve"
+    "message": "Accentfarve"
   },
   "accentWallpaperOption": {
-    "message": "Hent fra tapet"
+    "message": "Hent fra baggrund"
   },
   "styleNone": {
     "message": "Ingen"
@@ -69,7 +69,7 @@
     "message": "Format"
   },
   "weatherTitle": {
-    "message": "Vejr"
+    "message": "Vejret"
   },
   "shortcutsTitle": {
     "message": "Genveje"
@@ -108,7 +108,7 @@
     "message": "Ren søgning (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakt bar"
+    "message": "Kompakt bjælke"
   },
   "voiceSearchOption": {
     "message": "Stemmesøgning"
@@ -132,10 +132,10 @@
     "message": "Sikkerhedskopi af data"
   },
   "exportOption": {
-    "message": "Eksport"
+    "message": "Eksporter"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importer"
   },
   "addFolderTitle": {
     "message": "Tilføj mappe"
@@ -174,7 +174,7 @@
     "message": "Gem"
   },
   "searchPlaceholder": {
-    "message": "Søg på internettet"
+    "message": "Søg på nettet"
   },
   "namePlaceholder": {
     "message": "Dit navn (valgfrit)"
@@ -195,7 +195,7 @@
     "message": "Flere muligheder"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab er blevet opdateret til version $VERSION$, ",
+    "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -204,7 +204,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "se ændringslog"
+    "message": "Se ændringsloggen"
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD er en video eller er ikke tilgængelig. Vi viser i stedet dit nuværende baggrundsbillede."
@@ -309,28 +309,28 @@
     "message": "Luk"
   },
   "weekday_0": {
-    "message": "søndag"
+    "message": "Søndag"
   },
   "weekday_1": {
-    "message": "mandag"
+    "message": "Mandag"
   },
   "weekday_2": {
-    "message": "tirsdag"
+    "message": "Tirsdag"
   },
   "weekday_3": {
-    "message": "onsdag"
+    "message": "Onsdag"
   },
   "weekday_4": {
-    "message": "torsdag"
+    "message": "Torsdag"
   },
   "weekday_5": {
-    "message": "fredag"
+    "message": "Fredag"
   },
   "weekday_6": {
-    "message": "lørdag"
+    "message": "Lørdag"
   },
   "greetWeekMorning": {
-    "message": "Hav en dejlig dag på $WEEK$og $NAME$!",
+    "message": "Hav en fantastisk $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Hvordan går det med din $WEEK$ , $NAME$?",
+    "message": "Hvordan går din $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, hvordan gik det med din $WEEK$?",
+    "message": "Hvordan var din $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Vågn op, $NAME$!",
+    "message": "En ny dag venter, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Lad os starte dagen på den rigtige måde, $NAME$",
+    "message": "Lad os starte dagen godt, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Det er godt at se dig, $NAME$",
+    "message": "Dejligt at se dig, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "Er du stadig vågen, $NAME$? Sov godt!",
+    "message": "Er du stadig vågen, $NAME$? Håber du snart skal sove!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "Op sent i aften, $NAME$?",
+    "message": "Oppe sent i aften, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

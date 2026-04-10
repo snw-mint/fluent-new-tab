@@ -78,19 +78,19 @@
     "message": "폴더 활성화"
   },
   "rows1": {
-    "message": "1 행"
+    "message": "1줄"
   },
   "rows2": {
-    "message": "2 행"
+    "message": "2줄"
   },
   "rowsLabel": {
-    "message": "행"
+    "message": "줄"
   },
   "rows3": {
-    "message": "3 행"
+    "message": "3줄"
   },
   "rows4": {
-    "message": "4 행"
+    "message": "4줄"
   },
   "appLauncherTitle": {
     "message": "앱 실행기"
@@ -105,7 +105,7 @@
     "message": "제안"
   },
   "clearSearchOption": {
-    "message": "깨끗한 검색 (Google)"
+    "message": "일반 검색 (Google)"
   },
   "compactBarOption": {
     "message": "컴팩트 바"
@@ -120,7 +120,7 @@
     "message": "움직임 줄이기"
   },
   "reduceBlurOption": {
-    "message": "흐림 감소"
+    "message": "블러 효과 줄이기"
   },
   "languageTitle": {
     "message": "언어"
@@ -150,10 +150,10 @@
     "message": "뒤로"
   },
   "addShortcutTitle": {
-    "message": "바로 가기 추가"
+    "message": "바로가기 추가"
   },
   "editShortcutTitle": {
-    "message": "바로 가기 편집"
+    "message": "바로가기 편집"
   },
   "shortcutNameLabel": {
     "message": "이름"
@@ -177,10 +177,10 @@
     "message": "웹 검색"
   },
   "namePlaceholder": {
-    "message": "귀하의 이름 (선택 사항)"
+    "message": "이름 (선택 사항)"
   },
   "cityPlaceholder": {
-    "message": "당신의 도시"
+    "message": "도시"
   },
   "addShortcutLabel": {
     "message": "추가"
@@ -195,7 +195,7 @@
     "message": "추가 옵션"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다, ",
+    "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -213,7 +213,7 @@
     "message": "폴더 삭제"
   },
   "warningDeleteFolderMessage": {
-    "message": "\"$FOLDER$\" 폴더를 삭제하시겠습니까? 해당 폴더 내의 모든 바로 가기가 제거됩니다.",
+    "message": "\"$FOLDER$\" 폴더를 삭제하시겠습니까? 해당 폴더 내의 모든 바로가기가 제거됩니다.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -267,7 +267,7 @@
     "message": "그리드가 가득 찼습니다"
   },
   "warningGridFullMessage": {
-    "message": "메인 화면의 $LIMIT$ 바로 가기 최대 한도에 도달했습니다. 공간을 확보하려면 일부 항목을 삭제하거나 폴더로 그룹화하세요.",
+    "message": "메인 화면의 $LIMIT$개의 바로가기 최대 한도에 도달했습니다. 공간을 확보하려면 일부 항목을 삭제하거나 폴더로 그룹화하세요.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -279,7 +279,7 @@
     "message": "폴더가 가득 찼습니다"
   },
   "warningFolderFullMessage": {
-    "message": "이 폴더는 $LIMIT$ 항목의 절대 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로 가기를 제거하십시오.",
+    "message": "이 폴더는 최대 $LIMIT$개 항목 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로가기를 제거하십시오.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -303,7 +303,7 @@
     "message": "선택한 파일은 유효한 백업 파일이 아닙니다."
   },
   "warningUnderstood": {
-    "message": "알겠습니다."
+    "message": "알겠습니다"
   },
   "warningClose": {
     "message": "닫기"
@@ -330,7 +330,7 @@
     "message": "토요일"
   },
   "greetWeekMorning": {
-    "message": "즐거운 시간 보내세요! $WEEK$, $NAME$!",
+    "message": "오늘은 $WEEK$입니다. 기분 좋은 하루 보내세요, $NAME$님!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "$WEEK$ 는 어떻게 진행되고 있나요, $NAME$?",
+    "message": "$WEEK$ 하루 잘 보내고 계신가요, $NAME$님?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, $WEEK$ 는 어땠나요?",
+    "message": "오늘 $WEEK$ 하루는 어떠셨나요, $NAME$님?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -369,7 +369,7 @@
     }
   },
   "greetMorning1": {
-    "message": "좋은 아침입니다, $NAME$",
+    "message": "좋은 아침입니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "일어나서 빛을 발해요, $NAME$!",
+    "message": "새로운 아침이 밝았습니다, $NAME$님!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetMorning3": {
-    "message": "멋진 하루 되시길 바랍니다, $NAME$",
+    "message": "멋진 하루 되시길 바랍니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetMorning4": {
-    "message": "안녕하세요, $NAME$! 오늘 준비되셨나요?",
+    "message": "안녕하세요, $NAME$님! 오늘 하루도 준비되셨나요?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "하루를 제대로 시작해 봅시다, $NAME$",
+    "message": "상쾌하게 하루를 시작해 볼까요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -414,7 +414,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "안녕하세요, $NAME$",
+    "message": "좋은 오후입니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "만나서 반갑습니다, $NAME$",
+    "message": "만나서 반갑습니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "잘 지내고 계시길 바랍니다, $NAME$",
+    "message": "오후 시간 잘 보내고 계신가요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "$NAME$, 계속해서 훌륭한 일을 해주세요!",
+    "message": "계속해서 파이팅하세요, $NAME$님!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -450,7 +450,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "집중력을 유지하고 생산적으로 일하세요, $NAME$",
+    "message": "남은 하루도 집중해서 알차게 보내세요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -459,7 +459,7 @@
     }
   },
   "greetEvening1": {
-    "message": "좋은 저녁입니다, $NAME$",
+    "message": "좋은 저녁입니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetEvening2": {
-    "message": "이제 휴식을 취할 시간입니다, $NAME$",
+    "message": "이제 휴식을 취할 시간입니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetEvening3": {
-    "message": "평온한 저녁 되시길 바랍니다, $NAME$",
+    "message": "평온한 저녁 되시길 바랍니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -486,7 +486,7 @@
     }
   },
   "greetEvening4": {
-    "message": "이제 긴장을 풀 시간, $NAME$",
+    "message": "편안하게 휴식을 취하세요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -495,7 +495,7 @@
     }
   },
   "greetEvening5": {
-    "message": "좋은 저녁 보내세요, $NAME$",
+    "message": "좋은 저녁 보내세요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -504,7 +504,7 @@
     }
   },
   "greetNight1": {
-    "message": "평온한 밤 보내고 계시길 바랍니다, $NAME$",
+    "message": "평온한 밤 보내시길 바랍니다, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "아직도 깨어 있나요, $NAME$? 곧 편안히 쉬세요!",
+    "message": "아직 깨어 계시군요, $NAME$님? 편안한 밤 되세요!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -522,7 +522,7 @@
     }
   },
   "greetNight3": {
-    "message": "고요한 시간을 즐겨보세요, $NAME$",
+    "message": "조용한 밤 시간을 즐겨보세요, $NAME$님",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -531,7 +531,7 @@
     }
   },
   "greetNight4": {
-    "message": "안녕, $NAME$. 내일 봐!",
+    "message": "안녕히 주무세요, $NAME$님. 내일 뵙겠습니다!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "오늘 밤 늦게까지 깨어 있나요, $NAME$?",
+    "message": "오늘 늦게까지 깨어 계시네요, $NAME$님?",
     "placeholders": {
       "name": {
         "content": "$1",

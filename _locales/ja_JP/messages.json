@@ -24,7 +24,7 @@
     "message": "アクセントカラー"
   },
   "accentWallpaperOption": {
-    "message": "壁紙から取得"
+    "message": "壁紙から抽出"
   },
   "styleNone": {
     "message": "なし"
@@ -96,7 +96,7 @@
     "message": "アプリランチャー"
   },
   "ecosystemLabel": {
-    "message": "生態系"
+    "message": "エコシステム"
   },
   "searchTitle": {
     "message": "検索"
@@ -105,7 +105,7 @@
     "message": "提案"
   },
   "clearSearchOption": {
-    "message": "クリーン検索（Google）"
+    "message": "シンプル検索 (Google)"
   },
   "compactBarOption": {
     "message": "コンパクトバー"
@@ -153,7 +153,7 @@
     "message": "ショートカットを追加"
   },
   "editShortcutTitle": {
-    "message": "編集ショートカット"
+    "message": "ショートカットを編集"
   },
   "shortcutNameLabel": {
     "message": "名前"
@@ -195,7 +195,7 @@
     "message": "その他のオプション"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました、",
+    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -330,7 +330,7 @@
     "message": "土曜日"
   },
   "greetWeekMorning": {
-    "message": "素敵な一日を！ $WEEK$、 $NAME$！",
+    "message": "今日は$WEEK$です。素晴らしい一日を、$NAME$！",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "$WEEK$ の進捗はどうですか、 $NAME$ さん？",
+    "message": "$WEEK$はいかがお過ごしですか、$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$、 $WEEK$ はどうでしたか？",
+    "message": "$WEEK$はどうでしたか、$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "さあ、目を覚ませ、$NAME$！",
+    "message": "新しい一日が始まります、$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetMorning4": {
-    "message": "こんにちは、$NAME$！今日は準備万端ですか？",
+    "message": "おはようございます、$NAME$！今日の準備はいいですか？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "一日を良いスタートで始めよう、$NAME$",
+    "message": "素晴らしい一日を始めましょう、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -432,7 +432,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "お元気でいらっしゃいますように、$NAME$",
+    "message": "調子はいかがですか、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetEvening2": {
-    "message": "くつろぐ時間です、$NAME$",
+    "message": "リラックスする時間です、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -486,7 +486,7 @@
     }
   },
   "greetEvening4": {
-    "message": "くつろぐ時間だ、$NAME$",
+    "message": "ゆっくり休んでください、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "まだ起きてるの、$NAME$？ 早く休んでね！",
+    "message": "まだ起きているんですか、$NAME$？ゆっくり休んでくださいね！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "今夜は遅くまで起きてるの、$NAME$？",
+    "message": "今夜は夜更かしですね、$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",

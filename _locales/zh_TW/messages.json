@@ -12,7 +12,7 @@
     "message": "問候"
   },
   "wallpaperTitle": {
-    "message": "壁紙"
+    "message": "桌布"
   },
   "wallpaperSourceLabel": {
     "message": "圖片來源"
@@ -24,7 +24,7 @@
     "message": "點綴色"
   },
   "accentWallpaperOption": {
-    "message": "從壁紙取得"
+    "message": "從桌布擷取"
   },
   "styleNone": {
     "message": "無"
@@ -72,25 +72,25 @@
     "message": "天氣"
   },
   "shortcutsTitle": {
-    "message": "快捷方式"
+    "message": "捷徑"
   },
   "enableFoldersLabel": {
     "message": "啟用資料夾"
   },
   "rows1": {
-    "message": "1 行"
+    "message": "1 列"
   },
   "rows2": {
-    "message": "2 行"
+    "message": "2 列"
   },
   "rowsLabel": {
-    "message": "行"
+    "message": "列"
   },
   "rows3": {
-    "message": "3 行"
+    "message": "3 列"
   },
   "rows4": {
-    "message": "4 行"
+    "message": "4 列"
   },
   "appLauncherTitle": {
     "message": "應用程式啟動器"
@@ -105,7 +105,7 @@
     "message": "建議"
   },
   "clearSearchOption": {
-    "message": "乾淨搜尋（Google）"
+    "message": "簡易搜尋 (Google)"
   },
   "compactBarOption": {
     "message": "緊湊欄"
@@ -114,13 +114,13 @@
     "message": "語音搜尋"
   },
   "reduceVisualEffectsTitle": {
-    "message": "減少效果"
+    "message": "減少視覺效果"
   },
   "reduceMotionTitle": {
-    "message": "減少動作"
+    "message": "減少動態效果"
   },
   "reduceBlurOption": {
-    "message": "減少模糊"
+    "message": "降低模糊度"
   },
   "languageTitle": {
     "message": "語言"
@@ -132,7 +132,7 @@
     "message": "資料備份"
   },
   "exportOption": {
-    "message": "輸出"
+    "message": "匯出"
   },
   "importOption": {
     "message": "匯入"
@@ -156,7 +156,7 @@
     "message": "編輯捷徑"
   },
   "shortcutNameLabel": {
-    "message": "姓名"
+    "message": "名稱"
   },
   "shortcutUrlLabel": {
     "message": "網址"
@@ -174,16 +174,16 @@
     "message": "儲存"
   },
   "searchPlaceholder": {
-    "message": "搜尋網路"
+    "message": "搜尋網頁"
   },
   "namePlaceholder": {
-    "message": "您的姓名（可填）"
+    "message": "您的名字（選填）"
   },
   "cityPlaceholder": {
     "message": "您的城市"
   },
   "addShortcutLabel": {
-    "message": "添加"
+    "message": "新增"
   },
   "editLabel": {
     "message": "編輯"
@@ -267,7 +267,7 @@
     "message": "網格已滿"
   },
   "warningGridFullMessage": {
-    "message": "您已達到主畫面中 $LIMIT$ 快捷方式的最大限制。請刪除部分項目或將其歸類至資料夾以釋放空間。",
+    "message": "主畫面的捷徑已達到 $LIMIT$ 個的上限。請刪除部分項目或將它們分組到資料夾中以釋放空間。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -330,7 +330,7 @@
     "message": "星期六"
   },
   "greetWeekMorning": {
-    "message": "祝您玩得開心！ $WEEK$， $NAME$！",
+    "message": "今天是$WEEK$。祝您度過美好的一天，$NAME$！",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "你的 $WEEK$ 進展如何， $NAME$？",
+    "message": "這個$WEEK$過得怎麼樣，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, 你覺得 $WEEK$ 怎麼樣？",
+    "message": "這個$WEEK$過得怎麼樣，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "早安，$NAME$！",
+    "message": "新的一天開始了，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "讓我們以正確的方式開始新的一天，$NAME$",
+    "message": "開啟美好的一天吧，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "今晚熬夜了嗎， $NAME$？",
+    "message": "今晚休息得很晚呢，$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",

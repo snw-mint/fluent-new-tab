@@ -12,7 +12,7 @@
     "message": "Pozdrav"
   },
   "wallpaperTitle": {
-    "message": "Pozadí"
+    "message": "Tapeta"
   },
   "wallpaperSourceLabel": {
     "message": "Zdroj obrázku"
@@ -21,10 +21,10 @@
     "message": "Překrytí obrázku"
   },
   "accentColorTitle": {
-    "message": "Doplňková barva"
+    "message": "Barva zvýraznění"
   },
   "accentWallpaperOption": {
-    "message": "Stáhnout jako tapetu"
+    "message": "Extrahovat z tapety"
   },
   "styleNone": {
     "message": "Žádné"
@@ -150,13 +150,13 @@
     "message": "Zpět"
   },
   "addShortcutTitle": {
-    "message": "Přidat zástupce"
+    "message": "Přidat zkratku"
   },
   "editShortcutTitle": {
-    "message": "Upravit zástupce"
+    "message": "Upravit zkratku"
   },
   "shortcutNameLabel": {
-    "message": "Jméno"
+    "message": "Název"
   },
   "shortcutUrlLabel": {
     "message": "URL"
@@ -195,7 +195,7 @@
     "message": "Další možnosti"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$, ",
+    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -204,7 +204,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "viz seznam změn"
+    "message": "Zobrazit seznam změn"
   },
   "nasaApodVideoNotice": {
     "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
@@ -225,7 +225,7 @@
     "message": "Zakázat složky?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Všechny složky a jejich zástupce budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
+    "message": "Všechny složky a jejich zkratky budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Odstranit složky"
@@ -279,7 +279,7 @@
     "message": "Složka je plná"
   },
   "warningFolderFullMessage": {
-    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zástupce.",
+    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zkratky.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -309,28 +309,28 @@
     "message": "Zavřít"
   },
   "weekday_0": {
-    "message": "neděle"
+    "message": "Neděle"
   },
   "weekday_1": {
-    "message": "pondělí"
+    "message": "Pondělí"
   },
   "weekday_2": {
-    "message": "úterý"
+    "message": "Úterý"
   },
   "weekday_3": {
-    "message": "středa"
+    "message": "Středa"
   },
   "weekday_4": {
-    "message": "čtvrtek"
+    "message": "Čtvrtek"
   },
   "weekday_5": {
-    "message": "pátek"
+    "message": "Pátek"
   },
   "weekday_6": {
-    "message": "sobota"
+    "message": "Sobota"
   },
   "greetWeekMorning": {
-    "message": "Přejeme vám příjemné chvíle na stránkách $WEEK$a $NAME$!",
+    "message": "Dnes je $WEEK$. Mějte skvělý den, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Jak se ti daří s $WEEK$ , $NAME$?",
+    "message": "Jak vám zatím ubíhá $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$A jak se ti líbilo $WEEK$?",
+    "message": "Tak $NAME$, jaký byl váš dnešní den? $WEEK$ už pomalu končí.",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Vstávej a záři, $NAME$!",
+    "message": "Krásné ráno, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Ahoj, $NAME$! Jsi připravený na dnešek?",
+    "message": "Dobrý den, $NAME$! Jste připraveni na dnešek?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Začněme den správně, $NAME$",
+    "message": "Začněme tento den skvěle, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Rád tě vidím, $NAME$",
+    "message": "Je skvělé vás vidět, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -441,7 +441,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Pokračujte v dobré práci, $NAME$!",
+    "message": "Jen tak dál, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "Ještě nespíš, $NAME$? Brzy se dobře vyspi!",
+    "message": "Ještě nespíte, $NAME$? Dobře si odpočiňte!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -531,7 +531,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobrou noc, $NAME$. Uvidíme se zítra!",
+    "message": "Dobrou noc, $NAME$. Tak zase zítra!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "Dneska dlouho vzhůru, $NAME$?",
+    "message": "Dnes jste dlouho vzhůru, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

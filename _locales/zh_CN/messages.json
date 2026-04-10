@@ -24,7 +24,7 @@
     "message": "点缀色"
   },
   "accentWallpaperOption": {
-    "message": "获取壁纸"
+    "message": "从壁纸中提取"
   },
   "styleNone": {
     "message": "无"
@@ -105,7 +105,7 @@
     "message": "建议"
   },
   "clearSearchOption": {
-    "message": "干净搜索（谷歌）"
+    "message": "纯净搜索 (Google)"
   },
   "compactBarOption": {
     "message": "紧凑栏"
@@ -114,13 +114,13 @@
     "message": "语音搜索"
   },
   "reduceVisualEffectsTitle": {
-    "message": "减少效果"
+    "message": "减少视觉效果"
   },
   "reduceMotionTitle": {
-    "message": "减少运动"
+    "message": "减少动态效果"
   },
   "reduceBlurOption": {
-    "message": "减少模糊"
+    "message": "降低模糊度"
   },
   "languageTitle": {
     "message": "语言"
@@ -267,7 +267,7 @@
     "message": "网格已满"
   },
   "warningGridFullMessage": {
-    "message": "您已达到主屏幕上 $LIMIT$ 快捷方式的最大限制。请删除部分项目或将其归类到文件夹中以释放空间。",
+    "message": "主屏幕的快捷方式已达到 $LIMIT$ 个的上限。请删除部分项目或将它们分组到文件夹中以释放空间。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -330,7 +330,7 @@
     "message": "周六"
   },
   "greetWeekMorning": {
-    "message": "祝您度过一个美好的 $WEEK$， $NAME$！",
+    "message": "今天是$WEEK$。祝你度过美好的一天，$NAME$！",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "你的 $WEEK$ 进展如何， $NAME$？",
+    "message": "这个$WEEK$过得怎么样，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, 你的 $WEEK$ 怎么样？",
+    "message": "这个$WEEK$过得怎么样，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "起床啦，$NAME$！",
+    "message": "新的一天开始了，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "让我们以正确的方式开始新的一天，$NAME$",
+    "message": "开启美好的一天吧，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "今晚熬夜了， $NAME$？",
+    "message": "今晚休息得很晚呢，$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",

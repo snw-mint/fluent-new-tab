@@ -24,7 +24,7 @@
     "message": "Colore di accento"
   },
   "accentWallpaperOption": {
-    "message": "Scarica dallo sfondo"
+    "message": "Estrai dallo sfondo"
   },
   "styleNone": {
     "message": "Nessuno"
@@ -81,16 +81,16 @@
     "message": "1 riga"
   },
   "rows2": {
-    "message": "2 file"
+    "message": "2 righe"
   },
   "rowsLabel": {
     "message": "Righe"
   },
   "rows3": {
-    "message": "3 file"
+    "message": "3 righe"
   },
   "rows4": {
-    "message": "4 file"
+    "message": "4 righe"
   },
   "appLauncherTitle": {
     "message": "Launcher applicazioni"
@@ -105,7 +105,7 @@
     "message": "Suggerimenti"
   },
   "clearSearchOption": {
-    "message": "Ricerca pulita (Google)"
+    "message": "Ricerca semplice (Google)"
   },
   "compactBarOption": {
     "message": "Barra compatta"
@@ -114,13 +114,13 @@
     "message": "Ricerca vocale"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Ridurre gli effetti"
+    "message": "Riduci effetti"
   },
   "reduceMotionTitle": {
-    "message": "Riduci il movimento"
+    "message": "Riduci movimento"
   },
   "reduceBlurOption": {
-    "message": "Riduci la sfocatura"
+    "message": "Riduci sfocatura"
   },
   "languageTitle": {
     "message": "Lingua"
@@ -132,7 +132,7 @@
     "message": "Backup dei dati"
   },
   "exportOption": {
-    "message": "Esportazione"
+    "message": "Esporta"
   },
   "importOption": {
     "message": "Importa"
@@ -195,7 +195,7 @@
     "message": "Altre opzioni"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$, ",
+    "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -204,7 +204,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "vedi changelog"
+    "message": "Vedi changelog"
   },
   "nasaApodVideoNotice": {
     "message": "L'APOD di oggi è un video o non è disponibile. Mantieni invece il tuo sfondo attuale."
@@ -303,34 +303,34 @@
     "message": "Il file selezionato non è un backup valido."
   },
   "warningUnderstood": {
-    "message": "Capito."
+    "message": "Capito"
   },
   "warningClose": {
     "message": "Chiudi"
   },
   "weekday_0": {
-    "message": "domenica"
+    "message": "Domenica"
   },
   "weekday_1": {
     "message": "Lunedì"
   },
   "weekday_2": {
-    "message": "martedì"
+    "message": "Martedì"
   },
   "weekday_3": {
-    "message": "mercoledì"
+    "message": "Mercoledì"
   },
   "weekday_4": {
-    "message": "giovedì"
+    "message": "Giovedì"
   },
   "weekday_5": {
-    "message": "venerdì"
+    "message": "Venerdì"
   },
   "weekday_6": {
-    "message": "sabato"
+    "message": "Sabato"
   },
   "greetWeekMorning": {
-    "message": "Buon $WEEK$, $NAME$!",
+    "message": "Oggi è $WEEK$. Buona giornata, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Come va il tuo $WEEK$ , $NAME$?",
+    "message": "Come procede la tua giornata ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$Allora, com'è andata la tua visita su $WEEK$?",
+    "message": "Com'è andata la giornata ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Svegliati e sorridi, $NAME$!",
+    "message": "Inizia un nuovo giorno, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sveglio fino a tardi stanotte, $NAME$?",
+    "message": "Sveglio fino a tardi stasera, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",

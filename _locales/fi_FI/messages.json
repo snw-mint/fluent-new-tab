@@ -24,7 +24,7 @@
     "message": "Korostusväri"
   },
   "accentWallpaperOption": {
-    "message": "Lataa taustakuvana"
+    "message": "Poimi taustakuvasta"
   },
   "styleNone": {
     "message": "Ei mitään"
@@ -93,7 +93,7 @@
     "message": "4 riviä"
   },
   "appLauncherTitle": {
-    "message": "Sovellusten käynnistin"
+    "message": "Sovelluskäynnistin"
   },
   "ecosystemLabel": {
     "message": "Ekosysteemi"
@@ -105,22 +105,22 @@
     "message": "Ehdotukset"
   },
   "clearSearchOption": {
-    "message": "Puhdas haku (Google)"
+    "message": "Yksinkertainen haku (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakti tanko"
+    "message": "Kompakti palkki"
   },
   "voiceSearchOption": {
     "message": "Äänihaku"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Vähennä vaikutuksia"
+    "message": "Vähennä tehosteita"
   },
   "reduceMotionTitle": {
     "message": "Vähennä liikettä"
   },
   "reduceBlurOption": {
-    "message": "Vähennä epätarkkuutta"
+    "message": "Vähennä sumennusta"
   },
   "languageTitle": {
     "message": "Kieli"
@@ -132,10 +132,10 @@
     "message": "Tietojen varmuuskopiointi"
   },
   "exportOption": {
-    "message": "Vienti"
+    "message": "Vie"
   },
   "importOption": {
-    "message": "Tuonti"
+    "message": "Tuo"
   },
   "addFolderTitle": {
     "message": "Lisää kansio"
@@ -180,7 +180,7 @@
     "message": "Nimesi (valinnainen)"
   },
   "cityPlaceholder": {
-    "message": "Sinun kaupunkisi"
+    "message": "Kaupunkisi"
   },
   "addShortcutLabel": {
     "message": "Lisää"
@@ -195,7 +195,7 @@
     "message": "Lisää vaihtoehtoja"
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab on päivitetty versioon $VERSION$, ",
+    "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -204,7 +204,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "katso muutosloki"
+    "message": "Katso muutosloki"
   },
   "nasaApodVideoNotice": {
     "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
@@ -234,7 +234,7 @@
     "message": "Pidä käytössä"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Lisää $ECOSYSTEM$ -sovellukset?",
+    "message": "Lisätäänkö $ECOSYSTEM$ -sovellukset?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -243,7 +243,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Tämä luo kansion, jossa on 9 $ECOSYSTEM$ -sovellusta pikakuvakkeisiin. Jatkatko?",
+    "message": "Tämä luo pikakuvakkeisiisi kansion, jossa on 9 $ECOSYSTEM$ -sovellusta. Jatketaanko?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -267,7 +267,7 @@
     "message": "Ruudukko on täynnä"
   },
   "warningGridFullMessage": {
-    "message": "Olet saavuttanut pääruudulla olevien pikakuvakkeiden enimmäismäärän $LIMIT$ . Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
+    "message": "Olet saavuttanut $LIMIT$ pikakuvakkeen enimmäismäärän aloitusnäytöllä. Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -279,7 +279,7 @@
     "message": "Kansio on täynnä"
   },
   "warningFolderFullMessage": {
-    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteiden absoluuttisen rajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
+    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteen enimmäisrajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -309,28 +309,28 @@
     "message": "Sulje"
   },
   "weekday_0": {
-    "message": "sunnuntai"
+    "message": "Sunnuntai"
   },
   "weekday_1": {
-    "message": "maanantai"
+    "message": "Maanantai"
   },
   "weekday_2": {
-    "message": "tiistai"
+    "message": "Tiistai"
   },
   "weekday_3": {
-    "message": "keskiviikko"
+    "message": "Keskiviikko"
   },
   "weekday_4": {
-    "message": "torstai"
+    "message": "Torstai"
   },
   "weekday_5": {
-    "message": "perjantai"
+    "message": "Perjantai"
   },
   "weekday_6": {
-    "message": "lauantai"
+    "message": "Lauantai"
   },
   "greetWeekMorning": {
-    "message": "Hauskaa päivää! $WEEK$, $NAME$!",
+    "message": "Mukavaa päivää! Tänään on $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -343,7 +343,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Miten sinulla menee, $WEEK$ , $NAME$?",
+    "message": "Miten $WEEK$ on sujunut, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, miten sujui $WEEK$?",
+    "message": "Miten $WEEK$ sujui, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -378,7 +378,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Herää ja nouse, $NAME$!",
+    "message": "Uusi päivä odottaa, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -387,7 +387,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Toivotan sinulle ihanaa päivää, $NAME$",
+    "message": "Ihanaa päivää, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -396,7 +396,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Hei, $NAME$! Oletko valmis tänään?",
+    "message": "Hei $NAME$! Oletko valmis tähän päivään?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Aloitetaan päivä oikein, $NAME$",
+    "message": "Aloitetaan päivä hyvin, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -423,7 +423,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "On mukava nähdä sinua. $NAME$",
+    "message": "Mukava nähdä sinua, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -468,7 +468,7 @@
     }
   },
   "greetEvening2": {
-    "message": "On aika rentoutua, $NAME$",
+    "message": "Aika rentoutua, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -477,7 +477,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Toivotan teille rauhallista iltaa, $NAME$",
+    "message": "Rauhallista iltaa, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -495,7 +495,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Nauti illastasi, $NAME$",
+    "message": "Nauti illasta, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -513,7 +513,7 @@
     }
   },
   "greetNight2": {
-    "message": "Oletko vielä hereillä, $NAME$? Nuku pian hyvin!",
+    "message": "Oletko vielä hereillä, $NAME$? Lepää hyvin!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -522,7 +522,7 @@
     }
   },
   "greetNight3": {
-    "message": "Nauti hiljaisista hetkistä, $NAME$",
+    "message": "Nauti hiljaisista tunneista, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -540,7 +540,7 @@
     }
   },
   "greetNight5": {
-    "message": "Myöhään yöllä, $NAME$?",
+    "message": "Myöhään ylhäällä, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
