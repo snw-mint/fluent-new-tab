@@ -32,6 +32,42 @@
   "iconsStyleLabel": {
     "message": "Ikonstil"
   },
+  "displayTitle": {
+    "message": "Visning"
+  },
+  "displayGreeting": {
+    "message": "Hälsning"
+  },
+  "time24Option": {
+    "message": "Tid: 23:00"
+  },
+  "time24SecOption": {
+    "message": "Tid med sekunder: 23:00:00"
+  },
+  "time12Option": {
+    "message": "Tid: 23:00"
+  },
+  "time12SecOption": {
+    "message": "Tid med sekunder: 23:00:00"
+  },
+  "dateText": {
+    "message": "Skrivet (t.ex. den 8 april)"
+  },
+  "dateNumeric": {
+    "message": "Siffror (t.ex. 04/08/2026)"
+  },
+  "displayTimeDate": {
+    "message": "Tid &amp; Datum (Avancerat)"
+  },
+  "showSecondsLabel": {
+    "message": "Visa sekunder"
+  },
+  "use12HourLabel": {
+    "message": "Använd 12-timmarsformat"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
   "weatherTitle": {
     "message": "Väder"
   },
