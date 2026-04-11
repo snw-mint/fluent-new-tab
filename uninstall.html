@@ -10,7 +10,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <style>
         .uninstall-hero {
@@ -358,7 +357,7 @@
                     <textarea class="fluent-textarea" name="entry.472098049"
                         placeholder="Tell us more... (Optional)"></textarea>
                 </div>
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAC8NIkPtzPtQxqM5" data-theme="light"></div>
+
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">Submit Feedback</button>
                 </div>
@@ -457,22 +456,15 @@
                 });
             });
 
-form.addEventListener('submit', (e) => {
-    // Busca a resposta do Cloudflare
-    const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
-
-    if (!turnstileResponse) {
-        e.preventDefault(); // Impede o envio para o Google Forms
-        alert("Por favor, complete a verificação de segurança.");
-        return;
-    }
-
-    submitted = true;
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.style.opacity = '0.7';
-    btn.disabled = true;
-});
+            let submitted = false;
+            form.addEventListener('submit', () => {
+                submitted = true;
+                // Troca o visual do botão para indicar carregamento
+                const btn = form.querySelector('button[type="submit"]');
+                btn.textContent = 'Sending...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+            });
 
             const iframe = document.getElementById('hidden_iframe');
             iframe.onload = function () {
