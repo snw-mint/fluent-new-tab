@@ -32,7 +32,7 @@ const DEFAULT_INSTALL_PREFERENCES = {
 };
 
 chrome.runtime.onInstalled.addListener((details) => {
-  chrome.runtime.setUninstallURL("https://forms.office.com/r/6RaRiAgxD2");
+  chrome.runtime.setUninstallURL("https://snw-mint.github.io/fluent-new-tab/uninstall.html");
 
   if (details.reason === 'install') {
     chrome.storage.local.set({
