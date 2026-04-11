@@ -251,6 +251,7 @@ function renderShortcuts(): void {
       onOpenFolder: handleOpenFolder,
       onGoBack: handleGoBack,
     });
+    updateSingleRowClass();
   };
 
   const animateAndRender = (nextFolderId: string | null): void => {
@@ -268,6 +269,30 @@ function renderShortcuts(): void {
 
   performRender();
 }
+
+function updateSingleRowClass(): void {
+  if (!shortcutsGrid) return;
+
+  const COLUMNS = 10;
+
+  const activeArray = currentFolderId
+    ? (shortcuts.find(s => s.id === currentFolderId)?.children || [])
+    : shortcuts;
+
+  const itemCount = activeArray.length;
+  const backSlot = currentFolderId ? 1 : 0;
+  const totalSlots = itemCount + 1 + backSlot;
+  const isSingleRow = totalSlots < COLUMNS;
+
+  shortcutsGrid.classList.toggle('single-row', isSingleRow);
+
+  if (isSingleRow) {
+    shortcutsGrid.style.setProperty('--shortcut-count', String(totalSlots));
+  } else {
+    shortcutsGrid.style.removeProperty('--shortcut-count');
+  }
+}
+
 function setSearchEngine(engineKey: keyof typeof engines): void {
   const config = engines[engineKey];
   if (config) {
