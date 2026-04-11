@@ -47,22 +47,38 @@ html[data-theme="dark"] {
     }
   }
 
-  .settings-btn:hover,
+.settings-btn:hover,
   .current-engine-btn:hover,
-  .dropdown-item:hover,
-  .menu-option:hover,
-  .suggestion-item:hover,
-  .suggestion-item.selected,
   .launcher-btn:hover,
   .launcher-btn.active,
   .launcher-item:hover,
-  .settings-btn:hover,
   .unit-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .dropdown-item:hover,
+  .menu-option:hover,
+  .suggestion-item:hover,
+  .suggestion-item.selected {
+    background-color: rgba(255, 255, 255, 0.18);
   }
 
   .btn-cancel:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.26);
+  }
+
+  .unit-btn:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .unit-btn {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .unit-btn.active {
+    background-color: var(--accent-color);
+    color: var(--accent-contrast-color);
+    border-color: var(--accent-color);
   }
 
   .shortcuts-grid {
@@ -260,7 +276,6 @@ html[data-theme="dark"] {
     }
   }
 
-  // Search engine dropdown
   .search-bar .dropdown-menu {
     background: rgba(32, 32, 32, 0.85);
     border: 1px solid $color-dark-border;
@@ -275,7 +290,6 @@ html[data-theme="dark"] {
     }
   }
 
-  // Add shortcut card inside folder
   .shortcuts-grid .shortcut-item.add-card-wrapper {
     .shortcut-card {
       background: #2f2f2f;
@@ -306,6 +320,30 @@ html[data-theme="dark"] {
   .switch:hover input:checked + .slider {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
+  }
+  .theme-selector {
+    .theme-btn:hover {
+      background-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .theme-btn.active {
+      background-color: var(--accent-color);
+      color: var(--accent-contrast-color);
+    }
+  }
+
+  .shortcut-dropdown .menu-option:hover {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .shortcut-dropdown .menu-option.remove-option:hover {
+    background-color: rgba(220, 53, 69, 0.25) !important;
+    color: #ff6b6b !important;
+
+    svg {
+      fill: #ff6b6b !important;
+      opacity: 1 !important;
+    }
   }
 }
 
@@ -353,7 +391,7 @@ html:not([data-theme="dark"]) {
 }
 
 [data-theme="dark"] {
-  #addModal,
+#addModal,
   #chooseTypeModal,
   #addFolderModal {
     .modal-content {
@@ -365,7 +403,32 @@ html:not([data-theme="dark"]) {
       border-top-color: $color-dark-border;
 
       .btn-cancel {
-        background: #2d2d2d;
+        background: #3a3a3a;
+        color: rgba(255, 255, 255, 0.9);
+
+        &:hover {
+          background: #484848;
+        }
+      }
+    }
+  }
+
+  #warningModal {
+    .modal-content {
+      background: #2b2b2b;
+    }
+
+    .modal-actions {
+      background: $color-dark-bg;
+      border-top-color: $color-dark-border;
+
+      .btn-cancel {
+        background: #3a3a3a;
+        color: rgba(255, 255, 255, 0.9);
+
+        &:hover {
+          background: #484848;
+        }
       }
     }
   }
