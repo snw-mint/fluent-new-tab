@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uninstall Feedback - Fluent New Tab</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <style>
+        .uninstall-hero {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .uninstall-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--color-text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .uninstall-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            max-width: 40rem;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .form-container {
+            max-width: 42rem;
+            margin: 0 auto 4rem;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text-main);
+        }
+
+        .fluent-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .fluent-radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--color-text-main);
+            padding: 0.5rem;
+            border-radius: var(--radius-button);
+            transition: background-color 0.2s;
+            margin-left: -0.5rem;
+        }
+
+        .fluent-radio-label:hover {
+            background-color: var(--color-bg);
+        }
+
+        .fluent-radio-label input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-mark {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1px solid var(--color-text-muted);
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s;
+        }
+
+        .radio-mark::after {
+            content: "";
+            width: 0.625rem;
+            height: 0.625rem;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        .fluent-radio-label input[type="radio"]:checked~.radio-mark {
+            border-color: var(--color-primary);
+        }
+
+        .fluent-radio-label input[type="radio"]:checked~.radio-mark::after {
+            transform: scale(1);
+        }
+
+        .branch-group {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--color-border);
+            animation: fluentSlideUp 0.3s ease-out forwards;
+        }
+
+        .fluent-textarea {
+            width: 100%;
+            min-height: 6rem;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-button);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .fluent-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background-color: var(--color-surface);
+        }
+
+        .form-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Success State */
+        #success-view {
+            display: none;
+            text-align: center;
+            animation: fluentSlideUp 0.4s ease-out forwards;
+        }
+
+        .success-icon {
+            color: #107C10;
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1.5rem;
+            background-color: rgba(16, 124, 16, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .success-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .success-cards .setting-card {
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .success-cards .setting-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-float);
+        }
+
+        @media (max-width: 48rem) {
+            .form-container {
+                padding: 1.5rem;
+                border: none;
+                box-shadow: none;
+                background: transparent;
+            }
+        }
+
+        /* Cores dos ícones para manter a consistência */
+        .icon-contact {
+            color: #8661C5;
+            background-color: rgba(134, 97, 197, 0.1);
+        }
+
+        .icon-question {
+            color: var(--color-primary);
+            background-color: rgba(15, 108, 189, 0.1);
+        }
+
+        /* Ajuste para o link do card não parecer um link azul padrão */
+        a.feature-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Ajuste da grid para centralizar se houver poucos itens */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content" style="justify-content: space-between;">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <img class="logo-mark" src="android-chrome-512x512.png" alt="Fluent New Tab logo">
+                <span>Fluent New Tab</span>
+            </a>
+
+            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
+                <span class="theme-icon light-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <span class="theme-icon dark-icon">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <div class="theme-thumb"></div>
+            </button>
+        </div>
+    </nav>
+
+    <header class="uninstall-hero" id="header-text">
+        <div class="container">
+            <h1 class="uninstall-title">I'm sorry to see you go.</h1>
+            <p class="uninstall-subtitle">Taking 30 seconds to tell me why you left helps me improve Fluent New Tab for
+                everyone.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="form-container" id="form-view">
+
+            <form
+                action="https://docs.google.com/forms/d/e/1FAIpQLSe-5O5DArZLp84fMQrnu3Er8Hq9MPNVjr0C5c-83cVex_bauA/formResponse"
+                method="POST" target="hidden_iframe" id="uninstall-form">
+
+                <div class="form-group">
+                    <label class="form-label">Why are you uninstalling Fluent New Tab? <span
+                            style="color: #D13438;">*</span></label>
+                    <div class="fluent-radio-group">
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="It's missing features I need" required>
+                            <span class="radio-mark"></span> It's missing features I need
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="It was buggy or slowed down my browser">
+                            <span class="radio-mark"></span> It was buggy or slowed down my browser
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797"
+                                value="I was concerned about privacy or permissions">
+                            <span class="radio-mark"></span> I was concerned about privacy or permissions
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="I didn't like the design / layout">
+                            <span class="radio-mark"></span> I didn't like the design / layout
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="It was difficult to set up or use">
+                            <span class="radio-mark"></span> It was difficult to set up or use
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="I was just testing it out">
+                            <span class="radio-mark"></span> I was just testing it out
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797"
+                                value="I prefer my previous new tab / another extension">
+                            <span class="radio-mark"></span> I prefer my previous new tab / another extension
+                        </label>
+
+                        <label class="fluent-radio-label">
+                            <input type="radio" name="entry.1740313797" value="__other_option__">
+                            <span class="radio-mark"></span> Other
+                        </label>
+
+                        <div id="branch-native-other" class="branch-group">
+                            <label class="form-label">Please specify:</label>
+                            <textarea class="fluent-textarea" name="entry.1740313797.other_option_response"
+                                placeholder="Tell us more..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="branch-features" class="branch-group">
+                    <label class="form-label">What feature were you looking for?</label>
+                    <textarea class="fluent-textarea" name="entry.359779339"
+                        placeholder="Tell us more... (Optional)"></textarea>
+                </div>
+
+                <div id="branch-bug" class="branch-group">
+                    <label class="form-label">Could you briefly describe the bug or issue?</label>
+                    <textarea class="fluent-textarea" name="entry.74716002"
+                        placeholder="Tell us more... (Optional)"></textarea>
+                </div>
+
+                <div id="branch-privacy" class="branch-group">
+                    <label class="form-label">Which permission or privacy aspect concerned you?</label>
+                    <textarea class="fluent-textarea" name="entry.1040472792"
+                        placeholder="Tell us more... (Optional)"></textarea>
+                </div>
+
+                <div id="branch-switch" class="branch-group">
+                    <label class="form-label">Which extension are you switching to?</label>
+                    <textarea class="fluent-textarea" name="entry.213254177"
+                        placeholder="Tell us more... (Optional)"></textarea>
+                </div>
+
+                <div id="branch-others" class="branch-group">
+                    <label class="form-label">Any other feedback to help me improve?</label>
+                    <textarea class="fluent-textarea" name="entry.472098049"
+                        placeholder="Tell us more... (Optional)"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        </div>
+
+
+        <div class="form-container" id="success-view"
+            style="padding: 4rem 2rem; border: none; box-shadow: none; background: transparent;">
+            <div class="success-icon">
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 7L9.00004 18L3.99994 13L5.41406 11.586L8.99994 15.172L18.586 5.58594L20 7Z"
+                        fill="currentColor" />
+                </svg>
+            </div>
+            <h2 class="uninstall-title">Thank you for your feedback!</h2>
+            <p class="uninstall-subtitle" style="margin-bottom: 3rem;">It means a lot to an independent developer. If
+                you’d like to provide more details about a bug or have any questions, please feel free to reach out.</p>
+
+            <div class="features-grid">
+                <a href="mailto:snw-mint@outlook.com" class="feature-card">
+                    <div class="icon-wrapper icon-contact">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.25 4h13.5a3.25 3.25 0 0 1 3.245 3.066L22 7.25v9.5a3.25 3.25 0 0 1-3.066 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75v-9.5a3.25 3.25 0 0 1 3.066-3.245L5.25 4h13.5-13.5ZM20.5 9.373l-8.15 4.29a.75.75 0 0 1-.603.043l-.096-.042L3.5 9.374v7.376a1.75 1.75 0 0 0 1.606 1.744l.144.006h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143V9.373ZM18.75 5.5H5.25a1.75 1.75 0 0 0-1.744 1.606L3.5 7.25v.429l8.5 4.473 8.5-4.474V7.25a1.75 1.75 0 0 0-1.607-1.744L18.75 5.5Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Email Me</h3>
+                    <p>snw-mint@outlook.com</p>
+                </a>
+
+                <a href="index.html" class="feature-card">
+                    <div class="icon-wrapper icon-question">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2.09c-5.47 0-9.91 4.44-9.91 9.91 0 5.47 4.44 9.91 9.91 9.91 5.47 0 9.91-4.44 9.91-9.91 0-5.47-4.44-9.91-9.91-9.91zm0 1.5c4.64 0 8.41 3.77 8.41 8.41s-3.77 8.41-8.41 8.41-8.41-3.77-8.41-8.41 3.77-8.41 8.41-8.41zM11.25 7v6h1.5V7h-1.5zm0 8v1.5h1.5V15h-1.5z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Back to Home</h3>
+                    <p>Return to the main page.</p>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer" style="padding: 32px 0;">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                &copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
+                    rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">snow mint</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('uninstall-form');
+            const radios = document.querySelectorAll('input[type="radio"]');
+            const branches = {
+                "It's missing features I need": document.getElementById('branch-features'),
+                "It was buggy or slowed down my browser": document.getElementById('branch-bug'),
+                "I was concerned about privacy or permissions": document.getElementById('branch-privacy'),
+                "I prefer my previous new tab / another extension": document.getElementById('branch-switch'),
+                "I didn't like the design / layout": document.getElementById('branch-others'),
+                "It was difficult to set up or use": document.getElementById('branch-others'),
+                "I was just testing it out": document.getElementById('branch-others'),
+                "__other_option__": document.getElementById('branch-native-other')
+            };
+
+            function hideAllBranches() {
+                Object.values(branches).forEach(branch => {
+                    if (branch) {
+                        branch.style.display = 'none';
+                        const textarea = branch.querySelector('textarea');
+                        if (textarea) textarea.value = '';
+                    }
+                });
+            }
+
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    hideAllBranches();
+                    const selectedValue = e.target.value;
+
+                    if (branches[selectedValue]) {
+                        branches[selectedValue].style.display = 'block';
+                        setTimeout(() => {
+                            branches[selectedValue].querySelector('textarea').focus();
+                        }, 50);
+                    }
+                });
+            });
+
+            let submitted = false;
+            form.addEventListener('submit', () => {
+                submitted = true;
+                // Troca o visual do botão para indicar carregamento
+                const btn = form.querySelector('button[type="submit"]');
+                btn.textContent = 'Sending...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+            });
+
+            const iframe = document.getElementById('hidden_iframe');
+            iframe.onload = function () {
+                if (submitted) {
+                    document.getElementById('form-view').style.display = 'none';
+                    document.getElementById('header-text').style.display = 'none';
+                    document.getElementById('success-view').style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            };
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
