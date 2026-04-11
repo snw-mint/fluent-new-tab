@@ -8,7 +8,7 @@ To make contributing easier, faster, and more accessible, we manage our localiza
 
 Crowdin provides a visual interface where you can translate text, vote on the best translations, and see changes sync automatically with the project.
 
-### [Join the Fluent New Tab project on Crowdin](https://crowdin.com/project/fluent-new-tab)
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Right.png" alt="Backhand Index Pointing Right" width="20" height="20" /> [Join the Fluent New Tab project on Crowdin](https://crowdin.com/project/fluent-new-tab)
 
 **Why use Crowdin?**
 * **No Coding Required:** You don't need to touch JSON files or worry about syntax errors.
