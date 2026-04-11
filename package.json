@@ -1,6 +1,6 @@
 {
   "name": "fluent-new-tab",
-  "version": "3.2.2",
+  "version": "3.3.1",
   "private": true,
   "description": "Build tooling for Fluent New Tab (browser extension)",
   "scripts": {

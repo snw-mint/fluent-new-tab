@@ -275,21 +275,19 @@ function updateSingleRowClass(): void {
 
   const COLUMNS = 10;
 
-  const activeArray = currentFolderId
-    ? (shortcuts.find(s => s.id === currentFolderId)?.children || [])
-    : shortcuts;
+  const activeArray = currentFolderId ? shortcuts.find((s) => s.id === currentFolderId)?.children || [] : shortcuts;
 
   const itemCount = activeArray.length;
   const backSlot = currentFolderId ? 1 : 0;
   const totalSlots = itemCount + 1 + backSlot;
   const isSingleRow = totalSlots < COLUMNS;
 
-  shortcutsGrid.classList.toggle('single-row', isSingleRow);
+  shortcutsGrid.classList.toggle("single-row", isSingleRow);
 
   if (isSingleRow) {
-    shortcutsGrid.style.setProperty('--shortcut-count', String(totalSlots));
+    shortcutsGrid.style.setProperty("--shortcut-count", String(totalSlots));
   } else {
-    shortcutsGrid.style.removeProperty('--shortcut-count');
+    shortcutsGrid.style.removeProperty("--shortcut-count");
   }
 }
 
@@ -628,14 +626,14 @@ function updateDisplaySettingsVisibility(show: boolean, animate = true): void {
 }
 
 function updateDisplaySubSettingsUI(preset: string): void {
-  if (subGreeting) subGreeting.style.display = 'none';
-  if (subTime) subTime.style.display = 'none';
-  if (subDate) subDate.style.display = 'none';
-  if (preset === 'greeting' && subGreeting) {
-    subGreeting.style.display = 'block';
-  } else if (preset === 'timedate') {
-    if (subTime) subTime.style.display = 'block';
-    if (subDate) subDate.style.display = 'block';
+  if (subGreeting) subGreeting.style.display = "none";
+  if (subTime) subTime.style.display = "none";
+  if (subDate) subDate.style.display = "none";
+  if (preset === "greeting" && subGreeting) {
+    subGreeting.style.display = "block";
+  } else if (preset === "timedate") {
+    if (subTime) subTime.style.display = "block";
+    if (subDate) subDate.style.display = "block";
   }
 }
 function updateAnimationsDisabled(enabled: boolean): void {
@@ -838,54 +836,62 @@ function clearEarlyWallpaperBootstrap(): void {
   document.documentElement.removeAttribute("data-early-wallpaper");
 }
 
-function preloadWallpaperImage(url: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.onload = () => resolve();
-    img.onerror = () => reject(new Error("Failed to preload wallpaper image."));
-    img.src = url;
-  });
-}
-
 async function applyWallpaperImage(url: string): Promise<void> {
   if (currentWallpaperObjectUrl && currentWallpaperObjectUrl.startsWith("blob:") && currentWallpaperObjectUrl !== url) {
     URL.revokeObjectURL(currentWallpaperObjectUrl);
   }
 
-  try {
-    await preloadWallpaperImage(url);
-  } catch (error) {
-    console.warn("Could not preload wallpaper, applying directly.", error);
-  }
-
   currentWallpaperObjectUrl = url.startsWith("blob:") ? url : null;
+
   document.body.style.backgroundImage = `url('${url}')`;
 }
 
 async function getOptimizedApiWallpaper(remoteUrl: string, source: string): Promise<string> {
   const cacheKey = `api_wallpaper_${source}`;
-  const lastProcessedUrl = localStorage.getItem(`${cacheKey}_url`);
+  const urlCacheKey = `${cacheKey}_url`;
+  const lastProcessedUrl = localStorage.getItem(urlCacheKey);
+
   if (lastProcessedUrl === remoteUrl) {
-    const cachedBlob = await getWallpaperFromDB(cacheKey);
-    if (cachedBlob) {
-      return URL.createObjectURL(cachedBlob);
+    try {
+      const cachedBlob = await getWallpaperFromDB(cacheKey);
+      if (cachedBlob) {
+        console.log(`[Wallpaper] Serving ${source} from IndexedDB cache.`);
+        return URL.createObjectURL(cachedBlob);
+      }
+    } catch (e) {
+      console.warn("[Wallpaper] Failed to read from IndexedDB, re-fetching.", e);
     }
   }
-  try {
-    const response = await fetch(remoteUrl);
-    const blob = await response.blob();
-    const tempUrl = URL.createObjectURL(blob);
 
-    const webpBlob = await convertImageToWebp(tempUrl, 1920, 0.82);
+  try {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 20000);
+    const response = await fetch(remoteUrl, { signal: controller.signal });
+    window.clearTimeout(timeoutId);
+
+    if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+
+    const blob = await response.blob();
+    console.log(`[Wallpaper] ${source} raw size: ${(blob.size / 1024 / 1024).toFixed(1)}MB`);
+
+    if (blob.size > 8 * 1024 * 1024) {
+      console.warn(`[Wallpaper] Image too large, skipping WebP conversion.`);
+      await saveWallpaperToDB(blob, cacheKey);
+      localStorage.setItem(urlCacheKey, remoteUrl);
+      return URL.createObjectURL(blob);
+    }
+
+    const tempUrl = URL.createObjectURL(blob);
+    const webpBlob = await convertImageToWebp(tempUrl, 3840, 0.85);
     URL.revokeObjectURL(tempUrl);
 
     await saveWallpaperToDB(webpBlob, cacheKey);
-    localStorage.setItem(`${cacheKey}_url`, remoteUrl);
+    localStorage.setItem(urlCacheKey, remoteUrl);
 
     return URL.createObjectURL(webpBlob);
   } catch (error) {
-    console.warn(`Compression failed for ${source}, using original URL.`, error);
+    const isAbort = error instanceof Error && error.name === "AbortError";
+    console.warn(`[Wallpaper] ${isAbort ? "Timeout" : "Compression failed"} for ${source}, using original URL.`, error);
     return remoteUrl;
   }
 }
@@ -919,16 +925,21 @@ async function applyWallpaperLogic() {
         await loadCustomWallpaper();
       }
     } else if (currentWallpaperSource === "api") {
+      console.log("[Debug] currentWallpaperType:", currentWallpaperType);
+      console.log("[Debug] currentWallpaperSource:", currentWallpaperSource);
       const url = await fetchDailyWallpaper(currentWallpaperType);
+      console.log("[Debug] url retornada:", url);
       if (url) {
+        console.log("[Debug] chamando getOptimizedApiWallpaper com source:", currentWallpaperType);
         const optimizedUrl = await getOptimizedApiWallpaper(url, currentWallpaperType);
+        console.log("[Debug] optimizedUrl:", optimizedUrl);
         await applyWallpaperImage(optimizedUrl);
         void handleAutoAccentColor(optimizedUrl, `api_${currentWallpaperType}_${url}`);
-    const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+        const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
         try {
           const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as any;
           let credit = cached ? cached.credit : "";
-          let creditUrl = cached ? cached.creditUrl : ""; 
+          let creditUrl = cached ? cached.creditUrl : "";
 
           if (!credit) {
             if (currentWallpaperType === "bing") credit = "Microsoft Bing";
@@ -938,6 +949,29 @@ async function applyWallpaperLogic() {
           updateCreditsUI("api", credit, creditUrl);
         } catch (e) {
           updateCreditsUI("api", "Daily Wallpaper");
+        }
+      } else {
+        const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+        const apiCacheKey = `api_wallpaper_${currentWallpaperType}`;
+        try {
+          const cachedBlob = await getWallpaperFromDB(apiCacheKey);
+          if (cachedBlob) {
+            const blobUrl = URL.createObjectURL(cachedBlob);
+            await applyWallpaperImage(blobUrl);
+            const cached = JSON.parse(localStorage.getItem(cacheKey) || "null") as any;
+            if (cached?.credit) {
+              updateCreditsUI("api", cached.credit, cached.creditUrl || "");
+            } else {
+              updateCreditsUI("api", "Daily Wallpaper");
+            }
+            console.log("Using cached wallpaper as fallback.");
+          } else {
+            document.body.style.backgroundImage = "none";
+            document.body.removeAttribute("data-wallpaper-active");
+          }
+        } catch (e) {
+          document.body.style.backgroundImage = "none";
+          document.body.removeAttribute("data-wallpaper-active");
         }
       }
     }
@@ -1460,28 +1494,28 @@ function updateCreditsUI(source: string, creditText?: string, creditUrl?: string
   if (source === "local" || source === "preset" || source === "upload") {
     creditsContainer.classList.add("hidden");
   } else {
-    creditsSpan.innerHTML = '';
-    
+    creditsSpan.innerHTML = "";
+
     const textToShow = creditText || "Daily Wallpaper";
 
     if (creditUrl) {
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = creditUrl;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
       a.textContent = textToShow;
-      a.className = 'wallpaper-credit-link';
-      
-      a.style.color = 'inherit';
-      a.style.textDecoration = 'underline';
-      a.style.pointerEvents = 'auto';
-      a.style.cursor = 'pointer';
-      
+      a.className = "wallpaper-credit-link";
+
+      a.style.color = "inherit";
+      a.style.textDecoration = "underline";
+      a.style.pointerEvents = "auto";
+      a.style.cursor = "pointer";
+
       creditsSpan.appendChild(a);
     } else {
       creditsSpan.textContent = textToShow;
     }
-    
+
     creditsContainer.classList.remove("hidden");
   }
 }
@@ -1823,7 +1857,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   applyBrandInterval();
 
-if (toggleDisplay) {
+  if (toggleDisplay) {
     toggleDisplay.checked = localStorage.getItem("displayEnabled") !== "false";
     updateDisplaySettingsVisibility(toggleDisplay.checked, false);
     toggleDisplay.addEventListener("change", (e) => {
@@ -1836,7 +1870,7 @@ if (toggleDisplay) {
     });
   }
 
-if (displayTypeSelect) {
+  if (displayTypeSelect) {
     // We now use a new key 'displayPreset' to remember the exact dropdown choice
     const savedPreset = localStorage.getItem("displayPreset") || "greeting";
     displayTypeSelect.value = savedPreset;
@@ -1849,32 +1883,31 @@ if (displayTypeSelect) {
       localStorage.setItem("displayPreset", preset);
 
       // The Translator: Converts the preset into the specific settings the clock needs
-      if (preset === 'greeting') {
+      if (preset === "greeting") {
         localStorage.setItem("displayType", "greeting");
-      } else if (preset === 'time_24') {
+      } else if (preset === "time_24") {
         localStorage.setItem("displayType", "time");
         localStorage.setItem("use12Hour", "false");
         localStorage.setItem("showSeconds", "false");
-      } else if (preset === 'time_24_sec') {
+      } else if (preset === "time_24_sec") {
         localStorage.setItem("displayType", "time");
         localStorage.setItem("use12Hour", "false");
         localStorage.setItem("showSeconds", "true");
-      } else if (preset === 'time_12') {
+      } else if (preset === "time_12") {
         localStorage.setItem("displayType", "time");
         localStorage.setItem("use12Hour", "true");
         localStorage.setItem("showSeconds", "false");
-      } else if (preset === 'time_12_sec') {
+      } else if (preset === "time_12_sec") {
         localStorage.setItem("displayType", "time");
         localStorage.setItem("use12Hour", "true");
         localStorage.setItem("showSeconds", "true");
-      }
-      else if (preset === 'date_text') {
+      } else if (preset === "date_text") {
         localStorage.setItem("displayType", "date");
         localStorage.setItem("dateFormat", "text");
-      } else if (preset === 'date_numeric') {
+      } else if (preset === "date_numeric") {
         localStorage.setItem("displayType", "date");
         localStorage.setItem("dateFormat", "numeric");
-      } else if (preset === 'timedate') {
+      } else if (preset === "timedate") {
         localStorage.setItem("displayType", "timedate");
       }
 
@@ -1917,13 +1950,13 @@ if (displayTypeSelect) {
     });
   }
 
-if (greetingNameInput) {
-    greetingNameInput.value = localStorage.getItem("greetingName") || ""; 
+  if (greetingNameInput) {
+    greetingNameInput.value = localStorage.getItem("greetingName") || "";
     greetingNameInput.addEventListener("input", (e) => {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem("greetingName", target.value);
-      if (greetingWrapper) greetingWrapper.dataset.lastMinute = '';
+      if (greetingWrapper) greetingWrapper.dataset.lastMinute = "";
       initBrand();
     });
   }
@@ -1934,7 +1967,7 @@ if (greetingNameInput) {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem("greetingStyle", target.value);
-      if (greetingWrapper) greetingWrapper.dataset.lastMinute = '';
+      if (greetingWrapper) greetingWrapper.dataset.lastMinute = "";
       initBrand();
     });
   }
