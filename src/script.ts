@@ -368,18 +368,11 @@ function startVoiceRingAnimation(): void {
 }
 
 function playVoiceStartSound(): void {
-  const audio = new Audio("assets/mic-recording.mp3");
-  audio.volume = 0.45;
-  audio.play().catch((error: unknown) => {
-    const message = error instanceof Error ? error.message : String(error || "");
-    const isExpectedPolicyBlock =
-      message.toLowerCase().includes("notallowederror") ||
-      message.toLowerCase().includes("interact") ||
-      message.toLowerCase().includes("play() request was interrupted");
+  const sfx = getSfx('mic');
+  if (!sfx) return;
 
-    if (isExpectedPolicyBlock) return;
-    console.debug("Voice start sound could not play.", error);
-  });
+  sfx.currentTime = 0;
+  sfx.play().catch(() => {});
 }
 
 function updateVoiceButtonRecordingState(): void {
@@ -1833,6 +1826,25 @@ function updateAskAiBtnVisibility(): void {
   askAiBtn.style.display = canShow ? 'flex' : 'none';
 }
 
+function getSfx(type: 'mic' | 'ai'): HTMLAudioElement | null {
+  if (type === 'mic' && !voiceSearchEnabled) return null;
+  if (type === 'ai' && !askAiEnabled) return null;
+
+  if (type === 'mic') {
+    if (!sfxMicInstance) {
+      sfxMicInstance = new Audio(chrome.runtime.getURL("assets/sfx/mic-ready.webm"));
+      sfxMicInstance.volume = 0.45;
+    }
+    return sfxMicInstance;
+  } else {
+    if (!sfxAskAiInstance) {
+      sfxAskAiInstance = new Audio(chrome.runtime.getURL("assets/sfx/ai-sfx.webm"));
+      sfxAskAiInstance.volume = 0.5;
+    }
+    return sfxAskAiInstance;
+  }
+}
+
 function setAskAiMode(active: boolean): void {
   askAiMode = active;
   if (!searchWrapper || !searchInput || !askAiBtn) return;
@@ -1841,8 +1853,14 @@ function setAskAiMode(active: boolean): void {
   const activeIcon = askAiBtn.querySelector('.ask-ai-icon-active') as HTMLElement | null;
 
   if (active) {
+    const sfx = getSfx('ai');
+    if (sfx) {
+      sfx.currentTime = 0;
+      sfx.play().catch(() => {});
+    }
+
     searchWrapper.classList.add('ask-ai-active');
-    searchInput.placeholder = 'Ask to AI...';
+    searchInput.placeholder = 'Ask to AI';
     if (inactiveIcon) inactiveIcon.style.display = 'none';
     if (activeIcon) activeIcon.style.display = 'block';
   } else {

@@ -12,6 +12,7 @@ interface ChromeLike {
   };
   runtime: {
     getManifest: () => { version: string };
+    getURL: (path: string) => string;
   };
   storage?: {
     local?: {
