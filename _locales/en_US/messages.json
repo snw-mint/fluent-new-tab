@@ -92,6 +92,9 @@
   "voiceSearchOption": {
     "message": "Voice search"
   },
+  "askAiOption": { 
+    "message": "Ask to AI" 
+  },
   "reduceVisualEffectsTitle": {
     "message": "Reduce effects"
   },

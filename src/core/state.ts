@@ -59,3 +59,5 @@ let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
 let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
 let accentColorValue = localStorage.getItem('accentColorValue') || '#0078d4';
 let accentColorSurfaces = localStorage.getItem('accentColorSurfaces') === 'true';
+let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
+let askAiMode = false;

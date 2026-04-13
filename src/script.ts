@@ -315,6 +315,7 @@ function setSearchEngine(engineKey: keyof typeof engines): void {
     updateGoogleParams();
   }
 }
+
 function updateSearchSettings(animate = true): void {
   if (searchWrapper) searchWrapper.style.display = searchBarVisible ? "" : "none";
   if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
@@ -325,8 +326,11 @@ function updateSearchSettings(animate = true): void {
   if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
   const voiceSearchRow = getById<HTMLDivElement>("voiceSearchRow");
   if (voiceSearchRow) setCollapsible(voiceSearchRow, showChildren, animate);
+  if (askAiRow) setCollapsible(askAiRow, showChildren, animate);
   updateVoiceSearchAvailability();
+  updateAskAiBtnVisibility();
 }
+
 function updateCompactBarStyle(): void {
   if (searchWrapper) {
     if (compactBarEnabled) searchWrapper.classList.add("compact");
@@ -1823,6 +1827,38 @@ function showUpdateReleaseNotice(version: string): void {
   window.setTimeout(hideNotice, 10000);
 }
 
+function updateAskAiBtnVisibility(): void {
+  if (!askAiBtn) return;
+  const canShow = askAiEnabled && searchBarVisible;
+  askAiBtn.style.display = canShow ? 'flex' : 'none';
+}
+
+function setAskAiMode(active: boolean): void {
+  askAiMode = active;
+  if (!searchWrapper || !searchInput || !askAiBtn) return;
+
+  const inactiveIcon = askAiBtn.querySelector('.ask-ai-icon-inactive') as HTMLElement | null;
+  const activeIcon = askAiBtn.querySelector('.ask-ai-icon-active') as HTMLElement | null;
+
+  if (active) {
+    searchWrapper.classList.add('ask-ai-active');
+    searchInput.placeholder = 'Ask to AI...';
+    if (inactiveIcon) inactiveIcon.style.display = 'none';
+    if (activeIcon) activeIcon.style.display = 'block';
+  } else {
+    searchWrapper.classList.remove('ask-ai-active');
+    searchInput.placeholder = 'Search the web';
+    if (inactiveIcon) inactiveIcon.style.display = 'block';
+    if (activeIcon) activeIcon.style.display = 'none';
+  }
+}
+
+function handleAskAiSubmit(query: string): void {
+  if (!query.trim()) return;
+  const url = `https://www.perplexity.ai/search?q=${encodeURIComponent(query.trim())}`;
+  window.open(url, '_blank');
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const restoredFromBackup = await restorePreferencesBackupIfNeeded();
   if (restoredFromBackup) {
@@ -1955,6 +1991,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!target) return;
       localStorage.setItem("dateFormat", target.value);
       initBrand();
+    });
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      if (!askAiMode) return;
+      e.preventDefault();
+      const query = searchInput?.value || '';
+      handleAskAiSubmit(query);
+      setAskAiMode(false);
+      if (searchInput) searchInput.value = '';
+      clearSuggestions();
     });
   }
 
@@ -2273,6 +2321,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       startVoiceSearch();
     });
   }
+  if (askAiBtn) {
+    askAiBtn.addEventListener('click', () => {
+      setAskAiMode(!askAiMode);
+      if (searchInput) searchInput.focus();
+    });
+  }
+
+  if (toggleAskAi) {
+    toggleAskAi.checked = askAiEnabled;
+    toggleAskAi.addEventListener('change', (e) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      askAiEnabled = target.checked;
+      localStorage.setItem('askAiEnabled', String(target.checked));
+      updateAskAiBtnVisibility();
+      if (!target.checked && askAiMode) setAskAiMode(false);
+    });
+  }
+
+  updateAskAiBtnVisibility();
   bindWeatherFeature({
     applyInitialWeatherState,
     toggleWeather,

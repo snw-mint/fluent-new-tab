@@ -96,3 +96,6 @@ const toggleAccentWallpaper = getById<HTMLInputElement>('toggleAccentWallpaper')
 const toggleAccentSurfaces = getById<HTMLInputElement>('toggleAccentSurfaces');
 const accentPresetsRow = getById<HTMLDivElement>('accentPresetsRow');
 const accentCustomColor = getById<HTMLInputElement>('accentCustomColor');
+const askAiBtn = getById<HTMLButtonElement>('askAiBtn');
+const toggleAskAi = getById<HTMLInputElement>('toggleAskAi');
+const askAiRow = getById<HTMLDivElement>('askAiRow');

@@ -385,3 +385,122 @@
         box-shadow: 0 0 0 0 rgba($color-accent-alert, 0);
     }
 }
+
+.ask-ai-btn {
+  @include button-reset;
+  width: 3rem;
+  height: 3rem;
+  @include flex-center;
+  border-radius: $radius-round;
+  transition: background 0.2s ease, color 0.2s ease;
+  color: #5f6368;
+
+  &:hover {
+    background-color: $color-overlay-weak;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@property --ask-ai-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes ask-ai-spin-fast {
+  from { --ask-ai-angle: 0deg; }
+  to   { --ask-ai-angle: 360deg; }
+}
+
+@keyframes ask-ai-spin-slow {
+  from { --ask-ai-angle: 0deg; }
+  to   { --ask-ai-angle: 360deg; }
+}
+
+.search-bar.ask-ai-active {
+  position: relative;
+  z-index: 100;
+  box-shadow:
+    0 0 8px 1px rgba(162, 155, 254, 0.35),
+    0 0 20px 2px rgba(253, 121, 168, 0.2),
+    0 0 40px 4px rgba(72, 219, 251, 0.15) !important;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+      from var(--ask-ai-angle),
+      #ff6b6b 0%,
+      #ff9f43 12%,
+      #ffd32a 24%,
+      #0be881 36%,
+      #00d2d3 48%,
+      #48dbfb 60%,
+      #a29bfe 72%,
+      #fd79a8 84%,
+      #ff6b6b 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    animation: ask-ai-spin-fast 0.6s linear 1,
+               ask-ai-spin-slow 3s linear 0.6s infinite;
+    animation-fill-mode: forwards;
+  }
+
+  .ask-ai-btn {
+    color: #a29bfe;
+  }
+}
+
+.search-bar.ask-ai-active.suggestions-open {
+  &::before {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.search-bar.ask-ai-active .suggestions-container {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    top: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+      from var(--ask-ai-angle),
+      #ff6b6b 0%,
+      #ff9f43 12%,
+      #ffd32a 24%,
+      #0be881 36%,
+      #00d2d3 48%,
+      #48dbfb 60%,
+      #a29bfe 72%,
+      #fd79a8 84%,
+      #ff6b6b 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    clip-path: inset(2px 0 0 0);
+    animation: ask-ai-spin-fast 0.6s linear 1,
+               ask-ai-spin-slow 3s linear 0.6s infinite;
+    animation-fill-mode: forwards;
+  }
+}

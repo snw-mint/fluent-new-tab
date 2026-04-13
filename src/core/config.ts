@@ -65,5 +65,5 @@ const APP_KEYS: string[] = [
     'compactBarEnabled', 'voiceSearchEnabled', 'weatherUnit', 'wallpaperEnabled',
     'wallpaperSource', 'wallpaperType', 'wallpaperValue', 'animationsDisabled', 'blurDisabled', 'reducedEffectsEnabled',
     'accentColorEnabled', 'accentColorMode', 'accentColorValue', 'accentColorSurfaces', 'displayEnabled', 'displayType', 
-    'showSeconds', 'use12Hour', 'dateFormat'
+    'showSeconds', 'use12Hour', 'dateFormat', 'askAiEnabled'
 ];
