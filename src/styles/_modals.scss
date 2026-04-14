@@ -6,293 +6,293 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use 'sass:color';
-@use './variables' as *;
-@use './mixins' as *;
+@use "sass:color";
+@use "./variables" as *;
+@use "./mixins" as *;
 
 @keyframes modal-zoom-out-in {
-    from {
-        opacity: 0;
-        transform: scale(1.08);
-    }
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(0.25rem);
-    @include flex-center;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(0.25rem);
+  @include flex-center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 
-    &.active {
-        opacity: 1;
-        pointer-events: all;
-
-        .modal-content {
-            opacity: 1;
-            transform: scale(1);
-            animation: modal-zoom-out-in 0.14s ease-out;
-        }
-    }
+  &.active {
+    opacity: 1;
+    pointer-events: all;
 
     .modal-content {
-        background: var(--search-bg);
-        color: var(--text-color);
-        padding: 1.5rem;
-        border-radius: var(--border-radius);
-        width: fit-content;
-        min-width: 25rem;
-        max-width: calc(100vw - 2rem);
-        box-shadow: $shadow-card-strong;
-        opacity: 0;
-        transform: scale(1);
-        transition: opacity 0.16s ease;
-
-        h3 {
-            margin-bottom: 1.25rem;
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .input-group {
-            margin-bottom: 1rem;
-
-            label {
-                display: block;
-                font-size: 0.75rem;
-                margin-bottom: 0.375rem;
-                font-weight: 600;
-                color: var(--text-color);
-                opacity: 0.7;
-            }
-
-            input {
-                width: 100%;
-                padding: 0.625rem;
-                border: 1px solid rgba(0, 0, 0, 0.16);
-                background: rgba(255, 255, 255, 0.92);
-                color: var(--text-color);
-                border-radius: var(--border-radius);
-                font-family: inherit;
-                outline: none;
-                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
-                transition: box-shadow 0.2s ease;
-
-                &::placeholder {
-                    color: rgba(0, 0, 0, 0.45);
-                }
-
-                &:hover {
-                    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
-                }
-
-                &:focus-visible {
-                    box-shadow: inset 0 -1px 0 var(--accent-color);
-                }
-
-                .modal-content button:not(.btn-expander) {
-                    font-size: 1rem;
-                }
-
-                .btn-expander {
-                    font-size: 0.75rem;
-                }
-            }
-        }
-
-        .modal-actions {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: stretch;
-            flex-wrap: nowrap;
-            margin: 1.5rem -1.5rem -1.5rem;
-            padding: 1.5rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            background: #f3f3f3;
-            gap: 0.5rem;
-
-            .btn-cancel,
-            .btn-save {
-                flex: 1 1 0;
-                width: 100%;
-                padding: 0.5rem 1rem;
-                border-radius: $radius-sm;
-                border: none;
-                cursor: pointer;
-                font-weight: 500;
-                font-family: inherit;
-                white-space: nowrap;
-            }
-
-            .btn-cancel {
-                background: rgba(128, 128, 128, 0.15);
-                color: var(--text-color);
-
-                &:hover {
-                    background: rgba(128, 128, 128, 0.25);
-                }
-            }
-
-            .btn-save {
-                background: $color-accent;
-                color: $color-accent-contrast;
-
-                &:hover {
-                    background: color-mix(in srgb, $color-accent, black 5%);
-                }
-            }
-        }
+      opacity: 1;
+      transform: scale(1);
+      animation: modal-zoom-out-in 0.14s ease-out;
     }
+  }
+
+  .modal-content {
+    background: var(--search-bg);
+    color: var(--text-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    width: fit-content;
+    min-width: 25rem;
+    max-width: calc(100vw - 2rem);
+    box-shadow: $shadow-card-strong;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.16s ease;
+
+    h3 {
+      margin-bottom: 1.25rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 0.375rem;
+        font-weight: 600;
+        color: var(--text-color);
+        opacity: 0.7;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.625rem;
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--text-color);
+        border-radius: var(--border-radius);
+        font-family: inherit;
+        outline: none;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+        transition: box-shadow 0.2s ease;
+
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.45);
+        }
+
+        &:hover {
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+        }
+
+        &:focus-visible {
+          box-shadow: inset 0 -1px 0 var(--accent-color);
+        }
+
+        .modal-content button:not(.btn-expander) {
+          font-size: 1rem;
+        }
+
+        .btn-expander {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: stretch;
+      flex-wrap: nowrap;
+      margin: 1.5rem -1.5rem -1.5rem;
+      padding: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: #f3f3f3;
+      gap: 0.5rem;
+
+      .btn-cancel,
+      .btn-save {
+        flex: 1 1 0;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: $radius-sm;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        font-family: inherit;
+        white-space: nowrap;
+      }
+
+      .btn-cancel {
+        background: rgba(128, 128, 128, 0.15);
+        color: var(--text-color);
+
+        &:hover {
+          background: rgba(128, 128, 128, 0.25);
+        }
+      }
+
+      .btn-save {
+        background: var(--accent-color);
+        color: var(--accent-contrast-color);
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), #000 10%);
+        }
+      }
+    }
+  }
 }
 
 #chooseTypeForm {
-    font-family: $font-body;
+  font-family: $font-body;
 }
 
 .choose-type-grid {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .type-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem 1rem;
-    border-radius: $radius-md;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    background: #f3f3f3;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: var(--text-color);
-    font-weight: 600;
-    font-family: $font-body;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border-radius: $radius-md;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f3f3f3;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+  font-weight: 600;
+  font-family: $font-body;
 
-    svg {
-        width: 1.875rem; 
-        height: 1.875rem;
-        flex-shrink: 0;
-    }
+  svg {
+    width: 1.875rem;
+    height: 1.875rem;
+    flex-shrink: 0;
+  }
 
-    &:hover {
-        background: #ededed;
-        border-color: rgba(0, 0, 0, 0.24);
-        transform: translateY(-0.125rem);
-    }
-    
-    &:active {
-        transform: scale(0.96);
-    }
+  &:hover {
+    background: #ededed;
+    border-color: rgba(0, 0, 0, 0.24);
+    transform: translateY(-0.125rem);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 #addModal,
 #chooseTypeModal,
 #addFolderModal {
-    .modal-content {
-        background: $color-surface;
-        overflow: hidden;
-        width: 25rem;
-        min-width: 25rem;
-        max-width: calc(100vw - 2rem);
+  .modal-content {
+    background: $color-surface;
+    overflow: hidden;
+    width: 25rem;
+    min-width: 25rem;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .modal-actions {
+    flex-direction: row-reverse;
+    justify-content: stretch;
+    flex-wrap: nowrap;
+    margin: 1.5rem -1.5rem -1.5rem;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f3f3f3;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+    .btn-cancel,
+    .btn-save {
+      flex: 1 1 0;
+      width: 100%;
     }
 
-    .modal-actions {
-        flex-direction: row-reverse;
-        justify-content: stretch;
-        flex-wrap: nowrap;
-        margin: 1.5rem -1.5rem -1.5rem;
-        padding: 1.5rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
-        background: #f3f3f3;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-
-        .btn-cancel,
-        .btn-save {
-            flex: 1 1 0;
-            width: 100%;
-        }
-
-        .btn-cancel {
-            background: #fbfbfb;
-        }
+    .btn-cancel {
+      background: #fbfbfb;
     }
+  }
 }
 
 .btn-danger {
-    background: #9F213A;
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: $radius-sm;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-family: inherit;
-    white-space: nowrap;
-    transition: background-color 0.2s ease;
+  background: #9f213a;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-sm;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
 
-    &:hover {
-        background: color.adjust(#9F213A, $lightness: -8%);
-    }
+  &:hover {
+    background: color.adjust(#9f213a, $lightness: -8%);
+  }
 }
 
 #warningModal {
-    .modal-content {
-        background: $color-surface;
-        overflow: hidden;
-        width: 25rem;
-        min-width: 25rem;
-        max-width: calc(100vw - 2rem);
+  .modal-content {
+    background: $color-surface;
+    overflow: hidden;
+    width: 25rem;
+    min-width: 25rem;
+    max-width: calc(100vw - 2rem);
+  }
+
+  #warning-modal-message {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .modal-actions {
+    flex-direction: row;
+    justify-content: stretch;
+    flex-wrap: nowrap;
+    margin: 1.5rem -1.5rem -1.5rem;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f3f3f3;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+    .btn-cancel,
+    .btn-danger,
+    .btn-save {
+      flex: 1 1 0;
+      width: 100%;
     }
 
-    #warning-modal-message {
-        white-space: normal;
-        overflow-wrap: anywhere;
-        word-break: break-word;
+    .btn-cancel {
+      background: #fbfbfb;
     }
-
-    .modal-actions {
-        flex-direction: row;
-        justify-content: stretch;
-        flex-wrap: nowrap;
-        margin: 1.5rem -1.5rem -1.5rem;
-        padding: 1.5rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
-        background: #f3f3f3;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-
-        .btn-cancel,
-        .btn-danger,
-        .btn-save {
-            flex: 1 1 0;
-            width: 100%;
-        }
-
-        .btn-cancel {
-            background: #fbfbfb;
-        }
-    }
+  }
 }
 
 .expandable-section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 
-.btn-expander {
+  .btn-expander {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
@@ -306,56 +306,96 @@
     padding: 0.25rem 0;
     font-family: inherit;
     line-height: 1;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
 
     svg {
-        width: 1rem;
-        height: 1rem;
-        flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
     }
 
-        &:hover {
-            opacity: 1;
-            color: var(--accent-color);
-        }
-
-        .chevron-icon {
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        &.expanded {
-            opacity: 1;
-            color: var(--accent-color);
-
-            .chevron-icon {
-                transform: rotate(-180deg);
-            }
-        }
+    &:hover {
+      opacity: 1;
+      color: var(--accent-color);
     }
 
-    #customIconGroup {
-        margin-top: 0.75rem;
-        margin-bottom: 0;
-
-        &:not(.hidden) {
-            animation: slide-down-fade 0.25s ease-out forwards;
-        }
+    .chevron-icon {
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
+    &.expanded {
+      opacity: 1;
+      color: var(--accent-color);
+
+      .chevron-icon {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  #customIconGroup {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+
+    &:not(.hidden) {
+      animation: slide-down-fade 0.25s ease-out forwards;
+    }
+  }
 }
 
 .expandable-section {
-    .btn-expander {
-        font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  .btn-expander {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    transition: all 0.2s ease;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      fill: currentColor;
     }
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--hover-overlay);
+      border-radius: $radius-sm;
+    }
+
+    .chevron-icon {
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    &.expanded {
+      opacity: 1;
+
+      .chevron-icon {
+        transform: rotate(-180deg);
+        fill: var(--accent-color);
+      }
+    }
+  }
 }
 
 @keyframes slide-down-fade {
-    from {
-        opacity: 0;
-        transform: translateY(-0.5rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -6,23 +6,26 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
+@use "./variables" as *;
 
 :root {
   --accent-color: #0078d4;
 }
 
 html[data-theme="dark"] {
-    --bg-color: #{$color-dark-bg};
-    --text-color: #{$color-accent-contrast};
-    --search-bg: #{$color-dark-card};
-    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
-    --border-color: #{$color-dark-border};
-    --surface-solid-primary: #373737;
-    --surface-solid-secondary: #3b3b3b;
-    --surface-blur-base: rgba(32, 32, 32, 0.80);
-    --surface-blur-tint: rgba(0, 0, 0, 0); 
+  --bg-color: #{$color-dark-bg};
+  --text-color: #{$color-accent-contrast};
+  --search-bg: #{$color-dark-card};
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
+  --border-color: #{$color-dark-border};
+  --surface-solid-primary: #373737;
+  --surface-solid-secondary: #3b3b3b;
+  --surface-blur-base: rgba(32, 32, 32, 0.8);
+  --surface-blur-tint: rgba(0, 0, 0, 0);
+  --hover-overlay: rgba(255, 255, 255, 0.06);
+  --hover-overlay-strong: rgba(255, 255, 255, 0.08);
+  --hover-overlay-active: rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="dark"] {
@@ -55,28 +58,39 @@ html[data-theme="dark"] {
     }
   }
 
-.settings-btn:hover,
+  .settings-btn:hover,
   .current-engine-btn:hover,
   .launcher-btn:hover,
   .launcher-btn.active,
   .launcher-item:hover,
-  .unit-btn:hover {
-    background-color: rgba(255, 255, 255, 0.14);
+  .unit-btn:hover,
+  .search-btn:hover,
+  .voice-search-btn:hover,
+  .ask-ai-btn:hover {
+    background-color: var(--hover-overlay);
   }
 
   .dropdown-item:hover,
   .menu-option:hover,
   .suggestion-item:hover,
   .suggestion-item.selected {
-    background-color: rgba(255, 255, 255, 0.18);
+    background-color: var(--hover-overlay-strong);
   }
 
   .btn-cancel:hover {
-    background-color: rgba(255, 255, 255, 0.26);
+    background-color: var(--hover-overlay-strong);
   }
 
   .unit-btn:not(.active):hover {
-    background-color: rgba(255, 255, 255, 0.18);
+    background-color: var(--hover-overlay);
+  }
+
+  .switch:hover .slider {
+    background-color: var(--hover-overlay);
+  }
+
+  .switch:hover input:not(:checked) + .slider {
+    background-color: var(--hover-overlay) !important;
   }
 
   .unit-btn {
@@ -136,11 +150,6 @@ html[data-theme="dark"] {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.1);
     color: $color-accent-contrast;
-  }
-
-  .launcher-all-link,
-  .settings-footer .footer-link {
-    color: var(--text-color);
   }
 
   .divider {
@@ -399,7 +408,7 @@ html:not([data-theme="dark"]) {
 }
 
 [data-theme="dark"] {
-#addModal,
+  #addModal,
   #chooseTypeModal,
   #addFolderModal {
     .modal-content {

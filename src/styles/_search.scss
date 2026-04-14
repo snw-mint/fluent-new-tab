@@ -6,384 +6,412 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
-@use './mixins' as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
 .search-bar {
-    width: 100%;
-    height: 4rem;
-    background: $color-surface-muted;
-    border: 0.25rem solid var(--search-bg);
-    border-radius: $radius-xxl;
-    box-shadow: rgba(0, 0, 0, 0.08) 0rem 0rem 0.125rem, rgb(0 0 0 / 4%) 0rem 0.25rem 0.25rem;
-    @include flex-center;
-    padding: 0 1rem 0 0.5rem;
-    transition: box-shadow 0.2s ease, transform 0.1s ease;
-    position: relative;
-    z-index: 100;
-    margin-bottom: 0.625rem;
+  width: 100%;
+  height: 4rem;
+  background: $color-surface-muted;
+  border: 0.25rem solid var(--search-bg);
+  border-radius: $radius-xxl;
+  box-shadow:
+    rgba(0, 0, 0, 0.08) 0rem 0rem 0.125rem,
+    rgb(0 0 0 / 4%) 0rem 0.25rem 0.25rem;
+  @include flex-center;
+  padding: 0 1rem 0 0.5rem;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+  position: relative;
+  z-index: 100;
+  margin-bottom: 0.625rem;
 
-    &.suggestions-open {
-        box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15) !important;
-        border-radius: var(--border-radius);
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        border-bottom-color: transparent !important;
-        transition: box-shadow 0.2s ease;
-    }
+  &.suggestions-open {
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15) !important;
+    border-radius: var(--border-radius);
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-color: transparent !important;
+    transition: box-shadow 0.2s ease;
+  }
 
-    &:hover,
-    &:focus-within {
-        box-shadow: 0 0 0.1875rem rgba(0, 0, 0, 0.1), 0 0.375rem 1rem rgba(0, 0, 0, 0.12);
-    }
+  &:hover,
+  &:focus-within {
+    box-shadow:
+      0 0 0.1875rem rgba(0, 0, 0, 0.1),
+      0 0.375rem 1rem rgba(0, 0, 0, 0.12);
+  }
 
-    &.compact {
-        height: 3.25rem;
-        border-radius: calc(#{$radius-xxl} + 1px);
-        border: none;
-        background-color: var(--search-bg);
+  &.compact {
+    height: 3.25rem;
+    border-radius: calc(#{$radius-xxl} + 1px);
+    border: none;
+    background-color: var(--search-bg);
 
-        .search-btn,
-        .current-engine-btn,
-        .voice-search-btn {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        input {
-            font-size: 1rem;
-        }
+    .search-btn,
+    .current-engine-btn,
+    .voice-search-btn {
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
     input {
-        flex: 1;
-        height: 100%;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-size: 1.125rem;
-        font-family: inherit;
-        color: var(--text-color);
-        padding-left: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.125rem;
+    font-family: inherit;
+    color: var(--text-color);
+    padding-left: 0.5rem;
+  }
+
+  .search-btn,
+  .voice-search-btn,
+  .ask-ai-btn {
+    @include button-reset;
+    width: 3rem;
+    height: 3rem;
+    @include flex-center;
+    border-radius: $radius-round;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease;
+    color: var(--text-color);
+    opacity: 0.65;
+
+    &:hover {
+      background-color: var(--hover-overlay);
+      opacity: 1;
     }
 
-    .search-btn,
-    .voice-search-btn {
-        @include button-reset;
-        width: 3rem;
-        height: 3rem;
-        @include flex-center;
-        border-radius: $radius-round;
-        transition: background 0.2s ease, color 0.2s ease;
+    svg {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
 
-        &:hover {
-            background-color: $color-overlay-weak;
-        }
+  .search-btn svg path,
+  .ask-ai-btn svg path {
+    fill: currentColor;
+    transition: fill 0.2s ease;
+  }
+
+  .voice-search-btn {
+    display: none;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 2.125rem;
+      height: 2.125rem;
+      border-radius: $radius-round;
+      background: transparent;
+      box-shadow: 0 0 0 0 rgba(255, 59, 59, 0);
+      opacity: 0;
+      transform: scale(0.7);
+      transition:
+        opacity 200ms ease,
+        transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
     }
 
-    .search-btn {
-        svg path {
-            fill: #5f6368;
-            
-        }
+    svg {
+      position: relative;
+      z-index: 1;
+      transform: translateY(0.0625rem);
     }
 
-    .voice-search-btn {
-        display: none;
-        color: #5f6368;
-        position: relative;
-        overflow: visible;
-        z-index: 1;
-        isolation: isolate;
+    &.recording {
+      color: var(--accent-contrast-color);
+      opacity: 1;
 
-        &::before {
-            content: "";
-            position: absolute;
-            width: 2.125rem;
-            height: 2.125rem;
-            border-radius: $radius-round;
-            background: transparent;
-            box-shadow: 0 0 0 0 rgba($color-accent-alert, 0);
-            opacity: 0;
-            transform: scale(0.7);
-            transition: opacity 200ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 0;
-        }
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+        background: var(--accent-color);
+        animation: voice-recording-pulse 1.3s ease-out infinite;
+      }
 
-        svg {
-            width: 1.75rem;
-            height: 1.75rem;
-            position: relative;
-            z-index: 1;
-            transform: translateY(0.0625rem);
-        }
+      svg,
+      svg path {
+        fill: none;
+        stroke: currentColor;
+      }
+    }
+  }
 
-        &.recording {
-            color: $color-accent-contrast;
+  .search-bar.ask-ai-active .ask-ai-btn {
+    color: #a29bfe;
+    opacity: 1;
+  }
 
-            &::before {
-                opacity: 1;
-                transform: scale(1);
-                background: $color-accent-alert;
-                animation: voice-recording-pulse 1.3s ease-out infinite;
-            }
+  .search-selector {
+    position: relative;
+    @include flex-center;
+    height: 100%;
+    z-index: 201;
 
-            svg,
-            svg path {
-                fill: none;
-                stroke: $color-accent-contrast;
-            }
-        }
+    .current-engine-btn {
+      @include button-reset;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid transparent;
+      border-radius: $radius-md;
+      @include flex-center;
+      transition:
+        background 0.2s ease,
+        transform 0.1s ease,
+        border-color 0.1s ease;
+      margin-left: 0.25rem;
+
+      &:hover {
+        background-color: var(--hover-overlay);
+      }
+
+      &:active {
+        background-color: var(--hover-overlay);
+        transform: scale(0.95);
+      }
+
+      img {
+        width: 1.625rem;
+        height: 1.625rem;
+        display: block;
+        object-fit: contain;
+        filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 11.25rem;
+    max-height: 15.625rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0.375rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 1500;
+    transform-origin: top left;
+    animation: menuPopIn 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    @include glass-panel;
+    @include card-radius($radius-md);
+
+    &::-webkit-scrollbar {
+      width: 0.1875rem;
     }
 
-    .search-selector {
-        position: relative;
-        @include flex-center;
-        height: 100%;
-        z-index: 201;
-
-        .current-engine-btn {
-            @include button-reset;
-            width: 3rem;
-            height: 3rem;
-            border: 1px solid transparent;
-            border-radius: $radius-md;
-            @include flex-center;
-            transition: background 0.2s ease, transform 0.1s ease, border-color 0.1s ease;
-            margin-left: 0.25rem;
-
-            &:hover {
-                background-color: $color-overlay-weak;
-            }
-
-            &:active {
-                background-color: $color-overlay-strong;
-                transform: scale(0.95);
-            }
-
-            img {
-                width: 1.625rem;
-                height: 1.625rem;
-                display: block;
-                object-fit: contain;
-                filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
-            }
-        }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 0.25rem 0;
     }
 
-    .dropdown-menu {
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        left: 0;
-        width: 11.25rem;
-        max-height: 15.625rem;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        padding: 0.375rem;
-        display: none;
-        flex-direction: column;
-        gap: 0.25rem;
-        z-index: 1500;
-        transform-origin: top left;
-        animation: menuPopIn 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-        @include glass-panel;
-        @include card-radius($radius-md);
-
-        &::-webkit-scrollbar {
-            width: 0.1875rem;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: transparent;
-            margin: 0.25rem 0;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: rgba(130, 130, 130, 0.4);
-            border-radius: 0.625rem;
-        }
-
-        &::-webkit-scrollbar-thumb:hover {
-            background: rgba(130, 130, 130, 0.7);
-            width: 0.25rem;
-        }
-
-        &.active {
-            display: flex;
-        }
-
-        .dropdown-item {
-            @include flex-center(0.75rem);
-            padding: 0.625rem 0.75rem;
-            border-radius: $radius-md;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-color);
-            text-decoration: none;
-            user-select: none;
-            align-items: center;
-            justify-content: flex-start;
-
-            &:hover {
-                background-color: $color-overlay-strong;
-            }
-
-            img {
-                width: 1.25rem;
-                height: 1.25rem;
-            }
-        }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(130, 130, 130, 0.4);
+      border-radius: 0.625rem;
     }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(130, 130, 130, 0.7);
+      width: 0.25rem;
+    }
+
+    &.active {
+      display: flex;
+    }
+
+    .dropdown-item {
+      @include flex-center(0.75rem);
+      padding: 0.625rem 0.75rem;
+      border-radius: $radius-md;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-color);
+      text-decoration: none;
+      user-select: none;
+      align-items: center;
+      justify-content: flex-start;
+
+      &:hover {
+        background-color: $color-overlay-strong;
+      }
+
+      img {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  .suggestions-container {
+    position: absolute;
+    top: 3.875rem;
+    left: 0;
+    width: 100%;
+    padding: 0.375rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.125rem;
+    z-index: 1000;
+    transform-origin: top center;
+    animation: slideDown 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+    @include glass-panel(
+      $bg: var(--search-bg),
+      $border: rgba(0, 0, 0, 0.05),
+      $shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.2)
+    );
+    @include card-radius($radius-md);
+
+    &.active {
+      display: flex;
+    }
+
+    .suggestion-item {
+      padding: 0.75rem 1rem;
+      border-radius: $radius-xl;
+      cursor: pointer;
+      font-size: 0.9375rem;
+      color: var(--text-color);
+      transition: all 0.1s ease;
+      @include flex-center(0.75rem);
+      align-items: center;
+      justify-content: flex-start;
+      font-weight: 500;
+
+      &:hover,
+      &.selected {
+        background-color: $color-overlay-weak;
+        transform: scale(0.99);
+      }
+
+      .suggestion-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+        opacity: 0.6;
+
+        path {
+          fill: var(--text-color);
+        }
+      }
+
+      .match {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &.suggestions-open {
+    border-radius: $radius-xxl !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15) !important;
+    background-color: #fbfbfb !important;
+    border-color: #ffffff !important;
+    border-bottom-color: transparent !important;
 
     .suggestions-container {
-        position: absolute;
-        top: 3.875rem;
-        left: 0;
-        width: 100%;
-        padding: 0.375rem;
-        display: none;
-        flex-direction: column;
-        gap: 0.125rem;
-        z-index: 1000;
-        transform-origin: top center;
-        animation: slideDown 0.2s cubic-bezier(0.33, 1, 0.68, 1);
-        @include glass-panel($bg: var(--search-bg), $border: rgba(0, 0, 0, 0.05), $shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.2));
-        @include card-radius($radius-md);
+      top: 100%;
+      left: -0.25rem;
+      width: calc(100% + 0.5rem);
+      margin-top: 0 !important;
+      border-top: none !important;
+      background-color: #fbfbfb !important;
+      border-left: 0.25rem solid #ffffff !important;
+      border-right: 0.25rem solid #ffffff !important;
+      border-bottom: 0.25rem solid #ffffff !important;
 
-        &.active {
-            display: flex;
-        }
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-left-radius: $radius-xxl !important;
+      border-bottom-right-radius: $radius-xxl !important;
 
-        .suggestion-item {
-            padding: 0.75rem 1rem;
-            border-radius: $radius-xl;
-            cursor: pointer;
-            font-size: 0.9375rem;
-            color: var(--text-color);
-            transition: all 0.1s ease;
-            @include flex-center(0.75rem);
-            align-items: center;
-            justify-content: flex-start;
-            font-weight: 500;
-
-            &:hover,
-            &.selected {
-                background-color: $color-overlay-weak;
-                transform: scale(0.99);
-            }
-
-            .suggestion-icon {
-                width: 1.125rem;
-                height: 1.125rem;
-                opacity: 0.6;
-
-                path {
-                    fill: var(--text-color);
-                }
-            }
-
-            .match {
-                font-weight: 700;
-            }
-        }
+      box-shadow: none !important;
+      animation: fluentDrawerOpen 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+      transform-origin: top;
     }
+  }
 
-    &.suggestions-open {
-        border-radius: $radius-xxl !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15) !important;
-        background-color: #FBFBFB !important;
-        border-color: #FFFFFF !important;
-        border-bottom-color: transparent !important;
+  [data-theme="dark"] &.suggestions-open {
+    background-color: #3b3b3b !important;
+    border-color: #333333 !important;
+    border-bottom-color: transparent !important;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.3) !important;
 
-        .suggestions-container {
-            top: 100%;
-            left: -0.25rem;
-            width: calc(100% + 0.5rem);
-            margin-top: 0 !important;
-            border-top: none !important;           
-            background-color: #FBFBFB !important;
-            border-left: 0.25rem solid #FFFFFF !important;
-            border-right: 0.25rem solid #FFFFFF !important;
-            border-bottom: 0.25rem solid #FFFFFF !important;
-            
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-            border-bottom-left-radius: $radius-xxl !important;
-            border-bottom-right-radius: $radius-xxl !important;
-            
-            box-shadow: none !important;
-            animation: fluentDrawerOpen 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-            transform-origin: top;
-        }
+    .suggestions-container {
+      background-color: #3b3b3b !important;
+      border-left-color: #333333 !important;
+      border-right-color: #333333 !important;
+      border-bottom-color: #333333 !important;
     }
+  }
 
-    [data-theme="dark"] &.suggestions-open {
-        background-color: #3B3B3B !important;
-        border-color: #333333 !important;
-        border-bottom-color: transparent !important;
-        box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.3) !important;
+  &.compact.suggestions-open {
+    background-color: #ffffff !important;
+    border-color: transparent !important;
 
-        .suggestions-container {
-            background-color: #3B3B3B !important;
-            border-left-color: #333333 !important;
-            border-right-color: #333333 !important;
-            border-bottom-color: #333333 !important;
-        }
+    .suggestions-container {
+      left: 0;
+      width: 100%;
+      border: none !important;
+      background-color: #ffffff !important;
+
+      border-bottom-left-radius: calc(#{$radius-xxl} + 1px) !important;
+      border-bottom-right-radius: calc(#{$radius-xxl} + 1px) !important;
     }
+  }
 
-    &.compact.suggestions-open {
-        background-color: #FFFFFF !important;
-        border-color: transparent !important;
+  [data-theme="dark"] &.compact.suggestions-open {
+    background-color: #3b3b3b !important;
 
-        .suggestions-container {
-            left: 0;
-            width: 100%;
-            border: none !important;
-            background-color: #FFFFFF !important;
-            
-            border-bottom-left-radius: calc(#{$radius-xxl} + 1px) !important;
-            border-bottom-right-radius: calc(#{$radius-xxl} + 1px) !important;
-        }
+    .suggestions-container {
+      background-color: #3b3b3b !important;
     }
-
-    [data-theme="dark"] &.compact.suggestions-open {
-        background-color: #3B3B3B !important;
-
-        .suggestions-container {
-            background-color: #3B3B3B !important;
-        }
-    }
+  }
 }
 
-
 @keyframes fluentDrawerOpen {
-    from {
-        opacity: 0;
-        transform: scaleY(0.96) translateY(-0.25rem);
-    }
+  from {
+    opacity: 0;
+    transform: scaleY(0.96) translateY(-0.25rem);
+  }
 
-    to {
-        opacity: 1;
-        transform: scaleY(1) translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
 }
 
 @keyframes voice-recording-pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba($color-accent-alert, 0.5);
-    }
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-accent-alert, 0.5);
+  }
 
-    70% {
-        box-shadow: 0 0 0 0.625rem rgba($color-accent-alert, 0);
-    }
+  70% {
+    box-shadow: 0 0 0 0.625rem rgba($color-accent-alert, 0);
+  }
 
-    100% {
-        box-shadow: 0 0 0 0 rgba($color-accent-alert, 0);
-    }
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-accent-alert, 0);
+  }
 }
 
 .ask-ai-btn {
@@ -392,7 +420,9 @@
   height: 3rem;
   @include flex-center;
   border-radius: $radius-round;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
   color: #5f6368;
 
   &:hover {
@@ -406,19 +436,27 @@
 }
 
 @property --ask-ai-angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
 @keyframes ask-ai-spin-fast {
-  from { --ask-ai-angle: 0deg; }
-  to   { --ask-ai-angle: 360deg; }
+  from {
+    --ask-ai-angle: 0deg;
+  }
+  to {
+    --ask-ai-angle: 360deg;
+  }
 }
 
 @keyframes ask-ai-spin-slow {
-  from { --ask-ai-angle: 0deg; }
-  to   { --ask-ai-angle: 360deg; }
+  from {
+    --ask-ai-angle: 0deg;
+  }
+  to {
+    --ask-ai-angle: 360deg;
+  }
 }
 
 .search-bar.ask-ai-active {
@@ -430,7 +468,7 @@
     0 0 40px 4px rgba(72, 219, 251, 0.15) !important;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -0.3rem;
     border-radius: inherit;
@@ -454,8 +492,9 @@
     mask-composite: exclude;
     pointer-events: none;
     z-index: -1;
-    animation: ask-ai-spin-fast 0.6s linear 1,
-               ask-ai-spin-slow 3s linear 0.6s infinite;
+    animation:
+      ask-ai-spin-fast 0.6s linear 1,
+      ask-ai-spin-slow 3s linear 0.6s infinite;
     animation-fill-mode: forwards;
   }
 
@@ -473,7 +512,7 @@
 
 .search-bar.ask-ai-active .suggestions-container {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -0.3rem;
     top: 0;
@@ -499,8 +538,9 @@
     pointer-events: none;
     z-index: -1;
     clip-path: inset(2px 0 0 0);
-    animation: ask-ai-spin-fast 0.6s linear 1,
-               ask-ai-spin-slow 3s linear 0.6s infinite;
+    animation:
+      ask-ai-spin-fast 0.6s linear 1,
+      ask-ai-spin-slow 3s linear 0.6s infinite;
     animation-fill-mode: forwards;
   }
 }
