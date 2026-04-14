@@ -638,7 +638,7 @@ body {
 }
 
 .kofi-card .support-icon-wrapper {
-  background-color: #ff5e5b;
+  background-color: #FFDD00;
 }
 
 .support-card h3 {
@@ -679,8 +679,8 @@ body {
 }
 
 .btn-kofi {
-  background-color: #ff5e5b;
-  color: #ffffff;
+  background-color: #FFDD00;
+  color: #000;
 }
 
 .btn-kofi:hover {
@@ -1357,4 +1357,50 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+.fluent-bmc-sidebar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2rem;
+    padding: 10px 14px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), box-shadow 0.2s, background-color 0.2s;
+}
+
+.fluent-bmc-sidebar:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
+    background-color: var(--color-bg);
+}
+
+.fluent-bmc-sidebar img {
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.fluent-bmc-sidebar:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.fluent-bmc-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.fluent-bmc-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.fluent-bmc-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
 }
