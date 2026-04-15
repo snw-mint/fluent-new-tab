@@ -213,8 +213,6 @@
                 background: transparent;
             }
         }
-
-        /* Cores dos ícones para manter a consistência */
         .icon-contact {
             color: #8661C5;
             background-color: rgba(134, 97, 197, 0.1);
@@ -224,8 +222,6 @@
             color: var(--color-primary);
             background-color: rgba(15, 108, 189, 0.1);
         }
-
-        /* Ajuste para o link do card não parecer um link azul padrão */
         a.feature-card {
             text-decoration: none;
             color: inherit;
@@ -234,8 +230,6 @@
             align-items: center;
             text-align: center;
         }
-
-        /* Ajuste da grid para centralizar se houver poucos itens */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -276,7 +270,7 @@
 
     <header class="uninstall-hero" id="header-text">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Holding%20Back%20Tears.png" alt="Face Holding Back Tears" width="70" height="70" />
+            <img src="assets/emojis/tears.png" alt="Face Holding Back Tears" width="70" height="70" />
             <h1 class="uninstall-title">I'm sorry to see you go.</h1> 
             <p class="uninstall-subtitle">Taking 30 seconds to tell me why you left helps me improve Fluent New Tab for
                 everyone.</p>
@@ -387,7 +381,7 @@
 
         <div class="form-container" id="success-view"
             style="padding: 4rem 2rem; border: none; box-shadow: none; background: transparent;">
-            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Open%20Hands.png" alt="Smiling Face with Open Hands" width="70" height="70" />
+            <img src="assets/emojis/hugging.png" alt="Smiling Face with Open Hands" width="70" height="70" />
             <h2 class="uninstall-title">Thank you for your feedback!</h2>
             <p class="uninstall-subtitle" style="margin-bottom: 3rem;">It means a lot to an independent developer. If
                 you’d like to provide more details about a bug or have any questions, please feel free to reach out.</p>
@@ -472,7 +466,6 @@
             let submitted = false;
             form.addEventListener('submit', () => {
                 submitted = true;
-                // Troca o visual do botão para indicar carregamento
                 const btn = form.querySelector('button[type="submit"]');
                 btn.textContent = 'Sending...';
                 btn.style.opacity = '0.7';
