@@ -41,6 +41,9 @@ The easiest option is the official store, with automatic updates.
   <img src="repo-assets/download-github.svg" width="200"/>
 </a>
 
+> [!NOTE]  
+> Updates to Microsoft add-ons may take up to 7 business days to become available after a release.
+
 ### Manual installation
 For the latest version:
 1. Download the latest `.zip` from the Releases Page.
@@ -70,7 +73,7 @@ Runtime files (`script.js` and `style.css`) are generated only in `dist/`.
 
 ## Support the project
 - GitHub Sponsors: https://github.com/sponsors/snw-mint
-- Ko-fi: https://ko-fi.com/snwmint
+- Buy Me A Coffe: https://buymeacoffee.com/snow.mint
 
 
 ## Privacy
@@ -82,7 +85,7 @@ Fluent New Tab follows a local-first approach.
 - Uploaded wallpapers saved in IndexedDB.
 - External requests only for required features (weather, wallpapers, favicons, optional suggestions).
 
-See the Privacy Policy for details.
+See the [privacy policy](https://snw-mint.github.io/fluent-new-tab/privacy.html) for details.
 
 ## Contributing
 
