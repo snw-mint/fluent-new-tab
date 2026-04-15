@@ -45,7 +45,16 @@
     <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/">
     <link rel="alternate" hreflang="en" href="https://snw-mint.github.io/fluent-new-tab/">
     <link rel="stylesheet" href="style.css">
-
+    <script>
+    (() => {
+        try {
+            const storedTheme = localStorage.getItem('theme-preference');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+    })();
+    </script>
     <script id="navigation-schema" type="application/ld+json">
         {
             "@context": "https://schema.org",
