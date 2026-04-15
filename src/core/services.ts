@@ -260,13 +260,18 @@ async function fetchCityData(query: string): Promise<CityData | null> {
   };
 
   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=${encodeURIComponent(language)}&format=json`;
-  const response = await fetch(url);
-  const data = (await response.json()) as GeocodingResponse;
+  
+  try {
+    const response = await fetch(url);
+    const data = (await response.json()) as GeocodingResponse;
 
-  if (data.results && data.results.length > 0) {
-    const sorted = [...data.results].sort((a, b) => scoreResult(b) - scoreResult(a));
-    const result = sorted[0];
-    return { name: result.name, lat: result.latitude, lon: result.longitude, country: result.country };
+    if (data.results && data.results.length > 0) {
+      const sorted = [...data.results].sort((a, b) => scoreResult(b) - scoreResult(a));
+      const result = sorted[0];
+      return { name: result.name, lat: result.latitude, lon: result.longitude, country: result.country };
+    }
+  } catch (error) {
+    console.error("Geocoding fetch error:", error);
   }
 
   return null;
@@ -277,4 +282,13 @@ async function fetchWeatherData(cityData: CityData): Promise<WeatherApiResponse 
   if (!hasPerm) return null;
 
   const { lat, lon } = cityData;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+  
+  try {
+    const response = await fetch(url);
+    return (await response.json()) as WeatherApiResponse;
+  } catch (error) {
+    console.error("Weather API error:", error);
+    return null;
+  }
 }

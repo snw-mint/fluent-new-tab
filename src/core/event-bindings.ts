@@ -11,7 +11,7 @@ interface WeatherBindingOptions {
   toggleWeather: HTMLInputElement | null;
   getWeatherEnabled: () => boolean;
   setWeatherEnabled: (enabled: boolean) => void;
-  updateWeatherVisibility: () => void;
+  updateWeatherVisibility: (animate?: boolean) => void;
   initWeather: () => void;
   unitBtns: NodeListOf<HTMLButtonElement>;
   setWeatherUnit: (unit: WeatherUnit) => void;
@@ -26,7 +26,7 @@ interface LauncherBindingOptions {
   toggleLauncher: HTMLInputElement | null;
   getLauncherEnabled: () => boolean;
   setLauncherEnabled: (enabled: boolean) => void;
-  updateLauncherVisibility: () => void;
+  updateLauncherVisibility: (animate?: boolean) => void;
   renderLauncher: (provider: keyof typeof launcherData) => void;
   getCurrentProvider: () => keyof typeof launcherData;
   setCurrentProvider: (provider: keyof typeof launcherData) => void;
@@ -46,8 +46,8 @@ interface SearchBindingOptions {
   setSearchEngine: (engine: keyof typeof engines) => void;
   applyInitialSearchBarVisibility: () => void;
   toggleSearchBar: HTMLInputElement | null;
-  setSearchBarVisible: (visible: boolean) => void;
-  updateSearchSettings: () => void;
+  setSearchBarVisible: (visible: boolean) => void; 
+  updateSearchSettings: (animate?: boolean) => void;
   applyInitialSuggestionsActive: () => void;
   toggleSuggestions: HTMLInputElement | null;
   getSuggestionsActive: () => boolean;
@@ -78,7 +78,7 @@ interface WallpaperBindingOptions {
   toggleWallpaper: HTMLInputElement | null;
   setWallpaperEnabled: (enabled: boolean) => void;
   getWallpaperEnabled: () => boolean;
-  updateWallpaperUIState: (enabled: boolean) => void;
+  updateWallpaperUIState: (enabled: boolean, animate?: boolean) => void;
   applyWallpaperLogic: () => Promise<void> | void;
   wallpaperOptions: NodeListOf<HTMLElement>;
   wallpaperSourceSelect: HTMLSelectElement | null;
@@ -104,7 +104,7 @@ interface WallpaperBindingOptions {
 function bindWeatherFeature(options: WeatherBindingOptions): void {
   options.applyInitialWeatherState();
 
-if (options.toggleWeather) {
+  if (options.toggleWeather) {
     options.toggleWeather.checked = options.getWeatherEnabled();
     options.toggleWeather.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -113,26 +113,55 @@ if (options.toggleWeather) {
       const wantsEnable = target.checked;
 
       if (wantsEnable) {
+        options.setWeatherEnabled(true);
+        options.updateWeatherVisibility(true);
+
+        const apiName = window.getTranslation?.("apiNameWeather") || "Open-Meteo API";
         requestFeaturePermissionUI(
           "weather",
-          "Open-Meteo API",
+          apiName,
           "https://open-meteo.com/",
           () => {
-            options.setWeatherEnabled(true);
             localStorage.setItem("weatherEnabled", "true");
+
             setTimeout(() => {
-              options.updateWeatherVisibility();
               options.initWeather();
-            }, 50);
+            }, 250);
           },
           () => {
             target.checked = false;
+            options.setWeatherEnabled(false);
+            options.updateWeatherVisibility(true);
           }
         );
       } else {
         options.setWeatherEnabled(false);
         localStorage.setItem("weatherEnabled", "false");
-        options.updateWeatherVisibility();
+        options.updateWeatherVisibility(true);
+      }
+    });
+  }
+
+  options.unitBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const unit = btn.dataset.unit as WeatherUnit | undefined;
+      if (unit) {
+        options.setWeatherUnit(unit);
+        localStorage.setItem("weatherUnit", unit);
+        options.updateUnitButtons();
+        options.initWeather();
+      }
+    });
+  });
+
+  if (options.saveCityBtn) {
+    options.saveCityBtn.addEventListener("click", options.searchCity);
+  }
+
+  if (options.cityInput) {
+    options.cityInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        options.searchCity();
       }
     });
   }
@@ -623,11 +652,14 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
       };
 
       if (selectedApi === "bing") {
-        requestFeaturePermissionUI("bing", "Bing Image of the Day", "https://peapix.com/bing", applySelection, revertSelection);
+        const apiName = window.getTranslation?.("apiNameBing") || "Bing Image of the Day";
+        requestFeaturePermissionUI("bing", apiName, "https://peapix.com/bing", applySelection, revertSelection);
       } else if (selectedApi === "nasa") {
-        requestFeaturePermissionUI("nasa", "NASA APOD", "https://apod.nasa.gov/apod/", applySelection, revertSelection);
+        const apiName = window.getTranslation?.("apiNameNasa") || "NASA APOD";
+        requestFeaturePermissionUI("nasa", apiName, "https://apod.nasa.gov/apod/", applySelection, revertSelection);
       } else if (selectedApi === "wikimedia") {
-        requestFeaturePermissionUI("wikimedia", "Wikimedia Picture of the Day", "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day", applySelection, revertSelection);
+        const apiName = window.getTranslation?.("apiNameWiki") || "Wikimedia Picture of the Day";
+        requestFeaturePermissionUI("wikimedia", apiName, "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day", applySelection, revertSelection);
       } else {
         applySelection();
       }
