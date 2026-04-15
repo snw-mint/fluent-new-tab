@@ -13,9 +13,8 @@
     }
 
     const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
-    
+
     if (!wallpaperEnabled) {
-        // Blocks the overlay from rendering at millisecond zero to prevent FOUC
         const hideOverlayStyle = document.createElement('style');
         hideOverlayStyle.id = 'anti-flicker-overlay';
         hideOverlayStyle.textContent = '.wallpaper-overlay { display: none !important; }';
@@ -65,12 +64,10 @@
 
     if (!initialWallpaperUrl) return;
 
+    // Apply synchronously — no setTimeout — to avoid the 100ms blank flash
     const style = document.createElement('style');
     style.id = 'early-wallpaper-style';
     style.textContent = `body { background-image: url('${initialWallpaperUrl}'); background-size: cover; background-position: center; background-attachment: fixed; }`;
-    
-    setTimeout(() => {
-        document.head.appendChild(style);
-        document.documentElement.setAttribute('data-early-wallpaper', 'true');
-    }, 100);
+    document.head.appendChild(style);
+    document.documentElement.setAttribute('data-early-wallpaper', 'true');
 })();

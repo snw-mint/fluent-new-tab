@@ -1,10 +1,14 @@
 const DEFAULT_LOCALE = 'en';
 window.translationsCache = {};
+
 async function loadTranslations() {
+    // Apply body.loaded immediately so the CSS opacity:0 → opacity:1 transition
+    // begins right away, not after the locale network round-trip completes.
+    document.body.classList.add('loaded');
+
     let lang = localStorage.getItem('userLanguage');
-    if (!lang) {
-        lang = DEFAULT_LOCALE;
-    }
+    if (!lang) lang = DEFAULT_LOCALE;
+
     let messages = null;
     try {
         messages = await fetchLocale(lang);
@@ -15,21 +19,22 @@ async function loadTranslations() {
         try {
             messages = await fetchLocale(DEFAULT_LOCALE);
         } catch (e) {
-            console.error("Critical error: default language file (en) not found!");
+            console.error('Critical error: default language file (en) not found!');
             return;
         }
     }
     window.translationsCache = messages;
     applyToDOM(messages);
     document.dispatchEvent(new Event('i18nReady'));
-    document.body.classList.add('loaded');
 }
+
 async function fetchLocale(localeCode) {
     const url = chrome.runtime.getURL(`_locales/${localeCode}/messages.json`);
     const response = await fetch(url);
     if (!response.ok) throw new Error('File not found');
     return await response.json();
 }
+
 function applyToDOM(messages) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
@@ -46,10 +51,12 @@ function applyToDOM(messages) {
         }
     });
 }
+
 window.getTranslation = function(key) {
     if (window.translationsCache && window.translationsCache[key]) {
         return window.translationsCache[key].message;
     }
     return key;
 };
+
 document.addEventListener('DOMContentLoaded', loadTranslations);

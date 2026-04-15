@@ -1316,7 +1316,7 @@ function initSortable() {
       return true;
     },
 
-    onEnd: function (evt: any) {
+onEnd: function (evt: any) {
       shortcutsGrid.classList.remove("sorting");
       document.body.classList.remove("is-sorting-shortcuts");
       setBodyDragOverlay(false);
@@ -1333,6 +1333,7 @@ function initSortable() {
       const folderDropTarget =
         !isInsideFolder && hoveredFolderEl && hoveredFolderEl.dataset.type === "folder" ? hoveredFolderEl : null;
       const droppingOutsideGrid = isInsideFolder && isPointOutsideGrid(originalEvent);
+      
       clearFolderHover();
 
       if (adjustedOldIndex < 0) return;
@@ -1340,55 +1341,49 @@ function initSortable() {
       const movedItem = targetArray[adjustedOldIndex];
       if (!movedItem) return;
 
+      let queueRender = false;
+
       if (!isInsideFolder && folderDropTarget) {
         const folderId = folderDropTarget.dataset.id;
         const folderShortcut = shortcuts.find((s) => s.id === folderId && s.type === "folder");
-        if (!folderShortcut) {
-          saveAndRender();
-          return;
+
+        if (!folderShortcut || movedItem.type === "folder") {
+          queueRender = true;
+        } else {
+          const folderChildren = folderShortcut.children || [];
+          if (folderChildren.length >= MAX_FOLDER_CAPACITY) {
+            showGridLimitWarning(MAX_FOLDER_CAPACITY, true);
+            queueRender = true;
+          } else {
+            targetArray.splice(adjustedOldIndex, 1);
+            folderShortcut.children = folderChildren;
+            folderChildren.push(movedItem);
+            queueRender = true;
+          }
         }
-
-        if (movedItem.type === "folder") {
-          saveAndRender();
-          return;
-        }
-
-        const folderChildren = folderShortcut.children || [];
-        if (folderChildren.length >= MAX_FOLDER_CAPACITY) {
-          showGridLimitWarning(MAX_FOLDER_CAPACITY, true);
-          saveAndRender();
-          return;
-        }
-
-        targetArray.splice(adjustedOldIndex, 1);
-        folderShortcut.children = folderChildren;
-        folderChildren.push(movedItem);
-        saveAndRender();
-        return;
-      }
-
-      if (droppingOutsideGrid) {
+      } else if (droppingOutsideGrid) {
         const maxMain = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
         if (shortcuts.length >= maxMain) {
           showGridLimitWarning(maxMain, false);
-          saveAndRender();
-          return;
+          queueRender = true;
+        } else {
+          targetArray.splice(adjustedOldIndex, 1);
+          shortcuts.push(movedItem);
+          queueRender = true;
         }
-
-        targetArray.splice(adjustedOldIndex, 1);
-        shortcuts.push(movedItem);
-        saveAndRender();
-        return;
+      } else if (evt.oldIndex !== evt.newIndex && adjustedNewIndex >= 0) {
+        const reorderedItem = targetArray.splice(adjustedOldIndex, 1)[0];
+        if (reorderedItem) {
+          targetArray.splice(adjustedNewIndex, 0, reorderedItem);
+          queueRender = true;
+        }
       }
 
-      if (evt.oldIndex === evt.newIndex) return;
-
-      if (adjustedNewIndex < 0) return;
-
-      const reorderedItem = targetArray.splice(adjustedOldIndex, 1)[0];
-      if (!reorderedItem) return;
-      targetArray.splice(adjustedNewIndex, 0, reorderedItem);
-      saveAndRender();
+      if (queueRender) {
+        requestAnimationFrame(() => {
+          saveAndRender();
+        });
+      }
     },
   } as { setData: (dataTransfer: DataTransfer, dragEl: HTMLElement) => void };
 
@@ -2589,4 +2584,12 @@ document.addEventListener("i18nReady", () => {
   showPendingUpdateNoticeIfAny();
   applyBrandInterval();
   renderShortcuts();
+});
+document.body.addEventListener('dragover', (e) => {
+    if (document.body.classList.contains('is-sorting-shortcuts')) {
+        e.preventDefault(); // Isto diz ao navegador: "Podes largar aqui, não bloqueies"
+        if (e.dataTransfer) {
+            e.dataTransfer.dropEffect = "move"; // Força o ícone normal
+        }
+    }
 });
