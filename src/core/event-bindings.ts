@@ -97,40 +97,43 @@ interface WallpaperBindingOptions {
   overlaySlider: HTMLInputElement | null;
   updateOverlaySliderProgress: (slider: HTMLInputElement) => void;
   setOverlayOpacity: (value: string, persist?: boolean) => void;
+  getCurrentWallpaperSource: () => string;
+  getCurrentWallpaperType: () => string;
 }
 
 function bindWeatherFeature(options: WeatherBindingOptions): void {
   options.applyInitialWeatherState();
 
-  if (options.toggleWeather) {
+if (options.toggleWeather) {
     options.toggleWeather.checked = options.getWeatherEnabled();
     options.toggleWeather.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 
-      options.setWeatherEnabled(target.checked);
-      localStorage.setItem("weatherEnabled", String(target.checked));
-      options.updateWeatherVisibility();
-      if (target.checked) options.initWeather();
-    });
-  }
+      const wantsEnable = target.checked;
 
-  options.unitBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const unit = btn.dataset.unit as WeatherUnit | undefined;
-      if (!unit) return;
-
-      options.setWeatherUnit(unit);
-      localStorage.setItem("weatherUnit", unit);
-      options.updateUnitButtons();
-      options.initWeather();
-    });
-  });
-
-  if (options.saveCityBtn) options.saveCityBtn.addEventListener("click", options.searchCity);
-  if (options.cityInput) {
-    options.cityInput.addEventListener("keypress", (event) => {
-      if (event.key === "Enter") options.searchCity();
+      if (wantsEnable) {
+        requestFeaturePermissionUI(
+          "weather",
+          "Open-Meteo API",
+          "https://open-meteo.com/",
+          () => {
+            options.setWeatherEnabled(true);
+            localStorage.setItem("weatherEnabled", "true");
+            setTimeout(() => {
+              options.updateWeatherVisibility();
+              options.initWeather();
+            }, 50);
+          },
+          () => {
+            target.checked = false;
+          }
+        );
+      } else {
+        options.setWeatherEnabled(false);
+        localStorage.setItem("weatherEnabled", "false");
+        options.updateWeatherVisibility();
+      }
     });
   }
 }
@@ -342,35 +345,11 @@ function bindLauncherFeature(options: LauncherBindingOptions): void {
 
 function bindSearchFeature(options: SearchBindingOptions): void {
   options.applyInitialSearchEngine();
-  if (options.engineBtn) {
-    options.engineBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      options.closePopups(options.dropdown);
-      options.dropdown?.classList.toggle("active");
-    });
-  }
-
-  document.addEventListener("click", (event) => {
-    const targetNode = event.target as Node | null;
-    if (!targetNode) return;
-    const dropdown = options.dropdown;
-    const engineBtn = options.engineBtn;
-    if (!dropdown || !dropdown.classList.contains("active")) return;
-    if (dropdown.contains(targetNode) || engineBtn?.contains(targetNode)) return;
-    dropdown.classList.remove("active");
-  });
-
-  options.items.forEach((item) => {
-    item.addEventListener("click", () => {
-      const selectedEngine = item.getAttribute("data-engine");
-      if (!selectedEngine || !options.hasEngine(selectedEngine)) return;
-      options.setSearchEngine(selectedEngine as keyof typeof engines);
-      localStorage.setItem("searchEngine", selectedEngine);
-      options.dropdown?.classList.remove("active");
-    });
-  });
-
   options.applyInitialSearchBarVisibility();
+  options.applyInitialSuggestionsActive();
+  options.applyInitialClearSearch();
+  options.applyInitialVoiceSearch();
+
   if (options.toggleSearchBar) {
     options.toggleSearchBar.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -378,28 +357,6 @@ function bindSearchFeature(options: SearchBindingOptions): void {
       options.setSearchBarVisible(target.checked);
       localStorage.setItem("searchBarVisible", String(target.checked));
       options.updateSearchSettings();
-    });
-  }
-
-  options.applyInitialSuggestionsActive();
-  if (options.toggleSuggestions) {
-    options.toggleSuggestions.addEventListener("change", (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.setSuggestionsActive(target.checked);
-      localStorage.setItem("suggestionsEnabled", String(target.checked));
-      if (!target.checked) options.clearSuggestions();
-    });
-  }
-
-  options.applyInitialClearSearch();
-  if (options.toggleClearSearch) {
-    options.toggleClearSearch.addEventListener("change", (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.setClearSearchEnabled(target.checked);
-      localStorage.setItem("clearSearchEnabled", String(target.checked));
-      options.updateGoogleParams();
     });
   }
 
@@ -413,9 +370,7 @@ function bindSearchFeature(options: SearchBindingOptions): void {
       options.updateCompactBarStyle();
     });
   }
-  options.updateCompactBarStyle();
 
-  options.applyInitialVoiceSearch();
   if (options.toggleVoiceSearch) {
     options.toggleVoiceSearch.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -426,47 +381,122 @@ function bindSearchFeature(options: SearchBindingOptions): void {
     });
   }
 
-  if (options.searchInput) {
-    options.searchInput.addEventListener(
-      "input",
-      options.debounce((event: Event) => {
-        if (!options.getSuggestionsActive()) return;
-        const target = event.target as HTMLInputElement | null;
-        if (!target) return;
-        const query = target.value.trim();
-        if (query.length < 2) {
-          options.clearSuggestions();
-          return;
-        }
-        const cacheKey = query.toLowerCase();
-        if (options.suggestionsCache.has(cacheKey)) {
-          options.renderSuggestions(options.suggestionsCache.get(cacheKey) || []);
-          return;
-        }
-        options.fetchSuggestions(query);
-      }, 100),
-    );
+  if (options.toggleClearSearch) {
+    options.toggleClearSearch.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setClearSearchEnabled(target.checked);
+      localStorage.setItem("clearSearchEnabled", String(target.checked));
+      options.updateGoogleParams();
+    });
+  }
 
+  if (options.engineBtn && options.dropdown) {
+    options.engineBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      options.closePopups(options.dropdown);
+      options.dropdown?.classList.toggle("active");
+    });
+
+    options.items.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        const target = event.currentTarget as HTMLElement;
+        const engine = target.dataset.engine || "bing";
+        if (options.hasEngine(engine)) {
+          localStorage.setItem("searchEngine", engine);
+          options.setSearchEngine(engine as any);
+        }
+        options.dropdown?.classList.remove("active");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      const targetNode = event.target as Node | null;
+      if (!targetNode) return;
+
+      if (options.dropdown?.classList.contains("active")) {
+        if (!options.dropdown.contains(targetNode) && !options.engineBtn?.contains(targetNode)) {
+          options.dropdown.classList.remove("active");
+        }
+      }
+    });
+  }
+
+  if (options.searchInput) {
+    const handleInput = options.debounce((event: Event) => {
+      const target = event.target as HTMLInputElement;
+      const query = target.value.trim();
+      
+      if (!query || !options.getSuggestionsActive()) {
+        options.clearSuggestions();
+        return;
+      }
+
+      if (options.suggestionsCache.has(query.toLowerCase())) {
+        options.renderSuggestions(options.suggestionsCache.get(query.toLowerCase())!);
+      } else {
+        options.fetchSuggestions(query);
+      }
+    }, 150);
+
+    options.searchInput.addEventListener("input", handleInput);
+    options.searchInput.addEventListener("focus", handleInput);
+    
     options.searchInput.addEventListener("keydown", (event) => {
       if (!options.getSuggestionsActive()) return;
-      const suggestionItems = Array.from(document.querySelectorAll<HTMLElement>(".suggestion-item"));
-      if (suggestionItems.length === 0) return;
+      
+      const suggestionItems = Array.from(document.querySelectorAll(".suggestion-item")) as HTMLElement[];
+      if (!suggestionItems.length) return;
 
-      let index = suggestionItems.findIndex((item) => item.classList.contains("selected"));
+      let currentIndex = suggestionItems.findIndex((item) => item.classList.contains("selected"));
+
       if (event.key === "ArrowDown") {
         event.preventDefault();
-        index = (index + 1) % suggestionItems.length;
-        options.updateSelection(suggestionItems, index);
+        currentIndex = currentIndex < suggestionItems.length - 1 ? currentIndex + 1 : 0;
+        options.updateSelection(suggestionItems, currentIndex);
       } else if (event.key === "ArrowUp") {
         event.preventDefault();
-        index = (index - 1 + suggestionItems.length) % suggestionItems.length;
-        options.updateSelection(suggestionItems, index);
-      } else if (event.key === "Enter") {
-        if (index > -1) {
-          event.preventDefault();
-          suggestionItems[index].click();
-        }
-      } else if (event.key === "Escape") {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : suggestionItems.length - 1;
+        options.updateSelection(suggestionItems, currentIndex);
+      }
+    });
+  }
+  
+  document.addEventListener("click", (event) => {
+    const targetNode = event.target as Node | null;
+    if (!targetNode || !options.searchInput) return;
+    
+    const suggestionsContainer = document.getElementById("suggestionsContainer");
+    if (suggestionsContainer && suggestionsContainer.classList.contains("active")) {
+      if (!suggestionsContainer.contains(targetNode) && !options.searchInput.contains(targetNode)) {
+        options.clearSuggestions();
+      }
+    }
+  });
+
+  if (options.toggleSuggestions) {
+    options.toggleSuggestions.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const wantsEnable = target.checked;
+
+      if (wantsEnable) {
+        requestFeaturePermissionUI(
+          "suggestions",
+          "Google Search Suggestions",
+          "https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/query/suggest",
+          () => {
+            options.setSuggestionsActive(true);
+            localStorage.setItem("suggestionsEnabled", "true");
+          },
+          () => {
+            target.checked = false;
+          }
+        );
+      } else {
+        options.setSuggestionsActive(false);
+        localStorage.setItem("suggestionsEnabled", "false");
         options.clearSuggestions();
       }
     });
@@ -476,21 +506,42 @@ function bindSearchFeature(options: SearchBindingOptions): void {
 function bindWallpaperFeature(options: WallpaperBindingOptions): void {
   options.applyInitialWallpaperState();
 
-  if (options.overlayToggleBtn) {
+  if (options.toggleWallpaper) {
+    options.toggleWallpaper.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setWallpaperEnabled(target.checked);
+      localStorage.setItem("wallpaperEnabled", String(target.checked));
+      options.updateWallpaperUIState(target.checked);
+      if (target.checked) {
+        void options.applyWallpaperLogic();
+      } else {
+        document.body.style.backgroundImage = "none";
+        document.body.removeAttribute("data-wallpaper-active");
+        options.setOverlayOpacity("0", false);
+      }
+    });
+  }
+
+  if (options.overlayToggleBtn && options.overlaySliderContainer) {
     options.overlayToggleBtn.addEventListener("click", () => {
-      options.overlayToggleBtn?.classList.toggle("expanded");
-      options.overlaySliderContainer?.classList.toggle("collapsed");
+      const isCollapsed = options.overlaySliderContainer!.classList.contains("collapsed");
+      if (isCollapsed) {
+        options.overlaySliderContainer!.classList.remove("collapsed");
+        options.overlayToggleBtn!.classList.add("expanded");
+      } else {
+        options.overlaySliderContainer!.classList.add("collapsed");
+        options.overlayToggleBtn!.classList.remove("expanded");
+      }
     });
   }
 
   if (options.overlaySlider) {
     options.overlaySlider.addEventListener("input", (event) => {
-      const antiFlickerBlock = document.getElementById("anti-flicker-overlay");
-      if (antiFlickerBlock) antiFlickerBlock.remove();
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.updateOverlaySliderProgress(target);
-      options.setOverlayOpacity(target.value);
+      options.setOverlayOpacity(target.value, false);
     });
 
     options.overlaySlider.addEventListener("change", (event) => {
@@ -500,77 +551,55 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
     });
   }
 
-  if (options.toggleWallpaper) {
-    options.toggleWallpaper.addEventListener("change", (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.setWallpaperEnabled(target.checked);
-      localStorage.setItem("wallpaperEnabled", String(target.checked));
-      options.updateWallpaperUIState(target.checked);
-      options.applyWallpaperLogic();
+  if (options.wallpaperOptions) {
+    options.wallpaperOptions.forEach((option) => {
+      option.addEventListener("click", async () => {
+        const value = option.dataset.value;
+        if (!value) return;
+
+        options.setWallpaperSource("local");
+        options.setWallpaperType("preset");
+        options.setWallpaperValue(value);
+        options.saveWallpaperConfig();
+        
+        if (options.wallpaperSourceSelect) {
+          options.wallpaperSourceSelect.value = "noSource";
+        }
+        options.highlightSelectedWallpaper(value);
+        await options.applyWallpaperLogic();
+      });
     });
   }
 
-  options.wallpaperOptions.forEach((option) => {
-    option.addEventListener("click", () => {
-      if (!options.getWallpaperEnabled()) return;
-      const value = option.dataset.value || "preset_1";
-      options.setWallpaperSource("local");
-      options.setWallpaperType("preset");
-      options.setWallpaperValue(value);
-      options.saveWallpaperConfig();
-      if (options.wallpaperSourceSelect) options.wallpaperSourceSelect.value = "noSource";
-      options.highlightSelectedWallpaper(value);
-      options.applyWallpaperLogic();
-    });
-  });
-
   if (options.uploadOption && options.uploadInput) {
     options.uploadOption.addEventListener("click", () => {
-      options.uploadInput?.click();
+      options.uploadInput!.click();
     });
 
     options.uploadInput.addEventListener("change", async (event) => {
       const target = event.target as HTMLInputElement | null;
       const file = target?.files?.[0];
       if (!file) return;
-      options.uploadOption!.style.opacity = "0.5";
 
       try {
-        console.log("Processing image...");
-        const processedBlob = await options.processWallpaperImage(file);
-        console.log("Saving to database...");
-        await options.saveWallpaperToDB(processedBlob);
+        const blob = await options.processWallpaperImage(file);
+        await options.saveWallpaperToDB(blob);
 
         options.setWallpaperSource("local");
         options.setWallpaperType("upload");
-        options.setWallpaperValue("custom");
+        options.setWallpaperValue("upload");
         options.saveWallpaperConfig();
 
-        if (!options.getWallpaperEnabled()) {
-          options.setWallpaperEnabled(true);
-          localStorage.setItem("wallpaperEnabled", "true");
-          if (options.toggleWallpaper) options.toggleWallpaper.checked = true;
-          options.updateWallpaperUIState(true);
+        if (options.wallpaperSourceSelect) {
+          options.wallpaperSourceSelect.value = "noSource";
         }
-
-        if (options.wallpaperSourceSelect) options.wallpaperSourceSelect.value = "noSource";
         options.highlightSelectedWallpaper("upload");
         await options.applyWallpaperLogic();
-        console.log("Success!");
       } catch (error) {
-        console.error("Upload error:", error);
-        const message = error instanceof Error ? error.message : String(error);
-        const isStorageError = message.toLowerCase().includes("storage") || message.toLowerCase().includes("quota");
-        alert(
-          isStorageError
-            ? "Could not save wallpaper. Your browser storage may be full."
-            : "Error processing image. Try a smaller file.",
-        );
-      } finally {
-        options.uploadOption!.style.opacity = "1";
-        if (options.uploadInput) options.uploadInput.value = "";
+        console.error("Failed to process or save image", error);
+        alert("Error saving image. It might be too large.");
       }
+      options.uploadInput!.value = "";
     });
   }
 
@@ -581,11 +610,27 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
       const selectedApi = target.value;
       if (selectedApi === "noSource") return;
 
-      options.setWallpaperSource("api");
-      options.setWallpaperType(selectedApi as WallpaperType);
-      options.saveWallpaperConfig();
-      options.clearPresetSelection();
-      await options.applyWallpaperLogic();
+      const revertSelection = () => {
+        target.value = options.getCurrentWallpaperSource() === "api" ? options.getCurrentWallpaperType() : "noSource";
+      };
+
+      const applySelection = async () => {
+        options.setWallpaperSource("api");
+        options.setWallpaperType(selectedApi as WallpaperType);
+        options.saveWallpaperConfig();
+        options.clearPresetSelection();
+        await options.applyWallpaperLogic();
+      };
+
+      if (selectedApi === "bing") {
+        requestFeaturePermissionUI("bing", "Bing Image of the Day", "https://peapix.com/bing", applySelection, revertSelection);
+      } else if (selectedApi === "nasa") {
+        requestFeaturePermissionUI("nasa", "NASA APOD", "https://apod.nasa.gov/apod/", applySelection, revertSelection);
+      } else if (selectedApi === "wikimedia") {
+        requestFeaturePermissionUI("wikimedia", "Wikimedia Picture of the Day", "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day", applySelection, revertSelection);
+      } else {
+        applySelection();
+      }
     });
   }
 }

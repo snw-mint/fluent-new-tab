@@ -52,7 +52,7 @@ function renderWeatherWidget(data: WeatherApiResponse | null, weatherUnit: Weath
     if (!refs.weatherCity || !refs.weatherTemp || !refs.weatherIcon || !refs.weatherWidget) return;
 
     const { temperature, weathercode, is_day } = data.current_weather;
-    const isCelsius = weatherUnit === 'c';
+    const isCelsius = weatherUnit.toLowerCase() === 'c';
     const tempValue = isCelsius ? temperature : (temperature * 9 / 5) + 32;
     const unitSymbol = isCelsius ? '°C' : '°F';
     const filename = getFluentIconFilename(weathercode, is_day);

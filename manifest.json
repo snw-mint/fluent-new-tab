@@ -9,17 +9,16 @@
     "128": "assets/icon-128.png"
   },
   "chrome_url_overrides": {
-    "newtab": "index.html" 
+    "newtab": "index.html"
   },
   "background": {
     "service_worker": "scripts/background.js"
   },
   "permissions": [
-    "storage", 
+    "storage",
     "unlimitedStorage"
   ],
-  "host_permissions": [
-    "https://www.google.com/*",
+  "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",
     "https://img.peapix.com/*",

@@ -5,12 +5,40 @@
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
  */
+const HOST_PERMISSIONS: Record<string, string[]> = {
+  bing: ["https://peapix.com/*", "https://img.peapix.com/*"],
+  nasa: ["https://api.nasa.gov/*", "https://apod.nasa.gov/*"],
+  wikimedia: ["https://commons.wikimedia.org/*", "https://upload.wikimedia.org/*"],
+  suggestions: ["https://suggestqueries.google.com/*"],
+  weather: ["https://geocoding-api.open-meteo.com/*", "https://api.open-meteo.com/*"]
+};
+
+async function checkPermission(origins: string[]): Promise<boolean> {
+  return new Promise((resolve) => {
+    const chromeApi = (window as any).chrome;
+    if (!chromeApi || !chromeApi.permissions) return resolve(false);
+    chromeApi.permissions.contains({ origins }, (result: boolean) => resolve(result));
+  });
+}
+
+async function requestPermission(origins: string[]): Promise<boolean> {
+  return new Promise((resolve) => {
+    const chromeApi = (window as any).chrome;
+    if (!chromeApi || !chromeApi.permissions) return resolve(false);
+    chromeApi.permissions.request({ origins }, (granted: boolean) => resolve(granted));
+  });
+}
 
 async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null> {
+  const origins = HOST_PERMISSIONS[source as keyof typeof HOST_PERMISSIONS];
+  if (origins) {
+    const hasPerm = await checkPermission(origins);
+    if (!hasPerm) return null;
+  }
+
   const today = new Date().toISOString().slice(0, 10);
   const cacheKey = `wallpaper_cache_${source}`;
   const now = Date.now();
-
   const midnight = new Date();
   midnight.setHours(24, 0, 0, 0);
   const msUntilMidnight = midnight.getTime() - now;
@@ -162,23 +190,28 @@ async function fetchDailyWallpaper(source: WallpaperType): Promise<string | null
   }
 }
 
-function fetchSuggestionsFromService(query: string): Promise<string[]> {
+async function fetchSuggestionsFromService(query: string): Promise<string[]> {
+  const hasPerm = await checkPermission(HOST_PERMISSIONS.suggestions);
+  if (!hasPerm) return [];
+
   const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data: SuggestionApiResponse) => {
-      if (Array.isArray(data?.[1])) {
-        return data[1].slice(0, 5);
-      }
-      return [];
-    })
-    .catch((error) => {
-      console.error("Error retrieving suggestions:", error);
-      return [];
-    });
+  try {
+    const response = await fetch(url);
+    const data = (await response.json()) as SuggestionApiResponse;
+    if (Array.isArray(data?.[1])) {
+      return data[1].slice(0, 5);
+    }
+    return [];
+  } catch (error) {
+    console.error("Error retrieving suggestions:", error);
+    return [];
+  }
 }
 
 async function fetchCityData(query: string): Promise<CityData | null> {
+  const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
+  if (!hasPerm) return null;
+
   const language = "en";
 
   const normalizeText = (value: string): string =>
@@ -240,8 +273,8 @@ async function fetchCityData(query: string): Promise<CityData | null> {
 }
 
 async function fetchWeatherData(cityData: CityData): Promise<WeatherApiResponse | null> {
+  const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
+  if (!hasPerm) return null;
+
   const { lat, lon } = cityData;
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
-  const response = await fetch(url);
-  return (await response.json()) as WeatherApiResponse;
 }

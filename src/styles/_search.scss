@@ -141,7 +141,7 @@
       &::before {
         opacity: 1;
         transform: scale(1);
-        background: var(--accent-color);
+        background: $color-accent-alert;
         animation: voice-recording-pulse 1.3s ease-out infinite;
       }
 

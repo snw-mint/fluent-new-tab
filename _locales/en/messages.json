@@ -60,6 +60,18 @@
   "editLabel": { "message": "Edit" },
   "removeLabel": { "message": "Remove" },
   "moreOptionsLabel": { "message": "More options" },
+  "permissionRequiredTitle": { "message": "Permission Required" },
+  "grantPermissionLabel": { "message": "Grant Permission" },
+  "learnMoreLabel": { "message": "Learn more" },
+  "permissionRequiredMessage": {
+    "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
     "message": "Fluent New Tab has been updated to version $VERSION$, ",
     "placeholders": { "version": { "content": "$1", "example": "v3.1" } }

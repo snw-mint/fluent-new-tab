@@ -11,32 +11,39 @@ const UPDATE_NOTICE_VERSION_KEY = 'update_notice_version';
 const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
 
 const DEFAULT_INSTALL_PREFERENCES = {
-  shortcuts: '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"Notion","url":"https://notion.com","customIcon":null},{"name":"Kofi","url":"https://ko-fi.com/snwmint","customIcon":"https://upload.wikimedia.org/wikipedia/commons/4/4a/Ko-Fi_favicon.webp"},{"name":"Fluent New Tab","url":"https://snw-mint.github.io/fluent-new-tab/","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true"},{"name":"Reddit","url":"https://reddit.com","customIcon":null},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"BlueSky","url":"https://bsky.app","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
+  shortcuts: '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snow.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
   theme: 'auto',
-  weatherEnabled: 'true',
-  weatherUnit: 'c',
-  fluent_city_data: '{"name":"New York","lat":40.71427,"lon":-74.00597,"country":"United States"}',
+  weatherEnabled: 'false',
   shortcutsVisible: 'true',
   shortcutsRows: '1',
   launcherEnabled: 'true',
   launcherProvider: 'microsoft',
   showGreeting: 'true',
   greetingName: '',
-  greetingStyle: '3d',
+  greetingStyle: 'none',
   userLanguage: 'en_US',
   searchEngine: 'bing',
   searchBarVisible: 'true',
-  suggestionsEnabled: 'true',
+  suggestionsEnabled: 'false',
   clearSearchEnabled: 'false',
   compactBarEnabled: 'false',
-  voiceSearchEnabled: 'true',
+  voiceSearchEnabled: 'false',
   wallpaperEnabled: 'false',
-  wallpaperSource: 'api',
-  wallpaperType: 'bing',
+  wallpaperSource: 'local',
+  wallpaperType: 'preset',
   wallpaperValue: 'preset_1',
   animationsDisabled: 'false',
   blurDisabled: 'false',
-  reducedEffectsEnabled: 'false'
+  reducedEffectsEnabled: 'false',
+  accentColorEnabled: 'false',
+  accentColorMode: 'manual',
+  accentColorValue: '#107C41',
+  displayType: 'greeting',
+  showSeconds: 'false',
+  use12Hour: 'true',
+  dateFormat: 'numeric',
+  askAiEnabled: 'false',
+  shortcutsTree: '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snow.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]'
 };
 
 chrome.runtime.onInstalled.addListener((details) => {
@@ -47,7 +54,7 @@ chrome.runtime.onInstalled.addListener((details) => {
       [PERSISTENT_BACKUP_KEY]: DEFAULT_INSTALL_PREFERENCES
     });
 
-    chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') });
+    chrome.tabs.create({ url: "https://snw-mint.github.io/fluent-new-tab/welcome.html" });
   }
 
   if (details.reason === 'update') {

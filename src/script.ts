@@ -145,6 +145,7 @@ function getActiveShortcutsList(): Shortcut[] {
 interface WarningModalOptions {
   title: string;
   message: string;
+  learnMoreUrl?: string;
   confirmText?: string;
   cancelText?: string;
   confirmVariant?: "accent" | "danger";
@@ -173,6 +174,20 @@ class WarningModalManager {
     const confirmVariant = options.confirmVariant || "accent";
     this.titleEl.textContent = options.title;
     this.messageEl.textContent = options.message;
+
+if (options.learnMoreUrl) {
+      const link = document.createElement("a");
+      link.href = options.learnMoreUrl;
+      link.target = "_blank";
+      link.textContent = getLocalizedWarningText("learnMoreLabel", "Learn more");
+      link.style.display = "inline-block";
+      link.style.marginTop = "8px";
+      link.style.color = "var(--text-color)";
+      link.style.textDecoration = "underline";
+      this.messageEl.appendChild(document.createElement("br"));
+      this.messageEl.appendChild(link);
+    }
+
     this.btnConfirm.textContent = options.confirmText || "Confirm";
     this.btnCancel.textContent = options.cancelText || "Cancel";
     this.btnConfirm.classList.toggle("btn-danger", confirmVariant === "danger");
@@ -208,6 +223,45 @@ class WarningModalManager {
 }
 
 const warningModal = new WarningModalManager();
+
+async function requestFeaturePermissionUI(
+  feature: keyof typeof HOST_PERMISSIONS,
+  apiName: string,
+  learnMoreUrl: string,
+  onGranted: () => void,
+  onDenied: () => void
+): Promise<void> {
+  const origins = HOST_PERMISSIONS[feature];
+  if (!origins) {
+    onGranted();
+    return;
+  }
+  
+  const hasPerm = await checkPermission(origins);
+  if (hasPerm) {
+    onGranted();
+    return;
+  }
+
+  warningModal.show({
+    title: getLocalizedWarningText("permissionRequiredTitle", "Permission Required"),
+    message: getLocalizedWarningText(
+      "permissionRequiredMessage",
+      "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
+      { API_NAME: apiName }
+    ),
+    learnMoreUrl: learnMoreUrl,
+    confirmText: getLocalizedWarningText("grantPermissionLabel", "Grant Permission"),
+    cancelText: getLocalizedWarningText("btnCancel", "Cancel"),
+    confirmVariant: "accent",
+    onConfirm: async () => {
+      const granted = await requestPermission(origins);
+      if (granted) onGranted();
+      else onDenied();
+    },
+    onCancel: onDenied
+  });
+}
 
 function saveAndRender(): void {
   localStorage.setItem("shortcuts", JSON.stringify(shortcuts));
@@ -2398,7 +2452,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   bindLauncherFolderButton();
 
-  bindWallpaperFeature({
+bindWallpaperFeature({
     applyInitialWallpaperState,
     toggleWallpaper,
     setWallpaperEnabled: (enabled) => {
@@ -2430,6 +2484,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     processWallpaperImage,
     saveWallpaperToDB,
     clearPresetSelection,
+    getCurrentWallpaperSource: () => currentWallpaperSource,
+    getCurrentWallpaperType: () => currentWallpaperType,
   });
 
   if (languageSelect) {
