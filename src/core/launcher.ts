@@ -6,47 +6,58 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file manages the display, rendering, and interaction of the application launcher.
+ */
+
 interface LauncherVisibilityRefs {
-    appLauncherWrapper: HTMLElement | null;
-    launcherSelectGroup: HTMLElement | null;
+  appLauncherWrapper: HTMLElement | null;
+  launcherSelectGroup: HTMLElement | null;
 }
 
 interface LauncherRenderRefs {
-    launcherGrid: HTMLElement | null;
-    launcherAllAppsLink: HTMLAnchorElement | null;
+  launcherGrid: HTMLElement | null;
+  launcherAllAppsLink: HTMLAnchorElement | null;
 }
 
 function updateLauncherVisibilityUI(
-    enabled: boolean,
-    animate: boolean,
-    refs: LauncherVisibilityRefs,
-    setCollapsibleFn: (element: HTMLElement | null, shouldExpand: boolean, animate?: boolean) => void
+  enabled: boolean,
+  animate: boolean,
+  refs: LauncherVisibilityRefs,
+  setCollapsibleFn: (
+    element: HTMLElement | null,
+    shouldExpand: boolean,
+    animate?: boolean,
+  ) => void,
 ): void {
-    if (refs.appLauncherWrapper) {
-        refs.appLauncherWrapper.style.display = enabled ? 'block' : 'none';
-    }
-    if (refs.launcherSelectGroup) {
-        setCollapsibleFn(refs.launcherSelectGroup, enabled, animate);
-    }
+  if (refs.appLauncherWrapper) {
+    refs.appLauncherWrapper.style.display = enabled ? 'block' : 'none';
+  }
+  if (refs.launcherSelectGroup) {
+    setCollapsibleFn(refs.launcherSelectGroup, enabled, animate);
+  }
 }
 
-function renderLauncherApps(data: LauncherProviderData | undefined, refs: LauncherRenderRefs): void {
-    if (!data || !refs.launcherGrid) return;
+function renderLauncherApps(
+  data: LauncherProviderData | undefined,
+  refs: LauncherRenderRefs,
+): void {
+  if (!data || !refs.launcherGrid) return;
 
-    refs.launcherGrid.innerHTML = '';
-    data.apps.forEach((app) => {
-        const link = document.createElement('a');
-        link.href = app.url;
-        link.className = 'launcher-item';
-        link.title = app.name;
-        link.setAttribute('aria-label', app.name);
-        link.innerHTML = `
+  refs.launcherGrid.innerHTML = '';
+  data.apps.forEach((app) => {
+    const link = document.createElement('a');
+    link.href = app.url;
+    link.className = 'launcher-item';
+    link.title = app.name;
+    link.setAttribute('aria-label', app.name);
+    link.innerHTML = `
             <img src="${app.icon}" class="launcher-icon" alt="${app.name}">
         `;
-        refs.launcherGrid?.appendChild(link);
-    });
+    refs.launcherGrid?.appendChild(link);
+  });
 
-    if (refs.launcherAllAppsLink) {
-        refs.launcherAllAppsLink.href = data.allAppsLink;
-    }
+  if (refs.launcherAllAppsLink) {
+    refs.launcherAllAppsLink.href = data.allAppsLink;
+  }
 }

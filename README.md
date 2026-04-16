@@ -14,7 +14,6 @@
   <a href="TRANSLATING.md">Help translate</a>
 </p>
 
-
 ## Why choose Fluent New Tab?
 
 - Minimal, lightweight layout focused on productivity.
@@ -25,7 +24,6 @@
 - Privacy-first: no tracking or telemetry.
 
 More details on the [official website.](https://snw-mint.github.io/fluent-new-tab/)
-
 
 ## Installation
 
@@ -45,7 +43,9 @@ The easiest option is the official store, with automatic updates.
 > Updates to Microsoft add-ons may take up to 7 business days to become available after a release.
 
 ### Manual installation
+
 For the latest version:
+
 1. Download the latest `.zip` from the Releases Page.
 2. Unzip the file.
 3. Open `edge://extensions` in your browser.
@@ -53,6 +53,7 @@ For the latest version:
 5. Click **Load Unpacked** and select the unzipped folder.
 
 ## Local development (TypeScript + SCSS)
+
 This project uses a build step.
 
 1. Install dependencies:
@@ -66,15 +67,16 @@ This project uses a build step.
 3. In `edge://extensions`, click **Load unpacked** and select the `dist/` folder.
 
 Source files are in `src/`:
+
 - `src/script.ts` → `dist/script.js`
 - `src/style.scss` → `dist/style.css`
 
 Runtime files (`script.js` and `style.css`) are generated only in `dist/`.
 
 ## Support the project
+
 - GitHub Sponsors: https://github.com/sponsors/snw-mint
 - Buy Me A Coffe: https://buymeacoffee.com/snow.mint
-
 
 ## Privacy
 
@@ -93,7 +95,6 @@ Contributions are welcome.
 
 - Translators: read the [Translation Guide](TRANSLATING.md).
 - Developers: read the [Developer Guide](CONTRIBUTING.md).
-
 
 ## License and legal notice
 

@@ -6,8 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .search-bar {
   width: 100%;
@@ -113,7 +113,7 @@
     isolation: isolate;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       width: 2.125rem;
       height: 2.125rem;
@@ -350,7 +350,7 @@
     }
   }
 
-  [data-theme="dark"] &.suggestions-open {
+  [data-theme='dark'] &.suggestions-open {
     background-color: #3b3b3b !important;
     border-color: #333333 !important;
     border-bottom-color: transparent !important;
@@ -379,7 +379,7 @@
     }
   }
 
-  [data-theme="dark"] &.compact.suggestions-open {
+  [data-theme='dark'] &.compact.suggestions-open {
     background-color: #3b3b3b !important;
 
     .suggestions-container {
@@ -436,7 +436,7 @@
 }
 
 @property --ask-ai-angle {
-  syntax: "<angle>";
+  syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
@@ -468,7 +468,7 @@
     0 0 40px 4px rgba(72, 219, 251, 0.15) !important;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: -0.3rem;
     border-radius: inherit;
@@ -512,7 +512,7 @@
 
 .search-bar.ask-ai-active .suggestions-container {
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: -0.3rem;
     top: 0;

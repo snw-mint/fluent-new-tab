@@ -6,13 +6,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use "./variables" as *;
+@use './variables' as *;
 
 :root {
   --accent-color: #0078d4;
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --bg-color: #{$color-dark-bg};
   --text-color: #{$color-accent-contrast};
   --search-bg: #{$color-dark-card};
@@ -28,7 +28,7 @@ html[data-theme="dark"] {
   --hover-overlay-active: rgba(255, 255, 255, 0.04);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   .greeting-icon.outline {
     filter: invert(1);
   }
@@ -364,7 +364,7 @@ html[data-theme="dark"] {
   }
 }
 
-body[data-wallpaper-active="true"] {
+body[data-wallpaper-active='true'] {
   .greeting-text,
   .time-date-text,
   .time-date-sub,
@@ -390,8 +390,8 @@ body[data-wallpaper-active="true"] {
   }
 }
 
-html:not([data-theme="dark"]) {
-  body[data-wallpaper-active="true"] {
+html:not([data-theme='dark']) {
+  body[data-wallpaper-active='true'] {
     .settings-wrapper:hover,
     .header-controls:has(.settings-popup.active) .settings-wrapper {
       .settings-label {
@@ -407,7 +407,7 @@ html:not([data-theme="dark"]) {
   }
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   #addModal,
   #chooseTypeModal,
   #addFolderModal {
@@ -476,7 +476,7 @@ html:not([data-theme="dark"]) {
   }
 }
 
-[data-theme="dark"] input[type="range"].fluent-slider::-webkit-slider-thumb {
+[data-theme='dark'] input[type='range'].fluent-slider::-webkit-slider-thumb {
   border-color: #2b2b2b;
 }
 

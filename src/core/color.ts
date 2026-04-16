@@ -6,31 +6,39 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-const DEFAULT_ACCENT_COLOR = "#0078D4";
+/*
+ * This file manages accent color application, contrast calculation,
+ * and dynamic color extraction from images for theming.
+ */
+
+const DEFAULT_ACCENT_COLOR = '#0078D4';
 
 function applyAccentColor(color: string): void {
-  document.documentElement.style.setProperty("--accent-color", color);
+  document.documentElement.style.setProperty('--accent-color', color);
   setAccentContrastColor(color);
 }
 
 function setAccentContrastColor(hexColor: string): void {
-  const hex = hexColor.replace("#", "");
+  const hex = hexColor.replace('#', '');
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
   const b = parseInt(hex.substring(4, 6), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  const contrastColor = yiq >= 128 ? "#202020" : "#FFFFFF";
-  document.documentElement.style.setProperty("--accent-contrast-color", contrastColor);
+  const contrastColor = yiq >= 128 ? '#202020' : '#FFFFFF';
+  document.documentElement.style.setProperty(
+    '--accent-contrast-color',
+    contrastColor,
+  );
 }
 
 async function getAverageColorFromImage(imageUrl: string): Promise<string> {
   return new Promise((resolve) => {
     const img = new Image();
-    img.crossOrigin = "Anonymous";
+    img.crossOrigin = 'Anonymous';
 
     img.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
       if (!ctx) return resolve(DEFAULT_ACCENT_COLOR);
 
       const size = 10;
@@ -60,7 +68,7 @@ async function getAverageColorFromImage(imageUrl: string): Promise<string> {
         g = Math.floor(g / count);
         b = Math.floor(b / count);
 
-        const hex = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+        const hex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
         resolve(hex);
       } catch {
         resolve(DEFAULT_ACCENT_COLOR);
@@ -72,15 +80,18 @@ async function getAverageColorFromImage(imageUrl: string): Promise<string> {
   });
 }
 
-async function handleAutoAccentColor(imageUrl: string, wallpaperId: string): Promise<void> {
-  const isEnabled = localStorage.getItem("accentColorEnabled") === "true";
+async function handleAutoAccentColor(
+  imageUrl: string,
+  wallpaperId: string,
+): Promise<void> {
+  const isEnabled = localStorage.getItem('accentColorEnabled') === 'true';
   if (!isEnabled) return;
 
-  const mode = localStorage.getItem("accentColorMode") || "auto";
-  if (mode !== "auto") return;
+  const mode = localStorage.getItem('accentColorMode') || 'auto';
+  if (mode !== 'auto') return;
 
-  const cachedId = localStorage.getItem("autoAccentColorId");
-  const cachedColor = localStorage.getItem("autoAccentColorValue");
+  const cachedId = localStorage.getItem('autoAccentColorId');
+  const cachedColor = localStorage.getItem('autoAccentColorValue');
 
   if (cachedId === wallpaperId && cachedColor) {
     applyAccentColor(cachedColor);
@@ -88,8 +99,8 @@ async function handleAutoAccentColor(imageUrl: string, wallpaperId: string): Pro
   }
 
   const extractedColor = await getAverageColorFromImage(imageUrl);
-  localStorage.setItem("autoAccentColorId", wallpaperId);
-  localStorage.setItem("autoAccentColorValue", extractedColor);
+  localStorage.setItem('autoAccentColorId', wallpaperId);
+  localStorage.setItem('autoAccentColorValue', extractedColor);
 
   applyAccentColor(extractedColor);
 }
@@ -99,23 +110,31 @@ function applyInitialAccentColorState(): void {
     toggleAccentColor.checked = accentColorEnabled;
     setCollapsible(accentColorOptions, accentColorEnabled, false);
   }
-  if (toggleAccentWallpaper) toggleAccentWallpaper.checked = accentColorMode === "auto";
+  if (toggleAccentWallpaper)
+    toggleAccentWallpaper.checked = accentColorMode === 'auto';
   if (toggleAccentSurfaces) toggleAccentSurfaces.checked = accentColorSurfaces;
-  const colorToApply = accentColorEnabled ? accentColorValue : DEFAULT_ACCENT_COLOR;
+  const colorToApply = accentColorEnabled
+    ? accentColorValue
+    : DEFAULT_ACCENT_COLOR;
   applyAccentColor(colorToApply);
 }
 
 function applyTheme(theme: ThemeMode): void {
   if (themeBtns) {
-    themeBtns.forEach((btn) => btn.classList.toggle("active", btn.dataset.theme === theme));
+    themeBtns.forEach((btn) =>
+      btn.classList.toggle('active', btn.dataset.theme === theme),
+    );
   }
-  document.documentElement.removeAttribute("data-theme");
-  if (theme === "auto") {
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.setAttribute("data-theme", "dark");
+  document.documentElement.removeAttribute('data-theme');
+  if (theme === 'auto') {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
   } else {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }
 }
 

@@ -1,7 +1,7 @@
 name: 🚀 Feature Request
 description: Suggest a new feature or improvement
-title: "[Feature]: "
-labels: ["feature"]
+title: '[Feature]: '
+labels: ['feature']
 body:
   - type: markdown
     attributes:
@@ -27,7 +27,7 @@ body:
     attributes:
       label: Description
       description: What feature would you like to see?
-      placeholder: "Describe your idea briefly..."
+      placeholder: 'Describe your idea briefly...'
     validations:
       required: true
 
@@ -36,7 +36,7 @@ body:
     attributes:
       label: Motivation
       description: Why would this feature be useful? What problem does it solve?
-      placeholder: "Explain the use case or problem this would solve..."
+      placeholder: 'Explain the use case or problem this would solve...'
     validations:
       required: true
 
@@ -44,4 +44,4 @@ body:
     id: additional
     attributes:
       label: Additional Details (Optional)
-      placeholder: "Any extra context, mockups, or examples?"
+      placeholder: 'Any extra context, mockups, or examples?'

@@ -6,6 +6,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file defines various TypeScript interfaces and type aliases used throughout the application
+ * to ensure type safety and consistency.
+ */
+
 interface ChromeLike {
   i18n: {
     getMessage: (messageName: string, substitutions?: string[]) => string;
@@ -51,7 +56,7 @@ interface Window {
   getTranslation: (key: string) => string;
 }
 
-type ShortcutItemType = "link" | "folder";
+type ShortcutItemType = 'link' | 'folder';
 
 interface Shortcut {
   id?: string;
@@ -159,7 +164,7 @@ interface WallpaperCacheEntry {
   creditUrl?: string;
 }
 
-type ThemeMode = "light" | "dark" | "auto";
-type WeatherUnit = "c" | "f";
-type WallpaperSource = "local" | "api";
-type WallpaperType = "preset" | "upload" | "bing" | "nasa" | "wikimedia";
+type ThemeMode = 'light' | 'dark' | 'auto';
+type WeatherUnit = 'c' | 'f';
+type WallpaperSource = 'local' | 'api';
+type WallpaperType = 'preset' | 'upload' | 'bing' | 'nasa' | 'wikimedia';

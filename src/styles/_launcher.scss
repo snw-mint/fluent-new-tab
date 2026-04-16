@@ -6,8 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .left-controls {
   position: fixed;
@@ -135,7 +135,7 @@
       border-radius: 0 0 $radius-md $radius-md;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
         border-radius: inherit;

@@ -6,18 +6,22 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file provides utility functions for common DOM manipulations and element retrieval.
+ */
+
 function getById<T extends HTMLElement>(id: string): T | null {
-    return document.getElementById(id) as T | null;
+  return document.getElementById(id) as T | null;
 }
 
 function getInputTarget(event: Event): HTMLInputElement | null {
-    return event.target instanceof HTMLInputElement ? event.target : null;
+  return event.target instanceof HTMLInputElement ? event.target : null;
 }
 
 function getSelectTarget(event: Event): HTMLSelectElement | null {
-    return event.target instanceof HTMLSelectElement ? event.target : null;
+  return event.target instanceof HTMLSelectElement ? event.target : null;
 }
 
 function getInputById(id: string): HTMLInputElement | null {
-    return getById<HTMLInputElement>(id);
+  return getById<HTMLInputElement>(id);
 }

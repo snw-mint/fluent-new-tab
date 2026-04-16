@@ -81,20 +81,23 @@ fluent-new-tab/
 ## Coding Guidelines
 
 ### TypeScript
-*   **Syntax:** Use modern **ES6+** syntax (Arrow functions, `const`/`let`, Async/Await).
-*   **Modularity:** Keep functions small and focused.
-*   **No Frameworks:** Do not introduce libraries like jQuery, React, or Vue. We want to keep the extension lightweight.
+
+- **Syntax:** Use modern **ES6+** syntax (Arrow functions, `const`/`let`, Async/Await).
+- **Modularity:** Keep functions small and focused.
+- **No Frameworks:** Do not introduce libraries like jQuery, React, or Vue. We want to keep the extension lightweight.
 
 ### SCSS & Design
-*   **Variables:** Always use CSS Variables (defined in `:root` and `[data-theme="dark"]`) for colors. This ensures **Dark Mode** works automatically.
-*   **Fluent Design:**
-    *   Use `border-radius: 8px` or `12px` for cards.
-    *   Use subtle shadows (`box-shadow`) for depth.
-    *   Ensure hover states are smooth (`transition: all 0.2s`).
+
+- **Variables:** Always use CSS Variables (defined in `:root` and `[data-theme="dark"]`) for colors. This ensures **Dark Mode** works automatically.
+- **Fluent Design:**
+  - Use `border-radius: 8px` or `12px` for cards.
+  - Use subtle shadows (`box-shadow`) for depth.
+  - Ensure hover states are smooth (`transition: all 0.2s`).
 
 ### Icons
-*   We use **SVGs** for almost all UI elements to ensure crisp rendering on high-DPI screens.
-*   If adding a new app to the launcher, place the SVG in `assets/apps/{provider}/`.
+
+- We use **SVGs** for almost all UI elements to ensure crisp rendering on high-DPI screens.
+- If adding a new app to the launcher, place the SVG in `assets/apps/{provider}/`.
 
 ---
 
@@ -111,7 +114,8 @@ Ready to contribute? Follow these standard steps:
 4.  Open a **Pull Request (PR)** against the `main` branch.
 
 **Pre-submission Checklist:**
+
 - [ ] Did you test your changes in **Light Mode**?
 - [ ] Did you test your changes in **Dark Mode**?
 
-We look forward to your code! Happy coding! 
+We look forward to your code! Happy coding!

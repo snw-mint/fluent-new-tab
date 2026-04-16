@@ -6,6 +6,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file contains functions to bind event listeners for various UI components and features,
+ * managing user interactions and updating application state accordingly.
+ */
+
 interface WeatherBindingOptions {
   applyInitialWeatherState: () => void;
   toggleWeather: HTMLInputElement | null;
@@ -46,7 +51,7 @@ interface SearchBindingOptions {
   setSearchEngine: (engine: keyof typeof engines) => void;
   applyInitialSearchBarVisibility: () => void;
   toggleSearchBar: HTMLInputElement | null;
-  setSearchBarVisible: (visible: boolean) => void; 
+  setSearchBarVisible: (visible: boolean) => void;
   updateSearchSettings: (animate?: boolean) => void;
   applyInitialSuggestionsActive: () => void;
   toggleSuggestions: HTMLInputElement | null;
@@ -66,7 +71,10 @@ interface SearchBindingOptions {
   setVoiceSearchEnabled: (enabled: boolean) => void;
   updateVoiceSearchAvailability: () => void;
   searchInput: HTMLInputElement | null;
-  debounce: (fn: (event: Event) => void, wait: number) => (event: Event) => void;
+  debounce: (
+    fn: (event: Event) => void,
+    wait: number,
+  ) => (event: Event) => void;
   suggestionsCache: Map<string, string[]>;
   renderSuggestions: (suggestions: string[]) => void;
   fetchSuggestions: (query: string) => void;
@@ -106,7 +114,7 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
 
   if (options.toggleWeather) {
     options.toggleWeather.checked = options.getWeatherEnabled();
-    options.toggleWeather.addEventListener("change", (event) => {
+    options.toggleWeather.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 
@@ -116,13 +124,14 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
         options.setWeatherEnabled(true);
         options.updateWeatherVisibility(true);
 
-        const apiName = window.getTranslation?.("apiNameWeather") || "Open-Meteo API";
+        const apiName =
+          window.getTranslation?.('apiNameWeather') || 'Open-Meteo API';
         requestFeaturePermissionUI(
-          "weather",
+          'weather',
           apiName,
-          "https://open-meteo.com/",
+          'https://open-meteo.com/',
           () => {
-            localStorage.setItem("weatherEnabled", "true");
+            localStorage.setItem('weatherEnabled', 'true');
 
             setTimeout(() => {
               options.initWeather();
@@ -132,22 +141,22 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
             target.checked = false;
             options.setWeatherEnabled(false);
             options.updateWeatherVisibility(true);
-          }
+          },
         );
       } else {
         options.setWeatherEnabled(false);
-        localStorage.setItem("weatherEnabled", "false");
+        localStorage.setItem('weatherEnabled', 'false');
         options.updateWeatherVisibility(true);
       }
     });
   }
 
   options.unitBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener('click', () => {
       const unit = btn.dataset.unit as WeatherUnit | undefined;
       if (unit) {
         options.setWeatherUnit(unit);
-        localStorage.setItem("weatherUnit", unit);
+        localStorage.setItem('weatherUnit', unit);
         options.updateUnitButtons();
         options.initWeather();
       }
@@ -155,12 +164,12 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
   });
 
   if (options.saveCityBtn) {
-    options.saveCityBtn.addEventListener("click", options.searchCity);
+    options.saveCityBtn.addEventListener('click', options.searchCity);
   }
 
   if (options.cityInput) {
-    options.cityInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
+    options.cityInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
         options.searchCity();
       }
     });
@@ -171,7 +180,11 @@ interface AccentColorBindingOptions {
   applyInitialAccentState: () => void;
   toggleAccentColor: HTMLInputElement | null;
   accentColorOptions: HTMLDivElement | null;
-  setCollapsibleFn: (element: HTMLElement | null, shouldExpand: boolean, animate?: boolean) => void;
+  setCollapsibleFn: (
+    element: HTMLElement | null,
+    shouldExpand: boolean,
+    animate?: boolean,
+  ) => void;
   accentPresetsRow: HTMLDivElement | null;
   accentCustomColor: HTMLInputElement | null;
   applyAccentColor: (color: string) => void;
@@ -181,24 +194,31 @@ interface AccentColorBindingOptions {
 function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   options.applyInitialAccentState();
 
-  const savedMode = localStorage.getItem("accentColorMode") || "auto";
-  const savedColor = localStorage.getItem("accentColorValue") || "#0078D4";
+  const savedMode = localStorage.getItem('accentColorMode') || 'auto';
+  const savedColor = localStorage.getItem('accentColorValue') || '#0078D4';
 
   if (options.accentPresetsRow) {
-    const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
-    presetBtns.forEach((b) => b.classList.remove("selected"));
+    const presetBtns =
+      options.accentPresetsRow.querySelectorAll('.color-preset-btn');
+    presetBtns.forEach((b) => b.classList.remove('selected'));
 
-    if (savedMode === "auto") {
-      const autoBtn = options.accentPresetsRow.querySelector('[data-color="auto"]');
-      if (autoBtn) autoBtn.classList.add("selected");
+    if (savedMode === 'auto') {
+      const autoBtn = options.accentPresetsRow.querySelector(
+        '[data-color="auto"]',
+      );
+      if (autoBtn) autoBtn.classList.add('selected');
     } else {
-      const presetBtn = options.accentPresetsRow.querySelector(`[data-color="${savedColor}"]`);
+      const presetBtn = options.accentPresetsRow.querySelector(
+        `[data-color="${savedColor}"]`,
+      );
       if (presetBtn) {
-        presetBtn.classList.add("selected");
+        presetBtn.classList.add('selected');
       } else if (options.accentCustomColor) {
-        const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
+        const customBtn = options.accentCustomColor.closest(
+          '.custom-preset',
+        ) as HTMLElement;
         if (customBtn) {
-          customBtn.classList.add("selected");
+          customBtn.classList.add('selected');
           customBtn.style.backgroundColor = savedColor;
         }
         options.accentCustomColor.value = savedColor;
@@ -207,91 +227,111 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   }
 
   if (options.toggleAccentColor) {
-    options.toggleAccentColor.addEventListener("change", (event) => {
+    options.toggleAccentColor.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 
       const isEnabled = target.checked;
-      localStorage.setItem("accentColorEnabled", String(isEnabled));
+      localStorage.setItem('accentColorEnabled', String(isEnabled));
       options.setCollapsibleFn(options.accentColorOptions, isEnabled, true);
 
-          if (!isEnabled) {
-            const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
-            if (toggleAuto && toggleAuto.checked) {
-              toggleAuto.checked = false;
-              localStorage.setItem("accentColorMode", "manual");
-              const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
-              allBtns?.forEach((b) => b.classList.remove("selected"));
-              const currentSavedColor = localStorage.getItem("accentColorValue") || "#0078D4";
-              const presetBtn = options.accentPresetsRow?.querySelector(`[data-color="${currentSavedColor}"]`);
-              if (presetBtn) presetBtn.classList.add("selected");
-            }
-            const toggleSurfaces = document.getElementById("toggleAccentSurfaces") as HTMLInputElement | null;
-            if (toggleSurfaces && toggleSurfaces.checked) {
-              toggleSurfaces.checked = false;
-              localStorage.setItem("accentColorSurfaces", "false");
-            }
-          }
+      if (!isEnabled) {
+        const toggleAuto = document.getElementById(
+          'toggleAccentWallpaper',
+        ) as HTMLInputElement | null;
+        if (toggleAuto && toggleAuto.checked) {
+          toggleAuto.checked = false;
+          localStorage.setItem('accentColorMode', 'manual');
+          const allBtns =
+            options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
+          allBtns?.forEach((b) => b.classList.remove('selected'));
+          const currentSavedColor =
+            localStorage.getItem('accentColorValue') || '#0078D4';
+          const presetBtn = options.accentPresetsRow?.querySelector(
+            `[data-color="${currentSavedColor}"]`,
+          );
+          if (presetBtn) presetBtn.classList.add('selected');
+        }
+        const toggleSurfaces = document.getElementById(
+          'toggleAccentSurfaces',
+        ) as HTMLInputElement | null;
+        if (toggleSurfaces && toggleSurfaces.checked) {
+          toggleSurfaces.checked = false;
+          localStorage.setItem('accentColorSurfaces', 'false');
+        }
+      }
 
-      const color = localStorage.getItem("accentColorValue") || "#0078D4";
-      options.applyAccentColor(isEnabled ? color : "#0078D4");
+      const color = localStorage.getItem('accentColorValue') || '#0078D4';
+      options.applyAccentColor(isEnabled ? color : '#0078D4');
     });
   }
 
-  const toggleAuto = document.getElementById("toggleAccentWallpaper") as HTMLInputElement | null;
+  const toggleAuto = document.getElementById(
+    'toggleAccentWallpaper',
+  ) as HTMLInputElement | null;
 
   if (toggleAuto) {
-    toggleAuto.addEventListener("change", async (event) => {
+    toggleAuto.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement;
 
       if (target.checked) {
-        localStorage.setItem("accentColorMode", "auto");
+        localStorage.setItem('accentColorMode', 'auto');
 
-        const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
-        allBtns?.forEach((b) => b.classList.remove("selected"));
-        const autoBtn = options.accentPresetsRow?.querySelector('[data-color="auto"]');
-        if (autoBtn) autoBtn.classList.add("selected");
+        const allBtns =
+          options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
+        allBtns?.forEach((b) => b.classList.remove('selected'));
+        const autoBtn = options.accentPresetsRow?.querySelector(
+          '[data-color="auto"]',
+        );
+        if (autoBtn) autoBtn.classList.add('selected');
 
         await options.applyWallpaperLogic();
       } else {
-        localStorage.setItem("accentColorMode", "manual");
+        localStorage.setItem('accentColorMode', 'manual');
 
-        const currentSavedColor = localStorage.getItem("accentColorValue") || "#0078D4";
+        const currentSavedColor =
+          localStorage.getItem('accentColorValue') || '#0078D4';
         options.applyAccentColor(currentSavedColor);
 
-        const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
-        allBtns?.forEach((b) => b.classList.remove("selected"));
-        const presetBtn = options.accentPresetsRow?.querySelector(`[data-color="${currentSavedColor}"]`);
+        const allBtns =
+          options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
+        allBtns?.forEach((b) => b.classList.remove('selected'));
+        const presetBtn = options.accentPresetsRow?.querySelector(
+          `[data-color="${currentSavedColor}"]`,
+        );
 
         if (presetBtn) {
-          presetBtn.classList.add("selected");
+          presetBtn.classList.add('selected');
         } else if (options.accentCustomColor) {
-          const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
-          if (customBtn) customBtn.classList.add("selected");
+          const customBtn = options.accentCustomColor.closest(
+            '.custom-preset',
+          ) as HTMLElement;
+          if (customBtn) customBtn.classList.add('selected');
         }
       }
     });
   }
 
   if (options.accentPresetsRow) {
-    const presetBtns = options.accentPresetsRow.querySelectorAll(".color-preset-btn");
+    const presetBtns =
+      options.accentPresetsRow.querySelectorAll('.color-preset-btn');
 
     presetBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        if ((e.target as HTMLElement).tagName === "INPUT") return;
+      btn.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).tagName === 'INPUT') return;
 
-        presetBtns.forEach((b) => b.classList.remove("selected"));
-        btn.classList.add("selected");
+        presetBtns.forEach((b) => b.classList.remove('selected'));
+        btn.classList.add('selected');
 
-        const color = btn.getAttribute("data-color");
+        const color = btn.getAttribute('data-color');
 
-        if (color && color !== "auto") {
-          localStorage.setItem("accentColorValue", color);
-          localStorage.setItem("accentColorMode", "manual");
+        if (color && color !== 'auto') {
+          localStorage.setItem('accentColorValue', color);
+          localStorage.setItem('accentColorMode', 'manual');
           options.applyAccentColor(color);
           if (toggleAuto) toggleAuto.checked = false;
-        } else if (color === "auto") {
-          localStorage.setItem("accentColorMode", "auto");
+        } else if (color === 'auto') {
+          localStorage.setItem('accentColorMode', 'auto');
           if (toggleAuto) toggleAuto.checked = true;
           void options.applyWallpaperLogic();
         }
@@ -300,25 +340,28 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   }
 
   if (options.accentCustomColor) {
-    const customBtn = options.accentCustomColor.closest(".custom-preset") as HTMLElement;
-    options.accentCustomColor.addEventListener("input", (event) => {
+    const customBtn = options.accentCustomColor.closest(
+      '.custom-preset',
+    ) as HTMLElement;
+    options.accentCustomColor.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement;
       if (!target || !customBtn) return;
 
       const color = target.value;
       customBtn.style.backgroundColor = color;
-      const allBtns = options.accentPresetsRow?.querySelectorAll(".color-preset-btn");
-      allBtns?.forEach((b) => b.classList.remove("selected"));
-      customBtn.classList.add("selected");
+      const allBtns =
+        options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
+      allBtns?.forEach((b) => b.classList.remove('selected'));
+      customBtn.classList.add('selected');
       options.applyAccentColor(color);
     });
-    options.accentCustomColor.addEventListener("change", (event) => {
+    options.accentCustomColor.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement;
       if (!target) return;
 
       const color = target.value;
-      localStorage.setItem("accentColorValue", color);
-      localStorage.setItem("accentColorMode", "manual");
+      localStorage.setItem('accentColorValue', color);
+      localStorage.setItem('accentColorMode', 'manual');
       if (toggleAuto) toggleAuto.checked = false;
     });
   }
@@ -328,46 +371,50 @@ function bindLauncherFeature(options: LauncherBindingOptions): void {
   options.applyInitialLauncherState();
 
   if (options.toggleLauncher) {
-    options.toggleLauncher.addEventListener("change", (event) => {
+    options.toggleLauncher.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 
       options.setLauncherEnabled(target.checked);
-      localStorage.setItem("launcherEnabled", String(target.checked));
+      localStorage.setItem('launcherEnabled', String(target.checked));
       options.updateLauncherVisibility();
       if (target.checked) options.renderLauncher(options.getCurrentProvider());
     });
   }
 
   if (options.launcherProvider) {
-    options.launcherProvider.addEventListener("change", (event) => {
+    options.launcherProvider.addEventListener('change', (event) => {
       const target = event.target as HTMLSelectElement | null;
       if (!target) return;
 
       const provider = target.value as keyof typeof launcherData;
       options.setCurrentProvider(provider);
-      localStorage.setItem("launcherProvider", provider);
+      localStorage.setItem('launcherProvider', provider);
       options.renderLauncher(provider);
     });
   }
 
   if (options.appLauncherBtn) {
-    options.appLauncherBtn.addEventListener("click", (event) => {
+    options.appLauncherBtn.addEventListener('click', (event) => {
       event.stopPropagation();
       options.closePopups(options.launcherPopup);
-      options.launcherPopup?.classList.toggle("active");
-      options.appLauncherBtn?.classList.toggle("active");
+      options.launcherPopup?.classList.toggle('active');
+      options.appLauncherBtn?.classList.toggle('active');
     });
   }
 
-  document.addEventListener("click", (event) => {
+  document.addEventListener('click', (event) => {
     const targetNode = event.target as Node | null;
-    if (!targetNode || !options.launcherPopup || !options.appLauncherBtn) return;
-    if (!options.launcherPopup.classList.contains("active")) return;
+    if (!targetNode || !options.launcherPopup || !options.appLauncherBtn)
+      return;
+    if (!options.launcherPopup.classList.contains('active')) return;
 
-    if (!options.launcherPopup.contains(targetNode) && !options.appLauncherBtn.contains(targetNode)) {
-      options.launcherPopup.classList.remove("active");
-      options.appLauncherBtn.classList.remove("active");
+    if (
+      !options.launcherPopup.contains(targetNode) &&
+      !options.appLauncherBtn.contains(targetNode)
+    ) {
+      options.launcherPopup.classList.remove('active');
+      options.appLauncherBtn.classList.remove('active');
     }
   });
 }
@@ -380,72 +427,75 @@ function bindSearchFeature(options: SearchBindingOptions): void {
   options.applyInitialVoiceSearch();
 
   if (options.toggleSearchBar) {
-    options.toggleSearchBar.addEventListener("change", (event) => {
+    options.toggleSearchBar.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setSearchBarVisible(target.checked);
-      localStorage.setItem("searchBarVisible", String(target.checked));
+      localStorage.setItem('searchBarVisible', String(target.checked));
       options.updateSearchSettings();
     });
   }
 
   if (options.toggleCompact) {
     options.toggleCompact.checked = options.getCompactBarEnabled();
-    options.toggleCompact.addEventListener("change", (event) => {
+    options.toggleCompact.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setCompactBarEnabled(target.checked);
-      localStorage.setItem("compactBarEnabled", String(target.checked));
+      localStorage.setItem('compactBarEnabled', String(target.checked));
       options.updateCompactBarStyle();
     });
   }
 
   if (options.toggleVoiceSearch) {
-    options.toggleVoiceSearch.addEventListener("change", (event) => {
+    options.toggleVoiceSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setVoiceSearchEnabled(target.checked);
-      localStorage.setItem("voiceSearchEnabled", String(target.checked));
+      localStorage.setItem('voiceSearchEnabled', String(target.checked));
       options.updateVoiceSearchAvailability();
     });
   }
 
   if (options.toggleClearSearch) {
-    options.toggleClearSearch.addEventListener("change", (event) => {
+    options.toggleClearSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setClearSearchEnabled(target.checked);
-      localStorage.setItem("clearSearchEnabled", String(target.checked));
+      localStorage.setItem('clearSearchEnabled', String(target.checked));
       options.updateGoogleParams();
     });
   }
 
   if (options.engineBtn && options.dropdown) {
-    options.engineBtn.addEventListener("click", (event) => {
+    options.engineBtn.addEventListener('click', (event) => {
       event.stopPropagation();
       options.closePopups(options.dropdown);
-      options.dropdown?.classList.toggle("active");
+      options.dropdown?.classList.toggle('active');
     });
 
     options.items.forEach((item) => {
-      item.addEventListener("click", (event) => {
+      item.addEventListener('click', (event) => {
         const target = event.currentTarget as HTMLElement;
-        const engine = target.dataset.engine || "bing";
+        const engine = target.dataset.engine || 'bing';
         if (options.hasEngine(engine)) {
-          localStorage.setItem("searchEngine", engine);
+          localStorage.setItem('searchEngine', engine);
           options.setSearchEngine(engine as any);
         }
-        options.dropdown?.classList.remove("active");
+        options.dropdown?.classList.remove('active');
       });
     });
 
-    document.addEventListener("click", (event) => {
+    document.addEventListener('click', (event) => {
       const targetNode = event.target as Node | null;
       if (!targetNode) return;
 
-      if (options.dropdown?.classList.contains("active")) {
-        if (!options.dropdown.contains(targetNode) && !options.engineBtn?.contains(targetNode)) {
-          options.dropdown.classList.remove("active");
+      if (options.dropdown?.classList.contains('active')) {
+        if (
+          !options.dropdown.contains(targetNode) &&
+          !options.engineBtn?.contains(targetNode)
+        ) {
+          options.dropdown.classList.remove('active');
         }
       }
     });
@@ -455,56 +505,72 @@ function bindSearchFeature(options: SearchBindingOptions): void {
     const handleInput = options.debounce((event: Event) => {
       const target = event.target as HTMLInputElement;
       const query = target.value.trim();
-      
+
       if (!query || !options.getSuggestionsActive()) {
         options.clearSuggestions();
         return;
       }
 
       if (options.suggestionsCache.has(query.toLowerCase())) {
-        options.renderSuggestions(options.suggestionsCache.get(query.toLowerCase())!);
+        options.renderSuggestions(
+          options.suggestionsCache.get(query.toLowerCase())!,
+        );
       } else {
         options.fetchSuggestions(query);
       }
     }, 150);
 
-    options.searchInput.addEventListener("input", handleInput);
-    options.searchInput.addEventListener("focus", handleInput);
-    
-    options.searchInput.addEventListener("keydown", (event) => {
+    options.searchInput.addEventListener('input', handleInput);
+    options.searchInput.addEventListener('focus', handleInput);
+
+    options.searchInput.addEventListener('keydown', (event) => {
       if (!options.getSuggestionsActive()) return;
-      
-      const suggestionItems = Array.from(document.querySelectorAll(".suggestion-item")) as HTMLElement[];
+
+      const suggestionItems = Array.from(
+        document.querySelectorAll('.suggestion-item'),
+      ) as HTMLElement[];
       if (!suggestionItems.length) return;
 
-      let currentIndex = suggestionItems.findIndex((item) => item.classList.contains("selected"));
+      let currentIndex = suggestionItems.findIndex((item) =>
+        item.classList.contains('selected'),
+      );
 
-      if (event.key === "ArrowDown") {
+      if (event.key === 'ArrowDown') {
         event.preventDefault();
-        currentIndex = currentIndex < suggestionItems.length - 1 ? currentIndex + 1 : 0;
+        currentIndex =
+          currentIndex < suggestionItems.length - 1 ? currentIndex + 1 : 0;
         options.updateSelection(suggestionItems, currentIndex);
-      } else if (event.key === "ArrowUp") {
+      } else if (event.key === 'ArrowUp') {
         event.preventDefault();
-        currentIndex = currentIndex > 0 ? currentIndex - 1 : suggestionItems.length - 1;
+        currentIndex =
+          currentIndex > 0 ? currentIndex - 1 : suggestionItems.length - 1;
         options.updateSelection(suggestionItems, currentIndex);
       }
     });
   }
-  
-  document.addEventListener("click", (event) => {
+
+  document.addEventListener('click', (event) => {
     const targetNode = event.target as Node | null;
     if (!targetNode || !options.searchInput) return;
-    
-    const suggestionsContainer = document.getElementById("suggestionsContainer");
-    if (suggestionsContainer && suggestionsContainer.classList.contains("active")) {
-      if (!suggestionsContainer.contains(targetNode) && !options.searchInput.contains(targetNode)) {
+
+    const suggestionsContainer = document.getElementById(
+      'suggestionsContainer',
+    );
+    if (
+      suggestionsContainer &&
+      suggestionsContainer.classList.contains('active')
+    ) {
+      if (
+        !suggestionsContainer.contains(targetNode) &&
+        !options.searchInput.contains(targetNode)
+      ) {
         options.clearSuggestions();
       }
     }
   });
 
   if (options.toggleSuggestions) {
-    options.toggleSuggestions.addEventListener("change", (event) => {
+    options.toggleSuggestions.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 
@@ -512,20 +578,20 @@ function bindSearchFeature(options: SearchBindingOptions): void {
 
       if (wantsEnable) {
         requestFeaturePermissionUI(
-          "suggestions",
-          "Google Search Suggestions",
-          "https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/query/suggest",
+          'suggestions',
+          'Google Search Suggestions',
+          'https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/query/suggest',
           () => {
             options.setSuggestionsActive(true);
-            localStorage.setItem("suggestionsEnabled", "true");
+            localStorage.setItem('suggestionsEnabled', 'true');
           },
           () => {
             target.checked = false;
-          }
+          },
         );
       } else {
         options.setSuggestionsActive(false);
-        localStorage.setItem("suggestionsEnabled", "false");
+        localStorage.setItem('suggestionsEnabled', 'false');
         options.clearSuggestions();
       }
     });
@@ -536,44 +602,45 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
   options.applyInitialWallpaperState();
 
   if (options.toggleWallpaper) {
-    options.toggleWallpaper.addEventListener("change", (event) => {
+    options.toggleWallpaper.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setWallpaperEnabled(target.checked);
-      localStorage.setItem("wallpaperEnabled", String(target.checked));
+      localStorage.setItem('wallpaperEnabled', String(target.checked));
       options.updateWallpaperUIState(target.checked);
       if (target.checked) {
         void options.applyWallpaperLogic();
       } else {
-        document.body.style.backgroundImage = "none";
-        document.body.removeAttribute("data-wallpaper-active");
-        options.setOverlayOpacity("0", false);
+        document.body.style.backgroundImage = 'none';
+        document.body.removeAttribute('data-wallpaper-active');
+        options.setOverlayOpacity('0', false);
       }
     });
   }
 
   if (options.overlayToggleBtn && options.overlaySliderContainer) {
-    options.overlayToggleBtn.addEventListener("click", () => {
-      const isCollapsed = options.overlaySliderContainer!.classList.contains("collapsed");
+    options.overlayToggleBtn.addEventListener('click', () => {
+      const isCollapsed =
+        options.overlaySliderContainer!.classList.contains('collapsed');
       if (isCollapsed) {
-        options.overlaySliderContainer!.classList.remove("collapsed");
-        options.overlayToggleBtn!.classList.add("expanded");
+        options.overlaySliderContainer!.classList.remove('collapsed');
+        options.overlayToggleBtn!.classList.add('expanded');
       } else {
-        options.overlaySliderContainer!.classList.add("collapsed");
-        options.overlayToggleBtn!.classList.remove("expanded");
+        options.overlaySliderContainer!.classList.add('collapsed');
+        options.overlayToggleBtn!.classList.remove('expanded');
       }
     });
   }
 
   if (options.overlaySlider) {
-    options.overlaySlider.addEventListener("input", (event) => {
+    options.overlaySlider.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.updateOverlaySliderProgress(target);
       options.setOverlayOpacity(target.value, false);
     });
 
-    options.overlaySlider.addEventListener("change", (event) => {
+    options.overlaySlider.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setOverlayOpacity(target.value, true);
@@ -582,17 +649,17 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
 
   if (options.wallpaperOptions) {
     options.wallpaperOptions.forEach((option) => {
-      option.addEventListener("click", async () => {
+      option.addEventListener('click', async () => {
         const value = option.dataset.value;
         if (!value) return;
 
-        options.setWallpaperSource("local");
-        options.setWallpaperType("preset");
+        options.setWallpaperSource('local');
+        options.setWallpaperType('preset');
         options.setWallpaperValue(value);
         options.saveWallpaperConfig();
-        
+
         if (options.wallpaperSourceSelect) {
-          options.wallpaperSourceSelect.value = "noSource";
+          options.wallpaperSourceSelect.value = 'noSource';
         }
         options.highlightSelectedWallpaper(value);
         await options.applyWallpaperLogic();
@@ -601,11 +668,11 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
   }
 
   if (options.uploadOption && options.uploadInput) {
-    options.uploadOption.addEventListener("click", () => {
+    options.uploadOption.addEventListener('click', () => {
       options.uploadInput!.click();
     });
 
-    options.uploadInput.addEventListener("change", async (event) => {
+    options.uploadInput.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement | null;
       const file = target?.files?.[0];
       if (!file) return;
@@ -614,52 +681,76 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
         const blob = await options.processWallpaperImage(file);
         await options.saveWallpaperToDB(blob);
 
-        options.setWallpaperSource("local");
-        options.setWallpaperType("upload");
-        options.setWallpaperValue("upload");
+        options.setWallpaperSource('local');
+        options.setWallpaperType('upload');
+        options.setWallpaperValue('upload');
         options.saveWallpaperConfig();
 
         if (options.wallpaperSourceSelect) {
-          options.wallpaperSourceSelect.value = "noSource";
+          options.wallpaperSourceSelect.value = 'noSource';
         }
-        options.highlightSelectedWallpaper("upload");
+        options.highlightSelectedWallpaper('upload');
         await options.applyWallpaperLogic();
       } catch (error) {
-        console.error("Failed to process or save image", error);
-        alert("Error saving image. It might be too large.");
+        console.error('Failed to process or save image', error);
+        alert('Error saving image. It might be too large.');
       }
-      options.uploadInput!.value = "";
+      options.uploadInput!.value = '';
     });
   }
 
   if (options.wallpaperSourceSelect) {
-    options.wallpaperSourceSelect.addEventListener("change", async (event) => {
+    options.wallpaperSourceSelect.addEventListener('change', async (event) => {
       const target = event.target as HTMLSelectElement | null;
       if (!target) return;
       const selectedApi = target.value;
-      if (selectedApi === "noSource") return;
+      if (selectedApi === 'noSource') return;
 
       const revertSelection = () => {
-        target.value = options.getCurrentWallpaperSource() === "api" ? options.getCurrentWallpaperType() : "noSource";
+        target.value =
+          options.getCurrentWallpaperSource() === 'api'
+            ? options.getCurrentWallpaperType()
+            : 'noSource';
       };
 
       const applySelection = async () => {
-        options.setWallpaperSource("api");
+        options.setWallpaperSource('api');
         options.setWallpaperType(selectedApi as WallpaperType);
         options.saveWallpaperConfig();
         options.clearPresetSelection();
         await options.applyWallpaperLogic();
       };
 
-      if (selectedApi === "bing") {
-        const apiName = window.getTranslation?.("apiNameBing") || "Bing Image of the Day";
-        requestFeaturePermissionUI("bing", apiName, "https://peapix.com/bing", applySelection, revertSelection);
-      } else if (selectedApi === "nasa") {
-        const apiName = window.getTranslation?.("apiNameNasa") || "NASA APOD";
-        requestFeaturePermissionUI("nasa", apiName, "https://apod.nasa.gov/apod/", applySelection, revertSelection);
-      } else if (selectedApi === "wikimedia") {
-        const apiName = window.getTranslation?.("apiNameWiki") || "Wikimedia Picture of the Day";
-        requestFeaturePermissionUI("wikimedia", apiName, "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day", applySelection, revertSelection);
+      if (selectedApi === 'bing') {
+        const apiName =
+          window.getTranslation?.('apiNameBing') || 'Bing Image of the Day';
+        requestFeaturePermissionUI(
+          'bing',
+          apiName,
+          'https://peapix.com/bing',
+          applySelection,
+          revertSelection,
+        );
+      } else if (selectedApi === 'nasa') {
+        const apiName = window.getTranslation?.('apiNameNasa') || 'NASA APOD';
+        requestFeaturePermissionUI(
+          'nasa',
+          apiName,
+          'https://apod.nasa.gov/apod/',
+          applySelection,
+          revertSelection,
+        );
+      } else if (selectedApi === 'wikimedia') {
+        const apiName =
+          window.getTranslation?.('apiNameWiki') ||
+          'Wikimedia Picture of the Day';
+        requestFeaturePermissionUI(
+          'wikimedia',
+          apiName,
+          'https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day',
+          applySelection,
+          revertSelection,
+        );
       } else {
         applySelection();
       }

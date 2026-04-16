@@ -12,25 +12,18 @@
     "newtab": "index.html"
   },
   "background": {
-    "scripts": [
-      "scripts/background.js"
-    ]
+    "scripts": ["scripts/background.js"]
   },
   "browser_specific_settings": {
     "gecko": {
       "id": "fluentnewtab@dreyw",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
+        "required": ["none"]
       }
     }
   },
-  "permissions": [
-    "storage",
-    "unlimitedStorage"
-  ],
+  "permissions": ["storage", "unlimitedStorage"],
   "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",

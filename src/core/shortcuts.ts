@@ -6,16 +6,20 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file manages the rendering, interaction, and state of shortcuts and folders on the new tab page.
+ */
+
 interface ShortcutsRenderOptions {
-    shortcutsGrid: HTMLDivElement | null;
-    rowsSelect: HTMLSelectElement | null;
-    shortcuts: Shortcut[];
-    currentFolderId: string | null;
-    onOpenModal: (index: number | null) => void;
-    onDeleteShortcut: (index: number) => void;
-    onClosePopups: (except?: Element | null) => void;
-    onOpenFolder: (id: string) => void;
-    onGoBack: () => void;
+  shortcutsGrid: HTMLDivElement | null;
+  rowsSelect: HTMLSelectElement | null;
+  shortcuts: Shortcut[];
+  currentFolderId: string | null;
+  onOpenModal: (index: number | null) => void;
+  onDeleteShortcut: (index: number) => void;
+  onClosePopups: (except?: Element | null) => void;
+  onOpenFolder: (id: string) => void;
+  onGoBack: () => void;
 }
 
 const FOLDER_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z" fill="currentColor"/></svg>`;
@@ -23,38 +27,53 @@ const BACK_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="ht
 const FOLDER_FIXED_ROWS = 4;
 
 function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
-    const { shortcutsGrid, rowsSelect, shortcuts, currentFolderId, onOpenModal, onDeleteShortcut, onClosePopups, onOpenFolder, onGoBack } = options;
-    if (!shortcutsGrid) return;
+  const {
+    shortcutsGrid,
+    rowsSelect,
+    shortcuts,
+    currentFolderId,
+    onOpenModal,
+    onDeleteShortcut,
+    onClosePopups,
+    onOpenFolder,
+    onGoBack,
+  } = options;
+  if (!shortcutsGrid) return;
 
-    shortcutsGrid.innerHTML = '';
-    const fragment = document.createDocumentFragment();
-    const COLUMNS = 10;
-    const currentRows = rowsSelect ? parseInt(rowsSelect.value) : (parseInt(localStorage.getItem('shortcutsRows') || '2') || 2);
-    const maxSlots = currentRows * COLUMNS;
-    let activeArray: Shortcut[] = shortcuts;
-    let isInsideFolder = false;
+  shortcutsGrid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  const COLUMNS = 10;
+  const currentRows = rowsSelect
+    ? parseInt(rowsSelect.value)
+    : parseInt(localStorage.getItem('shortcutsRows') || '2') || 2;
+  const maxSlots = currentRows * COLUMNS;
+  let activeArray: Shortcut[] = shortcuts;
+  let isInsideFolder = false;
 
-    if (currentFolderId) {
-        const currentFolder = shortcuts.find(s => s.id === currentFolderId && s.type === 'folder');
-        if (currentFolder) {
-            activeArray = currentFolder.children || [];
-            isInsideFolder = true;
-        }
+  if (currentFolderId) {
+    const currentFolder = shortcuts.find(
+      (s) => s.id === currentFolderId && s.type === 'folder',
+    );
+    if (currentFolder) {
+      activeArray = currentFolder.children || [];
+      isInsideFolder = true;
     }
+  }
 
-    const folderMaxSlots = FOLDER_FIXED_ROWS * COLUMNS;
-    const availableSlots = isInsideFolder ? folderMaxSlots - 1 : maxSlots;
-    const visibleShortcuts = activeArray.slice(0, availableSlots);
+  const folderMaxSlots = FOLDER_FIXED_ROWS * COLUMNS;
+  const availableSlots = isInsideFolder ? folderMaxSlots - 1 : maxSlots;
+  const visibleShortcuts = activeArray.slice(0, availableSlots);
 
-        if (isInsideFolder) {
-        const backBtn = document.createElement('div');
-        backBtn.className = 'shortcut-item folder-back-btn';
-        backBtn.dataset.action = 'go-back';
-        
-        const backText = window.getTranslation('backLabel');
-        const finalBackText = (backText && backText !== 'backLabel') ? backText : 'Back';
+  if (isInsideFolder) {
+    const backBtn = document.createElement('div');
+    backBtn.className = 'shortcut-item folder-back-btn';
+    backBtn.dataset.action = 'go-back';
 
-        backBtn.innerHTML = `
+    const backText = window.getTranslation('backLabel');
+    const finalBackText =
+      backText && backText !== 'backLabel' ? backText : 'Back';
+
+    backBtn.innerHTML = `
             <a class="shortcut-card" href="#" draggable="false" style="display: flex; align-items: center; justify-content: center; color: inherit; text-decoration: none;">
                 <div class="shortcut-icon" style="display: flex; align-items: center; justify-content: center;">
                     ${BACK_ICON_SVG}
@@ -62,32 +81,32 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             </a>
             <span class="shortcut-title">${finalBackText}</span>
         `;
-        backBtn.setAttribute('draggable', 'false');
-        fragment.appendChild(backBtn);
+    backBtn.setAttribute('draggable', 'false');
+    fragment.appendChild(backBtn);
+  }
+
+  visibleShortcuts.forEach((itemData, index) => {
+    const isFolder = itemData.type === 'folder';
+    const item = document.createElement('div');
+    item.className = 'shortcut-item';
+    item.dataset.index = index.toString();
+    item.dataset.type = isFolder ? 'folder' : 'shortcut';
+    if (itemData.id) item.dataset.id = itemData.id;
+    const card = document.createElement('a');
+    card.className = 'shortcut-card';
+    card.href = isFolder ? '#' : itemData.url || '#';
+    card.draggable = true;
+    card.style.color = 'inherit';
+    card.style.textDecoration = 'none';
+    card.dataset.action = 'open-shortcut';
+
+    if (isFolder) {
+      card.style.display = 'flex';
     }
 
-    visibleShortcuts.forEach((itemData, index) => {
-        const isFolder = itemData.type === 'folder';
-        const item = document.createElement('div');
-        item.className = 'shortcut-item';
-        item.dataset.index = index.toString();
-        item.dataset.type = isFolder ? 'folder' : 'shortcut';
-        if (itemData.id) item.dataset.id = itemData.id;
-        const card = document.createElement('a');
-        card.className = 'shortcut-card';
-        card.href = isFolder ? '#' : (itemData.url || '#');
-        card.draggable = true;
-        card.style.color = 'inherit'; 
-        card.style.textDecoration = 'none';
-        card.dataset.action = 'open-shortcut';
+    const cardContent = isFolder ? FOLDER_ICON_SVG : '';
 
-        if (isFolder) {
-            card.style.display = 'flex';
-        }
-
-        const cardContent = isFolder ? FOLDER_ICON_SVG : '';
-
-        card.innerHTML = `
+    card.innerHTML = `
             ${cardContent}
             <div class="menu-wrapper">
                 <button class="menu-btn" title="${window.getTranslation('moreOptionsLabel')}">${typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...'}</button>
@@ -102,168 +121,173 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             </div>
         `;
 
-        if (!isFolder) {
-            const img = document.createElement('img');
-            img.decoding = 'async';
-            img.className = 'shortcut-icon';
-            img.alt = itemData.name;
+    if (!isFolder) {
+      const img = document.createElement('img');
+      img.decoding = 'async';
+      img.className = 'shortcut-icon';
+      img.alt = itemData.name;
 
-            let targetIconSrc = itemData.customIcon;
+      let targetIconSrc = itemData.customIcon;
 
-            if (!targetIconSrc) {
-                try {
-                    const parsedUrl = new URL(itemData.url);
-                    const hostname = parsedUrl.hostname;
-                    
-                    targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
-                } catch (error) {
-                    targetIconSrc = 'invalid-url'; 
-                }
-            }
+      if (!targetIconSrc) {
+        try {
+          const parsedUrl = new URL(itemData.url);
+          const hostname = parsedUrl.hostname;
 
-            img.src = targetIconSrc;
-
-            img.onerror = function() {
-                img.onerror = null;
-                img.src = 'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
-            };
-            
-            card.prepend(img);
+          targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
+        } catch (error) {
+          targetIconSrc = 'invalid-url';
         }
+      }
 
-        const editOpt = card.querySelector('.edit-option');
-        const removeOpt = card.querySelector('.remove-option');
-        editOpt?.setAttribute('data-index', index.toString());
-        removeOpt?.setAttribute('data-index', index.toString());
+      img.src = targetIconSrc;
 
-        item.appendChild(card);
+      img.onerror = function () {
+        img.onerror = null;
+        img.src =
+          'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
+      };
 
-        const titleLink = document.createElement('a');
-        titleLink.className = 'shortcut-title';
-        titleLink.href = isFolder ? '#' : (itemData.url || '#');
-        titleLink.textContent = itemData.name;
-        titleLink.dataset.action = isFolder ? 'open-folder-title' : 'open-shortcut-title';
-        titleLink.dataset.index = index.toString();
-        
-        item.appendChild(titleLink);
-        fragment.appendChild(item);
-    });
+      card.prepend(img);
+    }
 
-    if (visibleShortcuts.length < availableSlots) {
-        const addBtn = document.createElement('div');
-        addBtn.className = 'shortcut-item add-card-wrapper';
-        addBtn.dataset.action = 'add-shortcut';
-        addBtn.innerHTML = `
+    const editOpt = card.querySelector('.edit-option');
+    const removeOpt = card.querySelector('.remove-option');
+    editOpt?.setAttribute('data-index', index.toString());
+    removeOpt?.setAttribute('data-index', index.toString());
+
+    item.appendChild(card);
+
+    const titleLink = document.createElement('a');
+    titleLink.className = 'shortcut-title';
+    titleLink.href = isFolder ? '#' : itemData.url || '#';
+    titleLink.textContent = itemData.name;
+    titleLink.dataset.action = isFolder
+      ? 'open-folder-title'
+      : 'open-shortcut-title';
+    titleLink.dataset.index = index.toString();
+
+    item.appendChild(titleLink);
+    fragment.appendChild(item);
+  });
+
+  if (visibleShortcuts.length < availableSlots) {
+    const addBtn = document.createElement('div');
+    addBtn.className = 'shortcut-item add-card-wrapper';
+    addBtn.dataset.action = 'add-shortcut';
+    addBtn.innerHTML = `
             <div class="shortcut-card">${typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+'}</div>
             <span class="shortcut-title">${window.getTranslation('addShortcutLabel')}</span>
         `;
-        fragment.appendChild(addBtn);
+    fragment.appendChild(addBtn);
+  }
+
+  shortcutsGrid.appendChild(fragment);
+
+  const handleGridClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    const backBtn = target.closest('.folder-back-btn');
+    if (backBtn) {
+      event.preventDefault();
+      onGoBack();
+      return;
     }
 
-    shortcutsGrid.appendChild(fragment);
+    const addBtn = target.closest('.add-card-wrapper');
+    if (addBtn) {
+      event.preventDefault();
+      onOpenModal(null);
+      return;
+    }
 
-    const handleGridClick = (event: MouseEvent) => {
-        const target = event.target as HTMLElement;
+    const editOpt = target.closest('.edit-option') as HTMLElement | null;
+    if (editOpt) {
+      event.preventDefault();
+      event.stopPropagation();
+      onClosePopups();
+      const editIndex = parseInt(editOpt.dataset.index || '-1', 10);
+      if (editIndex > -1) onOpenModal(editIndex);
+      return;
+    }
 
-        const backBtn = target.closest('.folder-back-btn');
-        if (backBtn) {
-            event.preventDefault();
-            onGoBack();
-            return;
-        }
+    const removeOpt = target.closest('.remove-option') as HTMLElement | null;
+    if (removeOpt) {
+      event.preventDefault();
+      event.stopPropagation();
+      onClosePopups();
+      const removeIndex = parseInt(removeOpt.dataset.index || '-1', 10);
+      if (removeIndex > -1) onDeleteShortcut(removeIndex);
+      return;
+    }
 
-        const addBtn = target.closest('.add-card-wrapper');
-        if (addBtn) {
-            event.preventDefault();
-            onOpenModal(null);
-            return;
-        }
+    const menuBtn = target.closest('.menu-btn');
+    if (menuBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = menuBtn
+        .closest('.menu-wrapper')
+        ?.querySelector('.shortcut-dropdown');
+      onClosePopups(dropdown);
+      dropdown?.classList.toggle('active');
+      syncShortcutDropdownState();
+      return;
+    }
 
-        const editOpt = target.closest('.edit-option') as HTMLElement | null;
-        if (editOpt) {
-            event.preventDefault();
-            event.stopPropagation();
-            onClosePopups();
-            const editIndex = parseInt(editOpt.dataset.index || '-1', 10);
-            if (editIndex > -1) onOpenModal(editIndex);
-            return;
-        }
+    const dropdownContent = target.closest('.shortcut-dropdown');
+    if (dropdownContent) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
 
-        const removeOpt = target.closest('.remove-option') as HTMLElement | null;
-        if (removeOpt) {
-            event.preventDefault();
-            event.stopPropagation();
-            onClosePopups();
-            const removeIndex = parseInt(removeOpt.dataset.index || '-1', 10);
-            if (removeIndex > -1) onDeleteShortcut(removeIndex);
-            return;
-        }
+    const card = target.closest('.shortcut-card');
+    if (card) {
+      const item = card.closest('.shortcut-item') as HTMLElement | null;
+      const isFolder = item?.dataset.type === 'folder';
+      const folderId = item?.dataset.id;
 
-        const menuBtn = target.closest('.menu-btn');
-        if (menuBtn) {
-            event.preventDefault();
-            event.stopPropagation();
-            const dropdown = menuBtn.closest('.menu-wrapper')?.querySelector('.shortcut-dropdown');
-            onClosePopups(dropdown);
-            dropdown?.classList.toggle('active');
-            syncShortcutDropdownState();
-            return;
-        }
-
-        const dropdownContent = target.closest('.shortcut-dropdown');
-        if (dropdownContent) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
-
-        const card = target.closest('.shortcut-card');
-        if (card) {
-            const item = card.closest('.shortcut-item') as HTMLElement | null;
-            const isFolder = item?.dataset.type === 'folder';
-            const folderId = item?.dataset.id;
-
-            if (card.querySelector('.menu-wrapper')?.contains(target)) {
-                event.preventDefault();
-                return;
-            }
-
-            if (isFolder && folderId) {
-                event.preventDefault();
-                onOpenFolder(folderId);
-                return;
-            }
-
-            onClosePopups();
-            return;
-        }
-
-        const titleLink = target.closest('.shortcut-title');
-        if (titleLink) {
-            const item = titleLink.closest('.shortcut-item') as HTMLElement | null;
-            const isFolder = item?.dataset.type === 'folder';
-            const folderId = item?.dataset.id;
-            if (isFolder && folderId) {
-                event.preventDefault();
-                onOpenFolder(folderId);
-                return;
-            }
-            return;
-        }
-    };
-
-    const handleGridContext = (event: MouseEvent) => {
-        const target = event.target as HTMLElement;
-        const card = target.closest('.shortcut-card');
-        if (!card) return;
-
+      if (card.querySelector('.menu-wrapper')?.contains(target)) {
         event.preventDefault();
-        const dropdown = card.querySelector('.shortcut-dropdown');
-        onClosePopups(dropdown);
-        dropdown?.classList.add('active');
-        syncShortcutDropdownState();
-    };
+        return;
+      }
 
-    shortcutsGrid.onclick = handleGridClick;
-    shortcutsGrid.oncontextmenu = handleGridContext;
+      if (isFolder && folderId) {
+        event.preventDefault();
+        onOpenFolder(folderId);
+        return;
+      }
+
+      onClosePopups();
+      return;
+    }
+
+    const titleLink = target.closest('.shortcut-title');
+    if (titleLink) {
+      const item = titleLink.closest('.shortcut-item') as HTMLElement | null;
+      const isFolder = item?.dataset.type === 'folder';
+      const folderId = item?.dataset.id;
+      if (isFolder && folderId) {
+        event.preventDefault();
+        onOpenFolder(folderId);
+        return;
+      }
+      return;
+    }
+  };
+
+  const handleGridContext = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    const card = target.closest('.shortcut-card');
+    if (!card) return;
+
+    event.preventDefault();
+    const dropdown = card.querySelector('.shortcut-dropdown');
+    onClosePopups(dropdown);
+    dropdown?.classList.add('active');
+    syncShortcutDropdownState();
+  };
+
+  shortcutsGrid.onclick = handleGridClick;
+  shortcutsGrid.oncontextmenu = handleGridContext;
 }

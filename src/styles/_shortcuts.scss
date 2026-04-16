@@ -6,8 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .shortcuts-grid {
   display: grid;
@@ -93,7 +93,7 @@
       width: 1.5rem;
       height: 1.5rem;
       z-index: 60;
-      
+
       .menu-btn {
         @include button-reset;
         width: 100%;
@@ -195,7 +195,7 @@
       }
     }
 
-    &[data-type="folder"].folder-drag-hover {
+    &[data-type='folder'].folder-drag-hover {
       .shortcut-card {
         transform: scale(1.08) !important;
         box-shadow:
@@ -222,16 +222,18 @@
       transform: scale(1);
     }
   }
-  
+
   &:has(.shortcut-dropdown.active) .shortcut-item {
     pointer-events: none;
   }
-  
+
   .shortcut-item:has(.shortcut-dropdown.active) {
     pointer-events: auto;
   }
-  
-  &:has(.shortcut-dropdown.active) .shortcut-item:not(:has(.shortcut-dropdown.active)) .menu-btn {
+
+  &:has(.shortcut-dropdown.active)
+    .shortcut-item:not(:has(.shortcut-dropdown.active))
+    .menu-btn {
     opacity: 0;
     transform: scale(0.5);
   }

@@ -11,9 +11,10 @@ Crowdin provides a visual interface where you can translate text, vote on the be
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Right.png" alt="Backhand Index Pointing Right" width="20" height="20" /> [Join the Fluent New Tab project on Crowdin](https://crowdin.com/project/fluent-new-tab)
 
 **Why use Crowdin?**
-* **No Coding Required:** You don't need to touch JSON files or worry about syntax errors.
-* **Visual Context:** See exactly what you are translating.
-* **Automatic Sync:** Your translations are automatically merged into the project and will appear in the next release.
+
+- **No Coding Required:** You don't need to touch JSON files or worry about syntax errors.
+- **Visual Context:** See exactly what you are translating.
+- **Automatic Sync:** Your translations are automatically merged into the project and will appear in the next release.
 
 ---
 
@@ -22,21 +23,26 @@ Crowdin provides a visual interface where you can translate text, vote on the be
 To ensure the extension works perfectly and looks consistent, please follow these simple rules:
 
 ### 1. Do NOT Touch Placeholders
+
 Some strings contain variables like `$NAME$`. These are replaced by code (e.g., the user's name).
-* **Correct:** `Good morning, $NAME$`
-* **Incorrect:** `Good morning, John` or `Good morning,`
+
+- **Correct:** `Good morning, $NAME$`
+- **Incorrect:** `Good morning, John` or `Good morning,`
 
 **Never translate or remove the `$NAME$` tag.** If you do, the greeting feature will break.
 
 ### 2. Keep the Context in Mind
-When translating manually, always consider where the text will appear in the extension. 
-* Avoid literal translations if they don't fit the context of a user interface.
-* Please do not use slang or overly informal terms. Keep the language clear and universally understood in your region.
-* Specific design terms that refer to visual themes (such as **"3D Fluent"** or **"Outline"**) should remain in English to maintain brand consistency.
+
+When translating manually, always consider where the text will appear in the extension.
+
+- Avoid literal translations if they don't fit the context of a user interface.
+- Please do not use slang or overly informal terms. Keep the language clear and universally understood in your region.
+- Specific design terms that refer to visual themes (such as **"3D Fluent"** or **"Outline"**) should remain in English to maintain brand consistency.
 
 ### 3. Punctuation & Tone
-* If the original text ends with `...` or `!`, please keep it in your translation.
-* Try to keep the tone **friendly, minimal, and professional**.
+
+- If the original text ends with `...` or `!`, please keep it in your translation.
+- Try to keep the tone **friendly, minimal, and professional**.
 
 ---
 

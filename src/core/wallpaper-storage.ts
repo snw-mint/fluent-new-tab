@@ -6,98 +6,125 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file manages the storage and retrieval of custom wallpapers using IndexedDB,
+ * including image processing and conversion to WebP format.
+ */
+
 const WALLPAPER_DB_NAME = 'FluentNewTabDB';
 const WALLPAPER_DB_VERSION = 1;
 const WALLPAPER_STORE_NAME = 'wallpapers';
 
 function openWallpaperDB(): Promise<IDBDatabase> {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open(WALLPAPER_DB_NAME, WALLPAPER_DB_VERSION);
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(WALLPAPER_DB_NAME, WALLPAPER_DB_VERSION);
 
-        request.onupgradeneeded = (event) => {
-            const db = (event.target as IDBOpenDBRequest).result;
-            if (!db.objectStoreNames.contains(WALLPAPER_STORE_NAME)) {
-                db.createObjectStore(WALLPAPER_STORE_NAME);
-            }
-        };
+    request.onupgradeneeded = (event) => {
+      const db = (event.target as IDBOpenDBRequest).result;
+      if (!db.objectStoreNames.contains(WALLPAPER_STORE_NAME)) {
+        db.createObjectStore(WALLPAPER_STORE_NAME);
+      }
+    };
 
-        request.onsuccess = (event) => resolve((event.target as IDBOpenDBRequest).result);
-        request.onerror = (event) => reject('Erro ao abrir banco de dados: ' + (event.target as IDBOpenDBRequest).error);
-    });
+    request.onsuccess = (event) =>
+      resolve((event.target as IDBOpenDBRequest).result);
+    request.onerror = (event) =>
+      reject(
+        'Erro ao abrir banco de dados: ' +
+          (event.target as IDBOpenDBRequest).error,
+      );
+  });
 }
 
-async function saveWallpaperToDB(blob: Blob, keyName: string = 'custom_wallpaper'): Promise<boolean> {
-    const db = await openWallpaperDB();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(WALLPAPER_STORE_NAME);
-        const request = store.put(blob, keyName);
+async function saveWallpaperToDB(
+  blob: Blob,
+  keyName: string = 'custom_wallpaper',
+): Promise<boolean> {
+  const db = await openWallpaperDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
+    const store = transaction.objectStore(WALLPAPER_STORE_NAME);
+    const request = store.put(blob, keyName);
 
-        request.onsuccess = () => resolve(true);
-        request.onerror = () => reject(new Error(
-            'Cannot save wallpaper. You may have hit the maximum storage capacity.'
-        ));
-    });
+    request.onsuccess = () => resolve(true);
+    request.onerror = () =>
+      reject(
+        new Error(
+          'Cannot save wallpaper. You may have hit the maximum storage capacity.',
+        ),
+      );
+  });
 }
 
-async function getWallpaperFromDB(keyName: string = 'custom_wallpaper'): Promise<Blob | null> {
-    const db = await openWallpaperDB();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readonly');
-        const store = transaction.objectStore(WALLPAPER_STORE_NAME);
-        const request = store.get(keyName);
+async function getWallpaperFromDB(
+  keyName: string = 'custom_wallpaper',
+): Promise<Blob | null> {
+  const db = await openWallpaperDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readonly');
+    const store = transaction.objectStore(WALLPAPER_STORE_NAME);
+    const request = store.get(keyName);
 
-        request.onsuccess = (event) => resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
-        request.onerror = () => reject('Erro ao ler do DB');
-    });
+    request.onsuccess = (event) =>
+      resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
+    request.onerror = () => reject('Erro ao ler do DB');
+  });
 }
 
 function convertImageToWebp(
-    imageSource: string,
-    maxWidth = 1920,
-    quality = 0.82
+  imageSource: string,
+  maxWidth = 1920,
+  quality = 0.82,
 ): Promise<Blob> {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = imageSource;
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = imageSource;
 
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
 
-            let width = img.width;
-            let height = img.height;
+      let width = img.width;
+      let height = img.height;
 
-            if (width > maxWidth) {
-                height *= maxWidth / width;
-                width = maxWidth;
-            }
+      if (width > maxWidth) {
+        height *= maxWidth / width;
+        width = maxWidth;
+      }
 
-            canvas.width = width;
-            canvas.height = height;
-            ctx?.drawImage(img, 0, 0, width, height);
+      canvas.width = width;
+      canvas.height = height;
+      ctx?.drawImage(img, 0, 0, width, height);
 
-            canvas.toBlob((blob) => {
-                if (blob) resolve(blob);
-                else reject('Erro na conversão para WebP');
-            }, 'image/webp', quality);
-        };
+      canvas.toBlob(
+        (blob) => {
+          if (blob) resolve(blob);
+          else reject('Erro na conversão para WebP');
+        },
+        'image/webp',
+        quality,
+      );
+    };
 
-        img.onerror = (error) => reject(error);
-    });
+    img.onerror = (error) => reject(error);
+  });
 }
 
 function processWallpaperImage(file: File): Promise<Blob> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
-        reader.onload = (event) => {
-            convertImageToWebp(String((event.target as FileReader).result || ''), 3840, 0.92)
-                .then(resolve)
-                .catch(reject);
-        };
+    reader.onload = (event) => {
+      convertImageToWebp(
+        String((event.target as FileReader).result || ''),
+        3840,
+        0.92,
+      )
+        .then(resolve)
+        .catch(reject);
+    };
 
-        reader.onerror = (error) => reject(error);
-    });
+    reader.onerror = (error) => reject(error);
+  });
 }

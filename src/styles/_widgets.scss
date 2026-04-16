@@ -6,8 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .weather-widget {
   @include flex-center(0.625rem);

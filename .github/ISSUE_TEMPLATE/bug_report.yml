@@ -1,13 +1,13 @@
 name: 🐞 Bug Report
 description: Report a bug to help us improve the extension
-title: "[Bug]: "
-labels: ["bug"]
+title: '[Bug]: '
+labels: ['bug']
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to report this bug! Your feedback helps us improve.
-        
+
         ⚠️ **Before submitting**, please:
         - Check if this bug was already reported
         - Try clearing your cache/local storage

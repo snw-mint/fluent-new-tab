@@ -9,93 +9,99 @@
 @use './variables' as *;
 
 html {
-    font-size: 90%;
+  font-size: 90%;
 
-    @media (min-width: 1920px) and (min-height: 1080px) {
-        font-size: 125%;
-    }
+  @media (min-width: 1920px) and (min-height: 1080px) {
+    font-size: 125%;
+  }
 
-    @media (min-width: 2560px) and (max-height: 1439px) {
-        font-size: 160%; 
-    }
+  @media (min-width: 2560px) and (max-height: 1439px) {
+    font-size: 160%;
+  }
 
-    @media (min-width: 2560px) and (min-height: 1440px) {
-        font-size: 160%;
-    }
+  @media (min-width: 2560px) and (min-height: 1440px) {
+    font-size: 160%;
+  }
 
-    @media (min-width: 3840px) and (min-height: 2160px) {
-        font-size: 250%;
-    }
+  @media (min-width: 3840px) and (min-height: 2160px) {
+    font-size: 250%;
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: $font-body;
-    -webkit-font-smoothing: antialiased;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    width: 100vw;
-    margin: 0;
-    overflow: hidden;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
-    opacity: 0;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    transition: opacity 0.2s ease, background-image 0.3s ease-in-out;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition:
+    opacity 0.2s ease,
+    background-image 0.3s ease-in-out;
 
-    &.loaded {
-        opacity: 1;
-    }
+  &.loaded {
+    opacity: 1;
+  }
 
-    &.animations-disabled *,
-    &.animations-disabled *::before,
-    &.animations-disabled *::after {
-        animation: none !important;
-        transition: none !important;
-    }
+  &.animations-disabled *,
+  &.animations-disabled *::before,
+  &.animations-disabled *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 
-    &[data-wallpaper-active="true"]::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(180deg,rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
-        z-index: -1;
-        pointer-events: none;
-        animation: fadeInOverlay 0.8s ease;
-    }
+  &[data-wallpaper-active='true']::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+    animation: fadeInOverlay 0.8s ease;
+  }
 }
 
 .main-ui-container {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadinUI 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadinUI 0.6s ease-out 0.2s forwards;
 }
 
 input,
 textarea {
-    -webkit-user-select: text;
-    user-select: text;
-    cursor: text;
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
 }
 
 .settings-btn {
-    svg path {
-        fill: var(--text-color);
-        transition: fill 0.3s ease;
-    }
+  svg path {
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+  }
 }
 
-html[data-early-wallpaper="true"] body {
-    transition: none !important;
+html[data-early-wallpaper='true'] body {
+  transition: none !important;
 }
 
 .modal-content input,
@@ -105,7 +111,7 @@ html[data-early-wallpaper="true"] body {
 .btn-save,
 .btn-cancel,
 #warning-modal-message {
-    font-size: 1rem !important; 
+  font-size: 1rem !important;
 }
 
 .ask-ai-btn svg {
@@ -114,28 +120,28 @@ html[data-early-wallpaper="true"] body {
 }
 
 .modal-content .input-group label {
-    font-size: 0.875rem !important; 
+  font-size: 0.875rem !important;
 }
 
 .child-setting label {
-    font-size: 0.875rem !important; 
+  font-size: 0.875rem !important;
 }
 
 .search-btn svg,
 .backup-btn svg,
 .folder-back-btn svg,
-.shortcut-item[data-type="folder"] .shortcut-card > svg {
-    width: 1.5rem !important;
-    height: 1.5rem !important;
+.shortcut-item[data-type='folder'] .shortcut-card > svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
 }
 
 .add-card-wrapper .shortcut-card svg {
-    width: 1.75rem !important; /* ~28px */
-    height: 1.75rem !important;
+  width: 1.75rem !important; /* ~28px */
+  height: 1.75rem !important;
 }
 
 .launcher-btn svg,
 .settings-btn svg {
-    width: 1.5rem !important;
-    height: 1.5rem !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
 }

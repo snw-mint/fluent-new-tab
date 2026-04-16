@@ -10,48 +10,50 @@
 @use './mixins' as *;
 
 .wallpaper-credits {
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
-    @include flex-center(5px);
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: $radius-xl;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 10px;
-    font-weight: 400;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    max-width: 280px;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  @include flex-center(5px);
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-xl;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  font-weight: 400;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 1;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  max-width: 280px;
 
-    svg {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
-    }
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
 
-    span {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-    &.hidden {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+  &.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 .wallpaper-source-options {
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 8px;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
 }
 .wallpaper-credit-link:hover {
-    text-decoration: underline !important;
+  text-decoration: underline !important;
 }

@@ -6,10 +6,19 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * This file manages the application's global state, including user preferences,
+ * feature settings, and cached data for various components.
+ */
+
 let shortcuts: Shortcut[] = [];
 let editingIndex: number | null = null;
-try { shortcuts = (JSON.parse(localStorage.getItem('shortcuts') || '[]') as Shortcut[]) || []; }
-catch (e) { shortcuts = []; }
+try {
+  shortcuts =
+    (JSON.parse(localStorage.getItem('shortcuts') || '[]') as Shortcut[]) || [];
+} catch (e) {
+  shortcuts = [];
+}
 
 let allowedRows = parseInt(localStorage.getItem('shortcutsRows') || '2');
 let shortcutsVisible = localStorage.getItem('shortcutsVisible') !== 'false';
@@ -17,7 +26,8 @@ let currentFolderId: string | null = null;
 let foldersEnabled = localStorage.getItem('foldersEnabled') === 'true';
 
 const savedTheme = (localStorage.getItem('theme') || 'auto') as ThemeMode;
-const savedEngine = (localStorage.getItem('searchEngine') || 'bing') as keyof typeof engines;
+const savedEngine = (localStorage.getItem('searchEngine') ||
+  'bing') as keyof typeof engines;
 let searchBarVisible = localStorage.getItem('searchBarVisible') !== 'false';
 let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
 const suggestionsCache = new Map<string, string[]>();
@@ -25,12 +35,14 @@ let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
 let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
 let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') === 'true';
 const savedAnimationsDisabled = localStorage.getItem('animationsDisabled');
-let animationsDisabled = savedAnimationsDisabled !== null
+let animationsDisabled =
+  savedAnimationsDisabled !== null
     ? savedAnimationsDisabled === 'true'
     : localStorage.getItem('performanceModeEnabled') === 'true';
 const savedBlurDisabled = localStorage.getItem('blurDisabled');
 let blurDisabled = savedBlurDisabled === 'true';
-let reducedEffectsEnabled = localStorage.getItem('reducedEffectsEnabled') !== 'false';
+let reducedEffectsEnabled =
+  localStorage.getItem('reducedEffectsEnabled') !== 'false';
 const savedReducedEffectsEnabled = localStorage.getItem('reduceEffectsEnabled');
 let reduceEffectsEnabled = savedReducedEffectsEnabled !== 'false';
 
@@ -42,23 +54,30 @@ let weatherEnabled = localStorage.getItem('weatherEnabled') === 'true';
 let weatherUnit = (localStorage.getItem('weatherUnit') || 'c') as WeatherUnit;
 let currentCityData: CityData = { name: 'New York', lat: 40.71, lon: -74.01 };
 try {
-    const saved = localStorage.getItem(CITY_KEY);
-    if (saved) currentCityData = JSON.parse(saved) as CityData;
-} catch (e) { console.error('Error reading saved city'); }
+  const saved = localStorage.getItem(CITY_KEY);
+  if (saved) currentCityData = JSON.parse(saved) as CityData;
+} catch (e) {
+  console.error('Error reading saved city');
+}
 
 let launcherEnabled = localStorage.getItem('launcherEnabled') === 'true';
-let currentProvider = (localStorage.getItem('launcherProvider') || 'microsoft') as keyof typeof launcherData;
+let currentProvider = (localStorage.getItem('launcherProvider') ||
+  'microsoft') as keyof typeof launcherData;
 
 let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
-let currentWallpaperSource = (localStorage.getItem('wallpaperSource') || 'local') as WallpaperSource;
-let currentWallpaperType = (localStorage.getItem('wallpaperType') || 'preset') as WallpaperType;
-let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
+let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
+  'local') as WallpaperSource;
+let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
+  'preset') as WallpaperType;
+let currentWallpaperValue =
+  localStorage.getItem('wallpaperValue') || 'preset_1';
 let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
 let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
 let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
 let accentColorValue = localStorage.getItem('accentColorValue') || '#0078d4';
-let accentColorSurfaces = localStorage.getItem('accentColorSurfaces') === 'true';
+let accentColorSurfaces =
+  localStorage.getItem('accentColorSurfaces') === 'true';
 let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
 let askAiMode = false;
 let sfxMicInstance: HTMLAudioElement | null = null;

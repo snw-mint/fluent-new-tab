@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
  - Fluent New Tab
  - Copyright (c) 2025-2026 SnowMint
@@ -7,863 +7,1401 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Tab</title>
 
-    <link rel="preconnect" href="https://api.open-meteo.com">
-    <link rel="preconnect" href="https://geocoding-api.open-meteo.com">
-    <link rel="preconnect" href="https://peapix.com">
-    <link rel="preconnect" href="https://suggestqueries.google.com" crossorigin>
+    <link rel="preconnect" href="https://api.open-meteo.com" />
+    <link rel="preconnect" href="https://geocoding-api.open-meteo.com" />
+    <link rel="preconnect" href="https://peapix.com" />
+    <link
+      rel="preconnect"
+      href="https://suggestqueries.google.com"
+      crossorigin
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <script src="scripts/theme-loader.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="wallpaper-overlay"></div>
 
     <div class="left-controls">
-        <div class="app-launcher-wrapper" id="appLauncherWrapper" style="display: none;">
-            <button id="appLauncherBtn" class="launcher-btn" title="Apps">
-                <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke-width="0" />
-                    <g stroke-linecap="round" stroke-linejoin="round" />
-                    <g class="icon-fill">
-                        <path
-                            d="M14 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 12a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4" />
-                    </g>
-                </svg>
+      <div
+        class="app-launcher-wrapper"
+        id="appLauncherWrapper"
+        style="display: none"
+      >
+        <button id="appLauncherBtn" class="launcher-btn" title="Apps">
+          <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+            <g stroke-width="0" />
+            <g stroke-linecap="round" stroke-linejoin="round" />
+            <g class="icon-fill">
+              <path
+                d="M14 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 12a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4"
+              />
+            </g>
+          </svg>
+        </button>
+        <div class="launcher-popup" id="launcherPopup">
+          <div class="launcher-header">
+            <span class="launcher-title" data-i18n="appsTitle">Apps</span>
+          </div>
+          <div class="launcher-grid" id="launcherGrid"></div>
+          <div class="launcher-footer-actions">
+            <button
+              type="button"
+              id="btn-launcher-to-folder"
+              class="btn-icon"
+              title="Add ecosystem as folder"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Zm0 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17ZM12 7a.75.75 0 0 1 .75.75v3.5h3.5a.75.75 0 0 1 0 1.5h-3.5v3.5a.75.75 0 0 1-1.5 0v-3.5h-3.5a.75.75 0 0 1 0-1.5h3.5v-3.5A.75.75 0 0 1 12 7Z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
-            <div class="launcher-popup" id="launcherPopup">
-                <div class="launcher-header">
-                    <span class="launcher-title" data-i18n="appsTitle">Apps</span>
-                </div>
-                <div class="launcher-grid" id="launcherGrid"></div>
-                <div class="launcher-footer-actions">
-                    <button type="button" id="btn-launcher-to-folder" class="btn-icon" title="Add ecosystem as folder">
-                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Zm0 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17ZM12 7a.75.75 0 0 1 .75.75v3.5h3.5a.75.75 0 0 1 0 1.5h-3.5v3.5a.75.75 0 0 1-1.5 0v-3.5h-3.5a.75.75 0 0 1 0-1.5h3.5v-3.5A.75.75 0 0 1 12 7Z"
-                                fill="currentColor" />
-                        </svg>
-                    </button>
-                    <a href="#" id="launcherAllAppsLink" class="launcher-all-link" target="_blank"
-                        data-i18n="moreApps">More Apps &rarr;</a>
-                </div>
-            </div>
+            <a
+              href="#"
+              id="launcherAllAppsLink"
+              class="launcher-all-link"
+              target="_blank"
+              data-i18n="moreApps"
+              >More Apps &rarr;</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="header-controls">
-        <a href="#" id="weatherWidget" class="weather-widget" target="_blank" style="display: none;">
-            <span class="weather-city" id="weatherCity">...</span>
-            <div class="weather-icon" id="weatherIcon"></div>
-            <span class="weather-temp" id="weatherTemp">--°</span>
-        </a>
-        <div class="settings-wrapper">
-            <span class="settings-label" data-i18n="settingsTitle">Page Settings</span>
-            <button id="settingsBtn" class="settings-btn" style="position: relative;">
-                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke-width="0" />
-                    <g stroke-linecap="round" stroke-linejoin="round" />
-                    <g class="icon-fill">
-                        <path d="M14 9.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9M11 14a3 3 0 1 1 6 0 3 3 0 0 1-6 0" />
-                        <path
-                            d="m21.71 22.395-1.728-.759a1.72 1.72 0 0 0-1.542.086c-.467.27-.765.747-.824 1.285l-.208 1.878a.92.92 0 0 1-.703.797 11.7 11.7 0 0 1-5.412 0 .92.92 0 0 1-.702-.796l-.208-1.877a1.7 1.7 0 0 0-.838-1.28 1.7 1.7 0 0 0-1.526-.087l-1.728.759a.92.92 0 0 1-1.043-.215 12.1 12.1 0 0 1-2.707-4.672.92.92 0 0 1 .334-1.016l1.527-1.128a1.7 1.7 0 0 0 0-2.74l-1.527-1.125a.92.92 0 0 1-.334-1.017A12.06 12.06 0 0 1 5.25 5.821a.92.92 0 0 1 1.043-.214l1.72.757a1.707 1.707 0 0 0 2.371-1.376l.21-1.878a.92.92 0 0 1 .715-.799q1.32-.294 2.704-.31c.902.01 1.8.114 2.68.31a.92.92 0 0 1 .715.8l.209 1.878a1.7 1.7 0 0 0 1.688 1.518c.233 0 .464-.049.68-.144l1.72-.757a.92.92 0 0 1 1.043.214 12.06 12.06 0 0 1 2.708 4.667.92.92 0 0 1-.333 1.017l-1.525 1.126c-.435.32-.698.829-.698 1.37 0 .54.263 1.049.699 1.37l1.526 1.127c.316.233.45.64.334 1.016a12.1 12.1 0 0 1-2.707 4.667.92.92 0 0 1-1.043.215m-5.447-.198a3.16 3.16 0 0 1 1.425-1.773 3.22 3.22 0 0 1 2.896-.161l1.344.59a10.6 10.6 0 0 0 1.97-3.398l-1.189-.877a3.2 3.2 0 0 1-1.309-2.579c0-1.027.497-1.98 1.307-2.576l.002-.001 1.187-.877a10.6 10.6 0 0 0-1.971-3.397l-1.333.586-.002.001c-.406.18-.843.272-1.286.272a3.2 3.2 0 0 1-3.178-2.852v-.002l-.163-1.46a11.5 11.5 0 0 0-1.95-.193q-1.01.014-1.975.193l-.163 1.462A3.207 3.207 0 0 1 7.41 7.737l-1.336-.588a10.6 10.6 0 0 0-1.971 3.397l1.19.877a3.2 3.2 0 0 1 0 5.155l-1.19.879a10.6 10.6 0 0 0 1.97 3.402l1.345-.59a3.2 3.2 0 0 1 2.878.16 3.2 3.2 0 0 1 1.579 2.411v.005l.162 1.464c1.297.255 2.63.255 3.927 0l.162-1.467q.036-.33.138-.645" />
-                    </g>
-                </svg>
+      <a
+        href="#"
+        id="weatherWidget"
+        class="weather-widget"
+        target="_blank"
+        style="display: none"
+      >
+        <span class="weather-city" id="weatherCity">...</span>
+        <div class="weather-icon" id="weatherIcon"></div>
+        <span class="weather-temp" id="weatherTemp">--°</span>
+      </a>
+      <div class="settings-wrapper">
+        <span class="settings-label" data-i18n="settingsTitle"
+          >Page Settings</span
+        >
+        <button
+          id="settingsBtn"
+          class="settings-btn"
+          style="position: relative"
+        >
+          <svg
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g stroke-width="0" />
+            <g stroke-linecap="round" stroke-linejoin="round" />
+            <g class="icon-fill">
+              <path
+                d="M14 9.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9M11 14a3 3 0 1 1 6 0 3 3 0 0 1-6 0"
+              />
+              <path
+                d="m21.71 22.395-1.728-.759a1.72 1.72 0 0 0-1.542.086c-.467.27-.765.747-.824 1.285l-.208 1.878a.92.92 0 0 1-.703.797 11.7 11.7 0 0 1-5.412 0 .92.92 0 0 1-.702-.796l-.208-1.877a1.7 1.7 0 0 0-.838-1.28 1.7 1.7 0 0 0-1.526-.087l-1.728.759a.92.92 0 0 1-1.043-.215 12.1 12.1 0 0 1-2.707-4.672.92.92 0 0 1 .334-1.016l1.527-1.128a1.7 1.7 0 0 0 0-2.74l-1.527-1.125a.92.92 0 0 1-.334-1.017A12.06 12.06 0 0 1 5.25 5.821a.92.92 0 0 1 1.043-.214l1.72.757a1.707 1.707 0 0 0 2.371-1.376l.21-1.878a.92.92 0 0 1 .715-.799q1.32-.294 2.704-.31c.902.01 1.8.114 2.68.31a.92.92 0 0 1 .715.8l.209 1.878a1.7 1.7 0 0 0 1.688 1.518c.233 0 .464-.049.68-.144l1.72-.757a.92.92 0 0 1 1.043.214 12.06 12.06 0 0 1 2.708 4.667.92.92 0 0 1-.333 1.017l-1.525 1.126c-.435.32-.698.829-.698 1.37 0 .54.263 1.049.699 1.37l1.526 1.127c.316.233.45.64.334 1.016a12.1 12.1 0 0 1-2.707 4.667.92.92 0 0 1-1.043.215m-5.447-.198a3.16 3.16 0 0 1 1.425-1.773 3.22 3.22 0 0 1 2.896-.161l1.344.59a10.6 10.6 0 0 0 1.97-3.398l-1.189-.877a3.2 3.2 0 0 1-1.309-2.579c0-1.027.497-1.98 1.307-2.576l.002-.001 1.187-.877a10.6 10.6 0 0 0-1.971-3.397l-1.333.586-.002.001c-.406.18-.843.272-1.286.272a3.2 3.2 0 0 1-3.178-2.852v-.002l-.163-1.46a11.5 11.5 0 0 0-1.95-.193q-1.01.014-1.975.193l-.163 1.462A3.207 3.207 0 0 1 7.41 7.737l-1.336-.588a10.6 10.6 0 0 0-1.971 3.397l1.19.877a3.2 3.2 0 0 1 0 5.155l-1.19.879a10.6 10.6 0 0 0 1.97 3.402l1.345-.59a3.2 3.2 0 0 1 2.878.16 3.2 3.2 0 0 1 1.579 2.411v.005l.162 1.464c1.297.255 2.63.255 3.927 0l.162-1.467q.036-.33.138-.645"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <div class="settings-popup" id="settingsPopup">
+        <h3 class="settings-popup-title">Fluent New Tab</h3>
+        <div class="setting-group">
+          <div class="theme-selector">
+            <button class="theme-btn" data-theme="light" title="Light">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g class="icon-fill">
+                  <path
+                    d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
             </button>
+            <button class="theme-btn" data-theme="dark" title="Dark">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g class="icon-fill">
+                  <path
+                    d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button class="theme-btn" data-theme="auto" title="Auto">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g class="icon-fill">
+                  <path
+                    d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75m6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061L16.958 18a.75.75 0 0 1 1.06-1.061m-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06A.75.75 0 1 1 4.914 18l1.06-1.061a.75.75 0 0 1 1.06 0M12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05m0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05M11.25 9a.75.75 0 0 1 .743.648L12 9.75v2.253h1.25a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.649.743l-.101.007h-2a.75.75 0 0 1-.743-.649l-.007-.101V9.75a.75.75 0 0 1 .75-.75m10 2.268a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134m13.189.072a.75.75 0 0 1 .072.977l-.072.084-1.061 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.062 0M12 1.989a.75.75 0 0 1 .743.649l.007.101v1.5a.75.75 0 0 1-1.493.102l-.007-.102v-1.5a.75.75 0 0 1 .75-.75"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div class="settings-popup" id="settingsPopup">
-            <h3 class="settings-popup-title">Fluent New Tab</h3>
-            <div class="setting-group">
-                <div class="theme-selector">
-                    <button class="theme-btn" data-theme="light" title="Light">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g class="icon-fill">
-                                <path
-                                    d="M23.992 38.465c.647 0 1.18.492 1.244 1.122l.006.128v3.038a1.25 1.25 0 0 1-2.493.127l-.007-.127v-3.038c0-.69.56-1.25 1.25-1.25m11.903-4.367.101.09 2.148 2.149a1.25 1.25 0 0 1-1.666 1.859l-.102-.091-2.148-2.148a1.25 1.25 0 0 1 1.667-1.86m-22.14.09a1.25 1.25 0 0 1 .091 1.667l-.091.102-2.148 2.148a1.25 1.25 0 0 1-1.859-1.667l.091-.101 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 13.082c6.03 0 10.92 4.888 10.92 10.919 0 6.03-4.89 10.92-10.92 10.92S13.08 30.03 13.08 24 17.97 13.08 24 13.08m0 2.5a8.42 8.42 0 1 0 0 16.838 8.42 8.42 0 0 0 0-16.838m18.73 7.206a1.25 1.25 0 0 1 .129 2.494l-.128.006h-3.038a1.25 1.25 0 0 1-.127-2.493l.127-.007zm-34.423-.058a1.25 1.25 0 0 1 .127 2.493l-.127.007H5.269a1.25 1.25 0 0 1-.128-2.494l.128-.006zm3.199-12.925.101.091 2.148 2.148a1.25 1.25 0 0 1-1.666 1.86l-.102-.092-2.148-2.148a1.25 1.25 0 0 1 1.667-1.859m26.638.091a1.25 1.25 0 0 1 .091 1.667l-.09.101-2.149 2.148a1.25 1.25 0 0 1-1.859-1.666l.091-.102 2.148-2.148a1.25 1.25 0 0 1 1.768 0M24 3.997c.648 0 1.18.492 1.244 1.123l.006.127v3.038a1.25 1.25 0 0 1-2.493.128l-.007-.128V5.247c0-.69.56-1.25 1.25-1.25"
-                                    fill="currentColor" />
-                            </g>
-                        </svg>
-                    </button>
-                    <button class="theme-btn" data-theme="dark" title="Dark">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g class="icon-fill">
-                                <path
-                                    d="M9.669 33.009c4.97 8.61 15.979 11.559 24.588 6.588a17.9 17.9 0 0 0 5.822-5.367 1.35 1.35 0 0 0-.657-2.037c-6.78-2.427-10.412-5.239-12.52-9.261-2.218-4.235-2.791-8.874-1.24-15.232a1.35 1.35 0 0 0-1.383-1.668c-2.802.15-5.54.955-8.022 2.389C7.647 13.39 4.698 24.4 9.67 33.009m15.02-8.917c2.302 4.396 6.111 7.43 12.426 9.907a15.5 15.5 0 0 1-4.108 3.433c-7.413 4.28-16.893 1.74-21.173-5.673s-1.74-16.893 5.673-21.173a15.5 15.5 0 0 1 4.907-1.819l.469-.08c-1.194 5.968-.592 10.83 1.805 15.405"
-                                    fill="currentColor" />
-                            </g>
-                        </svg>
-                    </button>
-                    <button class="theme-btn" data-theme="auto" title="Auto">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <g class="icon-fill">
-                                <path
-                                    d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75m6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061L16.958 18a.75.75 0 0 1 1.06-1.061m-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06A.75.75 0 1 1 4.914 18l1.06-1.061a.75.75 0 0 1 1.06 0M12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05m0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05M11.25 9a.75.75 0 0 1 .743.648L12 9.75v2.253h1.25a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.649.743l-.101.007h-2a.75.75 0 0 1-.743-.649l-.007-.101V9.75a.75.75 0 0 1 .75-.75m10 2.268a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134m13.189.072a.75.75 0 0 1 .072.977l-.072.084-1.061 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.062 0M12 1.989a.75.75 0 0 1 .743.649l.007.101v1.5a.75.75 0 0 1-1.493.102l-.007-.102v-1.5a.75.75 0 0 1 .75-.75"
-                                    fill="currentColor" />
-                            </g>
-                        </svg>
-                    </button>
-                </div>
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.839 5.858c2.94-3.916 9.03-5.055 13.364-2.36 4.28 2.66 5.854 7.777 4.1 12.577-1.655 4.533-6.016 6.328-9.159 4.048-1.177-.854-1.634-1.925-1.854-3.664l-.106-.987-.045-.398c-.123-.934-.311-1.352-.705-1.572-.535-.298-.892-.305-1.595-.033l-.351.146-.179.078c-1.014.44-1.688.595-2.541.416l-.2-.047-.164-.047c-2.789-.864-3.202-4.647-.565-8.157Zm.984 6.716.123.037.134.03c.439.087.814.015 1.437-.242l.602-.257c1.202-.493 1.985-.54 3.046.05.917.512 1.275 1.298 1.457 2.66l.053.459.055.532.047.422c.172 1.361.485 2.09 1.248 2.644 2.275 1.65 5.534.309 6.87-3.349 1.516-4.152.174-8.514-3.484-10.789-3.675-2.284-8.899-1.306-11.373 1.987-2.075 2.763-1.82 5.28-.215 5.816Zm11.225-1.994a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm.494 3.488a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647ZM14.07 7.577a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647Zm-.028 8.998a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm-3.497-9.97a1.25 1.25 0 1 1 2.415-.646 1.25 1.25 0 0 1-2.415.646Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="accentColorTitle">Accent color</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleAccentColor" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div id="accentColorOptions">
+            <div class="color-presets-row" id="accentPresetsRow">
+              <button
+                type="button"
+                class="color-preset-btn"
+                data-color="#D83B01"
+                style="background-color: #d83b01"
+                title="Office"
+              ></button>
+              <button
+                type="button"
+                class="color-preset-btn"
+                data-color="#F2C811"
+                style="background-color: #f2c811"
+                title="PowerBI"
+              ></button>
+              <button
+                type="button"
+                class="color-preset-btn"
+                data-color="#107C41"
+                style="background-color: #107c41"
+                title="Excel"
+              ></button>
+              <button
+                type="button"
+                class="color-preset-btn"
+                data-color="#BC1948"
+                style="background-color: #bc1948"
+                title="Stream"
+              ></button>
+              <button
+                type="button"
+                class="color-preset-btn"
+                data-color="#5B5FC7"
+                style="background-color: #5b5fc7"
+                title="Teams"
+              ></button>
+              <button
+                type="button"
+                class="color-preset-btn selected"
+                data-color="#0078d4"
+                style="background-color: #0078d4"
+                title="Windows"
+              ></button>
+              <label
+                class="color-preset-btn custom-preset"
+                title="Custom Color"
+              >
+                <input
+                  type="color"
+                  id="accentCustomColor"
+                  class="custom-color-input"
+                />
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.75 3a.75.75 0 0 1 .743.648l.007.102.001 7.25h7.253a.75.75 0 0 1 .102 1.493l-.102.007h-7.253l.002 7.25a.75.75 0 0 1-1.493.101l-.007-.102-.002-7.249H3.752a.75.75 0 0 1-.102-1.493L3.752 11h7.25L11 3.75a.75.75 0 0 1 .75-.75Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </label>
             </div>
 
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3.839 5.858c2.94-3.916 9.03-5.055 13.364-2.36 4.28 2.66 5.854 7.777 4.1 12.577-1.655 4.533-6.016 6.328-9.159 4.048-1.177-.854-1.634-1.925-1.854-3.664l-.106-.987-.045-.398c-.123-.934-.311-1.352-.705-1.572-.535-.298-.892-.305-1.595-.033l-.351.146-.179.078c-1.014.44-1.688.595-2.541.416l-.2-.047-.164-.047c-2.789-.864-3.202-4.647-.565-8.157Zm.984 6.716.123.037.134.03c.439.087.814.015 1.437-.242l.602-.257c1.202-.493 1.985-.54 3.046.05.917.512 1.275 1.298 1.457 2.66l.053.459.055.532.047.422c.172 1.361.485 2.09 1.248 2.644 2.275 1.65 5.534.309 6.87-3.349 1.516-4.152.174-8.514-3.484-10.789-3.675-2.284-8.899-1.306-11.373 1.987-2.075 2.763-1.82 5.28-.215 5.816Zm11.225-1.994a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm.494 3.488a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647ZM14.07 7.577a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647Zm-.028 8.998a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm-3.497-9.97a1.25 1.25 0 1 1 2.415-.646 1.25 1.25 0 0 1-2.415.646Z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="accentColorTitle">Accent color</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleAccentColor" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="accentColorOptions">
-                    <div class="color-presets-row" id="accentPresetsRow">
-                        <button type="button" class="color-preset-btn" data-color="#D83B01"
-                            style="background-color: #D83B01;" title="Office"></button>
-                        <button type="button" class="color-preset-btn" data-color="#F2C811"
-                            style="background-color: #F2C811;" title="PowerBI"></button>
-                        <button type="button" class="color-preset-btn" data-color="#107C41"
-                            style="background-color: #107C41;" title="Excel"></button>
-                        <button type="button" class="color-preset-btn" data-color="#BC1948"
-                            style="background-color: #BC1948;" title="Stream"></button>
-                        <button type="button" class="color-preset-btn" data-color="#5B5FC7"
-                            style="background-color: #5B5FC7;" title="Teams"></button>
-                        <button type="button" class="color-preset-btn selected " data-color="#0078d4"
-                            style="background-color: #0078d4;" title="Windows"></button>
-                        <label class="color-preset-btn custom-preset" title="Custom Color">
-                            <input type="color" id="accentCustomColor" class="custom-color-input">
-                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.75 3a.75.75 0 0 1 .743.648l.007.102.001 7.25h7.253a.75.75 0 0 1 .102 1.493l-.102.007h-7.253l.002 7.25a.75.75 0 0 1-1.493.101l-.007-.102-.002-7.249H3.752a.75.75 0 0 1-.102-1.493L3.752 11h7.25L11 3.75a.75.75 0 0 1 .75-.75Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </label>
-                    </div>
-
-                    <div class="switch-row child-setting" id="accentWallpaperRow">
-                        <label for="toggleAccentWallpaper" data-i18n="accentWallpaperOption">Get from wallpaper</label>
-                        <label class="fluent-checkbox">
-                            <input type="checkbox" id="toggleAccentWallpaper">
-                            <span class="checkbox-box" aria-hidden="true">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                        fill="#212121" />
-                                </svg>
-                            </span>
-                        </label>
-                    </div>
-                </div>
+            <div class="switch-row child-setting" id="accentWallpaperRow">
+              <label
+                for="toggleAccentWallpaper"
+                data-i18n="accentWallpaperOption"
+                >Get from wallpaper</label
+              >
+              <label class="fluent-checkbox">
+                <input type="checkbox" id="toggleAccentWallpaper" />
+                <span class="checkbox-box" aria-hidden="true">
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                      fill="#212121"
+                    />
+                  </svg>
+                </span>
+              </label>
             </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M30.9968 12C33.7582 12 35.9968 14.2386 35.9968 17C35.9968 19.7614 33.7582 22 30.9968 22C28.2354 22 25.9968 19.7614 25.9968 17C25.9968 14.2386 28.2354 12 30.9968 12ZM28.4968 17C28.4968 18.3807 29.6161 19.5 30.9968 19.5C32.3775 19.5 33.4968 18.3807 33.4968 17C33.4968 15.6193 32.3775 14.5 30.9968 14.5C29.6161 14.5 28.4968 15.6193 28.4968 17Z"
-                                fill="currentColor"></path>
-                            <path
-                                d="M6 10.75C6 8.12665 8.12665 6 10.75 6H37.25C39.8734 6 42 8.12665 42 10.75V37.25C42 38.4377 41.5641 39.5236 40.8435 40.3565C40.7898 40.4531 40.7223 40.5441 40.641 40.6268C40.5548 40.7144 40.4589 40.7866 40.3566 40.8434C39.5238 41.564 38.4378 42 37.25 42H10.75C9.55998 42 8.47218 41.5624 7.63873 40.8393C7.53919 40.7832 7.44575 40.7123 7.36158 40.6268C7.28258 40.5466 7.21664 40.4583 7.16373 40.3648C6.43884 39.5309 6 38.4417 6 37.25V10.75ZM39.5 37.25V10.75C39.5 9.50736 38.4926 8.5 37.25 8.5H10.75C9.50736 8.5 8.5 9.50736 8.5 10.75V37.25C8.5 37.4065 8.51598 37.5592 8.54639 37.7067L21.3697 25.0851C22.8291 23.6486 25.171 23.6485 26.6306 25.0849L39.454 37.7048C39.4842 37.5579 39.5 37.4058 39.5 37.25ZM10.75 39.5H37.25C37.3948 39.5 37.5364 39.4863 37.6736 39.4602L24.877 26.8668C24.3905 26.388 23.6099 26.388 23.1234 26.8668L10.3284 39.4606C10.465 39.4865 10.6059 39.5 10.75 39.5Z"
-                                fill="currentColor"></path>
-                        </svg>
-                        <span data-i18n="wallpaperTitle">Wallpaper</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleWallpaper">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div id="wallpaperGrid" class="wallpaper-grid-container">
-                    <div class="wallpaper-option" data-value="preset_1">
-                        <img src="assets/wallpapers/fluent1-thumb.webp" alt="Pragser Wildsee, Italy" loading="lazy">
-                    </div>
-
-                    <div class="wallpaper-option" data-value="preset_2">
-                        <img src="assets/wallpapers/fluent2-thumb.webp"
-                            alt="Golden Gate Bridge, San Francisco, United States" loading="lazy">
-                    </div>
-
-                    <div class="wallpaper-option" data-value="preset_3">
-                        <img src="assets/wallpapers/fluent3-thumb.webp" alt="Luxembourg City, Luxembourg"
-                            loading="lazy">
-                    </div>
-
-                    <div class="wallpaper-option upload-option" id="uploadWallpaperBtn" title="Upload Image">
-                        <input type="file" id="wallpaperUploadInput" accept="image/png, image/jpeg, image/webp"
-                            style="display: none;">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="width: 24px; height: 24px;">
-                            <g fill="currentColor">
-                                <path
-                                    d="M5.25021713,20.5 L18.2502171,20.5037635 C18.6644307,20.5038835 19,20.8397671 19,21.2539806 C19,21.6336764 18.7176637,21.9473899 18.3515577,21.9969463 L18.2497829,22.0037635 L5.25021713,22 C4.83556933,21.9998801 4.5,21.6639964 4.5,21.2497829 C4.5,20.8700871 4.78233634,20.5563736 5.1484423,20.5068172 L5.25021713,20.5 Z M6.21972471,7.21846694 L11.21737,2.22185426 C11.4835159,1.95576328 11.8999028,1.93145946 12.1934928,2.14902198 L12.2776129,2.2215468 L17.2810585,7.21815948 C17.5741518,7.5108525 17.5744763,7.98572612 17.2817833,8.2788194 C17.0156987,8.54526784 16.5990517,8.56975859 16.3052914,8.35210481 L16.2211234,8.27954415 L12.5,4.56423913 L12.5,18.2488622 C12.5,18.6285579 12.2178461,18.9423531 11.8517706,18.9920156 L11.75,18.9988622 C11.3703042,18.9988622 11.056509,18.7167083 11.0068466,18.3506327 L11,18.2488622 L11,4.55923913 L7.28027529,8.27923669 C7.01398122,8.54547574 6.59731504,8.56963874 6.30372605,8.35175395 L6.21961512,8.27912711 C5.95337607,8.01283303 5.92921307,7.59616685 6.14709787,7.30257787 L6.21972471,7.21846694 L11.21737,2.22185426 L6.21972471,7.21846694 Z">
-                                </path>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-
-                <div id="wallpaperSourceContainer" class="setting-content-spaced">
-                    <label for="wallpaperSource" class="setting-label-small" data-i18n="wallpaperSourceLabel">Image
-                        Source</label>
-                    <select id="wallpaperSource" class="settings-select" style="margin-bottom: 8px;">
-                        <option value="noSource" data-i18n="nosourceOption">No Source</option>
-                        <option value="bing" data-i18n="sourcebingOption">Bing</option>
-                        <option value="nasa" data-i18n="sourcenasaOption">NASA (APOD)</option>
-                        <option value="wikimedia" data-i18n="sourceBing">Media Commons</option>
-                    </select>
-                </div>
-
-                <div class="setting-item collapsible-setting" id="wallpaperOverlaySetting">
-                    <div class="setting-header" id="overlay-toggle-btn">
-                        <span class="setting-label-small" data-i18n="overlayLabel">Image Overlay</span>
-                        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4.397 5.554a.75.75 0 0 1 1.05-.15l2.553 2.043 2.553-2.043a.75.75 0 0 1 .94 1.168l-3 2.4a.75.75 0 0 1-.94 0l-3-2.4a.75.75 0 0 1-.156-1.018Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <div class="setting-content collapsed" id="overlay-slider-container">
-                        <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="0.7"
-                            step="0.05" value="0.2">
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.75 22a.75.75 0 0 1-.102-1.493l.102-.007h1.749v-2.498H4.25a2.25 2.25 0 0 1-2.245-2.096L2 15.752V5.25a2.25 2.25 0 0 1 2.096-2.245L4.25 3h15.499a2.25 2.25 0 0 1 2.245 2.096l.005.154v10.502a2.25 2.25 0 0 1-2.096 2.245l-.154.005h-4.25V20.5h1.751a.75.75 0 0 1 .102 1.494L17.25 22H6.75Zm7.248-3.998h-4l.001 2.498h4l-.001-2.498ZM19.748 4.5H4.25a.75.75 0 0 0-.743.648L3.5 5.25v10.502c0 .38.282.694.648.743l.102.007h15.499a.75.75 0 0 0 .743-.648l.007-.102V5.25a.75.75 0 0 0-.648-.743l-.102-.007Z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="displayTitle">Display</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleDisplay" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="displayMainOptions" class="setting-content-spaced">
-                    <select id="displayTypeSelect" class="settings-select" style="margin-bottom: 12px; width: 100%;">
-                        <option value="greeting" data-i18n="displayGreeting">Greeting</option>
-                        <option value="time_24">23:00</option>
-                        <option value="time_24_sec">23:00:00</option>
-                        <option value="time_12">11:00 PM</option>
-                        <option value="time_12_sec">11:00:00 PM</option>
-                        <option value="date_text">April 8, 2026</option>
-                        <option value="date_numeric">04/09/2026</option>
-                        <option value="timedate">Time &amp; Date (Advanced)</option>
-                    </select>
-
-                    <div id="subGreeting" class="display-sub-setting">
-                        <div class="input-row">
-                            <input type="text" id="greetingNameInput" placeholder="Your Name (Optional)" maxlength="20"
-                                data-i18n="namePlaceholder">
-                        </div>
-                        <div class="setting-content-spaced">
-                            <label class="setting-label-small" data-i18n="iconsStyleLabel">Icon Style</label>
-                            <select id="greetingStyleSelect" class="settings-select" style="width: 100%;">
-                                <option value="none" data-i18n="styleNone">None</option>
-                                <option value="3d" data-i18n="styleEmoji">3D Fluent (Color)</option>
-                                <option value="outline" data-i18n="styleOutline">Outline (Minimal)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div id="subTime" class="display-sub-setting" style="display: none;">
-                        <div class="switch-row child-setting">
-                            <label for="toggleSeconds" data-i18n="showSecondsLabel">Show seconds</label>
-                            <label class="fluent-checkbox">
-                                <input type="checkbox" id="toggleSeconds">
-                                <span class="checkbox-box" aria-hidden="true">
-                                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                            fill="#212121" />
-                                    </svg>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="switch-row child-setting">
-                            <label for="toggle12Hour" data-i18n="use12HourLabel">12-hour format (AM/PM)</label>
-                            <label class="fluent-checkbox">
-                                <input type="checkbox" id="toggle12Hour">
-                                <span class="checkbox-box" aria-hidden="true">
-                                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                            fill="#212121" />
-                                    </svg>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div id="subDate" class="display-sub-setting" style="display: none;">
-                        <label class="setting-label-small" data-i18n="dateFormatLabel">Format</label>
-                        <select id="dateFormatSelect" class="settings-select" style="width: 100%;">
-                            <option value="text" data-i18n="dateText">Written (April 8)</option>
-                            <option value="numeric" data-i18n="dateNumeric">Numeric (04/08/2026)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M25.995 15.998c6.337 0 9.932 4.195 10.454 9.26h.16c4.079 0 7.385 3.298 7.385 7.365s-3.306 7.365-7.385 7.365H15.38c-4.077 0-7.383-3.297-7.383-7.365s3.306-7.365 7.384-7.365h.16c.526-5.099 4.118-9.26 10.455-9.26m0 2.495c-4.261 0-7.975 3.448-7.975 8.21 0 .755-.656 1.347-1.408 1.347h-1.42c-2.594 0-4.697 2.114-4.697 4.722 0 2.607 2.103 4.721 4.697 4.721h21.606c2.594 0 4.697-2.114 4.697-4.721s-2.103-4.722-4.697-4.722h-1.42c-.752 0-1.408-.592-1.408-1.346 0-4.824-3.714-8.21-7.975-8.21m-17.29 5.799a1.244 1.244 0 0 1-.559 1.57l-.115.054-2.311.962a1.244 1.244 0 0 1-1.067-2.243l.115-.055 2.311-.961a1.244 1.244 0 0 1 1.625.673m13-9.642-.062.02a11.8 11.8 0 0 0-2.57 1.19 5.5 5.5 0 0 0-6.826 7.95 9.3 9.3 0 0 0-2.127 1.086A7.883 7.883 0 0 1 21.704 14.65m-16.129.18.127.046 2.319.989c.63.266.932.995.675 1.629-.24.591-.883.89-1.48.71l-.126-.045-2.32-.989a1.26 1.26 0 0 1-.674-1.629c.24-.591.882-.89 1.479-.71m7.368-6.173.055.115.96 2.306a1.25 1.25 0 0 1-2.254 1.072l-.055-.115-.96-2.306a1.25 1.25 0 0 1 2.254-1.072m9.049-.56c.601.249.908.91.73 1.52l-.046.13-.992 2.276a1.264 1.264 0 0 1-2.38-.837l.046-.13.99-2.276a1.264 1.264 0 0 1 1.652-.683"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="weatherTitle">Weather</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleWeather">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="cityInputGroup" class="input-row" style="margin-top: 4px;">
-                    <input type="text" id="cityInput" placeholder="City..." data-i18n="cityPlaceholder">
-                    <button id="saveCityBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg></button>
-                </div>
-
-                <div id="weatherUnitGroup" class="unit-toggle-row" style="margin-top: 8px;">
-                    <button type="button" class="unit-btn active" data-unit="c">°C</button>
-                    <button type="button" class="unit-btn" data-unit="f">°F</button>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.75 15A2.25 2.25 0 0 1 13 17.25v5.5A2.25 2.25 0 0 1 10.75 25h-5.5A2.25 2.25 0 0 1 3 22.75v-5.5A2.25 2.25 0 0 1 5.25 15zm12 0A2.25 2.25 0 0 1 25 17.25v5.5A2.25 2.25 0 0 1 22.75 25h-5.5A2.25 2.25 0 0 1 15 22.75v-5.5A2.25 2.25 0 0 1 17.25 15zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75M10.75 3A2.25 2.25 0 0 1 13 5.25v5.5A2.25 2.25 0 0 1 10.75 13h-5.5A2.25 2.25 0 0 1 3 10.75v-5.5A2.25 2.25 0 0 1 5.25 3zm12 0A2.25 2.25 0 0 1 25 5.25v5.5A2.25 2.25 0 0 1 22.75 13h-5.5A2.25 2.25 0 0 1 15 10.75v-5.5A2.25 2.25 0 0 1 17.25 3zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="shortcutsTitle">Shortcuts</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleShortcuts">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="foldersRow" style="margin-top: 8px;">
-                    <label for="toggleFolders" data-i18n="enableFoldersLabel">Enable Folders</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleFolders">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                    fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-
-                <div id="rowsInputGroup" class="setting-content-spaced">
-                    <label for="rowsSelect" class="setting-label-small" data-i18n="rowsLabel">Rows</label>
-                    <select id="rowsSelect" class="settings-select">
-                        <option value="1" data-i18n="rows1">1 Row</option>
-                        <option value="2" data-i18n="rows2">2 Rows</option>
-                        <option value="3" data-i18n="rows3">3 Rows</option>
-                        <option value="4" data-i18n="rows4">4 Rows</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M14 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 12a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="appLauncherTitle">App Launcher</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleLauncher">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="launcherSelectGroup" class="setting-content-spaced">
-                    <label class="setting-label-small" data-i18n="ecosystemLabel">Ecosystem</label>
-                    <select id="launcherProvider" class="settings-select">
-                        <option value="microsoft">Microsoft 365</option>
-                        <option value="google">Google Workspace</option>
-                        <option value="proton">Proton AG</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="searchTitle">Search</span>
-                    </div>
-
-                    <label class="switch">
-                        <input type="checkbox" id="toggleSearchBar" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="suggestionsRow">
-                    <label for="toggleSuggestions" data-i18n="suggestionsOption">Suggestions</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleSuggestions">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                    fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="clearSearchRow">
-                    <label for="toggleClearSearch" data-i18n="clearSearchOption">Clear Search (Google)</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleClearSearch">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                    fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="compactBarRow">
-                    <label for="toggleCompactBar" data-i18n="compactBarOption">Compact bar</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleCompactBar">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                    fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="askAiRow">
-                    <label for="toggleAskAi" data-i18n="askAiOption">Ask to AI</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleAskAi">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z" fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="switch-row child-setting" id="voiceSearchRow">
-                    <label for="toggleVoiceSearch" data-i18n="voiceSearchOption">Voice search</label>
-                    <label class="fluent-checkbox">
-                        <input type="checkbox" id="toggleVoiceSearch">
-                        <span class="checkbox-box" aria-hidden="true">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                    fill="#212121" />
-                            </svg>
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14h2.544Zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394l-1.67 5.013Z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="reduceVisualEffectsTitle">Reduce effects</span>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleReducedEffects" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="reducedEffectsOptions">
-                    <div class="switch-row child-setting">
-                        <label for="toggleDisableAnimations" data-i18n="reduceMotionTitle">Reduce motion</label>
-                        <label class="fluent-checkbox">
-                            <input type="checkbox" id="toggleDisableAnimations">
-                            <span class="checkbox-box" aria-hidden="true">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                        fill="#212121" />
-                                </svg>
-                            </span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row child-setting">
-                        <label for="toggleDisableBlur" data-i18n="reduceBlurOption">Reduce blur</label>
-                        <label class="fluent-checkbox">
-                            <input type="checkbox" id="toggleDisableBlur">
-                            <span class="checkbox-box" aria-hidden="true">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                                        fill="#212121" />
-                                </svg>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row">
-                    <div class="group-title">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M16.961 5.987a.75.75 0 0 0-1.423-.473 21.42 21.42 0 0 0-.42 1.512c-.736.026-1.446.018-2.067-.024a.75.75 0 1 0-.102 1.496c.563.039 1.19.05 1.844.038-.144.765-.241 1.449-.3 2.064-1.215.642-2.061 1.504-2.539 2.412-.613 1.166-.66 2.556.206 3.443.571.584 1.408.64 2.129.485a4.665 4.665 0 0 0 1.24-.474l.018.046a.75.75 0 0 0 1.405-.524 9.628 9.628 0 0 0-.17-.424 7.63 7.63 0 0 0 2.285-4.047c.638.312 1.07.836 1.278 1.4a2.48 2.48 0 0 1-.097 1.952c-.308.636-.933 1.265-2.015 1.681a.75.75 0 1 0 .538 1.4c1.387-.533 2.33-1.402 2.827-2.427a3.98 3.98 0 0 0 .154-3.127 4.036 4.036 0 0 0-2.505-2.424c.002-.073.003-.147.003-.222a.75.75 0 0 0-1.5-.026 5.939 5.939 0 0 0-1.672.237c.064-.455.148-.953.257-1.5 1.185-.089 2.364-.252 3.337-.48a.75.75 0 0 0-.344-1.46c-.767.18-1.69.317-2.637.405.085-.33.18-.67.27-.94Zm-3.68 7.723c.227-.43.6-.886 1.147-1.3.017.492.065.926.137 1.317.094.52.236.974.386 1.373-.306.171-.632.3-.977.374-.485.104-.687-.012-.742-.068-.24-.245-.394-.853.05-1.696Zm4.315-2.487a6.648 6.648 0 0 1-1.414 2.848 6.24 6.24 0 0 1-.142-.612 8.618 8.618 0 0 1-.111-1.866c.11-.042.222-.082.339-.12a4.718 4.718 0 0 1 1.328-.25ZM7.96 6.53a6.067 6.067 0 0 0-4.575.467.75.75 0 1 0 .725 1.313 4.57 4.57 0 0 1 3.431-.34c.773.227 1.098.64 1.264 1.056.133.332.175.691.188 1.042-.27-.075-.581-.15-.923-.21-1.132-.202-2.682-.263-4.122.427-1.586.76-2.13 2.316-1.902 3.697.224 1.356 1.216 2.666 2.8 2.951 1.43.258 2.805-.256 3.757-.761A9.34 9.34 0 0 0 9 15.95v.3a.75.75 0 0 0 1.5 0v-5.79c0-.454 0-1.236-.3-1.99-.331-.829-1.005-1.578-2.237-1.94h-.001Zm-.152 4.804c.483.086.898.206 1.19.305v2.506a8.296 8.296 0 0 1-1.099.702c-.84.447-1.849.779-2.787.61-.845-.152-1.445-.866-1.586-1.72-.138-.83.179-1.673 1.07-2.1 1.037-.496 2.226-.478 3.212-.303Z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="languageTitle">Language</span>
-                    </div>
-                </div>
-
-                <div id="languageSelectGroup" class="setting-content-spaced">
-                    <label class="setting-label-small" data-i18n="interfaceLanguageLabel">Interface Language</label>
-                    <select id="languageProvider" class="settings-select">
-                        <option value="cs_CZ">Čeština</option>
-                        <option value="da_DK">Dansk</option>
-                        <option value="de_DE">Deutsch</option>
-                        <option value="el_GR">Ελληνικά</option>
-                        <option value="en_US">English (US)</option>
-                        <option value="es_ES">Español (España)</option>
-                        <option value="fil_PH">Filipino</option>
-                        <option value="fi_FI">Suomi</option>
-                        <option value="fr_FR">Français</option>
-                        <option value="hu_HU">Magyar</option>
-                        <option value="it_IT">Italiano</option>
-                        <option value="ja_JP">日本語</option>
-                        <option value="ko_KR">한국어</option>
-                        <option value="nl_NL">Nederlands</option>
-                        <option value="pl_PL">Polski</option>
-                        <option value="pt_BR">Português</option>
-                        <option value="ro_RO">Română</option>
-                        <option value="ru_RU">Русский</option>
-                        <option value="sv_SE">Svenska</option>
-                        <option value="tr_TR">Türkçe</option>
-                        <option value="uk_UA">Українська</option>
-                        <option value="vi_VN">Tiếng Việt</option>
-                        <option value="zh_CN">中文 (简体)</option>
-                        <option value="zh_TW">中文 (繁體)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="setting-group">
-                <div class="setting-header-row" style="margin-bottom: 8px;">
-                    <div class="group-title">
-                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M24.001 12c6.337 0 9.932 4.195 10.455 9.26h.16c4.078 0 7.384 3.298 7.384 7.365s-3.306 7.365-7.384 7.365h-21.23c-4.078 0-7.384-3.297-7.384-7.365s3.306-7.365 7.384-7.365h.16c.526-5.099 4.118-9.26 10.455-9.26m0 2.495c-4.26 0-7.975 3.448-7.975 8.21 0 .755-.656 1.348-1.407 1.348h-1.42c-2.595 0-4.698 2.113-4.698 4.72 0 2.608 2.103 4.722 4.697 4.722h21.606c2.594 0 4.697-2.114 4.697-4.721s-2.103-4.722-4.697-4.722h-1.42c-.752 0-1.408-.592-1.408-1.346 0-4.824-3.714-8.21-7.975-8.21"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="backupTitle">Data Backup</span>
-                    </div>
-                </div>
-
-                <div class="backup-row">
-                    <button id="exportBtn" class="backup-btn" title="Save settings">
-                        <svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor">
-                            <path
-                                d="M12.25 39.5h23.5a1.25 1.25 0 0 1 .128 2.494L35.75 42h-23.5a1.25 1.25 0 0 1-.128-2.494zh23.5zM23.622 6.006 23.75 6c.647 0 1.18.492 1.244 1.122L25 7.25v24.29l5.647-5.646a1.25 1.25 0 0 1 1.767 1.768l-7.778 7.778a1.25 1.25 0 0 1-1.767 0l-7.779-7.778a1.25 1.25 0 1 1 1.768-1.768l5.642 5.642V7.25c0-.647.492-1.18 1.122-1.244L23.75 6z" />
-                        </svg>
-                        <span data-i18n="exportOption">Export</span>
-                    </button>
-
-                    <input type="file" id="importInput" accept=".json" style="display: none;">
-
-                    <button id="importBtn" class="backup-btn" title="Restore Backup">
-                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor">
-                            <path
-                                d="m5.25 20.5 13 .004a.75.75 0 0 1 .102 1.493l-.102.007-13-.004a.75.75 0 0 1-.102-1.493zm.97-13.282 4.997-4.996a.75.75 0 0 1 .976-.073l.085.073 5.003 4.996a.75.75 0 0 1-.976 1.134l-.084-.072L12.5 4.564V18.25a.75.75 0 0 1-.648.743L11.75 19a.75.75 0 0 1-.743-.648L11 18.249V4.559L7.28 8.28a.75.75 0 0 1-.976.073L6.22 8.28a.75.75 0 0 1-.073-.976zl4.997-4.996z" />
-                        </svg>
-                        <span data-i18n="importOption">Import</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="settings-footer">
-                <div class="settings-footer-help">
-                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html" target="_blank"
-                        rel="noopener noreferrer" class="footer-link footer-help-link" title="Help" aria-label="Help"
-                        data-i18n="helpLabel">
-                        <span>Need Help?</span>
-                    </a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/support.html" target="_blank"
-                        rel="noopener noreferrer" class="footer-link footer-help-link" title="Report a bug"
-                        aria-label="Report a bug" data-i18n="reportBugLabel">
-                        <span>Get Support</span>
-                    </a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank"
-                        rel="noopener noreferrer" class="footer-link footer-help-link" title="Request a feature"
-                        aria-label="Request a feature" data-i18n="requestFeatureLabel">
-                        <span>Privacy Policy</span>
-                    </a>
-                </div>
-                <div class="settings-footer-meta">
-                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay"
-                        class="footer-link">v1.0</a>
-                    <span class="footer-text">by <a href="https://github.com/snw-mint" target="_blank"
-                            class="footer-link">Snow Mint</a></span>
-                    <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" class="footer-icon-link"
-                        title="Source Code">
-                        <svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
-                                transform="scale(64)" fill="currentColor" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30.9968 12C33.7582 12 35.9968 14.2386 35.9968 17C35.9968 19.7614 33.7582 22 30.9968 22C28.2354 22 25.9968 19.7614 25.9968 17C25.9968 14.2386 28.2354 12 30.9968 12ZM28.4968 17C28.4968 18.3807 29.6161 19.5 30.9968 19.5C32.3775 19.5 33.4968 18.3807 33.4968 17C33.4968 15.6193 32.3775 14.5 30.9968 14.5C29.6161 14.5 28.4968 15.6193 28.4968 17Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M6 10.75C6 8.12665 8.12665 6 10.75 6H37.25C39.8734 6 42 8.12665 42 10.75V37.25C42 38.4377 41.5641 39.5236 40.8435 40.3565C40.7898 40.4531 40.7223 40.5441 40.641 40.6268C40.5548 40.7144 40.4589 40.7866 40.3566 40.8434C39.5238 41.564 38.4378 42 37.25 42H10.75C9.55998 42 8.47218 41.5624 7.63873 40.8393C7.53919 40.7832 7.44575 40.7123 7.36158 40.6268C7.28258 40.5466 7.21664 40.4583 7.16373 40.3648C6.43884 39.5309 6 38.4417 6 37.25V10.75ZM39.5 37.25V10.75C39.5 9.50736 38.4926 8.5 37.25 8.5H10.75C9.50736 8.5 8.5 9.50736 8.5 10.75V37.25C8.5 37.4065 8.51598 37.5592 8.54639 37.7067L21.3697 25.0851C22.8291 23.6486 25.171 23.6485 26.6306 25.0849L39.454 37.7048C39.4842 37.5579 39.5 37.4058 39.5 37.25ZM10.75 39.5H37.25C37.3948 39.5 37.5364 39.4863 37.6736 39.4602L24.877 26.8668C24.3905 26.388 23.6099 26.388 23.1234 26.8668L10.3284 39.4606C10.465 39.4865 10.6059 39.5 10.75 39.5Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+              <span data-i18n="wallpaperTitle">Wallpaper</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleWallpaper" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div id="wallpaperGrid" class="wallpaper-grid-container">
+            <div class="wallpaper-option" data-value="preset_1">
+              <img
+                src="assets/wallpapers/fluent1-thumb.webp"
+                alt="Pragser Wildsee, Italy"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="wallpaper-option" data-value="preset_2">
+              <img
+                src="assets/wallpapers/fluent2-thumb.webp"
+                alt="Golden Gate Bridge, San Francisco, United States"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="wallpaper-option" data-value="preset_3">
+              <img
+                src="assets/wallpapers/fluent3-thumb.webp"
+                alt="Luxembourg City, Luxembourg"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              class="wallpaper-option upload-option"
+              id="uploadWallpaperBtn"
+              title="Upload Image"
+            >
+              <input
+                type="file"
+                id="wallpaperUploadInput"
+                accept="image/png, image/jpeg, image/webp"
+                style="display: none"
+              />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 24px; height: 24px"
+              >
+                <g fill="currentColor">
+                  <path
+                    d="M5.25021713,20.5 L18.2502171,20.5037635 C18.6644307,20.5038835 19,20.8397671 19,21.2539806 C19,21.6336764 18.7176637,21.9473899 18.3515577,21.9969463 L18.2497829,22.0037635 L5.25021713,22 C4.83556933,21.9998801 4.5,21.6639964 4.5,21.2497829 C4.5,20.8700871 4.78233634,20.5563736 5.1484423,20.5068172 L5.25021713,20.5 Z M6.21972471,7.21846694 L11.21737,2.22185426 C11.4835159,1.95576328 11.8999028,1.93145946 12.1934928,2.14902198 L12.2776129,2.2215468 L17.2810585,7.21815948 C17.5741518,7.5108525 17.5744763,7.98572612 17.2817833,8.2788194 C17.0156987,8.54526784 16.5990517,8.56975859 16.3052914,8.35210481 L16.2211234,8.27954415 L12.5,4.56423913 L12.5,18.2488622 C12.5,18.6285579 12.2178461,18.9423531 11.8517706,18.9920156 L11.75,18.9988622 C11.3703042,18.9988622 11.056509,18.7167083 11.0068466,18.3506327 L11,18.2488622 L11,4.55923913 L7.28027529,8.27923669 C7.01398122,8.54547574 6.59731504,8.56963874 6.30372605,8.35175395 L6.21961512,8.27912711 C5.95337607,8.01283303 5.92921307,7.59616685 6.14709787,7.30257787 L6.21972471,7.21846694 L11.21737,2.22185426 L6.21972471,7.21846694 Z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div id="wallpaperSourceContainer" class="setting-content-spaced">
+            <label
+              for="wallpaperSource"
+              class="setting-label-small"
+              data-i18n="wallpaperSourceLabel"
+              >Image Source</label
+            >
+            <select
+              id="wallpaperSource"
+              class="settings-select"
+              style="margin-bottom: 8px"
+            >
+              <option value="noSource" data-i18n="nosourceOption">
+                No Source
+              </option>
+              <option value="bing" data-i18n="sourcebingOption">Bing</option>
+              <option value="nasa" data-i18n="sourcenasaOption">
+                NASA (APOD)
+              </option>
+              <option value="wikimedia" data-i18n="sourceBing">
+                Media Commons
+              </option>
+            </select>
+          </div>
+
+          <div
+            class="setting-item collapsible-setting"
+            id="wallpaperOverlaySetting"
+          >
+            <div class="setting-header" id="overlay-toggle-btn">
+              <span class="setting-label-small" data-i18n="overlayLabel"
+                >Image Overlay</span
+              >
+              <svg
+                class="chevron-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.397 5.554a.75.75 0 0 1 1.05-.15l2.553 2.043 2.553-2.043a.75.75 0 0 1 .94 1.168l-3 2.4a.75.75 0 0 1-.94 0l-3-2.4a.75.75 0 0 1-.156-1.018Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="setting-content collapsed"
+              id="overlay-slider-container"
+            >
+              <input
+                type="range"
+                id="wallpaper-overlay-slider"
+                class="fluent-slider"
+                min="0"
+                max="0.7"
+                step="0.05"
+                value="0.2"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.75 22a.75.75 0 0 1-.102-1.493l.102-.007h1.749v-2.498H4.25a2.25 2.25 0 0 1-2.245-2.096L2 15.752V5.25a2.25 2.25 0 0 1 2.096-2.245L4.25 3h15.499a2.25 2.25 0 0 1 2.245 2.096l.005.154v10.502a2.25 2.25 0 0 1-2.096 2.245l-.154.005h-4.25V20.5h1.751a.75.75 0 0 1 .102 1.494L17.25 22H6.75Zm7.248-3.998h-4l.001 2.498h4l-.001-2.498ZM19.748 4.5H4.25a.75.75 0 0 0-.743.648L3.5 5.25v10.502c0 .38.282.694.648.743l.102.007h15.499a.75.75 0 0 0 .743-.648l.007-.102V5.25a.75.75 0 0 0-.648-.743l-.102-.007Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="displayTitle">Display</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleDisplay" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div id="displayMainOptions" class="setting-content-spaced">
+            <select
+              id="displayTypeSelect"
+              class="settings-select"
+              style="margin-bottom: 12px; width: 100%"
+            >
+              <option value="greeting" data-i18n="displayGreeting">
+                Greeting
+              </option>
+              <option value="time_24">23:00</option>
+              <option value="time_24_sec">23:00:00</option>
+              <option value="time_12">11:00 PM</option>
+              <option value="time_12_sec">11:00:00 PM</option>
+              <option value="date_text">April 8, 2026</option>
+              <option value="date_numeric">04/09/2026</option>
+              <option value="timedate">Time &amp; Date (Advanced)</option>
+            </select>
+
+            <div id="subGreeting" class="display-sub-setting">
+              <div class="input-row">
+                <input
+                  type="text"
+                  id="greetingNameInput"
+                  placeholder="Your Name (Optional)"
+                  maxlength="20"
+                  data-i18n="namePlaceholder"
+                />
+              </div>
+              <div class="setting-content-spaced">
+                <label class="setting-label-small" data-i18n="iconsStyleLabel"
+                  >Icon Style</label
+                >
+                <select
+                  id="greetingStyleSelect"
+                  class="settings-select"
+                  style="width: 100%"
+                >
+                  <option value="none" data-i18n="styleNone">None</option>
+                  <option value="3d" data-i18n="styleEmoji">
+                    3D Fluent (Color)
+                  </option>
+                  <option value="outline" data-i18n="styleOutline">
+                    Outline (Minimal)
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div id="subTime" class="display-sub-setting" style="display: none">
+              <div class="switch-row child-setting">
+                <label for="toggleSeconds" data-i18n="showSecondsLabel"
+                  >Show seconds</label
+                >
+                <label class="fluent-checkbox">
+                  <input type="checkbox" id="toggleSeconds" />
+                  <span class="checkbox-box" aria-hidden="true">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                        fill="#212121"
+                      />
+                    </svg>
+                  </span>
+                </label>
+              </div>
+              <div class="switch-row child-setting">
+                <label for="toggle12Hour" data-i18n="use12HourLabel"
+                  >12-hour format (AM/PM)</label
+                >
+                <label class="fluent-checkbox">
+                  <input type="checkbox" id="toggle12Hour" />
+                  <span class="checkbox-box" aria-hidden="true">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                        fill="#212121"
+                      />
+                    </svg>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="subDate" class="display-sub-setting" style="display: none">
+              <label class="setting-label-small" data-i18n="dateFormatLabel"
+                >Format</label
+              >
+              <select
+                id="dateFormatSelect"
+                class="settings-select"
+                style="width: 100%"
+              >
+                <option value="text" data-i18n="dateText">
+                  Written (April 8)
+                </option>
+                <option value="numeric" data-i18n="dateNumeric">
+                  Numeric (04/08/2026)
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M25.995 15.998c6.337 0 9.932 4.195 10.454 9.26h.16c4.079 0 7.385 3.298 7.385 7.365s-3.306 7.365-7.385 7.365H15.38c-4.077 0-7.383-3.297-7.383-7.365s3.306-7.365 7.384-7.365h.16c.526-5.099 4.118-9.26 10.455-9.26m0 2.495c-4.261 0-7.975 3.448-7.975 8.21 0 .755-.656 1.347-1.408 1.347h-1.42c-2.594 0-4.697 2.114-4.697 4.722 0 2.607 2.103 4.721 4.697 4.721h21.606c2.594 0 4.697-2.114 4.697-4.721s-2.103-4.722-4.697-4.722h-1.42c-.752 0-1.408-.592-1.408-1.346 0-4.824-3.714-8.21-7.975-8.21m-17.29 5.799a1.244 1.244 0 0 1-.559 1.57l-.115.054-2.311.962a1.244 1.244 0 0 1-1.067-2.243l.115-.055 2.311-.961a1.244 1.244 0 0 1 1.625.673m13-9.642-.062.02a11.8 11.8 0 0 0-2.57 1.19 5.5 5.5 0 0 0-6.826 7.95 9.3 9.3 0 0 0-2.127 1.086A7.883 7.883 0 0 1 21.704 14.65m-16.129.18.127.046 2.319.989c.63.266.932.995.675 1.629-.24.591-.883.89-1.48.71l-.126-.045-2.32-.989a1.26 1.26 0 0 1-.674-1.629c.24-.591.882-.89 1.479-.71m7.368-6.173.055.115.96 2.306a1.25 1.25 0 0 1-2.254 1.072l-.055-.115-.96-2.306a1.25 1.25 0 0 1 2.254-1.072m9.049-.56c.601.249.908.91.73 1.52l-.046.13-.992 2.276a1.264 1.264 0 0 1-2.38-.837l.046-.13.99-2.276a1.264 1.264 0 0 1 1.652-.683"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="weatherTitle">Weather</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleWeather" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div id="cityInputGroup" class="input-row" style="margin-top: 4px">
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="City..."
+              data-i18n="cityPlaceholder"
+            />
+            <button id="saveCityBtn">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            id="weatherUnitGroup"
+            class="unit-toggle-row"
+            style="margin-top: 8px"
+          >
+            <button type="button" class="unit-btn active" data-unit="c">
+              °C
+            </button>
+            <button type="button" class="unit-btn" data-unit="f">°F</button>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.75 15A2.25 2.25 0 0 1 13 17.25v5.5A2.25 2.25 0 0 1 10.75 25h-5.5A2.25 2.25 0 0 1 3 22.75v-5.5A2.25 2.25 0 0 1 5.25 15zm12 0A2.25 2.25 0 0 1 25 17.25v5.5A2.25 2.25 0 0 1 22.75 25h-5.5A2.25 2.25 0 0 1 15 22.75v-5.5A2.25 2.25 0 0 1 17.25 15zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75M10.75 3A2.25 2.25 0 0 1 13 5.25v5.5A2.25 2.25 0 0 1 10.75 13h-5.5A2.25 2.25 0 0 1 3 10.75v-5.5A2.25 2.25 0 0 1 5.25 3zm12 0A2.25 2.25 0 0 1 25 5.25v5.5A2.25 2.25 0 0 1 22.75 13h-5.5A2.25 2.25 0 0 1 15 10.75v-5.5A2.25 2.25 0 0 1 17.25 3zm-12 1.5h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75m12 0h-5.5a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5a.75.75 0 0 0-.75-.75"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="shortcutsTitle">Shortcuts</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleShortcuts" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div
+            class="switch-row child-setting"
+            id="foldersRow"
+            style="margin-top: 8px"
+          >
+            <label for="toggleFolders" data-i18n="enableFoldersLabel"
+              >Enable Folders</label
+            >
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleFolders" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+
+          <div id="rowsInputGroup" class="setting-content-spaced">
+            <label
+              for="rowsSelect"
+              class="setting-label-small"
+              data-i18n="rowsLabel"
+              >Rows</label
+            >
+            <select id="rowsSelect" class="settings-select">
+              <option value="1" data-i18n="rows1">1 Row</option>
+              <option value="2" data-i18n="rows2">2 Rows</option>
+              <option value="3" data-i18n="rows3">3 Rows</option>
+              <option value="4" data-i18n="rows4">4 Rows</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 21a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 12a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9-9a2 2 0 1 1 0 4 2 2 0 0 1 0-4m9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="appLauncherTitle">App Launcher</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleLauncher" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div id="launcherSelectGroup" class="setting-content-spaced">
+            <label class="setting-label-small" data-i18n="ecosystemLabel"
+              >Ecosystem</label
+            >
+            <select id="launcherProvider" class="settings-select">
+              <option value="microsoft">Microsoft 365</option>
+              <option value="google">Google Workspace</option>
+              <option value="proton">Proton AG</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="searchTitle">Search</span>
+            </div>
+
+            <label class="switch">
+              <input type="checkbox" id="toggleSearchBar" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-row child-setting" id="suggestionsRow">
+            <label for="toggleSuggestions" data-i18n="suggestionsOption"
+              >Suggestions</label
+            >
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleSuggestions" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+
+          <div class="switch-row child-setting" id="clearSearchRow">
+            <label for="toggleClearSearch" data-i18n="clearSearchOption"
+              >Clear Search (Google)</label
+            >
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleClearSearch" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+
+          <div class="switch-row child-setting" id="compactBarRow">
+            <label for="toggleCompactBar" data-i18n="compactBarOption"
+              >Compact bar</label
+            >
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleCompactBar" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+
+          <div class="switch-row child-setting" id="askAiRow">
+            <label for="toggleAskAi" data-i18n="askAiOption">Ask to AI</label>
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleAskAi" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+
+          <div class="switch-row child-setting" id="voiceSearchRow">
+            <label for="toggleVoiceSearch" data-i18n="voiceSearchOption"
+              >Voice search</label
+            >
+            <label class="fluent-checkbox">
+              <input type="checkbox" id="toggleVoiceSearch" />
+              <span class="checkbox-box" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                    fill="#212121"
+                  />
+                </svg>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m8.294 14-1.767 7.068c-.187.746.736 1.256 1.269.701L19.79 9.27A.75.75 0 0 0 19.25 8h-4.46l1.672-5.013A.75.75 0 0 0 15.75 2h-7a.75.75 0 0 0-.721.544l-3 10.5A.75.75 0 0 0 5.75 14h2.544Zm4.745-5.487a.75.75 0 0 0 .711.987h3.74l-8.824 9.196 1.316-5.264a.75.75 0 0 0-.727-.932h-2.51l2.57-9h5.394l-1.67 5.013Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="reduceVisualEffectsTitle">Reduce effects</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleReducedEffects" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div id="reducedEffectsOptions">
+            <div class="switch-row child-setting">
+              <label for="toggleDisableAnimations" data-i18n="reduceMotionTitle"
+                >Reduce motion</label
+              >
+              <label class="fluent-checkbox">
+                <input type="checkbox" id="toggleDisableAnimations" />
+                <span class="checkbox-box" aria-hidden="true">
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                      fill="#212121"
+                    />
+                  </svg>
+                </span>
+              </label>
+            </div>
+
+            <div class="switch-row child-setting">
+              <label for="toggleDisableBlur" data-i18n="reduceBlurOption"
+                >Reduce blur</label
+              >
+              <label class="fluent-checkbox">
+                <input type="checkbox" id="toggleDisableBlur" />
+                <span class="checkbox-box" aria-hidden="true">
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                      fill="#212121"
+                    />
+                  </svg>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row">
+            <div class="group-title">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.961 5.987a.75.75 0 0 0-1.423-.473 21.42 21.42 0 0 0-.42 1.512c-.736.026-1.446.018-2.067-.024a.75.75 0 1 0-.102 1.496c.563.039 1.19.05 1.844.038-.144.765-.241 1.449-.3 2.064-1.215.642-2.061 1.504-2.539 2.412-.613 1.166-.66 2.556.206 3.443.571.584 1.408.64 2.129.485a4.665 4.665 0 0 0 1.24-.474l.018.046a.75.75 0 0 0 1.405-.524 9.628 9.628 0 0 0-.17-.424 7.63 7.63 0 0 0 2.285-4.047c.638.312 1.07.836 1.278 1.4a2.48 2.48 0 0 1-.097 1.952c-.308.636-.933 1.265-2.015 1.681a.75.75 0 1 0 .538 1.4c1.387-.533 2.33-1.402 2.827-2.427a3.98 3.98 0 0 0 .154-3.127 4.036 4.036 0 0 0-2.505-2.424c.002-.073.003-.147.003-.222a.75.75 0 0 0-1.5-.026 5.939 5.939 0 0 0-1.672.237c.064-.455.148-.953.257-1.5 1.185-.089 2.364-.252 3.337-.48a.75.75 0 0 0-.344-1.46c-.767.18-1.69.317-2.637.405.085-.33.18-.67.27-.94Zm-3.68 7.723c.227-.43.6-.886 1.147-1.3.017.492.065.926.137 1.317.094.52.236.974.386 1.373-.306.171-.632.3-.977.374-.485.104-.687-.012-.742-.068-.24-.245-.394-.853.05-1.696Zm4.315-2.487a6.648 6.648 0 0 1-1.414 2.848 6.24 6.24 0 0 1-.142-.612 8.618 8.618 0 0 1-.111-1.866c.11-.042.222-.082.339-.12a4.718 4.718 0 0 1 1.328-.25ZM7.96 6.53a6.067 6.067 0 0 0-4.575.467.75.75 0 1 0 .725 1.313 4.57 4.57 0 0 1 3.431-.34c.773.227 1.098.64 1.264 1.056.133.332.175.691.188 1.042-.27-.075-.581-.15-.923-.21-1.132-.202-2.682-.263-4.122.427-1.586.76-2.13 2.316-1.902 3.697.224 1.356 1.216 2.666 2.8 2.951 1.43.258 2.805-.256 3.757-.761A9.34 9.34 0 0 0 9 15.95v.3a.75.75 0 0 0 1.5 0v-5.79c0-.454 0-1.236-.3-1.99-.331-.829-1.005-1.578-2.237-1.94h-.001Zm-.152 4.804c.483.086.898.206 1.19.305v2.506a8.296 8.296 0 0 1-1.099.702c-.84.447-1.849.779-2.787.61-.845-.152-1.445-.866-1.586-1.72-.138-.83.179-1.673 1.07-2.1 1.037-.496 2.226-.478 3.212-.303Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="languageTitle">Language</span>
+            </div>
+          </div>
+
+          <div id="languageSelectGroup" class="setting-content-spaced">
+            <label
+              class="setting-label-small"
+              data-i18n="interfaceLanguageLabel"
+              >Interface Language</label
+            >
+            <select id="languageProvider" class="settings-select">
+              <option value="cs_CZ">Čeština</option>
+              <option value="da_DK">Dansk</option>
+              <option value="de_DE">Deutsch</option>
+              <option value="el_GR">Ελληνικά</option>
+              <option value="en_US">English (US)</option>
+              <option value="es_ES">Español (España)</option>
+              <option value="fil_PH">Filipino</option>
+              <option value="fi_FI">Suomi</option>
+              <option value="fr_FR">Français</option>
+              <option value="hu_HU">Magyar</option>
+              <option value="it_IT">Italiano</option>
+              <option value="ja_JP">日本語</option>
+              <option value="ko_KR">한국어</option>
+              <option value="nl_NL">Nederlands</option>
+              <option value="pl_PL">Polski</option>
+              <option value="pt_BR">Português</option>
+              <option value="ro_RO">Română</option>
+              <option value="ru_RU">Русский</option>
+              <option value="sv_SE">Svenska</option>
+              <option value="tr_TR">Türkçe</option>
+              <option value="uk_UA">Українська</option>
+              <option value="vi_VN">Tiếng Việt</option>
+              <option value="zh_CN">中文 (简体)</option>
+              <option value="zh_TW">中文 (繁體)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header-row" style="margin-bottom: 8px">
+            <div class="group-title">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24.001 12c6.337 0 9.932 4.195 10.455 9.26h.16c4.078 0 7.384 3.298 7.384 7.365s-3.306 7.365-7.384 7.365h-21.23c-4.078 0-7.384-3.297-7.384-7.365s3.306-7.365 7.384-7.365h.16c.526-5.099 4.118-9.26 10.455-9.26m0 2.495c-4.26 0-7.975 3.448-7.975 8.21 0 .755-.656 1.348-1.407 1.348h-1.42c-2.595 0-4.698 2.113-4.698 4.72 0 2.608 2.103 4.722 4.697 4.722h21.606c2.594 0 4.697-2.114 4.697-4.721s-2.103-4.722-4.697-4.722h-1.42c-.752 0-1.408-.592-1.408-1.346 0-4.824-3.714-8.21-7.975-8.21"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="backupTitle">Data Backup</span>
+            </div>
+          </div>
+
+          <div class="backup-row">
+            <button id="exportBtn" class="backup-btn" title="Save settings">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+              >
+                <path
+                  d="M12.25 39.5h23.5a1.25 1.25 0 0 1 .128 2.494L35.75 42h-23.5a1.25 1.25 0 0 1-.128-2.494zh23.5zM23.622 6.006 23.75 6c.647 0 1.18.492 1.244 1.122L25 7.25v24.29l5.647-5.646a1.25 1.25 0 0 1 1.767 1.768l-7.778 7.778a1.25 1.25 0 0 1-1.767 0l-7.779-7.778a1.25 1.25 0 1 1 1.768-1.768l5.642 5.642V7.25c0-.647.492-1.18 1.122-1.244L23.75 6z"
+                />
+              </svg>
+              <span data-i18n="exportOption">Export</span>
+            </button>
+
+            <input
+              type="file"
+              id="importInput"
+              accept=".json"
+              style="display: none"
+            />
+
+            <button id="importBtn" class="backup-btn" title="Restore Backup">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+              >
+                <path
+                  d="m5.25 20.5 13 .004a.75.75 0 0 1 .102 1.493l-.102.007-13-.004a.75.75 0 0 1-.102-1.493zm.97-13.282 4.997-4.996a.75.75 0 0 1 .976-.073l.085.073 5.003 4.996a.75.75 0 0 1-.976 1.134l-.084-.072L12.5 4.564V18.25a.75.75 0 0 1-.648.743L11.75 19a.75.75 0 0 1-.743-.648L11 18.249V4.559L7.28 8.28a.75.75 0 0 1-.976.073L6.22 8.28a.75.75 0 0 1-.073-.976zl4.997-4.996z"
+                />
+              </svg>
+              <span data-i18n="importOption">Import</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-footer">
+          <div class="settings-footer-help">
+            <a
+              href="https://snw-mint.github.io/fluent-new-tab/help.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link footer-help-link"
+              title="Help"
+              aria-label="Help"
+              data-i18n="helpLabel"
+            >
+              <span>Need Help?</span>
+            </a>
+            <a
+              href="https://snw-mint.github.io/fluent-new-tab/support.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link footer-help-link"
+              title="Report a bug"
+              aria-label="Report a bug"
+              data-i18n="reportBugLabel"
+            >
+              <span>Get Support</span>
+            </a>
+            <a
+              href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link footer-help-link"
+              title="Request a feature"
+              aria-label="Request a feature"
+              data-i18n="requestFeatureLabel"
+            >
+              <span>Privacy Policy</span>
+            </a>
+          </div>
+          <div class="settings-footer-meta">
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/releases"
+              target="_blank"
+              id="versionDisplay"
+              class="footer-link"
+              >v1.0</a
+            >
+            <span class="footer-text"
+              >by
+              <a
+                href="https://github.com/snw-mint"
+                target="_blank"
+                class="footer-link"
+                >Snow Mint</a
+              ></span
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab"
+              target="_blank"
+              class="footer-icon-link"
+              title="Source Code"
+            >
+              <svg
+                viewBox="0 0 1024 1024"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                  transform="scale(64)"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-        <div class="logo-wrapper" style="display: none;"></div>
+      <div class="logo-wrapper" style="display: none"></div>
 
-        <form id="searchForm" action="https://www.bing.com/search" method="GET" class="search-bar"
-            style="display: none;">
-
-            <div class="search-selector">
-                <button type="button" id="engineBtn" class="current-engine-btn">
-                    <img id="currentEngineIcon" src="assets/search-engines/bing.svg" alt="Search Engine">
-                </button>
-                <div id="engineDropdown" class="dropdown-menu">
-                    <div class="dropdown-item" data-engine="bing">
-                        <img src="assets/search-engines/bing.svg" alt="Bing">
-                        <span>Bing</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="google">
-                        <img src="assets/search-engines/google.svg" alt="Google">
-                        <span>Google</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="brave">
-                        <img src="assets/search-engines/brave.svg" alt="Brave">
-                        <span>Brave Search</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="duck">
-                        <img src="assets/search-engines/ddg.svg" alt="DuckDuckGo">
-                        <span>DuckDuckGo</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="ecosia">
-                        <img src="assets/search-engines/ecosia.svg" alt="Ecosia Search">
-                        <span>Ecosia Search</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="startpage">
-                        <img src="assets/search-engines/startpg.svg" alt="Start Page">
-                        <span>Start Page</span>
-                    </div>
-                    <div class="dropdown-item" data-engine="kagi">
-                        <img src="assets/search-engines/kagi.svg" alt="Kagi">
-                        <span>Kagi</span>
-                    </div>
-                </div>
+      <form
+        id="searchForm"
+        action="https://www.bing.com/search"
+        method="GET"
+        class="search-bar"
+        style="display: none"
+      >
+        <div class="search-selector">
+          <button type="button" id="engineBtn" class="current-engine-btn">
+            <img
+              id="currentEngineIcon"
+              src="assets/search-engines/bing.svg"
+              alt="Search Engine"
+            />
+          </button>
+          <div id="engineDropdown" class="dropdown-menu">
+            <div class="dropdown-item" data-engine="bing">
+              <img src="assets/search-engines/bing.svg" alt="Bing" />
+              <span>Bing</span>
             </div>
+            <div class="dropdown-item" data-engine="google">
+              <img src="assets/search-engines/google.svg" alt="Google" />
+              <span>Google</span>
+            </div>
+            <div class="dropdown-item" data-engine="brave">
+              <img src="assets/search-engines/brave.svg" alt="Brave" />
+              <span>Brave Search</span>
+            </div>
+            <div class="dropdown-item" data-engine="duck">
+              <img src="assets/search-engines/ddg.svg" alt="DuckDuckGo" />
+              <span>DuckDuckGo</span>
+            </div>
+            <div class="dropdown-item" data-engine="ecosia">
+              <img src="assets/search-engines/ecosia.svg" alt="Ecosia Search" />
+              <span>Ecosia Search</span>
+            </div>
+            <div class="dropdown-item" data-engine="startpage">
+              <img src="assets/search-engines/startpg.svg" alt="Start Page" />
+              <span>Start Page</span>
+            </div>
+            <div class="dropdown-item" data-engine="kagi">
+              <img src="assets/search-engines/kagi.svg" alt="Kagi" />
+              <span>Kagi</span>
+            </div>
+          </div>
+        </div>
 
-            <div class="divider"></div>
+        <div class="divider"></div>
 
-            <input type="text" name="q" id="searchInput" placeholder="Search the web" autocomplete="off"
-                data-i18n="searchPlaceholder">
+        <input
+          type="text"
+          name="q"
+          id="searchInput"
+          placeholder="Search the web"
+          autocomplete="off"
+          data-i18n="searchPlaceholder"
+        />
 
-            <button type="button" id="askAiBtn" class="ask-ai-btn" title="Ask AI" aria-label="Ask AI" style="display: none;">
-                <svg class="ask-ai-icon-inactive" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.44 1.44 0 0 0 1.327-.872l.613-1.864a2.87 2.87 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.88 2.88 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.88 2.88 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.89 2.89 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm-.374-4.25a4 4 0 0 0-.363-.413h.003a4.4 4.4 0 0 0-1.72-1.063l-1.6-.508 1.611-.524a4.4 4.4 0 0 0 1.69-1.065 4.45 4.45 0 0 0 1.041-1.708l.515-1.582.516 1.587a4.37 4.37 0 0 0 2.781 2.773l1.62.522-1.59.515a4.38 4.38 0 0 0-2.774 2.775l-.515 1.582-.515-1.585a4.4 4.4 0 0 0-.7-1.306m8.041 9.297a1.12 1.12 0 0 1-.41-.549l-.328-1.007a1.3 1.3 0 0 0-.821-.823l-.991-.323A1.15 1.15 0 0 1 13 16.997a1.14 1.14 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005m-1.03-3.783A2.79 2.79 0 0 1 17 18.708a2.8 2.8 0 0 1 1.7-1.7 2.81 2.81 0 0 1-1.718-1.708A2.8 2.8 0 0 1 15.3 17Z" fill="currentColor"/></svg>
-                <svg class="ask-ai-icon-active" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;"><path d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.442 1.442 0 0 0 1.327-.872l.613-1.864a2.872 2.872 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.876 2.876 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.877 2.877 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.887 2.887 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm7.667 5.047a1.123 1.123 0 0 1-.41-.549l-.328-1.007a1.293 1.293 0 0 0-.821-.823l-.991-.323A1.148 1.148 0 0 1 13 16.997a1.143 1.143 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005Z" fill="currentColor"/></svg>
-            </button>
+        <button
+          type="button"
+          id="askAiBtn"
+          class="ask-ai-btn"
+          title="Ask AI"
+          aria-label="Ask AI"
+          style="display: none"
+        >
+          <svg
+            class="ask-ai-icon-inactive"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.44 1.44 0 0 0 1.327-.872l.613-1.864a2.87 2.87 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.88 2.88 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.88 2.88 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.89 2.89 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm-.374-4.25a4 4 0 0 0-.363-.413h.003a4.4 4.4 0 0 0-1.72-1.063l-1.6-.508 1.611-.524a4.4 4.4 0 0 0 1.69-1.065 4.45 4.45 0 0 0 1.041-1.708l.515-1.582.516 1.587a4.37 4.37 0 0 0 2.781 2.773l1.62.522-1.59.515a4.38 4.38 0 0 0-2.774 2.775l-.515 1.582-.515-1.585a4.4 4.4 0 0 0-.7-1.306m8.041 9.297a1.12 1.12 0 0 1-.41-.549l-.328-1.007a1.3 1.3 0 0 0-.821-.823l-.991-.323A1.15 1.15 0 0 1 13 16.997a1.14 1.14 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005m-1.03-3.783A2.79 2.79 0 0 1 17 18.708a2.8 2.8 0 0 1 1.7-1.7 2.81 2.81 0 0 1-1.718-1.708A2.8 2.8 0 0 1 15.3 17Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="ask-ai-icon-active"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style="display: none"
+          >
+            <path
+              d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.442 1.442 0 0 0 1.327-.872l.613-1.864a2.872 2.872 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.876 2.876 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.877 2.877 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.887 2.887 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm7.667 5.047a1.123 1.123 0 0 1-.41-.549l-.328-1.007a1.293 1.293 0 0 0-.821-.823l-.991-.323A1.148 1.148 0 0 1 13 16.997a1.143 1.143 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
 
-            <button type="button" id="voiceSearchBtn" class="voice-search-btn" title="Voice search"
-                aria-label="Voice search">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M20 12V13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13V12M12 17C9.79086 17 8 15.2091 8 13V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V13C16 15.2091 14.2091 17 12 17Z"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
+        <button
+          type="button"
+          id="voiceSearchBtn"
+          class="voice-search-btn"
+          title="Voice search"
+          aria-label="Voice search"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 12V13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13V12M12 17C9.79086 17 8 15.2091 8 13V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V13C16 15.2091 14.2091 17 12 17Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
 
-            <button type="submit" class="search-btn">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                    <path
-                        d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5"
-                        fill="#5f6368" />
-                </svg>
-            </button>
+        <button type="submit" class="search-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path
+              d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5"
+              fill="#5f6368"
+            />
+          </svg>
+        </button>
 
-            <div id="suggestionsContainer" class="suggestions-container"></div>
-
-        </form>
-        <div id="shortcutsGrid" class="shortcuts-grid"></div>
+        <div id="suggestionsContainer" class="suggestions-container"></div>
+      </form>
+      <div id="shortcutsGrid" class="shortcuts-grid"></div>
     </div>
 
     <div id="addModal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 data-i18n="addShortcutTitle">Add Shortcut</h3>
-            <form id="shortcutForm">
-                <div class="input-group">
-                    <label data-i18n="shortcutNameLabel">Name</label>
-                    <input type="text" id="inputName" required placeholder="Ex: YouTube">
-                </div>
+      <div class="modal-content">
+        <h3 data-i18n="addShortcutTitle">Add Shortcut</h3>
+        <form id="shortcutForm">
+          <div class="input-group">
+            <label data-i18n="shortcutNameLabel">Name</label>
+            <input
+              type="text"
+              id="inputName"
+              required
+              placeholder="Ex: YouTube"
+            />
+          </div>
 
-                <div class="input-group">
-                    <label data-i18n="shortcutUrlLabel">URL</label>
-                    <input type="text" id="inputUrl" required placeholder="youtube.com">
-                </div>
+          <div class="input-group">
+            <label data-i18n="shortcutUrlLabel">URL</label>
+            <input
+              type="text"
+              id="inputUrl"
+              required
+              placeholder="youtube.com"
+            />
+          </div>
 
-                <div class="expandable-section">
-                    <button type="button" id="toggleCustomIcon" class="btn-expander" aria-expanded="false">
-                        <svg viewBox="0 0 16 16" fill="currentColor" class="chevron-icon custom-icon-chevron">
-                            <path
-                                d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                        <span data-i18n="addFaviconLabel">Custom Icon</span>
-                    </button>
+          <div class="expandable-section">
+            <button
+              type="button"
+              id="toggleCustomIcon"
+              class="btn-expander"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="chevron-icon custom-icon-chevron"
+              >
+                <path
+                  d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+              <span data-i18n="addFaviconLabel">Custom Icon</span>
+            </button>
 
-                    <div id="customIconGroup" class="input-group hidden">
-                        <label data-i18n="faviconUrlLabel">Icon URL</label>
-                        <input type="url" id="inputIcon" placeholder="https://...">
-                    </div>
-                </div>
+            <div id="customIconGroup" class="input-group hidden">
+              <label data-i18n="faviconUrlLabel">Icon URL</label>
+              <input type="url" id="inputIcon" placeholder="https://..." />
+            </div>
+          </div>
 
-                <div class="modal-actions">
-                    <button type="button" id="closeModalBtn" class="btn-cancel" data-i18n="btnCancel">Cancel</button>
-                    <button type="submit" class="btn-save" data-i18n="btnSave">Save</button>
-                </div>
-            </form>
-        </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeModalBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-save" data-i18n="btnSave">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div id="chooseTypeModal" class="modal-overlay">
-        <div class="modal-content">
-            <form id="chooseTypeForm">
-                <h3 class="choose-type-title" data-i18n="chooseTypeTitle">Create New</h3>
-                <div class="choose-type-grid">
-                    <button type="button" class="type-card" id="btnChooseLink">
-                        <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.25 7a.75.75 0 0 1 .11 1.492l-.11.008H7a3.5 3.5 0 0 0-.206 6.994L7 15.5h2.25a.75.75 0 0 1 .11 1.492L9.25 17H7a5 5 0 0 1-.25-9.994L7 7zM17 7a5 5 0 0 1 .25 9.994L17 17h-2.25a.75.75 0 0 1-.11-1.492l.11-.008H17a3.5 3.5 0 0 0 .206-6.994L17 8.5h-2.25a.75.75 0 0 1-.11-1.492L14.75 7zM7 11.25h10a.75.75 0 0 1 .102 1.493L17 12.75H7a.75.75 0 0 1-.102-1.493zh10z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="addShortcutTitle">Add Shortcut</span>
-                    </button>
-                    <button type="button" class="type-card" id="btnChooseFolder">
-                        <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z"
-                                fill="currentColor" />
-                        </svg>
-                        <span data-i18n="addFolderTitle">Add Folder</span>
-                    </button>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" id="closeChooseTypeBtn" class="btn-cancel"
-                        data-i18n="btnCancel">Cancel</button>
-                </div>
-            </form>
-        </div>
+      <div class="modal-content">
+        <form id="chooseTypeForm">
+          <h3 class="choose-type-title" data-i18n="chooseTypeTitle">
+            Create New
+          </h3>
+          <div class="choose-type-grid">
+            <button type="button" class="type-card" id="btnChooseLink">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.25 7a.75.75 0 0 1 .11 1.492l-.11.008H7a3.5 3.5 0 0 0-.206 6.994L7 15.5h2.25a.75.75 0 0 1 .11 1.492L9.25 17H7a5 5 0 0 1-.25-9.994L7 7zM17 7a5 5 0 0 1 .25 9.994L17 17h-2.25a.75.75 0 0 1-.11-1.492l.11-.008H17a3.5 3.5 0 0 0 .206-6.994L17 8.5h-2.25a.75.75 0 0 1-.11-1.492L14.75 7zM7 11.25h10a.75.75 0 0 1 .102 1.493L17 12.75H7a.75.75 0 0 1-.102-1.493zh10z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="addShortcutTitle">Add Shortcut</span>
+            </button>
+            <button type="button" class="type-card" id="btnChooseFolder">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="addFolderTitle">Add Folder</span>
+            </button>
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeChooseTypeBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div id="addFolderModal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 id="folderModalTitle" data-i18n="addFolderTitle">Add Folder</h3>
-            <form id="folderForm">
-                <div class="input-group">
-                    <label data-i18n="folderNameLabel">Name</label>
-                    <input type="text" id="inputFolderName" required placeholder="Ex: Work, Games">
-                </div>
-                <div class="modal-actions">
-                    <button type="button" id="closeFolderModalBtn" class="btn-cancel"
-                        data-i18n="btnCancel">Cancel</button>
-                    <button type="submit" class="btn-save" data-i18n="btnSave">Save</button>
-                </div>
-            </form>
-        </div>
+      <div class="modal-content">
+        <h3 id="folderModalTitle" data-i18n="addFolderTitle">Add Folder</h3>
+        <form id="folderForm">
+          <div class="input-group">
+            <label data-i18n="folderNameLabel">Name</label>
+            <input
+              type="text"
+              id="inputFolderName"
+              required
+              placeholder="Ex: Work, Games"
+            />
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeFolderModalBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-save" data-i18n="btnSave">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div id="warningModal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 id="warning-modal-title"></h3>
-            <p id="warning-modal-message" class="warning-modal-text"></p>
+      <div class="modal-content">
+        <h3 id="warning-modal-title"></h3>
+        <p id="warning-modal-message" class="warning-modal-text"></p>
 
-            <div class="modal-actions">
-                <button id="warning-btn-confirm" class="btn-danger"></button>
-                <button id="warning-btn-cancel" class="btn-cancel"></button>
-            </div>
+        <div class="modal-actions">
+          <button id="warning-btn-confirm" class="btn-danger"></button>
+          <button id="warning-btn-cancel" class="btn-cancel"></button>
         </div>
+      </div>
     </div>
 
     <div id="wallpaperCredits" class="wallpaper-credits hidden">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M13.925 2.503a2.25 2.25 0 0 1 1.94 1.11L16.679 5h2.071A3.25 3.25 0 0 1 22 8.25v9.5A3.25 3.25 0 0 1 18.75 21H5.25A3.25 3.25 0 0 1 2 17.75v-9.5A3.25 3.25 0 0 1 5.25 5h2.08l.875-1.424a2.25 2.25 0 0 1 1.917-1.073h3.803Zm0 1.5h-3.803a.75.75 0 0 0-.574.268l-.065.09L8.39 6.141a.75.75 0 0 1-.639.358h-2.5A1.75 1.75 0 0 0 3.5 8.25v9.5c0 .966.784 1.75 1.75 1.75h13.5a1.75 1.75 0 0 0 1.75-1.75v-9.5a1.75 1.75 0 0 0-1.75-1.75h-2.5a.75.75 0 0 1-.647-.37l-1.032-1.757a.75.75 0 0 0-.646-.37ZM12 8a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
-                fill="#ffffff" />
-        </svg>
-        <span id="wallpaperCreditText"></span>
+      <svg
+        width="20"
+        height="20"
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.925 2.503a2.25 2.25 0 0 1 1.94 1.11L16.679 5h2.071A3.25 3.25 0 0 1 22 8.25v9.5A3.25 3.25 0 0 1 18.75 21H5.25A3.25 3.25 0 0 1 2 17.75v-9.5A3.25 3.25 0 0 1 5.25 5h2.08l.875-1.424a2.25 2.25 0 0 1 1.917-1.073h3.803Zm0 1.5h-3.803a.75.75 0 0 0-.574.268l-.065.09L8.39 6.141a.75.75 0 0 1-.639.358h-2.5A1.75 1.75 0 0 0 3.5 8.25v9.5c0 .966.784 1.75 1.75 1.75h13.5a1.75 1.75 0 0 0 1.75-1.75v-9.5a1.75 1.75 0 0 0-1.75-1.75h-2.5a.75.75 0 0 1-.647-.37l-1.032-1.757a.75.75 0 0 0-.646-.37ZM12 8a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+          fill="#ffffff"
+        />
+      </svg>
+      <span id="wallpaperCreditText"></span>
     </div>
 
     <script src="scripts/i18n.js"></script>
     <script src="scripts/sortable.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
