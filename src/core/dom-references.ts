@@ -19,6 +19,11 @@ const closeModalBtn = getById<HTMLButtonElement>('closeModalBtn');
 const toggleCustomIcon = getById<HTMLButtonElement>('toggleCustomIcon');
 const customIconGroup = getById<HTMLDivElement>('customIconGroup');
 const toggleShortcuts = getById<HTMLInputElement>('toggleShortcuts');
+const shortcutsMoreSetting = getById<HTMLDivElement>('shortcutsMoreSetting');
+const shortcutsMoreBtn = getById<HTMLDivElement>('shortcuts-more-btn');
+const shortcutsMoreContainer = getById<HTMLDivElement>(
+  'shortcuts-more-container',
+);
 const rowsSelect = getById<HTMLSelectElement>('rowsSelect');
 const rowsInputGroup = getById<HTMLDivElement>('rowsInputGroup');
 const configBtn = getById<HTMLButtonElement>('settingsBtn');

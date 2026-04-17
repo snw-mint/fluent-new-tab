@@ -30,6 +30,29 @@ function hideAllModals(): void {
   if (chooseTypeModal) chooseTypeModal.classList.remove('active');
   if (addFolderModal) addFolderModal.classList.remove('active');
 }
+
+function resetSettingsAccordions(): void {
+  try {
+    const accordions = [
+      { container: displaySliderContainer, btn: displayToggleBtn },
+      { container: shortcutsMoreContainer, btn: shortcutsMoreBtn },
+      { container: overlaySliderContainer, btn: overlayToggleBtn },
+    ];
+
+    accordions.forEach((acc) => {
+      if (acc.container) {
+        acc.container.classList.add('collapsed');
+        acc.container.style.maxHeight = '';
+      }
+      if (acc.btn) {
+        acc.btn.classList.remove('expanded');
+      }
+    });
+  } catch (error) {
+    console.error('Erro ao resetar acordeões:', error);
+  }
+}
+
 function closePopups(except: Element | null = null): void {
   if (configPopup && configPopup !== except)
     configPopup.classList.remove('active');
@@ -339,7 +362,8 @@ function deleteShortcut(index: number): void {
 function updateShortcutsVisibility(visible: boolean, animate = true): void {
   if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
   if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
-  if (foldersRow) setCollapsible(foldersRow, visible, animate);
+  if (shortcutsMoreSetting)
+    setCollapsible(shortcutsMoreSetting, visible, animate);
 }
 function renderShortcuts(): void {
   const performRender = (): void => {
@@ -2333,6 +2357,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       initBrand();
     });
   }
+
   if (configBtn && configPopup) {
     const updateState = await getUpdateNoticeState();
     if (updateState.pending) {
@@ -2347,7 +2372,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       e.stopPropagation();
       closePopups(configPopup);
       configPopup.classList.toggle('active');
+
+      // Se fechou no botão principal, reseta
+      if (!configPopup.classList.contains('active')) {
+        resetSettingsAccordions();
+      }
     });
+
     document.addEventListener('click', (e) => {
       const targetNode = e.target as Node | null;
       if (!targetNode) return;
@@ -2357,15 +2388,21 @@ document.addEventListener('DOMContentLoaded', async () => {
           !configBtn.contains(targetNode)
         ) {
           configPopup.classList.remove('active');
+          // Se clicou fora, reseta
+          resetSettingsAccordions();
         }
       }
     });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && configPopup.classList.contains('active')) {
         configPopup.classList.remove('active');
+        // Se apertou ESC, reseta
+        resetSettingsAccordions();
       }
     });
   }
+
   applyInitialAnimationsDisabled();
   applyInitialBlurDisabled();
   applyInitialReducedEffectsState();
@@ -2882,6 +2919,7 @@ document.addEventListener('i18nReady', () => {
   applyBrandInterval();
   renderShortcuts();
 });
+
 document.body.addEventListener('dragover', (e) => {
   if (document.body.classList.contains('is-sorting-shortcuts')) {
     e.preventDefault(); // Isto diz ao navegador: "Podes largar aqui, não bloqueies"
@@ -2890,3 +2928,18 @@ document.body.addEventListener('dragover', (e) => {
     }
   }
 });
+
+if (shortcutsMoreBtn && shortcutsMoreContainer) {
+  shortcutsMoreBtn.addEventListener('click', () => {
+    const isCollapsed = shortcutsMoreContainer.classList.contains('collapsed');
+    if (isCollapsed) {
+      shortcutsMoreContainer.classList.remove('collapsed');
+      shortcutsMoreBtn.classList.add('expanded');
+      shortcutsMoreContainer.style.maxHeight = '500px';
+    } else {
+      shortcutsMoreContainer.classList.add('collapsed');
+      shortcutsMoreBtn.classList.remove('expanded');
+      shortcutsMoreContainer.style.maxHeight = '';
+    }
+  });
+}
