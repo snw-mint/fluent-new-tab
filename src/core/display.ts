@@ -85,11 +85,16 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
     });
   }
 
-  if (type === 'date' || type === 'timedate') {
-    const dateOptions: Intl.DateTimeFormatOptions =
-      dateFormat === 'numeric'
-        ? { day: '2-digit', month: '2-digit', year: 'numeric' }
-        : { dateStyle: 'long' };
+  if (type === 'date' || type === 'timedate' || type === 'weekday') {
+    let dateOptions: Intl.DateTimeFormatOptions;
+
+    if (type === 'weekday' || dateFormat === 'weekday') {
+      dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+    } else if (dateFormat === 'numeric') {
+      dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    } else {
+      dateOptions = { dateStyle: 'long' };
+    }
 
     dateString = new Intl.DateTimeFormat(locale, dateOptions).format(now);
   }
@@ -106,7 +111,7 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   if (type === 'time') {
     textElement.className = 'dynamic-display-anchor time-date-text';
     textElement.innerHTML = timeHTML;
-  } else if (type === 'date') {
+  } else if (type === 'date' || type === 'weekday') {
     textElement.className = 'dynamic-display-anchor greeting-text';
     textElement.textContent = dateString;
   } else if (type === 'timedate') {
@@ -114,7 +119,6 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
     textElement.innerHTML = `${timeHTML}<span class="time-date-sub">${dateString}</span>`;
   }
 }
-
 function renderGreeting(wrapper: HTMLElement): void {
   const now = new Date();
   const currentMinute = now.getMinutes().toString();

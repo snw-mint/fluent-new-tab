@@ -2194,11 +2194,51 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  bindDisplayFeature({
+    displayTypeSelect,
+    displayAdvancedSetting,
+    displayToggleBtn,
+    displaySliderContainer,
+    subGreeting,
+    subTime,
+    subDate,
+  });
+
   if (displayTypeSelect) {
-    // We now use a new key 'displayPreset' to remember the exact dropdown choice
     const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
     displayTypeSelect.value = savedPreset;
-    updateDisplaySubSettingsUI(savedPreset);
+
+    // Função unificada para atualizar a interface do acordeão Advanced
+    const updateAdvancedUI = (preset: string) => {
+      if (subGreeting) subGreeting.style.display = 'none';
+      if (subTime) subTime.style.display = 'none';
+      if (subDate) subDate.style.display = 'none';
+
+      const hasAdvanced = ['greeting', 'time', 'date', 'advanced'].includes(
+        preset,
+      );
+
+      if (displayAdvancedSetting) {
+        displayAdvancedSetting.style.display = hasAdvanced ? 'block' : 'none';
+      }
+
+      if (hasAdvanced && displaySliderContainer && displayToggleBtn) {
+        displaySliderContainer.classList.add('collapsed');
+        displayToggleBtn.classList.remove('expanded');
+        displaySliderContainer.style.maxHeight = '';
+      }
+
+      if (preset === 'greeting' && subGreeting)
+        subGreeting.style.display = 'block';
+      if (preset === 'time' && subTime) subTime.style.display = 'block';
+      if (preset === 'date' && subDate) subDate.style.display = 'block';
+      if (preset === 'advanced') {
+        if (subTime) subTime.style.display = 'block';
+        if (subDate) subDate.style.display = 'block';
+      }
+    };
+
+    updateAdvancedUI(savedPreset);
 
     displayTypeSelect.addEventListener('change', (e) => {
       const target = getSelectTarget(e);
@@ -2206,32 +2246,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       const preset = target.value;
       localStorage.setItem('displayPreset', preset);
 
-      // The Translator: Converts the preset into the specific settings the clock needs
       if (preset === 'greeting') {
         localStorage.setItem('displayType', 'greeting');
-      } else if (preset === 'time_24') {
+      } else if (preset === 'time') {
         localStorage.setItem('displayType', 'time');
-        localStorage.setItem('use12Hour', 'false');
-        localStorage.setItem('showSeconds', 'false');
-      } else if (preset === 'time_24_sec') {
-        localStorage.setItem('displayType', 'time');
-        localStorage.setItem('use12Hour', 'false');
-        localStorage.setItem('showSeconds', 'true');
-      } else if (preset === 'time_12') {
-        localStorage.setItem('displayType', 'time');
-        localStorage.setItem('use12Hour', 'true');
-        localStorage.setItem('showSeconds', 'false');
-      } else if (preset === 'time_12_sec') {
-        localStorage.setItem('displayType', 'time');
-        localStorage.setItem('use12Hour', 'true');
-        localStorage.setItem('showSeconds', 'true');
-      } else if (preset === 'date_text') {
+      } else if (preset === 'date') {
         localStorage.setItem('displayType', 'date');
-        localStorage.setItem('dateFormat', 'text');
-      } else if (preset === 'date_numeric') {
-        localStorage.setItem('displayType', 'date');
-        localStorage.setItem('dateFormat', 'numeric');
-      } else if (preset === 'timedate') {
+      } else if (preset === 'weekday') {
+        localStorage.setItem('displayType', 'weekday');
+      } else if (preset === 'advanced') {
         localStorage.setItem('displayType', 'timedate');
       }
 
@@ -2242,7 +2265,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (dateFormatSelect)
         dateFormatSelect.value = localStorage.getItem('dateFormat') || 'text';
 
-      updateDisplaySubSettingsUI(preset);
+      updateAdvancedUI(preset);
       initBrand();
     });
   }

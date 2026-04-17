@@ -757,3 +757,33 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
     });
   }
 }
+
+interface DisplayBindingOptions {
+  displayTypeSelect: HTMLSelectElement | null;
+  displayAdvancedSetting: HTMLDivElement | null;
+  displayToggleBtn: HTMLDivElement | null;
+  displaySliderContainer: HTMLDivElement | null;
+  subGreeting: HTMLDivElement | null;
+  subTime: HTMLDivElement | null;
+  subDate: HTMLDivElement | null;
+}
+
+function bindDisplayFeature(options: DisplayBindingOptions): void {
+  // Gerencia apenas o clique de expandir/recolher o acordeão
+  if (options.displayToggleBtn && options.displaySliderContainer) {
+    options.displayToggleBtn.addEventListener('click', () => {
+      const isCollapsed =
+        options.displaySliderContainer!.classList.contains('collapsed');
+      if (isCollapsed) {
+        options.displaySliderContainer!.classList.remove('collapsed');
+        options.displayToggleBtn!.classList.add('expanded');
+        // Sobrescreve o max-height do CSS nativo para suportar conteúdos maiores
+        options.displaySliderContainer!.style.maxHeight = '500px';
+      } else {
+        options.displaySliderContainer!.classList.add('collapsed');
+        options.displayToggleBtn!.classList.remove('expanded');
+        options.displaySliderContainer!.style.maxHeight = '';
+      }
+    });
+  }
+}

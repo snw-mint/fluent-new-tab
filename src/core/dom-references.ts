@@ -27,6 +27,13 @@ const greetingWrapper = document.querySelector<HTMLElement>('.logo-wrapper');
 const toggleDisplay = getById<HTMLInputElement>('toggleDisplay');
 const displayMainOptions = getById<HTMLDivElement>('displayMainOptions');
 const displayTypeSelect = getById<HTMLSelectElement>('displayTypeSelect');
+const displayAdvancedSetting = getById<HTMLDivElement>(
+  'displayAdvancedSetting',
+);
+const displayToggleBtn = getById<HTMLDivElement>('display-toggle-btn');
+const displaySliderContainer = getById<HTMLDivElement>(
+  'display-slider-container',
+);
 const subGreeting = getById<HTMLDivElement>('subGreeting');
 const subTime = getById<HTMLDivElement>('subTime');
 const subDate = getById<HTMLDivElement>('subDate');
