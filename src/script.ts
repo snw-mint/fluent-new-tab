@@ -2228,6 +2228,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     subDate,
   });
 
+  bindShortcutRadiusFeature({
+    shortcutRadiusSlider,
+    shortcutRadiusRow,
+    getShortcutRadius: () => shortcutRadius,
+    setShortcutRadius: (radius: string) => {
+      shortcutRadius = radius;
+    },
+  });
+
   if (displayTypeSelect) {
     const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
     displayTypeSelect.value = savedPreset;

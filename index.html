@@ -216,7 +216,7 @@
 
         <div id="wallpaperSourceContainer" class="setting-content-spaced">
           <label for="wallpaperSource" class="setting-label-small" data-i18n="wallpaperSourceLabel">Image Source</label>
-          <select id="wallpaperSource" class="settings-select" style="margin-bottom: 8px">
+          <select id="wallpaperSource" class="settings-select">
             <option value="noSource" data-i18n="nosourceOption">
               No Source
             </option>
@@ -264,7 +264,7 @@
         </div>
 
         <div id="displayMainOptions" class="setting-content-spaced">
-          <select id="displayTypeSelect" class="settings-select" style="margin-bottom: 7px; width: 100%">
+          <select id="displayTypeSelect" class="settings-select">
             <option value="greeting" data-i18n="displayGreeting">Greeting</option>
             <option value="time" data-i18n="displayTime">Time</option>
             <option value="date" data-i18n="displayDate">Date</option>
@@ -290,7 +290,7 @@
                 </div>
                 <div class="setting-content-spaced">
                   <label class="setting-label-small" data-i18n="iconsStyleLabel">Icon Style</label>
-                  <select id="greetingStyleSelect" class="settings-select" style="width: 100%">
+                  <select id="greetingStyleSelect" class="settings-select">
                     <option value="none" data-i18n="styleNone">None</option>
                     <option value="3d" data-i18n="styleEmoji">3D Fluent (Color)</option>
                     <option value="outline" data-i18n="styleOutline">Outline (Minimal)</option>
@@ -329,7 +329,7 @@
 
               <div id="subDate" class="display-sub-setting" style="display: none">
                 <label class="setting-label-small" data-i18n="dateFormatLabel">Format</label>
-                <select id="dateFormatSelect" class="settings-select" style="width: 100%">
+                <select id="dateFormatSelect" class="settings-select">
                   <option value="text" data-i18n="dateText">Written (April 8)</option>
                   <option value="numeric" data-i18n="dateNumeric">Numeric (04/08/2026)</option>
                   <option value="weekday" data-i18n="dateWeekday">Week (Monday, April 8)</option>
@@ -356,7 +356,7 @@
           </label>
         </div>
 
-        <div id="cityInputGroup" class="input-row" style="margin-top: 4px">
+        <div id="cityInputGroup" class="input-row">
           <input type="text" id="cityInput" placeholder="City..." data-i18n="cityPlaceholder" />
           <button id="saveCityBtn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -365,7 +365,7 @@
           </button>
         </div>
 
-        <div id="weatherUnitGroup" class="unit-toggle-row" style="margin-top: 8px">
+        <div id="weatherUnitGroup" class="unit-toggle-row">
           <button type="button" class="unit-btn active" data-unit="c">
             °C
           </button>
@@ -399,7 +399,7 @@
           </select>
         </div>
 
-        <div class="setting-item collapsible-setting" id="shortcutsMoreSetting" style="margin-top: 0.5rem;">
+        <div class="setting-item collapsible-setting" id="shortcutsMoreSetting">
           <div class="setting-header" id="shortcuts-more-btn">
             <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
             <svg class="chevron-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -410,7 +410,8 @@
             </svg>
           </div>
           <div class="setting-content collapsed" id="shortcuts-more-container">
-            <div class="switch-row child-setting" id="foldersRow" style="margin-top: 5px">
+
+            <div class="switch-row child-setting" id="foldersRow">
               <label for="toggleFolders" data-i18n="enableFoldersLabel">Enable Folders</label>
               <label class="fluent-checkbox">
                 <input type="checkbox" id="toggleFolders" />
@@ -423,6 +424,14 @@
                 </span>
               </label>
             </div>
+
+            <div class="slider-row child-setting" id="shortcutRadiusRow">
+              <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner
+                radius</label>
+              <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-50" max="50" step="1"
+                value="0" />
+            </div>
+
           </div>
         </div>
       </div>
@@ -632,7 +641,7 @@
       </div>
 
       <div class="setting-group">
-        <div class="setting-header-row" style="margin-bottom: 8px">
+        <div class="setting-header-row">
           <div class="group-title">
             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
               <path

@@ -768,8 +768,14 @@ interface DisplayBindingOptions {
   subDate: HTMLDivElement | null;
 }
 
+interface ShortcutRadiusBindingOptions {
+  shortcutRadiusSlider: HTMLInputElement | null;
+  shortcutRadiusRow: HTMLDivElement | null;
+  getShortcutRadius: () => string;
+  setShortcutRadius: (radius: string) => void;
+}
+
 function bindDisplayFeature(options: DisplayBindingOptions): void {
-  // Gerencia apenas o clique de expandir/recolher o acordeão
   if (options.displayToggleBtn && options.displaySliderContainer) {
     options.displayToggleBtn.addEventListener('click', () => {
       const isCollapsed =
@@ -777,13 +783,68 @@ function bindDisplayFeature(options: DisplayBindingOptions): void {
       if (isCollapsed) {
         options.displaySliderContainer!.classList.remove('collapsed');
         options.displayToggleBtn!.classList.add('expanded');
-        // Sobrescreve o max-height do CSS nativo para suportar conteúdos maiores
         options.displaySliderContainer!.style.maxHeight = '500px';
       } else {
         options.displaySliderContainer!.classList.add('collapsed');
         options.displayToggleBtn!.classList.remove('expanded');
         options.displaySliderContainer!.style.maxHeight = '';
       }
+    });
+  }
+}
+
+function bindShortcutRadiusFeature(
+  options: ShortcutRadiusBindingOptions,
+): void {
+  if (options.shortcutRadiusSlider && options.shortcutRadiusRow) {
+    const currentRadius = options.getShortcutRadius();
+    options.shortcutRadiusSlider.value = currentRadius;
+
+    const updateSliderUI = (value: string) => {
+      let valNum = parseInt(value, 10);
+
+      if (valNum >= -3 && valNum <= 3) {
+        valNum = 0;
+        options.shortcutRadiusSlider!.value = '0';
+      }
+
+      let radiusRem = 1;
+
+      if (valNum > 0) {
+        radiusRem = 1 + (valNum / 50) * 0.5625;
+      } else if (valNum < 0) {
+        radiusRem = 1 + (valNum / 50) * 0.75;
+      }
+
+      document.documentElement.style.setProperty(
+        '--shortcut-custom-radius',
+        `${radiusRem}rem`,
+      );
+
+      const min = parseInt(options.shortcutRadiusSlider!.min, 10);
+      const max = parseInt(options.shortcutRadiusSlider!.max, 10);
+      const progress = ((valNum - min) / (max - min)) * 100;
+      options.shortcutRadiusSlider!.style.setProperty(
+        '--slider-progress',
+        `${progress}%`,
+      );
+    };
+
+    updateSliderUI(currentRadius);
+
+    options.shortcutRadiusSlider.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement;
+      updateSliderUI(target.value);
+    });
+
+    options.shortcutRadiusSlider.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      let finalVal = parseInt(target.value, 10);
+      if (finalVal >= -3 && finalVal <= 3) {
+        finalVal = 0;
+      }
+      options.setShortcutRadius(String(finalVal));
+      localStorage.setItem('shortcutRadius', String(finalVal));
     });
   }
 }

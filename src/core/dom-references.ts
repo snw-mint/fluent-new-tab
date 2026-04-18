@@ -116,6 +116,8 @@ const overlaySliderContainer = getById<HTMLDivElement>(
 );
 const overlaySlider = getById<HTMLInputElement>('wallpaper-overlay-slider');
 const foldersRow = getById<HTMLDivElement>('foldersRow');
+const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
+const shortcutRadiusSlider = getById<HTMLInputElement>('shortcutRadiusSlider');
 const toggleFolders = getById<HTMLInputElement>('toggleFolders');
 const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
 const addFolderModal = getById<HTMLDivElement>('addFolderModal');
