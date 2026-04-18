@@ -2205,7 +2205,54 @@ function initVisual() {
   }
 
   renderShortcuts();
-  initSortable();
+  if (shortcutsGrid) {
+    initVanillaDragAndDrop({
+      gridContainer: shortcutsGrid,
+      onReorder: (oldIndex, newIndex) => {
+        const targetArray = getActiveShortcutsList();
+        const item = targetArray.splice(oldIndex, 1)[0];
+        if (item) {
+          targetArray.splice(newIndex, 0, item);
+          saveAndRender();
+        }
+      },
+      onMoveToFolder: (itemIndex, folderId) => {
+        const targetArray = getActiveShortcutsList();
+        const folder = shortcuts.find(
+          (s) => s.id === folderId && s.type === 'folder',
+        );
+        const item = targetArray[itemIndex];
+
+        if (folder && item && item.type !== 'folder') {
+          folder.children = folder.children || [];
+          if (folder.children.length < MAX_FOLDER_CAPACITY) {
+            targetArray.splice(itemIndex, 1);
+            folder.children.push(item);
+            saveAndRender();
+          } else {
+            showGridLimitWarning(MAX_FOLDER_CAPACITY, true);
+          }
+        }
+      },
+      onMoveOutFolder: (itemIndex) => {
+        if (!currentFolderId) return;
+
+        const targetArray = getActiveShortcutsList();
+        const item = targetArray.splice(itemIndex, 1)[0];
+
+        if (item) {
+          const maxMain = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+          if (shortcuts.length >= maxMain) {
+            targetArray.splice(itemIndex, 0, item);
+            showGridLimitWarning(maxMain, false);
+          } else {
+            shortcuts.push(item);
+            saveAndRender();
+          }
+        }
+      },
+    });
+  }
   bindExternalShortcutDrop();
   applyInitialShortcutsVisibility();
   applyInitialFoldersSetting();
@@ -2996,7 +3043,7 @@ document.body.addEventListener('dragover', (e) => {
   if (document.body.classList.contains('is-sorting-shortcuts')) {
     e.preventDefault();
     if (e.dataTransfer) {
-      e.dataTransfer.dropEffect = 'move'; 
+      e.dataTransfer.dropEffect = 'move';
     }
   }
 });

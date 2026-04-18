@@ -27,6 +27,7 @@
     "src/core/search.ts",
     "src/core/display.ts",
     "src/core/event-bindings.ts",
+    "src/core/drag-drop.ts",
     "src/script.ts"
   ]
 }

@@ -229,6 +229,18 @@
       opacity: 1;
       transform: scale(1);
     }
+
+    &.folder-back-btn .shortcut-icon {
+      opacity: 1;
+    }
+
+    &.folder-back-btn .shortcut-icon svg {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: var(--text-color);
+    }
   }
 
   &:has(.shortcut-dropdown.active) .shortcut-item {
@@ -245,4 +257,28 @@
     opacity: 0;
     transform: scale(0.5);
   }
+}
+.shortcuts-grid.sorting * {
+  cursor: grabbing !important;
+}
+
+.fluent-drag-ghost {
+  .shortcut-card {
+    background: var(--search-bg);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+  }
+}
+
+.shortcut-item.sortable-placeholder {
+  background: rgba(128, 128, 128, 0.08);
+  border: 1.5px dashed rgba(128, 128, 128, 0.3);
+  border-radius: var(--shortcut-custom-radius, $radius-xl);
+  pointer-events: none;
+  transition: background 0.2s ease;
+}
+
+html[data-theme='dark'] .shortcut-item.sortable-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
 }
