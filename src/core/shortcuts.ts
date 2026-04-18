@@ -91,11 +91,13 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     item.className = 'shortcut-item';
     item.dataset.index = index.toString();
     item.dataset.type = isFolder ? 'folder' : 'shortcut';
+    item.draggable = true;
     if (itemData.id) item.dataset.id = itemData.id;
+
     const card = document.createElement('a');
     card.className = 'shortcut-card';
     card.href = isFolder ? '#' : itemData.url || '#';
-    card.draggable = true;
+    card.draggable = false;
     card.style.color = 'inherit';
     card.style.textDecoration = 'none';
     card.dataset.action = 'open-shortcut';
@@ -166,6 +168,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     titleLink.className = 'shortcut-title';
     titleLink.href = isFolder ? '#' : itemData.url || '#';
     titleLink.textContent = itemData.name;
+    titleLink.draggable = false;
     titleLink.dataset.action = isFolder
       ? 'open-folder-title'
       : 'open-shortcut-title';
