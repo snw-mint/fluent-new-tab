@@ -51,7 +51,8 @@
 
     .search-btn,
     .current-engine-btn,
-    .voice-search-btn {
+    .voice-search-btn,
+    .ask-ai-btn {
       width: 2.5rem;
       height: 2.5rem;
     }
@@ -504,6 +505,20 @@
 }
 
 .search-bar.ask-ai-active.suggestions-open {
+  &::before {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.search-bar.compact.ask-ai-active {
+  &::before {
+    inset: -0.15rem;
+    border-radius: calc(#{$radius-xxl} + 1px);
+  }
+}
+
+.search-bar.compact.ask-ai-active.suggestions-open {
   &::before {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
