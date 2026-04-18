@@ -2199,6 +2199,11 @@ function initVisual() {
   applyInitialBlurDisabled();
   applyInitialReducedEffectsState();
 
+  // Initialize rows select before rendering shortcuts
+  if (rowsSelect) {
+    rowsSelect.value = String(allowedRows);
+  }
+
   renderShortcuts();
   initSortable();
   bindExternalShortcutDrop();
