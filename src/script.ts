@@ -2989,24 +2989,9 @@ document.addEventListener('i18nReady', () => {
 
 document.body.addEventListener('dragover', (e) => {
   if (document.body.classList.contains('is-sorting-shortcuts')) {
-    e.preventDefault(); // Isto diz ao navegador: "Podes largar aqui, não bloqueies"
+    e.preventDefault();
     if (e.dataTransfer) {
-      e.dataTransfer.dropEffect = 'move'; // Força o ícone normal
+      e.dataTransfer.dropEffect = 'move'; 
     }
   }
 });
-
-if (shortcutsMoreBtn && shortcutsMoreContainer) {
-  shortcutsMoreBtn.addEventListener('click', () => {
-    const isCollapsed = shortcutsMoreContainer.classList.contains('collapsed');
-    if (isCollapsed) {
-      shortcutsMoreContainer.classList.remove('collapsed');
-      shortcutsMoreBtn.classList.add('expanded');
-      shortcutsMoreContainer.style.maxHeight = '500px';
-    } else {
-      shortcutsMoreContainer.classList.add('collapsed');
-      shortcutsMoreBtn.classList.remove('expanded');
-      shortcutsMoreContainer.style.maxHeight = '';
-    }
-  });
-}

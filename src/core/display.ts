@@ -50,7 +50,7 @@ function updateDisplayContent(wrapper: HTMLElement): void {
 }
 
 function renderTimeDate(wrapper: HTMLElement, type: string): void {
-  const rawLang = localStorage.getItem('languageProvider') || 'en_US';
+  const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
 
   const showSeconds = localStorage.getItem('showSeconds') === 'true';
@@ -119,6 +119,7 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
     textElement.innerHTML = `${timeHTML}<span class="time-date-sub">${dateString}</span>`;
   }
 }
+
 function renderGreeting(wrapper: HTMLElement): void {
   const now = new Date();
   const currentMinute = now.getMinutes().toString();
