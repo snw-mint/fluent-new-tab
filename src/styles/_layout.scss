@@ -25,7 +25,6 @@
 .logo-wrapper {
   @include flex-center(0.75rem);
   margin-bottom: 1.5rem;
-  animation: fadeIn 0.5s ease-out;
 }
 
 .greeting-text {

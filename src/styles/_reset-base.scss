@@ -52,7 +52,11 @@ body {
   background-attachment: fixed;
   transition:
     opacity 0.2s ease,
-    background-image 0.3s ease-in-out;
+    background-image 0.35s ease-in-out;
+
+  &[data-wallpaper-active='true'] {
+    animation: wallpaperFadeIn 0.4s ease forwards;
+  }
 
   &.loaded {
     opacity: 1;

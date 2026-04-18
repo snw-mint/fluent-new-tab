@@ -2163,25 +2163,7 @@ function handleAskAiSubmit(query: string): void {
   window.open(url, '_blank');
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const restoredFromBackup = await restorePreferencesBackupIfNeeded();
-  if (restoredFromBackup) {
-    await persistPreferencesBackup();
-    location.reload();
-    return;
-  }
-
-  await persistPreferencesBackup();
-  window.addEventListener('wallpaper-api-warning', (event: Event) => {
-    const wallpaperWarning = event as CustomEvent<{ source?: string }>;
-    if (wallpaperWarning.detail?.source !== 'nasa') return;
-    showNasaApodWarningNotice();
-  });
-
-  window.addEventListener('beforeunload', () => {
-    void persistPreferencesBackup();
-  });
-
+async function initCritical() {
   applyInitialTheme();
   if (themeBtns) {
     themeBtns.forEach((btn) => {
@@ -2204,10 +2186,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     applyWallpaperLogic,
   });
   applyBrandInterval();
+  applyInitialWallpaperState();
+}
 
+function initVisual() {
   if (toggleDisplay) {
     toggleDisplay.checked = localStorage.getItem('displayEnabled') !== 'false';
     updateDisplaySettingsVisibility(toggleDisplay.checked, false);
+  }
+
+  applyInitialAnimationsDisabled();
+  applyInitialBlurDisabled();
+  applyInitialReducedEffectsState();
+
+  renderShortcuts();
+  initSortable();
+  bindExternalShortcutDrop();
+  applyInitialShortcutsVisibility();
+  applyInitialFoldersSetting();
+  applyInitialSearchBarVisibility();
+  updateAskAiBtnVisibility();
+}
+
+function initAllEventBindings() {
+  if (toggleDisplay) {
     toggleDisplay.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
@@ -2241,7 +2243,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
     displayTypeSelect.value = savedPreset;
 
-    // Função unificada para atualizar a interface do acordeão Advanced
     const updateAdvancedUI = (preset: string) => {
       if (subGreeting) subGreeting.style.display = 'none';
       if (subTime) subTime.style.display = 'none';
@@ -2368,21 +2369,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   if (configBtn && configPopup) {
-    const updateState = await getUpdateNoticeState();
-    if (updateState.pending) {
-      pendingUpdateNoticeVersion =
-        updateState.version || chrome.runtime.getManifest().version;
-      if (document.body.classList.contains('loaded')) {
-        showPendingUpdateNoticeIfAny();
-      }
-    }
-
     configBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       closePopups(configPopup);
       configPopup.classList.toggle('active');
 
-      // Se fechou no botão principal, reseta
       if (!configPopup.classList.contains('active')) {
         resetSettingsAccordions();
       }
@@ -2397,7 +2388,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           !configBtn.contains(targetNode)
         ) {
           configPopup.classList.remove('active');
-          // Se clicou fora, reseta
           resetSettingsAccordions();
         }
       }
@@ -2406,41 +2396,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && configPopup.classList.contains('active')) {
         configPopup.classList.remove('active');
-        // Se apertou ESC, reseta
         resetSettingsAccordions();
       }
     });
   }
 
-  applyInitialAnimationsDisabled();
-  applyInitialBlurDisabled();
-  applyInitialReducedEffectsState();
   if (toggleDisableAnimations) {
     toggleDisableAnimations.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-
       animationsDisabled = target.checked;
       localStorage.setItem('animationsDisabled', String(target.checked));
       localStorage.removeItem('performanceModeEnabled');
       updateAnimationsDisabled(target.checked);
     });
   }
+
   if (toggleDisableBlur) {
     toggleDisableBlur.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-
       blurDisabled = target.checked;
       localStorage.setItem('blurDisabled', String(target.checked));
       updateBlurDisabled(target.checked);
     });
   }
+
   if (toggleReducedEffects) {
     toggleReducedEffects.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-
       reducedEffectsEnabled = target.checked;
       localStorage.setItem(
         'reducedEffectsEnabled',
@@ -2451,16 +2436,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         animationsDisabled = false;
         localStorage.setItem('animationsDisabled', 'false');
         updateAnimationsDisabled(false);
-
         if (toggleDisableBlur) toggleDisableBlur.checked = false;
         blurDisabled = false;
         localStorage.setItem('blurDisabled', 'false');
         updateBlurDisabled(false);
       }
-
       updateReducedEffectsVisibility(reducedEffectsEnabled);
     });
   }
+
   document.addEventListener('click', (e) => {
     const targetNode = e.target as Node | null;
     if (!targetNode) return;
@@ -2473,13 +2457,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     syncShortcutDropdownState();
   });
+
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
   [addModal, chooseTypeModal, addFolderModal].forEach((modal) => {
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
     });
   });
+
   initCustomIconToggle();
+
   if (shortcutForm) {
     shortcutForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -2593,11 +2581,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderShortcuts();
     });
   }
-  renderShortcuts();
-  initSortable();
-  bindExternalShortcutDrop();
-  applyInitialShortcutsVisibility();
-  applyInitialFoldersSetting();
+
   if (toggleShortcuts) {
     toggleShortcuts.addEventListener('change', (e) => {
       const target = getInputTarget(e);
@@ -2607,6 +2591,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       localStorage.setItem('shortcutsVisible', String(isVisible));
     });
   }
+
   if (toggleFolders) {
     toggleFolders.addEventListener('change', (e) => {
       const target = getInputTarget(e);
@@ -2654,7 +2639,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateLauncherFooterVariant();
     });
   }
+
   const toggleCompact = getById<HTMLInputElement>('toggleCompactBar');
+
   bindSearchFeature({
     applyInitialSearchEngine,
     engineBtn,
@@ -2707,6 +2694,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       startVoiceSearch();
     });
   }
+
   if (askAiBtn) {
     askAiBtn.addEventListener('click', () => {
       setAskAiMode(!askAiMode);
@@ -2726,7 +2714,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  updateAskAiBtnVisibility();
   bindWeatherFeature({
     applyInitialWeatherState,
     toggleWeather,
@@ -2764,6 +2751,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     launcherPopup,
     closePopups,
   });
+
   bindLauncherFolderButton();
 
   bindWallpaperFeature({
@@ -2832,6 +2820,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       versionDisplay.textContent = 'v1.0';
     }
   }
+
   if (exportBtn) {
     exportBtn.addEventListener('click', () => {
       const backupData: Record<string, string> = {};
@@ -2841,7 +2830,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       backupData[SHORTCUTS_TREE_BACKUP_KEY] =
         localStorage.getItem('shortcuts') || '[]';
-
       backupData._backupDate = new Date().toISOString();
       const blob = new Blob([JSON.stringify(backupData, null, 2)], {
         type: 'application/json',
@@ -2855,6 +2843,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.body.removeChild(a);
     });
   }
+
   if (importBtn && importInput) {
     importBtn.addEventListener('click', () => importInput.click());
     importInput.addEventListener('change', (e) => {
@@ -2887,12 +2876,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const value = data[key];
                 if (typeof value === 'string') localStorage.setItem(key, value);
               });
-
               const treeBackup = data[SHORTCUTS_TREE_BACKUP_KEY];
               if (typeof treeBackup === 'string') {
                 localStorage.setItem('shortcuts', treeBackup);
               }
-
               location.reload();
             },
           });
@@ -2920,6 +2907,77 @@ document.addEventListener('DOMContentLoaded', async () => {
       reader.readAsText(file);
     });
   }
+
+  if (shortcutsMoreBtn && shortcutsMoreContainer) {
+    shortcutsMoreBtn.addEventListener('click', () => {
+      const isCollapsed =
+        shortcutsMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        shortcutsMoreContainer.classList.remove('collapsed');
+        shortcutsMoreBtn.classList.add('expanded');
+        shortcutsMoreContainer.style.maxHeight = '500px';
+      } else {
+        shortcutsMoreContainer.classList.add('collapsed');
+        shortcutsMoreBtn.classList.remove('expanded');
+        shortcutsMoreContainer.style.maxHeight = '';
+      }
+    });
+  }
+}
+
+async function initDeferred() {
+  window.addEventListener('wallpaper-api-warning', (event: Event) => {
+    const wallpaperWarning = event as CustomEvent<{ source?: string }>;
+    if (wallpaperWarning.detail?.source !== 'nasa') return;
+    showNasaApodWarningNotice();
+  });
+
+  window.addEventListener('beforeunload', () => {
+    void persistPreferencesBackup();
+  });
+
+  await persistPreferencesBackup();
+
+  const updateState = await getUpdateNoticeState();
+  if (updateState.pending) {
+    pendingUpdateNoticeVersion =
+      updateState.version || chrome.runtime.getManifest().version;
+    if (document.body.classList.contains('loaded')) {
+      showPendingUpdateNoticeIfAny();
+    }
+  }
+  const fadeEl = document.getElementById('wallpaper-fade');
+  if (fadeEl) {
+    fadeEl.addEventListener('transitionend', () => fadeEl.remove(), {
+      once: true,
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const restoredFromBackup = await restorePreferencesBackupIfNeeded();
+  if (restoredFromBackup) {
+    await persistPreferencesBackup();
+    location.reload();
+    return;
+  }
+
+  initCritical();
+
+  requestAnimationFrame(() => {
+    initVisual();
+
+    const runDeferred = () => {
+      initAllEventBindings();
+      void initDeferred();
+    };
+
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(runDeferred, { timeout: 600 });
+    } else {
+      setTimeout(runDeferred, 0);
+    }
+  });
 });
 
 document.addEventListener('i18nReady', () => {

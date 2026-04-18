@@ -142,6 +142,10 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
       img.src = targetIconSrc;
 
+      img.onload = function () {
+        img.classList.add('loaded');
+      };
+
       img.onerror = function () {
         img.onerror = null;
         img.src =

@@ -133,3 +133,12 @@
     opacity: 1;
   }
 }
+
+@keyframes wallpaperFadeIn {
+  from {
+    background-color: var(--bg-color);
+  }
+  to {
+    background-color: transparent;
+  }
+}

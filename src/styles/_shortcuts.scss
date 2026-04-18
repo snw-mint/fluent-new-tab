@@ -67,6 +67,12 @@
       height: 1.75rem;
       object-fit: contain;
       pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+
+      &.loaded {
+        opacity: 1;
+      }
     }
 
     .shortcut-title {

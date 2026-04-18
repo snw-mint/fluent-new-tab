@@ -67,9 +67,32 @@
     }
   }
 
+  const fadeOverlay = document.createElement('style');
+  fadeOverlay.id = 'wallpaper-fade-overlay';
+  fadeOverlay.textContent = `
+    #wallpaper-fade {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 99999;
+      opacity: 1;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+    body.loaded #wallpaper-fade {
+      opacity: 0;
+    }
+  `;
+  document.head.appendChild(fadeOverlay);
+
+  const fadeEl = document.createElement('div');
+  fadeEl.id = 'wallpaper-fade';
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.prepend(fadeEl);
+  });
+
   if (!initialWallpaperUrl) return;
 
-  // Apply synchronously — no setTimeout — to avoid the 100ms blank flash
   const style = document.createElement('style');
   style.id = 'early-wallpaper-style';
   style.textContent = `body { background-image: url('${initialWallpaperUrl}'); background-size: cover; background-position: center; background-attachment: fixed; }`;

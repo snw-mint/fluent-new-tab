@@ -18,6 +18,17 @@
   <link rel="preconnect" href="https://peapix.com" />
   <link rel="preconnect" href="https://suggestqueries.google.com" crossorigin />
 
+  <link rel="preload" href="style.css" as="style" />
+  <style>
+    body {
+      opacity: 0;
+      background-color: #f9f9f9;
+    }
+
+    html[data-theme='dark'] body {
+      background-color: #202020;
+    }
+  </style>
   <link rel="stylesheet" href="style.css" />
 
   <script src="scripts/theme-loader.js"></script>
@@ -268,7 +279,6 @@
             <option value="greeting" data-i18n="displayGreeting">Greeting</option>
             <option value="time" data-i18n="displayTime">Time</option>
             <option value="date" data-i18n="displayDate">Date</option>
-            <option value="weekday" data-i18n="displayWeekday">Day of Week</option>
             <option value="advanced" data-i18n="displayAdvanced">Time & Date</option>
           </select>
 
