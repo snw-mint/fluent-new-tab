@@ -64,6 +64,15 @@
   "grantPermissionLabel": { "message": "Grant Permission" },
   "learnMoreLabel": { "message": "Learn more" },
   "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
     "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
     "placeholders": {
       "api_name": {

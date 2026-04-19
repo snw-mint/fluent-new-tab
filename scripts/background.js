@@ -65,9 +65,62 @@ chrome.runtime.onInstalled.addListener((details) => {
 
   if (details.reason === 'update') {
     const version = chrome.runtime.getManifest().version;
-    chrome.storage.local.set({
-      [UPDATE_NOTICE_PENDING_KEY]: true,
-      [UPDATE_NOTICE_VERSION_KEY]: version,
-    });
+
+    const FEATURE_PERMISSIONS = {
+      weatherEnabled: [
+        'https://geocoding-api.open-meteo.com/*',
+        'https://api.open-meteo.com/*',
+      ],
+      suggestionsEnabled: ['https://suggestqueries.google.com/*'],
+      wallpaperBing: ['https://peapix.com/*', 'https://img.peapix.com/*'],
+      wallpaperNasa: ['https://api.nasa.gov/*', 'https://apod.nasa.gov/*'],
+      wallpaperWikimedia: [
+        'https://commons.wikimedia.org/*',
+        'https://upload.wikimedia.org/*',
+      ],
+    };
+
+    chrome.storage.local.get(
+      [
+        'wallpaperSource',
+        'wallpaperType',
+        'weatherEnabled',
+        'suggestionsEnabled',
+      ],
+      (stored) => {
+        const brokenFeatures = [];
+
+        const checkFeature = (key, origins) => {
+          chrome.permissions.contains({ origins }, (has) => {
+            if (!has) brokenFeatures.push(key);
+          });
+        };
+
+        if (stored.weatherEnabled === 'true')
+          checkFeature('weather', FEATURE_PERMISSIONS.weatherEnabled);
+        if (stored.suggestionsEnabled === 'true')
+          checkFeature('suggestions', FEATURE_PERMISSIONS.suggestionsEnabled);
+        if (stored.wallpaperSource === 'api') {
+          if (stored.wallpaperType === 'bing')
+            checkFeature('bing', FEATURE_PERMISSIONS.wallpaperBing);
+          if (stored.wallpaperType === 'nasa')
+            checkFeature('nasa', FEATURE_PERMISSIONS.wallpaperNasa);
+          if (stored.wallpaperType === 'wikimedia')
+            checkFeature('wikimedia', FEATURE_PERMISSIONS.wallpaperWikimedia);
+        }
+
+        setTimeout(() => {
+          if (brokenFeatures.length > 0) {
+            chrome.storage.local.set({ reauth_needed: brokenFeatures });
+            chrome.action.setBadgeText({ text: '!' });
+            chrome.action.setBadgeBackgroundColor({ color: '#FF4444' });
+          }
+          chrome.storage.local.set({
+            [UPDATE_NOTICE_PENDING_KEY]: true,
+            [UPDATE_NOTICE_VERSION_KEY]: version,
+          });
+        }, 300);
+      },
+    );
   }
 });

@@ -2998,12 +2998,80 @@ async function initDeferred() {
       showPendingUpdateNoticeIfAny();
     }
   }
+
+  const { reauth_needed } = (await getStorageLocalItems('reauth_needed')) as {
+    reauth_needed?: string[];
+  };
+  if (reauth_needed?.length) {
+    showReauthNotice(reauth_needed);
+  }
+
   const fadeEl = document.getElementById('wallpaper-fade');
   if (fadeEl) {
     fadeEl.addEventListener('transitionend', () => fadeEl.remove(), {
       once: true,
     });
   }
+}
+
+function showReauthNotice(features: string[]): void {
+  const FEATURE_META: Record<
+    string,
+    { nameKey: string; nameFallback: string }
+  > = {
+    weather: {
+      nameKey: 'apiNameWeather',
+      nameFallback: 'Weather',
+    },
+    suggestions: {
+      nameKey: 'apiNameSuggestions',
+      nameFallback: 'Search Suggestions',
+    },
+    bing: {
+      nameKey: 'apiNameBing',
+      nameFallback: 'Bing Wallpaper',
+    },
+    nasa: {
+      nameKey: 'apiNameNasa',
+      nameFallback: 'NASA APOD',
+    },
+    wikimedia: {
+      nameKey: 'apiNameWiki',
+      nameFallback: 'Wikimedia Wallpaper',
+    },
+  };
+
+  const first = FEATURE_META[features[0]];
+  const featureName = first
+    ? getLocalizedWarningText(first.nameKey, first.nameFallback)
+    : features[0];
+  const learnMoreUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
+
+  warningModal.show({
+    title: getLocalizedWarningText('reauthNoticeTitle', 'Permission Required'),
+    message: getLocalizedWarningText(
+      'reauthNoticeText',
+      "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again.",
+      { FEATURE: featureName },
+    ),
+    learnMoreUrl,
+    confirmText: getLocalizedWarningText(
+      'grantPermissionLabel',
+      'Grant Permission',
+    ),
+    cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+    confirmVariant: 'accent',
+    onConfirm: async () => {
+      for (const feature of features) {
+        const origins =
+          HOST_PERMISSIONS[feature as keyof typeof HOST_PERMISSIONS];
+        if (origins) await requestPermission(origins);
+      }
+      await setStorageLocalItems({ reauth_needed: [] });
+      (chrome as any).action?.setBadgeText?.({ text: '' });
+    },
+    onCancel: () => {},
+  });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

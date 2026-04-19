@@ -97,6 +97,13 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
     }
 
     dateString = new Intl.DateTimeFormat(locale, dateOptions).format(now);
+
+    if (
+      dateString &&
+      (type === 'weekday' || dateFormat === 'weekday' || dateFormat === 'text')
+    ) {
+      dateString = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+    }
   }
 
   let textElement = wrapper.querySelector(

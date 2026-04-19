@@ -28,6 +28,13 @@ interface ChromeLike {
       set: (items: Record<string, unknown>, callback?: () => void) => void;
     };
   };
+  action?: {
+    setBadgeText: (details: { text: string; tabId?: number }) => void;
+    setBadgeBackgroundColor: (details: {
+      color: string;
+      tabId?: number;
+    }) => void;
+  };
 }
 
 interface SortableLike {
