@@ -23,12 +23,10 @@ const root = process.cwd();
 const dist = resolve(root, 'dist');
 const isRelease = process.argv.includes('--release');
 
-// ─── Step 1: Ensure dist exists ───────────────────────────────────────────────
 if (!existsSync(dist)) {
   mkdirSync(dist, { recursive: true });
 }
 
-// ─── Step 2: Copy static files ────────────────────────────────────────────────
 const copyMap = [
   ['manifest.json', 'manifest.json'],
   ['index.html', 'index.html'],
@@ -53,10 +51,8 @@ if (!isRelease) {
   process.exit(0);
 }
 
-// ─── Step 3: Release — minify everything ──────────────────────────────────────
 console.log('🔧 Release build: minifying all dist files…');
 
-// 3a. Minify compiled JS files with terser (already compiled from TS)
 const jsTargets = ['dist/script.js'];
 
 for (const target of jsTargets) {
@@ -68,7 +64,6 @@ for (const target of jsTargets) {
   console.log(`  ✔ JS minified: ${target}`);
 }
 
-// 3b. Minify plain JS scripts (i18n.js, theme-loader.js — skip already-minified sortable)
 const scriptsDir = resolve(dist, 'scripts');
 const jsScripts = readdirSync(scriptsDir).filter(
   (f) => f.endsWith('.js') && !f.includes('.min.'),
@@ -82,7 +77,6 @@ for (const file of jsScripts) {
   console.log(`  ✔ Script minified: scripts/${file}`);
 }
 
-// 3c. Minify _locales JSON (remove whitespace — saves ~25-35% per file)
 function minifyJsonDir(dir) {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
@@ -103,7 +97,6 @@ function minifyJsonDir(dir) {
 
 minifyJsonDir(resolve(dist, '_locales'));
 
-// 3d. Minify manifest.json
 const manifestPath = resolve(dist, 'manifest.json');
 try {
   const raw = readFileSync(manifestPath, 'utf8');
@@ -113,23 +106,13 @@ try {
   console.warn(`  ⚠ Could not minify manifest.json — ${e.message}`);
 }
 
-// 3e. Minify index.html (strip HTML comments and collapse whitespace between tags)
 const htmlPath = resolve(dist, 'index.html');
 try {
   let html = readFileSync(htmlPath, 'utf8');
-
-  // Remove HTML comments (but NOT IE conditionals — not used here)
-  html = html.replace(/<!--(?!\[if)[\s\S]*?-->/g, '');
-
-  // Collapse runs of whitespace between tags to a single space
-  html = html.replace(/>\s{2,}</g, '> <');
-
-  // Trim leading/trailing whitespace on each line and remove blank lines
-  html = html
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => line.length > 0)
-    .join('');
+  html = html.replace(/<!--[\s\S]*?-->/g, '');
+  html = html.replace(/\s+/g, ' ');
+  html = html.replace(/>\s+</g, '><');
+  html = html.trim();
 
   writeFileSync(htmlPath, html, 'utf8');
   console.log('  ✔ HTML minified: index.html');

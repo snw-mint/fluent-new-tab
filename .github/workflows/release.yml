@@ -23,7 +23,7 @@ jobs:
             search: 'bing'
           - browser: firefox
             launcher: 'proton'
-            search: 'duckduckgo'
+            search: 'duck'
 
     steps:
       - name: Checkout code
