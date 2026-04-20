@@ -1016,7 +1016,6 @@ async function getOptimizedApiWallpaper(
     try {
       const cachedBlob = await getWallpaperFromDB(cacheKey);
       if (cachedBlob) {
-        console.log(`[Wallpaper] Serving ${source} from IndexedDB cache.`);
         return URL.createObjectURL(cachedBlob);
       }
     } catch (e) {
