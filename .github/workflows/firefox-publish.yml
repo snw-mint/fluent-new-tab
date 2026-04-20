@@ -12,13 +12,13 @@ jobs:
 
       - name: Download Firefox release artifact
         run: |
-          gh release download ${{ github.ref_name }} --pattern "*firefox*.zip" --dir .
+          gh release download ${{ github.ref_name }} --pattern "*firefox.zip" --dir .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Unzip Firefox build
         run: |
-          unzip *firefox*.zip -d extension
+          unzip fluent-new-tab-${{ github.ref_name }}-firefox.zip -d extension
 
       - name: Install web-ext
         run: npm install -g web-ext@7

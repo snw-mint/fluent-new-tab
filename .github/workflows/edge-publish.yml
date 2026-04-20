@@ -20,6 +20,6 @@ jobs:
         uses: wdzeng/edge-addon@v2
         with:
           product-id: ${{ secrets.EDGE_PRODUCT_ID }}
-          zip-path: fluent-new-tab-${{ github.ref_name }}.zip
+          zip-path: fluent-new-tab-${{ github.ref_name }}-edge.zip
           client-id: ${{ secrets.EDGE_CLIENT_ID }}
           api-key: ${{ secrets.EDGE_API_KEY }}

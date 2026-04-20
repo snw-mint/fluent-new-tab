@@ -11,6 +11,19 @@ permissions:
 jobs:
   build-release:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chrome, edge, firefox]
+        include:
+          - browser: chrome
+            launcher: 'google'
+            search: 'google'
+          - browser: edge
+            launcher: 'microsoft'
+            search: 'bing'
+          - browser: firefox
+            launcher: 'proton'
+            search: 'duckduckgo'
 
     steps:
       - name: Checkout code
@@ -25,6 +38,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Inject Defaults for ${{ matrix.browser }}
+        run: |
+          # Usa o sed para buscar a chave e substituir o valor pela variável do matrix
+          sed -i -E "s/launcherProvider:\s*'[a-zA-Z0-9_]+'/launcherProvider: '${{ matrix.launcher }}'/" scripts/background.js
+          sed -i -E "s/searchEngine:\s*'[a-zA-Z0-9_]+'/searchEngine: '${{ matrix.search }}'/" scripts/background.js
+
       - name: Run release build
         run: npm run build:release
 
@@ -35,12 +54,14 @@ jobs:
       - name: Package extension as zip
         run: |
           cd dist
-          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip" . \
+          # Adiciona o nome do navegador no final do arquivo zip
+          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-${{ matrix.browser }}.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
-          files: fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip
+          files: fluent-new-tab-v${{ steps.version.outputs.VERSION }}-${{ matrix.browser }}.zip
           generate_release_notes: true
+          draft: true
