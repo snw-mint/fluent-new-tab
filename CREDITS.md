@@ -4,7 +4,7 @@
 - [Sass](https://sass-lang.com) / [MIT](https://github.com/sass/dart-sass/blob/main/LICENSE) - [Homepage](https://sass-lang.com)
 - [Terser](https://terser.org) / [BSD-2-Clause](https://github.com/terser/terser/blob/master/LICENSE) - [Homepage](https://terser.org)
 - [Rimraf](https://github.com/isaacs/rimraf) / [BlueOak-1.0.0](https://github.com/isaacs/rimraf/blob/main/LICENSE) - [Homepage](https://github.com/isaacs/rimraf)
-- [Sortable.js](https://sortablejs.github.io/Sortable/) / [MIT](https://github.com/SortableJS/Sortable/blob/master/LICENSE) - [Homepage](https://sortablejs.github.io/Sortable/)
+
 - [Fluent Design System](https://fluent2.microsoft.design) / [MIT](https://github.com/microsoft/fluentui/blob/master/LICENSE) - [Homepage](https://fluent2.microsoft.design)
 - [Vemetric](https://github.com/Vemetric/favicon-api) / [MIT](https://github.com/vemetric/favicon-api/blob/main/LICENSE) - [Homepage](https://vemetric.com/favicon-api)
 - [MeteoCons](https://github.com/basmilius/weather-icons) / [MIT](https://github.com/basmilius/weather-icons/blob/dev/LICENSE) - [Homepage](https://bas.dev/work/meteocons)

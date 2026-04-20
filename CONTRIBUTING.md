@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" /> Welcome to Fluent New Tab Contributing Guide
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" align="center" /> Welcome to Fluent New Tab Contributing Guide
 
 Thank you for your interest in contributing to **Fluent New Tab**! We are thrilled to have you here.
 
@@ -36,34 +36,36 @@ Here is an overview of the project's file organization:
 fluent-new-tab/
 ├── src/
 │   ├── core/
-│   │   ├── types.ts         # Shared interfaces and global declarations
-│   │   ├── config.ts        # Constants and static app configuration
-│   │   ├── dom-utils.ts     # Typed DOM helper utilities
-│   │   ├── state.ts         # Shared runtime state and storage-backed values
-│   │   ├── dom-references.ts # Centralized typed DOM references
-│   │   ├── services.ts      # API and remote-data service functions
-│   │   ├── weather.ts       # Weather icon mapping and weather widget rendering
-│   │   ├── shortcuts.ts     # Shortcuts grid rendering and interaction wiring
-│   │   ├── wallpaper-storage.ts # IndexedDB persistence and image processing for wallpapers
-│   │   ├── launcher.ts      # Launcher visibility and apps grid rendering helpers
-│   │   ├── search.ts        # Search suggestions UI and Google query param helpers
-│   │   ├── greeting.ts      # Greeting content render logic and localization fallback
-│   │   └── event-bindings.ts # Feature-level event wiring (weather, launcher, search, wallpaper)
+│   │   ├── color.ts             # This file manages accent color application.
+│   │   ├── config.ts            # Constants and static app configuration
+│   │   ├── display.ts           # This file manages the rendering and updating of the time, date, and greeting display.
+│   │   ├── dom-references.ts    # This file centralizes all DOM element references used across the application.
+│   │   ├── dom-units.ts         # This file provides utility functions for common DOM manipulations and element retrieval.
+│   │   ├── drag-drop.ts         # This file implements vanilla HTML5 drag-and-drop functionality for managing shortcuts.
+│   │   ├── event-bidings.ts     # This file contains functions to bind event listeners for various UI components and features.
+│   │   ├── launcher.ts          # This file manages the display, rendering, and interaction of the application launcher.
+│   │   ├── search.ts            # This file manages search functionality, including rendering and updating search suggestions.
+│   │   ├── services.ts          # This file provides functions for interacting with external APIs, including fetching wallpapers.
+│   │   ├── shortcuts.ts         # This file manages the rendering, interaction, and state of shortcuts and folders.
+│   │   ├── state.ts             # This file manages the application's global state, including user preference.
+│   │   ├── types.ts             # This file defines various TypeScript interfaces and type aliases used.
+│   │   ├── wallpaper-storage.ts # This file manages the storage and retrieval of custom wallpapers using IndexedDB
+│   │   └── weather.ts           # This file handles the rendering and display of weather information on the new tab page.
 │   ├── styles/
-│   │   ├── _variables.scss
-│   │   ├── _reset-base.scss
-│   │   ├── _layout.scss
+│   │   ├── _animation.scss
+│   │   ├── _color.scss
 │   │   ├── _header-controls.scss
-│   │   ├── _search.scss
-│   │   ├── _shortcuts.scss
-│   │   ├── _modals.scss
-│   │   ├── _settings.scss
-│   │   ├── _widgets.scss
 │   │   ├── _launcher.scss
-│   │   ├── _sortable.scss
-│   │   ├── _animations.scss
-│   │   ├── _dark-mode.scss
-│   │   └── _wallpaper-credits.scss
+│   │   ├── _layout.scss
+│   │   ├── _mixins.scss
+│   │   ├── _modals.scss
+│   │   ├── _reset-base.scss
+│   │   ├── _search.scss
+│   │   ├── _settings.scss
+│   │   ├── _shortcuts.scss
+│   │   ├── _variables.scss
+│   │   ├── _wallpaper-storage.scss
+│   │   └── _widgets.scss
 │   ├── script.ts            # Main app flow and feature orchestration
 │   └── style.scss           # Main SCSS entrypoint that imports partials
 ├── dist/                    # Build output loaded as unpacked extension
@@ -71,7 +73,11 @@ fluent-new-tab/
 │   └── build.mjs            # Copies static extension files to dist
 ├── assets/                  # Core assets (Favicons, UI icons)
 │   └── apps/                # Ecosystem icons organized by provider
-│   └── apps/                # Search engine icons
+│   └── search-engines/      # Search engine icons
+│   └── emojis/              # Fluent emojis for greetings
+│   └── greetings/           # Outline icons for greetings
+│   └── sfx/                 # Sound effects
+│   └── weather/             # Animated Weather icons
 ├── index.html               # Main entry point (Structure)
 └── manifest.json            # Extension configuration
 ```

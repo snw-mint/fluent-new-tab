@@ -29,15 +29,10 @@ More details on the [official website.](https://snw-mint.github.io/fluent-new-ta
 
 The easiest option is the official store, with automatic updates.
 
-<a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc" style="display:inline-block;margin:0 0px;">
-  <img src="repo-assets/download-edge.svg" width="200"/>
-</a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab" style="display:inline-block;margin:0 0px;">
-  <img src="repo-assets/download-firefox.svg" width="200"/>
-</a>
-<a href="https://github.com/snw-mint/fluent-new-tab/releases" style="display:inline-block;margin:0 0px;">
-  <img src="repo-assets/download-github.svg" width="200"/>
-</a>
+[![Edge](repo-assets\download-edge.png)](https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc)
+[![Chrome](repo-assets\download-chrome.png)](https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/)
+[![Firefox](repo-assets\download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/)
+[![Firefox](repo-assets\download-github.png)](https://github.com/snw-mint/fluent-new-tab/releases)
 
 > [!NOTE]  
 > Updates to Microsoft add-ons may take up to 7 business days to become available after a release.

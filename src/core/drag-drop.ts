@@ -7,8 +7,8 @@
  */
 
 /*
- * This file contains functions to bind event listeners for various UI components and features,
- * managing user interactions and updating application state accordingly.
+ * This file implements vanilla HTML5 drag-and-drop functionality for managing shortcuts,
+ * including reordering, moving items in and out of folders, and handling drag animations.
  */
 
 interface DragDropOptions {
