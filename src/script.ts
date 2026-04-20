@@ -101,23 +101,28 @@ function openChooseTypeModal(): void {
   hideAllModals();
   if (chooseTypeModal) chooseTypeModal.classList.add('active');
 }
+
 function openFolderModal(name = '', isEditing = false): void {
   hideAllModals();
-  if (!addFolderModal || !inputFolderName) return;
+  if (!addFolderModal || !inputFolderName || !inputFolderIcon) return;
   addFolderModal.classList.add('active');
+
+  const currentArray = getActiveShortcutsList();
+  const existingFolder =
+    editingIndex !== null ? currentArray[editingIndex] : null;
+
   if (folderModalTitle) {
     const tKey = isEditing ? 'editFolderTitle' : 'addFolderTitle';
-    const fallback = isEditing ? 'Edit Folder' : 'Add Folder';
-    const translated = window.getTranslation(tKey);
-    const safeText =
-      translated && translated !== tKey && translated.toLowerCase() !== 'edit'
-        ? translated
-        : fallback;
-    folderModalTitle.textContent = safeText;
+    folderModalTitle.textContent = window.getTranslation(tKey);
   }
+
   inputFolderName.value = name;
+  inputFolderIcon.value = existingFolder?.customIcon || '';
+  setFolderCustomIconVisibility(Boolean(existingFolder?.customIcon));
+
   setTimeout(() => inputFolderName.focus(), 100);
 }
+
 function openShortcutModal(existingItem: Shortcut | null): void {
   hideAllModals();
   if (!addModal) return;
@@ -2234,6 +2239,22 @@ function initVisual() {
   updateAskAiBtnVisibility();
 }
 
+function initFolderCustomIconToggle(): void {
+  if (!toggleFolderCustomIcon || !folderCustomIconGroup) return;
+  toggleFolderCustomIcon.addEventListener('click', () => {
+    const isHidden = folderCustomIconGroup.classList.contains('hidden');
+    setFolderCustomIconVisibility(isHidden);
+  });
+}
+
+function setFolderCustomIconVisibility(show: boolean): void {
+  if (!folderCustomIconGroup || !toggleFolderCustomIcon) return;
+  folderCustomIconGroup.classList.toggle('hidden', !show);
+  toggleFolderCustomIcon.classList.toggle('expanded', show);
+  toggleFolderCustomIcon.setAttribute('aria-expanded', show ? 'true' : 'false');
+  if (!show && inputFolderIcon) inputFolderIcon.value = '';
+}
+
 function initAllEventBindings() {
   if (toggleDisplay) {
     toggleDisplay.addEventListener('change', (e) => {
@@ -2262,6 +2283,11 @@ function initAllEventBindings() {
     getShortcutRadius: () => shortcutRadius,
     setShortcutRadius: (radius: string) => {
       shortcutRadius = radius;
+    },
+    toggleHideShortcutNames,
+    getHideShortcutNames: () => hideShortcutNames,
+    setHideShortcutNames: (enabled: boolean) => {
+      hideShortcutNames = enabled;
     },
   });
 
@@ -2493,52 +2519,13 @@ function initAllEventBindings() {
   });
 
   initCustomIconToggle();
-
-  if (shortcutForm) {
-    shortcutForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const inputName = getInputById('inputName');
-      const inputUrl = getInputById('inputUrl');
-      const inputIcon = getInputById('inputIcon');
-      if (!inputName || !inputUrl) return;
-
-      let url = inputUrl.value || '';
-      if (url && !/^https?:\/\//i.test(url)) url = 'https://' + url;
-      const newShortcut: Shortcut = {
-        type: 'link',
-        name: inputName.value,
-        url: url,
-        customIcon: inputIcon?.value || null,
-      };
-      const targetArray = getActiveShortcutsList();
-
-      if (editingIndex !== null && editingIndex >= 0) {
-        targetArray[editingIndex] = {
-          ...targetArray[editingIndex],
-          ...newShortcut,
-        };
-      } else {
-        const limit = currentFolderId
-          ? MAX_FOLDER_CAPACITY
-          : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
-        if (targetArray.length >= limit) {
-          showGridLimitWarning(limit, Boolean(currentFolderId));
-          return;
-        }
-        targetArray.push(newShortcut);
-      }
-
-      saveAndRender();
-      editingIndex = null;
-      closeModal();
-    });
-  }
+  initFolderCustomIconToggle();
 
   const btnChooseLink = document.getElementById('btnChooseLink');
   const btnChooseFolder = document.getElementById('btnChooseFolder');
   const closeChooseTypeBtn = document.getElementById('closeChooseTypeBtn');
   const closeFolderModalBtn = document.getElementById('closeFolderModalBtn');
-  const folderForm = document.getElementById('folderForm');
+  const formFolderNode = document.getElementById('folderForm');
 
   if (closeChooseTypeBtn)
     closeChooseTypeBtn.addEventListener('click', closeModal);
@@ -2558,13 +2545,14 @@ function initAllEventBindings() {
     });
   }
 
-  if (folderForm) {
-    folderForm.addEventListener('submit', (e) => {
+  if (formFolderNode) {
+    formFolderNode.addEventListener('submit', (e) => {
       e.preventDefault();
       const folderNameInput = inputFolderName;
       if (!folderNameInput) return;
 
       const targetArray = shortcuts;
+
       if (
         editingIndex !== null &&
         editingIndex >= 0 &&
@@ -2573,6 +2561,7 @@ function initAllEventBindings() {
         targetArray[editingIndex] = {
           ...targetArray[editingIndex],
           name: folderNameInput.value,
+          customIcon: inputFolderIcon?.value || null,
         };
       } else {
         const limit = allowedRows * 10;
@@ -2584,6 +2573,7 @@ function initAllEventBindings() {
           id: 'folder_' + Date.now().toString(),
           type: 'folder',
           name: folderNameInput.value,
+          customIcon: inputFolderIcon?.value || null,
           children: [],
         });
       }

@@ -417,6 +417,20 @@
               </label>
             </div>
 
+            <div class="switch-row child-setting" id="hideShortcutNamesRow">
+              <label for="toggleHideShortcutNames" data-i18n="hideShortcutNamesLabel">Hide names</label>
+              <label class="fluent-checkbox">
+                <input type="checkbox" id="toggleHideShortcutNames" />
+                <span class="checkbox-box" aria-hidden="true">
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                      fill="#212121" />
+                  </svg>
+                </span>
+              </label>
+            </div>
+
             <div class="slider-row child-setting" id="shortcutRadiusRow">
               <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner
                 radius</label>
@@ -863,6 +877,28 @@
           <label data-i18n="folderNameLabel">Name</label>
           <input type="text" id="inputFolderName" required placeholder="Ex: Work, Games" />
         </div>
+
+        <div class="expandable-section">
+          <button type="button" id="toggleFolderCustomIcon" class="btn-expander" aria-expanded="false">
+            <svg viewBox="0 0 16 16" fill="currentColor" class="chevron-icon custom-icon-chevron">
+              <path
+                d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z" />
+            </svg>
+            <span data-i18n="addFaviconLabel">Custom Icon</span>
+          </button>
+
+          <div id="folderCustomIconGroup" class="hidden">
+            <div class="input-group">
+              <label data-i18n="faviconUrlLabel">Icon URL</label>
+              <input type="url" id="inputFolderIcon" placeholder="https://..." />
+            </div>
+            <div class="folder-icon-help">
+              <span data-i18n="folderIconHelp"></span>
+              <a href="https://icon11-community.github.io/icons/" target="_blank">Icon11 Community</a>
+            </div>
+          </div>
+        </div>
+
         <div class="modal-actions">
           <button type="button" id="closeFolderModalBtn" class="btn-cancel" data-i18n="btnCancel">
             Cancel
@@ -870,7 +906,6 @@
           <button type="submit" class="btn-save" data-i18n="btnSave">
             Save
           </button>
-        </div>
       </form>
     </div>
   </div>

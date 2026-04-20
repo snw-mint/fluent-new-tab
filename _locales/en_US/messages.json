@@ -125,6 +125,9 @@
   "editFolderTitle": {
     "message": "Edit Folder"
   },
+  "folderIconHelp": {
+    "message": "Find custom folder icons at"
+  },
   "chooseTypeTitle": {
     "message": "Create New"
   },

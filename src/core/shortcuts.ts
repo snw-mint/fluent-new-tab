@@ -40,6 +40,10 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   } = options;
   if (!shortcutsGrid) return;
 
+  const isHideNamesActive =
+    localStorage.getItem('hideShortcutNames') === 'true';
+  shortcutsGrid.setAttribute('data-hide-names', String(isHideNamesActive));
+
   shortcutsGrid.innerHTML = '';
   const fragment = document.createDocumentFragment();
   const COLUMNS = 10;
@@ -106,7 +110,14 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       card.style.display = 'flex';
     }
 
-    const cardContent = isFolder ? FOLDER_ICON_SVG : '';
+    let cardContent = '';
+    if (isFolder) {
+      if (itemData.customIcon) {
+        cardContent = `<img class="shortcut-icon loaded" src="${itemData.customIcon}" alt="${itemData.name}" style="width: 1.75rem; height: 1.75rem; object-fit: contain;">`;
+      } else {
+        cardContent = FOLDER_ICON_SVG;
+      }
+    }
 
     card.innerHTML = `
             ${cardContent}

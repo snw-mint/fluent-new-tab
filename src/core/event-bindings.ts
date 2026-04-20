@@ -609,6 +609,9 @@ interface ShortcutRadiusBindingOptions {
   shortcutRadiusRow: HTMLDivElement | null;
   getShortcutRadius: () => string;
   setShortcutRadius: (radius: string) => void;
+  toggleHideShortcutNames: HTMLInputElement | null;
+  getHideShortcutNames: () => boolean;
+  setHideShortcutNames: (enabled: boolean) => void;
 }
 
 function bindDisplayFeature(options: DisplayBindingOptions): void {
@@ -644,19 +647,6 @@ function bindShortcutRadiusFeature(
         options.shortcutRadiusSlider!.value = '0';
       }
 
-      let radiusRem = 1;
-
-      if (valNum > 0) {
-        radiusRem = 1 + (valNum / 50) * 0.5625;
-      } else if (valNum < 0) {
-        radiusRem = 1 + (valNum / 50) * 0.75;
-      }
-
-      document.documentElement.style.setProperty(
-        '--shortcut-custom-radius',
-        `${radiusRem}rem`,
-      );
-
       const min = parseInt(options.shortcutRadiusSlider!.min, 10);
       const max = parseInt(options.shortcutRadiusSlider!.max, 10);
       const progress = ((valNum - min) / (max - min)) * 100;
@@ -670,7 +660,17 @@ function bindShortcutRadiusFeature(
 
     options.shortcutRadiusSlider.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement;
-      updateSliderUI(target.value);
+      const value = target.value;
+      updateSliderUI(value);
+
+      let finalVal = parseInt(value, 10);
+      if (finalVal >= -3 && finalVal <= 3) {
+        finalVal = 0;
+      }
+      document.documentElement.style.setProperty(
+        '--shortcut-radius',
+        `${finalVal}px`,
+      );
     });
 
     options.shortcutRadiusSlider.addEventListener('change', (event) => {
@@ -681,6 +681,28 @@ function bindShortcutRadiusFeature(
       }
       options.setShortcutRadius(String(finalVal));
       localStorage.setItem('shortcutRadius', String(finalVal));
+      document.documentElement.style.setProperty(
+        '--shortcut-radius',
+        `${finalVal}px`,
+      );
+    });
+  }
+
+  if (options.toggleHideShortcutNames) {
+    options.toggleHideShortcutNames.checked = options.getHideShortcutNames();
+
+    options.toggleHideShortcutNames.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const isEnabled = target.checked;
+      options.setHideShortcutNames(isEnabled);
+      localStorage.setItem('hideShortcutNames', String(isEnabled));
+
+      const grid = document.getElementById('shortcutsGrid');
+      if (grid) {
+        grid.setAttribute('data-hide-names', String(isEnabled));
+      }
     });
   }
 }

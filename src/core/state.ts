@@ -24,7 +24,15 @@ let allowedRows = parseInt(localStorage.getItem('shortcutsRows') || '2');
 let shortcutsVisible = localStorage.getItem('shortcutsVisible') !== 'false';
 let currentFolderId: string | null = null;
 let foldersEnabled = localStorage.getItem('foldersEnabled') === 'true';
+let hideShortcutNames = localStorage.getItem('hideShortcutNames') === 'true';
 let shortcutRadius = localStorage.getItem('shortcutRadius') || '0';
+
+if (shortcutRadius !== '0') {
+  document.documentElement.style.setProperty(
+    '--shortcut-radius',
+    `${shortcutRadius}px`,
+  );
+}
 
 const savedTheme = (localStorage.getItem('theme') || 'auto') as ThemeMode;
 const savedEngine = (localStorage.getItem('searchEngine') ||

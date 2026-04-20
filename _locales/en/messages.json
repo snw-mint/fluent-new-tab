@@ -24,6 +24,8 @@
   "weatherTitle": { "message": "Weather" },
   "shortcutsTitle": { "message": "Shortcuts" },
   "enableFoldersLabel": { "message": "Enable Folders" },
+  "hideShortcutNamesLabel": { "message": "Hide Names" },
+  "folderIconHelp": { "message": "Find custom folder icons at" },
   "shortcutRadiusLabel": { "message": "Corner Radius" },
   "rows1": { "message": "1 Row" },
   "rows2": { "message": "2 Rows" },

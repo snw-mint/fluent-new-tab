@@ -50,9 +50,17 @@ const shortcutsMoreContainer = getById<HTMLDivElement>(
 const rowsSelect = getById<HTMLSelectElement>('rowsSelect');
 const rowsInputGroup = getById<HTMLDivElement>('rowsInputGroup');
 const foldersRow = getById<HTMLDivElement>('foldersRow');
+const toggleFolderCustomIcon = getById<HTMLButtonElement>(
+  'toggleFolderCustomIcon',
+);
+const folderCustomIconGroup = getById<HTMLDivElement>('folderCustomIconGroup');
+const inputFolderIcon = getById<HTMLInputElement>('inputFolderIcon');
 const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
 const shortcutRadiusSlider = getById<HTMLInputElement>('shortcutRadiusSlider');
 const toggleFolders = getById<HTMLInputElement>('toggleFolders');
+const toggleHideShortcutNames = getById<HTMLInputElement>(
+  'toggleHideShortcutNames',
+);
 const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
 const addFolderModal = getById<HTMLDivElement>('addFolderModal');
 const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
