@@ -88,18 +88,14 @@ interface WallpaperBindingOptions {
   getWallpaperEnabled: () => boolean;
   updateWallpaperUIState: (enabled: boolean, animate?: boolean) => void;
   applyWallpaperLogic: () => Promise<void> | void;
-  wallpaperOptions: NodeListOf<HTMLElement>;
   wallpaperSourceSelect: HTMLSelectElement | null;
   setWallpaperSource: (source: WallpaperSource) => void;
   setWallpaperType: (type: WallpaperType) => void;
   setWallpaperValue: (value: string) => void;
   saveWallpaperConfig: () => void;
-  highlightSelectedWallpaper: (value: string) => void;
-  uploadOption: HTMLElement | null;
   uploadInput: HTMLInputElement | null;
   processWallpaperImage: (file: File) => Promise<Blob>;
   saveWallpaperToDB: (blob: Blob) => Promise<boolean>;
-  clearPresetSelection: () => void;
   overlayToggleBtn: HTMLElement | null;
   overlaySliderContainer: HTMLDivElement | null;
   overlaySlider: HTMLInputElement | null;
@@ -598,166 +594,6 @@ function bindSearchFeature(options: SearchBindingOptions): void {
   }
 }
 
-function bindWallpaperFeature(options: WallpaperBindingOptions): void {
-  options.applyInitialWallpaperState();
-
-  if (options.toggleWallpaper) {
-    options.toggleWallpaper.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.setWallpaperEnabled(target.checked);
-      localStorage.setItem('wallpaperEnabled', String(target.checked));
-      options.updateWallpaperUIState(target.checked);
-      if (target.checked) {
-        void options.applyWallpaperLogic();
-      } else {
-        document.body.style.backgroundImage = 'none';
-        document.body.removeAttribute('data-wallpaper-active');
-        options.setOverlayOpacity('0', false);
-      }
-    });
-  }
-
-  if (options.overlayToggleBtn && options.overlaySliderContainer) {
-    options.overlayToggleBtn.addEventListener('click', () => {
-      const isCollapsed =
-        options.overlaySliderContainer!.classList.contains('collapsed');
-      if (isCollapsed) {
-        options.overlaySliderContainer!.classList.remove('collapsed');
-        options.overlayToggleBtn!.classList.add('expanded');
-      } else {
-        options.overlaySliderContainer!.classList.add('collapsed');
-        options.overlayToggleBtn!.classList.remove('expanded');
-      }
-    });
-  }
-
-  if (options.overlaySlider) {
-    options.overlaySlider.addEventListener('input', (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.updateOverlaySliderProgress(target);
-      options.setOverlayOpacity(target.value, false);
-    });
-
-    options.overlaySlider.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      options.setOverlayOpacity(target.value, true);
-    });
-  }
-
-  if (options.wallpaperOptions) {
-    options.wallpaperOptions.forEach((option) => {
-      option.addEventListener('click', async () => {
-        const value = option.dataset.value;
-        if (!value) return;
-
-        options.setWallpaperSource('local');
-        options.setWallpaperType('preset');
-        options.setWallpaperValue(value);
-        options.saveWallpaperConfig();
-
-        if (options.wallpaperSourceSelect) {
-          options.wallpaperSourceSelect.value = 'noSource';
-        }
-        options.highlightSelectedWallpaper(value);
-        await options.applyWallpaperLogic();
-      });
-    });
-  }
-
-  if (options.uploadOption && options.uploadInput) {
-    options.uploadOption.addEventListener('click', () => {
-      options.uploadInput!.click();
-    });
-
-    options.uploadInput.addEventListener('change', async (event) => {
-      const target = event.target as HTMLInputElement | null;
-      const file = target?.files?.[0];
-      if (!file) return;
-
-      try {
-        const blob = await options.processWallpaperImage(file);
-        await options.saveWallpaperToDB(blob);
-
-        options.setWallpaperSource('local');
-        options.setWallpaperType('upload');
-        options.setWallpaperValue('upload');
-        options.saveWallpaperConfig();
-
-        if (options.wallpaperSourceSelect) {
-          options.wallpaperSourceSelect.value = 'noSource';
-        }
-        options.highlightSelectedWallpaper('upload');
-        await options.applyWallpaperLogic();
-      } catch (error) {
-        console.error('Failed to process or save image', error);
-        alert('Error saving image. It might be too large.');
-      }
-      options.uploadInput!.value = '';
-    });
-  }
-
-  if (options.wallpaperSourceSelect) {
-    options.wallpaperSourceSelect.addEventListener('change', async (event) => {
-      const target = event.target as HTMLSelectElement | null;
-      if (!target) return;
-      const selectedApi = target.value;
-      if (selectedApi === 'noSource') return;
-
-      const revertSelection = () => {
-        target.value =
-          options.getCurrentWallpaperSource() === 'api'
-            ? options.getCurrentWallpaperType()
-            : 'noSource';
-      };
-
-      const applySelection = async () => {
-        options.setWallpaperSource('api');
-        options.setWallpaperType(selectedApi as WallpaperType);
-        options.saveWallpaperConfig();
-        options.clearPresetSelection();
-        await options.applyWallpaperLogic();
-      };
-
-      if (selectedApi === 'bing') {
-        const apiName =
-          window.getTranslation?.('apiNameBing') || 'Bing Image of the Day';
-        requestFeaturePermissionUI(
-          'bing',
-          apiName,
-          'https://peapix.com/bing',
-          applySelection,
-          revertSelection,
-        );
-      } else if (selectedApi === 'nasa') {
-        const apiName = window.getTranslation?.('apiNameNasa') || 'NASA APOD';
-        requestFeaturePermissionUI(
-          'nasa',
-          apiName,
-          'https://apod.nasa.gov/apod/',
-          applySelection,
-          revertSelection,
-        );
-      } else if (selectedApi === 'wikimedia') {
-        const apiName =
-          window.getTranslation?.('apiNameWiki') ||
-          'Wikimedia Picture of the Day';
-        requestFeaturePermissionUI(
-          'wikimedia',
-          apiName,
-          'https://commons.wikimedia.org/wiki/Commons:Picture_of_the_day',
-          applySelection,
-          revertSelection,
-        );
-      } else {
-        applySelection();
-      }
-    });
-  }
-}
-
 interface DisplayBindingOptions {
   displayTypeSelect: HTMLSelectElement | null;
   displayAdvancedSetting: HTMLDivElement | null;
@@ -845,6 +681,142 @@ function bindShortcutRadiusFeature(
       }
       options.setShortcutRadius(String(finalVal));
       localStorage.setItem('shortcutRadius', String(finalVal));
+    });
+  }
+}
+
+function bindWallpaperFeature(options: WallpaperBindingOptions): void {
+  if (options.toggleWallpaper) {
+    options.toggleWallpaper.addEventListener('change', async (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const isEnabled = target.checked;
+      options.setWallpaperEnabled(isEnabled);
+      localStorage.setItem('wallpaperEnabled', String(isEnabled));
+      options.updateWallpaperUIState(isEnabled, true);
+      await options.applyWallpaperLogic();
+    });
+  }
+
+  if (options.wallpaperSourceSelect) {
+    options.wallpaperSourceSelect.addEventListener('change', async (event) => {
+      const target = event.target as HTMLSelectElement | null;
+      if (!target) return;
+
+      const type = target.value as WallpaperType;
+      let source: WallpaperSource = 'api';
+      if (type === 'upload' || type === 'noSource') {
+        source = 'local';
+      }
+
+      options.setWallpaperSource(source);
+      options.setWallpaperType(type);
+      options.saveWallpaperConfig();
+      options.updateWallpaperUIState(options.getWallpaperEnabled(), true);
+
+      if (source === 'api') {
+        let apiName = 'Wallpaper API';
+        let learnMore = '';
+
+        if (type === 'bing') {
+          apiName = window.getTranslation?.('apiNameBing') || 'Bing Wallpaper';
+          learnMore = 'https://peapix.com/';
+        } else if (type === 'nasa') {
+          apiName = window.getTranslation?.('apiNameNasa') || 'NASA APOD';
+          learnMore = 'https://apod.nasa.gov/';
+        } else if (type === 'wikimedia') {
+          apiName =
+            window.getTranslation?.('apiNameWiki') || 'Wikimedia Wallpaper';
+          learnMore = 'https://commons.wikimedia.org/';
+        }
+
+        // Requisita a permissão e lida com o estado aceito/negado
+        requestFeaturePermissionUI(
+          type as any,
+          apiName,
+          learnMore,
+          () => {
+            void options.applyWallpaperLogic();
+          },
+          () => {
+            target.value = 'noSource';
+            options.setWallpaperSource('local');
+            options.setWallpaperType('noSource');
+            options.saveWallpaperConfig();
+            options.updateWallpaperUIState(options.getWallpaperEnabled(), true);
+            void options.applyWallpaperLogic();
+          },
+        );
+      } else {
+        await options.applyWallpaperLogic();
+      }
+    });
+  }
+
+  const uploadBtnLive = document.getElementById('uploadWallpaperBtn');
+  const uploadInputLive = document.getElementById(
+    'wallpaperUploadInput',
+  ) as HTMLInputElement | null;
+
+  if (uploadBtnLive && uploadInputLive) {
+    uploadBtnLive.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      uploadInputLive.click();
+    });
+
+    uploadInputLive.addEventListener('change', async (event) => {
+      const target = event.target as HTMLInputElement | null;
+      const file = target?.files?.[0];
+      if (!file) return;
+
+      try {
+        const blob = await options.processWallpaperImage(file);
+        await options.saveWallpaperToDB(blob);
+
+        options.setWallpaperSource('local');
+        options.setWallpaperType('upload');
+        options.setWallpaperValue('upload');
+        options.saveWallpaperConfig();
+
+        await options.applyWallpaperLogic();
+      } catch (error) {
+        console.error('Failed to process or save image', error);
+        alert('Error saving image. It might be too large.');
+      }
+      uploadInputLive.value = '';
+    });
+  }
+
+  if (options.overlayToggleBtn && options.overlaySliderContainer) {
+    options.overlayToggleBtn.addEventListener('click', () => {
+      const isCollapsed =
+        options.overlaySliderContainer!.classList.contains('collapsed');
+      if (isCollapsed) {
+        options.overlaySliderContainer!.classList.remove('collapsed');
+        options.overlayToggleBtn!.classList.add('expanded');
+        options.overlaySliderContainer!.style.maxHeight = '500px';
+      } else {
+        options.overlaySliderContainer!.classList.add('collapsed');
+        options.overlayToggleBtn!.classList.remove('expanded');
+        options.overlaySliderContainer!.style.maxHeight = '';
+      }
+    });
+  }
+
+  if (options.overlaySlider) {
+    options.overlaySlider.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.updateOverlaySliderProgress(target);
+      options.setOverlayOpacity(target.value, false);
+    });
+
+    options.overlaySlider.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setOverlayOpacity(target.value, true);
     });
   }
 }

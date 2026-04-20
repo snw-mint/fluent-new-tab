@@ -727,12 +727,8 @@ function updateReducedEffectsVisibility(
     input.disabled = !enabled;
   });
 }
-function updateWallpaperUIState(enabled: boolean, animate = true): void {
-  if (wallpaperGrid) {
-    wallpaperGrid.dataset.collapsibleDisplay = 'grid';
-    setCollapsible(wallpaperGrid, enabled, animate);
-  }
 
+function updateWallpaperUIState(enabled: boolean, animate = true): void {
   const container =
     wallpaperSourceContainer ||
     (wallpaperSourceSelect
@@ -769,6 +765,15 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
     const row = toggleWallpaper.closest('.switch-row');
     if (row) (row as HTMLElement).style.marginBottom = enabled ? '' : '0';
   }
+
+  const uploadContainer = document.getElementById('uploadWallpaperContainer');
+  if (uploadContainer) {
+    if (!enabled || currentWallpaperType !== 'upload') {
+      uploadContainer.style.display = 'none';
+    } else {
+      uploadContainer.style.display = 'flex';
+    }
+  }
 }
 
 function updateDisplaySettingsVisibility(show: boolean, animate = true): void {
@@ -791,23 +796,6 @@ function updateAnimationsDisabled(enabled: boolean): void {
 }
 function updateBlurDisabled(enabled: boolean): void {
   document.body.classList.toggle('blur-reduced', enabled);
-}
-function clearPresetSelection(): void {
-  document
-    .querySelectorAll('.wallpaper-option')
-    .forEach((opt) => opt.classList.remove('selected'));
-}
-function highlightSelectedWallpaper(value: string): void {
-  clearPresetSelection();
-  if (value === 'custom' || value === 'upload') {
-    const uploadBtn = document.querySelector('.upload-option');
-    if (uploadBtn) uploadBtn.classList.add('selected');
-  } else {
-    const target = document.querySelector(
-      `.wallpaper-option[data-value="${value}"]`,
-    );
-    if (target) target.classList.add('selected');
-  }
 }
 
 function prepareCollapsible(element: HTMLElement | null): void {
@@ -1075,7 +1063,7 @@ async function getOptimizedApiWallpaper(
 async function applyWallpaperLogic() {
   try {
     setOverlayOpacity(wallpaperOverlay, false);
-    if (!wallpaperEnabled) {
+    if (!wallpaperEnabled || currentWallpaperType === 'noSource') {
       document.body.style.backgroundImage = 'none';
       document.body.removeAttribute('data-wallpaper-active');
       return;
@@ -1088,34 +1076,19 @@ async function applyWallpaperLogic() {
 
     if (currentWallpaperSource === 'local') {
       updateCreditsUI('local');
-      if (currentWallpaperType === 'preset') {
-        const presetMap: Record<string, string> = {
-          preset_1: 'assets/wallpapers/fluent1.webp',
-          preset_2: 'assets/wallpapers/fluent2.webp',
-          preset_3: 'assets/wallpapers/fluent3.webp',
-        };
-        const imageUrl =
-          presetMap[currentWallpaperValue] || presetMap['preset_1'];
-        await applyWallpaperImage(imageUrl);
-        void handleAutoAccentColor(imageUrl, `preset_${currentWallpaperValue}`);
-      } else if (currentWallpaperType === 'upload') {
+      if (currentWallpaperType === 'upload') {
         await loadCustomWallpaper();
+      } else {
+        document.body.style.backgroundImage = 'none';
+        document.body.removeAttribute('data-wallpaper-active');
       }
     } else if (currentWallpaperSource === 'api') {
-      console.log('[Debug] currentWallpaperType:', currentWallpaperType);
-      console.log('[Debug] currentWallpaperSource:', currentWallpaperSource);
       const url = await fetchDailyWallpaper(currentWallpaperType);
-      console.log('[Debug] url retornada:', url);
       if (url) {
-        console.log(
-          '[Debug] chamando getOptimizedApiWallpaper com source:',
-          currentWallpaperType,
-        );
         const optimizedUrl = await getOptimizedApiWallpaper(
           url,
           currentWallpaperType,
         );
-        console.log('[Debug] optimizedUrl:', optimizedUrl);
         await applyWallpaperImage(optimizedUrl);
         void handleAutoAccentColor(
           optimizedUrl,
@@ -1155,7 +1128,6 @@ async function applyWallpaperLogic() {
             } else {
               updateCreditsUI('api', 'Daily Wallpaper');
             }
-            console.log('Using cached wallpaper as fallback.');
           } else {
             document.body.style.backgroundImage = 'none';
             document.body.removeAttribute('data-wallpaper-active');
@@ -1862,23 +1834,25 @@ function applyInitialLauncherState() {
   updateLauncherVisibility(false);
   if (launcherEnabled) renderLauncher(currentProvider);
 }
+
 function applyInitialWallpaperState() {
   if (toggleWallpaper) {
     toggleWallpaper.checked = wallpaperEnabled;
-    updateWallpaperUIState(wallpaperEnabled, false);
   }
 
-  if (currentWallpaperSource === 'api' && wallpaperSourceSelect) {
-    wallpaperSourceSelect.value = currentWallpaperType;
-    clearPresetSelection();
-  } else {
-    if (wallpaperSourceSelect) wallpaperSourceSelect.value = 'noSource';
-    highlightSelectedWallpaper(currentWallpaperValue);
+  if (wallpaperSourceSelect) {
+    const validTypes = ['upload', 'bing', 'nasa', 'wikimedia', 'noSource'];
+    wallpaperSourceSelect.value = validTypes.includes(currentWallpaperType)
+      ? currentWallpaperType
+      : 'noSource';
   }
+
+  updateWallpaperUIState(wallpaperEnabled, false);
   setOverlayOpacity(wallpaperOverlay, false);
 
   applyWallpaperLogic();
 }
+
 let brandIntervalStarted = false;
 function applyBrandInterval() {
   initBrand();
@@ -2815,7 +2789,6 @@ function initAllEventBindings() {
     getWallpaperEnabled: () => wallpaperEnabled,
     updateWallpaperUIState,
     applyWallpaperLogic,
-    wallpaperOptions,
     wallpaperSourceSelect,
     overlayToggleBtn,
     overlaySliderContainer,
@@ -2832,12 +2805,9 @@ function initAllEventBindings() {
       currentWallpaperValue = value;
     },
     saveWallpaperConfig,
-    highlightSelectedWallpaper,
-    uploadOption,
     uploadInput,
     processWallpaperImage,
     saveWallpaperToDB,
-    clearPresetSelection,
     getCurrentWallpaperSource: () => currentWallpaperSource,
     getCurrentWallpaperType: () => currentWallpaperType,
   });

@@ -757,3 +757,21 @@ body:not([data-wallpaper-active='true']) {
     }
   }
 }
+
+#uploadWallpaperContainer {
+  width: 100%;
+  margin-top: 0.5rem;
+
+  .backup-btn {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+    }
+  }
+}

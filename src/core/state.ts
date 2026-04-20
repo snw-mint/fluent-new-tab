@@ -69,9 +69,9 @@ let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
   'local') as WallpaperSource;
 let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
-  'preset') as WallpaperType;
+  'noSource') as WallpaperType;
 let currentWallpaperValue =
-  localStorage.getItem('wallpaperValue') || 'preset_1';
+  localStorage.getItem('wallpaperValue') || 'noSource';
 let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
 let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';

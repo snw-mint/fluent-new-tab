@@ -11,7 +11,30 @@
  * for easier access and management.
  */
 
+const configBtn = getById<HTMLButtonElement>('settingsBtn');
+const configPopup = getById<HTMLDivElement>('settingsPopup');
+const versionDisplay = getById<HTMLAnchorElement>('versionDisplay');
+const exportBtn = getById<HTMLButtonElement>('exportBtn');
+const importBtn = getById<HTMLButtonElement>('importBtn');
+const importInput = getById<HTMLInputElement>('importInput');
+const languageSelect = getById<HTMLSelectElement>('languageProvider');
+
 const themeBtns = document.querySelectorAll<HTMLElement>('.theme-btn');
+const toggleDisableAnimations = getById<HTMLInputElement>(
+  'toggleDisableAnimations',
+);
+const toggleDisableBlur = getById<HTMLInputElement>('toggleDisableBlur');
+const toggleReducedEffects = getById<HTMLInputElement>('toggleReducedEffects');
+const reducedEffectsOptions = getById<HTMLDivElement>('reducedEffectsOptions');
+const toggleAccentColor = getById<HTMLInputElement>('toggleAccentColor');
+const accentColorOptions = getById<HTMLDivElement>('accentColorOptions');
+const toggleAccentWallpaper = getById<HTMLInputElement>(
+  'toggleAccentWallpaper',
+);
+const toggleAccentSurfaces = getById<HTMLInputElement>('toggleAccentSurfaces');
+const accentPresetsRow = getById<HTMLDivElement>('accentPresetsRow');
+const accentCustomColor = getById<HTMLInputElement>('accentCustomColor');
+
 const shortcutsGrid = getById<HTMLDivElement>('shortcutsGrid');
 const addModal = getById<HTMLDivElement>('addModal');
 const shortcutForm = getById<HTMLFormElement>('shortcutForm');
@@ -26,8 +49,15 @@ const shortcutsMoreContainer = getById<HTMLDivElement>(
 );
 const rowsSelect = getById<HTMLSelectElement>('rowsSelect');
 const rowsInputGroup = getById<HTMLDivElement>('rowsInputGroup');
-const configBtn = getById<HTMLButtonElement>('settingsBtn');
-const configPopup = getById<HTMLDivElement>('settingsPopup');
+const foldersRow = getById<HTMLDivElement>('foldersRow');
+const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
+const shortcutRadiusSlider = getById<HTMLInputElement>('shortcutRadiusSlider');
+const toggleFolders = getById<HTMLInputElement>('toggleFolders');
+const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
+const addFolderModal = getById<HTMLDivElement>('addFolderModal');
+const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
+const inputFolderName = getById<HTMLInputElement>('inputFolderName');
+
 const greetingWrapper = document.querySelector<HTMLElement>('.logo-wrapper');
 const toggleDisplay = getById<HTMLInputElement>('toggleDisplay');
 const displayMainOptions = getById<HTMLDivElement>('displayMainOptions');
@@ -47,6 +77,7 @@ const toggle12Hour = getById<HTMLInputElement>('toggle12Hour');
 const dateFormatSelect = getById<HTMLSelectElement>('dateFormatSelect');
 const greetingNameInput = getById<HTMLInputElement>('greetingNameInput');
 const greetingStyleSelect = getById<HTMLSelectElement>('greetingStyleSelect');
+
 const engineBtn = getById<HTMLButtonElement>('engineBtn');
 const dropdown = getById<HTMLDivElement>('engineDropdown');
 const currentIcon = getById<HTMLImageElement>('currentEngineIcon');
@@ -61,15 +92,10 @@ const toggleSuggestions = getById<HTMLInputElement>('toggleSuggestions');
 const toggleClearSearch = getById<HTMLInputElement>('toggleClearSearch');
 const clearSearchRow = getById<HTMLDivElement>('clearSearchRow');
 const toggleVoiceSearch = getById<HTMLInputElement>('toggleVoiceSearch');
-const toggleDisableAnimations = getById<HTMLInputElement>(
-  'toggleDisableAnimations',
-);
-const toggleDisableBlur = getById<HTMLInputElement>('toggleDisableBlur');
-const toggleReducedEffects = getById<HTMLInputElement>('toggleReducedEffects');
-const reducedEffectsOptions = getById<HTMLDivElement>('reducedEffectsOptions');
 const suggestionsContainer = getById<HTMLDivElement>('suggestionsContainer');
 const searchInput = getById<HTMLInputElement>('searchInput');
 const voiceSearchBtn = getById<HTMLButtonElement>('voiceSearchBtn');
+
 const weatherWidget = getById<HTMLAnchorElement>('weatherWidget');
 const toggleWeather = getById<HTMLInputElement>('toggleWeather');
 const cityInputGroup = getById<HTMLDivElement>('cityInputGroup');
@@ -80,6 +106,7 @@ const weatherCity = getById<HTMLSpanElement>('weatherCity');
 const weatherIcon = getById<HTMLDivElement>('weatherIcon');
 const weatherTemp = getById<HTMLSpanElement>('weatherTemp');
 const unitBtns = document.querySelectorAll<HTMLButtonElement>('.unit-btn');
+
 const appLauncherWrapper = getById<HTMLDivElement>('appLauncherWrapper');
 const appLauncherBtn = getById<HTMLButtonElement>('appLauncherBtn');
 const launcherPopup = getById<HTMLDivElement>('launcherPopup');
@@ -91,22 +118,17 @@ const btnLauncherToFolder = getById<HTMLButtonElement>(
 const toggleLauncher = getById<HTMLInputElement>('toggleLauncher');
 const launcherProvider = getById<HTMLSelectElement>('launcherProvider');
 const launcherSelectGroup = getById<HTMLDivElement>('launcherSelectGroup');
-const versionDisplay = getById<HTMLAnchorElement>('versionDisplay');
-const exportBtn = getById<HTMLButtonElement>('exportBtn');
-const importBtn = getById<HTMLButtonElement>('importBtn');
-const importInput = getById<HTMLInputElement>('importInput');
-const languageSelect = getById<HTMLSelectElement>('languageProvider');
+
 const toggleWallpaper = getById<HTMLInputElement>('toggleWallpaper');
-const wallpaperGrid = getById<HTMLDivElement>('wallpaperGrid');
-const wallpaperOptions = document.querySelectorAll<HTMLElement>(
-  '.wallpaper-option:not(.upload-option)',
-);
-const uploadOption = document.querySelector<HTMLElement>('.upload-option');
-const uploadInput = getById<HTMLInputElement>('wallpaperUploadInput');
 const wallpaperSourceSelect = getById<HTMLSelectElement>('wallpaperSource');
 const wallpaperSourceContainer = getById<HTMLDivElement>(
   'wallpaperSourceContainer',
 );
+const uploadWallpaperContainer = getById<HTMLDivElement>(
+  'uploadWallpaperContainer',
+);
+const uploadWallpaperBtn = getById<HTMLButtonElement>('uploadWallpaperBtn');
+const uploadInput = getById<HTMLInputElement>('wallpaperUploadInput');
 const wallpaperOverlaySetting = getById<HTMLDivElement>(
   'wallpaperOverlaySetting',
 );
@@ -115,22 +137,7 @@ const overlaySliderContainer = getById<HTMLDivElement>(
   'overlay-slider-container',
 );
 const overlaySlider = getById<HTMLInputElement>('wallpaper-overlay-slider');
-const foldersRow = getById<HTMLDivElement>('foldersRow');
-const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
-const shortcutRadiusSlider = getById<HTMLInputElement>('shortcutRadiusSlider');
-const toggleFolders = getById<HTMLInputElement>('toggleFolders');
-const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
-const addFolderModal = getById<HTMLDivElement>('addFolderModal');
-const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
-const inputFolderName = getById<HTMLInputElement>('inputFolderName');
-const toggleAccentColor = getById<HTMLInputElement>('toggleAccentColor');
-const accentColorOptions = getById<HTMLDivElement>('accentColorOptions');
-const toggleAccentWallpaper = getById<HTMLInputElement>(
-  'toggleAccentWallpaper',
-);
-const toggleAccentSurfaces = getById<HTMLInputElement>('toggleAccentSurfaces');
-const accentPresetsRow = getById<HTMLDivElement>('accentPresetsRow');
-const accentCustomColor = getById<HTMLInputElement>('accentCustomColor');
+
 const askAiBtn = getById<HTMLButtonElement>('askAiBtn');
 const toggleAskAi = getById<HTMLInputElement>('toggleAskAi');
 const askAiRow = getById<HTMLDivElement>('askAiRow');
