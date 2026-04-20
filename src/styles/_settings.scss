@@ -775,3 +775,55 @@ body:not([data-wallpaper-active='true']) {
     }
   }
 }
+
+.bmc-setting-card {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: $radius-md;
+  padding: 0.2rem;
+
+  text-decoration: none !important;
+  color: var(--text-color) !important;
+  opacity: 1 !important;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  .bmc-icon {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .bmc-text {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .chevron-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+
+    .chevron-icon {
+      transform: translateX(3px);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
