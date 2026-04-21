@@ -228,6 +228,9 @@ class WarningModalManager {
   public show(options: WarningModalOptions): void {
     const confirmVariant = options.confirmVariant || 'accent';
     this.titleEl.textContent = options.title;
+
+    // Clear previous content
+    this.messageEl.innerHTML = '';
     this.messageEl.textContent = options.message;
 
     if (options.learnMoreUrl) {
@@ -251,7 +254,13 @@ class WarningModalManager {
     this.btnConfirm.classList.toggle('btn-danger', confirmVariant === 'danger');
     this.btnConfirm.classList.toggle('btn-save', confirmVariant !== 'danger');
 
+    // Ensure we don't duplicate event listeners if show is called multiple times without close
+    document.removeEventListener('keydown', this.handleKeydownBound);
+
+    // We add z-index to modal itself to ensure it is above everything
+    this.overlay.style.zIndex = '9999';
     this.overlay.classList.add('active');
+
     document.addEventListener('keydown', this.handleKeydownBound);
 
     this.btnConfirm.onclick = () => {
@@ -267,6 +276,9 @@ class WarningModalManager {
 
   private close(): void {
     this.overlay.classList.remove('active');
+    setTimeout(() => {
+      this.overlay.style.zIndex = '';
+    }, 200); // Wait for transition
     document.removeEventListener('keydown', this.handleKeydownBound);
     this.btnConfirm.onclick = null;
     this.btnCancel.onclick = null;

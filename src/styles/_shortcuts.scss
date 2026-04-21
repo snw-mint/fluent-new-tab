@@ -222,7 +222,7 @@
     &[data-type='folder'].folder-drag-hover {
       .shortcut-card {
         transform: scale(1.08) !important;
-        border-radius: var(--shortcut-custom-radius, $radius-xl) !important;
+        border-radius: var(--shortcut-custom-radius, var(--shortcut-radius, $radius-xl)) !important;
         box-shadow:
           0 0 0 2px var(--accent-color),
           0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -290,7 +290,7 @@
 .shortcut-item.sortable-placeholder {
   background: rgba(128, 128, 128, 0.08);
   border: 1.5px dashed rgba(128, 128, 128, 0.3);
-  border-radius: var(--shortcut-custom-radius, $radius-xl);
+  border-radius: var(--shortcut-custom-radius, var(--shortcut-radius, $radius-xl));
   pointer-events: none;
   transition: background 0.2s ease;
 }

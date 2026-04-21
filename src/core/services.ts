@@ -28,20 +28,48 @@ const HOST_PERMISSIONS: Record<string, string[]> = {
 async function checkPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
-    if (!chromeApi || !chromeApi.permissions) return resolve(false);
-    chromeApi.permissions.contains({ origins }, (result: boolean) =>
-      resolve(result),
-    );
+    if (!chromeApi || !chromeApi.permissions || !chromeApi.permissions.contains) {
+      console.warn('chrome.permissions API not available. Returning false.');
+      return resolve(false);
+    }
+
+    try {
+      chromeApi.permissions.contains({ origins }, (result: boolean) => {
+        if (chromeApi.runtime?.lastError) {
+          console.error(chromeApi.runtime.lastError);
+          resolve(false);
+        } else {
+          resolve(Boolean(result));
+        }
+      });
+    } catch (e) {
+      console.error('Error checking permission:', e);
+      resolve(false);
+    }
   });
 }
 
 async function requestPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
-    if (!chromeApi || !chromeApi.permissions) return resolve(false);
-    chromeApi.permissions.request({ origins }, (granted: boolean) =>
-      resolve(granted),
-    );
+    if (!chromeApi || !chromeApi.permissions || !chromeApi.permissions.request) {
+      console.warn('chrome.permissions API not available. Returning false.');
+      return resolve(false);
+    }
+
+    try {
+      chromeApi.permissions.request({ origins }, (granted: boolean) => {
+        if (chromeApi.runtime?.lastError) {
+          console.error(chromeApi.runtime.lastError);
+          resolve(false);
+        } else {
+          resolve(Boolean(granted));
+        }
+      });
+    } catch (e) {
+      console.error('Error requesting permission:', e);
+      resolve(false);
+    }
   });
 }
 

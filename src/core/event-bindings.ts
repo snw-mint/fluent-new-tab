@@ -658,6 +658,24 @@ function bindShortcutRadiusFeature(
 
     updateSliderUI(currentRadius);
 
+    const applyRadius = (valNum: number) => {
+      let radiusValue = '';
+      if (valNum === 0) {
+        radiusValue = '0.875rem'; // $radius-xl
+      } else if (valNum > 0) {
+        // maps 1 to 100 -> 0.875rem to 50%
+        radiusValue = `calc(0.875rem + ((50% - 0.875rem) * (${valNum} / 100)))`;
+      } else {
+        // maps -1 to -100 -> 0.875rem down to 0.2rem
+        radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
+      }
+
+      document.documentElement.style.setProperty(
+        '--shortcut-radius',
+        radiusValue,
+      );
+    };
+
     options.shortcutRadiusSlider.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement;
       const value = target.value;
@@ -667,10 +685,7 @@ function bindShortcutRadiusFeature(
       if (finalVal >= -3 && finalVal <= 3) {
         finalVal = 0;
       }
-      document.documentElement.style.setProperty(
-        '--shortcut-radius',
-        `${finalVal}px`,
-      );
+      applyRadius(finalVal);
     });
 
     options.shortcutRadiusSlider.addEventListener('change', (event) => {
@@ -679,12 +694,10 @@ function bindShortcutRadiusFeature(
       if (finalVal >= -3 && finalVal <= 3) {
         finalVal = 0;
       }
+
       options.setShortcutRadius(String(finalVal));
       localStorage.setItem('shortcutRadius', String(finalVal));
-      document.documentElement.style.setProperty(
-        '--shortcut-radius',
-        `${finalVal}px`,
-      );
+      applyRadius(finalVal);
     });
   }
 
