@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "設定"
   },
-  "greetingTitle": {
-    "message": "問候"
-  },
   "wallpaperTitle": {
-    "message": "桌布"
+    "message": "壁紙"
   },
   "wallpaperSourceLabel": {
     "message": "圖片來源"
+  },
+  "nosourceOption": {
+    "message": "無來源"
   },
   "overlayLabel": {
     "message": "影像疊加"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "問候"
   },
+  "displayTime": {
+    "message": "時間"
+  },
+  "displayDate": {
+    "message": "日期"
+  },
+  "displayAdvanced": {
+    "message": "時間與日期"
+  },
   "showSecondsLabel": {
     "message": "顯示秒數"
   },
@@ -47,29 +56,47 @@
   "dateFormatLabel": {
     "message": "格式"
   },
+  "dateText": {
+    "message": "撰寫"
+  },
+  "dateNumeric": {
+    "message": "數值"
+  },
+  "dateWeekday": {
+    "message": "平日"
+  },
   "weatherTitle": {
     "message": "天氣"
   },
   "shortcutsTitle": {
-    "message": "捷徑"
+    "message": "快捷方式"
   },
   "enableFoldersLabel": {
     "message": "啟用資料夾"
   },
+  "hideShortcutNamesLabel": {
+    "message": "隱藏名稱"
+  },
+  "folderIconHelp": {
+    "message": "在以下位置尋找自訂資料夾圖示："
+  },
+  "shortcutRadiusLabel": {
+    "message": "彎角半徑"
+  },
   "rows1": {
-    "message": "1 列"
+    "message": "1 行"
   },
   "rows2": {
-    "message": "2 列"
+    "message": "2 行"
   },
   "rowsLabel": {
-    "message": "列"
+    "message": "行"
   },
   "rows3": {
-    "message": "3 列"
+    "message": "3 行"
   },
   "rows4": {
-    "message": "4 列"
+    "message": "4 行"
   },
   "appLauncherTitle": {
     "message": "應用程式啟動器"
@@ -84,7 +111,7 @@
     "message": "建議"
   },
   "clearSearchOption": {
-    "message": "簡易搜尋 (Google)"
+    "message": "乾淨搜尋（Google）"
   },
   "compactBarOption": {
     "message": "緊湊欄"
@@ -92,14 +119,17 @@
   "voiceSearchOption": {
     "message": "語音搜尋"
   },
+  "askAiOption": {
+    "message": "詢問 AI"
+  },
   "reduceVisualEffectsTitle": {
-    "message": "減少視覺效果"
+    "message": "減少效果"
   },
   "reduceMotionTitle": {
-    "message": "減少動態效果"
+    "message": "減少動作"
   },
   "reduceBlurOption": {
-    "message": "降低模糊度"
+    "message": "減少模糊"
   },
   "languageTitle": {
     "message": "語言"
@@ -111,13 +141,16 @@
     "message": "資料備份"
   },
   "exportOption": {
-    "message": "匯出"
+    "message": "輸出"
   },
   "importOption": {
     "message": "匯入"
   },
   "addFolderTitle": {
     "message": "新增資料夾"
+  },
+  "folderNameLabel": {
+    "message": "姓名"
   },
   "editFolderTitle": {
     "message": "編輯資料夾"
@@ -135,7 +168,7 @@
     "message": "編輯捷徑"
   },
   "shortcutNameLabel": {
-    "message": "名稱"
+    "message": "姓名"
   },
   "shortcutUrlLabel": {
     "message": "網址"
@@ -153,16 +186,16 @@
     "message": "儲存"
   },
   "searchPlaceholder": {
-    "message": "搜尋網頁"
+    "message": "搜尋網路"
   },
   "namePlaceholder": {
-    "message": "您的名字（選填）"
+    "message": "您的姓名（可填）"
   },
   "cityPlaceholder": {
     "message": "您的城市"
   },
   "addShortcutLabel": {
-    "message": "新增"
+    "message": "添加"
   },
   "editLabel": {
     "message": "編輯"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "更多選項"
+  },
+  "permissionRequiredTitle": {
+    "message": "需經授權"
+  },
+  "grantPermissionLabel": {
+    "message": "授予權限"
+  },
+  "learnMoreLabel": {
+    "message": "了解更多"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "若要使用此功能，Fluent New Tab 需要獲取存取「$API_NAME$」的權限。此舉旨在保障您的隱私與安全。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab 已更新至版本 $VERSION$。",
@@ -246,7 +306,7 @@
     "message": "網格已滿"
   },
   "warningGridFullMessage": {
-    "message": "主畫面的捷徑已達到 $LIMIT$ 個的上限。請刪除部分項目或將它們分組到資料夾中以釋放空間。",
+    "message": "您已達到主畫面中 $LIMIT$ 快捷方式的最大限制。請刪除部分項目或將其歸類至資料夾以釋放空間。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "新的一天開始了，$NAME$！",
+    "message": "早安，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "開啟美好的一天吧，$NAME$！",
+    "message": "讓我們以正確的方式開始新的一天，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "今晚休息得很晚呢，$NAME$？",
+    "message": "今晚熬夜了嗎， $NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",
