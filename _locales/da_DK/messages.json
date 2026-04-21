@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Indstillinger"
   },
-  "greetingTitle": {
-    "message": "Hilsen"
-  },
   "wallpaperTitle": {
     "message": "Baggrund"
   },
   "wallpaperSourceLabel": {
     "message": "Billedkilde"
+  },
+  "nosourceOption": {
+    "message": "Ingen kilde"
   },
   "overlayLabel": {
     "message": "Billedoverlay"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Hilsen"
   },
+  "displayTime": {
+    "message": "Tid"
+  },
+  "displayDate": {
+    "message": "Dato"
+  },
+  "displayAdvanced": {
+    "message": "Tid og dato"
+  },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Skrevet"
+  },
+  "dateNumeric": {
+    "message": "Numerisk"
+  },
+  "dateWeekday": {
+    "message": "Hverdage"
+  },
   "weatherTitle": {
     "message": "Vejret"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Aktivér mapper"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skjul navne"
+  },
+  "folderIconHelp": {
+    "message": "Find brugerdefinerede mappeikoner på"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hjørneradius"
   },
   "rows1": {
     "message": "1 række"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Stemmesøgning"
   },
+  "askAiOption": {
+    "message": "Spørg AI'en"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Reducer effekter"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Tilføj mappe"
+  },
+  "folderNameLabel": {
+    "message": "Navn"
   },
   "editFolderTitle": {
     "message": "Rediger mappe"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Flere muligheder"
+  },
+  "permissionRequiredTitle": {
+    "message": "Der kræves tilladelse"
+  },
+  "grantPermissionLabel": {
+    "message": "Giv tilladelse"
+  },
+  "learnMoreLabel": {
+    "message": "Læs mere"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "For at kunne bruge denne funktion skal Fluent New Tab have tilladelse til at få adgang til \"$API_NAME$\". Dette sikrer dit privatliv og din sikkerhed.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
