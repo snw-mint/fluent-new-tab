@@ -58,7 +58,7 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const dateFormat = localStorage.getItem('dateFormat') || 'text';
 
   const now = new Date();
-  let timeHTML = '';
+  const timeNodes: Node[] = [];
   let dateString = '';
 
   if (type === 'time' || type === 'timedate') {
@@ -71,16 +71,25 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 
     parts.forEach((part, index) => {
       if (part.type === 'second') {
-        timeHTML += `<span class="time-seconds">${part.value}</span>`;
+        const span = document.createElement('span');
+        span.className = 'time-seconds';
+        span.textContent = part.value;
+        timeNodes.push(span);
       } else if (
         part.type === 'literal' &&
         parts[index + 1]?.type === 'second'
       ) {
-        timeHTML += `<span class="time-seconds">${part.value}</span>`;
+        const span = document.createElement('span');
+        span.className = 'time-seconds';
+        span.textContent = part.value;
+        timeNodes.push(span);
       } else if (part.type === 'dayPeriod') {
-        timeHTML += `<span class="time-ampm">${part.value}</span>`;
+        const span = document.createElement('span');
+        span.className = 'time-ampm';
+        span.textContent = part.value;
+        timeNodes.push(span);
       } else {
-        timeHTML += part.value;
+        timeNodes.push(document.createTextNode(part.value));
       }
     });
   }
@@ -117,13 +126,16 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 
   if (type === 'time') {
     textElement.className = 'dynamic-display-anchor time-date-text';
-    textElement.innerHTML = timeHTML;
+    textElement.replaceChildren(...timeNodes);
   } else if (type === 'date' || type === 'weekday') {
     textElement.className = 'dynamic-display-anchor greeting-text';
     textElement.textContent = dateString;
   } else if (type === 'timedate') {
     textElement.className = 'dynamic-display-anchor time-date-text';
-    textElement.innerHTML = `${timeHTML}<span class="time-date-sub">${dateString}</span>`;
+    const subSpan = document.createElement('span');
+    subSpan.className = 'time-date-sub';
+    subSpan.textContent = dateString;
+    textElement.replaceChildren(...timeNodes, subSpan);
   }
 }
 
