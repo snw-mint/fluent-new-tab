@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Ustawienia"
   },
-  "greetingTitle": {
-    "message": "Powitanie"
-  },
   "wallpaperTitle": {
     "message": "Tapeta"
   },
   "wallpaperSourceLabel": {
     "message": "Źródło obrazu"
+  },
+  "nosourceOption": {
+    "message": "Brak źródła"
   },
   "overlayLabel": {
     "message": "Nakładka obrazu"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Powitanie"
   },
+  "displayTime": {
+    "message": "Czas"
+  },
+  "displayDate": {
+    "message": "Data"
+  },
+  "displayAdvanced": {
+    "message": "Godzina i data"
+  },
   "showSecondsLabel": {
     "message": "Pokaż sekundy"
   },
@@ -46,6 +55,15 @@
   },
   "dateFormatLabel": {
     "message": "Format"
+  },
+  "dateText": {
+    "message": "Napisane"
+  },
+  "dateNumeric": {
+    "message": "Liczbowy"
+  },
+  "dateWeekday": {
+    "message": "Dzień powszedni"
   },
   "weatherTitle": {
     "message": "Pogoda"
@@ -56,20 +74,29 @@
   "enableFoldersLabel": {
     "message": "Włącz foldery"
   },
+  "hideShortcutNamesLabel": {
+    "message": "Ukryj nazwy"
+  },
+  "folderIconHelp": {
+    "message": "Znajdź niestandardowe ikony folderów na stronie"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Promień narożnika"
+  },
   "rows1": {
-    "message": "1 wiersz"
+    "message": "1 rząd"
   },
   "rows2": {
-    "message": "2 wiersze"
+    "message": "2 rzędy"
   },
   "rowsLabel": {
-    "message": "Wiersze"
+    "message": "Rzędy"
   },
   "rows3": {
-    "message": "3 wiersze"
+    "message": "3 rzędy"
   },
   "rows4": {
-    "message": "4 wiersze"
+    "message": "4 rzędy"
   },
   "appLauncherTitle": {
     "message": "Launcher aplikacji"
@@ -84,13 +111,16 @@
     "message": "Sugestie"
   },
   "clearSearchOption": {
-    "message": "Proste wyszukiwanie (Google)"
+    "message": "Czyste wyszukiwanie (Google)"
   },
   "compactBarOption": {
     "message": "Kompaktowy pasek"
   },
   "voiceSearchOption": {
     "message": "Wyszukiwanie głosowe"
+  },
+  "askAiOption": {
+    "message": "Zapytaj AI"
   },
   "reduceVisualEffectsTitle": {
     "message": "Zmniejsz efekty"
@@ -111,13 +141,16 @@
     "message": "Kopia zapasowa danych"
   },
   "exportOption": {
-    "message": "Eksportuj"
+    "message": "Eksport"
   },
   "importOption": {
-    "message": "Importuj"
+    "message": "Import"
   },
   "addFolderTitle": {
     "message": "Dodaj folder"
+  },
+  "folderNameLabel": {
+    "message": "Nazwa"
   },
   "editFolderTitle": {
     "message": "Edytuj folder"
@@ -138,7 +171,7 @@
     "message": "Nazwa"
   },
   "shortcutUrlLabel": {
-    "message": "Adres URL"
+    "message": "adres URL"
   },
   "addFaviconLabel": {
     "message": "Ikona niestandardowa"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Więcej opcji"
   },
+  "permissionRequiredTitle": {
+    "message": "Wymagane uprawnienia"
+  },
+  "grantPermissionLabel": {
+    "message": "Wyraź zgodę"
+  },
+  "learnMoreLabel": {
+    "message": "Dowiedz się więcej"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Aby korzystać z tej funkcji, aplikacja Fluent New Tab potrzebuje uprawnień dostępu do serwisu „$API_NAME$”. Zapewnia to ochronę Twojej prywatności i bezpieczeństwa.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$. ",
+    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,10 +243,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Zobacz dziennik zmian"
+    "message": "zobacz dziennik zmian"
   },
   "nasaApodVideoNotice": {
-    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowana zostanie Twoja obecna tapeta."
+    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowaj aktualną tapetę."
   },
   "warningDeleteFolderTitle": {
     "message": "Usuń folder"
@@ -258,7 +318,7 @@
     "message": "Folder jest pełny"
   },
   "warningFolderFullMessage": {
-    "message": "Ten folder osiągnął maksymalny limit $LIMIT$ elementów. Usuń kilka skrótów przed dodaniem nowych.",
+    "message": "Ten folder osiągnął maksymalną liczbę $LIMIT$ elementów. Proszę usunąć niektóre skróty przed dodaniem nowych.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Zaczyna się nowy dzień, $NAME$!",
+    "message": "Wstawaj i świeć, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -366,7 +426,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Cudownego dnia, $NAME$!",
+    "message": "Życzę Ci cudownego dnia, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Witaj, $NAME$! Wszystko gotowe na dziś?",
+    "message": "Witaj, $NAME$! Gotowy na dzisiejszy dzień?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Zacznijmy ten dzień dobrze, $NAME$",
+    "message": "Zacznijmy dzień dobrze, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Miło Cię widzieć, $NAME$",
+    "message": "Miło cię widzieć, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -420,7 +480,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Oby tak dalej, $NAME$!",
+    "message": "Tak trzymaj, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -429,7 +489,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Owocnej pracy, $NAME$",
+    "message": "Zachowaj koncentrację i produktywność, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -447,7 +507,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Czas na relaks, $NAME$",
+    "message": "Czas się zrelaksować, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -456,7 +516,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Spokojnego wieczoru, $NAME$",
+    "message": "Życzę spokojnego wieczoru, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -483,7 +543,7 @@
     }
   },
   "greetNight1": {
-    "message": "Spokojnej nocy, $NAME$",
+    "message": "Mam nadzieję, że spędzasz spokojną noc, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Jeszcze nie śpisz, $NAME$? Czas na odpoczynek!",
+    "message": "Nadal nie śpisz, $NAME$? Życzę spokojnego snu!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -510,7 +570,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobranoc, $NAME$. Do jutra!",
+    "message": "Dobranoc, $NAME$. Do zobaczenia jutro!",
     "placeholders": {
       "name": {
         "content": "$1",
