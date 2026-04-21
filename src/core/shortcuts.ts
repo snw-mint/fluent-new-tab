@@ -26,6 +26,55 @@ const FOLDER_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="
 const BACK_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.733 19.79a.75.75 0 0 0 1.034-1.086L5.516 12.75H20.25a.75.75 0 0 0 0-1.5H5.516l6.251-5.955a.75.75 0 0 0-1.034-1.086l-7.42 7.067a1 1 0 0 0-.3.58.8.8 0 0 0 .001.289 1 1 0 0 0 .3.579l7.419 7.067Z" fill="currentColor"/></svg>`;
 const FOLDER_FIXED_ROWS = 4;
 
+let shortcutTemplate: HTMLDivElement | null = null;
+
+function getShortcutTemplate(): HTMLDivElement {
+  if (!shortcutTemplate) {
+    shortcutTemplate = document.createElement('div');
+    shortcutTemplate.className = 'shortcut-item';
+    shortcutTemplate.draggable = true;
+
+    // We can use innerHTML here to ensure translations and SVGs work
+    // when they might be updated dynamically, or just the fact that
+    // SVGs need to be parsed from strings.
+    // If the translations change dynamically, we might need to recreate the template,
+    // but the original code was recreating these elements every single loop iteration.
+    // Actually, to handle translations that change dynamically without reload,
+    // we should let innerHTML handle the translation variables properly each time?
+    // Wait, the original code used window.getTranslation inside the loop.
+    // Since we are using a template, the translations are captured ONCE per page load.
+    // This extension uses a full reload for language change.
+
+    // But importantly, the icons are SVGs and must be parsed as HTML!
+
+    const menuDots =
+      typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...';
+    const editIcon = typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E';
+    const removeIcon = typeof ICON_REMOVE !== 'undefined' ? ICON_REMOVE : 'R';
+    const moreOptionsLabel = window.getTranslation('moreOptionsLabel');
+    const editLabel = window.getTranslation('editLabel');
+    const removeLabel = window.getTranslation('removeLabel');
+
+    shortcutTemplate.innerHTML = `
+      <a class="shortcut-card" draggable="false" style="color: inherit; text-decoration: none;" data-action="open-shortcut">
+          <div class="menu-wrapper">
+              <button class="menu-btn" title="${moreOptionsLabel}">${menuDots}</button>
+              <div class="shortcut-dropdown">
+                  <div class="menu-option edit-option">
+                      ${editIcon} <span>${editLabel}</span>
+                  </div>
+                  <div class="menu-option remove-option">
+                      ${removeIcon} <span>${removeLabel}</span>
+                  </div>
+              </div>
+          </div>
+      </a>
+      <a class="shortcut-title" draggable="false"></a>
+    `;
+  }
+  return shortcutTemplate;
+}
+
 function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   const {
     shortcutsGrid,
@@ -89,52 +138,40 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     fragment.appendChild(backBtn);
   }
 
-  visibleShortcuts.forEach((itemData, index) => {
+  const template = getShortcutTemplate();
+
+  for (let index = 0; index < visibleShortcuts.length; index++) {
+    const itemData = visibleShortcuts[index];
     const isFolder = itemData.type === 'folder';
-    const item = document.createElement('div');
-    item.className = 'shortcut-item';
+    const item = template.cloneNode(true) as HTMLDivElement;
+
     item.dataset.index = index.toString();
     item.dataset.type = isFolder ? 'folder' : 'shortcut';
-    item.draggable = true;
     if (itemData.id) item.dataset.id = itemData.id;
 
-    const card = document.createElement('a');
-    card.className = 'shortcut-card';
+    const card = item.firstElementChild as HTMLAnchorElement;
     card.href = isFolder ? '#' : itemData.url || '#';
-    card.draggable = false;
-    card.style.color = 'inherit';
-    card.style.textDecoration = 'none';
-    card.dataset.action = 'open-shortcut';
 
     if (isFolder) {
       card.style.display = 'flex';
     }
 
-    let cardContent = '';
+    const menuWrapper = card.firstElementChild as HTMLDivElement;
+
     if (isFolder) {
       if (itemData.customIcon) {
-        cardContent = `<img class="shortcut-icon loaded" src="${itemData.customIcon}" alt="${itemData.name}" style="width: 1.75rem; height: 1.75rem; object-fit: contain;">`;
+        const img = document.createElement('img');
+        img.className = 'shortcut-icon loaded';
+        img.src = itemData.customIcon;
+        img.alt = itemData.name;
+        img.style.width = '1.75rem';
+        img.style.height = '1.75rem';
+        img.style.objectFit = 'contain';
+        card.insertBefore(img, menuWrapper);
       } else {
-        cardContent = FOLDER_ICON_SVG;
+        card.insertAdjacentHTML('afterbegin', FOLDER_ICON_SVG);
       }
-    }
-
-    card.innerHTML = `
-            ${cardContent}
-            <div class="menu-wrapper">
-                <button class="menu-btn" title="${window.getTranslation('moreOptionsLabel')}">${typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...'}</button>
-                <div class="shortcut-dropdown">
-                    <div class="menu-option edit-option">
-                        ${typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E'} <span>${window.getTranslation('editLabel')}</span>
-                    </div>
-                    <div class="menu-option remove-option">
-                        ${typeof ICON_REMOVE !== 'undefined' ? ICON_REMOVE : 'R'} <span>${window.getTranslation('removeLabel')}</span>
-                    </div>
-                </div>
-            </div>
-        `;
-
-    if (!isFolder) {
+    } else {
       const img = document.createElement('img');
       img.decoding = 'async';
       img.className = 'shortcut-icon';
@@ -146,7 +183,6 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         try {
           const parsedUrl = new URL(itemData.url);
           const hostname = parsedUrl.hostname;
-
           targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
         } catch (error) {
           targetIconSrc = 'invalid-url';
@@ -165,29 +201,27 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
           'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
       };
 
-      card.prepend(img);
+      card.insertBefore(img, menuWrapper);
     }
 
-    const editOpt = card.querySelector('.edit-option');
-    const removeOpt = card.querySelector('.remove-option');
-    editOpt?.setAttribute('data-index', index.toString());
-    removeOpt?.setAttribute('data-index', index.toString());
+    const dropdown = menuWrapper.lastElementChild as HTMLDivElement;
+    if (dropdown) {
+      const editOpt = dropdown.firstElementChild as HTMLDivElement;
+      const removeOpt = dropdown.lastElementChild as HTMLDivElement;
+      if (editOpt) editOpt.dataset.index = index.toString();
+      if (removeOpt) removeOpt.dataset.index = index.toString();
+    }
 
-    item.appendChild(card);
-
-    const titleLink = document.createElement('a');
-    titleLink.className = 'shortcut-title';
+    const titleLink = item.lastElementChild as HTMLAnchorElement;
     titleLink.href = isFolder ? '#' : itemData.url || '#';
     titleLink.textContent = itemData.name;
-    titleLink.draggable = false;
     titleLink.dataset.action = isFolder
       ? 'open-folder-title'
       : 'open-shortcut-title';
     titleLink.dataset.index = index.toString();
 
-    item.appendChild(titleLink);
     fragment.appendChild(item);
-  });
+  }
 
   if (visibleShortcuts.length < availableSlots) {
     const addBtn = document.createElement('div');
