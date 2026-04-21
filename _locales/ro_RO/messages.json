@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Setări"
   },
-  "greetingTitle": {
-    "message": "Salutare"
-  },
   "wallpaperTitle": {
     "message": "Tapet"
   },
   "wallpaperSourceLabel": {
     "message": "Sursa imaginii"
+  },
+  "nosourceOption": {
+    "message": "Fără sursă"
   },
   "overlayLabel": {
     "message": "Suprapunere imagine"
@@ -24,7 +24,7 @@
     "message": "Culoare de accent"
   },
   "accentWallpaperOption": {
-    "message": "Extrage din tapet"
+    "message": "Descărcați de pe Wallpaper"
   },
   "styleNone": {
     "message": "Niciuna"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Salutare"
   },
+  "displayTime": {
+    "message": "Ora"
+  },
+  "displayDate": {
+    "message": "Data"
+  },
+  "displayAdvanced": {
+    "message": "Ora și data"
+  },
   "showSecondsLabel": {
     "message": "Afișează secundele"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Scris"
+  },
+  "dateNumeric": {
+    "message": "Numeric"
+  },
+  "dateWeekday": {
+    "message": "Zi lucrătoare"
+  },
   "weatherTitle": {
     "message": "Vremea"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Activează folderele"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ascunde numele"
+  },
+  "folderIconHelp": {
+    "message": "Găsiți pictograme personalizate pentru foldere la"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Raza de curbură a colțului"
   },
   "rows1": {
     "message": "1 rând"
@@ -84,13 +111,16 @@
     "message": "Sugestii"
   },
   "clearSearchOption": {
-    "message": "Căutare simplă (Google)"
+    "message": "Căutare curată (Google)"
   },
   "compactBarOption": {
     "message": "Bară compactă"
   },
   "voiceSearchOption": {
     "message": "Căutare vocală"
+  },
+  "askAiOption": {
+    "message": "Întreabă IA"
   },
   "reduceVisualEffectsTitle": {
     "message": "Reduceți efectele"
@@ -111,13 +141,16 @@
     "message": "Backup de date"
   },
   "exportOption": {
-    "message": "Exportă"
+    "message": "Export"
   },
   "importOption": {
-    "message": "Importă"
+    "message": "Import"
   },
   "addFolderTitle": {
-    "message": "Adaugă folder"
+    "message": "Adăugați folder"
+  },
+  "folderNameLabel": {
+    "message": "Nume"
   },
   "editFolderTitle": {
     "message": "Editare folder"
@@ -129,10 +162,10 @@
     "message": "Înapoi"
   },
   "addShortcutTitle": {
-    "message": "Adaugă scurtătură"
+    "message": "Adăugați scurtătură"
   },
   "editShortcutTitle": {
-    "message": "Editează comanda rapidă"
+    "message": "Editați comanda rapidă"
   },
   "shortcutNameLabel": {
     "message": "Nume"
@@ -150,10 +183,10 @@
     "message": "Anulează"
   },
   "btnSave": {
-    "message": "Salvează"
+    "message": "Salvați"
   },
   "searchPlaceholder": {
-    "message": "Caută pe web"
+    "message": "Căutați pe web"
   },
   "namePlaceholder": {
     "message": "Numele dvs. (opțional)"
@@ -162,16 +195,43 @@
     "message": "Orașul tău"
   },
   "addShortcutLabel": {
-    "message": "Adaugă"
+    "message": "Adăugați"
   },
   "editLabel": {
-    "message": "Editează"
+    "message": "Editați"
   },
   "removeLabel": {
-    "message": "Elimină"
+    "message": "Eliminare"
   },
   "moreOptionsLabel": {
     "message": "Mai multe opțiuni"
+  },
+  "permissionRequiredTitle": {
+    "message": "Este necesară autorizarea"
+  },
+  "grantPermissionLabel": {
+    "message": "Acordă permisiunea"
+  },
+  "learnMoreLabel": {
+    "message": "Află mai multe"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$. ",
@@ -183,16 +243,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Vezi jurnalul modificărilor"
+    "message": "vezi jurnalul modificărilor"
   },
   "nasaApodVideoNotice": {
-    "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Imaginea de fundal actuală este păstrată în schimb."
+    "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Păstrați în schimb imaginea de fundal actuală."
   },
   "warningDeleteFolderTitle": {
     "message": "Ștergeți folderul"
   },
   "warningDeleteFolderMessage": {
-    "message": "Ești sigur că vrei să ștergi folderul „$FOLDER$”? Toate comenzile rapide din acesta vor fi eliminate.",
+    "message": "Sunteți sigur că doriți să ștergeți folderul „$FOLDER$”? Toate comenzile rapide din acesta vor fi eliminate.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -210,10 +270,10 @@
     "message": "Ștergeți folderele"
   },
   "warningKeepEnabled": {
-    "message": "Păstrează activat"
+    "message": "Păstrați activat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Adaugi aplicațiile $ECOSYSTEM$?",
+    "message": "Adăugați aplicațiile $ECOSYSTEM$?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -231,7 +291,7 @@
     }
   },
   "warningAddFolderConfirm": {
-    "message": "Adaugă folder"
+    "message": "Adăugați folder"
   },
   "launcherNoAppsTitle": {
     "message": "Nu sunt disponibile aplicații"
@@ -246,7 +306,7 @@
     "message": "Rețeaua este plină"
   },
   "warningGridFullMessage": {
-    "message": "Ai atins limita maximă de $LIMIT$ comenzi rapide pe ecranul principal. Șterge câteva elemente sau grupează-le într-un folder pentru a elibera spațiu.",
+    "message": "Ați atins limita maximă de $LIMIT$ comenzi rapide pe ecranul principal. Ștergeți unele elemente sau grupați-le într-un folder pentru a elibera spațiu.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -258,7 +318,7 @@
     "message": "Dosarul este plin"
   },
   "warningFolderFullMessage": {
-    "message": "Acest folder a atins limita maximă de $LIMIT$ elemente. Te rugăm să ștergi câteva comenzi rapide înainte de a adăuga altele noi.",
+    "message": "Acest folder a atins limita maximă de $LIMIT$ elemente. Vă rugăm să ștergeți unele comenzi rapide înainte de a adăuga altele noi.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -267,7 +327,7 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Restaurezi copia de rezervă?"
+    "message": "Restaurați copia de rezervă?"
   },
   "warningRestoreBackupMessage": {
     "message": "Aceasta va înlocui setările și comenzile rapide actuale cu datele din fișierul de rezervă."
@@ -294,22 +354,22 @@
     "message": "Luni"
   },
   "weekday_2": {
-    "message": "Marți"
+    "message": "marți"
   },
   "weekday_3": {
-    "message": "Miercuri"
+    "message": "miercuri"
   },
   "weekday_4": {
-    "message": "Joi"
+    "message": "joi"
   },
   "weekday_5": {
-    "message": "Vineri"
+    "message": "vineri"
   },
   "weekday_6": {
-    "message": "Sâmbătă"
+    "message": "sâmbătă"
   },
   "greetWeekMorning": {
-    "message": "Astăzi este $WEEK$. Să ai o zi excelentă, $NAME$!",
+    "message": "Vă doresc mult succes pe $WEEK$și $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -322,7 +382,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Cum îți merge în această $WEEK$, $NAME$?",
+    "message": "Cum merge treaba cu $WEEK$ , $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -335,7 +395,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "Cum a fost această $WEEK$, $NAME$?",
+    "message": "$NAME$, cum a fost experiența ta cu $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "O nouă zi începe, $NAME$!",
+    "message": "Trezește-te și strălucește, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -420,7 +480,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Continuă munca excelentă, $NAME$!",
+    "message": "Continuați munca excelentă, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -429,7 +489,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Rămâi concentrat și productiv, $NAME$",
+    "message": "Rămâneți concentrat și productiv, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -447,7 +507,7 @@
     }
   },
   "greetEvening2": {
-    "message": "E timpul să te relaxezi, $NAME$",
+    "message": "Este timpul să vă relaxați, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -456,7 +516,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Îți doresc o seară liniștită, $NAME$",
+    "message": "Vă doresc o seară liniștită, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -474,7 +534,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Să ai o seară plăcută, $NAME$",
+    "message": "Să aveți o seară plăcută, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -483,7 +543,7 @@
     }
   },
   "greetNight1": {
-    "message": "Sper să ai o noapte liniștită, $NAME$",
+    "message": "Sper că aveți o noapte liniștită, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -501,7 +561,7 @@
     }
   },
   "greetNight3": {
-    "message": "Bucură-te de orele liniștite, $NAME$",
+    "message": "Bucurați-vă de orele liniștite, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Stai treaz până târziu în seara asta, $NAME$?",
+    "message": "Stăi treaz până târziu în seara asta, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
