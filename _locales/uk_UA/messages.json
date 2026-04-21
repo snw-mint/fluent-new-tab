@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Налаштування"
   },
-  "greetingTitle": {
-    "message": "Привітання"
-  },
   "wallpaperTitle": {
     "message": "Шпалери"
   },
   "wallpaperSourceLabel": {
     "message": "Джерело зображення"
+  },
+  "nosourceOption": {
+    "message": "Джерело відсутнє"
   },
   "overlayLabel": {
     "message": "Накладення зображення"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Привітання"
   },
+  "displayTime": {
+    "message": "Час"
+  },
+  "displayDate": {
+    "message": "Дата"
+  },
+  "displayAdvanced": {
+    "message": "Час і дата"
+  },
   "showSecondsLabel": {
     "message": "Показати секунди"
   },
@@ -46,6 +55,15 @@
   },
   "dateFormatLabel": {
     "message": "Формат"
+  },
+  "dateText": {
+    "message": "Написано"
+  },
+  "dateNumeric": {
+    "message": "Числовий"
+  },
+  "dateWeekday": {
+    "message": "Будні"
   },
   "weatherTitle": {
     "message": "Погода"
@@ -56,20 +74,29 @@
   "enableFoldersLabel": {
     "message": "Увімкнути папки"
   },
+  "hideShortcutNamesLabel": {
+    "message": "Приховати імена"
+  },
+  "folderIconHelp": {
+    "message": "Знайдіть індивідуальні іконки для папок за адресою"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Радіус повороту"
+  },
   "rows1": {
-    "message": "1 рядок"
+    "message": "1 ряд"
   },
   "rows2": {
-    "message": "2 рядки"
+    "message": "2 ряди"
   },
   "rowsLabel": {
-    "message": "Рядки"
+    "message": "Ряди"
   },
   "rows3": {
-    "message": "3 рядки"
+    "message": "3 ряди"
   },
   "rows4": {
-    "message": "4 рядки"
+    "message": "4 ряди"
   },
   "appLauncherTitle": {
     "message": "Лаунчер додатків"
@@ -84,13 +111,16 @@
     "message": "Пропозиції"
   },
   "clearSearchOption": {
-    "message": "Звичайний пошук (Google)"
+    "message": "Чистий пошук (Google)"
   },
   "compactBarOption": {
     "message": "Компактна панель"
   },
   "voiceSearchOption": {
     "message": "Голосовий пошук"
+  },
+  "askAiOption": {
+    "message": "Запитай у ШІ"
   },
   "reduceVisualEffectsTitle": {
     "message": "Зменшити ефекти"
@@ -111,19 +141,22 @@
     "message": "Резервне копіювання даних"
   },
   "exportOption": {
-    "message": "Експортувати"
+    "message": "Експорт"
   },
   "importOption": {
-    "message": "Імпортувати"
+    "message": "Імпорт"
   },
   "addFolderTitle": {
     "message": "Додати папку"
+  },
+  "folderNameLabel": {
+    "message": "Ім'я"
   },
   "editFolderTitle": {
     "message": "Редагувати папку"
   },
   "chooseTypeTitle": {
-    "message": "Створити новий"
+    "message": "Створити нове"
   },
   "backLabel": {
     "message": "Назад"
@@ -141,10 +174,10 @@
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Власний значок"
+    "message": "Іконка на замовлення"
   },
   "faviconUrlLabel": {
-    "message": "URL-адреса значка"
+    "message": "URL-адреса піктограми"
   },
   "btnCancel": {
     "message": "Скасувати"
@@ -156,7 +189,7 @@
     "message": "Пошук в Інтернеті"
   },
   "namePlaceholder": {
-    "message": "Ваше ім'я (необов'язково)"
+    "message": "Ваше ім'я (не обов'язково)"
   },
   "cityPlaceholder": {
     "message": "Ваше місто"
@@ -173,6 +206,33 @@
   "moreOptionsLabel": {
     "message": "Більше опцій"
   },
+  "permissionRequiredTitle": {
+    "message": "Потрібен дозвіл"
+  },
+  "grantPermissionLabel": {
+    "message": "Надати дозвіл"
+  },
+  "learnMoreLabel": {
+    "message": "Дізнатися більше"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
     "message": "Fluent New Tab оновлено до версії $VERSION$. ",
     "placeholders": {
@@ -183,10 +243,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Переглянути журнал змін"
+    "message": "дивитися журнал змін"
   },
   "nasaApodVideoNotice": {
-    "message": "Сьогоднішній APOD — це відео або він недоступний. Натомість залишаються ваші поточні шпалери."
+    "message": "Сьогоднішній APOD — це відео або недоступний. Залишаємо поточні шпалери."
   },
   "warningDeleteFolderTitle": {
     "message": "Видалити папку"
@@ -204,13 +264,13 @@
     "message": "Вимкнути папки?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Усі папки та їхні ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
+    "message": "Всі папки та їх ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Видалити папки"
   },
   "warningKeepEnabled": {
-    "message": "Залишити увімкненими"
+    "message": "Залишити увімкненим"
   },
   "warningAddEcosystemAppsTitle": {
     "message": "Додати додатки $ECOSYSTEM$?",
@@ -240,13 +300,13 @@
     "message": "Для цієї екосистеми немає доступних додатків."
   },
   "shortcutsLimitReached": {
-    "message": "Досягнуто ліміту ярликів!"
+    "message": "Досягнуто межу скорочень!"
   },
   "warningGridFullTitle": {
     "message": "Сітка заповнена"
   },
   "warningGridFullMessage": {
-    "message": "Ви досягли максимального ліміту в $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
+    "message": "Ви досягли максимального обмеження $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -258,7 +318,7 @@
     "message": "Папка переповнена"
   },
   "warningFolderFullMessage": {
-    "message": "Ця папка досягла максимального ліміту в $LIMIT$ елементів. Будь ласка, видаліть кілька ярликів перед додаванням нових.",
+    "message": "Ця папка досягла абсолютного обмеження $LIMIT$ елементів. Будь ласка, видаліть деякі ярлики, перш ніж додавати нові.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -279,7 +339,7 @@
     "message": "Недійсний файл резервної копії"
   },
   "warningInvalidBackupMessage": {
-    "message": "Вибраний файл не є дійсною резервною копією."
+    "message": "Вибраний файл не є дійсним резервним копією."
   },
   "warningUnderstood": {
     "message": "Зрозуміло"
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Починається новий день, $NAME$!",
+    "message": "Прокидайся і посміхайся, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Вітаємо, $NAME$! Готові до нового дня?",
+    "message": "Привіт, $NAME$! Готові до сьогоднішнього дня?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Почнімо цей день чудово, $NAME$!",
+    "message": "Почнемо день правильно, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Раді бачити вас, $NAME$!",
+    "message": "Радий бачити вас, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -420,7 +480,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Продовжуйте в тому ж дусі, $NAME$!",
+    "message": "Продовжуйте у тому ж дусі, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -447,7 +507,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Час відпочити, $NAME$",
+    "message": "Настав час відпочити, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Ще не спите, $NAME$? Час відпочивати!",
+    "message": "Ще не спиш, $NAME$? Скоро відпочинь!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -510,7 +570,7 @@
     }
   },
   "greetNight4": {
-    "message": "Надобраніч, $NAME$. До завтра!",
+    "message": "Доброї ночі, $NAME$. До завтра!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Засиділися допізна, $NAME$?",
+    "message": "Сьогодні пізно лягаю спати, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
