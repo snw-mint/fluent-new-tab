@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Inställningar"
   },
-  "greetingTitle": {
-    "message": "Hälsning"
-  },
   "wallpaperTitle": {
     "message": "Bakgrundsbild"
   },
   "wallpaperSourceLabel": {
     "message": "Bildkälla"
+  },
+  "nosourceOption": {
+    "message": "Ingen källa"
   },
   "overlayLabel": {
     "message": "Bildöverlägg"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Hälsning"
   },
+  "displayTime": {
+    "message": "Tid"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Tid och datum"
+  },
   "showSecondsLabel": {
     "message": "Visa sekunder"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Skrivet"
+  },
+  "dateNumeric": {
+    "message": "Numeriskt"
+  },
+  "dateWeekday": {
+    "message": "Vardag"
+  },
   "weatherTitle": {
     "message": "Väder"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Aktivera mappar"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Dölj namn"
+  },
+  "folderIconHelp": {
+    "message": "Hitta anpassade mappikoner på"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hörnradie"
   },
   "rows1": {
     "message": "1 rad"
@@ -84,13 +111,16 @@
     "message": "Förslag"
   },
   "clearSearchOption": {
-    "message": "Enkel sökning (Google)"
+    "message": "Ren sökning (Google)"
   },
   "compactBarOption": {
     "message": "Kompakt fält"
   },
   "voiceSearchOption": {
     "message": "Röstsökning"
+  },
+  "askAiOption": {
+    "message": "Fråga AI"
   },
   "reduceVisualEffectsTitle": {
     "message": "Minska effekterna"
@@ -111,13 +141,16 @@
     "message": "Säkerhetskopiering av data"
   },
   "exportOption": {
-    "message": "Exportera"
+    "message": "Export"
   },
   "importOption": {
-    "message": "Importera"
+    "message": "Import"
   },
   "addFolderTitle": {
     "message": "Lägg till mapp"
+  },
+  "folderNameLabel": {
+    "message": "Namn"
   },
   "editFolderTitle": {
     "message": "Redigera mapp"
@@ -173,6 +206,33 @@
   "moreOptionsLabel": {
     "message": "Fler alternativ"
   },
+  "permissionRequiredTitle": {
+    "message": "Tillstånd krävs"
+  },
+  "grantPermissionLabel": {
+    "message": "Bevilja behörighet"
+  },
+  "learnMoreLabel": {
+    "message": "Läs mer"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
     "message": "Fluent New Tab har uppdaterats till version $VERSION$. ",
     "placeholders": {
@@ -183,7 +243,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Visa ändringsloggen"
+    "message": "se ändringslogg"
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD är en video eller otillgänglig. Vi behåller din nuvarande bakgrundsbild istället."
@@ -210,10 +270,10 @@
     "message": "Ta bort mappar"
   },
   "warningKeepEnabled": {
-    "message": "Behåll aktiverat"
+    "message": "Håll aktiverat"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Lägg till $ECOSYSTEM$-appar?",
+    "message": "Lägg till $ECOSYSTEM$‑appar?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -222,7 +282,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Detta skapar en mapp med 9 $ECOSYSTEM$-appar bland dina genvägar. Vill du fortsätta?",
+    "message": "Detta kommer att skapa en mapp med 9 $ECOSYSTEM$ appar i dina genvägar. Fortsätta?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "En ny dag väntar, $NAME$!",
+    "message": "Upp och hoppa, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Hej $NAME$! Är du redo för dagen?",
+    "message": "Hej, $NAME$! Är du redo för idag?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Låt oss få en bra start på dagen, $NAME$",
+    "message": "Låt oss börja dagen på rätt sätt, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Är du fortfarande vaken, $NAME$? Dags att vila snart!",
+    "message": "Är du fortfarande vaken, $NAME$? Vila dig snart!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Uppe sent ikväll, $NAME$?",
+    "message": "Upp sent ikväll, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
