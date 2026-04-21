@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Instellingen"
   },
-  "greetingTitle": {
-    "message": "Groet"
-  },
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
   "wallpaperSourceLabel": {
     "message": "Afbeeldingsbron"
+  },
+  "nosourceOption": {
+    "message": "Geen bron"
   },
   "overlayLabel": {
     "message": "Afbeeldingsoverlay"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Groet"
   },
+  "displayTime": {
+    "message": "Tijd"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Tijd en datum"
+  },
   "showSecondsLabel": {
     "message": "Seconden weergeven"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Indeling"
   },
+  "dateText": {
+    "message": "Geschreven"
+  },
+  "dateNumeric": {
+    "message": "Numeriek"
+  },
+  "dateWeekday": {
+    "message": "Weekdag"
+  },
   "weatherTitle": {
     "message": "Weer"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Mappen inschakelen"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Namen verbergen"
+  },
+  "folderIconHelp": {
+    "message": "Vind aangepaste mapiconen op"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hoekradius"
   },
   "rows1": {
     "message": "1 rij"
@@ -84,13 +111,16 @@
     "message": "Suggesties"
   },
   "clearSearchOption": {
-    "message": "Eenvoudig zoeken (Google)"
+    "message": "Schone zoekopdracht (Google)"
   },
   "compactBarOption": {
     "message": "Compacte balk"
   },
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
+  },
+  "askAiOption": {
+    "message": "Vraag het aan de AI"
   },
   "reduceVisualEffectsTitle": {
     "message": "Effecten verminderen"
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Map toevoegen"
+  },
+  "folderNameLabel": {
+    "message": "Naam"
   },
   "editFolderTitle": {
     "message": "Map bewerken"
@@ -156,10 +189,10 @@
     "message": "Zoek op het web"
   },
   "namePlaceholder": {
-    "message": "Je naam (optioneel)"
+    "message": "Uw naam (optioneel)"
   },
   "cityPlaceholder": {
-    "message": "Je stad"
+    "message": "Uw stad"
   },
   "addShortcutLabel": {
     "message": "Toevoegen"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Meer opties"
   },
+  "permissionRequiredTitle": {
+    "message": "Toestemming vereist"
+  },
+  "grantPermissionLabel": {
+    "message": "Toestemming verlenen"
+  },
+  "learnMoreLabel": {
+    "message": "Meer informatie"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt uw privacy en veiligheid.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$. ",
+    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,16 +243,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Bekijk changelog"
+    "message": "zie changelog"
   },
   "nasaApodVideoNotice": {
-    "message": "De APOD van vandaag is een video of is niet beschikbaar. Je huidige achtergrond wordt in plaats daarvan behouden."
+    "message": "De APOD van vandaag is een video of is niet beschikbaar. In plaats daarvan behoudt u uw huidige achtergrond."
   },
   "warningDeleteFolderTitle": {
     "message": "Map verwijderen"
   },
   "warningDeleteFolderMessage": {
-    "message": "Weet je zeker dat je de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
+    "message": "Weet u zeker dat u de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -204,7 +264,7 @@
     "message": "Mappen uitschakelen?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij je een back-up hebt."
+    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij u een back-up hebt."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Mappen verwijderen"
@@ -222,7 +282,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in je snelkoppelingen aangemaakt. Doorgaan?",
+    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in uw snelkoppelingen aangemaakt. Doorgaan?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -258,7 +318,7 @@
     "message": "Map is vol"
   },
   "warningFolderFullMessage": {
-    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat je nieuwe toevoegt.",
+    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat u nieuwe toevoegt.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -270,7 +330,7 @@
     "message": "Back-up herstellen?"
   },
   "warningRestoreBackupMessage": {
-    "message": "Hierdoor worden je huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
+    "message": "Hierdoor worden uw huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
   },
   "warningRestoreBackupConfirm": {
     "message": "Herstellen"
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Een nieuwe dag begint, $NAME$!",
+    "message": "Opstaan, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -456,7 +516,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Een rustige avond gewenst, $NAME$",
+    "message": "Ik wens je een rustige avond, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Nog wakker, $NAME$? Slaap lekker straks!",
+    "message": "Nog wakker, $NAME$? Rust snel goed uit!",
     "placeholders": {
       "name": {
         "content": "$1",
