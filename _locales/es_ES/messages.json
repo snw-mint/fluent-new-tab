@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Configuración"
   },
-  "greetingTitle": {
-    "message": "Saludo"
-  },
   "wallpaperTitle": {
     "message": "Fondo de pantalla"
   },
   "wallpaperSourceLabel": {
     "message": "Fuente de la imagen"
+  },
+  "nosourceOption": {
+    "message": "Sin fuente"
   },
   "overlayLabel": {
     "message": "Superposición de imágenes"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Saludo"
   },
+  "displayTime": {
+    "message": "Hora"
+  },
+  "displayDate": {
+    "message": "Fecha"
+  },
+  "displayAdvanced": {
+    "message": "Hora y fecha"
+  },
   "showSecondsLabel": {
     "message": "Mostrar segundos"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Formato"
   },
+  "dateText": {
+    "message": "Escrito"
+  },
+  "dateNumeric": {
+    "message": "Numérico"
+  },
+  "dateWeekday": {
+    "message": "Día laborable"
+  },
   "weatherTitle": {
     "message": "Clima"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Habilitar carpetas"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ocultar nombres"
+  },
+  "folderIconHelp": {
+    "message": "Encuentra iconos personalizados para carpetas en"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Radio de la curva"
   },
   "rows1": {
     "message": "1 fila"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Búsqueda por voz"
   },
+  "askAiOption": {
+    "message": "Pregúntale a la IA"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Reducir efectos"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Añadir carpeta"
+  },
+  "folderNameLabel": {
+    "message": "Nombre"
   },
   "editFolderTitle": {
     "message": "Editar carpeta"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Más opciones"
+  },
+  "permissionRequiredTitle": {
+    "message": "Se requiere permiso"
+  },
+  "grantPermissionLabel": {
+    "message": "Conceder permiso"
+  },
+  "learnMoreLabel": {
+    "message": "Más información"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Para utilizar esta función, Fluent New Tab necesita permiso para acceder a «$API_NAME$». Esto garantiza tu privacidad y seguridad.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab se ha actualizado a la versión $VERSION$. ",

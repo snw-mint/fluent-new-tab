@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "设置"
   },
-  "greetingTitle": {
-    "message": "问候"
-  },
   "wallpaperTitle": {
     "message": "壁纸"
   },
   "wallpaperSourceLabel": {
     "message": "图片来源"
+  },
+  "nosourceOption": {
+    "message": "无来源"
   },
   "overlayLabel": {
     "message": "图像叠加"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "问候"
   },
+  "displayTime": {
+    "message": "时间"
+  },
+  "displayDate": {
+    "message": "日期"
+  },
+  "displayAdvanced": {
+    "message": "时间与日期"
+  },
   "showSecondsLabel": {
     "message": "显示秒"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "格式"
   },
+  "dateText": {
+    "message": "撰写"
+  },
+  "dateNumeric": {
+    "message": "数字"
+  },
+  "dateWeekday": {
+    "message": "工作日"
+  },
   "weatherTitle": {
     "message": "天气"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "启用文件夹"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "隐藏姓名"
+  },
+  "folderIconHelp": {
+    "message": "在以下位置查找自定义文件夹图标："
+  },
+  "shortcutRadiusLabel": {
+    "message": "转角半径"
   },
   "rows1": {
     "message": "1 行"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "语音搜索"
   },
+  "askAiOption": {
+    "message": "询问 AI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "减少视觉效果"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "添加文件夹"
+  },
+  "folderNameLabel": {
+    "message": "名称"
   },
   "editFolderTitle": {
     "message": "编辑文件夹"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "更多选项"
+  },
+  "permissionRequiredTitle": {
+    "message": "需要授权"
+  },
+  "grantPermissionLabel": {
+    "message": "授予权限"
+  },
+  "learnMoreLabel": {
+    "message": "了解更多"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab 已更新至版本 $VERSION$。",

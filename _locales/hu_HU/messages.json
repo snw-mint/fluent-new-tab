@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Beállítások"
   },
-  "greetingTitle": {
-    "message": "Üdvözlet"
-  },
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
   "wallpaperSourceLabel": {
     "message": "Kép forrása"
+  },
+  "nosourceOption": {
+    "message": "Forrás nélkül"
   },
   "overlayLabel": {
     "message": "Kép átfedés"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Üdvözlet"
   },
+  "displayTime": {
+    "message": "Idő"
+  },
+  "displayDate": {
+    "message": "Dátum"
+  },
+  "displayAdvanced": {
+    "message": "Idő és dátum"
+  },
   "showSecondsLabel": {
     "message": "Másodpercek megjelenítése"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Formátum"
   },
+  "dateText": {
+    "message": "Írásban"
+  },
+  "dateNumeric": {
+    "message": "Szám"
+  },
+  "dateWeekday": {
+    "message": "Hétköznap"
+  },
   "weatherTitle": {
     "message": "Időjárás"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Mappák engedélyezése"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Nevek elrejtése"
+  },
+  "folderIconHelp": {
+    "message": "Egyedi mappaikonokat találsz a"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Sarkok sugara"
   },
   "rows1": {
     "message": "1 sor"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
   },
+  "askAiOption": {
+    "message": "Kérdezd meg az AI-t"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Effektek csökkentése"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Mappa hozzáadása"
+  },
+  "folderNameLabel": {
+    "message": "Név"
   },
   "editFolderTitle": {
     "message": "Mappa szerkesztése"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "További lehetőségek"
+  },
+  "permissionRequiredTitle": {
+    "message": "Engedély szükséges"
+  },
+  "grantPermissionLabel": {
+    "message": "Engedély megadása"
+  },
+  "learnMoreLabel": {
+    "message": "További információk"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "A funkció használatához a Fluent New Tab alkalmazásnak engedélyre van szüksége a „$API_NAME$” webhely eléréséhez. Ez biztosítja az Ön adatainak védelmét és biztonságát.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "A Fluent New Tab frissült a $VERSION$ verzióra. ",

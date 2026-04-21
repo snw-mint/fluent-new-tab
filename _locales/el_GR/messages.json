@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Ρυθμίσεις"
   },
-  "greetingTitle": {
-    "message": "Χαιρετισμός"
-  },
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
   "wallpaperSourceLabel": {
     "message": "Πηγή εικόνας"
+  },
+  "nosourceOption": {
+    "message": "Χωρίς πηγή"
   },
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Χαιρετισμός"
   },
+  "displayTime": {
+    "message": "Ώρα"
+  },
+  "displayDate": {
+    "message": "Ημερομηνία"
+  },
+  "displayAdvanced": {
+    "message": "Ώρα & Ημερομηνία"
+  },
   "showSecondsLabel": {
     "message": "Εμφάνιση δευτερολέπτων"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Μορφή"
   },
+  "dateText": {
+    "message": "Γραπτό"
+  },
+  "dateNumeric": {
+    "message": "Αριθμητικός"
+  },
+  "dateWeekday": {
+    "message": "Καθημερινή"
+  },
   "weatherTitle": {
     "message": "Καιρός"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Ενεργοποίηση φακέλων"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Απόκρυψη ονομάτων"
+  },
+  "folderIconHelp": {
+    "message": "Βρείτε προσαρμοσμένα εικονίδια φακέλων στη διεύθυνση"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Ακτίνα γωνίας"
   },
   "rows1": {
     "message": "1 σειρά"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
   },
+  "askAiOption": {
+    "message": "Ρώτα την τεχνητή νοημοσύνη"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Μείωση εφέ"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Προσθήκη φακέλου"
+  },
+  "folderNameLabel": {
+    "message": "Όνομα"
   },
   "editFolderTitle": {
     "message": "Επεξεργασία φακέλου"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Περισσότερες επιλογές"
+  },
+  "permissionRequiredTitle": {
+    "message": "Απαιτείται άδεια"
+  },
+  "grantPermissionLabel": {
+    "message": "Χορήγηση άδειας"
+  },
+  "learnMoreLabel": {
+    "message": "Μάθετε περισσότερα"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία της ιδιωτικής σας ζωής και την ασφάλειά σας.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",

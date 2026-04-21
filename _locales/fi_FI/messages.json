@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Asetukset"
   },
-  "greetingTitle": {
-    "message": "Tervehdys"
-  },
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
   "wallpaperSourceLabel": {
     "message": "Kuvan lähde"
+  },
+  "nosourceOption": {
+    "message": "Lähdettä ei ole"
   },
   "overlayLabel": {
     "message": "Kuvan peitto"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Tervehdys"
   },
+  "displayTime": {
+    "message": "Aika"
+  },
+  "displayDate": {
+    "message": "Päivämäärä"
+  },
+  "displayAdvanced": {
+    "message": "Aika ja päivämäärä"
+  },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Muoto"
   },
+  "dateText": {
+    "message": "Kirjoitettu"
+  },
+  "dateNumeric": {
+    "message": "Numero"
+  },
+  "dateWeekday": {
+    "message": "Arkipäivä"
+  },
   "weatherTitle": {
     "message": "Sää"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Ota kansiot käyttöön"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Piilota nimet"
+  },
+  "folderIconHelp": {
+    "message": "Löydät mukautettuja kansiokuvakkeita osoitteesta"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Kulman säde"
   },
   "rows1": {
     "message": "1 rivi"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Äänihaku"
   },
+  "askAiOption": {
+    "message": "Kysy tekoälyltä"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Vähennä tehosteita"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Lisää kansio"
+  },
+  "folderNameLabel": {
+    "message": "Nimi"
   },
   "editFolderTitle": {
     "message": "Muokkaa kansiota"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Lisää vaihtoehtoja"
+  },
+  "permissionRequiredTitle": {
+    "message": "Vaaditaan lupa"
+  },
+  "grantPermissionLabel": {
+    "message": "Myönnä käyttöoikeus"
+  },
+  "learnMoreLabel": {
+    "message": "Lisätietoja"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",

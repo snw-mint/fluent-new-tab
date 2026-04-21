@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Settings"
   },
-  "greetingTitle": {
-    "message": "Greeting"
-  },
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
   "wallpaperSourceLabel": {
     "message": "Image Source"
+  },
+  "nosourceOption": {
+    "message": "No source"
   },
   "overlayLabel": {
     "message": "Image Overlay"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Greeting"
   },
+  "displayTime": {
+    "message": "Time"
+  },
+  "displayDate": {
+    "message": "Date"
+  },
+  "displayAdvanced": {
+    "message": "Time & Date"
+  },
   "showSecondsLabel": {
     "message": "Show seconds"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Written"
+  },
+  "dateNumeric": {
+    "message": "Numeric"
+  },
+  "dateWeekday": {
+    "message": "Weekday"
+  },
   "weatherTitle": {
     "message": "Weather"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Enable Folders"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Hide Names"
+  },
+  "folderIconHelp": {
+    "message": "Find custom folder icons at"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Corner Radius"
   },
   "rows1": {
     "message": "1 Row"
@@ -122,11 +149,11 @@
   "addFolderTitle": {
     "message": "Add Folder"
   },
+  "folderNameLabel": {
+    "message": "Name"
+  },
   "editFolderTitle": {
     "message": "Edit Folder"
-  },
-  "folderIconHelp": {
-    "message": "Find custom folder icons at"
   },
   "chooseTypeTitle": {
     "message": "Create New"
@@ -178,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "More options"
+  },
+  "permissionRequiredTitle": {
+    "message": "Permission Required"
+  },
+  "grantPermissionLabel": {
+    "message": "Grant Permission"
+  },
+  "learnMoreLabel": {
+    "message": "Learn more"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab has been updated to version $VERSION$. ",

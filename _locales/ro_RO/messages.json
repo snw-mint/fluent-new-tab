@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Setări"
   },
-  "greetingTitle": {
-    "message": "Salutare"
-  },
   "wallpaperTitle": {
     "message": "Tapet"
   },
   "wallpaperSourceLabel": {
     "message": "Sursa imaginii"
+  },
+  "nosourceOption": {
+    "message": "Fără sursă"
   },
   "overlayLabel": {
     "message": "Suprapunere imagine"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Salutare"
   },
+  "displayTime": {
+    "message": "Ora"
+  },
+  "displayDate": {
+    "message": "Data"
+  },
+  "displayAdvanced": {
+    "message": "Ora și data"
+  },
   "showSecondsLabel": {
     "message": "Afișează secundele"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Scris"
+  },
+  "dateNumeric": {
+    "message": "Numeric"
+  },
+  "dateWeekday": {
+    "message": "Zi lucrătoare"
+  },
   "weatherTitle": {
     "message": "Vremea"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Activează folderele"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ascunde numele"
+  },
+  "folderIconHelp": {
+    "message": "Găsiți pictograme personalizate pentru foldere la"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Raza de curbură a colțului"
   },
   "rows1": {
     "message": "1 rând"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Căutare vocală"
   },
+  "askAiOption": {
+    "message": "Întreabă IA"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Reduceți efectele"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Adaugă folder"
+  },
+  "folderNameLabel": {
+    "message": "Nume"
   },
   "editFolderTitle": {
     "message": "Editare folder"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Mai multe opțiuni"
+  },
+  "permissionRequiredTitle": {
+    "message": "Este necesară autorizarea"
+  },
+  "grantPermissionLabel": {
+    "message": "Acordă permisiunea"
+  },
+  "learnMoreLabel": {
+    "message": "Află mai multe"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$. ",

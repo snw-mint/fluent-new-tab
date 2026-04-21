@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Ayarlar"
   },
-  "greetingTitle": {
-    "message": "Selamlama"
-  },
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
   "wallpaperSourceLabel": {
     "message": "Görsel Kaynağı"
+  },
+  "nosourceOption": {
+    "message": "Kaynak yok"
   },
   "overlayLabel": {
     "message": "Görüntü Kaplaması"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Selamlama"
   },
+  "displayTime": {
+    "message": "Zaman"
+  },
+  "displayDate": {
+    "message": "Tarih"
+  },
+  "displayAdvanced": {
+    "message": "Saat ve Tarih"
+  },
   "showSecondsLabel": {
     "message": "Saniyeleri göster"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Biçim"
   },
+  "dateText": {
+    "message": "Yazılı"
+  },
+  "dateNumeric": {
+    "message": "Sayısal"
+  },
+  "dateWeekday": {
+    "message": "Hafta içi"
+  },
   "weatherTitle": {
     "message": "Hava durumu"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Klasörleri Etkinleştir"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "İsimleri Gizle"
+  },
+  "folderIconHelp": {
+    "message": "Özel klasör simgelerini şu adreste bulabilirsiniz:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Köşe Yarıçapı"
   },
   "rows1": {
     "message": "1 Satır"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Sesli Arama"
   },
+  "askAiOption": {
+    "message": "AI'ya sor"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Efektleri azalt"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Klasör Ekle"
+  },
+  "folderNameLabel": {
+    "message": "Ad"
   },
   "editFolderTitle": {
     "message": "Klasörü Düzenle"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Daha Fazla Seçenek"
+  },
+  "permissionRequiredTitle": {
+    "message": "İzin Gerekiyor"
+  },
+  "grantPermissionLabel": {
+    "message": "İzin Ver"
+  },
+  "learnMoreLabel": {
+    "message": "Daha fazla bilgi edinin"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",

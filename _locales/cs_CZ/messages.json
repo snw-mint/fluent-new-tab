@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Nastavení"
   },
-  "greetingTitle": {
-    "message": "Pozdrav"
-  },
   "wallpaperTitle": {
     "message": "Tapeta"
   },
   "wallpaperSourceLabel": {
     "message": "Zdroj obrázku"
+  },
+  "nosourceOption": {
+    "message": "Žádný zdroj"
   },
   "overlayLabel": {
     "message": "Překrytí obrázku"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Pozdrav"
   },
+  "displayTime": {
+    "message": "Čas"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Čas a datum"
+  },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Formát"
   },
+  "dateText": {
+    "message": "Napsáno"
+  },
+  "dateNumeric": {
+    "message": "Číselný"
+  },
+  "dateWeekday": {
+    "message": "Pracovní den"
+  },
   "weatherTitle": {
     "message": "Počasí"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Povolit složky"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skrýt jména"
+  },
+  "folderIconHelp": {
+    "message": "Ikony složek na míru najdete na"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Poloměr rohu"
   },
   "rows1": {
     "message": "1 řada"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
+  "askAiOption": {
+    "message": "Zeptej se AI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Omezit efekty"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Přidat složku"
+  },
+  "folderNameLabel": {
+    "message": "Název"
   },
   "editFolderTitle": {
     "message": "Upravit složku"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Další možnosti"
+  },
+  "permissionRequiredTitle": {
+    "message": "Je nutné povolení"
+  },
+  "grantPermissionLabel": {
+    "message": "Udělit oprávnění"
+  },
+  "learnMoreLabel": {
+    "message": "Další informace"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",

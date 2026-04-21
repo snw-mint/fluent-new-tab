@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Cài đặt"
   },
-  "greetingTitle": {
-    "message": "Chào mừng"
-  },
   "wallpaperTitle": {
     "message": "Hình nền"
   },
   "wallpaperSourceLabel": {
     "message": "Nguồn hình ảnh"
+  },
+  "nosourceOption": {
+    "message": "Không có nguồn"
   },
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Chào mừng"
   },
+  "displayTime": {
+    "message": "Thời gian"
+  },
+  "displayDate": {
+    "message": "Ngày"
+  },
+  "displayAdvanced": {
+    "message": "Thời gian & Ngày tháng"
+  },
   "showSecondsLabel": {
     "message": "Hiển thị giây"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Định dạng"
   },
+  "dateText": {
+    "message": "Viết"
+  },
+  "dateNumeric": {
+    "message": "Số"
+  },
+  "dateWeekday": {
+    "message": "Ngày trong tuần"
+  },
   "weatherTitle": {
     "message": "Thời tiết"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Bật thư mục"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ẩn tên"
+  },
+  "folderIconHelp": {
+    "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Bán kính góc"
   },
   "rows1": {
     "message": "1 hàng"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"
   },
+  "askAiOption": {
+    "message": "Hỏi AI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Giảm hiệu ứng"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Thêm thư mục"
+  },
+  "folderNameLabel": {
+    "message": "Tên"
   },
   "editFolderTitle": {
     "message": "Chỉnh sửa thư mục"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Thêm tùy chọn"
+  },
+  "permissionRequiredTitle": {
+    "message": "Yêu cầu quyền truy cập"
+  },
+  "grantPermissionLabel": {
+    "message": "Cấp quyền"
+  },
+  "learnMoreLabel": {
+    "message": "Tìm hiểu thêm"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",

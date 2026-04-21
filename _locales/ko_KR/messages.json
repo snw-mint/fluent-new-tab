@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "설정"
   },
-  "greetingTitle": {
-    "message": "인사말"
-  },
   "wallpaperTitle": {
     "message": "배경화면"
   },
   "wallpaperSourceLabel": {
     "message": "이미지 출처"
+  },
+  "nosourceOption": {
+    "message": "출처 없음"
   },
   "overlayLabel": {
     "message": "이미지 오버레이"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "인사말"
   },
+  "displayTime": {
+    "message": "시간"
+  },
+  "displayDate": {
+    "message": "날짜"
+  },
+  "displayAdvanced": {
+    "message": "시간 및 날짜"
+  },
   "showSecondsLabel": {
     "message": "초 표시"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "서식"
   },
+  "dateText": {
+    "message": "작성됨"
+  },
+  "dateNumeric": {
+    "message": "숫자"
+  },
+  "dateWeekday": {
+    "message": "평일"
+  },
   "weatherTitle": {
     "message": "날씨"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "폴더 활성화"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "이름 숨기기"
+  },
+  "folderIconHelp": {
+    "message": "맞춤형 폴더 아이콘은 다음에서 찾아보세요"
+  },
+  "shortcutRadiusLabel": {
+    "message": "곡률 반경"
   },
   "rows1": {
     "message": "1줄"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "음성 검색"
   },
+  "askAiOption": {
+    "message": "AI에게 물어보세요"
+  },
   "reduceVisualEffectsTitle": {
     "message": "효과 줄이기"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "폴더 추가"
+  },
+  "folderNameLabel": {
+    "message": "이름"
   },
   "editFolderTitle": {
     "message": "폴더 편집"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "추가 옵션"
+  },
+  "permissionRequiredTitle": {
+    "message": "권한 필요"
+  },
+  "grantPermissionLabel": {
+    "message": "권한 허용"
+  },
+  "learnMoreLabel": {
+    "message": "자세히 알아보기"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다. ",
