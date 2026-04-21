@@ -2689,7 +2689,9 @@ function initAllEventBindings() {
       clearSearchEnabled = enabled;
     },
     updateGoogleParams,
-    toggleCompact,
+    searchBarStyleSelect,
+    searchMoreBtn,
+    searchMoreContainer,
     getCompactBarEnabled: () => compactBarEnabled,
     setCompactBarEnabled: (enabled) => {
       compactBarEnabled = enabled;

@@ -62,7 +62,9 @@ interface SearchBindingOptions {
   toggleClearSearch: HTMLInputElement | null;
   setClearSearchEnabled: (enabled: boolean) => void;
   updateGoogleParams: () => void;
-  toggleCompact: HTMLInputElement | null;
+  searchBarStyleSelect: HTMLSelectElement | null;
+  searchMoreBtn: HTMLDivElement | null;
+  searchMoreContainer: HTMLDivElement | null;
   getCompactBarEnabled: () => boolean;
   setCompactBarEnabled: (enabled: boolean) => void;
   updateCompactBarStyle: () => void;
@@ -448,13 +450,32 @@ function bindSearchFeature(options: SearchBindingOptions): void {
     });
   }
 
-  if (options.toggleCompact) {
-    options.toggleCompact.checked = options.getCompactBarEnabled();
-    options.toggleCompact.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement | null;
+  if (options.searchMoreBtn && options.searchMoreContainer) {
+    options.searchMoreBtn.addEventListener('click', () => {
+      const isCollapsed =
+        options.searchMoreContainer!.classList.contains('collapsed');
+      if (isCollapsed) {
+        options.searchMoreContainer!.classList.remove('collapsed');
+        options.searchMoreBtn!.classList.add('expanded');
+        options.searchMoreContainer!.style.maxHeight = '500px';
+      } else {
+        options.searchMoreContainer!.classList.add('collapsed');
+        options.searchMoreBtn!.classList.remove('expanded');
+        options.searchMoreContainer!.style.maxHeight = '';
+      }
+    });
+  }
+
+  if (options.searchBarStyleSelect) {
+    options.searchBarStyleSelect.value = options.getCompactBarEnabled()
+      ? 'compact'
+      : 'full';
+    options.searchBarStyleSelect.addEventListener('change', (event) => {
+      const target = event.target as HTMLSelectElement | null;
       if (!target) return;
-      options.setCompactBarEnabled(target.checked);
-      localStorage.setItem('compactBarEnabled', String(target.checked));
+      const isCompact = target.value === 'compact';
+      options.setCompactBarEnabled(isCompact);
+      localStorage.setItem('compactBarEnabled', String(isCompact));
       options.updateCompactBarStyle();
     });
   }

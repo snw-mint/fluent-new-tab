@@ -98,6 +98,11 @@ const searchWrapper = (document.querySelector('.search-wrapper') ||
   document.querySelector('.search-bar') ||
   getById<HTMLFormElement>('searchForm')) as HTMLElement | null;
 const toggleSearchBar = getById<HTMLInputElement>('toggleSearchBar');
+const searchStyleRow = getById<HTMLDivElement>('searchStyleRow');
+const searchBarStyleSelect = getById<HTMLSelectElement>('searchBarStyleSelect');
+const searchMoreSetting = getById<HTMLDivElement>('searchMoreSetting');
+const searchMoreBtn = getById<HTMLDivElement>('search-more-btn');
+const searchMoreContainer = getById<HTMLDivElement>('search-more-container');
 const suggestionsRow = getById<HTMLDivElement>('suggestionsRow');
 const toggleSuggestions = getById<HTMLInputElement>('toggleSuggestions');
 const toggleClearSearch = getById<HTMLInputElement>('toggleClearSearch');

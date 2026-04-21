@@ -34,19 +34,6 @@ function getShortcutTemplate(): HTMLDivElement {
     shortcutTemplate.className = 'shortcut-item';
     shortcutTemplate.draggable = true;
 
-    // We can use innerHTML here to ensure translations and SVGs work
-    // when they might be updated dynamically, or just the fact that
-    // SVGs need to be parsed from strings.
-    // If the translations change dynamically, we might need to recreate the template,
-    // but the original code was recreating these elements every single loop iteration.
-    // Actually, to handle translations that change dynamically without reload,
-    // we should let innerHTML handle the translation variables properly each time?
-    // Wait, the original code used window.getTranslation inside the loop.
-    // Since we are using a template, the translations are captured ONCE per page load.
-    // This extension uses a full reload for language change.
-
-    // But importantly, the icons are SVGs and must be parsed as HTML!
-
     const menuDots =
       typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...';
     const editIcon = typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E';
@@ -204,7 +191,9 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       card.insertBefore(img, menuWrapper);
     }
 
-    const dropdown = menuWrapper.querySelector('.shortcut-dropdown') as HTMLDivElement;
+    const dropdown = menuWrapper.querySelector(
+      '.shortcut-dropdown',
+    ) as HTMLDivElement;
     if (dropdown) {
       const editOpt = dropdown.firstElementChild as HTMLDivElement;
       const removeOpt = dropdown.lastElementChild as HTMLDivElement;
@@ -212,7 +201,9 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       if (removeOpt) removeOpt.dataset.index = index.toString();
     }
 
-    const titleLink = item.querySelector('.shortcut-title') as HTMLAnchorElement;
+    const titleLink = item.querySelector(
+      '.shortcut-title',
+    ) as HTMLAnchorElement;
     titleLink.href = isFolder ? '#' : itemData.url || '#';
     titleLink.textContent = itemData.name;
     titleLink.dataset.action = isFolder
