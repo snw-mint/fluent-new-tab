@@ -149,7 +149,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     item.dataset.type = isFolder ? 'folder' : 'shortcut';
     if (itemData.id) item.dataset.id = itemData.id;
 
-    const card = item.firstElementChild as HTMLAnchorElement;
+    const card = item.querySelector('.shortcut-card') as HTMLAnchorElement;
     card.href = isFolder ? '#' : itemData.url || '#';
 
     if (isFolder) {
