@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Einstellungen"
   },
-  "greetingTitle": {
-    "message": "Begrüßung"
-  },
   "wallpaperTitle": {
     "message": "Hintergrundbild"
   },
   "wallpaperSourceLabel": {
     "message": "Bildquelle"
+  },
+  "nosourceOption": {
+    "message": "Keine Quelle"
   },
   "overlayLabel": {
     "message": "Bildüberlagerung"
@@ -24,10 +24,10 @@
     "message": "Akzentfarbe"
   },
   "accentWallpaperOption": {
-    "message": "Aus Hintergrundbild extrahieren"
+    "message": "Von der Hintergrundbild-Seite herunterladen"
   },
   "styleNone": {
-    "message": "Keiner"
+    "message": "Keine"
   },
   "iconsStyleLabel": {
     "message": "Symbolstil"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Begrüßung"
   },
+  "displayTime": {
+    "message": "Zeit"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Uhrzeit und Datum"
+  },
   "showSecondsLabel": {
     "message": "Sekunden anzeigen"
   },
@@ -47,29 +56,47 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Geschrieben"
+  },
+  "dateNumeric": {
+    "message": "Numerisch"
+  },
+  "dateWeekday": {
+    "message": "Wochentag"
+  },
   "weatherTitle": {
     "message": "Wetter"
   },
   "shortcutsTitle": {
-    "message": "Verknüpfungen"
+    "message": "Schnellzugriffe"
   },
   "enableFoldersLabel": {
     "message": "Ordner aktivieren"
   },
+  "hideShortcutNamesLabel": {
+    "message": "Namen ausblenden"
+  },
+  "folderIconHelp": {
+    "message": "Hier finden Sie benutzerdefinierte Ordnersymbole unter"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Eckenradius"
+  },
   "rows1": {
-    "message": "1 Zeile"
+    "message": "1 Reihe"
   },
   "rows2": {
-    "message": "2 Zeilen"
+    "message": "2 Reihen"
   },
   "rowsLabel": {
     "message": "Zeilen"
   },
   "rows3": {
-    "message": "3 Zeilen"
+    "message": "3 Reihen"
   },
   "rows4": {
-    "message": "4 Zeilen"
+    "message": "4 Reihen"
   },
   "appLauncherTitle": {
     "message": "App-Launcher"
@@ -84,7 +111,7 @@
     "message": "Vorschläge"
   },
   "clearSearchOption": {
-    "message": "Einfache Suche (Google)"
+    "message": "Saubere Suche (Google)"
   },
   "compactBarOption": {
     "message": "Kompakte Leiste"
@@ -92,11 +119,14 @@
   "voiceSearchOption": {
     "message": "Sprachsuche"
   },
+  "askAiOption": {
+    "message": "Frage an die KI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Effekte reduzieren"
   },
   "reduceMotionTitle": {
-    "message": "Bewegungen reduzieren"
+    "message": "Bewegung reduzieren"
   },
   "reduceBlurOption": {
     "message": "Unschärfe reduzieren"
@@ -105,19 +135,22 @@
     "message": "Sprache"
   },
   "interfaceLanguageLabel": {
-    "message": "Sprache der Benutzeroberfläche"
+    "message": "Schnittstellensprache"
   },
   "backupTitle": {
     "message": "Datensicherung"
   },
   "exportOption": {
-    "message": "Exportieren"
+    "message": "Export"
   },
   "importOption": {
-    "message": "Importieren"
+    "message": "Import"
   },
   "addFolderTitle": {
     "message": "Ordner hinzufügen"
+  },
+  "folderNameLabel": {
+    "message": "Name"
   },
   "editFolderTitle": {
     "message": "Ordner bearbeiten"
@@ -156,10 +189,10 @@
     "message": "Im Internet suchen"
   },
   "namePlaceholder": {
-    "message": "Dein Name (optional)"
+    "message": "Ihr Name (optional)"
   },
   "cityPlaceholder": {
-    "message": "Deine Stadt"
+    "message": "Ihre Stadt"
   },
   "addShortcutLabel": {
     "message": "Hinzufügen"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Weitere Optionen"
   },
+  "permissionRequiredTitle": {
+    "message": "Genehmigung erforderlich"
+  },
+  "grantPermissionLabel": {
+    "message": "Berechtigung erteilen"
+  },
+  "learnMoreLabel": {
+    "message": "Mehr erfahren"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Um diese Funktion nutzen zu können, benötigt „Fluent New Tab“ die Berechtigung, auf „$API_NAME$“ zuzugreifen. Dies dient dem Schutz Ihrer Privatsphäre und Ihrer Sicherheit.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab wurde auf Version $VERSION$ aktualisiert. ",
+    "message": "Fluent New Tab wurde auf Version $VERSION$ aktualisiert, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,16 +243,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Änderungsprotokoll ansehen"
+    "message": "siehe Änderungsprotokoll"
   },
   "nasaApodVideoNotice": {
-    "message": "Das heutige APOD ist ein Video oder nicht verfügbar. Dein aktuelles Hintergrundbild wird stattdessen beibehalten."
+    "message": "Das heutige APOD ist ein Video oder nicht verfügbar. Stattdessen wird Ihr aktuelles Hintergrundbild beibehalten."
   },
   "warningDeleteFolderTitle": {
     "message": "Ordner löschen"
   },
   "warningDeleteFolderMessage": {
-    "message": "Möchtest du den Ordner „$FOLDER$“ wirklich löschen? Alle darin enthaltenen Verknüpfungen werden entfernt.",
+    "message": "Möchten Sie den Ordner „$FOLDER$“ wirklich löschen? Alle darin enthaltenen Verknüpfungen werden entfernt.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -204,7 +264,7 @@
     "message": "Ordner deaktivieren?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Alle Ordner und ihre Verknüpfungen werden gelöscht. Dies kann nicht rückgängig gemacht werden, es sei denn, du hast ein Backup."
+    "message": "Alle Ordner und ihre Verknüpfungen werden gelöscht. Dies kann nicht rückgängig gemacht werden, es sei denn, Sie haben eine Sicherungskopie."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Ordner löschen"
@@ -222,7 +282,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "Dadurch wird ein Ordner mit 9 $ECOSYSTEM$-Apps in deinen Verknüpfungen erstellt. Möchtest du fortfahren?",
+    "message": "Dadurch wird ein Ordner mit 9 $ECOSYSTEM$-Apps in Ihren Verknüpfungen erstellt. Möchten Sie fortfahren?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -240,13 +300,13 @@
     "message": "Für dieses Ökosystem sind keine Apps verfügbar."
   },
   "shortcutsLimitReached": {
-    "message": "Limit für Verknüpfungen erreicht!"
+    "message": "Die Anzahl der Verknüpfungen ist erreicht!"
   },
   "warningGridFullTitle": {
     "message": "Das Raster ist voll"
   },
   "warningGridFullMessage": {
-    "message": "Du hast das Maximum von $LIMIT$ Verknüpfungen auf dem Hauptbildschirm erreicht. Lösche einige Elemente oder gruppiere sie in einem Ordner, um Platz zu schaffen.",
+    "message": "Sie haben die maximale Anzahl von Verknüpfungen auf dem Hauptbildschirm von $LIMIT$ erreicht. Löschen Sie einige Elemente oder gruppieren Sie sie in einem Ordner, um Speicherplatz freizugeben.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -258,7 +318,7 @@
     "message": "Ordner ist voll"
   },
   "warningFolderFullMessage": {
-    "message": "Dieser Ordner hat das absolute Limit von $LIMIT$ Elementen erreicht. Bitte entferne einige Verknüpfungen, bevor du neue hinzufügst.",
+    "message": "Dieser Ordner hat die absolute Höchstgrenze von $LIMIT$ Elementen erreicht. Bitte entfernen Sie einige Verknüpfungen, bevor Sie neue hinzufügen.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -270,7 +330,7 @@
     "message": "Sicherung wiederherstellen?"
   },
   "warningRestoreBackupMessage": {
-    "message": "Dadurch werden deine aktuellen Einstellungen und Verknüpfungen durch die Daten der Sicherungsdatei ersetzt."
+    "message": "Dadurch werden Ihre aktuellen Einstellungen und Verknüpfungen durch die Daten der Sicherungsdatei ersetzt."
   },
   "warningRestoreBackupConfirm": {
     "message": "Wiederherstellen"
@@ -309,7 +369,7 @@
     "message": "Samstag"
   },
   "greetWeekMorning": {
-    "message": "Einen schönen $WEEK$, $NAME$!",
+    "message": "Viel Spaß auf $WEEK$und $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -322,7 +382,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Wie läuft dein $WEEK$ bisher, $NAME$?",
+    "message": "Wie läuft es mit deinem $WEEK$ , $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -335,7 +395,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "Wie war dein $WEEK$, $NAME$?",
+    "message": "$NAME$, wie war dein $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ein neuer Tag beginnt, $NAME$!",
+    "message": "Aufstehen und loslegen, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -366,7 +426,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Ich wünsche dir einen wunderbaren Tag, $NAME$",
+    "message": "Ich wünsche Ihnen einen wunderschönen Tag, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Starten wir gut in den Tag, $NAME$",
+    "message": "Beginnen wir den Tag richtig, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -411,7 +471,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Ich hoffe, es geht dir gut, $NAME$",
+    "message": "Ich hoffe, es geht Ihnen gut, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -429,7 +489,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Bleib konzentriert und produktiv, $NAME$",
+    "message": "Bleiben Sie konzentriert und produktiv, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -447,7 +507,7 @@
     }
   },
   "greetEvening2": {
-    "message": "Zeit, sich zu entspannen, $NAME$",
+    "message": "Es ist Zeit, sich zu entspannen. $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -456,7 +516,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Einen entspannten Abend, $NAME$",
+    "message": "Ich wünsche Ihnen einen ruhigen Abend, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -465,7 +525,7 @@
     }
   },
   "greetEvening4": {
-    "message": "Lehn dich zurück und entspanne, $NAME$",
+    "message": "Zeit zum Entspannen, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -474,7 +534,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Genieße deinen Abend, $NAME$",
+    "message": "Genießen Sie Ihren Abend, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -483,7 +543,7 @@
     }
   },
   "greetNight1": {
-    "message": "Ich hoffe, du hast eine ruhige Nacht, $NAME$",
+    "message": "Ich hoffe, Sie haben eine ruhige Nacht. $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -501,7 +561,7 @@
     }
   },
   "greetNight3": {
-    "message": "Genieße die ruhigen Stunden, $NAME$",
+    "message": "Genießen Sie die ruhigen Stunden, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Bist du heute lange auf, $NAME$?",
+    "message": "Heute Nacht lange wach, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
