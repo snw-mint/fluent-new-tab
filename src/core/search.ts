@@ -49,7 +49,10 @@ function renderSuggestionsUI(
     const div = document.createElement('div');
     div.className = 'suggestion-item';
     div.dataset.value = text;
-    div.innerHTML = `${iconSvg} <span>${text}</span>`;
+    div.innerHTML = iconSvg;
+    const span = document.createElement('span');
+    span.textContent = text;
+    div.appendChild(span);
     div.addEventListener('click', () => {
       if (searchInput) {
         searchInput.value = text;
