@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Cài đặt"
   },
-  "greetingTitle": {
-    "message": "Chào mừng"
-  },
   "wallpaperTitle": {
     "message": "Hình nền"
   },
   "wallpaperSourceLabel": {
     "message": "Nguồn hình ảnh"
+  },
+  "nosourceOption": {
+    "message": "Không có nguồn"
   },
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Chào mừng"
   },
+  "displayTime": {
+    "message": "Thời gian"
+  },
+  "displayDate": {
+    "message": "Ngày"
+  },
+  "displayAdvanced": {
+    "message": "Thời gian & Ngày tháng"
+  },
   "showSecondsLabel": {
     "message": "Hiển thị giây"
   },
@@ -47,14 +56,32 @@
   "dateFormatLabel": {
     "message": "Định dạng"
   },
+  "dateText": {
+    "message": "Viết"
+  },
+  "dateNumeric": {
+    "message": "Số"
+  },
+  "dateWeekday": {
+    "message": "Ngày trong tuần"
+  },
   "weatherTitle": {
     "message": "Thời tiết"
   },
   "shortcutsTitle": {
-    "message": "Lối tắt"
+    "message": "Phím tắt"
   },
   "enableFoldersLabel": {
     "message": "Bật thư mục"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ẩn tên"
+  },
+  "folderIconHelp": {
+    "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Bán kính góc"
   },
   "rows1": {
     "message": "1 hàng"
@@ -63,7 +90,7 @@
     "message": "2 hàng"
   },
   "rowsLabel": {
-    "message": "Hàng"
+    "message": "Dòng"
   },
   "rows3": {
     "message": "3 hàng"
@@ -84,7 +111,7 @@
     "message": "Gợi ý"
   },
   "clearSearchOption": {
-    "message": "Tìm kiếm đơn giản (Google)"
+    "message": "Tìm kiếm sạch (Google)"
   },
   "compactBarOption": {
     "message": "Thanh nhỏ gọn"
@@ -92,8 +119,11 @@
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"
   },
+  "askAiOption": {
+    "message": "Hỏi AI"
+  },
   "reduceVisualEffectsTitle": {
-    "message": "Giảm hiệu ứng"
+    "message": "Giảm tác động"
   },
   "reduceMotionTitle": {
     "message": "Giảm chuyển động"
@@ -111,13 +141,16 @@
     "message": "Sao lưu dữ liệu"
   },
   "exportOption": {
-    "message": "Xuất"
+    "message": "Xuất khẩu"
   },
   "importOption": {
-    "message": "Nhập"
+    "message": "Nhập khẩu"
   },
   "addFolderTitle": {
     "message": "Thêm thư mục"
+  },
+  "folderNameLabel": {
+    "message": "Tên"
   },
   "editFolderTitle": {
     "message": "Chỉnh sửa thư mục"
@@ -132,7 +165,7 @@
     "message": "Thêm lối tắt"
   },
   "editShortcutTitle": {
-    "message": "Chỉnh sửa lối tắt"
+    "message": "Chỉnh sửa phím tắt"
   },
   "shortcutNameLabel": {
     "message": "Tên"
@@ -171,7 +204,34 @@
     "message": "Xóa"
   },
   "moreOptionsLabel": {
-    "message": "Thêm tùy chọn"
+    "message": "Nhiều tùy chọn hơn"
+  },
+  "permissionRequiredTitle": {
+    "message": "Yêu cầu quyền truy cập"
+  },
+  "grantPermissionLabel": {
+    "message": "Cấp quyền"
+  },
+  "learnMoreLabel": {
+    "message": "Tìm hiểu thêm"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
@@ -240,13 +300,13 @@
     "message": "Không có ứng dụng nào có sẵn cho hệ sinh thái này."
   },
   "shortcutsLimitReached": {
-    "message": "Đã đạt giới hạn lối tắt!"
+    "message": "Giới hạn phím tắt đã đạt!"
   },
   "warningGridFullTitle": {
     "message": "Lưới đã đầy"
   },
   "warningGridFullMessage": {
-    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ lối tắt trên màn hình chính. Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
+    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ phím tắt trên màn hình chính. Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -258,7 +318,7 @@
     "message": "Thư mục đã đầy"
   },
   "warningFolderFullMessage": {
-    "message": "Thư mục này đã đạt đến giới hạn tối đa $LIMIT$ mục. Vui lòng xóa một vài lối tắt trước khi thêm mới.",
+    "message": "Thư mục này đã đạt đến giới hạn tối đa $LIMIT$ mục. Vui lòng xóa một số lối tắt trước khi thêm các lối tắt mới.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Một ngày mới bắt đầu, $NAME$!",
+    "message": "Dậy đi, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -366,7 +426,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Chúc bạn một ngày tuyệt vời, $NAME$!",
+    "message": "Chúc bạn có một ngày tuyệt vời! $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Chào bạn, $NAME$! Bạn đã sẵn sàng cho hôm nay chưa?",
+    "message": "Chào bạn, $NAME$! Sẵn sàng cho hôm nay chưa?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Rất vui được gặp bạn, $NAME$",
+    "message": "Rất vui được gặp lại bạn, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -420,7 +480,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Tiếp tục phát huy nhé, $NAME$!",
+    "message": "Tiếp tục làm tốt công việc, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Bạn vẫn còn thức à, $NAME$? Hãy nghỉ ngơi nhé!",
+    "message": "Vẫn còn thức, $NAME$? Chúc bạn sớm ngủ ngon!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Hôm nay bạn thức khuya vậy, $NAME$?",
+    "message": "Đêm nay thức khuya, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
