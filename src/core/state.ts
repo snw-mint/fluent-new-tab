@@ -28,9 +28,22 @@ let hideShortcutNames = localStorage.getItem('hideShortcutNames') === 'true';
 let shortcutRadius = localStorage.getItem('shortcutRadius') || '0';
 
 if (shortcutRadius !== '0') {
+  let valNum = parseInt(shortcutRadius, 10);
+  let radiusValue = '';
+
+  if (valNum === 0) {
+    radiusValue = '0.875rem'; // $radius-xl
+  } else if (valNum > 0) {
+    // 1 to 100 maps from 0.875rem to 50%
+    radiusValue = `calc(0.875rem + ((50% - 0.875rem) * (${valNum} / 100)))`;
+  } else {
+    // -1 to -100 maps from 0.875rem down to 0.2rem (minimum border-radius so it's not 0)
+    radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
+  }
+
   document.documentElement.style.setProperty(
     '--shortcut-radius',
-    `${shortcutRadius}px`,
+    radiusValue,
   );
 }
 
