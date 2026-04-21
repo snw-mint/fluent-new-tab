@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Налаштування"
   },
-  "greetingTitle": {
-    "message": "Привітання"
-  },
   "wallpaperTitle": {
     "message": "Шпалери"
   },
   "wallpaperSourceLabel": {
     "message": "Джерело зображення"
+  },
+  "nosourceOption": {
+    "message": "Джерело відсутнє"
   },
   "overlayLabel": {
     "message": "Накладення зображення"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Привітання"
   },
+  "displayTime": {
+    "message": "Час"
+  },
+  "displayDate": {
+    "message": "Дата"
+  },
+  "displayAdvanced": {
+    "message": "Час і дата"
+  },
   "showSecondsLabel": {
     "message": "Показати секунди"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Формат"
   },
+  "dateText": {
+    "message": "Написано"
+  },
+  "dateNumeric": {
+    "message": "Числовий"
+  },
+  "dateWeekday": {
+    "message": "Будні"
+  },
   "weatherTitle": {
     "message": "Погода"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Увімкнути папки"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Приховати імена"
+  },
+  "folderIconHelp": {
+    "message": "Знайдіть індивідуальні іконки для папок за адресою"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Радіус повороту"
   },
   "rows1": {
     "message": "1 рядок"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Голосовий пошук"
   },
+  "askAiOption": {
+    "message": "Запитай у ШІ"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Зменшити ефекти"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Додати папку"
+  },
+  "folderNameLabel": {
+    "message": "Ім'я"
   },
   "editFolderTitle": {
     "message": "Редагувати папку"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Більше опцій"
+  },
+  "permissionRequiredTitle": {
+    "message": "Потрібен дозвіл"
+  },
+  "grantPermissionLabel": {
+    "message": "Надати дозвіл"
+  },
+  "learnMoreLabel": {
+    "message": "Дізнатися більше"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab оновлено до версії $VERSION$. ",
