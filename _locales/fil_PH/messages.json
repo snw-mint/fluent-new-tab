@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Settings"
   },
-  "greetingTitle": {
-    "message": "Pagbati"
-  },
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
   "wallpaperSourceLabel": {
     "message": "Pinagmulan ng larawan"
+  },
+  "nosourceOption": {
+    "message": "Walang source"
   },
   "overlayLabel": {
     "message": "Image Overlay"
@@ -38,14 +38,32 @@
   "displayGreeting": {
     "message": "Pagbati"
   },
+  "displayTime": {
+    "message": "Oras"
+  },
+  "displayDate": {
+    "message": "Date"
+  },
+  "displayAdvanced": {
+    "message": "Oras & Date"
+  },
   "showSecondsLabel": {
-    "message": "Show seconds"
+    "message": "Ipakita ang seconds"
   },
   "use12HourLabel": {
-    "message": "Use 12-hour format"
+    "message": "Gumamit ng 12-hour format"
   },
   "dateFormatLabel": {
     "message": "Format"
+  },
+  "dateText": {
+    "message": "Sinulat"
+  },
+  "dateNumeric": {
+    "message": "Numero"
+  },
+  "dateWeekday": {
+    "message": "Weekday"
   },
   "weatherTitle": {
     "message": "Panahon"
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Enable Folders"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Hide Names"
+  },
+  "folderIconHelp": {
+    "message": "Find custom folder icons at"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Cornder Radius"
   },
   "rows1": {
     "message": "1 Row"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Voice search"
   },
+  "askAiOption": {
+    "message": "Mag-ask sa AI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Bawasan ang effects"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "I-add ang Folder"
+  },
+  "folderNameLabel": {
+    "message": "Pangalan"
   },
   "editFolderTitle": {
     "message": "I-edit ang Folder"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Iba pang options"
+  },
+  "permissionRequiredTitle": {
+    "message": "Required ng Permission"
+  },
+  "grantPermissionLabel": {
+    "message": "Bigyan ng Permission"
+  },
+  "learnMoreLabel": {
+    "message": "Matuto pa"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-acces ang \"$API_NAME$\". Ito'y mae-ensure ang privacy at sacurity mo.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
