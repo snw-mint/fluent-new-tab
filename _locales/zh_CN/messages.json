@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "设置"
   },
-  "greetingTitle": {
-    "message": "问候"
-  },
   "wallpaperTitle": {
     "message": "壁纸"
   },
   "wallpaperSourceLabel": {
     "message": "图片来源"
+  },
+  "nosourceOption": {
+    "message": "无来源"
   },
   "overlayLabel": {
     "message": "图像叠加"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "问候"
   },
+  "displayTime": {
+    "message": "时间"
+  },
+  "displayDate": {
+    "message": "日期"
+  },
+  "displayAdvanced": {
+    "message": "时间与日期"
+  },
   "showSecondsLabel": {
     "message": "显示秒"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "格式"
   },
+  "dateText": {
+    "message": "撰写"
+  },
+  "dateNumeric": {
+    "message": "数字"
+  },
+  "dateWeekday": {
+    "message": "工作日"
+  },
   "weatherTitle": {
     "message": "天气"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "启用文件夹"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "隐藏姓名"
+  },
+  "folderIconHelp": {
+    "message": "在以下位置查找自定义文件夹图标："
+  },
+  "shortcutRadiusLabel": {
+    "message": "转角半径"
   },
   "rows1": {
     "message": "1 行"
@@ -84,7 +111,7 @@
     "message": "建议"
   },
   "clearSearchOption": {
-    "message": "纯净搜索 (Google)"
+    "message": "干净搜索（谷歌）"
   },
   "compactBarOption": {
     "message": "紧凑栏"
@@ -92,14 +119,17 @@
   "voiceSearchOption": {
     "message": "语音搜索"
   },
+  "askAiOption": {
+    "message": "询问 AI"
+  },
   "reduceVisualEffectsTitle": {
-    "message": "减少视觉效果"
+    "message": "减少效果"
   },
   "reduceMotionTitle": {
-    "message": "减少动态效果"
+    "message": "减少运动"
   },
   "reduceBlurOption": {
-    "message": "降低模糊度"
+    "message": "减少模糊"
   },
   "languageTitle": {
     "message": "语言"
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "添加文件夹"
+  },
+  "folderNameLabel": {
+    "message": "名称"
   },
   "editFolderTitle": {
     "message": "编辑文件夹"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "更多选项"
+  },
+  "permissionRequiredTitle": {
+    "message": "需要授权"
+  },
+  "grantPermissionLabel": {
+    "message": "授予权限"
+  },
+  "learnMoreLabel": {
+    "message": "了解更多"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab 已更新至版本 $VERSION$。",
@@ -246,7 +306,7 @@
     "message": "网格已满"
   },
   "warningGridFullMessage": {
-    "message": "主屏幕的快捷方式已达到 $LIMIT$ 个的上限。请删除部分项目或将它们分组到文件夹中以释放空间。",
+    "message": "您已达到主屏幕上 $LIMIT$ 快捷方式的最大限制。请删除部分项目或将其归类到文件夹中以释放空间。",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "新的一天开始了，$NAME$！",
+    "message": "起床啦，$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "开启美好的一天吧，$NAME$！",
+    "message": "让我们以正确的方式开始新的一天，$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "今晚休息得很晚呢，$NAME$？",
+    "message": "今晚熬夜了， $NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",
