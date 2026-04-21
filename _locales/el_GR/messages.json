@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Ρυθμίσεις"
   },
-  "greetingTitle": {
-    "message": "Χαιρετισμός"
-  },
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
   "wallpaperSourceLabel": {
     "message": "Πηγή εικόνας"
+  },
+  "nosourceOption": {
+    "message": "Χωρίς πηγή"
   },
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Χαιρετισμός"
   },
+  "displayTime": {
+    "message": "Ώρα"
+  },
+  "displayDate": {
+    "message": "Ημερομηνία"
+  },
+  "displayAdvanced": {
+    "message": "Ώρα & Ημερομηνία"
+  },
   "showSecondsLabel": {
     "message": "Εμφάνιση δευτερολέπτων"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Μορφή"
   },
+  "dateText": {
+    "message": "Γραπτό"
+  },
+  "dateNumeric": {
+    "message": "Αριθμητικός"
+  },
+  "dateWeekday": {
+    "message": "Καθημερινή"
+  },
   "weatherTitle": {
     "message": "Καιρός"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Ενεργοποίηση φακέλων"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Απόκρυψη ονομάτων"
+  },
+  "folderIconHelp": {
+    "message": "Βρείτε προσαρμοσμένα εικονίδια φακέλων στη διεύθυνση"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Ακτίνα γωνίας"
   },
   "rows1": {
     "message": "1 σειρά"
@@ -84,13 +111,16 @@
     "message": "Προτάσεις"
   },
   "clearSearchOption": {
-    "message": "Απλή αναζήτηση (Google)"
+    "message": "Καθαρή αναζήτηση (Google)"
   },
   "compactBarOption": {
     "message": "Συμπαγής μπάρα"
   },
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
+  },
+  "askAiOption": {
+    "message": "Ρώτα την τεχνητή νοημοσύνη"
   },
   "reduceVisualEffectsTitle": {
     "message": "Μείωση εφέ"
@@ -99,7 +129,7 @@
     "message": "Μείωση κίνησης"
   },
   "reduceBlurOption": {
-    "message": "Μείωση θολότητας"
+    "message": "Μείωση της θολότητας"
   },
   "languageTitle": {
     "message": "Γλώσσα"
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Προσθήκη φακέλου"
+  },
+  "folderNameLabel": {
+    "message": "Όνομα"
   },
   "editFolderTitle": {
     "message": "Επεξεργασία φακέλου"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Περισσότερες επιλογές"
   },
+  "permissionRequiredTitle": {
+    "message": "Απαιτείται άδεια"
+  },
+  "grantPermissionLabel": {
+    "message": "Χορήγηση άδειας"
+  },
+  "learnMoreLabel": {
+    "message": "Μάθετε περισσότερα"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία της ιδιωτικής σας ζωής και την ασφάλειά σας.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
+    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,16 +243,16 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Προβολή αρχείου αλλαγών"
+    "message": "δείτε το αρχείο αλλαγών"
   },
   "nasaApodVideoNotice": {
-    "message": "Το σημερινό APOD είναι βίντεο ή δεν είναι διαθέσιμο. Διατηρείται η τρέχουσα ταπετσαρία σας αντί αυτού."
+    "message": "Το σημερινό APOD είναι ένα βίντεο ή δεν είναι διαθέσιμο. Διατηρήστε την τρέχουσα ταπετσαρία σας."
   },
   "warningDeleteFolderTitle": {
     "message": "Διαγραφή φακέλου"
   },
   "warningDeleteFolderMessage": {
-    "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε τον φάκελο \"$FOLDER$\"; Όλες οι συντομεύσεις που περιέχει θα διαγραφούν.",
+    "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε το φάκελο \"$FOLDER$\"; Όλες οι συντομεύσεις που περιέχει θα διαγραφούν.",
     "placeholders": {
       "folder": {
         "content": "$1",
@@ -210,7 +270,7 @@
     "message": "Διαγραφή φακέλων"
   },
   "warningKeepEnabled": {
-    "message": "Να παραμείνει ενεργό"
+    "message": "Διατήρηση ενεργοποίησης"
   },
   "warningAddEcosystemAppsTitle": {
     "message": "Προσθήκη εφαρμογών $ECOSYSTEM$;",
@@ -282,7 +342,7 @@
     "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
   },
   "warningUnderstood": {
-    "message": "Κατανοητό"
+    "message": "Κατάλαβα"
   },
   "warningClose": {
     "message": "Κλείσιμο"
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Μια νέα μέρα ξεκινά, $NAME$!",
+    "message": "Ξυπνήστε και λάμψτε, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Γεια σας, $NAME$! Έτοιμοι για σήμερα;",
+    "message": "Γεια σου, $NAME$! Έτοιμος για σήμερα;",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Ας ξεκινήσουμε τη μέρα μας δυναμικά, $NAME$",
+    "message": "Ας ξεκινήσουμε τη μέρα σωστά, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -393,7 +453,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Καλό απόγευμα, $NAME$",
+    "message": "Καλησπέρα, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Χαίρομαι που σας βλέπω, $NAME$",
+    "message": "Χαίρομαι που σε βλέπω, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -411,7 +471,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Ελπίζω να είστε καλά, $NAME$",
+    "message": "Ελπίζω να είσαι καλά, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -429,7 +489,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Συνεχίστε με συγκέντρωση και παραγωγικότητα, $NAME$",
+    "message": "Μείνετε συγκεντρωμένοι και παραγωγικοί, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -483,7 +543,7 @@
     }
   },
   "greetNight1": {
-    "message": "Ελπίζω να περνάτε ένα ήσυχο βράδυ, $NAME$",
+    "message": "Ελπίζω να περνάς μια ήσυχη νύχτα, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Ακόμα ξύπνιοι, $NAME$; Καλή ξεκούραση!",
+    "message": "Ακόμα ξύπνιος, $NAME$; Καλόν ύπνο!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Ξενυχτάτε απόψε, $NAME$;",
+    "message": "Αργά το βράδυ, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
