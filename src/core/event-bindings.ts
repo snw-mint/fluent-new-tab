@@ -120,11 +120,9 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
         options.setWeatherEnabled(true);
         options.updateWeatherVisibility(true);
 
-        const apiName =
-          window.getTranslation?.('apiNameWeather') || 'Open-Meteo API';
         requestFeaturePermissionUI(
           'weather',
-          apiName,
+          'Open-Meteo API',
           'https://open-meteo.com/',
           () => {
             localStorage.setItem('weatherEnabled', 'true');
@@ -359,6 +357,24 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
       localStorage.setItem('accentColorValue', color);
       localStorage.setItem('accentColorMode', 'manual');
       if (toggleAuto) toggleAuto.checked = false;
+    });
+  }
+
+  const accentMoreBtn = document.getElementById('accent-more-btn');
+  const accentMoreContainer = document.getElementById('accent-more-container');
+
+  if (accentMoreBtn && accentMoreContainer) {
+    accentMoreBtn.addEventListener('click', () => {
+      const isCollapsed = accentMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        accentMoreContainer.classList.remove('collapsed');
+        accentMoreBtn.classList.add('expanded');
+        accentMoreContainer.style.maxHeight = '500px';
+      } else {
+        accentMoreContainer.classList.add('collapsed');
+        accentMoreBtn.classList.remove('expanded');
+        accentMoreContainer.style.maxHeight = '';
+      }
     });
   }
 }
@@ -721,6 +737,14 @@ function bindShortcutRadiusFeature(
 }
 
 function bindWallpaperFeature(options: WallpaperBindingOptions): void {
+  const toggleAccentAuto = document.getElementById(
+    'toggleAccentWallpaper',
+  ) as HTMLInputElement | null;
+
+  if (toggleAccentAuto) {
+    toggleAccentAuto.disabled = !options.getWallpaperEnabled();
+  }
+
   if (options.toggleWallpaper) {
     options.toggleWallpaper.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -730,6 +754,15 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
       options.setWallpaperEnabled(isEnabled);
       localStorage.setItem('wallpaperEnabled', String(isEnabled));
       options.updateWallpaperUIState(isEnabled, true);
+
+      if (toggleAccentAuto) {
+        toggleAccentAuto.disabled = !isEnabled;
+        if (!isEnabled && toggleAccentAuto.checked) {
+          toggleAccentAuto.checked = false;
+          toggleAccentAuto.dispatchEvent(new Event('change'));
+        }
+      }
+
       await options.applyWallpaperLogic();
     });
   }
@@ -755,18 +788,16 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
         let learnMore = '';
 
         if (type === 'bing') {
-          apiName = window.getTranslation?.('apiNameBing') || 'Bing Wallpaper';
+          apiName = 'Bing Wallpaper';
           learnMore = 'https://peapix.com/';
         } else if (type === 'nasa') {
-          apiName = window.getTranslation?.('apiNameNasa') || 'NASA APOD';
+          apiName = 'NASA APOD';
           learnMore = 'https://apod.nasa.gov/';
         } else if (type === 'wikimedia') {
-          apiName =
-            window.getTranslation?.('apiNameWiki') || 'Wikimedia Wallpaper';
+          apiName = 'Wikimedia Wallpaper';
           learnMore = 'https://commons.wikimedia.org/';
         }
 
-        // Requisita a permissão e lida com o estado aceito/negado
         requestFeaturePermissionUI(
           type as any,
           apiName,

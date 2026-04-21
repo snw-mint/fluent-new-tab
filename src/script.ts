@@ -2979,36 +2979,15 @@ async function initDeferred() {
 }
 
 function showReauthNotice(features: string[]): void {
-  const FEATURE_META: Record<
-    string,
-    { nameKey: string; nameFallback: string }
-  > = {
-    weather: {
-      nameKey: 'apiNameWeather',
-      nameFallback: 'Weather',
-    },
-    suggestions: {
-      nameKey: 'apiNameSuggestions',
-      nameFallback: 'Search Suggestions',
-    },
-    bing: {
-      nameKey: 'apiNameBing',
-      nameFallback: 'Bing Wallpaper',
-    },
-    nasa: {
-      nameKey: 'apiNameNasa',
-      nameFallback: 'NASA APOD',
-    },
-    wikimedia: {
-      nameKey: 'apiNameWiki',
-      nameFallback: 'Wikimedia Wallpaper',
-    },
+  const FEATURE_META: Record<string, string> = {
+    weather: 'Open-Meteo API',
+    suggestions: 'Search Suggestions',
+    bing: 'Bing Wallpaper',
+    nasa: 'NASA APOD',
+    wikimedia: 'Wikimedia Wallpaper',
   };
 
-  const first = FEATURE_META[features[0]];
-  const featureName = first
-    ? getLocalizedWarningText(first.nameKey, first.nameFallback)
-    : features[0];
+  const featureName = FEATURE_META[features[0]] || features[0];
   const learnMoreUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
 
   warningModal.show({

@@ -39,7 +39,7 @@ function updateDisplayContent(wrapper: HTMLElement): void {
   if (wrapper.dataset.currentMode !== displayType) {
     wrapper.innerHTML = '';
     wrapper.dataset.currentMode = displayType;
-    wrapper.dataset.lastMinute = '';
+    wrapper.dataset.lastCache = '';
   }
 
   if (displayType === 'greeting') {
@@ -140,12 +140,16 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 }
 
 function renderGreeting(wrapper: HTMLElement): void {
-  const now = new Date();
-  const currentMinute = now.getMinutes().toString();
-  if (wrapper.dataset.lastMinute === currentMinute) return;
-  wrapper.dataset.lastMinute = currentMinute;
+  const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
   const greetingStyle = localStorage.getItem('greetingStyle') || '3d';
+
+  const now = new Date();
+  const currentMinute = now.getMinutes().toString();
+  const cacheKey = `${currentMinute}-${rawLang}-${userName}-${greetingStyle}`;
+
+  if (wrapper.dataset.lastCache === cacheKey) return;
+
   const hour = now.getHours();
   const dayOfWeek = now.getDay();
   let timeKeyPrefix = 'greetMorning';
@@ -173,6 +177,7 @@ function renderGreeting(wrapper: HTMLElement): void {
   let translationKey = '';
   const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
   const seed = now.getHours() * 2 + Math.floor(now.getMinutes() / 30);
+
   if (isWeekday && seed % 3 === 0) {
     if (hour >= 5 && hour < 12) {
       translationKey = 'greetWeekMorning';
@@ -188,12 +193,15 @@ function renderGreeting(wrapper: HTMLElement): void {
     translationKey = `${timeKeyPrefix}${randomIndex}`;
   }
 
+  let usingFallback = false;
   const dayOfWeekKey = `weekday_${dayOfWeek}`;
   let currentDayName = '';
-  const dayMessage = window.getTranslation(dayOfWeekKey);
+  const dayMessage = window.getTranslation?.(dayOfWeekKey);
+
   if (dayMessage && dayMessage !== dayOfWeekKey) {
     currentDayName = dayMessage;
   } else {
+    usingFallback = true;
     try {
       currentDayName = chrome.i18n.getMessage(dayOfWeekKey);
     } catch (error) {
@@ -211,12 +219,14 @@ function renderGreeting(wrapper: HTMLElement): void {
   }
 
   let rawGreeting = '';
-  const message = window.getTranslation(translationKey);
+  const message = window.getTranslation?.(translationKey);
+
   if (message && message !== translationKey) {
     rawGreeting = message
       .replace(/\$WEEK\$/g, currentDayName)
       .replace(/\$NAME\$/g, userName);
   } else {
+    usingFallback = true;
     try {
       if (translationKey.startsWith('greetWeek')) {
         rawGreeting = chrome.i18n.getMessage(translationKey, [
@@ -278,5 +288,11 @@ function renderGreeting(wrapper: HTMLElement): void {
     });
 
     wrapper.replaceChildren(icon, heading);
+  }
+
+  if (!usingFallback) {
+    wrapper.dataset.lastCache = cacheKey;
+  } else {
+    wrapper.dataset.lastCache = '';
   }
 }

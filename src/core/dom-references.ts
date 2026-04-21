@@ -27,6 +27,9 @@ const toggleDisableBlur = getById<HTMLInputElement>('toggleDisableBlur');
 const toggleReducedEffects = getById<HTMLInputElement>('toggleReducedEffects');
 const reducedEffectsOptions = getById<HTMLDivElement>('reducedEffectsOptions');
 const toggleAccentColor = getById<HTMLInputElement>('toggleAccentColor');
+const accentMoreSetting = getById<HTMLDivElement>('accentMoreSetting');
+const accentMoreBtn = getById<HTMLDivElement>('accent-more-btn');
+const accentMoreContainer = getById<HTMLDivElement>('accent-more-container');
 const accentColorOptions = getById<HTMLDivElement>('accentColorOptions');
 const toggleAccentWallpaper = getById<HTMLInputElement>(
   'toggleAccentWallpaper',

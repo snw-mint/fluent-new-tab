@@ -164,18 +164,31 @@
             </label>
           </div>
 
-          <div class="switch-row child-setting" id="accentWallpaperRow">
-            <label for="toggleAccentWallpaper" data-i18n="accentWallpaperOption">Get from wallpaper</label>
-            <label class="fluent-checkbox">
-              <input type="checkbox" id="toggleAccentWallpaper" />
-              <span class="checkbox-box" aria-hidden="true">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
-                    fill="#212121" />
-                </svg>
-              </span>
-            </label>
+          <div class="setting-item collapsible-setting" id="accentMoreSetting">
+            <div class="setting-header" id="accent-more-btn">
+              <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
+              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.397 5.554a.75.75 0 0 1 1.05-.15l2.553 2.043 2.553-2.043a.75.75 0 0 1 .94 1.168l-3 2.4a.75.75 0 0 1-.94 0l-3-2.4a.75.75 0 0 1-.156-1.018Z"
+                  fill="currentColor" />
+              </svg>
+            </div>
+            <div class="setting-content collapsed" id="accent-more-container">
+              <div class="switch-row child-setting" id="accentWallpaperRow">
+                <label for="toggleAccentWallpaper" data-i18n="accentWallpaperOption">Get from wallpaper</label>
+                <label class="fluent-checkbox">
+                  <input type="checkbox" id="toggleAccentWallpaper" disabled />
+                  <span class="checkbox-box" aria-hidden="true">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"
+                        fill="#212121" />
+                    </svg>
+                  </span>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
