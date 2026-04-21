@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "設定"
   },
-  "greetingTitle": {
-    "message": "ご挨拶"
-  },
   "wallpaperTitle": {
     "message": "壁紙"
   },
   "wallpaperSourceLabel": {
     "message": "画像ソース"
+  },
+  "nosourceOption": {
+    "message": "出典なし"
   },
   "overlayLabel": {
     "message": "画像オーバーレイ"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "ご挨拶"
   },
+  "displayTime": {
+    "message": "時間"
+  },
+  "displayDate": {
+    "message": "日付"
+  },
+  "displayAdvanced": {
+    "message": "日時"
+  },
   "showSecondsLabel": {
     "message": "秒を表示"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "形式"
   },
+  "dateText": {
+    "message": "執筆"
+  },
+  "dateNumeric": {
+    "message": "数値"
+  },
+  "dateWeekday": {
+    "message": "平日"
+  },
   "weatherTitle": {
     "message": "天気"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "フォルダを有効にする"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "名前を非表示にする"
+  },
+  "folderIconHelp": {
+    "message": "カスタムフォルダアイコンはこちら"
+  },
+  "shortcutRadiusLabel": {
+    "message": "曲率半径"
   },
   "rows1": {
     "message": "1行"
@@ -75,7 +102,7 @@
     "message": "アプリランチャー"
   },
   "ecosystemLabel": {
-    "message": "エコシステム"
+    "message": "生態系"
   },
   "searchTitle": {
     "message": "検索"
@@ -84,13 +111,16 @@
     "message": "提案"
   },
   "clearSearchOption": {
-    "message": "シンプル検索 (Google)"
+    "message": "クリーン検索（Google）"
   },
   "compactBarOption": {
     "message": "コンパクトバー"
   },
   "voiceSearchOption": {
     "message": "音声検索"
+  },
+  "askAiOption": {
+    "message": "AIに聞いてみる"
   },
   "reduceVisualEffectsTitle": {
     "message": "エフェクトを減らす"
@@ -119,6 +149,9 @@
   "addFolderTitle": {
     "message": "フォルダを追加"
   },
+  "folderNameLabel": {
+    "message": "名前"
+  },
   "editFolderTitle": {
     "message": "フォルダを編集"
   },
@@ -132,7 +165,7 @@
     "message": "ショートカットを追加"
   },
   "editShortcutTitle": {
-    "message": "ショートカットを編集"
+    "message": "編集ショートカット"
   },
   "shortcutNameLabel": {
     "message": "名前"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "その他のオプション"
   },
+  "permissionRequiredTitle": {
+    "message": "許可が必要です"
+  },
+  "grantPermissionLabel": {
+    "message": "許可を与える"
+  },
+  "learnMoreLabel": {
+    "message": "詳細はこちら"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
+    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました、",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "新しい一日が始まります、$NAME$！",
+    "message": "さあ、目を覚ませ、$NAME$！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "おはようございます、$NAME$！今日の準備はいいですか？",
+    "message": "こんにちは、$NAME$！今日は準備万端ですか？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "素晴らしい一日を始めましょう、$NAME$",
+    "message": "一日を良いスタートで始めよう、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -411,7 +471,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "調子はいかがですか、$NAME$",
+    "message": "お元気でいらっしゃいますように、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -447,7 +507,7 @@
     }
   },
   "greetEvening2": {
-    "message": "リラックスする時間です、$NAME$",
+    "message": "くつろぐ時間です、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -465,7 +525,7 @@
     }
   },
   "greetEvening4": {
-    "message": "ゆっくり休んでください、$NAME$",
+    "message": "くつろぐ時間だ、$NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "まだ起きているんですか、$NAME$？ゆっくり休んでくださいね！",
+    "message": "まだ起きてるの、$NAME$？ 早く休んでね！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "今夜は夜更かしですね、$NAME$？",
+    "message": "今夜は遅くまで起きてるの、$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",
