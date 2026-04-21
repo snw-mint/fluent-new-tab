@@ -222,7 +222,10 @@
     &[data-type='folder'].folder-drag-hover {
       .shortcut-card {
         transform: scale(1.08) !important;
-        border-radius: var(--shortcut-custom-radius, var(--shortcut-radius, $radius-xl)) !important;
+        border-radius: var(
+          --shortcut-custom-radius,
+          var(--shortcut-radius, $radius-xl)
+        ) !important;
         box-shadow:
           0 0 0 2px var(--accent-color),
           0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -282,7 +285,7 @@
 .fluent-drag-ghost {
   .shortcut-card {
     background: var(--search-bg);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
     border-color: transparent;
   }
 }
@@ -290,7 +293,10 @@
 .shortcut-item.sortable-placeholder {
   background: rgba(128, 128, 128, 0.08);
   border: 1.5px dashed rgba(128, 128, 128, 0.3);
-  border-radius: var(--shortcut-custom-radius, var(--shortcut-radius, $radius-xl));
+  border-radius: var(
+    --shortcut-custom-radius,
+    var(--shortcut-radius, $radius-xl)
+  );
   pointer-events: none;
   transition: background 0.2s ease;
 }

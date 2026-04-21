@@ -795,7 +795,7 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
 
       const type = target.value as WallpaperType;
       let source: WallpaperSource = 'api';
-      if (type === 'upload' || type === 'noSource') {
+      if (type === 'upload') {
         source = 'local';
       }
 
@@ -827,9 +827,9 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
             void options.applyWallpaperLogic();
           },
           () => {
-            target.value = 'noSource';
+            target.value = 'upload';
             options.setWallpaperSource('local');
-            options.setWallpaperType('noSource');
+            options.setWallpaperType('upload');
             options.saveWallpaperConfig();
             options.updateWallpaperUIState(options.getWallpaperEnabled(), true);
             void options.applyWallpaperLogic();

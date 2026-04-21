@@ -975,6 +975,9 @@ function setOverlayOpacity(value: string, persist = false): void {
 
   const targetValue = wallpaperEnabled ? normalized : '0';
   document.documentElement.style.setProperty('--overlay-opacity', targetValue);
+  if (document.body) {
+    document.body.style.setProperty('--overlay-opacity', targetValue);
+  }
 
   if (overlaySlider && overlaySlider.value !== normalized) {
     overlaySlider.value = normalized;
@@ -1072,7 +1075,7 @@ async function getOptimizedApiWallpaper(
 async function applyWallpaperLogic() {
   try {
     setOverlayOpacity(wallpaperOverlay, false);
-    if (!wallpaperEnabled || currentWallpaperType === 'noSource') {
+    if (!wallpaperEnabled) {
       document.body.style.backgroundImage = 'none';
       document.body.removeAttribute('data-wallpaper-active');
       return;
@@ -1850,10 +1853,13 @@ function applyInitialWallpaperState() {
   }
 
   if (wallpaperSourceSelect) {
-    const validTypes = ['upload', 'bing', 'nasa', 'wikimedia', 'noSource'];
-    wallpaperSourceSelect.value = validTypes.includes(currentWallpaperType)
-      ? currentWallpaperType
-      : 'noSource';
+    const validTypes = ['upload', 'bing', 'nasa', 'wikimedia'];
+    if (!validTypes.includes(currentWallpaperType)) {
+      currentWallpaperType = 'upload';
+      currentWallpaperSource = 'local';
+      saveWallpaperConfig();
+    }
+    wallpaperSourceSelect.value = currentWallpaperType;
   }
 
   updateWallpaperUIState(wallpaperEnabled, false);

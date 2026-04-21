@@ -41,10 +41,7 @@ if (shortcutRadius !== '0') {
     radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
   }
 
-  document.documentElement.style.setProperty(
-    '--shortcut-radius',
-    radiusValue,
-  );
+  document.documentElement.style.setProperty('--shortcut-radius', radiusValue);
 }
 
 const savedTheme = (localStorage.getItem('theme') || 'auto') as ThemeMode;
@@ -90,9 +87,8 @@ let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
   'local') as WallpaperSource;
 let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
-  'noSource') as WallpaperType;
-let currentWallpaperValue =
-  localStorage.getItem('wallpaperValue') || 'noSource';
+  'upload') as WallpaperType;
+let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'upload';
 let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
 let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
