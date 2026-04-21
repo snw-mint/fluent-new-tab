@@ -8,23 +8,23 @@
   "settingsTitle": {
     "message": "Indstillinger"
   },
-  "greetingTitle": {
-    "message": "Hilsen"
-  },
   "wallpaperTitle": {
     "message": "Baggrund"
   },
   "wallpaperSourceLabel": {
     "message": "Billedkilde"
   },
+  "nosourceOption": {
+    "message": "Ingen kilde"
+  },
   "overlayLabel": {
     "message": "Billedoverlay"
   },
   "accentColorTitle": {
-    "message": "Accentfarve"
+    "message": "Kontrastfarve"
   },
   "accentWallpaperOption": {
-    "message": "Hent fra baggrund"
+    "message": "Hent fra tapet"
   },
   "styleNone": {
     "message": "Ingen"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Hilsen"
   },
+  "displayTime": {
+    "message": "Tid"
+  },
+  "displayDate": {
+    "message": "Dato"
+  },
+  "displayAdvanced": {
+    "message": "Tid og dato"
+  },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },
@@ -47,14 +56,32 @@
   "dateFormatLabel": {
     "message": "Format"
   },
+  "dateText": {
+    "message": "Skrevet"
+  },
+  "dateNumeric": {
+    "message": "Numerisk"
+  },
+  "dateWeekday": {
+    "message": "Hverdage"
+  },
   "weatherTitle": {
-    "message": "Vejret"
+    "message": "Vejr"
   },
   "shortcutsTitle": {
     "message": "Genveje"
   },
   "enableFoldersLabel": {
     "message": "Aktivér mapper"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skjul navne"
+  },
+  "folderIconHelp": {
+    "message": "Find brugerdefinerede mappeikoner på"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hjørneradius"
   },
   "rows1": {
     "message": "1 række"
@@ -87,10 +114,13 @@
     "message": "Ren søgning (Google)"
   },
   "compactBarOption": {
-    "message": "Kompakt bjælke"
+    "message": "Kompakt bar"
   },
   "voiceSearchOption": {
     "message": "Stemmesøgning"
+  },
+  "askAiOption": {
+    "message": "Spørg AI'en"
   },
   "reduceVisualEffectsTitle": {
     "message": "Reducer effekter"
@@ -111,13 +141,16 @@
     "message": "Sikkerhedskopi af data"
   },
   "exportOption": {
-    "message": "Eksporter"
+    "message": "Eksport"
   },
   "importOption": {
-    "message": "Importer"
+    "message": "Import"
   },
   "addFolderTitle": {
     "message": "Tilføj mappe"
+  },
+  "folderNameLabel": {
+    "message": "Navn"
   },
   "editFolderTitle": {
     "message": "Rediger mappe"
@@ -153,7 +186,7 @@
     "message": "Gem"
   },
   "searchPlaceholder": {
-    "message": "Søg på nettet"
+    "message": "Søg på internettet"
   },
   "namePlaceholder": {
     "message": "Dit navn (valgfrit)"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Flere muligheder"
   },
+  "permissionRequiredTitle": {
+    "message": "Der kræves tilladelse"
+  },
+  "grantPermissionLabel": {
+    "message": "Giv tilladelse"
+  },
+  "learnMoreLabel": {
+    "message": "Læs mere"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "For at kunne bruge denne funktion skal Fluent New Tab have tilladelse til at få adgang til \"$API_NAME$\". Dette sikrer dit privatliv og din sikkerhed.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
+    "message": "Fluent New Tab er blevet opdateret til version $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,7 +243,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Se ændringsloggen"
+    "message": "se ændringslog"
   },
   "nasaApodVideoNotice": {
     "message": "Dagens APOD er en video eller er ikke tilgængelig. Vi viser i stedet dit nuværende baggrundsbillede."
@@ -288,28 +348,28 @@
     "message": "Luk"
   },
   "weekday_0": {
-    "message": "Søndag"
+    "message": "søndag"
   },
   "weekday_1": {
-    "message": "Mandag"
+    "message": "mandag"
   },
   "weekday_2": {
-    "message": "Tirsdag"
+    "message": "tirsdag"
   },
   "weekday_3": {
-    "message": "Onsdag"
+    "message": "onsdag"
   },
   "weekday_4": {
-    "message": "Torsdag"
+    "message": "torsdag"
   },
   "weekday_5": {
-    "message": "Fredag"
+    "message": "fredag"
   },
   "weekday_6": {
-    "message": "Lørdag"
+    "message": "lørdag"
   },
   "greetWeekMorning": {
-    "message": "Hav en fantastisk $WEEK$, $NAME$!",
+    "message": "Hav en dejlig dag på $WEEK$og $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -322,7 +382,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Hvordan går din $WEEK$, $NAME$?",
+    "message": "Hvordan går det med din $WEEK$ , $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -335,7 +395,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "Hvordan var din $WEEK$, $NAME$?",
+    "message": "$NAME$, hvordan gik det med din $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "En ny dag venter, $NAME$!",
+    "message": "Vågn op, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Lad os starte dagen godt, $NAME$",
+    "message": "Lad os starte dagen på den rigtige måde, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Dejligt at se dig, $NAME$",
+    "message": "Det er godt at se dig, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Er du stadig vågen, $NAME$? Håber du snart skal sove!",
+    "message": "Er du stadig vågen, $NAME$? Sov godt!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Oppe sent i aften, $NAME$?",
+    "message": "Op sent i aften, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
