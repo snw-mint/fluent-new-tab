@@ -219,6 +219,15 @@ html[data-theme='dark'] {
     }
   }
 
+  .bmc-setting-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
   .unit-btn.active {
     background-color: $color-accent;
     color: $color-accent-contrast;
