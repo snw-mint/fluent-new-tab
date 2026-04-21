@@ -212,7 +212,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       if (removeOpt) removeOpt.dataset.index = index.toString();
     }
 
-    const titleLink = item.lastElementChild as HTMLAnchorElement;
+    const titleLink = item.querySelector('.shortcut-title') as HTMLAnchorElement;
     titleLink.href = isFolder ? '#' : itemData.url || '#';
     titleLink.textContent = itemData.name;
     titleLink.dataset.action = isFolder
