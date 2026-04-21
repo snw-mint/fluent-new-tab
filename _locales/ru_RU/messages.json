@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Настройки"
   },
-  "greetingTitle": {
-    "message": "Приветствие"
-  },
   "wallpaperTitle": {
     "message": "Обои"
   },
   "wallpaperSourceLabel": {
     "message": "Источник изображения"
+  },
+  "nosourceOption": {
+    "message": "Источник отсутствует"
   },
   "overlayLabel": {
     "message": "Наложение изображения"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Приветствие"
   },
+  "displayTime": {
+    "message": "Время"
+  },
+  "displayDate": {
+    "message": "Дата"
+  },
+  "displayAdvanced": {
+    "message": "Время и дата"
+  },
   "showSecondsLabel": {
     "message": "Показать секунды"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Формат"
   },
+  "dateText": {
+    "message": "Написано"
+  },
+  "dateNumeric": {
+    "message": "Числовой"
+  },
+  "dateWeekday": {
+    "message": "будний день"
+  },
   "weatherTitle": {
     "message": "Погода"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Включить папки"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Скрыть имена"
+  },
+  "folderIconHelp": {
+    "message": "Найдите индивидуальные значки папок на сайте"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Радиус поворота"
   },
   "rows1": {
     "message": "1 строка"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Голосовой поиск"
   },
+  "askAiOption": {
+    "message": "Спросить у ИИ"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Уменьшить эффекты"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "Добавить папку"
+  },
+  "folderNameLabel": {
+    "message": "Имя"
   },
   "editFolderTitle": {
     "message": "Редактировать папку"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "Дополнительные опции"
+  },
+  "permissionRequiredTitle": {
+    "message": "Требуется разрешение"
+  },
+  "grantPermissionLabel": {
+    "message": "Предоставить разрешение"
+  },
+  "learnMoreLabel": {
+    "message": "Подробнее"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Для использования этой функции расширению Fluent New Tab требуется разрешение на доступ к $API_NAME$. Это необходимо для обеспечения вашей конфиденциальности и безопасности.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab был обновлен до версии $VERSION$. ",
