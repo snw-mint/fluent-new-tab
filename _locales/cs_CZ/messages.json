@@ -8,23 +8,23 @@
   "settingsTitle": {
     "message": "Nastavení"
   },
-  "greetingTitle": {
-    "message": "Pozdrav"
-  },
   "wallpaperTitle": {
-    "message": "Tapeta"
+    "message": "Pozadí"
   },
   "wallpaperSourceLabel": {
     "message": "Zdroj obrázku"
+  },
+  "nosourceOption": {
+    "message": "Žádný zdroj"
   },
   "overlayLabel": {
     "message": "Překrytí obrázku"
   },
   "accentColorTitle": {
-    "message": "Barva zvýraznění"
+    "message": "Doplňková barva"
   },
   "accentWallpaperOption": {
-    "message": "Extrahovat z tapety"
+    "message": "Stáhnout jako tapetu"
   },
   "styleNone": {
     "message": "Žádné"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Pozdrav"
   },
+  "displayTime": {
+    "message": "Čas"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Čas a datum"
+  },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "Formát"
   },
+  "dateText": {
+    "message": "Napsáno"
+  },
+  "dateNumeric": {
+    "message": "Číselný"
+  },
+  "dateWeekday": {
+    "message": "Pracovní den"
+  },
   "weatherTitle": {
     "message": "Počasí"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "Povolit složky"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skrýt jména"
+  },
+  "folderIconHelp": {
+    "message": "Ikony složek na míru najdete na"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Poloměr rohu"
   },
   "rows1": {
     "message": "1 řada"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
+  "askAiOption": {
+    "message": "Zeptej se AI"
+  },
   "reduceVisualEffectsTitle": {
     "message": "Omezit efekty"
   },
@@ -119,6 +149,9 @@
   "addFolderTitle": {
     "message": "Přidat složku"
   },
+  "folderNameLabel": {
+    "message": "Jméno"
+  },
   "editFolderTitle": {
     "message": "Upravit složku"
   },
@@ -129,13 +162,13 @@
     "message": "Zpět"
   },
   "addShortcutTitle": {
-    "message": "Přidat zkratku"
+    "message": "Přidat zástupce"
   },
   "editShortcutTitle": {
-    "message": "Upravit zkratku"
+    "message": "Upravit zástupce"
   },
   "shortcutNameLabel": {
-    "message": "Název"
+    "message": "Jméno"
   },
   "shortcutUrlLabel": {
     "message": "URL"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Další možnosti"
   },
+  "permissionRequiredTitle": {
+    "message": "Je nutné povolení"
+  },
+  "grantPermissionLabel": {
+    "message": "Udělit oprávnění"
+  },
+  "learnMoreLabel": {
+    "message": "Další informace"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",
+    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,7 +243,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Zobrazit seznam změn"
+    "message": "viz seznam změn"
   },
   "nasaApodVideoNotice": {
     "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
@@ -204,7 +264,7 @@
     "message": "Zakázat složky?"
   },
   "warningDeleteFoldersMessage": {
-    "message": "Všechny složky a jejich zkratky budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
+    "message": "Všechny složky a jejich zástupce budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
   },
   "warningDeleteFoldersConfirm": {
     "message": "Odstranit složky"
@@ -258,7 +318,7 @@
     "message": "Složka je plná"
   },
   "warningFolderFullMessage": {
-    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zkratky.",
+    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zástupce.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -288,28 +348,28 @@
     "message": "Zavřít"
   },
   "weekday_0": {
-    "message": "Neděle"
+    "message": "neděle"
   },
   "weekday_1": {
-    "message": "Pondělí"
+    "message": "pondělí"
   },
   "weekday_2": {
-    "message": "Úterý"
+    "message": "úterý"
   },
   "weekday_3": {
-    "message": "Středa"
+    "message": "středa"
   },
   "weekday_4": {
-    "message": "Čtvrtek"
+    "message": "čtvrtek"
   },
   "weekday_5": {
-    "message": "Pátek"
+    "message": "pátek"
   },
   "weekday_6": {
-    "message": "Sobota"
+    "message": "sobota"
   },
   "greetWeekMorning": {
-    "message": "Dnes je $WEEK$. Mějte skvělý den, $NAME$!",
+    "message": "Přejeme vám příjemné chvíle na stránkách $WEEK$a $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -322,7 +382,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Jak vám zatím ubíhá $WEEK$, $NAME$?",
+    "message": "Jak se ti daří s $WEEK$ , $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -335,7 +395,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "Tak $NAME$, jaký byl váš dnešní den? $WEEK$ už pomalu končí.",
+    "message": "$NAME$A jak se ti líbilo $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Krásné ráno, $NAME$!",
+    "message": "Vstávej a záři, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -375,7 +435,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Dobrý den, $NAME$! Jste připraveni na dnešek?",
+    "message": "Ahoj, $NAME$! Jsi připravený na dnešek?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -384,7 +444,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Začněme tento den skvěle, $NAME$",
+    "message": "Začněme den správně, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -402,7 +462,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "Je skvělé vás vidět, $NAME$",
+    "message": "Rád tě vidím, $NAME$",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -420,7 +480,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Jen tak dál, $NAME$!",
+    "message": "Pokračujte v dobré práci, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -492,7 +552,7 @@
     }
   },
   "greetNight2": {
-    "message": "Ještě nespíte, $NAME$? Dobře si odpočiňte!",
+    "message": "Ještě nespíš, $NAME$? Brzy se dobře vyspi!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -510,7 +570,7 @@
     }
   },
   "greetNight4": {
-    "message": "Dobrou noc, $NAME$. Tak zase zítra!",
+    "message": "Dobrou noc, $NAME$. Uvidíme se zítra!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Dnes jste dlouho vzhůru, $NAME$?",
+    "message": "Dneska dlouho vzhůru, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
