@@ -204,7 +204,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       card.insertBefore(img, menuWrapper);
     }
 
-    const dropdown = menuWrapper.lastElementChild as HTMLDivElement;
+    const dropdown = menuWrapper.querySelector('.shortcut-dropdown') as HTMLDivElement;
     if (dropdown) {
       const editOpt = dropdown.firstElementChild as HTMLDivElement;
       const removeOpt = dropdown.lastElementChild as HTMLDivElement;
