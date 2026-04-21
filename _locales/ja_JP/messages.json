@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "設定"
   },
-  "greetingTitle": {
-    "message": "ご挨拶"
-  },
   "wallpaperTitle": {
     "message": "壁紙"
   },
   "wallpaperSourceLabel": {
     "message": "画像ソース"
+  },
+  "nosourceOption": {
+    "message": "出典なし"
   },
   "overlayLabel": {
     "message": "画像オーバーレイ"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "ご挨拶"
   },
+  "displayTime": {
+    "message": "時間"
+  },
+  "displayDate": {
+    "message": "日付"
+  },
+  "displayAdvanced": {
+    "message": "日時"
+  },
   "showSecondsLabel": {
     "message": "秒を表示"
   },
@@ -47,6 +56,15 @@
   "dateFormatLabel": {
     "message": "形式"
   },
+  "dateText": {
+    "message": "執筆"
+  },
+  "dateNumeric": {
+    "message": "数値"
+  },
+  "dateWeekday": {
+    "message": "平日"
+  },
   "weatherTitle": {
     "message": "天気"
   },
@@ -55,6 +73,15 @@
   },
   "enableFoldersLabel": {
     "message": "フォルダを有効にする"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "名前を非表示にする"
+  },
+  "folderIconHelp": {
+    "message": "カスタムフォルダアイコンはこちら"
+  },
+  "shortcutRadiusLabel": {
+    "message": "曲率半径"
   },
   "rows1": {
     "message": "1行"
@@ -92,6 +119,9 @@
   "voiceSearchOption": {
     "message": "音声検索"
   },
+  "askAiOption": {
+    "message": "AIに聞いてみる"
+  },
   "reduceVisualEffectsTitle": {
     "message": "エフェクトを減らす"
   },
@@ -118,6 +148,9 @@
   },
   "addFolderTitle": {
     "message": "フォルダを追加"
+  },
+  "folderNameLabel": {
+    "message": "名前"
   },
   "editFolderTitle": {
     "message": "フォルダを編集"
@@ -172,6 +205,33 @@
   },
   "moreOptionsLabel": {
     "message": "その他のオプション"
+  },
+  "permissionRequiredTitle": {
+    "message": "許可が必要です"
+  },
+  "grantPermissionLabel": {
+    "message": "許可を与える"
+  },
+  "learnMoreLabel": {
+    "message": "詳細はこちら"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
   },
   "updateNoticePrefix": {
     "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
