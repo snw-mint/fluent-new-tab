@@ -156,7 +156,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       card.style.display = 'flex';
     }
 
-    const menuWrapper = card.firstElementChild as HTMLDivElement;
+    const menuWrapper = card.querySelector('.menu-wrapper') as HTMLDivElement;
 
     if (isFolder) {
       if (itemData.customIcon) {
