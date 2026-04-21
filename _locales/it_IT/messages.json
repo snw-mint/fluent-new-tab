@@ -8,14 +8,14 @@
   "settingsTitle": {
     "message": "Impostazioni"
   },
-  "greetingTitle": {
-    "message": "Saluto"
-  },
   "wallpaperTitle": {
     "message": "Sfondo"
   },
   "wallpaperSourceLabel": {
     "message": "Sorgente immagine"
+  },
+  "nosourceOption": {
+    "message": "Nessuna fonte"
   },
   "overlayLabel": {
     "message": "Sovrapposizione immagine"
@@ -38,6 +38,15 @@
   "displayGreeting": {
     "message": "Saluto"
   },
+  "displayTime": {
+    "message": "Ora"
+  },
+  "displayDate": {
+    "message": "Data"
+  },
+  "displayAdvanced": {
+    "message": "Ora e data"
+  },
   "showSecondsLabel": {
     "message": "Mostra i secondi"
   },
@@ -46,6 +55,15 @@
   },
   "dateFormatLabel": {
     "message": "Formato"
+  },
+  "dateText": {
+    "message": "Scritto"
+  },
+  "dateNumeric": {
+    "message": "Numerico"
+  },
+  "dateWeekday": {
+    "message": "Giorno feriale"
   },
   "weatherTitle": {
     "message": "Meteo"
@@ -56,20 +74,29 @@
   "enableFoldersLabel": {
     "message": "Abilita cartelle"
   },
+  "hideShortcutNamesLabel": {
+    "message": "Nascondi nomi"
+  },
+  "folderIconHelp": {
+    "message": "Trova icone personalizzate per le cartelle su"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Raggio dell'angolo"
+  },
   "rows1": {
     "message": "1 riga"
   },
   "rows2": {
-    "message": "2 righe"
+    "message": "2 file"
   },
   "rowsLabel": {
     "message": "Righe"
   },
   "rows3": {
-    "message": "3 righe"
+    "message": "3 file"
   },
   "rows4": {
-    "message": "4 righe"
+    "message": "4 file"
   },
   "appLauncherTitle": {
     "message": "Launcher applicazioni"
@@ -84,7 +111,7 @@
     "message": "Suggerimenti"
   },
   "clearSearchOption": {
-    "message": "Ricerca semplice (Google)"
+    "message": "Ricerca pulita (Google)"
   },
   "compactBarOption": {
     "message": "Barra compatta"
@@ -92,14 +119,17 @@
   "voiceSearchOption": {
     "message": "Ricerca vocale"
   },
+  "askAiOption": {
+    "message": "Chiedi all'IA"
+  },
   "reduceVisualEffectsTitle": {
-    "message": "Riduci effetti"
+    "message": "Ridurre gli effetti"
   },
   "reduceMotionTitle": {
-    "message": "Riduci movimento"
+    "message": "Riduci il movimento"
   },
   "reduceBlurOption": {
-    "message": "Riduci sfocatura"
+    "message": "Riduci la sfocatura"
   },
   "languageTitle": {
     "message": "Lingua"
@@ -111,13 +141,16 @@
     "message": "Backup dei dati"
   },
   "exportOption": {
-    "message": "Esporta"
+    "message": "Esportazione"
   },
   "importOption": {
     "message": "Importa"
   },
   "addFolderTitle": {
     "message": "Aggiungi cartella"
+  },
+  "folderNameLabel": {
+    "message": "Nome"
   },
   "editFolderTitle": {
     "message": "Modifica cartella"
@@ -173,8 +206,35 @@
   "moreOptionsLabel": {
     "message": "Altre opzioni"
   },
+  "permissionRequiredTitle": {
+    "message": "È richiesta l'autorizzazione"
+  },
+  "grantPermissionLabel": {
+    "message": "Concedi l'autorizzazione"
+  },
+  "learnMoreLabel": {
+    "message": "Per saperne di più"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Per utilizzare questa funzione, Fluent New Tab necessita dell'autorizzazione ad accedere a \"$API_NAME$\". Ciò garantisce la tua privacy e sicurezza.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$. ",
+    "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$, ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -183,7 +243,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Vedi changelog"
+    "message": "vedi changelog"
   },
   "nasaApodVideoNotice": {
     "message": "L'APOD di oggi è un video o non è disponibile. Mantieni invece il tuo sfondo attuale."
@@ -282,7 +342,7 @@
     "message": "Il file selezionato non è un backup valido."
   },
   "warningUnderstood": {
-    "message": "Capito"
+    "message": "Capito."
   },
   "warningClose": {
     "message": "Chiudi"
@@ -357,7 +417,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Inizia un nuovo giorno, $NAME$!",
+    "message": "Svegliati e sorridi, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -519,7 +579,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sveglio fino a tardi stasera, $NAME$?",
+    "message": "Sveglio fino a tardi stanotte, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
