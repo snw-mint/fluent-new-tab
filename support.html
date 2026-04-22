@@ -34,14 +34,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <script>
-    (() => {
-        try {
-            const storedTheme = localStorage.getItem('theme-preference');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-    })();
+        (() => {
+            try {
+                const storedTheme = localStorage.getItem('theme-preference');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
     </script>
 
     <style>
@@ -60,7 +60,7 @@
             letter-spacing: -0.02em;
         }
 
-        .support-subtitle {
+        .supporthub-subtitle {
             font-size: 1.1rem;
             color: var(--color-text-muted);
             max-width: 45rem;
