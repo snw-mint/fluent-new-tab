@@ -28,6 +28,10 @@ const FOLDER_FIXED_ROWS = 4;
 
 let shortcutTemplate: HTMLDivElement | null = null;
 
+document.addEventListener('i18nReady', () => {
+  shortcutTemplate = null;
+});
+
 function getShortcutTemplate(): HTMLDivElement {
   if (!shortcutTemplate) {
     shortcutTemplate = document.createElement('div');
@@ -38,9 +42,15 @@ function getShortcutTemplate(): HTMLDivElement {
       typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...';
     const editIcon = typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E';
     const removeIcon = typeof ICON_REMOVE !== 'undefined' ? ICON_REMOVE : 'R';
-    const moreOptionsLabel = window.getTranslation('moreOptionsLabel');
-    const editLabel = window.getTranslation('editLabel');
-    const removeLabel = window.getTranslation('removeLabel');
+
+    const rawMore = window.getTranslation('moreOptionsLabel');
+    const moreOptionsLabel =
+      rawMore && rawMore !== 'moreOptionsLabel' ? rawMore : 'More options';
+    const rawEdit = window.getTranslation('editLabel');
+    const editLabel = rawEdit && rawEdit !== 'editLabel' ? rawEdit : 'Edit';
+    const rawRemove = window.getTranslation('removeLabel');
+    const removeLabel =
+      rawRemove && rawRemove !== 'removeLabel' ? rawRemove : 'Remove';
 
     shortcutTemplate.innerHTML = `
       <a class="shortcut-card" draggable="false" style="color: inherit; text-decoration: none;" data-action="open-shortcut">

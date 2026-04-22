@@ -30,6 +30,7 @@ let mouseX = 0;
 let mouseY = 0;
 let offsetX = 0;
 let offsetY = 0;
+let dragStartRect: DOMRect | null = null;
 
 function initVanillaDragAndDrop(options: DragDropOptions): void {
   activeDragOptions = options;
@@ -55,6 +56,7 @@ function handleDragStart(event: DragEvent): void {
     activeDragOptions.gridContainer.classList.add('sorting');
 
   const rect = item.getBoundingClientRect();
+  dragStartRect = rect;
 
   mouseX = event.clientX;
   mouseY = event.clientY;
@@ -99,6 +101,7 @@ function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
   ghostNode = sourceItem.cloneNode(true) as HTMLElement;
 
   ghostNode.removeAttribute('id');
+  ghostNode.classList.add('fluent-drag-ghost');
   ghostNode.style.position = 'fixed';
   ghostNode.style.pointerEvents = 'none';
   ghostNode.style.zIndex = '9999';
@@ -108,15 +111,46 @@ function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
   ghostNode.style.height = `${rect.height}px`;
   ghostNode.style.margin = '0';
   ghostNode.style.opacity = '1';
-  ghostNode.style.transform = `translate(${mouseX - offsetX}px, ${mouseY - offsetY}px)`;
 
   if (activeDragOptions) {
     activeDragOptions.gridContainer.appendChild(ghostNode);
   }
 
   function updateGhostPosition() {
-    if (!ghostNode) return;
-    ghostNode.style.transform = `translate(${mouseX - offsetX}px, ${mouseY - offsetY}px)`;
+    if (!ghostNode || !dragStartRect || !activeDragOptions) return;
+
+    const gridRect = activeDragOptions.gridContainer.getBoundingClientRect();
+    const isSingleRow =
+      activeDragOptions.gridContainer.classList.contains('single-row');
+    const isInsideFolder =
+      !!activeDragOptions.gridContainer.querySelector('.folder-back-btn');
+
+    const isOutside =
+      isInsideFolder &&
+      (mouseX < gridRect.left - 50 ||
+        mouseX > gridRect.right + 50 ||
+        mouseY < gridRect.top - 50 ||
+        mouseY > gridRect.bottom + 50);
+
+    let targetX = mouseX - offsetX;
+    let targetY = mouseY - offsetY;
+
+    if (!isOutside) {
+      targetX = Math.max(
+        gridRect.left,
+        Math.min(targetX, gridRect.right - dragStartRect.width),
+      );
+      if (isSingleRow) {
+        targetY = dragStartRect.top;
+      } else {
+        targetY = Math.max(
+          gridRect.top,
+          Math.min(targetY, gridRect.bottom - dragStartRect.height),
+        );
+      }
+    }
+
+    ghostNode.style.transform = `translate(${targetX}px, ${targetY}px)`;
     rAF_ID = requestAnimationFrame(updateGhostPosition);
   }
 
@@ -139,44 +173,86 @@ function handleGlobalDragOver(event: DragEvent): void {
   mouseX = event.clientX;
   mouseY = event.clientY;
 
-  if (activeDragOptions) {
-    const gridRect = activeDragOptions.gridContainer.getBoundingClientRect();
-    const isOutside =
-      mouseX < gridRect.left ||
-      mouseX > gridRect.right ||
-      mouseY < gridRect.top ||
-      mouseY > gridRect.bottom;
+  if (!activeDragOptions || !dragStartRect) return;
 
-    if (isOutside) {
-      dropAction = 'out-of-folder';
-      currentDropTarget = null;
-      if (placeholder && placeholder.parentNode) {
-        placeholder.parentNode.removeChild(placeholder);
-      }
-      document
-        .querySelectorAll('.folder-drag-hover')
-        .forEach((el) => el.classList.remove('folder-drag-hover'));
-      return;
+  const gridRect = activeDragOptions.gridContainer.getBoundingClientRect();
+  const isSingleRow =
+    activeDragOptions.gridContainer.classList.contains('single-row');
+  const isInsideFolder =
+    !!activeDragOptions.gridContainer.querySelector('.folder-back-btn');
+
+  const isOutside =
+    isInsideFolder &&
+    (mouseX < gridRect.left - 50 ||
+      mouseX > gridRect.right + 50 ||
+      mouseY < gridRect.top - 50 ||
+      mouseY > gridRect.bottom + 50);
+
+  let targetX = mouseX - offsetX;
+  let targetY = mouseY - offsetY;
+
+  if (!isOutside) {
+    targetX = Math.max(
+      gridRect.left,
+      Math.min(targetX, gridRect.right - dragStartRect.width),
+    );
+    if (isSingleRow) {
+      targetY = dragStartRect.top;
+    } else {
+      targetY = Math.max(
+        gridRect.top,
+        Math.min(targetY, gridRect.bottom - dragStartRect.height),
+      );
     }
   }
 
-  const target = event.target as HTMLElement;
-  const item = target.closest('.shortcut-item') as HTMLElement | null;
+  const centerX = targetX + dragStartRect.width / 2;
+  const centerY = targetY + dragStartRect.height / 2;
 
-  if (
-    !item ||
-    item === draggedElement ||
-    item === placeholder ||
-    item.dataset.action === 'go-back' ||
-    item.dataset.action === 'add-shortcut'
-  ) {
+  if (isOutside) {
+    dropAction = 'out-of-folder';
+    currentDropTarget = null;
+    if (placeholder && placeholder.parentNode) {
+      placeholder.parentNode.removeChild(placeholder);
+    }
+    document
+      .querySelectorAll('.folder-drag-hover')
+      .forEach((el) => el.classList.remove('folder-drag-hover'));
     return;
   }
 
+  const items = Array.from(activeDragOptions.gridContainer.children).filter(
+    (el) =>
+      el.classList.contains('shortcut-item') &&
+      !el.classList.contains('add-card-wrapper') &&
+      !el.classList.contains('folder-back-btn') &&
+      el !== draggedElement &&
+      el !== ghostNode &&
+      el !== placeholder,
+  ) as HTMLElement[];
+
+  let closestItem: HTMLElement | null = null;
+  let minDistance = Infinity;
+
+  items.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const elCenterX = rect.left + rect.width / 2;
+    const elCenterY = rect.top + rect.height / 2;
+    const dist = Math.hypot(centerX - elCenterX, centerY - elCenterY);
+    if (dist < minDistance) {
+      minDistance = dist;
+      closestItem = el;
+    }
+  });
+
+  if (!closestItem) return;
+
+  const item = closestItem;
   const rect = item.getBoundingClientRect();
   const isFolder = item.dataset.type === 'folder';
-  const relX = mouseX - rect.left;
-  const relY = mouseY - rect.top;
+
+  const relX = centerX - rect.left;
+  const relY = centerY - rect.top;
 
   if (isFolder) {
     const xPercentage = relX / rect.width;
@@ -203,7 +279,7 @@ function handleGlobalDragOver(event: DragEvent): void {
     .querySelectorAll('.folder-drag-hover')
     .forEach((el) => el.classList.remove('folder-drag-hover'));
 
-  const isAfter = relX > rect.width / 2;
+  const isAfter = centerX > rect.left + rect.width / 2;
   const parent = item.parentNode;
   const referenceNode = isAfter ? item.nextSibling : item;
 
