@@ -181,10 +181,20 @@ function initCustomIconToggle(): void {
     }
   });
 }
+let cachedActiveFolderId: string | null = null;
+let cachedActiveFolder: Shortcut | undefined = undefined;
+
 function getActiveShortcutsList(): Shortcut[] {
   if (currentFolderId) {
-    const folder = shortcuts.find((s) => s.id === currentFolderId);
-    if (folder && folder.children) return folder.children;
+    if (cachedActiveFolderId !== currentFolderId) {
+      cachedActiveFolderId = currentFolderId;
+      cachedActiveFolder = shortcuts.find((s) => s.id === currentFolderId);
+    }
+    if (cachedActiveFolder && cachedActiveFolder.children)
+      return cachedActiveFolder.children;
+  } else {
+    cachedActiveFolderId = null;
+    cachedActiveFolder = undefined;
   }
   return shortcuts;
 }
@@ -412,9 +422,7 @@ function updateSingleRowClass(): void {
 
   const COLUMNS = 10;
 
-  const activeArray = currentFolderId
-    ? shortcuts.find((s) => s.id === currentFolderId)?.children || []
-    : shortcuts;
+  const activeArray = getActiveShortcutsList();
 
   const itemCount = activeArray.length;
   const backSlot = currentFolderId ? 1 : 0;
