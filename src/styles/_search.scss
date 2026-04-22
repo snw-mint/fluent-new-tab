@@ -442,31 +442,26 @@
   initial-value: 0deg;
 }
 
-@keyframes ask-ai-spin-fast {
-  from {
+@keyframes ask-ai-magic-glow {
+  0% {
     --ask-ai-angle: 0deg;
+    opacity: 0;
   }
-  to {
-    --ask-ai-angle: 360deg;
+  15% {
+    opacity: 1;
   }
-}
-
-@keyframes ask-ai-spin-slow {
-  from {
-    --ask-ai-angle: 0deg;
+  85% {
+    opacity: 1;
   }
-  to {
-    --ask-ai-angle: 360deg;
+  100% {
+    --ask-ai-angle: 720deg;
+    opacity: 0;
   }
 }
 
 .search-bar.ask-ai-active {
   position: relative;
   z-index: 100;
-  box-shadow:
-    0 0 8px 1px rgba(162, 155, 254, 0.35),
-    0 0 20px 2px rgba(253, 121, 168, 0.2),
-    0 0 40px 4px rgba(72, 219, 251, 0.15) !important;
 
   &::before {
     content: '';
@@ -493,10 +488,7 @@
     mask-composite: exclude;
     pointer-events: none;
     z-index: -1;
-    animation:
-      ask-ai-spin-fast 0.6s linear 1,
-      ask-ai-spin-slow 3s linear 0.6s infinite;
-    animation-fill-mode: forwards;
+    animation: ask-ai-magic-glow 2.5s linear forwards;
   }
 
   .ask-ai-btn {
@@ -504,58 +496,9 @@
   }
 }
 
-.search-bar.ask-ai-active.suggestions-open {
-  &::before {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-}
-
 .search-bar.compact.ask-ai-active {
   &::before {
     inset: -0.15rem;
     border-radius: calc(#{$radius-xxl} + 1px);
-  }
-}
-
-.search-bar.compact.ask-ai-active.suggestions-open {
-  &::before {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-}
-
-.search-bar.ask-ai-active .suggestions-container {
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -0.3rem;
-    top: 0;
-    border-radius: inherit;
-    padding: 0.2rem;
-    background: conic-gradient(
-      from var(--ask-ai-angle),
-      #ff6b6b 0%,
-      #ff9f43 12%,
-      #ffd32a 24%,
-      #0be881 36%,
-      #00d2d3 48%,
-      #48dbfb 60%,
-      #a29bfe 72%,
-      #fd79a8 84%,
-      #ff6b6b 100%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: -1;
-    clip-path: inset(2px 0 0 0);
-    animation:
-      ask-ai-spin-fast 0.6s linear 1,
-      ask-ai-spin-slow 3s linear 0.6s infinite;
-    animation-fill-mode: forwards;
   }
 }
