@@ -134,6 +134,7 @@ interface NasaApodResponse {
   hdurl?: string;
   url?: string;
   title?: string;
+  thumbnail_url?: string;
 }
 
 interface WikimediaImageInfo {

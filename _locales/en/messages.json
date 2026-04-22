@@ -97,7 +97,7 @@
   },
   "updateNoticeChangelog": { "message": "see changelog" },
   "nasaApodVideoNotice": {
-    "message": "Today's APOD is a video or unavailable. Keeping your current wallpaper instead."
+    "message": "Fetching today's NASA image..."
   },
   "warningDeleteFolderTitle": { "message": "Delete Folder" },
   "warningDeleteFolderMessage": {

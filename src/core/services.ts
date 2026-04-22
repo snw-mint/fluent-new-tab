@@ -28,7 +28,11 @@ const HOST_PERMISSIONS: Record<string, string[]> = {
 async function checkPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
-    if (!chromeApi || !chromeApi.permissions || !chromeApi.permissions.contains) {
+    if (
+      !chromeApi ||
+      !chromeApi.permissions ||
+      !chromeApi.permissions.contains
+    ) {
       console.warn('chrome.permissions API not available. Returning false.');
       return resolve(false);
     }
@@ -52,7 +56,11 @@ async function checkPermission(origins: string[]): Promise<boolean> {
 async function requestPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
-    if (!chromeApi || !chromeApi.permissions || !chromeApi.permissions.request) {
+    if (
+      !chromeApi ||
+      !chromeApi.permissions ||
+      !chromeApi.permissions.request
+    ) {
       console.warn('chrome.permissions API not available. Returning false.');
       return resolve(false);
     }
@@ -130,10 +138,14 @@ async function fetchDailyWallpaper(
         creditUrl = img.copyrightLink || img.copyrightlink || img.url || '';
       }
     } else if (source === 'nasa') {
-      const fetchNasaApod = async (date?: string): Promise<any> => {
+      notifyWallpaperApiWarning('loading');
+
+      const fetchNasaApod = async (
+        date?: string,
+      ): Promise<NasaApodResponse> => {
         const url = date
-          ? `https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&date=${encodeURIComponent(date)}`
-          : 'https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW';
+          ? `https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&thumbs=True&date=${encodeURIComponent(date)}`
+          : 'https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&thumbs=True';
         const response = await fetch(url);
         if (response.status === 429) throw new Error('NASA API limit reached.');
         if (response.status >= 500)
@@ -144,35 +156,49 @@ async function fetchDailyWallpaper(
 
       const todayData = await fetchNasaApod();
 
-      if (todayData.media_type === 'image') {
-        imageUrl = todayData.hdurl || todayData.url || '';
+      if (
+        todayData.media_type === 'image' ||
+        todayData.media_type === 'video'
+      ) {
+        imageUrl =
+          todayData.media_type === 'video'
+            ? (todayData.thumbnail_url || todayData.url || '').replace(
+                /(hqdefault|mqdefault|sddefault|0)\.jpg/i,
+                'maxresdefault.jpg',
+              )
+            : todayData.hdurl || todayData.url || '';
         creditText = `NASA: ${todayData.title || 'APOD'}`;
         creditUrl = 'https://apod.nasa.gov/apod/astropix.html';
       } else {
-        notifyWallpaperApiWarning(
-          todayData.media_type === 'video' ? 'video' : 'unavailable',
-        );
+        notifyWallpaperApiWarning('unavailable');
 
         const yesterday = new Date(Date.now() - 86400000)
           .toISOString()
           .slice(0, 10);
-        console.log(
-          `APOD today is not an image, trying yesterday (${yesterday})...`,
-        );
 
         try {
           const yesterdayData = await fetchNasaApod(yesterday);
-          if (yesterdayData.media_type === 'image') {
-            imageUrl = yesterdayData.hdurl || yesterdayData.url || '';
+          if (
+            yesterdayData.media_type === 'image' ||
+            yesterdayData.media_type === 'video'
+          ) {
+            imageUrl =
+              yesterdayData.media_type === 'video'
+                ? (
+                    yesterdayData.thumbnail_url ||
+                    yesterdayData.url ||
+                    ''
+                  ).replace(
+                    /(hqdefault|mqdefault|sddefault|0)\.jpg/i,
+                    'maxresdefault.jpg',
+                  )
+                : yesterdayData.hdurl || yesterdayData.url || '';
             creditText = `NASA: ${yesterdayData.title || 'APOD'} (${yesterday})`;
             creditUrl = 'https://apod.nasa.gov/apod/astropix.html';
-            console.log(`Using yesterday's APOD image.`);
           } else {
-            console.warn('Yesterday APOD is also not an image.');
             return null;
           }
         } catch (fallbackError) {
-          console.error('Failed to fetch yesterday APOD:', fallbackError);
           return null;
         }
       }

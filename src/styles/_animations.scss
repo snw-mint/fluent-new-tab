@@ -141,3 +141,23 @@
     background-color: transparent;
   }
 }
+@keyframes fluentProgressRingTrack {
+  0% {
+    stroke-dasharray: 1 100;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 45 100;
+    stroke-dashoffset: -20;
+  }
+  100% {
+    stroke-dasharray: 45 100;
+    stroke-dashoffset: -44;
+  }
+}
+
+@keyframes fluentProgressRingSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
