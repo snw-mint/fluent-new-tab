@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Arama"
   },
+  "searchBarStyleLabe": {
+    "message": "Arama çubuğu stili"
+  },
+  "searchStyleFull": {
+    "message": "Tam genişlik"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
   "suggestionsOption": {
     "message": "Öneriler"
   },
   "clearSearchOption": {
     "message": "Sade arama (Google)"
-  },
-  "compactBarOption": {
-    "message": "Kompakt çubuk"
   },
   "voiceSearchOption": {
     "message": "Sesli Arama"
