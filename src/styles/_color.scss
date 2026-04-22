@@ -224,7 +224,8 @@ html[data-theme='dark'] {
     border-color: rgba(255, 255, 255, 0.1);
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
     }
   }
 
