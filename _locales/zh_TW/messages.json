@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "搜尋"
   },
+  "searchBarStyleLabe": {
+    "message": "搜尋列樣式"
+  },
+  "searchStyleFull": {
+    "message": "全寬"
+  },
+  "searchStyleCompact": {
+    "message": "緊湊型"
+  },
   "suggestionsOption": {
     "message": "建議"
   },
   "clearSearchOption": {
     "message": "簡易搜尋 (Google)"
-  },
-  "compactBarOption": {
-    "message": "緊湊欄"
   },
   "voiceSearchOption": {
     "message": "語音搜尋"
