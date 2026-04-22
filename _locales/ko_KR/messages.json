@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "검색"
   },
+  "searchBarStyleLabe": {
+    "message": "검색창 스타일"
+  },
+  "searchStyleFull": {
+    "message": "전체 너비"
+  },
+  "searchStyleCompact": {
+    "message": "컴팩트"
+  },
   "suggestionsOption": {
     "message": "제안"
   },
   "clearSearchOption": {
     "message": "일반 검색 (Google)"
-  },
-  "compactBarOption": {
-    "message": "컴팩트 바"
   },
   "voiceSearchOption": {
     "message": "음성 검색"
