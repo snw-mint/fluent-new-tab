@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Haku"
   },
+  "searchBarStyleLabe": {
+    "message": "Hakupalkin tyyli"
+  },
+  "searchStyleFull": {
+    "message": "Koko leveys"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakti"
+  },
   "suggestionsOption": {
     "message": "Ehdotukset"
   },
   "clearSearchOption": {
     "message": "Yksinkertainen haku (Google)"
-  },
-  "compactBarOption": {
-    "message": "Kompakti palkki"
   },
   "voiceSearchOption": {
     "message": "Äänihaku"
