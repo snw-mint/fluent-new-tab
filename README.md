@@ -1,6 +1,6 @@
 # Fluent New Tab &nbsp; [ ![lastest version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsnw-mint%2Ffluent-new-tab%2Frefs%2Fheads%2Fmain%2Fmanifest.json&query=version&style=flat&label=latest%20version&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/releases) [ ![last commit](https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/activity) [ ![license](https://img.shields.io/badge/GPLv3-message?style=flat&label=license&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab?tab=GPL-3.0-1-ov-file)
 
-![Fluent New Tab Mockup](repo-assets/mockup.png)
+![Fluent New Tab Main](repo-assets/main.png)
 
 <p align="center">
   <strong>A modern new tab inspired by Microsoft's Fluent Design.</strong>
@@ -93,8 +93,8 @@ Contributions are welcome.
 
 ## License and legal notice
 
-GPL-3.0 license (effective 18/02/2026).
+This project is licensed under the [GPL-3.0 License](https://github.com/snw-mint/fluent-new-tab/blob/main/LICENSE). By using or modifying this extension, you agree to our [Terms of Use](https://snw-mint.github.io/fluent-new-tab/terms.html).
 
-Forks/distributions must use a different name and logo, and be clearly marked as forks.
+Forks and distributions must use a different name and logo, and be clearly marked as forks.
 
-All trademarks belong to their respective owners. No affiliation or endorsement by Microsoft, Google, or Proton AG.
+All trademarks belong to their respective owners. There is no affiliation or endorsement by Microsoft, Google, or Proton AG.
