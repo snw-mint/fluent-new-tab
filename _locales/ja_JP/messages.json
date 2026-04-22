@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "検索"
   },
+  "searchBarStyleLabe": {
+    "message": "検索バーのスタイル"
+  },
+  "searchStyleFull": {
+    "message": "全幅"
+  },
+  "searchStyleCompact": {
+    "message": "コンパクト"
+  },
   "suggestionsOption": {
     "message": "提案"
   },
   "clearSearchOption": {
     "message": "シンプル検索 (Google)"
-  },
-  "compactBarOption": {
-    "message": "コンパクトバー"
   },
   "voiceSearchOption": {
     "message": "音声検索"

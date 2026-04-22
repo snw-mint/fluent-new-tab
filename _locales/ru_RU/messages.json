@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Поиск"
   },
+  "searchBarStyleLabe": {
+    "message": "Стиль строки поиска"
+  },
+  "searchStyleFull": {
+    "message": "На всю ширину"
+  },
+  "searchStyleCompact": {
+    "message": "Компактный"
+  },
   "suggestionsOption": {
     "message": "Предложения"
   },
   "clearSearchOption": {
     "message": "Обычный поиск (Google)"
-  },
-  "compactBarOption": {
-    "message": "Компактная панель"
   },
   "voiceSearchOption": {
     "message": "Голосовой поиск"

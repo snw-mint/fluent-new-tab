@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Søg"
   },
+  "searchBarStyleLabe": {
+    "message": "Stil på søgefeltet"
+  },
+  "searchStyleFull": {
+    "message": "Fuld bredde"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
   "suggestionsOption": {
     "message": "Forslag"
   },
   "clearSearchOption": {
     "message": "Ren søgning (Google)"
-  },
-  "compactBarOption": {
-    "message": "Kompakt bjælke"
   },
   "voiceSearchOption": {
     "message": "Stemmesøgning"

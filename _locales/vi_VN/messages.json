@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Tìm kiếm"
   },
+  "searchBarStyleLabe": {
+    "message": "Kiểu thanh tìm kiếm"
+  },
+  "searchStyleFull": {
+    "message": "Toàn màn hình"
+  },
+  "searchStyleCompact": {
+    "message": "Nhỏ gọn"
+  },
   "suggestionsOption": {
     "message": "Gợi ý"
   },
   "clearSearchOption": {
     "message": "Tìm kiếm đơn giản (Google)"
-  },
-  "compactBarOption": {
-    "message": "Thanh nhỏ gọn"
   },
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"

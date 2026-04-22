@@ -72,13 +72,13 @@
     "message": "Mga Shortcut"
   },
   "enableFoldersLabel": {
-    "message": "Enable Folders"
+    "message": "I-enable ang Folders"
   },
   "hideShortcutNamesLabel": {
-    "message": "Hide Names"
+    "message": "I-hide ang mga Pangalan"
   },
   "folderIconHelp": {
-    "message": "Find custom folder icons at"
+    "message": "Humanap ng custom folder icons sa"
   },
   "shortcutRadiusLabel": {
     "message": "Cornder Radius"
@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Search"
   },
+  "searchBarStyleLabe": {
+    "message": "Style ng Search bar"
+  },
+  "searchStyleFull": {
+    "message": "Full width"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
   "suggestionsOption": {
     "message": "Mga Suggestions"
   },
   "clearSearchOption": {
     "message": "I-clear ang search (Google)"
-  },
-  "compactBarOption": {
-    "message": "Compact bar"
   },
   "voiceSearchOption": {
     "message": "Voice search"

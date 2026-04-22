@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Rechercher"
   },
+  "searchBarStyleLabe": {
+    "message": "Style de la barre de recherche"
+  },
+  "searchStyleFull": {
+    "message": "Plein format"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
   "suggestionsOption": {
     "message": "Suggestions"
   },
   "clearSearchOption": {
     "message": "Recherche simple (Google)"
-  },
-  "compactBarOption": {
-    "message": "Barre compacte"
   },
   "voiceSearchOption": {
     "message": "Recherche vocale"

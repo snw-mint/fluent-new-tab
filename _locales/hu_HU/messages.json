@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Keresés"
   },
+  "searchBarStyleLabe": {
+    "message": "Keresősáv stílusa"
+  },
+  "searchStyleFull": {
+    "message": "Teljes szélesség"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
   "suggestionsOption": {
     "message": "Javaslatok"
   },
   "clearSearchOption": {
     "message": "Egyszerű keresés (Google)"
-  },
-  "compactBarOption": {
-    "message": "Kompakt sáv"
   },
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
