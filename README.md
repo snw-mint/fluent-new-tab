@@ -71,7 +71,7 @@ Runtime files (`script.js` and `style.css`) are generated only in `dist/`.
 ## Support the project
 
 - GitHub Sponsors: https://github.com/sponsors/snw-mint
-- Buy Me A Coffe: https://buymeacoffee.com/snow.mint
+- Buy Me A Coffe: https://buymeacoffee.com/snw.mint
 
 ## Privacy
 
