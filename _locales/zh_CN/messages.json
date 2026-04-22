@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "搜索"
   },
+  "searchBarStyleLabe": {
+    "message": "搜索栏样式"
+  },
+  "searchStyleFull": {
+    "message": "全宽"
+  },
+  "searchStyleCompact": {
+    "message": "紧凑型"
+  },
   "suggestionsOption": {
     "message": "建议"
   },
   "clearSearchOption": {
     "message": "纯净搜索 (Google)"
-  },
-  "compactBarOption": {
-    "message": "紧凑栏"
   },
   "voiceSearchOption": {
     "message": "语音搜索"
