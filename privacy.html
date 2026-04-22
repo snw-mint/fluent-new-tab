@@ -143,7 +143,7 @@
             margin: 1.5rem 0 !important;
             font-size: 0.95rem;
         }
-        
+
         .gist table,
         .gist tr,
         .gist td,
@@ -157,16 +157,17 @@
             border: none !important;
             margin: 0 !important;
         }
-        
+
         .gist .gist-data {
             border-bottom: none !important;
             border-radius: 0.5rem;
             overflow: hidden;
         }
-        
+
         .gist .gist-meta {
             display: none !important;
         }
+
         @media (max-width: 37.5rem) {
             body {
                 padding: 1rem;
@@ -190,7 +191,7 @@
 
         <header class="header">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: March 25, 2026</p>
+            <p class="last-updated">Last Updated: April 22, 2026</p>
         </header>
 
         <div class="content">
@@ -241,27 +242,22 @@
                     browser from deleting your wallpapers if it runs low on storage space.</li>
             </ul>
 
-            <h3>Host Permissions</h3>
-            <p>These permissions allow the extension to communicate with specific external services to fetch dynamic
-                content. The extension can <strong>only</strong> interact with these approved domains, and no data is
-                sent to our servers. It's important to note that the extension will only contact a service if you have
-                explicitly enabled the feature that requires it (e.g., enabling the weather widget or selecting a
-                dynamic wallpaper).</p>
+            <h3>Optional Host Permissions</h3>
+            <p>To give you maximum control, <strong>all external host permissions are optional by default</strong>. You
+                are
+                no longer required to pre-approve these hosts when installing the extension. Instead, you will be
+                prompted
+                to grant permission individually only when you activate a feature that requires it.</p>
+            <p>These optional permissions allow the extension to communicate with specific external services to fetch
+                dynamic content. No data is ever sent to our servers.</p>
             <ul>
-                <li><code>https://www.google.com/*</code> and <code>https://suggestqueries.google.com/*</code>: Used to
-                    provide search suggestions when you type in the search bar with Google as your selected search
-                    engine.</li>
-                <li><code>https://peapix.com/*</code> and <code>https://img.peapix.com/*</code>: Used to fetch the daily
-                    Bing Wallpaper when this dynamic background option is selected.</li>
-                <li><code>https://api.nasa.gov/*</code> and <code>https://apod.nasa.gov/*</code>: Used to fetch the
-                    daily "Astronomy Picture of the Day" from NASA when this dynamic background option is selected.</li>
-                <li><code>https://commons.wikimedia.org/*</code> and <code>https://upload.wikimedia.org/*</code>: Used
-                    to fetch the "Picture of the Day" from Wikimedia Commons when this dynamic background option is
-                    selected.</li>
-                <li><code>https://geocoding-api.open-meteo.com/*</code>: Used to convert a city name into geographic
-                    coordinates (latitude and longitude) for the weather widget.</li>
-                <li><code>https://api.open-meteo.com/*</code>: After getting coordinates, this is used to fetch the
-                    current weather forecast data from Open-Meteo.</li>
+                <li><strong>Search Suggestions</strong> (e.g., <code>google.com</code>): Used to provide auto-completion
+                    suggestions in the search bar.</li>
+                <li><strong>Dynamic Wallpapers</strong> (e.g., <code>peapix.com</code>, <code>nasa.gov</code>,
+                    <code>wikimedia.org</code>): Used to fetch daily background images from your selected source.
+                </li>
+                <li><strong>Weather Widget</strong> (e.g., <code>open-meteo.com</code>): Used to fetch geographic
+                    coordinates and current weather forecast data.</li>
             </ul>
             <h2 id="5-you-are-in-control">5. You Are in Control</h2>
             <p>Because all data is stored on your device, you have complete control. You can delete all your data at any
