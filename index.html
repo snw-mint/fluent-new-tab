@@ -46,14 +46,14 @@
     <link rel="alternate" hreflang="en" href="https://snw-mint.github.io/fluent-new-tab/">
     <link rel="stylesheet" href="style.css">
     <script>
-    (() => {
-        try {
-            const storedTheme = localStorage.getItem('theme-preference');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-    })();
+        (() => {
+            try {
+                const storedTheme = localStorage.getItem('theme-preference');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
     </script>
     <script id="navigation-schema" type="application/ld+json">
         {
@@ -171,11 +171,7 @@
             <p class="subtitle">Upgrade your browsing experience with a clean layout powered by Fluent Design.</p>
 
             <div class="hero-visual-container">
-                <video id="hero-video" class="fluent-media" poster="assets/mockup.webp" autoplay muted playsinline>
-                    <source src="assets/mockup.mp4" type="video/mp4">
-                </video>
-                <img id="hero-fallback" class="fluent-media hidden" src="assets/mockup.webp"
-                    alt="Fluent New Tab Interface">
+                <img id="hero-fallback" class="fluent-media" src="assets/main.webp" alt="Fluent New Tab Interface">
             </div>
 
             <div class="hero-actions">
@@ -320,7 +316,7 @@
             <div class="showcase-row">
 
                 <div class="showcase-image-wrapper">
-                    <img src="assets/fluent1.webp" alt="Feature Test Showcase" class="showcase-img">
+                    <img src="assets/section1.webp" alt="Feature Test Showcase" class="showcase-img">
                 </div>
 
                 <div class="showcase-card mica-effect overlap-right">
@@ -363,7 +359,7 @@
             <div class="showcase-row row-reverse">
 
                 <div class="showcase-image-wrapper">
-                    <img src="assets/fluent2.webp" alt="Aesthetic Features" class="showcase-img">
+                    <img src="assets/section2.webp" alt="Aesthetic Features" class="showcase-img">
                 </div>
 
                 <div class="showcase-card mica-effect overlap-left">
@@ -410,7 +406,7 @@
             <div class="showcase-row">
 
                 <div class="showcase-image-wrapper">
-                    <img src="assets/fluent3.webp" alt="Utilities Showcase" class="showcase-img">
+                    <img src="assets/section3.webp" alt="Utilities Showcase" class="showcase-img">
                 </div>
 
                 <div class="showcase-card mica-effect overlap-right">
@@ -525,7 +521,7 @@
     <section id="download" class="download-section">
         <div class="container">
             <h2 class="section-title">Get Started Now</h2>
-            <p class="support-subtitle">Experience a better new tab page today. Available for Microsoft Edge and
+            <p class="download-subtitle">Experience a better new tab page today. Available for Microsoft Edge and
                 Chromium-based browsers.</p>
 
             <div class="hero-actions">
@@ -537,6 +533,8 @@
 
     <section id="support" class="support-section">
         <div class="container support-content">
+            <img src="assets/emojis/hearts.png" alt="Download"
+                style="display: block; margin: 0 auto 1.5rem; max-width: 5rem; height: auto;">
             <h2 class="section-title">Support the Project</h2>
             <p class="support-subtitle">Fluent New Tab is open-source and entirely free. If it improves your daily
                 workflow, consider buying me a coffee or becoming a sponsor to keep the updates coming.</p>
@@ -618,6 +616,13 @@
                             class="browser-card" data-browser="edge" target="_blank" rel="noopener noreferrer">
                             <img src="assets/edge.svg" alt="Edge" class="browser-icon">
                             <span class="browser-name">Edge</span>
+                            <span class="status-badge dynamic-badge"></span>
+                        </a>
+
+                        <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+                            class="browser-card" data-browser="chrome" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/chrome.svg" alt="Chrome" class="browser-icon">
+                            <span class="browser-name">Chrome</span>
                             <span class="status-badge dynamic-badge"></span>
                         </a>
 
