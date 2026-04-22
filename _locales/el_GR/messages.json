@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Αναζήτηση"
   },
+  "searchBarStyleLabe": {
+    "message": "Στυλ γραμμής αναζήτησης"
+  },
+  "searchStyleFull": {
+    "message": "Πλήρες πλάτος"
+  },
+  "searchStyleCompact": {
+    "message": "Συμπαγής"
+  },
   "suggestionsOption": {
     "message": "Προτάσεις"
   },
   "clearSearchOption": {
     "message": "Απλή αναζήτηση (Google)"
-  },
-  "compactBarOption": {
-    "message": "Συμπαγής μπάρα"
   },
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
