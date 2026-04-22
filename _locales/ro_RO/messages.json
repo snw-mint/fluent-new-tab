@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Căutare"
   },
+  "searchBarStyleLabe": {
+    "message": "Stilul barei de căutare"
+  },
+  "searchStyleFull": {
+    "message": "Lățime maximă"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
   "suggestionsOption": {
     "message": "Sugestii"
   },
   "clearSearchOption": {
     "message": "Căutare simplă (Google)"
-  },
-  "compactBarOption": {
-    "message": "Bară compactă"
   },
   "voiceSearchOption": {
     "message": "Căutare vocală"
