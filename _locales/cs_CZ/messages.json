@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Hledat"
   },
+  "searchBarStyleLabe": {
+    "message": "Styl vyhledávacího pole"
+  },
+  "searchStyleFull": {
+    "message": "Na celou šířku"
+  },
+  "searchStyleCompact": {
+    "message": "Kompaktní"
+  },
   "suggestionsOption": {
     "message": "Návrhy"
   },
   "clearSearchOption": {
     "message": "Čisté vyhledávání (Google)"
-  },
-  "compactBarOption": {
-    "message": "Kompaktní lišta"
   },
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
