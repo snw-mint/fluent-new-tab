@@ -34,14 +34,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <script>
-    (() => {
-        try {
-            const storedTheme = localStorage.getItem('theme-preference');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-    })();
+        (() => {
+            try {
+                const storedTheme = localStorage.getItem('theme-preference');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
     </script>
     <style>
         html {
@@ -273,7 +273,7 @@
                 <li><a href="#performance">Performance</a></li>
                 <li><a href="#utilities">Utilities</a></li>
             </ul>
-            <a href="https://buymeacoffee.com/snow.mint" target="_blank" rel="noopener noreferrer"
+            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
                 class="fluent-bmc-sidebar">
                 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
                     alt="Hot Beverage" width="28" height="28" />

@@ -34,14 +34,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <script>
-    (() => {
-        try {
-            const storedTheme = localStorage.getItem('theme-preference');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-    })();
+        (() => {
+            try {
+                const storedTheme = localStorage.getItem('theme-preference');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
     </script>
     <style>
         html {
@@ -258,7 +258,7 @@
 
     <header class="setup-hero">
         <div class="container">
-            <h1 class="setup-title">Quick Help & Troubleshooting</h1> 
+            <h1 class="setup-title">Quick Help & Troubleshooting</h1>
             <p class="setup-subtitle">Find solutions to common problems, learn how to fix display issues, and request
                 support.</p>
         </div>
@@ -276,7 +276,7 @@
                 <li><a href="#troubleshooting">General Fixes</a></li>
                 <li><a href="#help-links">Need More Help?</a></li>
             </ul>
-            <a href="https://buymeacoffee.com/snow.mint" target="_blank" rel="noopener noreferrer"
+            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
                 class="fluent-bmc-sidebar">
                 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
                     alt="Hot Beverage" width="28" height="28" />
@@ -505,13 +505,13 @@
                     <p>Overlay Opacity only affects active wallpapers. If wallpaper is turned off, or if you are using a
                         plain background color, the slider will have no visible effect.</p>
                 </div>
-                <a href="https://buymeacoffee.com/snow.mint" target="_blank" rel="noopener noreferrer"
+                <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
                     class="setting-card"
                     style="text-decoration: none; display: flex; align-items: center; gap: 16px; transition: transform 0.2s, box-shadow 0.2s; margin-top: 2rem;"
                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-float)';"
                     onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-card)';">
-                    <img src="assets/emojis/nerd.png"
-                        alt="Hot Beverage" width="40" height="40" style="flex-shrink: 0;" />
+                    <img src="assets/emojis/nerd.png" alt="Hot Beverage" width="40" height="40"
+                        style="flex-shrink: 0;" />
                     <div>
                         <h3 style="margin-bottom: 4px;">Did this help you?</h3>
                         <p style="margin-bottom: 0;">Fluent New Tab is free and open-source. If this guide saved you
