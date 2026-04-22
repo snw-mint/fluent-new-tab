@@ -107,14 +107,20 @@
   "searchTitle": {
     "message": "Zoeken"
   },
+  "searchBarStyleLabe": {
+    "message": "Stijl van de zoekbalk"
+  },
+  "searchStyleFull": {
+    "message": "Volledige breedte"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
   "suggestionsOption": {
     "message": "Suggesties"
   },
   "clearSearchOption": {
     "message": "Eenvoudig zoeken (Google)"
-  },
-  "compactBarOption": {
-    "message": "Compacte balk"
   },
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
