@@ -5,6 +5,7 @@ on:
     tags:
       - 'v*.*.*'
       - 'v*.*'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -66,3 +67,42 @@ jobs:
           files: fluent-new-tab-v${{ steps.version.outputs.VERSION }}-${{ matrix.browser }}.zip
           generate_release_notes: true
           draft: true
+
+update-demo:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: leading
+
+    - uses: actions/checkout@v4
+      with:
+        path: source
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'npm'
+        cache-dependency-path: source/package-lock.json
+
+    - run: |
+        cd source
+        npm ci
+        npm run build:release
+
+    - run: |
+        cd source/dist
+        jq 'del(.locales, .permissions)' manifest.json > temp.json
+        mv temp.json manifest.json
+
+    - run: |
+        rm -rf demo/*
+        cp -r source/dist/* demo/
+        rm -rf source
+
+    - run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add demo/
+        git commit -m "chore: sync demo files" || true
+        git push origin leading
