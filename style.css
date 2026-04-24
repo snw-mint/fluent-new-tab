@@ -690,61 +690,102 @@ body {
 
 .site-footer {
   background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  border-top: 0.0625rem solid var(--color-border);
   padding: 4rem 0 2rem;
-  text-align: center;
 }
 
-.footer-content {
+.footer-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  flex: 1 1 15rem;
+  max-width: 20rem;
+}
+
+.footer-description {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.footer-nav {
+  flex: 3 1 40rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 2rem;
 }
 
-.footer-links {
+.footer-column {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.footer-links a {
+.footer-column h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--color-text-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s;
+  margin-bottom: 0.5rem;
 }
 
-.footer-links a:hover {
+.footer-column a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.footer-column a:hover {
   color: var(--color-primary);
 }
 
-.footer-disclaimer {
-  max-width: 37.5rem;
+.footer-bottom {
+  border-top: 0.0625rem solid var(--color-border);
+  padding-top: 2rem;
+  text-align: center;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
 }
 
-.footer-disclaimer a,
-.footer-credit a {
+.footer-bottom a {
   color: var(--color-text-muted);
   text-decoration: underline;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.footer-disclaimer a:hover,
-.footer-credit a:hover {
+.footer-bottom a:hover {
   color: var(--color-primary);
 }
 
-.footer-credit {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  font-weight: 500;
+@media (max-width: 48rem) {
+  .footer-grid {
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .footer-nav {
+    grid-template-columns: 1fr;
+  }
 }
 
 .theme-switch {

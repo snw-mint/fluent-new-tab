@@ -18,14 +18,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <script>
-    (() => {
-        try {
-            const storedTheme = localStorage.getItem('theme-preference');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-    })();
+        (() => {
+            try {
+                const storedTheme = localStorage.getItem('theme-preference');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
     </script>
 
     <style>
@@ -213,6 +213,7 @@
                 background: transparent;
             }
         }
+
         .icon-contact {
             color: #8661C5;
             background-color: rgba(134, 97, 197, 0.1);
@@ -222,6 +223,7 @@
             color: var(--color-primary);
             background-color: rgba(15, 108, 189, 0.1);
         }
+
         a.feature-card {
             text-decoration: none;
             color: inherit;
@@ -230,6 +232,7 @@
             align-items: center;
             text-align: center;
         }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -271,7 +274,7 @@
     <header class="uninstall-hero" id="header-text">
         <div class="container">
             <img src="assets/emojis/tears.png" alt="Face Holding Back Tears" width="70" height="70" />
-            <h1 class="uninstall-title">I'm sorry to see you go.</h1> 
+            <h1 class="uninstall-title">I'm sorry to see you go.</h1>
             <p class="uninstall-subtitle">Taking 30 seconds to tell me why you left helps me improve Fluent New Tab for
                 everyone.</p>
         </div>
@@ -415,12 +418,63 @@
 
     </main>
 
-    <footer class="site-footer" style="padding: 32px 0;">
-        <div class="container" style="text-align: center;">
-            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
-                &copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
-                    rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">snow mint</a>.
-            </p>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img class="logo-mark" src="android-chrome-512x512.png" alt="Fluent New Tab logo">
+                    <span>Fluent New Tab</span>
+                </div>
+                <p class="footer-description">Fluent New Tab is an independent open-source project and is not affiliated
+                    with, endorsed by, or sponsored by Microsoft Corporation.</p>
+            </div>
+
+            <div class="footer-nav">
+                <div class="footer-column">
+                    <h4>Overview</h4>
+                    <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+                    <a href="https://snw-mint.github.io/fluent-new-tab/setup.html">Setup & Configuration</a>
+                    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy Policy</a>
+                    <a href="https://snw-mint.github.io/fluent-new-tab/terms.html">Terms of Use</a>
+                    <a href="mailto:snw-mint@outlook.com">Contact</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html">Troubleshooting</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml">Report a
+                        Bug</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml">Request
+                        a Feature</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose">Ask a Question</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md">Contributing</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md">Help Translate</a>
+                    <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer">Support the
+                        Project</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Download</h4>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+                        target="_blank" rel="noopener noreferrer">Microsoft Edge</a>
+                    <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/" target="_blank"
+                        rel="noopener noreferrer">Google Chrome</a>
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
+                        rel="noopener noreferrer">Mozilla Firefox</a>
+                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank"
+                        rel="noopener noreferrer">Manual Release</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
+                    rel="noopener noreferrer">snow mint</a>.</p>
         </div>
     </footer>
 
