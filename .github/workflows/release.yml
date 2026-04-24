@@ -93,6 +93,36 @@ jobs:
           mv temp.json manifest.json
 
       - run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const localePath = '_locales\en\messages.json';
+
+          if (!fs.existsSync(localePath)) process.exit(0);
+
+          const messages = JSON.parse(fs.readFileSync(localePath, 'utf8'));
+
+          function replaceInFile(filePath) {
+            let content = fs.readFileSync(filePath, 'utf8');
+            content = content.replace(/__MSG_(\w+)__/g, (match, key) => messages[key] ? messages[key].message : match);
+            fs.writeFileSync(filePath, content);
+          }
+
+          function processDirectory(dir) {
+            fs.readdirSync(dir).forEach(file => {
+              const fullPath = path.join(dir, file);
+              if (fs.statSync(fullPath).isDirectory()) {
+                processDirectory(fullPath);
+              } else if (fullPath.endsWith('.html') || fullPath.endsWith('.js')) {
+                replaceInFile(fullPath);
+              }
+            });
+          }
+
+          processDirectory('demo');
+          "
+
+      - run: |
           rm -rf demo/*
           cp -r source/dist/* demo/
           rm -rf source
