@@ -239,4 +239,8 @@ const APP_KEYS: string[] = [
   'use12Hour',
   'dateFormat',
   'askAiEnabled',
+  'displayPreset',
+  'shortcutRadius',
+  'hideShortcutNames',
+  'wallpaperOverlay',
 ];
