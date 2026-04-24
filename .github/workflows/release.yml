@@ -26,7 +26,6 @@ jobs:
           - browser: firefox
             launcher: 'proton'
             search: 'duck'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -42,7 +41,6 @@ jobs:
 
       - name: Inject Defaults for ${{ matrix.browser }}
         run: |
-          # Usa o sed para buscar a chave e substituir o valor pela variável do matrix
           sed -i -E "s/launcherProvider:\s*'[a-zA-Z0-9_]+'/launcherProvider: '${{ matrix.launcher }}'/" scripts/background.js
           sed -i -E "s/searchEngine:\s*'[a-zA-Z0-9_]+'/searchEngine: '${{ matrix.search }}'/" scripts/background.js
 
@@ -56,7 +54,6 @@ jobs:
       - name: Package extension as zip
         run: |
           cd dist
-          # Adiciona o nome do navegador no final do arquivo zip
           zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-${{ matrix.browser }}.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
@@ -68,41 +65,41 @@ jobs:
           generate_release_notes: true
           draft: true
 
-update-demo:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-      with:
-        ref: leading
+  update-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: leading
 
-    - uses: actions/checkout@v4
-      with:
-        path: source
+      - uses: actions/checkout@v4
+        with:
+          path: source
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-        cache: 'npm'
-        cache-dependency-path: source/package-lock.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: source/package-lock.json
 
-    - run: |
-        cd source
-        npm ci
-        npm run build:release
+      - run: |
+          cd source
+          npm ci
+          npm run build:release
 
-    - run: |
-        cd source/dist
-        jq 'del(.locales, .permissions)' manifest.json > temp.json
-        mv temp.json manifest.json
+      - run: |
+          cd source/dist
+          jq 'del(.locales, .permissions)' manifest.json > temp.json
+          mv temp.json manifest.json
 
-    - run: |
-        rm -rf demo/*
-        cp -r source/dist/* demo/
-        rm -rf source
+      - run: |
+          rm -rf demo/*
+          cp -r source/dist/* demo/
+          rm -rf source
 
-    - run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add demo/
-        git commit -m "chore: sync demo files" || true
-        git push origin leading
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add demo/
+          git commit -m "chore: sync demo files" || true
+          git push origin leading
