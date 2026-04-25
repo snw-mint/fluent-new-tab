@@ -456,17 +456,18 @@ function setSearchEngine(engineKey: keyof typeof engines): void {
 }
 
 function updateSearchSettings(animate = true): void {
-  if (searchWrapper)
+  if (searchWrapper) {
     searchWrapper.style.display = searchBarVisible ? '' : 'none';
-  if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
-  const showChildren = searchBarVisible;
-  if (suggestionsRow) setCollapsible(suggestionsRow, showChildren, animate);
-  if (clearSearchRow) setCollapsible(clearSearchRow, showChildren, animate);
-  const compactBarRow = getById<HTMLDivElement>('compactBarRow');
-  if (compactBarRow) setCollapsible(compactBarRow, showChildren, animate);
-  const voiceSearchRow = getById<HTMLDivElement>('voiceSearchRow');
-  if (voiceSearchRow) setCollapsible(voiceSearchRow, showChildren, animate);
-  if (askAiRow) setCollapsible(askAiRow, showChildren, animate);
+  }
+  if (toggleSearchBar) {
+    toggleSearchBar.checked = searchBarVisible;
+  }
+
+  const searchMainOptions = document.getElementById('searchMainOptions');
+  if (searchMainOptions) {
+    setCollapsible(searchMainOptions, searchBarVisible, animate);
+  }
+
   updateVoiceSearchAvailability();
   updateAskAiBtnVisibility();
 }
