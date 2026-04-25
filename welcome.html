@@ -85,32 +85,6 @@
             margin-bottom: 0;
         }
 
-        /* Cores temáticas dos ícones do Welcome */
-        .icon-setup {
-            color: #107C10;
-            background-color: rgba(16, 124, 16, 0.1);
-        }
-
-        .icon-help {
-            color: #DDAA00;
-            background-color: rgba(221, 170, 0, 0.1);
-        }
-
-        .icon-support {
-            color: #D13438;
-            background-color: rgba(209, 52, 56, 0.1);
-        }
-
-        .icon-privacy {
-            color: #8661C5;
-            background-color: rgba(134, 97, 197, 0.1);
-        }
-
-        .icon-wrapper svg {
-            width: 1.5em !important;
-            height: 1.5em !important;
-        }
-
         /* Garante que os 4 cards fiquem lado a lado em telas grandes apenas nesta página */
         @media (min-width: 1024px) {
             .features-grid {
@@ -167,52 +141,138 @@
             <div class="features-grid">
 
                 <a href="setup.html" class="feature-card">
-                    <div class="icon-wrapper icon-setup">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13.75 2a2.25 2.25 0 0 1 2.236 2.002V4L17.75 4A2.25 2.25 0 0 1 20 6.25v5.248a6.452 6.452 0 0 0-1.5-.422V6.25a.75.75 0 0 0-.75-.75h-2.129c-.404.603-1.091 1-1.871 1h-3.5c-.78 0-1.467-.397-1.871-1H6.25a.75.75 0 0 0-.75.75v13.5c0 .414.336.75.75.75h5.482A6.518 6.518 0 0 0 12.81 22H6.25A2.25 2.25 0 0 1 4 19.75V6.25A2.25 2.25 0 0 1 6.25 4h1.764a2.25 2.25 0 0 1 2.236-2h3.5Zm2.245 2.096L16 4.25c0-.052-.002-.103-.005-.154ZM13.75 3.5h-3.5a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5Zm9.25 14a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0Zm-2.146-2.354a.5.5 0 0 0-.708 0L16.5 18.793l-1.646-1.647a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.247 20.258a2.25 2.25 0 0 1-2.019 1.736l-.173.006h-2.111a2.25 2.25 0 0 1-2.147-1.576l-.046-.168-.405-1.756h7.308z"
+                            fill="url(#a)" />
+                        <path
+                            d="M15.247 20.258a2.25 2.25 0 0 1-2.019 1.736l-.173.006h-2.111a2.25 2.25 0 0 1-2.147-1.576l-.046-.168-.405-1.756h7.308z"
+                            fill="url(#b)" />
+                        <path
+                            d="M8.23 18h7.54l.644-2.783a.25.25 0 0 1 .07-.125c1.83-1.747 2.766-3.704 2.766-5.84a7.25 7.25 0 1 0-14.5 0c0 2.136.936 4.093 2.767 5.84a.25.25 0 0 1 .071.125z"
+                            fill="url(#c)" />
+                        <path d="m8.46 19-.346-1.5h7.772l-.348 1.5z" fill="url(#d)" />
+                        <defs>
+                            <radialGradient id="a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                gradientTransform="rotate(71.806 -1.52 8.91)scale(14.468 24.6328)">
+                                <stop stop-color="#ffe06b" />
+                                <stop offset=".376" stop-color="#ffa43d" />
+                                <stop offset="1" stop-color="#e67505" />
+                            </radialGradient>
+                            <radialGradient id="c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                gradientTransform="rotate(74.837 .961 6.69)scale(18.226 26.4109)">
+                                <stop stop-color="#ffe06b" />
+                                <stop offset=".376" stop-color="#ffa43d" />
+                                <stop offset="1" stop-color="#e67505" />
+                            </radialGradient>
+                            <linearGradient id="b" x1="11.999" y1="18.5" x2="11.999" y2="22"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#d34719" />
+                                <stop offset="1" stop-color="#d34719" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="d" x1="11.385" y1="18.095" x2="12.725" y2="20.874"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#ffc7a3" />
+                                <stop offset="1" stop-color="#ff9c70" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
                     <h3>Initial Setup</h3>
                     <p>Learn how to customize shortcuts, manage wallpapers, and use core features.</p>
                 </a>
 
                 <a href="help.html" class="feature-card">
-                    <div class="icon-wrapper icon-help">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11 8.018a.75.75 0 0 1-.75.732c-.75 0-.75-.751-.75-.751V7.99a1.403 1.403 0 0 1 .008-.134 2.222 2.222 0 0 1 .42-1.067c.454-.613 1.27-1.062 2.585-1.039.95.017 1.793.415 2.321 1.07.537.667.718 1.57.362 2.459-.362.905-1.181 1.265-1.652 1.471l-.05.023c-.28.123-.413.187-.493.251l-.001.001v.724a.75.75 0 0 1-1.5.001V11c0-.523.252-.897.563-1.147.25-.2.565-.338.786-.436l.038-.017c.542-.239.8-.387.917-.679a.92.92 0 0 0-.138-.96c-.222-.275-.629-.502-1.179-.511-.935-.016-1.245.285-1.353.432a.722.722 0 0 0-.134.33v.006ZM12.25 15.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-                                fill="currentColor" />
-                            <path
-                                d="M4 4.5A2.5 2.5 0 0 1 6.5 2H18a2.5 2.5 0 0 1 2.5 2.5v14.25a.75.75 0 0 1-.75.75H5.5a1 1 0 0 0 1 1h13.25a.75.75 0 0 1 0 1.5H6.5A2.5 2.5 0 0 1 4 19.5v-15Zm1.5 0V18H19V4.5a1 1 0 0 0-1-1H6.5a1 1 0 0 0-1 1Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.75 2a.75.75 0 0 0-.67.415l-1 2a.75.75 0 0 0 .019.707L16 6.7v5.8h3V6.7l.901-1.578a.75.75 0 0 0 .02-.707l-1-2A.75.75 0 0 0 18.25 2z"
+                            fill="url(#help-a)" />
+                        <path d="M14 14.5v4a3.5 3.5 0 1 0 7 0v-4z" fill="url(#help-b)" />
+                        <path d="M20.25 12a.75.75 0 0 1 .75.75V15h-7v-2.25a.75.75 0 0 1 .75-.75z" fill="url(#help-c)" />
+                        <path
+                            d="M8.828 2.212a.75.75 0 0 1 .698-.077 5.502 5.502 0 0 1 .51 9.997v7.332a2.536 2.536 0 0 1-5.072 0v-7.332a5.502 5.502 0 0 1 .51-9.996.75.75 0 0 1 1.026.697V6.5a1 1 0 1 0 2 0V2.833a.75.75 0 0 1 .328-.62"
+                            fill="url(#help-d)" />
+                        <defs>
+                            <linearGradient id="help-a" x1="19.167" y1="-.001" x2="15.474" y2="20.502"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#2bdabe" />
+                                <stop offset=".853" stop-color="#0067bf" />
+                            </linearGradient>
+                            <linearGradient id="help-b" x1="20.999" y1="22.167" x2="13.047" y2="15.463"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#ff6f47" />
+                                <stop offset="1" stop-color="#ffcd0f" />
+                            </linearGradient>
+                            <linearGradient id="help-c" x1="15.927" y1="12.726" x2="16.976" y2="15.177"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#ffa43d" />
+                                <stop offset="1" stop-color="#fb5937" />
+                            </linearGradient>
+                            <linearGradient id="help-d" x1="11.167" y1="-1.713" x2="4.557" y2="22.532"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#2bdabe" />
+                                <stop offset="1" stop-color="#0067bf" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
                     <h3>Quick Help</h3>
                     <p>Learn how to deal with common issues and errors with the extension.</p>
                 </a>
 
                 <a href="index.html#support" class="feature-card">
-                    <div class="icon-wrapper icon-support">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="m12.82 5.58-.82.822-.824-.824a5.375 5.375 0 1 0-7.601 7.602l7.895 7.895a.75.75 0 0 0 1.06 0l7.902-7.897a5.376 5.376 0 0 0-.001-7.599 5.38 5.38 0 0 0-7.611 0Zm6.548 6.54L12 19.485 4.635 12.12a3.875 3.875 0 1 1 5.48-5.48l1.358 1.357a.75.75 0 0 0 1.073-.012L13.88 6.64a3.88 3.88 0 0 1 5.487 5.48Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.8197 5.57961L11.999 6.40211L11.1757 5.57886C9.07663 3.4798 5.67337 3.4798 3.5743 5.57886C1.47523 7.67793 1.47523 11.0812 3.5743 13.1803L11.4697 21.0756C11.7626 21.3685 12.2374 21.3685 12.5303 21.0756L20.4318 13.1788C22.5262 11.0728 22.5298 7.67906 20.4303 5.57961C18.3274 3.47672 14.9226 3.47672 12.8197 5.57961Z"
+                            fill="url(#support-paint0_linear_72095_9359)" />
+                        <defs>
+                            <linearGradient id="support-paint0_linear_72095_9359" x1="-2.37582" y1="-0.938375" x2="8.13523"
+                                y2="21.3776" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F97DBD" />
+                                <stop offset="1" stop-color="#D7257D" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Support the Project</h3>
                     <p>Help keep Fluent New Tab alive, open-source, and free from ads.</p>
                 </a>
 
                 <a href="privacy.html" class="feature-card">
-                    <div class="icon-wrapper icon-privacy">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3 5.75A.75.75 0 0 1 3.75 5c2.663 0 5.258-.943 7.8-2.85a.75.75 0 0 1 .9 0C14.992 4.057 17.587 5 20.25 5a.75.75 0 0 1 .75.75V11q0 .507-.04.996a6.5 6.5 0 0 0-1.465-.684q.005-.155.005-.312V6.478c-2.577-.152-5.08-1.09-7.5-2.8-2.42 1.71-4.923 2.648-7.5 2.8V11c0 4.149 2.332 7.221 7.125 9.285a6.5 6.5 0 0 0 1.005 1.52l-.355.143a.75.75 0 0 1-.55 0C5.958 19.676 3 16 3 11zM23 17.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0m-2.146-2.354a.5.5 0 0 0-.708 0L16.5 18.793l-1.646-1.647a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 5.75A.75.75 0 0 1 3.75 5c2.663 0 5.258-.943 7.8-2.85a.75.75 0 0 1 .9 0C14.992 4.057 17.587 5 20.25 5a.75.75 0 0 1 .75.75V11c0 5.001-2.958 8.676-8.725 10.948a.75.75 0 0 1-.55 0C5.958 19.676 3 16 3 11z"
+                            fill="url(#privacy-a)" />
+                        <path
+                            d="M3 5.75A.75.75 0 0 1 3.75 5c2.663 0 5.258-.943 7.8-2.85a.75.75 0 0 1 .9 0C14.992 4.057 17.587 5 20.25 5a.75.75 0 0 1 .75.75V11c0 5.001-2.958 8.676-8.725 10.948a.75.75 0 0 1-.55 0C5.958 19.676 3 16 3 11z"
+                            fill="url(#privacy-b)" fill-opacity=".5" />
+                        <path d="M17.5 12a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11" fill="url(#privacy-c)" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M20.854 15.146a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708l1.646 1.647 3.646-3.647a.5.5 0 0 1 .708 0"
+                            fill="url(#privacy-d)" />
+                        <defs>
+                            <radialGradient id="privacy-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                gradientTransform="rotate(54.497 6.945 -8.578)scale(47.5993 42.0478)">
+                                <stop offset=".338" stop-color="#0fafff" />
+                                <stop offset=".529" stop-color="#367af2" />
+                                <stop offset=".682" stop-color="#5750e2" />
+                                <stop offset=".861" stop-color="#cc23d1" />
+                            </radialGradient>
+                            <radialGradient id="privacy-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                gradientTransform="matrix(0 8.125 -8.35714 0 17.786 18.875)">
+                                <stop offset=".5" stop-color="#1e1868" />
+                                <stop offset="1" stop-color="#1e1868" stop-opacity="0" />
+                            </radialGradient>
+                            <linearGradient id="privacy-c" x1="12.393" y1="14.063" x2="19.984" y2="21.95"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#52d17c" />
+                                <stop offset="1" stop-color="#22918b" />
+                            </linearGradient>
+                            <linearGradient id="privacy-d" x1="15.313" y1="15.51" x2="16.45" y2="21.13"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#fff" />
+                                <stop offset="1" stop-color="#e3ffd9" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
                     <h3>Privacy Policy</h3>
                     <p>Understand how Fluent New Tab handles your data and ensures your privacy.</p>
                 </a>

@@ -83,41 +83,6 @@
         a.feature-card p {
             margin-bottom: 0;
         }
-
-        .icon-bug {
-            color: #D13438;
-            background-color: rgba(209, 52, 56, 0.1);
-        }
-
-        .icon-feature {
-            color: #107C10;
-            background-color: rgba(16, 124, 16, 0.1);
-        }
-
-        .icon-question {
-            color: var(--color-primary);
-            background-color: rgba(15, 108, 189, 0.1);
-        }
-
-        .icon-contact {
-            color: #8661C5;
-            background-color: rgba(134, 97, 197, 0.1);
-        }
-
-        .icon-contrib {
-            color: #CA5010;
-            background-color: rgba(202, 80, 16, 0.1);
-        }
-
-        .icon-translate {
-            color: #038387;
-            background-color: rgba(3, 131, 135, 0.1);
-        }
-
-        .icon-wrapper svg {
-            width: 1.5em !important;
-            height: 1.5em !important;
-        }
     </style>
 </head>
 
@@ -163,13 +128,27 @@
 
                 <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank"
                     rel="noopener noreferrer" class="feature-card">
-                    <div class="icon-wrapper icon-bug">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z"
+                            fill="url(#paint0_linear_378174_9756)" />
+                        <path
+                            d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z"
+                            fill="url(#paint1_linear_378174_9756)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_378174_9756" x1="5.12461" y1="-0.392807" x2="16.7187"
+                                y2="23.4768" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFCD0F" />
+                                <stop offset="1" stop-color="#FE8401" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_378174_9756" x1="9.33556" y1="8.5" x2="13.7522"
+                                y2="18.4051" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4A4A4A" />
+                                <stop offset="1" stop-color="#212121" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Report a Bug</h3>
                     <p>Something not working as expected? Open a detailed issue on our GitHub repository so we can
                         investigate and fix it.</p>
@@ -177,13 +156,30 @@
 
                 <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
                     target="_blank" rel="noopener noreferrer" class="feature-card">
-                    <div class="icon-wrapper icon-feature">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.0019 13.244L17.0011 21.2451C17.0011 21.8528 16.3163 22.2082 15.8194 21.8584L12.001 19.1706L8.18456 21.8583C7.68767 22.2082 7.00271 21.8529 7.00271 21.2451L7.00098 13.2459C8.37047 14.3434 10.1087 14.9999 12.0003 14.9999C13.8929 14.9999 15.632 14.3427 17.0019 13.244Z"
+                            fill="url(#paint0_radial_72095_8354)" />
+                        <path
+                            d="M12 2C15.866 2 19 5.13401 19 9C19 12.866 15.866 16 12 16C8.13401 16 5 12.866 5 9C5 5.13401 8.13401 2 12 2Z"
+                            fill="url(#paint1_radial_72095_8354)" />
+                        <defs>
+                            <radialGradient id="paint0_radial_72095_8354" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(12.0014 11.879) rotate(90) scale(13.7943 22.0759)">
+                                <stop stop-color="#163697" />
+                                <stop offset="1" stop-color="#29C3FF" />
+                            </radialGradient>
+                            <radialGradient id="paint1_radial_72095_8354" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(-25.25 -47) rotate(56.615) scale(78.1445 66.9271)">
+                                <stop offset="0.771547" stop-color="#FFCD0F" />
+                                <stop offset="0.990707" stop-color="#E67505" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+
+
                     <h3>Request a Feature</h3>
                     <p>Have a brilliant idea to improve Fluent New Tab? Share your suggestions and use cases with the
                         community on GitHub.</p>
@@ -191,32 +187,100 @@
 
                 <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank"
                     rel="noopener noreferrer" class="feature-card">
-                    <div class="icon-wrapper icon-question">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
-                                fill="currentColor" />
-                            <path
-                                d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5"
-                                fill="currentColor" />
-                            <path
-                                d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
+                            fill="url(#paint0_linear_72095_8648)" />
+                        <path
+                            d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
+                            fill="url(#paint1_linear_72095_8648)" />
+                        <path
+                            d="M8 13.5C6.07 13.5 4.5 11.93 4.5 10C4.5 8.07 6.07 6.5 8 6.5C9.93 6.5 11.5 8.07 11.5 10C11.5 11.93 9.93 13.5 8 13.5Z"
+                            fill="url(#paint2_linear_72095_8648)" />
+                        <path
+                            d="M14.77 12.4C14.92 12.47 15.09 12.5 15.25 12.5C15.58 12.5 15.89 12.37 16.13 12.14L18.31 10H19.25C20.77 10 22 8.77 22 7.25V4.75C22 3.23 20.77 2 19.25 2H14.75C13.23 2 12 3.23 12 4.75V7.25C12 8.51 12.85 9.57 14 9.9V11.25C14 11.75 14.31 12.2 14.77 12.4Z"
+                            fill="url(#paint3_radial_72095_8648)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_72095_8648" x1="4.85406" y1="15.9305" x2="7.40985"
+                                y2="22.9276" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.125321" stop-color="#9C6CFE" />
+                                <stop offset="1" stop-color="#7A41DC" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_72095_8648" x1="8.00086" y1="14.1667" x2="11.6078"
+                                y2="25.7215" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#885EDB" stop-opacity="0" />
+                                <stop offset="1" stop-color="#E362F8" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_72095_8648" x1="6.16463" y1="7.43055" x2="9.73209"
+                                y2="13.127" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.125321" stop-color="#9C6CFE" />
+                                <stop offset="1" stop-color="#7A41DC" />
+                            </linearGradient>
+                            <radialGradient id="paint3_radial_72095_8648" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(9.69231 -1.23077) rotate(50.9393) scale(19.0356 33.9859)">
+                                <stop stop-color="#FAB500" />
+                                <stop offset="0.535356" stop-color="#FE8401" />
+                                <stop offset="1" stop-color="#FB5937" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Ask a Question</h3>
                     <p>Need help configuring a specific feature or have a general doubt? Join our GitHub Discussions to
                         get help.</p>
                 </a>
 
                 <a href="mailto:snw-mint@outlook.com" class="feature-card">
-                    <div class="icon-wrapper icon-contact">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5.25 4h13.5a3.25 3.25 0 0 1 3.245 3.066L22 7.25v9.5a3.25 3.25 0 0 1-3.066 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75v-9.5a3.25 3.25 0 0 1 3.066-3.245L5.25 4h13.5-13.5ZM20.5 9.373l-8.15 4.29a.75.75 0 0 1-.603.043l-.096-.042L3.5 9.374v7.376a1.75 1.75 0 0 0 1.606 1.744l.144.006h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143V9.373ZM18.75 5.5H5.25a1.75 1.75 0 0 0-1.744 1.606L3.5 7.25v.429l8.5 4.473 8.5-4.474V7.25a1.75 1.75 0 0 0-1.607-1.744L18.75 5.5Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                            fill="#367AF2" />
+                        <path
+                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                            fill="url(#paint0_linear_378174_9144)" />
+                        <path
+                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                            fill="url(#paint1_linear_378174_9144)" />
+                        <path
+                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                            fill="url(#paint2_linear_378174_9144)" fill-opacity="0.75" />
+                        <path
+                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                            fill="url(#paint3_linear_378174_9144)" fill-opacity="0.7" />
+                        <path
+                            d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
+                            fill="url(#paint4_linear_378174_9144)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_378174_9144" x1="14.5391" y1="9.95028" x2="20.0046"
+                                y2="20.515" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.19865" stop-color="#0094F0" stop-opacity="0" />
+                                <stop offset="0.430619" stop-color="#0094F0" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_378174_9144" x1="9.1429" y1="8.81579" x2="3.82831"
+                                y2="20.8653" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.191319" stop-color="#0094F0" stop-opacity="0" />
+                                <stop offset="0.430619" stop-color="#0094F0" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_378174_9144" x1="17.2735" y1="14.9574" x2="18.1428"
+                                y2="21.1514" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#2764E7" stop-opacity="0" />
+                                <stop offset="1" stop-color="#2764E7" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_378174_9144" x1="15.0953" y1="9.03508" x2="16.6812"
+                                y2="21.6434" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.53288" stop-color="#FF6CE8" stop-opacity="0" />
+                                <stop offset="1" stop-color="#FF6CE8" />
+                            </linearGradient>
+                            <linearGradient id="paint4_linear_378174_9144" x1="7.94161" y1="1.15063" x2="13.98"
+                                y2="17.089" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6CE0FF" />
+                                <stop offset="0.461792" stop-color="#29C3FF" />
+                                <stop offset="1" stop-color="#4894FE" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Direct Contact</h3>
                     <p>Need personalized technical support or want to discuss private matters? Send me a direct email
                         and I'll get back to you.</p>
@@ -224,13 +288,28 @@
 
                 <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md" target="_blank"
                     rel="noopener noreferrer" class="feature-card">
-                    <div class="icon-wrapper icon-contrib">
-                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="m8.066 18.943 6.5-14.5a.75.75 0 0 1 1.404.518l-.036.096-6.5 14.5a.75.75 0 0 1-1.404-.518zl6.5-14.5zM2.22 11.47l4.25-4.25a.75.75 0 0 1 1.133.976l-.073.085L3.81 12l3.72 3.719a.75.75 0 0 1-.976 1.133l-.084-.073-4.25-4.25a.75.75 0 0 1-.073-.976zl4.25-4.25zm14.25-4.25a.75.75 0 0 1 .976-.073l.084.073 4.25 4.25a.75.75 0 0 1 .073.976l-.073.085-4.25 4.25a.75.75 0 0 1-1.133-.977l.073-.084L20.19 12l-3.72-3.72a.75.75 0 0 1 0-1.06"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 6.25C3 4.45508 4.45507 3 6.25 3H17.75C19.5449 3 21 4.45507 21 6.25V17.75C21 19.5449 19.5449 21 17.75 21H6.25C4.45508 21 3 19.5449 3 17.75V6.25Z"
+                            fill="url(#paint0_linear_378174_10311)" />
+                        <path
+                            d="M10.5303 9.28033L7.81066 12L10.5303 14.7197C10.8232 15.0126 10.8232 15.4874 10.5303 15.7803C10.2374 16.0732 9.76256 16.0732 9.46967 15.7803L6.21967 12.5303C5.92678 12.2374 5.92678 11.7626 6.21967 11.4697L9.46967 8.21967C9.76256 7.92678 10.2374 7.92678 10.5303 8.21967C10.8232 8.51256 10.8232 8.98744 10.5303 9.28033ZM14.5303 8.21967L17.7803 11.4697C18.0732 11.7626 18.0732 12.2374 17.7803 12.5303L14.5303 15.7803C14.2374 16.0732 13.7626 16.0732 13.4697 15.7803C13.1768 15.4874 13.1768 15.0126 13.4697 14.7197L16.1893 12L13.4697 9.28033C13.1768 8.98744 13.1768 8.51256 13.4697 8.21967C13.7626 7.92678 14.2374 7.92678 14.5303 8.21967Z"
+                            fill="url(#paint1_linear_378174_10311)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_378174_10311" x1="7.38879" y1="3" x2="17.2602" y2="21"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0.0281195" stop-color="#E67EEA" />
+                                <stop offset="0.43755" stop-color="#AD64D7" />
+                                <stop offset="1" stop-color="#794DC5" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_378174_10311" x1="8.84518" y1="8.30774" x2="13.5444"
+                                y2="20.4717" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDFDFD" />
+                                <stop offset="1" stop-color="#F9DCFA" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Contributing</h3>
                     <p>Want to write code? Join our open-source project on GitHub. Check out the issues and help build
                         the future of the extension.</p>
@@ -238,13 +317,28 @@
 
                 <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md" target="_blank"
                     rel="noopener noreferrer" class="feature-card">
-                    <div class="icon-wrapper icon-translate">
-                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M16.961 5.987a.75.75 0 0 0-1.423-.473 21 21 0 0 0-.42 1.512c-.736.026-1.446.018-2.067-.024a.75.75 0 1 0-.102 1.496c.563.039 1.19.05 1.844.038a23 23 0 0 0-.3 2.064c-1.215.642-2.061 1.504-2.539 2.412-.613 1.166-.66 2.556.206 3.443.571.584 1.408.64 2.129.485a4.7 4.7 0 0 0 1.24-.474l.018.046a.75.75 0 0 0 1.405-.524 10 10 0 0 0-.17-.424 7.63 7.63 0 0 0 2.285-4.047c.638.312 1.07.836 1.278 1.4a2.48 2.48 0 0 1-.097 1.952c-.308.636-.933 1.265-2.015 1.681a.75.75 0 1 0 .538 1.4c1.387-.533 2.33-1.402 2.827-2.427a3.98 3.98 0 0 0 .154-3.127 4.04 4.04 0 0 0-2.505-2.424q.003-.11.003-.222a.75.75 0 0 0-1.5-.026 6 6 0 0 0-1.672.237q.095-.681.257-1.5c1.185-.089 2.364-.252 3.337-.48a.75.75 0 0 0-.344-1.46c-.767.18-1.69.317-2.637.405.085-.33.18-.67.27-.94Zm-3.68 7.723c.227-.43.6-.886 1.147-1.3.017.492.065.926.137 1.317.094.52.236.974.386 1.373a3.5 3.5 0 0 1-.977.374c-.485.104-.687-.012-.742-.068-.24-.245-.394-.853.05-1.696Zm4.315-2.487a6.65 6.65 0 0 1-1.414 2.848 6 6 0 0 1-.142-.612 8.6 8.6 0 0 1-.111-1.866 7 7 0 0 1 .339-.12 4.7 4.7 0 0 1 1.328-.25M7.96 6.53a6.07 6.07 0 0 0-4.575.467.75.75 0 1 0 .725 1.313 4.57 4.57 0 0 1 3.431-.34c.773.227 1.098.64 1.264 1.056.133.332.175.691.188 1.042a10 10 0 0 0-.923-.21c-1.132-.202-2.682-.263-4.122.427-1.586.76-2.13 2.316-1.902 3.697.224 1.356 1.216 2.666 2.8 2.951 1.43.258 2.805-.256 3.757-.761A9 9 0 0 0 9 15.95v.3a.75.75 0 0 0 1.5 0v-5.79c0-.454 0-1.236-.3-1.99-.331-.829-1.005-1.578-2.237-1.94h-.001Zm-.152 4.804a8 8 0 0 1 1.19.305v2.506a8 8 0 0 1-1.099.702c-.84.447-1.849.779-2.787.61-.845-.152-1.445-.866-1.586-1.72-.138-.83.179-1.673 1.07-2.1 1.037-.496 2.226-.478 3.212-.303"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 22C17.5229 22 22 17.5228 22 12C22 6.47715 17.5229 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                            fill="url(#paint0_linear_71274_9659)" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9.11536 2.42239C8.79436 2.9207 8.51137 3.49638 8.26573 4.12602C7.78572 5.35643 7.42673 6.84886 7.21597 8.5H2.62977C2.44914 8.98338 2.30484 9.48449 2.2002 10H7.06886C7.02353 10.6505 7.00016 11.319 7.00016 12C7.00016 13.0354 7.05419 14.0418 7.15722 15H2.45796C2.62114 15.5196 2.82559 16.0208 3.06745 16.5H7.36498C7.57989 17.7553 7.88468 18.8972 8.26573 19.874C8.51137 20.5036 8.79436 21.0793 9.11536 21.5776C10.0288 21.8524 10.9972 22 12.0002 22C13.0031 22 13.9715 21.8524 14.885 21.5776C15.206 21.0793 15.4889 20.5036 15.7346 19.874C16.1156 18.8972 16.4204 17.7553 16.6353 16.5H20.9329C21.1747 16.0208 21.3792 15.5196 21.5424 15H16.8431C16.9461 14.0418 17.0002 13.0354 17.0002 12C17.0002 11.319 16.9768 10.6505 16.9315 10H21.8001C21.6955 9.48449 21.5512 8.98338 21.3706 8.5H16.7843C16.5736 6.84886 16.2146 5.35643 15.7346 4.12602C15.4889 3.49638 15.206 2.9207 14.885 2.42239C13.9715 2.14765 13.0031 2 12.0002 2C10.9972 2 10.0288 2.14765 9.11536 2.42239ZM8.72894 8.5C8.92888 7.03063 9.25148 5.72645 9.66316 4.67118C10.0221 3.75104 10.4339 3.05889 10.8575 2.60897C11.2776 2.16296 11.6622 2 12.0002 2C12.3381 2 12.7228 2.16296 13.1428 2.60897C13.5665 3.05889 13.9782 3.75104 14.3372 4.67118C14.7488 5.72645 15.0714 7.03063 15.2714 8.5H8.72894ZM12.0002 22C12.3381 22 12.7228 21.837 13.1428 21.391C13.5665 20.9411 13.9782 20.249 14.3372 19.3288C14.6528 18.5197 14.9161 17.5641 15.1119 16.5H8.88841C9.08419 17.5641 9.34749 18.5197 9.66316 19.3288C10.0221 20.249 10.4339 20.9411 10.8575 21.391C11.2776 21.837 11.6622 22 12.0002 22ZM8.50016 12C8.50016 13.0476 8.55834 14.0545 8.6664 15H15.3339C15.442 14.0545 15.5002 13.0476 15.5002 12C15.5002 11.3139 15.4752 10.6453 15.4276 10H8.57268C8.52511 10.6453 8.50016 11.3139 8.50016 12Z"
+                            fill="url(#paint1_radial_71274_9659)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_71274_9659" x1="6.44444" y1="5.33333" x2="20.8889"
+                                y2="18.6667" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#29C3FF" />
+                                <stop offset="1" stop-color="#2052CB" />
+                            </linearGradient>
+                            <radialGradient id="paint1_radial_71274_9659" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(18.3245 17.003) rotate(-135.338) scale(16.0089 16.0078)">
+                                <stop stop-color="#25A2F0" />
+                                <stop offset="0.97403" stop-color="#3BD5FF" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+
                     <h3>Translations</h3>
                     <p>Help us translate the extension into your native language! Join our community-driven localization
                         project on Crowdin.</p>
