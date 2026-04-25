@@ -2154,13 +2154,22 @@ function setAskAiMode(active: boolean): void {
     };
     searchWrapper.addEventListener('animationend', onAnimationEnd);
 
-    searchInput.placeholder = 'Ask to AI';
+    searchInput.placeholder = getLocalizedWarningText(
+      'askAiOption',
+      'Ask to AI',
+    );
+
     if (inactiveIcon) inactiveIcon.style.display = 'none';
     if (activeIcon) activeIcon.style.display = 'block';
   } else {
     searchWrapper.classList.remove('ask-ai-active');
     searchWrapper.classList.remove('ask-ai-animating');
-    searchInput.placeholder = 'Search the web';
+
+    searchInput.placeholder = getLocalizedWarningText(
+      'searchPlaceholder',
+      'Search the web',
+    );
+
     if (inactiveIcon) inactiveIcon.style.display = 'block';
     if (activeIcon) activeIcon.style.display = 'none';
   }
