@@ -279,11 +279,35 @@ function handleGlobalDragOver(event: DragEvent): void {
     .querySelectorAll('.folder-drag-hover')
     .forEach((el) => el.classList.remove('folder-drag-hover'));
 
-  const isAfter = centerX > rect.left + rect.width / 2;
   const parent = item.parentNode;
+  if (!parent) return;
+
+  const allSortable = Array.from(parent.children).filter(
+    (el) =>
+      el.classList.contains('shortcut-item') &&
+      !el.classList.contains('add-card-wrapper') &&
+      !el.classList.contains('folder-back-btn') &&
+      el !== ghostNode &&
+      el !== placeholder,
+  );
+
+  const draggedIdx = allSortable.indexOf(draggedElement as HTMLElement);
+  const targetIdx = allSortable.indexOf(item);
+
+  let isAfter = false;
+  if (draggedIdx > -1 && targetIdx > -1) {
+    isAfter = draggedIdx < targetIdx;
+  } else {
+    isAfter = centerX > rect.left + rect.width / 2;
+  }
+
   const referenceNode = isAfter ? item.nextSibling : item;
 
-  if (parent && placeholder && placeholder.nextSibling !== referenceNode) {
+  if (
+    placeholder &&
+    placeholder.nextSibling !== referenceNode &&
+    placeholder !== referenceNode
+  ) {
     movePlaceholderWithAnimation(parent, referenceNode);
   }
 }
@@ -354,19 +378,24 @@ function handleGlobalDrop(event: DragEvent): void {
     ) {
       const grid = activeDragOptions.gridContainer;
 
-      const pureItems = Array.from(grid.children).filter(
+      const allItems = Array.from(grid.children).filter(
         (el) =>
           el.classList.contains('shortcut-item') &&
           !el.classList.contains('add-card-wrapper') &&
           !el.classList.contains('folder-back-btn') &&
-          el !== ghostNode &&
-          el !== draggedElement,
+          el !== ghostNode,
       );
 
-      const placeholderIndex = pureItems.indexOf(placeholder as HTMLElement);
+      const pureIndex = allItems.indexOf(placeholder as HTMLElement);
+      let newIndex = pureIndex;
 
-      if (placeholderIndex > -1 && oldIndex > -1) {
-        let newIndex = placeholderIndex;
+      if (oldIndex > -1 && newIndex > -1) {
+        if (newIndex > oldIndex) {
+          newIndex--;
+        }
+      }
+
+      if (newIndex > -1 && oldIndex > -1) {
         if (oldIndex !== newIndex) {
           activeDragOptions.onReorder(oldIndex, newIndex);
         }
