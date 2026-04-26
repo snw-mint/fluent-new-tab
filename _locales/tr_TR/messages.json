@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Değişiklik günlüğünü gör"
   },
-  "nasaApodVideoNotice": {
-    "message": "Bugünün APOD'u bir video veya kullanılamıyor. Bunun yerine mevcut duvar kağıdınız korunuyor."
+  "fetchingImagePlaceholder": {
+    "message": "$SOURCE$ adresindeki resim yükleniyor..."
   },
   "warningDeleteFolderTitle": {
     "message": "Klasörü Sil"
