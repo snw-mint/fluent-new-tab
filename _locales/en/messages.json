@@ -96,8 +96,8 @@
     "placeholders": { "version": { "content": "$1", "example": "v3.1" } }
   },
   "updateNoticeChangelog": { "message": "see changelog" },
-  "nasaApodVideoNotice": {
-    "message": "Fetching today's NASA image..."
+  "fetchingImagePlaceholder": {
+    "message": "Fetching $SOURCE$ image..."
   },
   "warningDeleteFolderTitle": { "message": "Delete Folder" },
   "warningDeleteFolderMessage": {
