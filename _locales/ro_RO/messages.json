@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Vezi jurnalul modificărilor"
   },
-  "nasaApodVideoNotice": {
-    "message": "APOD-ul de astăzi este un videoclip sau nu este disponibil. Imaginea de fundal actuală este păstrată în schimb."
+  "fetchingImagePlaceholder": {
+    "message": "Se încarcă imaginea de la $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Ștergeți folderul"
