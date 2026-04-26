@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Xem nhật ký thay đổi"
   },
-  "nasaApodVideoNotice": {
-    "message": "APOD hôm nay là video hoặc không khả dụng. Chúng tôi giữ nguyên hình nền hiện tại của bạn."
+  "fetchingImagePlaceholder": {
+    "message": "Đang tải hình ảnh từ $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Xóa thư mục"
