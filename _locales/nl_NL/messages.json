@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Bekijk changelog"
   },
-  "nasaApodVideoNotice": {
-    "message": "De APOD van vandaag is een video of is niet beschikbaar. Je huidige achtergrond wordt in plaats daarvan behouden."
+  "fetchingImagePlaceholder": {
+    "message": "Beeld ophalen van $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Map verwijderen"

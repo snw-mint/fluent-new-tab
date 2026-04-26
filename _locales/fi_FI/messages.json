@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Katso muutosloki"
   },
-  "nasaApodVideoNotice": {
-    "message": "Tämän päivän APOD on video tai ei ole käytettävissä. Sen sijaan näytetään nykyinen taustakuva."
+  "fetchingImagePlaceholder": {
+    "message": "Haetaan kuvaa osoitteesta $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Poista kansio"

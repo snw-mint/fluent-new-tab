@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Voir le journal des modifications"
   },
-  "nasaApodVideoNotice": {
-    "message": "L'APOD d'aujourd'hui est une vidéo ou n'est pas disponible. Votre fond d'écran actuel est conservé à la place."
+  "fetchingImagePlaceholder": {
+    "message": "Récupération de l'image $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Supprimer le dossier"

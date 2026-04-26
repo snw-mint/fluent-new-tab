@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "查看變更記錄"
   },
-  "nasaApodVideoNotice": {
-    "message": "今日的APOD為影片或無法提供。請繼續使用您當前的桌布。"
+  "fetchingImagePlaceholder": {
+    "message": "正在載入 $SOURCE$ 圖片..."
   },
   "warningDeleteFolderTitle": {
     "message": "刪除資料夾"

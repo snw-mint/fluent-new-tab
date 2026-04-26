@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Vedi changelog"
   },
-  "nasaApodVideoNotice": {
-    "message": "L'APOD di oggi è un video o non è disponibile. Mantieni invece il tuo sfondo attuale."
+  "fetchingImagePlaceholder": {
+    "message": "Caricamento dell'immagine da $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Elimina cartella"

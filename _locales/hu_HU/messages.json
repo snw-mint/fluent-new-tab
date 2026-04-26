@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Változásnapló megtekintése"
   },
-  "nasaApodVideoNotice": {
-    "message": "A mai APOD egy videó, vagy nem elérhető. Helyette a jelenlegi háttérképet tartjuk meg."
+  "fetchingImagePlaceholder": {
+    "message": "A $SOURCE$ kép betöltése..."
   },
   "warningDeleteFolderTitle": {
     "message": "Mappa törlése"

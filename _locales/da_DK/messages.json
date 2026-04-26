@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Se ændringsloggen"
   },
-  "nasaApodVideoNotice": {
-    "message": "Dagens APOD er en video eller er ikke tilgængelig. Vi viser i stedet dit nuværende baggrundsbillede."
+  "fetchingImagePlaceholder": {
+    "message": "Henter billedet fra $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Slet mappe"

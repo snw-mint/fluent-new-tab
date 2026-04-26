@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "查看变更日志"
   },
-  "nasaApodVideoNotice": {
-    "message": "今日APOD为视频或无法访问。将保留您当前的壁纸。"
+  "fetchingImagePlaceholder": {
+    "message": "正在加载 $SOURCE$ 图片..."
   },
   "warningDeleteFolderTitle": {
     "message": "删除文件夹"

@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Zobrazit seznam změn"
   },
-  "nasaApodVideoNotice": {
-    "message": "Dnešní APOD je video nebo není k dispozici. Místo toho zůstává aktuální tapeta."
+  "fetchingImagePlaceholder": {
+    "message": "Načítání obrázku z adresy $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Odstranit složku"

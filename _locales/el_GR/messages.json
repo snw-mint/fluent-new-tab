@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Προβολή αρχείου αλλαγών"
   },
-  "nasaApodVideoNotice": {
-    "message": "Το σημερινό APOD είναι βίντεο ή δεν είναι διαθέσιμο. Διατηρείται η τρέχουσα ταπετσαρία σας αντί αυτού."
+  "fetchingImagePlaceholder": {
+    "message": "Λήψη εικόνας από τη διεύθυνση $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Διαγραφή φακέλου"

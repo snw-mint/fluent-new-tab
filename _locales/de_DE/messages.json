@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Änderungsprotokoll ansehen"
   },
-  "nasaApodVideoNotice": {
-    "message": "Das heutige APOD ist ein Video oder nicht verfügbar. Dein aktuelles Hintergrundbild wird stattdessen beibehalten."
+  "fetchingImagePlaceholder": {
+    "message": "Bild von $SOURCE$ wird geladen..."
   },
   "warningDeleteFolderTitle": {
     "message": "Ordner löschen"
