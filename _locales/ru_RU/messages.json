@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Посмотреть список изменений"
   },
-  "nasaApodVideoNotice": {
-    "message": "Сегодняшнее APOD — это видео или недоступно. Вместо этого сохранены ваши текущие обои."
+  "fetchingImagePlaceholder": {
+    "message": "Загрузка изображения с сайта $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Удалить папку"
