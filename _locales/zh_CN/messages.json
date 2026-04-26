@@ -252,7 +252,10 @@
     "message": "查看变更日志"
   },
   "fetchingImagePlaceholder": {
-    "message": "正在加载 $SOURCE$ 图片..."
+    "message": "正在加载 $SOURCE$ 图片...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "删除文件夹"

@@ -1005,6 +1005,11 @@ function clearEarlyWallpaperBootstrap(): void {
   const earlyStyle = document.getElementById('early-wallpaper-style');
   if (earlyStyle) earlyStyle.remove();
   document.documentElement.removeAttribute('data-early-wallpaper');
+  const fadeEl = document.getElementById('wallpaper-fade');
+  if (fadeEl) {
+    fadeEl.classList.add('hidden');
+    setTimeout(() => fadeEl.remove(), 400);
+  }
 }
 
 async function applyWallpaperImage(url: string): Promise<void> {

@@ -116,10 +116,16 @@ function processWallpaperImage(file: File): Promise<Blob> {
     reader.readAsDataURL(file);
 
     reader.onload = (event) => {
+      const screenMax =
+        Math.max(window.screen.width, window.screen.height) *
+        (window.devicePixelRatio || 1);
+      const targetWidth =
+        screenMax >= 3840 ? 3840 : screenMax >= 2560 ? 2560 : 1920;
+      const targetQuality = screenMax >= 3840 ? 0.88 : 0.8;
       convertImageToWebp(
         String((event.target as FileReader).result || ''),
-        3840,
-        0.92,
+        targetWidth,
+        targetQuality,
       )
         .then(resolve)
         .catch(reject);

@@ -97,7 +97,10 @@
   },
   "updateNoticeChangelog": { "message": "see changelog" },
   "fetchingImagePlaceholder": {
-    "message": "Fetching $SOURCE$ image..."
+    "message": "Fetching $SOURCE$ image...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": { "message": "Delete Folder" },
   "warningDeleteFolderMessage": {

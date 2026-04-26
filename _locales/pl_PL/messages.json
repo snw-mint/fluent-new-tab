@@ -252,7 +252,10 @@
     "message": "Zobacz dziennik zmian"
   },
   "fetchingImagePlaceholder": {
-    "message": "Pobieranie obrazu z adresu $SOURCE$..."
+    "message": "Pobieranie obrazu z adresu $SOURCE$...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "Usuń folder"

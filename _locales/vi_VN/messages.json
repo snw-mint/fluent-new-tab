@@ -252,7 +252,10 @@
     "message": "Xem nhật ký thay đổi"
   },
   "fetchingImagePlaceholder": {
-    "message": "Đang tải hình ảnh từ $SOURCE$..."
+    "message": "Đang tải hình ảnh từ $SOURCE$...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "Xóa thư mục"

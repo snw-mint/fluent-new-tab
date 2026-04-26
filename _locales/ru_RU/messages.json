@@ -252,7 +252,10 @@
     "message": "Посмотреть список изменений"
   },
   "fetchingImagePlaceholder": {
-    "message": "Загрузка изображения с сайта $SOURCE$..."
+    "message": "Загрузка изображения с сайта $SOURCE$...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "Удалить папку"

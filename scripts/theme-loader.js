@@ -28,21 +28,11 @@
   }
 
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
-  const wallpaperType = localStorage.getItem('wallpaperType') || 'preset';
-  const wallpaperValue = localStorage.getItem('wallpaperValue') || 'preset_1';
+  const wallpaperType = localStorage.getItem('wallpaperType') || 'upload';
 
   let initialWallpaperUrl = null;
 
-  if (wallpaperSource === 'local' && wallpaperType === 'preset') {
-    const presetMap = {
-      preset_1: 'assets/wallpapers/fluent1.webp',
-      preset_2: 'assets/wallpapers/fluent2.webp',
-      preset_3: 'assets/wallpapers/fluent3.webp',
-    };
-    initialWallpaperUrl = presetMap[wallpaperValue] || presetMap.preset_1;
-  }
-
-  if (!initialWallpaperUrl && wallpaperSource === 'api') {
+  if (wallpaperSource === 'api') {
     const cacheKey = `wallpaper_cache_${wallpaperType}`;
     const cacheDuration = 10 * 60 * 60 * 1000;
 

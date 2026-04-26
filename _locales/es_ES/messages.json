@@ -252,7 +252,10 @@
     "message": "Ver registro de cambios"
   },
   "fetchingImagePlaceholder": {
-    "message": "Cargando la imagen de $SOURCE$..."
+    "message": "Cargando la imagen de $SOURCE$...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "Eliminar carpeta"

@@ -252,7 +252,10 @@
     "message": "Bekijk changelog"
   },
   "fetchingImagePlaceholder": {
-    "message": "Beeld ophalen van $SOURCE$..."
+    "message": "Beeld ophalen van $SOURCE$...",
+    "placeholders": {
+      "source": { "content": "$1" }
+    }
   },
   "warningDeleteFolderTitle": {
     "message": "Map verwijderen"
