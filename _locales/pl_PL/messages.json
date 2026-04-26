@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "Zobacz dziennik zmian"
   },
-  "nasaApodVideoNotice": {
-    "message": "Dzisiejszy APOD to film lub jest niedostępny. Zamiast tego zachowana zostanie Twoja obecna tapeta."
+  "fetchingImagePlaceholder": {
+    "message": "Pobieranie obrazu z adresu $SOURCE$..."
   },
   "warningDeleteFolderTitle": {
     "message": "Usuń folder"
