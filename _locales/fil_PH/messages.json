@@ -251,8 +251,8 @@
   "updateNoticeChangelog": {
     "message": "tingnan ang changelog"
   },
-  "nasaApodVideoNotice": {
-    "message": "Video o hindi available ang APOD ngayon. Gagamitin muna natin ang current wallpaper mo."
+  "fetchingImagePlaceholder": {
+    "message": "Fetching $SOURCE$ image..."
   },
   "warningDeleteFolderTitle": {
     "message": "I-Delete ang Folder"
