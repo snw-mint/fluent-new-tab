@@ -1104,59 +1104,72 @@ async function applyWallpaperLogic() {
         document.body.removeAttribute('data-wallpaper-active');
       }
     } else if (currentWallpaperSource === 'api') {
-      const url = await fetchDailyWallpaper(currentWallpaperType);
-      if (url) {
-        const optimizedUrl = await getOptimizedApiWallpaper(
-          url,
-          currentWallpaperType,
-        );
-        await applyWallpaperImage(optimizedUrl);
-        void handleAutoAccentColor(
-          optimizedUrl,
-          `api_${currentWallpaperType}_${url}`,
-        );
-        const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
-        try {
-          const cached = JSON.parse(
-            localStorage.getItem(cacheKey) || 'null',
-          ) as any;
-          let credit = cached ? cached.credit : '';
-          let creditUrl = cached ? cached.creditUrl : '';
+      let isFetching = true;
+      const noticeTimeout = setTimeout(() => {
+        if (isFetching) showFetchingNotice(currentWallpaperType);
+      }, 350);
 
-          if (!credit) {
-            if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
-            else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
-            else if (currentWallpaperType === 'wikimedia')
-              credit = 'Wikimedia Commons';
-          }
-          updateCreditsUI('api', credit, creditUrl);
-        } catch (e) {
-          updateCreditsUI('api', 'Daily Wallpaper');
-        }
-      } else {
-        const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
-        const apiCacheKey = `api_wallpaper_${currentWallpaperType}`;
-        try {
-          const cachedBlob = await getWallpaperFromDB(apiCacheKey);
-          if (cachedBlob) {
-            const blobUrl = URL.createObjectURL(cachedBlob);
-            await applyWallpaperImage(blobUrl);
+      try {
+        const url = await fetchDailyWallpaper(currentWallpaperType);
+
+        if (url) {
+          const optimizedUrl = await getOptimizedApiWallpaper(
+            url,
+            currentWallpaperType,
+          );
+          await applyWallpaperImage(optimizedUrl);
+          void handleAutoAccentColor(
+            optimizedUrl,
+            `api_${currentWallpaperType}_${url}`,
+          );
+
+          const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+          try {
             const cached = JSON.parse(
               localStorage.getItem(cacheKey) || 'null',
             ) as any;
-            if (cached?.credit) {
-              updateCreditsUI('api', cached.credit, cached.creditUrl || '');
-            } else {
-              updateCreditsUI('api', 'Daily Wallpaper');
+            let credit = cached ? cached.credit : '';
+            let creditUrl = cached ? cached.creditUrl : '';
+
+            if (!credit) {
+              if (currentWallpaperType === 'bing') credit = 'Microsoft Bing';
+              else if (currentWallpaperType === 'nasa') credit = 'NASA APOD';
+              else if (currentWallpaperType === 'wikimedia')
+                credit = 'Wikimedia Commons';
             }
-          } else {
+            updateCreditsUI('api', credit, creditUrl);
+          } catch (e) {
+            updateCreditsUI('api', 'Daily Wallpaper');
+          }
+        } else {
+          const cacheKey = `wallpaper_cache_${currentWallpaperType}`;
+          const apiCacheKey = `api_wallpaper_${currentWallpaperType}`;
+          try {
+            const cachedBlob = await getWallpaperFromDB(apiCacheKey);
+            if (cachedBlob) {
+              const blobUrl = URL.createObjectURL(cachedBlob);
+              await applyWallpaperImage(blobUrl);
+              const cached = JSON.parse(
+                localStorage.getItem(cacheKey) || 'null',
+              ) as any;
+              if (cached?.credit) {
+                updateCreditsUI('api', cached.credit, cached.creditUrl || '');
+              } else {
+                updateCreditsUI('api', 'Daily Wallpaper');
+              }
+            } else {
+              document.body.style.backgroundImage = 'none';
+              document.body.removeAttribute('data-wallpaper-active');
+            }
+          } catch (e) {
             document.body.style.backgroundImage = 'none';
             document.body.removeAttribute('data-wallpaper-active');
           }
-        } catch (e) {
-          document.body.style.backgroundImage = 'none';
-          document.body.removeAttribute('data-wallpaper-active');
         }
+      } finally {
+        isFetching = false;
+        clearTimeout(noticeTimeout);
+        hideFetchingNotice();
       }
     }
   } finally {
@@ -2013,38 +2026,44 @@ function getLocalizedNasaApodNoticeMessage(): string {
   return "Fetching today's NASA image...";
 }
 
-function showNasaApodWarningNotice(): void {
-  if (document.querySelector('.update-release-notice.nasa-apod-warning'))
-    return;
+let fetchingNoticeInstance: HTMLElement | null = null;
+
+function showFetchingNotice(source: string): void {
+  if (fetchingNoticeInstance) fetchingNoticeInstance.remove();
 
   const notice = document.createElement('div');
-  notice.className = 'update-release-notice nasa-apod-warning';
+  notice.className = 'update-release-notice fetching-notice';
 
-  const icon = document.createElement('span');
+  const icon = document.createElement('img');
   icon.className = 'update-release-notice-icon';
-  icon.setAttribute('aria-hidden', 'true');
-  icon.innerHTML =
-    '<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5a7.5 7.5 0 1 0 7.419 6.392c-.067-.454.265-.892.724-.892.37 0 .696.256.752.623A9 9 0 1 1 18 5.292V4.25a.75.75 0 0 1 1.5 0v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1 0-1.5h1.35a7.474 7.474 0 0 0-5.1-2Z" fill="currentColor"/></svg>';
+  icon.src = 'assets/icons/fetching.svg';
+  icon.alt = '';
 
   const message = document.createElement('span');
   message.className = 'update-release-notice-prefix';
-  message.textContent = getLocalizedNasaApodNoticeMessage();
+
+  const sourceName = toTitleCase(source);
+  message.textContent = getLocalizedWarningText(
+    'fetchingImagePlaceholder',
+    'Fetching $SOURCE$ image...',
+    { SOURCE: sourceName },
+  );
 
   notice.append(icon, message);
   document.body.appendChild(notice);
+  fetchingNoticeInstance = notice;
 
-  requestAnimationFrame(() => {
-    notice.classList.add('visible');
-  });
+  requestAnimationFrame(() => notice.classList.add('visible'));
+}
 
-  const hideNotice = (): void => {
-    notice.classList.remove('visible');
-    window.setTimeout(() => {
-      notice.remove();
-    }, 220);
-  };
-
-  window.setTimeout(hideNotice, 9000);
+function hideFetchingNotice(): void {
+  if (!fetchingNoticeInstance) return;
+  const notice = fetchingNoticeInstance;
+  notice.classList.remove('visible');
+  setTimeout(() => {
+    notice.remove();
+    if (fetchingNoticeInstance === notice) fetchingNoticeInstance = null;
+  }, 250);
 }
 
 function showPendingUpdateNoticeIfAny(): void {
@@ -2058,11 +2077,10 @@ function showUpdateReleaseNotice(version: string): void {
   const notice = document.createElement('div');
   notice.className = 'update-release-notice';
 
-  const icon = document.createElement('span');
+  const icon = document.createElement('img');
   icon.className = 'update-release-notice-icon';
-  icon.setAttribute('aria-hidden', 'true');
-  icon.innerHTML =
-    '<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.664 15.735c.245.173.537.265.836.264v-.004a1.442 1.442 0 0 0 1.327-.872l.613-1.864a2.872 2.872 0 0 1 1.817-1.812l1.778-.578a1.443 1.443 0 0 0-.052-2.74l-1.755-.57a2.876 2.876 0 0 1-1.822-1.823l-.578-1.777a1.446 1.446 0 0 0-2.732.022l-.583 1.792a2.877 2.877 0 0 1-1.77 1.786l-1.777.571a1.444 1.444 0 0 0 .017 2.734l1.754.569a2.887 2.887 0 0 1 1.822 1.826l.578 1.775c.099.283.283.528.527.7Zm-.374-4.25a4.054 4.054 0 0 0-.363-.413h.003a4.394 4.394 0 0 0-1.72-1.063l-1.6-.508 1.611-.524a4.4 4.4 0 0 0 1.69-1.065 4.448 4.448 0 0 0 1.041-1.708l.515-1.582.516 1.587a4.374 4.374 0 0 0 2.781 2.773l1.62.522-1.59.515a4.379 4.379 0 0 0-2.774 2.775l-.515 1.582-.515-1.585a4.368 4.368 0 0 0-.7-1.306Zm8.041 9.297a1.123 1.123 0 0 1-.41-.549l-.328-1.007a1.293 1.293 0 0 0-.821-.823l-.991-.323A1.148 1.148 0 0 1 13 16.997a1.143 1.143 0 0 1 .771-1.08l1.006-.326a1.3 1.3 0 0 0 .8-.819l.324-.992a1.143 1.143 0 0 1 2.157-.021l.329 1.014a1.3 1.3 0 0 0 .82.816l.992.323a1.141 1.141 0 0 1 .039 2.165l-1.014.329a1.3 1.3 0 0 0-.818.822l-.322.989c-.078.23-.226.43-.425.57a1.14 1.14 0 0 1-1.328-.005Zm-1.03-3.783A2.789 2.789 0 0 1 17 18.708a2.794 2.794 0 0 1 1.7-1.7 2.813 2.813 0 0 1-1.718-1.708A2.806 2.806 0 0 1 15.3 17Z" fill="currentColor"/></svg>';
+  icon.src = 'assets/icons/update.svg';
+  icon.alt = '';
 
   const prefix = document.createElement('span');
   prefix.className = 'update-release-notice-prefix';
@@ -2182,7 +2200,15 @@ function handleAskAiSubmit(query: string): void {
 }
 
 async function initCritical() {
+  const updateState = await getUpdateNoticeState();
+  if (updateState.pending) {
+    pendingUpdateNoticeVersion =
+      updateState.version || chrome.runtime.getManifest().version;
+    showPendingUpdateNoticeIfAny();
+  }
+
   applyInitialTheme();
+
   if (themeBtns) {
     themeBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -2193,6 +2219,7 @@ async function initCritical() {
       });
     });
   }
+
   bindAccentColorFeature({
     applyInitialAccentState: applyInitialAccentColorState,
     toggleAccentColor,
@@ -2203,6 +2230,7 @@ async function initCritical() {
     applyAccentColor,
     applyWallpaperLogic,
   });
+
   applyBrandInterval();
   applyInitialWallpaperState();
 }
@@ -2979,12 +3007,6 @@ function initAllEventBindings() {
 }
 
 async function initDeferred() {
-  window.addEventListener('wallpaper-api-warning', (event: Event) => {
-    const wallpaperWarning = event as CustomEvent<{ source?: string }>;
-    if (wallpaperWarning.detail?.source !== 'nasa') return;
-    showNasaApodWarningNotice();
-  });
-
   window.addEventListener('beforeunload', () => {
     void persistPreferencesBackup();
   });
@@ -2995,9 +3017,7 @@ async function initDeferred() {
   if (updateState.pending) {
     pendingUpdateNoticeVersion =
       updateState.version || chrome.runtime.getManifest().version;
-    if (document.body.classList.contains('loading')) {
-      showPendingUpdateNoticeIfAny();
-    }
+    showPendingUpdateNoticeIfAny();
   }
 
   const { reauth_needed } = (await getStorageLocalItems('reauth_needed')) as {

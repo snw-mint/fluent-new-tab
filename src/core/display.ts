@@ -279,7 +279,7 @@ function renderGreeting(wrapper: HTMLElement): void {
     icon.src =
       greetingStyle === '3d'
         ? `assets/emojis/${iconName}.webp`
-        : `assets/greetings/${iconName}.svg`;
+        : `assets/icons/${iconName}.svg`;
     icon.alt = timeOfDayLabel;
     icon.className =
       greetingStyle === '3d' ? 'greeting-icon' : 'greeting-icon outline';
