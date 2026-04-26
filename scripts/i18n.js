@@ -2,29 +2,47 @@ const DEFAULT_LOCALE = 'en';
 window.translationsCache = {};
 
 async function loadTranslations() {
-  document.body.classList.add('loaded');
-
   let lang = localStorage.getItem('userLanguage');
   if (!lang) lang = DEFAULT_LOCALE;
 
-  let messages = null;
+  const cacheKey = `i18n_cache_${lang}`;
+  const cached = localStorage.getItem(cacheKey);
 
+  if (cached) {
+    try {
+      const messages = JSON.parse(cached);
+      window.translationsCache = messages;
+      applyToDOM(messages);
+      document.body.classList.add('loaded');
+      document.dispatchEvent(new Event('i18nReady'));
+      fetchLocale(lang)
+        .then((fresh) => {
+          localStorage.setItem(cacheKey, JSON.stringify(fresh));
+        })
+        .catch(() => {});
+      return;
+    } catch (e) {
+      localStorage.removeItem(cacheKey);
+    }
+  }
+
+  let messages = null;
   if (lang !== DEFAULT_LOCALE) {
     try {
       messages = await fetchLocale(lang);
     } catch (e) {}
   }
-
   if (!messages) {
     try {
       messages = await fetchLocale(DEFAULT_LOCALE);
-    } catch (e) {
-      return;
-    }
+    } catch (e) {}
   }
-
-  window.translationsCache = messages;
-  applyToDOM(messages);
+  if (messages) {
+    window.translationsCache = messages;
+    localStorage.setItem(cacheKey, JSON.stringify(messages));
+    applyToDOM(messages);
+  }
+  document.body.classList.add('loaded');
   document.dispatchEvent(new Event('i18nReady'));
 }
 
@@ -36,28 +54,20 @@ async function fetchLocale(localeCode) {
 }
 
 function applyToDOM(messages) {
-  const apply = () => {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach((element) => {
-      const key = element.getAttribute('data-i18n');
-      if (messages[key]) {
-        const translation = messages[key].message;
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          element.placeholder = translation;
-        } else if (element.tagName === 'OPTION') {
-          element.textContent = translation;
-        } else {
-          element.innerHTML = translation;
-        }
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach((element) => {
+    const key = element.getAttribute('data-i18n');
+    if (messages[key]) {
+      const translation = messages[key].message;
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.placeholder = translation;
+      } else if (element.tagName === 'OPTION') {
+        element.textContent = translation;
+      } else {
+        element.innerHTML = translation;
       }
-    });
-  };
-
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(apply, { timeout: 300 });
-  } else {
-    apply();
-  }
+    }
+  });
 }
 
 window.getTranslation = function (key) {
