@@ -173,8 +173,13 @@ const launcherData: Record<string, LauncherProviderData> = {
       },
       {
         name: 'Docs',
-        url: 'https://docs.google.com',
+        url: 'https://docs.google.com/document/',
         icon: 'assets/apps/google/docs.svg',
+      },
+      {
+        name: 'Sheets',
+        url: 'https://docs.google.com/spreadsheets/',
+        icon: 'assets/apps/google/sheet.svg',
       },
       {
         name: 'Calendar',
@@ -190,11 +195,6 @@ const launcherData: Record<string, LauncherProviderData> = {
         name: 'Music',
         url: 'https://music.youtube.com',
         icon: 'assets/apps/google/music.svg',
-      },
-      {
-        name: 'Web Store',
-        url: 'https://chromewebstore.google.com',
-        icon: 'assets/apps/google/store.svg',
       },
     ],
     allAppsLink: 'https://about.google/products/#:~:text=google%20products',
