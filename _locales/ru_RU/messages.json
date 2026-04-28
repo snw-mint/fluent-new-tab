@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Загрузка изображения с сайта $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Восстановить"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Недействительный файл резервной копии"
+  "backupExportSuccess": {
+    "message": "Настройки сохранены в файле"
   },
   "warningInvalidBackupMessage": {
     "message": "Выбранный файл не является действительной резервной копией."
