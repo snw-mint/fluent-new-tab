@@ -72,58 +72,16 @@ function getShortcutTemplate(): HTMLDivElement {
   return shortcutTemplate;
 }
 
-function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
-  const {
-    shortcutsGrid,
-    rowsSelect,
-    shortcuts,
-    currentFolderId,
-    onOpenModal,
-    onDeleteShortcut,
-    onClosePopups,
-    onOpenFolder,
-    onGoBack,
-  } = options;
-  if (!shortcutsGrid) return;
+function createFolderBackButton(): HTMLDivElement {
+  const backBtn = document.createElement('div');
+  backBtn.className = 'shortcut-item folder-back-btn';
+  backBtn.dataset.action = 'go-back';
 
-  const isHideNamesActive =
-    localStorage.getItem('hideShortcutNames') === 'true';
-  shortcutsGrid.setAttribute('data-hide-names', String(isHideNamesActive));
+  const backText = window.getTranslation('backLabel');
+  const finalBackText =
+    backText && backText !== 'backLabel' ? backText : 'Back';
 
-  shortcutsGrid.innerHTML = '';
-  const fragment = document.createDocumentFragment();
-  const COLUMNS = 10;
-  const currentRows = rowsSelect
-    ? parseInt(rowsSelect.value)
-    : parseInt(localStorage.getItem('shortcutsRows') || '2') || 2;
-  const maxSlots = currentRows * COLUMNS;
-  let activeArray: Shortcut[] = shortcuts;
-  let isInsideFolder = false;
-
-  if (currentFolderId) {
-    const currentFolder = shortcuts.find(
-      (s) => s.id === currentFolderId && s.type === 'folder',
-    );
-    if (currentFolder) {
-      activeArray = currentFolder.children || [];
-      isInsideFolder = true;
-    }
-  }
-
-  const folderMaxSlots = FOLDER_FIXED_ROWS * COLUMNS;
-  const availableSlots = isInsideFolder ? folderMaxSlots - 1 : maxSlots;
-  const visibleShortcuts = activeArray.slice(0, availableSlots);
-
-  if (isInsideFolder) {
-    const backBtn = document.createElement('div');
-    backBtn.className = 'shortcut-item folder-back-btn';
-    backBtn.dataset.action = 'go-back';
-
-    const backText = window.getTranslation('backLabel');
-    const finalBackText =
-      backText && backText !== 'backLabel' ? backText : 'Back';
-
-    backBtn.innerHTML = `
+  backBtn.innerHTML = `
             <a class="shortcut-card" href="#" draggable="false" style="display: flex; align-items: center; justify-content: center; color: inherit; text-decoration: none;">
                 <div class="shortcut-icon" style="display: flex; align-items: center; justify-content: center;">
                     ${BACK_ICON_SVG}
@@ -131,113 +89,122 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
             </a>
             <span class="shortcut-title">${finalBackText}</span>
         `;
-    backBtn.setAttribute('draggable', 'false');
-    fragment.appendChild(backBtn);
-  }
+  backBtn.setAttribute('draggable', 'false');
+  return backBtn;
+}
 
-  const template = getShortcutTemplate();
-
-  for (let index = 0; index < visibleShortcuts.length; index++) {
-    const itemData = visibleShortcuts[index];
-    const isFolder = itemData.type === 'folder';
-    const item = template.cloneNode(true) as HTMLDivElement;
-
-    item.dataset.index = index.toString();
-    item.dataset.type = isFolder ? 'folder' : 'shortcut';
-    if (itemData.id) item.dataset.id = itemData.id;
-
-    const card = item.querySelector('.shortcut-card') as HTMLAnchorElement;
-    card.href = isFolder ? '#' : itemData.url || '#';
-
-    if (isFolder) {
-      card.style.display = 'flex';
-    }
-
-    const menuWrapper = card.querySelector('.menu-wrapper') as HTMLDivElement;
-
-    if (isFolder) {
-      if (itemData.customIcon) {
-        const img = document.createElement('img');
-        img.className = 'shortcut-icon loaded';
-        img.src = itemData.customIcon;
-        img.alt = itemData.name;
-        img.style.width = '1.75rem';
-        img.style.height = '1.75rem';
-        img.style.objectFit = 'contain';
-        card.insertBefore(img, menuWrapper);
-      } else {
-        card.insertAdjacentHTML('afterbegin', FOLDER_ICON_SVG);
-      }
-    } else {
-      const img = document.createElement('img');
-      img.decoding = 'async';
-      img.className = 'shortcut-icon';
-      img.alt = itemData.name;
-
-      let targetIconSrc = itemData.customIcon;
-
-      if (!targetIconSrc) {
-        try {
-          const parsedUrl = new URL(itemData.url);
-          const hostname = parsedUrl.hostname;
-          targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
-        } catch (error) {
-          targetIconSrc = 'invalid-url';
-        }
-      }
-
-      img.src = targetIconSrc;
-
-      img.onload = function () {
-        img.classList.add('loaded');
-      };
-
-      img.onerror = function () {
-        img.onerror = null;
-        img.src =
-          'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
-      };
-
-      card.insertBefore(img, menuWrapper);
-    }
-
-    const dropdown = menuWrapper.querySelector(
-      '.shortcut-dropdown',
-    ) as HTMLDivElement;
-    if (dropdown) {
-      const editOpt = dropdown.firstElementChild as HTMLDivElement;
-      const removeOpt = dropdown.lastElementChild as HTMLDivElement;
-      if (editOpt) editOpt.dataset.index = index.toString();
-      if (removeOpt) removeOpt.dataset.index = index.toString();
-    }
-
-    const titleLink = item.querySelector(
-      '.shortcut-title',
-    ) as HTMLAnchorElement;
-    titleLink.href = isFolder ? '#' : itemData.url || '#';
-    titleLink.textContent = itemData.name;
-    titleLink.dataset.action = isFolder
-      ? 'open-folder-title'
-      : 'open-shortcut-title';
-    titleLink.dataset.index = index.toString();
-
-    fragment.appendChild(item);
-  }
-
-  if (visibleShortcuts.length < availableSlots) {
-    const addBtn = document.createElement('div');
-    addBtn.className = 'shortcut-item add-card-wrapper';
-    addBtn.dataset.action = 'add-shortcut';
-    addBtn.innerHTML = `
+function createAddShortcutButton(): HTMLDivElement {
+  const addBtn = document.createElement('div');
+  addBtn.className = 'shortcut-item add-card-wrapper';
+  addBtn.dataset.action = 'add-shortcut';
+  addBtn.innerHTML = `
             <div class="shortcut-card">${typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+'}</div>
             <span class="shortcut-title">${window.getTranslation('addShortcutLabel')}</span>
         `;
-    fragment.appendChild(addBtn);
+  return addBtn;
+}
+
+function createShortcutNode(
+  itemData: Shortcut,
+  index: number,
+  template: HTMLDivElement,
+): HTMLDivElement {
+  const isFolder = itemData.type === 'folder';
+  const item = template.cloneNode(true) as HTMLDivElement;
+
+  item.dataset.index = index.toString();
+  item.dataset.type = isFolder ? 'folder' : 'shortcut';
+  if (itemData.id) item.dataset.id = itemData.id;
+
+  const card = item.querySelector('.shortcut-card') as HTMLAnchorElement;
+  card.href = isFolder ? '#' : itemData.url || '#';
+
+  if (isFolder) {
+    card.style.display = 'flex';
   }
 
-  shortcutsGrid.appendChild(fragment);
+  const menuWrapper = card.querySelector('.menu-wrapper') as HTMLDivElement;
 
-  const handleGridClick = (event: MouseEvent) => {
+  if (isFolder) {
+    if (itemData.customIcon) {
+      const img = document.createElement('img');
+      img.className = 'shortcut-icon loaded';
+      img.src = itemData.customIcon;
+      img.alt = itemData.name;
+      img.style.width = '1.75rem';
+      img.style.height = '1.75rem';
+      img.style.objectFit = 'contain';
+      card.insertBefore(img, menuWrapper);
+    } else {
+      card.insertAdjacentHTML('afterbegin', FOLDER_ICON_SVG);
+    }
+  } else {
+    const img = document.createElement('img');
+    img.decoding = 'async';
+    img.className = 'shortcut-icon';
+    img.alt = itemData.name;
+
+    let targetIconSrc = itemData.customIcon;
+
+    if (!targetIconSrc) {
+      try {
+        const parsedUrl = new URL(itemData.url);
+        const hostname = parsedUrl.hostname;
+        targetIconSrc = `https://favicon.vemetric.com/${hostname}?size=64`;
+      } catch (error) {
+        targetIconSrc = 'invalid-url';
+      }
+    }
+
+    img.src = targetIconSrc;
+
+    img.onload = function () {
+      img.classList.add('loaded');
+    };
+
+    img.onerror = function () {
+      img.onerror = null;
+      img.src =
+        'data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z" fill="%23212121"/></svg>';
+    };
+
+    card.insertBefore(img, menuWrapper);
+  }
+
+  const dropdown = menuWrapper.querySelector(
+    '.shortcut-dropdown',
+  ) as HTMLDivElement;
+  if (dropdown) {
+    const editOpt = dropdown.firstElementChild as HTMLDivElement;
+    const removeOpt = dropdown.lastElementChild as HTMLDivElement;
+    if (editOpt) editOpt.dataset.index = index.toString();
+    if (removeOpt) removeOpt.dataset.index = index.toString();
+  }
+
+  const titleLink = item.querySelector('.shortcut-title') as HTMLAnchorElement;
+  titleLink.href = isFolder ? '#' : itemData.url || '#';
+  titleLink.textContent = itemData.name;
+  titleLink.dataset.action = isFolder
+    ? 'open-folder-title'
+    : 'open-shortcut-title';
+  titleLink.dataset.index = index.toString();
+
+  return item;
+}
+
+function attachGridEventHandlers(
+  shortcutsGrid: HTMLDivElement,
+  options: ShortcutsRenderOptions,
+): void {
+  const {
+    onGoBack,
+    onOpenModal,
+    onClosePopups,
+    onDeleteShortcut,
+    onOpenFolder,
+  } = options;
+
+  shortcutsGrid.onclick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
     const backBtn = target.closest('.folder-back-btn');
@@ -283,7 +250,9 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         ?.querySelector('.shortcut-dropdown');
       onClosePopups(dropdown);
       dropdown?.classList.toggle('active');
-      syncShortcutDropdownState();
+      if (typeof syncShortcutDropdownState === 'function') {
+        syncShortcutDropdownState();
+      }
       return;
     }
 
@@ -329,7 +298,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     }
   };
 
-  const handleGridContext = (event: MouseEvent) => {
+  shortcutsGrid.oncontextmenu = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
     const card = target.closest('.shortcut-card');
     if (!card) return;
@@ -338,9 +307,61 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     const dropdown = card.querySelector('.shortcut-dropdown');
     onClosePopups(dropdown);
     dropdown?.classList.add('active');
-    syncShortcutDropdownState();
+    if (typeof syncShortcutDropdownState === 'function') {
+      syncShortcutDropdownState();
+    }
   };
+}
 
-  shortcutsGrid.onclick = handleGridClick;
-  shortcutsGrid.oncontextmenu = handleGridContext;
+function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
+  const { shortcutsGrid, rowsSelect, shortcuts, currentFolderId } = options;
+  if (!shortcutsGrid) return;
+
+  const isHideNamesActive =
+    localStorage.getItem('hideShortcutNames') === 'true';
+  shortcutsGrid.setAttribute('data-hide-names', String(isHideNamesActive));
+
+  shortcutsGrid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  const COLUMNS = 10;
+  const currentRows = rowsSelect
+    ? parseInt(rowsSelect.value)
+    : parseInt(localStorage.getItem('shortcutsRows') || '2') || 2;
+  const maxSlots = currentRows * COLUMNS;
+  let activeArray: Shortcut[] = shortcuts;
+  let isInsideFolder = false;
+
+  if (currentFolderId) {
+    const currentFolder = shortcuts.find(
+      (s) => s.id === currentFolderId && s.type === 'folder',
+    );
+    if (currentFolder) {
+      activeArray = currentFolder.children || [];
+      isInsideFolder = true;
+    }
+  }
+
+  const folderMaxSlots = FOLDER_FIXED_ROWS * COLUMNS;
+  const availableSlots = isInsideFolder ? folderMaxSlots - 1 : maxSlots;
+  const visibleShortcuts = activeArray.slice(0, availableSlots);
+
+  if (isInsideFolder) {
+    fragment.appendChild(createFolderBackButton());
+  }
+
+  const template = getShortcutTemplate();
+
+  for (let index = 0; index < visibleShortcuts.length; index++) {
+    const itemData = visibleShortcuts[index];
+    const itemNode = createShortcutNode(itemData, index, template);
+    fragment.appendChild(itemNode);
+  }
+
+  if (visibleShortcuts.length < availableSlots) {
+    fragment.appendChild(createAddShortcutButton());
+  }
+
+  shortcutsGrid.appendChild(fragment);
+
+  attachGridEventHandlers(shortcutsGrid, options);
 }
