@@ -1621,6 +1621,42 @@ function toTitleCase(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+let activeToastInstance: HTMLElement | null = null;
+
+function showToast(message: string, iconPath: string, duration = 3500): void {
+  if (activeToastInstance) {
+    activeToastInstance.remove();
+  }
+
+  const notice = document.createElement('div');
+  notice.className = 'update-release-notice';
+
+  const icon = document.createElement('img');
+  icon.className = 'update-release-notice-icon';
+  icon.src = iconPath;
+  icon.alt = '';
+
+  const text = document.createElement('span');
+  text.className = 'update-release-notice-prefix';
+  text.textContent = message;
+
+  notice.append(icon, text);
+  document.body.appendChild(notice);
+  activeToastInstance = notice;
+
+  requestAnimationFrame(() => notice.classList.add('visible'));
+
+  window.setTimeout(() => {
+    if (activeToastInstance === notice) {
+      notice.classList.remove('visible');
+      window.setTimeout(() => {
+        if (notice.parentNode) notice.remove();
+      }, 250);
+      activeToastInstance = null;
+    }
+  }, duration);
+}
+
 function getLocalizedWarningText(
   key: string,
   fallback: string,
@@ -2919,6 +2955,7 @@ function initAllEventBindings() {
       backupData[SHORTCUTS_TREE_BACKUP_KEY] =
         localStorage.getItem('shortcuts') || '[]';
       backupData._backupDate = new Date().toISOString();
+
       const blob = new Blob([JSON.stringify(backupData, null, 2)], {
         type: 'application/json',
       });
@@ -2929,6 +2966,13 @@ function initAllEventBindings() {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      const successMsg = getLocalizedWarningText(
+        'backupExportSuccess',
+        'Settings saved in the file',
+      );
+      showToast(successMsg, 'assets/icons/check.svg');
     });
   }
 
@@ -2972,23 +3016,11 @@ function initAllEventBindings() {
             },
           });
         } catch (error) {
-          warningModal.show({
-            title: getLocalizedWarningText(
-              'warningInvalidBackupTitle',
-              'Invalid Backup File',
-            ),
-            message: getLocalizedWarningText(
-              'warningInvalidBackupMessage',
-              'The selected file is not a valid backup.',
-            ),
-            confirmText: getLocalizedWarningText(
-              'warningUnderstood',
-              'Understood',
-            ),
-            cancelText: getLocalizedWarningText('warningClose', 'Close'),
-            confirmVariant: 'accent',
-            onConfirm: () => {},
-          });
+          const errorMsg = getLocalizedWarningText(
+            'warningInvalidBackupMessage',
+            'The selected file is not a valid backup.',
+          );
+          showToast(errorMsg, 'assets/icons/dimiss.svg');
         }
         importInput.value = '';
       };

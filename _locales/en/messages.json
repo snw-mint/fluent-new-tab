@@ -146,7 +146,7 @@
     "message": "This will replace your current settings and shortcuts with the backup file data."
   },
   "warningRestoreBackupConfirm": { "message": "Restore" },
-  "warningInvalidBackupTitle": { "message": "Invalid Backup File" },
+  "backupExportSuccess": { "message": "Settings saved in the file" },
   "warningInvalidBackupMessage": {
     "message": "The selected file is not a valid backup."
   },
