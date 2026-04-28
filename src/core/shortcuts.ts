@@ -52,22 +52,51 @@ function getShortcutTemplate(): HTMLDivElement {
     const removeLabel =
       rawRemove && rawRemove !== 'removeLabel' ? rawRemove : 'Remove';
 
-    shortcutTemplate.innerHTML = `
-      <a class="shortcut-card" draggable="false" style="color: inherit; text-decoration: none;" data-action="open-shortcut">
-          <div class="menu-wrapper">
-              <button class="menu-btn" title="${moreOptionsLabel}">${menuDots}</button>
-              <div class="shortcut-dropdown">
-                  <div class="menu-option edit-option">
-                      ${editIcon} <span>${editLabel}</span>
-                  </div>
-                  <div class="menu-option remove-option">
-                      ${removeIcon} <span>${removeLabel}</span>
-                  </div>
-              </div>
-          </div>
-      </a>
-      <a class="shortcut-title" draggable="false"></a>
-    `;
+    const card = document.createElement('a');
+    card.className = 'shortcut-card';
+    card.draggable = false;
+    card.style.color = 'inherit';
+    card.style.textDecoration = 'none';
+    card.dataset.action = 'open-shortcut';
+
+    const menuWrapper = document.createElement('div');
+    menuWrapper.className = 'menu-wrapper';
+
+    const menuBtn = document.createElement('button');
+    menuBtn.className = 'menu-btn';
+    menuBtn.title = moreOptionsLabel;
+    menuBtn.insertAdjacentHTML('beforeend', menuDots);
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'shortcut-dropdown';
+
+    const editOption = document.createElement('div');
+    editOption.className = 'menu-option edit-option';
+    editOption.insertAdjacentHTML('beforeend', editIcon);
+    const editSpan = document.createElement('span');
+    editSpan.textContent = editLabel;
+    editOption.appendChild(editSpan);
+
+    const removeOption = document.createElement('div');
+    removeOption.className = 'menu-option remove-option';
+    removeOption.insertAdjacentHTML('beforeend', removeIcon);
+    const removeSpan = document.createElement('span');
+    removeSpan.textContent = removeLabel;
+    removeOption.appendChild(removeSpan);
+
+    dropdown.appendChild(editOption);
+    dropdown.appendChild(removeOption);
+
+    menuWrapper.appendChild(menuBtn);
+    menuWrapper.appendChild(dropdown);
+    card.appendChild(menuWrapper);
+
+    const title = document.createElement('a');
+    title.className = 'shortcut-title';
+    title.draggable = false;
+
+    shortcutTemplate.appendChild(card);
+    shortcutTemplate.appendChild(title);
   }
   return shortcutTemplate;
 }
@@ -123,14 +152,31 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     const finalBackText =
       backText && backText !== 'backLabel' ? backText : 'Back';
 
-    backBtn.innerHTML = `
-            <a class="shortcut-card" href="#" draggable="false" style="display: flex; align-items: center; justify-content: center; color: inherit; text-decoration: none;">
-                <div class="shortcut-icon" style="display: flex; align-items: center; justify-content: center;">
-                    ${BACK_ICON_SVG}
-                </div>
-            </a>
-            <span class="shortcut-title">${finalBackText}</span>
-        `;
+    const backCard = document.createElement('a');
+    backCard.className = 'shortcut-card';
+    backCard.href = '#';
+    backCard.draggable = false;
+    backCard.style.display = 'flex';
+    backCard.style.alignItems = 'center';
+    backCard.style.justifyContent = 'center';
+    backCard.style.color = 'inherit';
+    backCard.style.textDecoration = 'none';
+
+    const backIconDiv = document.createElement('div');
+    backIconDiv.className = 'shortcut-icon';
+    backIconDiv.style.display = 'flex';
+    backIconDiv.style.alignItems = 'center';
+    backIconDiv.style.justifyContent = 'center';
+    backIconDiv.insertAdjacentHTML('beforeend', BACK_ICON_SVG);
+
+    backCard.appendChild(backIconDiv);
+
+    const backTitle = document.createElement('span');
+    backTitle.className = 'shortcut-title';
+    backTitle.textContent = finalBackText;
+
+    backBtn.appendChild(backCard);
+    backBtn.appendChild(backTitle);
     backBtn.setAttribute('draggable', 'false');
     fragment.appendChild(backBtn);
   }
@@ -228,10 +274,21 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     const addBtn = document.createElement('div');
     addBtn.className = 'shortcut-item add-card-wrapper';
     addBtn.dataset.action = 'add-shortcut';
-    addBtn.innerHTML = `
-            <div class="shortcut-card">${typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+'}</div>
-            <span class="shortcut-title">${window.getTranslation('addShortcutLabel')}</span>
-        `;
+
+    const addCard = document.createElement('div');
+    addCard.className = 'shortcut-card';
+    addCard.insertAdjacentHTML(
+      'beforeend',
+      typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+',
+    );
+
+    const addTitle = document.createElement('span');
+    addTitle.className = 'shortcut-title';
+    addTitle.textContent = window.getTranslation('addShortcutLabel') || '';
+
+    addBtn.appendChild(addCard);
+    addBtn.appendChild(addTitle);
+
     fragment.appendChild(addBtn);
   }
 
