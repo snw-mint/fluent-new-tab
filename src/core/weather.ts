@@ -88,7 +88,12 @@ function renderWeatherWidget(
 
   refs.weatherCity.textContent = cityData.name;
   refs.weatherTemp.textContent = `${Math.round(tempValue)}${unitSymbol}`;
-  refs.weatherIcon.innerHTML = `<img src="assets/weather/${filename}" alt="Weather Icon" class="fluent-icon">`;
+  const img = document.createElement('img');
+  img.src = `assets/weather/${filename}`;
+  img.alt = 'Weather Icon';
+  img.className = 'fluent-icon';
+  refs.weatherIcon.textContent = '';
+  refs.weatherIcon.appendChild(img);
   const degreeType = isCelsius ? 'C' : 'F';
   refs.weatherWidget.href = `https://www.msn.com/en-ph/weather/forecast/?weadegreetype=${degreeType}&uxmode=ruby`;
 }
