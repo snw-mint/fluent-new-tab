@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Đang tải hình ảnh từ $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Khôi phục"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Tệp sao lưu không hợp lệ"
+  "backupExportSuccess": {
+    "message": "Các cài đặt đã được lưu trong tệp"
   },
   "warningInvalidBackupMessage": {
     "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
