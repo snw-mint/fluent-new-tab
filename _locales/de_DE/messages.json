@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Bild von $SOURCE$ wird geladen...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Wiederherstellen"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Ungültige Sicherungsdatei"
+  "backupExportSuccess": {
+    "message": "In der Datei gespeicherte Einstellungen"
   },
   "warningInvalidBackupMessage": {
     "message": "Die ausgewählte Datei ist keine gültige Sicherung."
