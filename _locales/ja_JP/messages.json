@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "$SOURCE$ の画像を取得中...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "復元"
   },
-  "warningInvalidBackupTitle": {
-    "message": "無効なバックアップファイル"
+  "backupExportSuccess": {
+    "message": "ファイルに保存された設定"
   },
   "warningInvalidBackupMessage": {
     "message": "選択されたファイルは有効なバックアップではありません。"
