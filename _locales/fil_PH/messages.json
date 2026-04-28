@@ -111,7 +111,7 @@
     "message": "Style ng Search bar"
   },
   "searchStyleFull": {
-    "message": "Full width"
+    "message": "Buong width"
   },
   "searchStyleCompact": {
     "message": "Compact"
@@ -252,9 +252,11 @@
     "message": "tingnan ang changelog"
   },
   "fetchingImagePlaceholder": {
-    "message": "Fetching $SOURCE$ image...",
+    "message": "Fini-fetch ang $SOURCE$ na image...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "I-Restore"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Invalid na Backup File"
+  "backupExportSuccess": {
+    "message": "Na-save na yung settings sa file"
   },
   "warningInvalidBackupMessage": {
     "message": "Hindi valid na backup ang file na napili."

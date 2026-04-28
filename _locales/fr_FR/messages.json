@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Récupération de l'image $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Restaurer"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Fichier de sauvegarde invalide"
+  "backupExportSuccess": {
+    "message": "Paramètres enregistrés dans le fichier"
   },
   "warningInvalidBackupMessage": {
     "message": "Le fichier sélectionné n'est pas une sauvegarde valide."

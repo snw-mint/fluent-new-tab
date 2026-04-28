@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Načítání obrázku z adresy $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Obnovit"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Neplatný záložní soubor"
+  "backupExportSuccess": {
+    "message": "Nastavení uložená v souboru"
   },
   "warningInvalidBackupMessage": {
     "message": "Vybraný soubor není platnou zálohou."

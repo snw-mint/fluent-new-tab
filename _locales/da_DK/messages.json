@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Henter billedet fra $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Gendan"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Ugyldig sikkerhedskopifil"
+  "backupExportSuccess": {
+    "message": "Indstillinger gemt i filen"
   },
   "warningInvalidBackupMessage": {
     "message": "Den valgte fil er ikke en gyldig sikkerhedskopi."

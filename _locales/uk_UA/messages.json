@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Завантажується зображення з $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Відновити"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Недійсний файл резервної копії"
+  "backupExportSuccess": {
+    "message": "Налаштування збережено у файлі"
   },
   "warningInvalidBackupMessage": {
     "message": "Вибраний файл не є дійсною резервною копією."

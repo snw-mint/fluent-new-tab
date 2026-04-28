@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "$SOURCE$ 이미지 불러오는 중...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "복원"
   },
-  "warningInvalidBackupTitle": {
-    "message": "잘못된 백업 파일"
+  "backupExportSuccess": {
+    "message": "파일에 저장된 설정"
   },
   "warningInvalidBackupMessage": {
     "message": "선택한 파일은 유효한 백업 파일이 아닙니다."

@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "A $SOURCE$ kép betöltése...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Visszaállítás"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Érvénytelen biztonsági másolat fájl"
+  "backupExportSuccess": {
+    "message": "A fájlba mentett beállítások"
   },
   "warningInvalidBackupMessage": {
     "message": "A kiválasztott fájl nem érvényes biztonsági másolat."

@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Pobieranie obrazu z adresu $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Przywróć"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Nieprawidłowy plik kopii zapasowej"
+  "backupExportSuccess": {
+    "message": "Ustawienia zapisane w pliku"
   },
   "warningInvalidBackupMessage": {
     "message": "Wybrany plik nie jest prawidłową kopią zapasową."

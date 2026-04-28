@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Λήψη εικόνας από τη διεύθυνση $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Επαναφορά"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Μη έγκυρο αρχείο αντιγράφου ασφαλείας"
+  "backupExportSuccess": {
+    "message": "Οι ρυθμίσεις αποθηκεύονται στο αρχείο"
   },
   "warningInvalidBackupMessage": {
     "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."

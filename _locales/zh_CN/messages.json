@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "正在加载 $SOURCE$ 图片...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "恢复"
   },
-  "warningInvalidBackupTitle": {
-    "message": "无效备份文件"
+  "backupExportSuccess": {
+    "message": "设置已保存到文件中"
   },
   "warningInvalidBackupMessage": {
     "message": "所选文件不是有效的备份。"

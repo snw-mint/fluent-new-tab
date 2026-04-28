@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Hämtar bilden från $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Återställ"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Ogiltig säkerhetskopieringsfil"
+  "backupExportSuccess": {
+    "message": "Inställningarna sparas i filen"
   },
   "warningInvalidBackupMessage": {
     "message": "Den valda filen är inte en giltig säkerhetskopia."
