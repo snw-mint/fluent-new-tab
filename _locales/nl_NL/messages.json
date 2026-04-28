@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Beeld ophalen van $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Herstellen"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Ongeldig back-upbestand"
+  "backupExportSuccess": {
+    "message": "Instellingen opgeslagen in het bestand"
   },
   "warningInvalidBackupMessage": {
     "message": "Het geselecteerde bestand is geen geldige back-up."
