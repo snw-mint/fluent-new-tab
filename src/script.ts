@@ -2250,7 +2250,6 @@ function initVisual() {
   applyInitialBlurDisabled();
   applyInitialReducedEffectsState();
 
-  // Initialize rows select before rendering shortcuts
   if (rowsSelect) {
     rowsSelect.value = String(allowedRows);
   }
@@ -2308,6 +2307,9 @@ function initVisual() {
   applyInitialShortcutsVisibility();
   applyInitialFoldersSetting();
   applyInitialSearchBarVisibility();
+
+  updateCompactBarStyle();
+
   updateAskAiBtnVisibility();
 }
 
@@ -3087,22 +3089,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
+  // Síncrono: A UI será montada e calculada antes de a tela ser pintada
   initCritical();
+  initVisual();
 
-  requestAnimationFrame(() => {
-    initVisual();
+  // Assíncrono: Eventos de binding e rotinas pesadas (Storage/Fetch)
+  const runDeferred = () => {
+    initAllEventBindings();
+    void initDeferred();
+  };
 
-    const runDeferred = () => {
-      initAllEventBindings();
-      void initDeferred();
-    };
-
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(runDeferred, { timeout: 600 });
-    } else {
-      setTimeout(runDeferred, 0);
-    }
-  });
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(runDeferred, { timeout: 600 });
+  } else {
+    setTimeout(runDeferred, 0);
+  }
 });
 
 document.addEventListener('i18nReady', () => {

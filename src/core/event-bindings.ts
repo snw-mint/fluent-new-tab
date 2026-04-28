@@ -476,10 +476,16 @@ function bindSearchFeature(options: SearchBindingOptions): void {
       const isCompact = target.value === 'compact';
       options.setCompactBarEnabled(isCompact);
       localStorage.setItem('compactBarEnabled', String(isCompact));
+
+      if (isCompact) {
+        document.documentElement.setAttribute('data-compact-bar', 'true');
+      } else {
+        document.documentElement.removeAttribute('data-compact-bar');
+      }
+
       options.updateCompactBarStyle();
     });
   }
-
   if (options.toggleVoiceSearch) {
     options.toggleVoiceSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
