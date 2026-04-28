@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Fetching $SOURCE$ image...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Restore"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Invalid Backup File"
+  "backupExportSuccess": {
+    "message": "Settings saved in the file"
   },
   "warningInvalidBackupMessage": {
     "message": "The selected file is not a valid backup."
