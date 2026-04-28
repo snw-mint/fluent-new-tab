@@ -51,9 +51,14 @@ function renderLauncherApps(
     link.className = 'launcher-item';
     link.title = app.name;
     link.setAttribute('aria-label', app.name);
-    link.innerHTML = `
-            <img src="${app.icon}" class="launcher-icon" alt="${app.name}">
-        `;
+
+    const img = document.createElement('img');
+    img.src = app.icon;
+    img.className = 'launcher-icon';
+    img.alt = app.name;
+
+    link.appendChild(img);
+
     refs.launcherGrid?.appendChild(link);
   });
 
