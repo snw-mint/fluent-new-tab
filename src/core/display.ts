@@ -12,6 +12,8 @@
  */
 
 let displayInterval: number | null = null;
+const timeFormatCache = new Map<string, Intl.DateTimeFormat>();
+const dateFormatCache = new Map<string, Intl.DateTimeFormat>();
 
 function initDisplayWidget(wrapper: HTMLElement | null): void {
   if (!wrapper) return;
@@ -62,12 +64,20 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   let dateString = '';
 
   if (type === 'time' || type === 'timedate') {
-    const parts = new Intl.DateTimeFormat(locale, {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: showSeconds ? '2-digit' : undefined,
-      hour12: use12Hour,
-    }).formatToParts(now);
+    const timeCacheKey = `${locale}-${showSeconds}-${use12Hour}`;
+    let timeFormatter = timeFormatCache.get(timeCacheKey);
+
+    if (!timeFormatter) {
+      timeFormatter = new Intl.DateTimeFormat(locale, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: showSeconds ? '2-digit' : undefined,
+        hour12: use12Hour,
+      });
+      timeFormatCache.set(timeCacheKey, timeFormatter);
+    }
+
+    const parts = timeFormatter.formatToParts(now);
 
     parts.forEach((part, index) => {
       if (part.type === 'second') {
@@ -105,7 +115,15 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
       dateOptions = { dateStyle: 'long' };
     }
 
-    dateString = new Intl.DateTimeFormat(locale, dateOptions).format(now);
+    const dateCacheKey = `${locale}-${type}-${dateFormat}`;
+    let dateFormatter = dateFormatCache.get(dateCacheKey);
+
+    if (!dateFormatter) {
+      dateFormatter = new Intl.DateTimeFormat(locale, dateOptions);
+      dateFormatCache.set(dateCacheKey, dateFormatter);
+    }
+
+    dateString = dateFormatter.format(now);
 
     if (
       dateString &&
