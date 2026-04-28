@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Se încarcă imaginea de la $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Restaurare"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Fișier de rezervă invalid"
+  "backupExportSuccess": {
+    "message": "Setările salvate în fișier"
   },
   "warningInvalidBackupMessage": {
     "message": "Fișierul selectat nu este o copie de rezervă validă."
