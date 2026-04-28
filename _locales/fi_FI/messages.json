@@ -254,7 +254,9 @@
   "fetchingImagePlaceholder": {
     "message": "Haetaan kuvaa osoitteesta $SOURCE$...",
     "placeholders": {
-      "source": { "content": "$1" }
+      "source": {
+        "content": "$1"
+      }
     }
   },
   "warningDeleteFolderTitle": {
@@ -344,8 +346,8 @@
   "warningRestoreBackupConfirm": {
     "message": "Palauta"
   },
-  "warningInvalidBackupTitle": {
-    "message": "Virheellinen varmuuskopiotiedosto"
+  "backupExportSuccess": {
+    "message": "Tiedostoon tallennetut asetukset"
   },
   "warningInvalidBackupMessage": {
     "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
