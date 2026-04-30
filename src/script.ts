@@ -2377,6 +2377,59 @@ function initAllEventBindings() {
     });
   }
 
+  if (shortcutForm) {
+    shortcutForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const inputName = getInputById('inputName') as HTMLInputElement | null;
+      const inputUrl = getInputById('inputUrl') as HTMLInputElement | null;
+      const inputIcon = getInputById('inputIcon') as HTMLInputElement | null;
+
+      if (!inputName || !inputUrl) return;
+
+      let finalUrl = inputUrl.value.trim();
+      if (finalUrl && !/^https?:\/\//i.test(finalUrl)) {
+        finalUrl = 'https://' + finalUrl;
+      }
+
+      const targetArray = getActiveShortcutsList();
+
+      if (
+        editingIndex !== null &&
+        editingIndex >= 0 &&
+        targetArray[editingIndex]
+      ) {
+        targetArray[editingIndex] = {
+          ...targetArray[editingIndex],
+          name: inputName.value.trim() || deriveShortcutNameFromUrl(finalUrl),
+          url: finalUrl,
+          customIcon: inputIcon?.value.trim() || null,
+        };
+      } else {
+        const limit = currentFolderId
+          ? MAX_FOLDER_CAPACITY
+          : Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+
+        if (targetArray.length >= limit) {
+          showGridLimitWarning(limit, Boolean(currentFolderId));
+          return;
+        }
+
+        targetArray.push({
+          id: 'shortcut_' + Date.now().toString(),
+          type: 'link',
+          name: inputName.value.trim() || deriveShortcutNameFromUrl(finalUrl),
+          url: finalUrl,
+          customIcon: inputIcon?.value.trim() || null,
+        });
+      }
+
+      saveAndRender();
+      editingIndex = null;
+      closeModal();
+    });
+  }
+
   bindDisplayFeature({
     displayTypeSelect,
     displayAdvancedSetting,
@@ -3121,11 +3174,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // Síncrono: A UI será montada e calculada antes de a tela ser pintada
   initCritical();
   initVisual();
 
-  // Assíncrono: Eventos de binding e rotinas pesadas (Storage/Fetch)
   const runDeferred = () => {
     initAllEventBindings();
     void initDeferred();
