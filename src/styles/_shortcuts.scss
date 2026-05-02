@@ -129,7 +129,12 @@
         box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.15);
         opacity: 0;
         transform: scale(0.5);
-        transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition:
+          opacity 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s,
+          transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s,
+          background-color 0.15s ease 0s,
+          color 0.15s ease 0s,
+          box-shadow 0.15s ease 0s;
         position: relative;
 
         &::after {
