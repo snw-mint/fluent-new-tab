@@ -106,8 +106,8 @@ async function handleAutoAccentColor(
 }
 
 function applyInitialAccentColorState(): void {
-  if (toggleAccentColor) {
-    toggleAccentColor.checked = accentColorEnabled;
+  if (toggleAppearance) {
+    toggleAppearance.checked = accentColorEnabled;
     setCollapsible(accentColorOptions, accentColorEnabled, false);
   }
   if (toggleAccentWallpaper)

@@ -244,4 +244,6 @@ const APP_KEYS: string[] = [
   'hideShortcutNames',
   'wallpaperOverlay',
   'displayScale',
+  'tabName',
+  'tabFavicon',
 ];

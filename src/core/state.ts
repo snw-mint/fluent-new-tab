@@ -107,3 +107,6 @@ if (displayScale !== 100) {
     `${displayScale / 100}`,
   );
 }
+
+let tabName = localStorage.getItem('tabName') || '';
+let tabFavicon = localStorage.getItem('tabFavicon') || '';

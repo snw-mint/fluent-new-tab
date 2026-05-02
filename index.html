@@ -73,9 +73,9 @@
 
   <div class="header-controls">
     <a href="#" id="weatherWidget" class="weather-widget" target="_blank" style="display: none">
-      <span class="weather-city" id="weatherCity">...</span>
+      <span class="weather-city" id="weatherCity">City</span>
       <div class="weather-icon" id="weatherIcon"></div>
-      <span class="weather-temp" id="weatherTemp">--°</span>
+      <span class="weather-temp" id="weatherTemp">00°</span>
     </a>
     <div class="settings-wrapper">
       <span class="settings-label" data-i18n="settingsTitle">Page Settings</span>
@@ -149,10 +149,10 @@
                 d="M3.839 5.858c2.94-3.916 9.03-5.055 13.364-2.36 4.28 2.66 5.854 7.777 4.1 12.577-1.655 4.533-6.016 6.328-9.159 4.048-1.177-.854-1.634-1.925-1.854-3.664l-.106-.987-.045-.398c-.123-.934-.311-1.352-.705-1.572-.535-.298-.892-.305-1.595-.033l-.351.146-.179.078c-1.014.44-1.688.595-2.541.416l-.2-.047-.164-.047c-2.789-.864-3.202-4.647-.565-8.157Zm.984 6.716.123.037.134.03c.439.087.814.015 1.437-.242l.602-.257c1.202-.493 1.985-.54 3.046.05.917.512 1.275 1.298 1.457 2.66l.053.459.055.532.047.422c.172 1.361.485 2.09 1.248 2.644 2.275 1.65 5.534.309 6.87-3.349 1.516-4.152.174-8.514-3.484-10.789-3.675-2.284-8.899-1.306-11.373 1.987-2.075 2.763-1.82 5.28-.215 5.816Zm11.225-1.994a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm.494 3.488a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647ZM14.07 7.577a1.25 1.25 0 1 1 2.415-.647 1.25 1.25 0 0 1-2.415.647Zm-.028 8.998a1.25 1.25 0 1 1 2.414-.647 1.25 1.25 0 0 1-2.414.647Zm-3.497-9.97a1.25 1.25 0 1 1 2.415-.646 1.25 1.25 0 0 1-2.415.646Z"
                 fill="currentColor" />
             </svg>
-            <span data-i18n="accentColorTitle">Accent color</span>
+            <span data-i18n="appearanceTitle">Appearance</span>
           </div>
           <label class="switch">
-            <input type="checkbox" id="toggleAccentColor" checked />
+            <input type="checkbox" id="toggleAppearance" checked />
             <span class="slider"></span>
           </label>
         </div>
@@ -181,6 +181,14 @@
             </label>
           </div>
 
+          <div class="setting-content-spaced" id="tabNameRow">
+            <label for="tabNameInput" class="setting-label-small" data-i18n="tabNameLabel">Tab Name</label>
+            <div class="input-row">
+              <input type="text" id="tabNameInput" placeholder="New Tab" data-i18n="tabNamePlaceholder"
+                maxlength="60" />
+            </div>
+          </div>
+
           <div class="setting-item collapsible-setting" id="accentMoreSetting">
             <div class="setting-header" id="accent-more-btn">
               <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
@@ -192,6 +200,7 @@
               </svg>
             </div>
             <div class="setting-content collapsed" id="accent-more-container">
+
               <div class="switch-row child-setting" id="accentWallpaperRow">
                 <label for="toggleAccentWallpaper" data-i18n="accentWallpaperOption">Get from wallpaper</label>
                 <label class="fluent-checkbox">
@@ -205,6 +214,22 @@
                   </span>
                 </label>
               </div>
+
+              <div class="child-setting">
+                <label class="setting-label-small" data-i18n="tabFaviconLabel">Tab Icon</label>
+                <div class="input-row">
+                  <input type="text" id="tabFaviconInput" placeholder="https://..." data-i18n="tabFaviconPlaceholder" />
+                  <button type="button" id="tabFaviconUploadBtn" title="Upload image">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M18.25 3.509a.75.75 0 1 0 0-1.5l-13-.004a.75.75 0 1 0 0 1.5l13 .004Zm-6.602 18.488.102.007a.75.75 0 0 0 .743-.649l.007-.101-.001-13.685 3.722 3.72a.75.75 0 0 0 .976.072l.085-.072a.75.75 0 0 0 .072-.977l-.073-.084-4.997-4.996a.75.75 0 0 0-.976-.073l-.085.072-5.003 4.997a.75.75 0 0 0 .976 1.134l.084-.073 3.719-3.713L11 21.254c0 .38.282.693.648.743Z"
+                        fill="currentColor" />
+                    </svg>
+                  </button>
+                  <input type="file" id="tabFaviconFileInput" accept="image/*" style="display: none" />
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

@@ -1910,6 +1910,143 @@ function applyInitialLauncherState() {
   if (launcherEnabled) renderLauncher(currentProvider);
 }
 
+const uploadIconSVG = `<svg width="17" height="17" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.25 3.509a.75.75 0 1 0 0-1.5l-13-.004a.75.75 0 1 0 0 1.5zm-6.602 18.488.102.007a.75.75 0 0 0 .743-.649l.007-.101-.001-13.685 3.722 3.72a.75.75 0 0 0 .976.072l.085-.072a.75.75 0 0 0 .072-.977l-.073-.084-4.997-4.996a.75.75 0 0 0-.976-.073l-.085.072-5.003 4.997a.75.75 0 0 0 .976 1.134l.084-.073 3.719-3.713L11 21.254c0 .38.282.693.648.743" fill="currentColor"/></svg>`;
+const clearIconSVG = `<svg width="17" height="17" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.397 4.554.073-.084a.75.75 0 0 1 .976-.073l.084.073L12 10.939l6.47-6.47a.75.75 0 1 1 1.06 1.061L13.061 12l6.47 6.47a.75.75 0 0 1 .072.976l-.073.084a.75.75 0 0 1-.976.073l-.084-.073L12 13.061l-6.47 6.47a.75.75 0 0 1-1.06-1.061L10.939 12l-6.47-6.47a.75.75 0 0 1-.072-.976l.073-.084z" fill="currentColor"/></svg>`;
+
+let originalFaviconHref: string | null = null;
+
+function applyTabCustomization(): void {
+  if (originalFaviconHref === null) {
+    originalFaviconHref = 'assets/icon-128.png';
+  }
+
+  document
+    .querySelectorAll('link[rel~="icon"]')
+    .forEach((node) => node.remove());
+
+  const link = document.createElement('link');
+  link.rel = 'icon';
+
+  if (accentColorEnabled) {
+    document.title = tabName || 'New Tab';
+    link.href = tabFavicon || originalFaviconHref;
+  } else {
+    document.title = 'New Tab';
+    link.href = originalFaviconHref;
+  }
+
+  document.head.appendChild(link);
+
+  if (tabFaviconUploadBtn) {
+    const hasIcon = Boolean(tabFavicon);
+    tabFaviconUploadBtn.innerHTML = hasIcon ? clearIconSVG : uploadIconSVG;
+    tabFaviconUploadBtn.dataset.state = hasIcon ? 'clear' : 'upload';
+  }
+}
+
+function syncFaviconState(value: string): void {
+  tabFavicon = value;
+  localStorage.setItem('tabFavicon', value);
+
+  if (tabFaviconInput) {
+    tabFaviconInput.value = value.startsWith('data:') ? '' : value;
+  }
+
+  applyTabCustomization();
+}
+
+function syncTabNameState(value: string): void {
+  tabName = value;
+  localStorage.setItem('tabName', value);
+
+  if (tabNameInput) {
+    tabNameInput.value = value;
+  }
+
+  applyTabCustomization();
+}
+
+function initTabCustomization(): void {
+  if (document.body.dataset.tabCustomizationBound === 'true') {
+    applyTabCustomization();
+    return;
+  }
+  document.body.dataset.tabCustomizationBound = 'true';
+
+  if (tabNameInput) tabNameInput.value = tabName;
+  if (tabFaviconInput)
+    tabFaviconInput.value = tabFavicon.startsWith('data:') ? '' : tabFavicon;
+
+  applyTabCustomization();
+
+  if (tabNameInput) {
+    tabNameInput.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      if (!target) return;
+      syncTabNameState(target.value.trim());
+    });
+  }
+
+  if (tabFaviconInput) {
+    tabFaviconInput.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      if (!target) return;
+      const val = target.value.trim();
+      if (!val && !tabFavicon.startsWith('data:')) {
+        syncFaviconState('');
+      }
+    });
+
+    tabFaviconInput.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      if (!target) return;
+      const val = target.value.trim();
+      if (val) syncFaviconState(val);
+    });
+  }
+
+  if (tabFaviconUploadBtn && tabFaviconFileInput) {
+    tabFaviconUploadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (tabFaviconUploadBtn.dataset.state === 'clear') {
+        syncFaviconState('');
+      } else {
+        tabFaviconFileInput.click();
+      }
+    });
+
+    tabFaviconFileInput.addEventListener('change', async (e) => {
+      const target = e.target as HTMLInputElement;
+      const file = target?.files?.[0];
+      if (!file) return;
+
+      try {
+        const base64 = await processFaviconImage(file);
+        syncFaviconState(base64);
+      } catch (err) {
+        console.error(err);
+      }
+
+      tabFaviconFileInput.value = '';
+    });
+  }
+
+  if (toggleAppearance) {
+    toggleAppearance.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      accentColorEnabled = target.checked;
+
+      if (!accentColorEnabled) {
+        syncTabNameState('');
+        syncFaviconState('');
+      } else {
+        applyTabCustomization();
+      }
+    });
+  }
+}
+
 function applyInitialWallpaperState() {
   if (toggleWallpaper) {
     toggleWallpaper.checked = wallpaperEnabled;
@@ -1978,6 +2115,28 @@ function getLocalPreferencesSnapshot(): Record<string, string> {
     if (value !== null) snapshot[key] = value;
   });
   return snapshot;
+}
+
+async function processFaviconImage(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 128;
+        canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return reject(new Error());
+        ctx.drawImage(img, 0, 0, 128, 128);
+        resolve(canvas.toDataURL('image/png'));
+      };
+      img.onerror = reject;
+      img.src = String((e.target as FileReader).result || '');
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 }
 
 async function persistPreferencesBackup(): Promise<void> {
@@ -2263,7 +2422,7 @@ async function initCritical() {
 
   bindAccentColorFeature({
     applyInitialAccentState: applyInitialAccentColorState,
-    toggleAccentColor,
+    toggleAppearance,
     accentColorOptions,
     setCollapsibleFn: setCollapsible,
     accentPresetsRow,
@@ -2347,6 +2506,8 @@ function initVisual() {
   updateCompactBarStyle();
 
   updateAskAiBtnVisibility();
+
+  initTabCustomization();
 }
 
 function initFolderCustomIconToggle(): void {

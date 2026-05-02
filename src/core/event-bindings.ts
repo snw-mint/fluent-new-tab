@@ -174,7 +174,7 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
 
 interface AccentColorBindingOptions {
   applyInitialAccentState: () => void;
-  toggleAccentColor: HTMLInputElement | null;
+  toggleAppearance: HTMLInputElement | null;
   accentColorOptions: HTMLDivElement | null;
   setCollapsibleFn: (
     element: HTMLElement | null,
@@ -222,8 +222,8 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     }
   }
 
-  if (options.toggleAccentColor) {
-    options.toggleAccentColor.addEventListener('change', (event) => {
+  if (options.toggleAppearance) {
+    options.toggleAppearance.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
 

@@ -26,7 +26,7 @@ const toggleDisableAnimations = getById<HTMLInputElement>(
 const toggleDisableBlur = getById<HTMLInputElement>('toggleDisableBlur');
 const toggleReducedEffects = getById<HTMLInputElement>('toggleReducedEffects');
 const reducedEffectsOptions = getById<HTMLDivElement>('reducedEffectsOptions');
-const toggleAccentColor = getById<HTMLInputElement>('toggleAccentColor');
+const toggleAppearance = getById<HTMLInputElement>('toggleAppearance');
 const accentMoreSetting = getById<HTMLDivElement>('accentMoreSetting');
 const accentMoreBtn = getById<HTMLDivElement>('accent-more-btn');
 const accentMoreContainer = getById<HTMLDivElement>('accent-more-container');
@@ -158,3 +158,8 @@ const overlaySlider = getById<HTMLInputElement>('wallpaper-overlay-slider');
 const askAiBtn = getById<HTMLButtonElement>('askAiBtn');
 const toggleAskAi = getById<HTMLInputElement>('toggleAskAi');
 const askAiRow = getById<HTMLDivElement>('askAiRow');
+
+const tabNameInput = getById<HTMLInputElement>('tabNameInput');
+const tabFaviconInput = getById<HTMLInputElement>('tabFaviconInput');
+const tabFaviconUploadBtn = getById<HTMLButtonElement>('tabFaviconUploadBtn');
+const tabFaviconFileInput = getById<HTMLInputElement>('tabFaviconFileInput');
