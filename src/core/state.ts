@@ -32,12 +32,10 @@ if (shortcutRadius !== '0') {
   let radiusValue = '';
 
   if (valNum === 0) {
-    radiusValue = '0.875rem'; // $radius-xl
+    radiusValue = '0.875rem';
   } else if (valNum > 0) {
-    // 1 to 100 maps from 0.875rem to 50%
     radiusValue = `calc(0.875rem + ((50% - 0.875rem) * (${valNum} / 100)))`;
   } else {
-    // -1 to -100 maps from 0.875rem down to 0.2rem (minimum border-radius so it's not 0)
     radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
   }
 
@@ -100,3 +98,12 @@ let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
 let askAiMode = false;
 let sfxMicInstance: HTMLAudioElement | null = null;
 let sfxAskAiInstance: HTMLAudioElement | null = null;
+
+let displayScale = parseInt(localStorage.getItem('displayScale') || '100');
+
+if (displayScale !== 100) {
+  document.documentElement.style.setProperty(
+    '--display-scale',
+    `${displayScale / 100}`,
+  );
+}

@@ -2438,6 +2438,11 @@ function initAllEventBindings() {
     subGreeting,
     subTime,
     subDate,
+    displayScaleSlider,
+    getDisplayScale: () => displayScale,
+    setDisplayScale: (scale: number) => {
+      displayScale = scale;
+    },
   });
 
   bindShortcutRadiusFeature({

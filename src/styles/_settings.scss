@@ -827,3 +827,7 @@ body:not([data-wallpaper-active='true']) {
     transform: scale(0.98);
   }
 }
+
+div#subDate {
+  margin-bottom: 0.6rem;
+}

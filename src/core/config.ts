@@ -243,4 +243,5 @@ const APP_KEYS: string[] = [
   'shortcutRadius',
   'hideShortcutNames',
   'wallpaperOverlay',
+  'displayScale',
 ];

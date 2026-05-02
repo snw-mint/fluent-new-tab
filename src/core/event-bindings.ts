@@ -645,6 +645,9 @@ interface DisplayBindingOptions {
   subGreeting: HTMLDivElement | null;
   subTime: HTMLDivElement | null;
   subDate: HTMLDivElement | null;
+  displayScaleSlider: HTMLInputElement | null;
+  getDisplayScale: () => number;
+  setDisplayScale: (scale: number) => void;
 }
 
 interface ShortcutRadiusBindingOptions {
@@ -672,6 +675,34 @@ function bindDisplayFeature(options: DisplayBindingOptions): void {
         options.displaySliderContainer!.style.maxHeight = '';
       }
     });
+  }
+  if (options.displayScaleSlider) {
+    const slider = options.displayScaleSlider;
+    slider.value = String(options.getDisplayScale());
+    updateSliderProgress(slider);
+
+    slider.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement;
+      updateSliderProgress(target);
+      document.documentElement.style.setProperty(
+        '--display-scale',
+        `${parseInt(target.value) / 100}`,
+      );
+    });
+
+    slider.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      const value = parseInt(target.value);
+      options.setDisplayScale(value);
+      localStorage.setItem('displayScale', String(value));
+    });
+
+    function updateSliderProgress(slider: HTMLInputElement) {
+      const min = parseInt(slider.min);
+      const max = parseInt(slider.max);
+      const progress = ((parseInt(slider.value) - min) / (max - min)) * 100;
+      slider.style.setProperty('--slider-progress', `${progress}%`);
+    }
   }
 }
 

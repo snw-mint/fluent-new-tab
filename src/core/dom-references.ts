@@ -80,6 +80,7 @@ const displayToggleBtn = getById<HTMLDivElement>('display-toggle-btn');
 const displaySliderContainer = getById<HTMLDivElement>(
   'display-slider-container',
 );
+const displayScaleSlider = getById<HTMLInputElement>('displayScaleSlider');
 const subGreeting = getById<HTMLDivElement>('subGreeting');
 const subTime = getById<HTMLDivElement>('subTime');
 const subDate = getById<HTMLDivElement>('subDate');

@@ -23,6 +23,8 @@
 }
 
 .logo-wrapper {
+  transform: scale(var(--display-scale));
+  transform-origin: center center;
   @include flex-center(0.75rem);
   margin-bottom: 1.5rem;
 }
