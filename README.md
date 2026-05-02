@@ -29,13 +29,16 @@ More details on the [official website.](https://snw-mint.github.io/fluent-new-ta
 
 The easiest option is the official store, with automatic updates.
 
+> [!IMPORTANT]
+> **Regarding Chrome "Not Trusted" warning:** This is a standard Google policy for new developers. It does NOT mean the extension is unsafe. As an open-source project, our code is transparent and can be audited anytime.
+
 [![Edge](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-edge.png)](https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc)
 [![Chrome](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-chrome.png)](https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/)
 [![Firefox](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/)
 [![Github](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-github.png)](https://github.com/snw-mint/fluent-new-tab/releases)
 
-> [!NOTE]  
-> Updates to Microsoft add-ons may take up to 7 business days to become available after a release.
+> [!NOTE]
+> **Edge Add-ons delay:** Microsoft's manual review can take up to 7 business days. This is why the Edge-specific store version may lag behind other platforms.
 
 ### Manual installation
 
@@ -92,6 +95,9 @@ Contributions are welcome.
 - Developers: read the [Developer Guide](CONTRIBUTING.md).
 
 ## License and legal notice
+
+> [!IMPORTANT]  
+> "Fluent New Tab" is a strictly non-profit, open-source project. We do not accept paid promotions, data partnerships, or advertising offers. Please do not send unsolicited business inquiries.
 
 This project is licensed under the [GPL-3.0 License](https://github.com/snw-mint/fluent-new-tab/blob/main/LICENSE). By using or modifying this extension, you agree to our [Terms of Use](https://snw-mint.github.io/fluent-new-tab/terms.html).
 
