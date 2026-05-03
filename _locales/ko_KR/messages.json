@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "이미지 오버레이"
   },
-  "accentColorTitle": {
-    "message": "포인트 컬러"
+  "appearanceTitle": {
+    "message": "외관"
   },
   "accentWallpaperOption": {
     "message": "배경화면에서 가져오기"
+  },
+  "tabNameLabel": {
+    "message": "탭 이름"
+  },
+  "tabFaviconLabel": {
+    "message": "탭 아이콘"
   },
   "styleNone": {
     "message": "없음"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "날씨"
+  },
+  "useFahrenheitLabel": {
+    "message": "화씨 단위 사용"
   },
   "shortcutsTitle": {
     "message": "바로가기"
