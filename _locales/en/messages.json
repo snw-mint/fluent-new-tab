@@ -24,6 +24,7 @@
   "dateNumeric": { "message": "Numeric" },
   "dateWeekday": { "message": "Weekday" },
   "weatherTitle": { "message": "Weather" },
+  "useFahrenheitLabel": { "message": "Use Fahrenheit" },
   "shortcutsTitle": { "message": "Shortcuts" },
   "enableFoldersLabel": { "message": "Enable Folders" },
   "hideShortcutNamesLabel": { "message": "Hide Names" },
