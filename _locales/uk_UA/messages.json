@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Накладення зображення"
   },
-  "accentColorTitle": {
-    "message": "Акцентний колір"
+  "appearanceTitle": {
+    "message": "Зовнішній вигляд"
   },
   "accentWallpaperOption": {
     "message": "Витягти зі шпалер"
+  },
+  "tabNameLabel": {
+    "message": "Назва вкладки"
+  },
+  "tabFaviconLabel": {
+    "message": "Значок вкладки"
   },
   "styleNone": {
     "message": "Немає"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Погода"
+  },
+  "useFahrenheitLabel": {
+    "message": "Використовуйте Фаренгейт"
   },
   "shortcutsTitle": {
     "message": "Ярлики"
