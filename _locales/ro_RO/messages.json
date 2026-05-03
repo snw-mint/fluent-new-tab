@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Suprapunere imagine"
   },
-  "accentColorTitle": {
-    "message": "Culoare de accent"
+  "appearanceTitle": {
+    "message": "Aspect"
   },
   "accentWallpaperOption": {
     "message": "Extrage din tapet"
+  },
+  "tabNameLabel": {
+    "message": "Numele filei"
+  },
+  "tabFaviconLabel": {
+    "message": "Pictograma filei"
   },
   "styleNone": {
     "message": "Niciuna"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Vremea"
+  },
+  "useFahrenheitLabel": {
+    "message": "Folosiți Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Căi rapide"

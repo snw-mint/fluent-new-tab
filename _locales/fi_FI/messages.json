@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Kuvan peitto"
   },
-  "accentColorTitle": {
-    "message": "Korostusväri"
+  "appearanceTitle": {
+    "message": "Ulkonäkö"
   },
   "accentWallpaperOption": {
     "message": "Poimi taustakuvasta"
+  },
+  "tabNameLabel": {
+    "message": "Välilehden nimi"
+  },
+  "tabFaviconLabel": {
+    "message": "Välilehtikuvake"
   },
   "styleNone": {
     "message": "Ei mitään"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Sää"
+  },
+  "useFahrenheitLabel": {
+    "message": "Käytä Fahrenheit-asteita"
   },
   "shortcutsTitle": {
     "message": "Pikakuvakkeet"

@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
   },
-  "accentColorTitle": {
-    "message": "Χρώμα έμφασης"
+  "appearanceTitle": {
+    "message": "Εμφάνιση"
   },
   "accentWallpaperOption": {
     "message": "Εξαγωγή από την ταπετσαρία"
+  },
+  "tabNameLabel": {
+    "message": "Όνομα καρτέλας"
+  },
+  "tabFaviconLabel": {
+    "message": "Εικονίδιο καρτέλας"
   },
   "styleNone": {
     "message": "Κανένα"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Καιρός"
+  },
+  "useFahrenheitLabel": {
+    "message": "Χρησιμοποιήστε Φαρενάιτ"
   },
   "shortcutsTitle": {
     "message": "Συντομεύσεις"

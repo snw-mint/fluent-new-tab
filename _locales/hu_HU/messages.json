@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Kép átfedés"
   },
-  "accentColorTitle": {
-    "message": "Kiemelő szín"
+  "appearanceTitle": {
+    "message": "Megjelenés"
   },
   "accentWallpaperOption": {
     "message": "Kinyerés a háttérképből"
+  },
+  "tabNameLabel": {
+    "message": "Fül neve"
+  },
+  "tabFaviconLabel": {
+    "message": "Fül ikon"
   },
   "styleNone": {
     "message": "Nincs"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Időjárás"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit-skálát használjon"
   },
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"

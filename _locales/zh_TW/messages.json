@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "影像疊加"
   },
-  "accentColorTitle": {
-    "message": "點綴色"
+  "appearanceTitle": {
+    "message": "外觀"
   },
   "accentWallpaperOption": {
     "message": "從桌布擷取"
+  },
+  "tabNameLabel": {
+    "message": "標籤名稱"
+  },
+  "tabFaviconLabel": {
+    "message": "標籤圖示"
   },
   "styleNone": {
     "message": "無"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "天氣"
+  },
+  "useFahrenheitLabel": {
+    "message": "使用華氏度"
   },
   "shortcutsTitle": {
     "message": "捷徑"

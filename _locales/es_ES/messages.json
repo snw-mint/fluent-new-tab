@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Superposición de imágenes"
   },
-  "accentColorTitle": {
-    "message": "Color de contraste"
+  "appearanceTitle": {
+    "message": "Apariencia"
   },
   "accentWallpaperOption": {
     "message": "Extraer del fondo de pantalla"
+  },
+  "tabNameLabel": {
+    "message": "Nombre de la pestaña"
+  },
+  "tabFaviconLabel": {
+    "message": "Icono de pestaña"
   },
   "styleNone": {
     "message": "Ninguno"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Clima"
+  },
+  "useFahrenheitLabel": {
+    "message": "Utiliza grados Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Atajos"

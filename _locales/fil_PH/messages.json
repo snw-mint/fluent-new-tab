@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Image Overlay"
   },
-  "accentColorTitle": {
-    "message": "Accent Color"
+  "appearanceTitle": {
+    "message": "Appearance"
   },
   "accentWallpaperOption": {
     "message": "Kunin sa wallpaper"
+  },
+  "tabNameLabel": {
+    "message": "Pangalan ng Tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Tab Icon"
   },
   "styleNone": {
     "message": "Wala"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Panahon"
+  },
+  "useFahrenheitLabel": {
+    "message": "Gamitin ang Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Mga Shortcut"

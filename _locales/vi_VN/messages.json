@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
   },
-  "accentColorTitle": {
-    "message": "Màu nhấn"
+  "appearanceTitle": {
+    "message": "Hình thức"
   },
   "accentWallpaperOption": {
     "message": "Trích xuất từ hình nền"
+  },
+  "tabNameLabel": {
+    "message": "Tên tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Biểu tượng tab"
   },
   "styleNone": {
     "message": "Không có"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Thời tiết"
+  },
+  "useFahrenheitLabel": {
+    "message": "Sử dụng độ Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Lối tắt"
