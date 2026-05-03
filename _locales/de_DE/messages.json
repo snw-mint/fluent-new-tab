@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Uhrzeit und Datum"
   },
+  "displayScaleLabel": {
+    "message": "Anzeigeanpassung"
+  },
   "showSecondsLabel": {
     "message": "Sekunden anzeigen"
   },
