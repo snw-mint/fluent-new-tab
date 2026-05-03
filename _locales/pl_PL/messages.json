@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Nakładka obrazu"
   },
-  "accentColorTitle": {
-    "message": "Kolor akcentujący"
+  "appearanceTitle": {
+    "message": "Wygląd"
   },
   "accentWallpaperOption": {
     "message": "Wyodrębnij z tapety"
+  },
+  "tabNameLabel": {
+    "message": "Nazwa zakładki"
+  },
+  "tabFaviconLabel": {
+    "message": "Ikona zakładki"
   },
   "styleNone": {
     "message": "Brak"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Pogoda"
+  },
+  "useFahrenheitLabel": {
+    "message": "Użyj stopni Fahrenheita"
   },
   "shortcutsTitle": {
     "message": "Skróty"
