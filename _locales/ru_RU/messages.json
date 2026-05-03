@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Время и дата"
   },
+  "displayScaleLabel": {
+    "message": "Изменить размер экрана"
+  },
   "showSecondsLabel": {
     "message": "Показать секунды"
   },
