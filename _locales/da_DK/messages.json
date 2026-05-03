@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Tid og dato"
   },
+  "displayScaleLabel": {
+    "message": "Tilpas skærmstørrelse"
+  },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },
