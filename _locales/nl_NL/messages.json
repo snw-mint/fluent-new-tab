@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Afbeeldingsoverlay"
   },
-  "accentColorTitle": {
-    "message": "Accentkleur"
+  "appearanceTitle": {
+    "message": "Uiterlijk"
   },
   "accentWallpaperOption": {
     "message": "Extraheren uit achtergrond"
+  },
+  "tabNameLabel": {
+    "message": "Tabbladnaam"
+  },
+  "tabFaviconLabel": {
+    "message": "Tabbladpictogram"
   },
   "styleNone": {
     "message": "Geen"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Weer"
+  },
+  "useFahrenheitLabel": {
+    "message": "Gebruik Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Snelkoppelingen"
