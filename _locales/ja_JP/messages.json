@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "日時"
   },
+  "displayScaleLabel": {
+    "message": "表示サイズを変更"
+  },
   "showSecondsLabel": {
     "message": "秒を表示"
   },
