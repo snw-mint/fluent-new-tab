@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Billedoverlay"
   },
-  "accentColorTitle": {
-    "message": "Accentfarve"
+  "appearanceTitle": {
+    "message": "Udseende"
   },
   "accentWallpaperOption": {
     "message": "Hent fra baggrund"
+  },
+  "tabNameLabel": {
+    "message": "Fanebladets navn"
+  },
+  "tabFaviconLabel": {
+    "message": "Faneblad-ikon"
   },
   "styleNone": {
     "message": "Ingen"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Vejret"
+  },
+  "useFahrenheitLabel": {
+    "message": "Brug Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Genveje"
