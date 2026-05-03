@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Наложение изображения"
   },
-  "accentColorTitle": {
-    "message": "Акцентный цвет"
+  "appearanceTitle": {
+    "message": "Внешний вид"
   },
   "accentWallpaperOption": {
     "message": "Извлечь из обоев"
+  },
+  "tabNameLabel": {
+    "message": "Название вкладки"
+  },
+  "tabFaviconLabel": {
+    "message": "Значок вкладки"
   },
   "styleNone": {
     "message": "Нет"
@@ -63,10 +69,13 @@
     "message": "Числовой"
   },
   "dateWeekday": {
-    "message": "будний день"
+    "message": "День недели"
   },
   "weatherTitle": {
     "message": "Погода"
+  },
+  "useFahrenheitLabel": {
+    "message": "Используйте градусы по Фаренгейту"
   },
   "shortcutsTitle": {
     "message": "Ярлыки"
