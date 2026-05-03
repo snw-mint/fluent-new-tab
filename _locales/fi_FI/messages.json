@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Aika ja päivämäärä"
   },
+  "displayScaleLabel": {
+    "message": "Muuta näytön kokoa"
+  },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },
