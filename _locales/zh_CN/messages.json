@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "时间与日期"
   },
+  "displayScaleLabel": {
+    "message": "调整显示大小"
+  },
   "showSecondsLabel": {
     "message": "显示秒"
   },
