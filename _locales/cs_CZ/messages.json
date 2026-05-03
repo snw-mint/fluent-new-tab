@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Čas a datum"
   },
+  "displayScaleLabel": {
+    "message": "Změnit velikost zobrazení"
+  },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },
