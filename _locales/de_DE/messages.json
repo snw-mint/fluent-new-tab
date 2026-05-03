@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Bildüberlagerung"
   },
-  "accentColorTitle": {
-    "message": "Akzentfarbe"
+  "appearanceTitle": {
+    "message": "Aussehen"
   },
   "accentWallpaperOption": {
     "message": "Aus Hintergrundbild extrahieren"
+  },
+  "tabNameLabel": {
+    "message": "Registerkartenbezeichnung"
+  },
+  "tabFaviconLabel": {
+    "message": "Registerkartensymbol"
   },
   "styleNone": {
     "message": "Keiner"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Wetter"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit verwenden"
   },
   "shortcutsTitle": {
     "message": "Verknüpfungen"
