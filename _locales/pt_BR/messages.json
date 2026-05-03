@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Sobreposição de imagem"
   },
-  "accentColorTitle": {
-    "message": "Cor de destaque"
+  "appearanceTitle": {
+    "message": "Aparência"
   },
   "accentWallpaperOption": {
     "message": "Extrair do papel de parede"
+  },
+  "tabNameLabel": {
+    "message": "Nome da guia"
+  },
+  "tabFaviconLabel": {
+    "message": "Ícone da guia"
   },
   "styleNone": {
     "message": "Nenhum"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Clima"
+  },
+  "useFahrenheitLabel": {
+    "message": "Usar Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Atalhos"
