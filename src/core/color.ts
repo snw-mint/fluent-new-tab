@@ -112,7 +112,7 @@ function applyInitialAccentColorState(): void {
   }
   if (toggleAccentWallpaper)
     toggleAccentWallpaper.checked = accentColorMode === 'auto';
-  if (toggleAccentSurfaces) toggleAccentSurfaces.checked = accentColorSurfaces;
+
   const colorToApply = accentColorEnabled
     ? accentColorValue
     : DEFAULT_ACCENT_COLOR;

@@ -18,9 +18,7 @@ interface WeatherBindingOptions {
   setWeatherEnabled: (enabled: boolean) => void;
   updateWeatherVisibility: (animate?: boolean) => void;
   initWeather: () => void;
-  unitBtns: NodeListOf<HTMLButtonElement>;
   setWeatherUnit: (unit: WeatherUnit) => void;
-  updateUnitButtons: () => void;
   saveCityBtn: HTMLButtonElement | null;
   cityInput: HTMLInputElement | null;
   searchCity: () => void;
@@ -248,13 +246,6 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
             `[data-color="${currentSavedColor}"]`,
           );
           if (presetBtn) presetBtn.classList.add('selected');
-        }
-        const toggleSurfaces = document.getElementById(
-          'toggleAccentSurfaces',
-        ) as HTMLInputElement | null;
-        if (toggleSurfaces && toggleSurfaces.checked) {
-          toggleSurfaces.checked = false;
-          localStorage.setItem('accentColorSurfaces', 'false');
         }
       }
 

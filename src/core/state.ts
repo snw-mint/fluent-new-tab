@@ -60,8 +60,6 @@ const savedBlurDisabled = localStorage.getItem('blurDisabled');
 let blurDisabled = savedBlurDisabled === 'true';
 let reducedEffectsEnabled =
   localStorage.getItem('reducedEffectsEnabled') !== 'false';
-const savedReducedEffectsEnabled = localStorage.getItem('reduceEffectsEnabled');
-let reduceEffectsEnabled = savedReducedEffectsEnabled !== 'false';
 
 const CACHE_KEY = 'fluent_weather_cache';
 const CITY_KEY = 'fluent_city_data';
@@ -92,8 +90,7 @@ let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
 let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
 let accentColorValue = localStorage.getItem('accentColorValue') || '#0078d4';
-let accentColorSurfaces =
-  localStorage.getItem('accentColorSurfaces') === 'true';
+
 let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
 let askAiMode = false;
 let sfxMicInstance: HTMLAudioElement | null = null;

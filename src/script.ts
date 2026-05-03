@@ -3105,8 +3105,6 @@ function initAllEventBindings() {
     },
     updateWeatherVisibility,
     initWeather,
-    unitBtns,
-    updateUnitButtons: () => {},
     setWeatherUnit: (unit) => {
       weatherUnit = unit;
     },

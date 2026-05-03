@@ -175,4 +175,4 @@ interface WallpaperCacheEntry {
 type ThemeMode = 'light' | 'dark' | 'auto';
 type WeatherUnit = 'c' | 'f';
 type WallpaperSource = 'local' | 'api';
-type WallpaperType = 'upload' | 'upload' | 'bing' | 'nasa' | 'wikimedia';
+type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia';
