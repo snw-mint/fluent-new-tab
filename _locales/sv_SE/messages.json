@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Bildöverlägg"
   },
-  "accentColorTitle": {
-    "message": "Accentfärg"
+  "appearanceTitle": {
+    "message": "Utseende"
   },
   "accentWallpaperOption": {
     "message": "Extrahera från bakgrund"
+  },
+  "tabNameLabel": {
+    "message": "Fliknamn"
+  },
+  "tabFaviconLabel": {
+    "message": "Flikikon"
   },
   "styleNone": {
     "message": "Inget"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Väder"
+  },
+  "useFahrenheitLabel": {
+    "message": "Använd Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Genvägar"
