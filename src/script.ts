@@ -346,6 +346,7 @@ function saveAndRender(): void {
   localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
   renderShortcuts();
 }
+
 function deleteShortcut(index: number): void {
   const targetArray = getActiveShortcutsList();
   const item = targetArray[index];
@@ -694,20 +695,25 @@ function renderSuggestions(suggestions: string[]): void {
     clearSuggestions,
   );
 }
+
 function clearSuggestions(): void {
   clearSuggestionsUI(suggestionsContainer, searchWrapper);
 }
+
 function updateSelection(items: HTMLElement[], index: number): void {
   updateSuggestionSelectionUI(items, index, searchInput);
 }
+
 function updateWeatherVisibility(animate = true): void {
   if (!weatherWidget || !cityInputGroup) return;
   const displayStyle = weatherEnabled ? 'flex' : 'none';
   weatherWidget.style.display = displayStyle;
   setCollapsible(cityInputGroup, weatherEnabled, animate);
-  if (weatherUnitGroup)
-    setCollapsible(weatherUnitGroup, weatherEnabled, animate);
+  const weatherMoreSetting = document.getElementById('weatherMoreSetting');
+  if (weatherMoreSetting)
+    setCollapsible(weatherMoreSetting, weatherEnabled, animate);
 }
+
 function renderWeather(data: WeatherApiResponse | null): void {
   renderWeatherWidget(data, weatherUnit, currentCityData, {
     weatherCity,
@@ -716,6 +722,7 @@ function renderWeather(data: WeatherApiResponse | null): void {
     weatherWidget,
   });
 }
+
 function updateLauncherVisibility(animate = true): void {
   updateLauncherVisibilityUI(
     launcherEnabled,
@@ -727,6 +734,7 @@ function updateLauncherVisibility(animate = true): void {
     setCollapsible,
   );
 }
+
 function updateReducedEffectsVisibility(
   enabled: boolean,
   animate = true,
@@ -803,9 +811,11 @@ function updateDisplaySubSettingsUI(preset: string): void {
     if (subDate) subDate.style.display = 'block';
   }
 }
+
 function updateAnimationsDisabled(enabled: boolean): void {
   document.body.classList.toggle('animations-disabled', enabled);
 }
+
 function updateBlurDisabled(enabled: boolean): void {
   document.body.classList.toggle('blur-reduced', enabled);
 }
@@ -1210,10 +1220,12 @@ function fetchSuggestions(query: string): void {
     renderSuggestions(suggestions);
   });
 }
+
 function updateGoogleParams() {
   const currentEngine = localStorage.getItem('searchEngine') || 'bing';
   applyGoogleSearchParams(searchForm, currentEngine, clearSearchEnabled);
 }
+
 async function searchCity(): Promise<void> {
   if (!cityInput || !saveCityBtn) return;
   const query = cityInput.value.trim();
@@ -1251,6 +1263,7 @@ function deriveShortcutNameFromUrl(rawUrl: string): string {
     return 'New Shortcut';
   }
 }
+
 function showGridLimitWarning(
   currentLimit: number,
   isFolderGrid: boolean,
@@ -1602,6 +1615,7 @@ async function fetchWeatherFromAPI(forceUpdate = false): Promise<void> {
     if (weatherTemp) weatherTemp.textContent = '--';
   }
 }
+
 function renderLauncher(providerKey: keyof typeof launcherData): void {
   renderLauncherApps(launcherData[providerKey], {
     launcherGrid,
@@ -1824,15 +1838,18 @@ function updateCreditsUI(
     creditsContainer.classList.remove('hidden');
   }
 }
+
 function applyInitialSearchEngine() {
   setSearchEngine(savedEngine);
 }
+
 function applyInitialShortcutsVisibility() {
   if (toggleShortcuts) {
     toggleShortcuts.checked = shortcutsVisible;
     updateShortcutsVisibility(shortcutsVisible, false);
   }
 }
+
 function applyInitialFoldersSetting() {
   if (toggleFolders) toggleFolders.checked = foldersEnabled;
   updateLauncherFooterVariant();
@@ -1843,17 +1860,20 @@ function applyInitialSearchBarVisibility() {
     toggleSearchBar.checked = searchBarVisible;
   }
 }
+
 function applyInitialSuggestionsActive() {
   if (toggleSuggestions) {
     toggleSuggestions.checked = suggestionsActive;
   }
 }
+
 function applyInitialClearSearch() {
   if (toggleClearSearch) {
     toggleClearSearch.checked = clearSearchEnabled;
   }
   updateGoogleParams();
 }
+
 function applyInitialReducedEffectsState() {
   updateReducedEffectsVisibility(reducedEffectsEnabled, false);
 
@@ -1872,29 +1892,35 @@ function applyInitialReducedEffectsState() {
     }
   }
 }
+
 function applyInitialVoiceSearch() {
   if (toggleVoiceSearch) {
     toggleVoiceSearch.checked = voiceSearchEnabled;
   }
   updateVoiceSearchAvailability();
 }
+
 function applyInitialAnimationsDisabled() {
   if (toggleDisableAnimations) {
     toggleDisableAnimations.checked = animationsDisabled;
   }
   updateAnimationsDisabled(animationsDisabled);
 }
+
 function applyInitialBlurDisabled() {
   if (toggleDisableBlur) {
     toggleDisableBlur.checked = blurDisabled;
   }
   updateBlurDisabled(blurDisabled);
 }
+
 function applyInitialWeatherState() {
   if (cityInput) cityInput.value = currentCityData.name;
+  if (toggleFahrenheit) toggleFahrenheit.checked = weatherUnit === 'f';
   updateWeatherVisibility(false);
   if (weatherEnabled) initWeather();
 }
+
 function applyInitialLauncherState() {
   if (toggleLauncher) toggleLauncher.checked = launcherEnabled;
   if (launcherProvider) launcherProvider.value = currentProvider;
