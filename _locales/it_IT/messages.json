@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Sovrapposizione immagine"
   },
-  "accentColorTitle": {
-    "message": "Colore di accento"
+  "appearanceTitle": {
+    "message": "Aspetto"
   },
   "accentWallpaperOption": {
     "message": "Estrai dallo sfondo"
+  },
+  "tabNameLabel": {
+    "message": "Nome scheda"
+  },
+  "tabFaviconLabel": {
+    "message": "Icona della scheda"
   },
   "styleNone": {
     "message": "Nessuno"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Meteo"
+  },
+  "useFahrenheitLabel": {
+    "message": "Usa i gradi Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Scorciatoie"
