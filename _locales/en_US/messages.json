@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Image Overlay"
   },
-  "accentColorTitle": {
-    "message": "Accent Color"
+  "appearanceTitle": {
+    "message": "Appearance"
   },
   "accentWallpaperOption": {
     "message": "Get from wallpaper"
+  },
+  "tabNameLabel": {
+    "message": "Tab Name"
+  },
+  "tabFaviconLabel": {
+    "message": "Tab Icon"
   },
   "styleNone": {
     "message": "None"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Weather"
+  },
+  "useFahrenheitLabel": {
+    "message": "Use Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Shortcuts"
