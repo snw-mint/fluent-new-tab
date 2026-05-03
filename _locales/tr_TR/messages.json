@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Saat ve Tarih"
   },
+  "displayScaleLabel": {
+    "message": "Ekran Boyutunu Değiştir"
+  },
   "showSecondsLabel": {
     "message": "Saniyeleri göster"
   },
