@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Překrytí obrázku"
   },
-  "accentColorTitle": {
-    "message": "Barva zvýraznění"
+  "appearanceTitle": {
+    "message": "Vzhled"
   },
   "accentWallpaperOption": {
     "message": "Extrahovat z tapety"
+  },
+  "tabNameLabel": {
+    "message": "Název záložky"
+  },
+  "tabFaviconLabel": {
+    "message": "Ikona záložky"
   },
   "styleNone": {
     "message": "Žádné"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Počasí"
+  },
+  "useFahrenheitLabel": {
+    "message": "Použijte stupně Fahrenheita"
   },
   "shortcutsTitle": {
     "message": "Zkratky"
