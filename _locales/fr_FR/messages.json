@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Superposition d'images"
   },
-  "accentColorTitle": {
-    "message": "Couleur d'accent"
+  "appearanceTitle": {
+    "message": "Aspect"
   },
   "accentWallpaperOption": {
     "message": "Extraire du fond d'écran"
+  },
+  "tabNameLabel": {
+    "message": "Nom de l'onglet"
+  },
+  "tabFaviconLabel": {
+    "message": "Icône d'onglet"
   },
   "styleNone": {
     "message": "Aucun"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Météo"
+  },
+  "useFahrenheitLabel": {
+    "message": "Utiliser les degrés Fahrenheit"
   },
   "shortcutsTitle": {
     "message": "Raccourcis"
