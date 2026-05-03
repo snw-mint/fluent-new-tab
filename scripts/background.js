@@ -124,3 +124,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     );
   }
 });
+
+chrome.action.onClicked.addListener(() => {
+  chrome.tabs.create({});
+});

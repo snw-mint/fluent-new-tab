@@ -11,6 +11,9 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "action": {
+    "default_icon": "assets/icon-48.png"
+  },
   "background": {
     "service_worker": "scripts/background.js"
   },
