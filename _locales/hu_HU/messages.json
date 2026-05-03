@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Idő és dátum"
   },
+  "displayScaleLabel": {
+    "message": "A kijelző méretének módosítása"
+  },
   "showSecondsLabel": {
     "message": "Másodpercek megjelenítése"
   },
