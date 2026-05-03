@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "Görüntü Kaplaması"
   },
-  "accentColorTitle": {
-    "message": "Vurgu Rengi"
+  "appearanceTitle": {
+    "message": "Görünüm"
   },
   "accentWallpaperOption": {
     "message": "Duvar kağıdından çıkar"
+  },
+  "tabNameLabel": {
+    "message": "Sekme Adı"
+  },
+  "tabFaviconLabel": {
+    "message": "Sekme Simgesi"
   },
   "styleNone": {
     "message": "Yok"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "Hava durumu"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit kullanın"
   },
   "shortcutsTitle": {
     "message": "Kısayollar"
