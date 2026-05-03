@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Tid och datum"
   },
+  "displayScaleLabel": {
+    "message": "Ändra skärmstorlek"
+  },
   "showSecondsLabel": {
     "message": "Visa sekunder"
   },

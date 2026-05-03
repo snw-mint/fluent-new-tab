@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Thời gian & Ngày tháng"
   },
+  "displayScaleLabel": {
+    "message": "Điều chỉnh kích thước màn hình"
+  },
   "showSecondsLabel": {
     "message": "Hiển thị giây"
   },

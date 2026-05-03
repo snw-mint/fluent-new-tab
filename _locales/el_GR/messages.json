@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Ώρα & Ημερομηνία"
   },
+  "displayScaleLabel": {
+    "message": "Αλλαγή μεγέθους οθόνης"
+  },
   "showSecondsLabel": {
     "message": "Εμφάνιση δευτερολέπτων"
   },

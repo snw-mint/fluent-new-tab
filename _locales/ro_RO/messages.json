@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Ora și data"
   },
+  "displayScaleLabel": {
+    "message": "Redimensionare afișaj"
+  },
   "showSecondsLabel": {
     "message": "Afișează secundele"
   },

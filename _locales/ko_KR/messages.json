@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "시간 및 날짜"
   },
+  "displayScaleLabel": {
+    "message": "화면 크기 조정"
+  },
   "showSecondsLabel": {
     "message": "초 표시"
   },

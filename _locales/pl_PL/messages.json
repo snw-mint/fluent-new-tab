@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Godzina i data"
   },
+  "displayScaleLabel": {
+    "message": "Zmień rozmiar wyświetlacza"
+  },
   "showSecondsLabel": {
     "message": "Pokaż sekundy"
   },

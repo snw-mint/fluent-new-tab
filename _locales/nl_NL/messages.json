@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Tijd en datum"
   },
+  "displayScaleLabel": {
+    "message": "Weergave aanpassen"
+  },
   "showSecondsLabel": {
     "message": "Seconden weergeven"
   },

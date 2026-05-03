@@ -53,6 +53,9 @@
   "displayAdvanced": {
     "message": "Oras & Date"
   },
+  "displayScaleLabel": {
+    "message": "Resize Display"
+  },
   "showSecondsLabel": {
     "message": "Ipakita ang seconds"
   },
