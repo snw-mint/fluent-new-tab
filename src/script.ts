@@ -700,13 +700,6 @@ function clearSuggestions(): void {
 function updateSelection(items: HTMLElement[], index: number): void {
   updateSuggestionSelectionUI(items, index, searchInput);
 }
-function updateUnitButtons(): void {
-  if (!unitBtns) return;
-  unitBtns.forEach((btn) => {
-    if (btn.dataset.unit === weatherUnit) btn.classList.add('active');
-    else btn.classList.remove('active');
-  });
-}
 function updateWeatherVisibility(animate = true): void {
   if (!weatherWidget || !cityInputGroup) return;
   const displayStyle = weatherEnabled ? 'flex' : 'none';
@@ -1606,7 +1599,7 @@ async function fetchWeatherFromAPI(forceUpdate = false): Promise<void> {
     );
     renderWeather(data);
   } catch (error) {
-    weatherTemp.textContent = '--';
+    if (weatherTemp) weatherTemp.textContent = '--';
   }
 }
 function renderLauncher(providerKey: keyof typeof launcherData): void {
@@ -1900,7 +1893,6 @@ function applyInitialBlurDisabled() {
 function applyInitialWeatherState() {
   if (cityInput) cityInput.value = currentCityData.name;
   updateWeatherVisibility(false);
-  updateUnitButtons();
   if (weatherEnabled) initWeather();
 }
 function applyInitialLauncherState() {
@@ -2620,6 +2612,25 @@ function initAllEventBindings() {
     },
   });
 
+  const weatherMoreBtn = document.getElementById('weather-more-btn');
+  const weatherMoreContainer = document.getElementById(
+    'weather-more-container',
+  );
+  if (weatherMoreBtn && weatherMoreContainer) {
+    weatherMoreBtn.addEventListener('click', () => {
+      const isCollapsed = weatherMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        weatherMoreContainer.classList.remove('collapsed');
+        weatherMoreBtn.classList.add('expanded');
+        weatherMoreContainer.style.maxHeight = '500px';
+      } else {
+        weatherMoreContainer.classList.add('collapsed');
+        weatherMoreBtn.classList.remove('expanded');
+        weatherMoreContainer.style.maxHeight = '';
+      }
+    });
+  }
+
   if (displayTypeSelect) {
     const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
     displayTypeSelect.value = savedPreset;
@@ -2985,8 +2996,6 @@ function initAllEventBindings() {
     });
   }
 
-  const toggleCompact = getById<HTMLInputElement>('toggleCompactBar');
-
   bindSearchFeature({
     applyInitialSearchEngine,
     engineBtn,
@@ -3071,13 +3080,15 @@ function initAllEventBindings() {
     updateWeatherVisibility,
     initWeather,
     unitBtns,
+    updateUnitButtons: () => {},
     setWeatherUnit: (unit) => {
       weatherUnit = unit;
     },
-    updateUnitButtons,
     saveCityBtn,
     cityInput,
     searchCity,
+    toggleFahrenheit,
+    getWeatherUnit: () => weatherUnit,
   });
 
   bindLauncherFeature({

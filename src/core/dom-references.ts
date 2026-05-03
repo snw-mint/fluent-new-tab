@@ -123,6 +123,7 @@ const weatherCity = getById<HTMLSpanElement>('weatherCity');
 const weatherIcon = getById<HTMLDivElement>('weatherIcon');
 const weatherTemp = getById<HTMLSpanElement>('weatherTemp');
 const unitBtns = document.querySelectorAll<HTMLButtonElement>('.unit-btn');
+const toggleFahrenheit = getById<HTMLInputElement>('toggleFahrenheit');
 
 const appLauncherWrapper = getById<HTMLDivElement>('appLauncherWrapper');
 const appLauncherBtn = getById<HTMLButtonElement>('appLauncherBtn');

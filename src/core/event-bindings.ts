@@ -24,6 +24,8 @@ interface WeatherBindingOptions {
   saveCityBtn: HTMLButtonElement | null;
   cityInput: HTMLInputElement | null;
   searchCity: () => void;
+  toggleFahrenheit: HTMLInputElement | null;
+  getWeatherUnit: () => WeatherUnit;
 }
 
 interface LauncherBindingOptions {
@@ -147,17 +149,16 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
     });
   }
 
-  options.unitBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const unit = btn.dataset.unit as WeatherUnit | undefined;
-      if (unit) {
-        options.setWeatherUnit(unit);
-        localStorage.setItem('weatherUnit', unit);
-        options.updateUnitButtons();
-        options.initWeather();
-      }
+  if (options.toggleFahrenheit) {
+    options.toggleFahrenheit.checked = options.getWeatherUnit() === 'f';
+    options.toggleFahrenheit.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      const unit: WeatherUnit = target.checked ? 'f' : 'c';
+      options.setWeatherUnit(unit);
+      localStorage.setItem('weatherUnit', unit);
+      options.initWeather();
     });
-  });
+  }
 
   if (options.saveCityBtn) {
     options.saveCityBtn.addEventListener('click', options.searchCity);
