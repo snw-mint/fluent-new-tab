@@ -20,11 +20,17 @@
   "overlayLabel": {
     "message": "画像オーバーレイ"
   },
-  "accentColorTitle": {
-    "message": "アクセントカラー"
+  "appearanceTitle": {
+    "message": "外観"
   },
   "accentWallpaperOption": {
     "message": "壁紙から抽出"
+  },
+  "tabNameLabel": {
+    "message": "タブ名"
+  },
+  "tabFaviconLabel": {
+    "message": "タブアイコン"
   },
   "styleNone": {
     "message": "なし"
@@ -67,6 +73,9 @@
   },
   "weatherTitle": {
     "message": "天気"
+  },
+  "useFahrenheitLabel": {
+    "message": "華氏を使用する"
   },
   "shortcutsTitle": {
     "message": "ショートカット"
