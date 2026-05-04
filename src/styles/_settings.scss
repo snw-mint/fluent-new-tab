@@ -72,6 +72,11 @@
     margin: 0;
     width: 100%;
   }
+
+  &-display {
+    @extend .slider-row;
+    margin-top: 0.8rem;
+  }
 }
 
 .child-setting {
