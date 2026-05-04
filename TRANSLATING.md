@@ -1,67 +1,34 @@
-# Help Translate Fluent New Tab
+# Translate Fluent New Tab
 
-Fluent New Tab is designed to be accessible to everyone, and we want it to feel native in every language.
+Help us make Fluent New Tab accessible globally! We use **Crowdin** for localization, so you don't need any coding or Git experience to contribute.
 
-To make contributing easier, faster, and more accessible, we manage our localization workflow through **Crowdin**. You don't need to know how to code or use Git to help us! Many of our existing strings are pre-translated using DeepL, so your help reviewing and correcting them is highly appreciated.
-
-## How to Contribute
-
-Crowdin provides a visual interface where you can translate text, vote on the best translations, and see changes sync automatically with the project.
-
-### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Right.png" alt="Backhand Index Pointing Right" width="20" height="20" /> [Join the Fluent New Tab project on Crowdin](https://crowdin.com/project/fluent-new-tab)
-
-**Why use Crowdin?**
-
-- **No Coding Required:** You don't need to touch JSON files or worry about syntax errors.
-- **Visual Context:** See exactly what you are translating.
-- **Automatic Sync:** Your translations are automatically merged into the project and will appear in the next release.
+[👉 Join our Crowdin Project](https://crowdin.com/project/fluent-new-tab)
 
 ---
 
-## Translation Guidelines
+## Guidelines
 
-To ensure the extension works perfectly and looks consistent, please follow these simple rules:
+To keep translations consistent and functional:
 
-### 1. Do NOT Touch Placeholders
-
-Some strings contain variables like `$NAME$`. These are replaced by code (e.g., the user's name).
-
-- **Correct:** `Good morning, $NAME$`
-- **Incorrect:** `Good morning, John` or `Good morning,`
-
-**Never translate or remove the `$NAME$` tag.** If you do, the greeting feature will break.
-
-### 2. Keep the Context in Mind
-
-When translating manually, always consider where the text will appear in the extension.
-
-- Avoid literal translations if they don't fit the context of a user interface.
-- Please do not use slang or overly informal terms. Keep the language clear and universally understood in your region.
-- Specific design terms that refer to visual themes (such as **"3D Fluent"** or **"Outline"**) should remain in English to maintain brand consistency.
-
-### 3. Punctuation & Tone
-
-- If the original text ends with `...` or `!`, please keep it in your translation.
-- Try to keep the tone **friendly, minimal, and professional**.
+1. **Keep Placeholders Intact:** Never translate or remove variables like `$NAME$`.
+   - _Example:_ `Good morning, $NAME$` (Do not change to `Good morning, John`).
+2. **Context Matters:** Avoid literal translations. Use clear, universal language suitable for a UI. Keep design terms like **"3D Fluent"** or **"Outline"** in English.
+3. **Punctuation & Tone:** Maintain original punctuation (e.g., `...` or `!`). Keep the tone friendly, minimal, and professional.
 
 ---
 
 ## Missing Your Language?
 
-If you don't see your language listed on our Crowdin page, we would love to add it!
+If your language isn't on Crowdin:
 
 1.  Go to the [Crowdin Project Page](https://crowdin.com/project/fluent-new-tab).
 2.  Click **"Request New Language"** or leave a comment on the discussion board.
-3.  Alternatively, open a GitHub Issue requesting the new language.
-
-We will approve it as soon as possible so you can start translating.
+3.  Or, open a GitHub Issue.
 
 ---
 
-### For Developers (Important Notice)
+## ⚠️ Attention Developers
 
-**Please DO NOT open Pull Requests directly on GitHub to edit existing translation files (`messages.json`).**
+**Do NOT open Pull Requests to edit translation files (`messages.json`).**
 
-Because Crowdin is perfectly synced with this repository and acts as the source of truth, any manual changes made via PR to existing locales might be overwritten during the next automatic sync. Please submit all text corrections and new translations exclusively through the Crowdin platform.
-
-Thank you for helping us make Fluent New Tab global!
+Crowdin is our source of truth. Any manual PR changes to locales will be overwritten by automatic syncs. Please use Crowdin for all text corrections and new translations.
