@@ -185,23 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const userCount = Number(ratings.userCount) || 0;
       const ratingValue = Number(ratings.rating) || 0;
       const reviewCount = Number(ratings.reviewCount) || 0;
-      const sourceName = ratings.sourceName || "Microsoft Edge Add-ons";
-      const sourceUrl =
-        ratings.sourceUrl ||
-        "https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc";
       const lastUpdated = ratings.lastUpdated || "";
 
-      const usersNode = document.getElementById("edge-users");
-      const ratingNode = document.getElementById("edge-rating");
-      const reviewsNode = document.getElementById("edge-review-count");
-      const starsNode = document.getElementById("edge-stars");
-      const sourceNode = document.getElementById("edge-source-link");
-      const lastUpdatedNode = document.getElementById("edge-last-updated");
+      const usersNode = document.getElementById("total-users");
+      const ratingNode = document.getElementById("total-rating");
+      const reviewsNode = document.getElementById("total-review-count");
+      const starsNode = document.getElementById("total-stars");
+      const lastUpdatedNode = document.getElementById("total-last-updated");
 
-      if (sourceNode) {
-        sourceNode.textContent = sourceName;
-        sourceNode.setAttribute("href", sourceUrl);
-      }
       if (lastUpdatedNode && lastUpdated) {
         lastUpdatedNode.textContent = lastUpdated;
       }
