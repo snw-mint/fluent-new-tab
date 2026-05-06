@@ -8,6 +8,9 @@
     "48": "assets/icon-48.png",
     "128": "assets/icon-128.png"
   },
+  "chrome_settings_overrides": {
+    "homepage": "index.html"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
