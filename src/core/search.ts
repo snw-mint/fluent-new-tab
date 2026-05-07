@@ -12,24 +12,13 @@
  */
 
 const SEARCH_URLS: Record<string, string> = {
+  // Legacy numeric alias kept for backward compatibility (older installs may have saved 'engine1')
   engine1: 'https://www.google.com/search?q=',
+  // Canonical keys matching data-engine attributes in index.html
   google: 'https://www.google.com/search?q=',
-  engine3: 'https://www.bing.com/search?q=',
   bing: 'https://www.bing.com/search?q=',
-  engine4: 'https://search.brave.com/search?q=',
   brave: 'https://search.brave.com/search?q=',
-  engine2: 'https://duckduckgo.com/?q=',
   duck: 'https://duckduckgo.com/?q=',
-  engine5: 'https://www.youtube.com/results?search_query=',
-  youtube: 'https://www.youtube.com/results?search_query=',
-  engine6: 'https://www.google.com/search?tbm=isch&q=',
-  images: 'https://www.google.com/search?tbm=isch&q=',
-  engine7: 'https://www.reddit.com/search/?q=',
-  reddit: 'https://www.reddit.com/search/?q=',
-  engine8: 'https://wikipedia.org/wiki/Special:Search?search=',
-  wikipedia: 'https://wikipedia.org/wiki/Special:Search?search=',
-  engine9: 'https://www.quora.com/search?q=',
-  quora: 'https://www.quora.com/search?q=',
   ecosia: 'https://www.ecosia.org/search?q=',
   startpage: 'https://www.startpage.com/sp/search?query=',
   kagi: 'https://kagi.com/search?q=',
