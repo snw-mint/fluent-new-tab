@@ -2754,15 +2754,47 @@ function initAllEventBindings() {
 
   if (searchForm) {
     searchForm.addEventListener('submit', (e) => {
-      if (!askAiMode) return;
       e.preventDefault();
       const query = searchInput?.value || '';
-      handleAskAiSubmit(query);
-      setAskAiMode(false);
-      if (searchInput) searchInput.value = '';
-      clearSuggestions();
+
+      if (askAiMode) {
+        handleAskAiSubmit(query);
+        setAskAiMode(false);
+        if (searchInput) searchInput.value = '';
+        clearSuggestions();
+      } else {
+        const currentEngine = localStorage.getItem('searchEngine') || 'system';
+        performSearch(query, currentEngine);
+      }
     });
   }
+
+  document.addEventListener('openSearchWarningModal', (e: any) => {
+    const { query } = e.detail;
+
+    warningModal.show({
+      title: getLocalizedWarningText(
+        'permissionRequiredTitle',
+        'Permission Required',
+      ),
+      message: getLocalizedWarningText(
+        'searchPermissionMessage',
+        'To use the system default search engine, Fluent New Tab needs the "search" permission.',
+      ),
+      confirmText: getLocalizedWarningText(
+        'grantPermissionLabel',
+        'Grant Permission',
+      ),
+      cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+      onConfirm: () => {
+        chrome.permissions.request({ permissions: ['search'] }, (granted) => {
+          if (granted) {
+            performSearch(query, 'system');
+          }
+        });
+      },
+    });
+  });
 
   if (greetingNameInput) {
     greetingNameInput.value = localStorage.getItem('greetingName') || '';

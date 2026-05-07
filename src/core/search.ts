@@ -11,6 +11,27 @@
  * and applying specific search engine parameters.
  */
 
+const SEARCH_URLS: Record<string, string> = {
+  engine1: 'https://www.google.com/search?q=',
+  google: 'https://www.google.com/search?q=',
+  engine3: 'https://www.bing.com/search?q=',
+  bing: 'https://www.bing.com/search?q=',
+  engine4: 'https://search.brave.com/search?q=',
+  brave: 'https://search.brave.com/search?q=',
+  engine2: 'https://duckduckgo.com/?q=',
+  duck: 'https://duckduckgo.com/?q=',
+  engine5: 'https://www.youtube.com/results?search_query=',
+  youtube: 'https://www.youtube.com/results?search_query=',
+  engine6: 'https://www.google.com/search?tbm=isch&q=',
+  images: 'https://www.google.com/search?tbm=isch&q=',
+  engine7: 'https://www.reddit.com/search/?q=',
+  reddit: 'https://www.reddit.com/search/?q=',
+  engine8: 'https://wikipedia.org/wiki/Special:Search?search=',
+  wikipedia: 'https://wikipedia.org/wiki/Special:Search?search=',
+  engine9: 'https://www.quora.com/search?q=',
+  quora: 'https://www.quora.com/search?q=',
+};
+
 interface SearchSuggestionRefs {
   suggestionsContainer: HTMLDivElement | null;
   searchInput: HTMLInputElement | null;
@@ -57,13 +78,12 @@ function renderSuggestionsUI(
       if (searchInput) {
         searchInput.value = text;
       }
-      if (searchForm) {
-        searchForm.submit();
-      } else {
-        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(text)}`;
-      }
+      const currentEngine =
+        localStorage.getItem('searchEngine') || 'system';
+      performSearch(text, currentEngine);
       onClear();
     });
+
     suggestionsContainer.appendChild(div);
   });
 
@@ -104,4 +124,37 @@ function applyGoogleSearchParams(
   } else if (udmInput) {
     udmInput.remove();
   }
+}
+
+function performSearch(query: string, engine: string): void {
+  if (!query.trim()) return;
+
+  if (engine === 'engine0' || engine === 'system') {
+    chrome.permissions.contains(
+      { permissions: ['search'] },
+      (hasPermission) => {
+        if (hasPermission) {
+          chrome.search.query({ text: query });
+        } else {
+          const event = new CustomEvent('openSearchWarningModal', {
+            detail: { query },
+          });
+          document.dispatchEvent(event);
+        }
+      },
+    );
+    return;
+  }
+
+  let url = SEARCH_URLS[engine] || SEARCH_URLS.engine1;
+
+  if (engine === 'engine1' || engine === 'google') {
+    const clearSearch = localStorage.getItem('clearSearchEnabled') === 'true';
+    if (clearSearch) url += `${encodeURIComponent(query)}&udm=14`;
+    else url += encodeURIComponent(query);
+  } else {
+    url += encodeURIComponent(query);
+  }
+
+  window.location.href = url;
 }
