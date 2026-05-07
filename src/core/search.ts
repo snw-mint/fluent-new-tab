@@ -30,6 +30,9 @@ const SEARCH_URLS: Record<string, string> = {
   wikipedia: 'https://wikipedia.org/wiki/Special:Search?search=',
   engine9: 'https://www.quora.com/search?q=',
   quora: 'https://www.quora.com/search?q=',
+  ecosia: 'https://www.ecosia.org/search?q=',
+  startpage: 'https://www.startpage.com/sp/search?query=',
+  kagi: 'https://kagi.com/search?q=',
 };
 
 interface SearchSuggestionRefs {
@@ -78,8 +81,7 @@ function renderSuggestionsUI(
       if (searchInput) {
         searchInput.value = text;
       }
-      const currentEngine =
-        localStorage.getItem('searchEngine') || 'system';
+      const currentEngine = localStorage.getItem('searchEngine') || 'system';
       performSearch(text, currentEngine);
       onClear();
     });
