@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "3.5",
+  "version": "3.5.1",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en",
   "icons": {
@@ -29,8 +29,7 @@
       }
     }
   },
-  "permissions": ["storage", "unlimitedStorage"],
-  "optional_permissions": ["search"],
+  "permissions": ["storage", "unlimitedStorage", "search"],
   "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",

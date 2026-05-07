@@ -18,13 +18,10 @@ jobs:
         include:
           - browser: chrome
             launcher: 'google'
-            search: 'google'
           - browser: edge
             launcher: 'microsoft'
-            search: 'bing'
           - browser: firefox
             launcher: 'proton'
-            search: 'duck'
 
     steps:
       - name: Checkout code
@@ -41,9 +38,8 @@ jobs:
 
       - name: Inject Defaults for ${{ matrix.browser }}
         run: |
-          # Usa o sed para buscar a chave e substituir o valor pela variável do matrix
+          # Mantemos apenas a injeção do App Launcher (Ecosystem)
           sed -i -E "s/launcherProvider:\s*'[a-zA-Z0-9_]+'/launcherProvider: '${{ matrix.launcher }}'/" scripts/background.js
-          sed -i -E "s/searchEngine:\s*'[a-zA-Z0-9_]+'/searchEngine: '${{ matrix.search }}'/" scripts/background.js
 
       - name: Run release build
         run: npm run build:release
@@ -60,7 +56,6 @@ jobs:
       - name: Package extension as zip
         run: |
           cd dist
-          # Adiciona o nome do navegador no final do arquivo zip
           zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-${{ matrix.browser }}.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"

@@ -19,7 +19,7 @@ const ICON_MENU_DOTS = `<svg width="20" height="20" fill="none" viewBox="0 0 24 
 
 const engines: Record<string, EngineConfig> = {
   system: {
-    url: '', // system engine doesn't use URL (handled by chrome.search.query)
+    url: '',
     icon: 'assets/search-engines/system.svg',
   },
   bing: {

@@ -117,10 +117,33 @@ function applyGoogleSearchParams(
 
 function performSearch(query: string, engine: string): void {
   if (!query.trim()) return;
-
   if (engine === 'engine0' || engine === 'system') {
-    chrome.search.query({ text: query });
-    return;
+    try {
+      const win = window as any;
+
+      if (win.browser && win.browser.search && win.browser.search.search) {
+        win.browser.search.search({ query: query });
+      } else if (win.chrome && win.chrome.search && win.chrome.search.query) {
+        win.chrome.search.query({ text: query });
+      } else if (
+        win.browser &&
+        win.browser.search &&
+        win.browser.search.query
+      ) {
+        win.browser.search.query({ text: query });
+      } else {
+        throw new Error('Native search API not supported in this browser.');
+      }
+      return;
+    } catch (error) {
+      console.warn('Native search failed, triggering fallback:', error);
+      let fallbackUrl = SEARCH_URLS['google'] + encodeURIComponent(query);
+      const clearSearch = localStorage.getItem('clearSearchEnabled') === 'true';
+      if (clearSearch) fallbackUrl += '&udm=14';
+
+      window.location.href = fallbackUrl;
+      return;
+    }
   }
 
   let url = SEARCH_URLS[engine] || SEARCH_URLS.engine1;
