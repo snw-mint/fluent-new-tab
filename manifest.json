@@ -17,8 +17,7 @@
   "background": {
     "service_worker": "scripts/background.js"
   },
-  "permissions": ["storage", "unlimitedStorage"],
-  "optional_permissions": ["search"],
+  "permissions": ["storage", "unlimitedStorage", "search"],
   "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",

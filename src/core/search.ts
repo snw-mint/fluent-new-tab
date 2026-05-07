@@ -119,19 +119,7 @@ function performSearch(query: string, engine: string): void {
   if (!query.trim()) return;
 
   if (engine === 'engine0' || engine === 'system') {
-    chrome.permissions.contains(
-      { permissions: ['search'] },
-      (hasPermission) => {
-        if (hasPermission) {
-          chrome.search.query({ text: query });
-        } else {
-          const event = new CustomEvent('openSearchWarningModal', {
-            detail: { query },
-          });
-          document.dispatchEvent(event);
-        }
-      },
-    );
+    chrome.search.query({ text: query });
     return;
   }
 

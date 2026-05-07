@@ -2769,33 +2769,6 @@ function initAllEventBindings() {
     });
   }
 
-  document.addEventListener('openSearchWarningModal', (e: any) => {
-    const { query } = e.detail;
-
-    warningModal.show({
-      title: getLocalizedWarningText(
-        'permissionRequiredTitle',
-        'Permission Required',
-      ),
-      message: getLocalizedWarningText(
-        'searchPermissionMessage',
-        'To use the system default search engine, Fluent New Tab needs the "search" permission.',
-      ),
-      confirmText: getLocalizedWarningText(
-        'grantPermissionLabel',
-        'Grant Permission',
-      ),
-      cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
-      onConfirm: () => {
-        chrome.permissions.request({ permissions: ['search'] }, (granted) => {
-          if (granted) {
-            performSearch(query, 'system');
-          }
-        });
-      },
-    });
-  });
-
   if (greetingNameInput) {
     greetingNameInput.value = localStorage.getItem('greetingName') || '';
     greetingNameInput.addEventListener('input', (e) => {
