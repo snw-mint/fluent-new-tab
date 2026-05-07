@@ -838,12 +838,16 @@
   <div class="container">
     <div class="logo-wrapper" style="display: none"></div>
 
-    <form id="searchForm" action="https://www.bing.com/search" method="GET" class="search-bar" style="display: none">
+    <form id="searchForm" action="#" method="GET" class="search-bar" style="display: none">
       <div class="search-selector">
         <button type="button" id="engineBtn" class="current-engine-btn">
-          <img id="currentEngineIcon" src="assets/search-engines/bing.svg" alt="Search Engine" />
+          <img id="currentEngineIcon" src="assets/search-engines/system.svg" alt="Search Engine" />
         </button>
         <div id="engineDropdown" class="dropdown-menu">
+          <div class="dropdown-item" data-engine="system">
+            <img src="assets/search-engines/system.svg" alt="System Default" />
+            <span>System Default</span>
+          </div>
           <div class="dropdown-item" data-engine="bing">
             <img src="assets/search-engines/bing.svg" alt="Bing" />
             <span>Bing</span>

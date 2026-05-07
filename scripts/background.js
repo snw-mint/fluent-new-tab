@@ -23,7 +23,7 @@ const DEFAULT_INSTALL_PREFERENCES = {
   greetingName: '',
   greetingStyle: 'none',
   userLanguage: 'en_US',
-  searchEngine: 'bing',
+  searchEngine: 'system',
   searchBarVisible: 'true',
   suggestionsEnabled: 'false',
   clearSearchEnabled: 'false',

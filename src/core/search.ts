@@ -12,9 +12,7 @@
  */
 
 const SEARCH_URLS: Record<string, string> = {
-  // Legacy numeric alias kept for backward compatibility (older installs may have saved 'engine1')
   engine1: 'https://www.google.com/search?q=',
-  // Canonical keys matching data-engine attributes in index.html
   google: 'https://www.google.com/search?q=',
   bing: 'https://www.bing.com/search?q=',
   brave: 'https://search.brave.com/search?q=',

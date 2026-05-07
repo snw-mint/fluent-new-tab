@@ -18,6 +18,10 @@ const ICON_GLOBE_FALLBACK = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2
 const ICON_MENU_DOTS = `<svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 12a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0m6 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0M18 13.75a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5" fill="currentColor"/></svg>`;
 
 const engines: Record<string, EngineConfig> = {
+  system: {
+    url: '', // system engine doesn't use URL (handled by chrome.search.query)
+    icon: 'assets/search-engines/system.svg',
+  },
   bing: {
     url: 'https://www.bing.com/search',
     icon: 'assets/search-engines/bing.svg',

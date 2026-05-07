@@ -35,6 +35,19 @@ interface ChromeLike {
       tabId?: number;
     }) => void;
   };
+  search: {
+    query: (options: { text: string }, callback?: () => void) => void;
+  };
+  permissions: {
+    contains: (
+      permissions: { permissions: string[] },
+      callback: (result: boolean) => void,
+    ) => void;
+    request: (
+      permissions: { permissions: string[] },
+      callback?: (granted: boolean) => void,
+    ) => void;
+  };
 }
 
 interface SortableLike {
