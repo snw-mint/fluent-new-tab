@@ -588,10 +588,11 @@ body {
 }
 
 .support-subtitle {
-  padding: 0 20rem;
+  padding: 0 1.5rem;
+  max-width: 35rem;
+  margin: 0 auto 3rem auto;
   font-size: 1.1rem;
   color: var(--color-text-muted);
-  margin-bottom: 3rem;
   line-height: 1.6;
 }
 
