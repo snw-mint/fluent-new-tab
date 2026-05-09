@@ -66,6 +66,8 @@ const CITY_KEY = 'fluent_city_data';
 const CACHE_DURATION = 3600000;
 
 let weatherEnabled = localStorage.getItem('weatherEnabled') === 'true';
+let weatherAlertsEnabled =
+  localStorage.getItem('weatherAlertsEnabled') === 'true';
 let weatherUnit = (localStorage.getItem('weatherUnit') || 'c') as WeatherUnit;
 let currentCityData: CityData = { name: 'New York', lat: 40.71, lon: -74.01 };
 try {

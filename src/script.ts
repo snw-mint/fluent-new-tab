@@ -3118,6 +3118,11 @@ function initAllEventBindings() {
     searchCity,
     toggleFahrenheit,
     getWeatherUnit: () => weatherUnit,
+    toggleWeatherAlerts,
+    getWeatherAlertsEnabled: () => weatherAlertsEnabled,
+    setWeatherAlertsEnabled: (enabled) => {
+      weatherAlertsEnabled = enabled;
+    },
   });
 
   bindLauncherFeature({

@@ -124,6 +124,9 @@ const weatherIcon = getById<HTMLDivElement>('weatherIcon');
 const weatherTemp = getById<HTMLSpanElement>('weatherTemp');
 
 const toggleFahrenheit = getById<HTMLInputElement>('toggleFahrenheit');
+const toggleWeatherAlerts = getById<HTMLInputElement>('toggleWeatherAlerts');
+const weatherAlertsGroup = getById<HTMLDivElement>('weatherAlertsGroup');
+const weatherMoreContainer = getById<HTMLDivElement>('weather-more-container');
 
 const appLauncherWrapper = getById<HTMLDivElement>('appLauncherWrapper');
 const appLauncherBtn = getById<HTMLButtonElement>('appLauncherBtn');

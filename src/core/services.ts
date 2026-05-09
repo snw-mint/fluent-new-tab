@@ -16,12 +16,16 @@ const HOST_PERMISSIONS: Record<string, string[]> = {
   nasa: ['https://api.nasa.gov/*', 'https://apod.nasa.gov/*'],
   wikimedia: [
     'https://commons.wikimedia.org/*',
-    'https://upload.wikimedia.org/*',
+    'https://upload.wikimedia.org/',
   ],
   suggestions: ['https://suggestqueries.google.com/*'],
   weather: [
     'https://geocoding-api.open-meteo.com/*',
     'https://api.open-meteo.com/*',
+  ],
+  weatherAlerts: [
+    'https://api.open-meteo.com/*',
+    'https://air-quality-api.open-meteo.com/*',
   ],
 };
 
