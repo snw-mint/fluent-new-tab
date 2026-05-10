@@ -207,6 +207,9 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
           action: 'updateWeatherAlertsStatus',
           enabled: false,
         });
+
+        const widget = document.getElementById('weather-alerts-widget');
+        if (widget) widget.remove();
       }
     });
   }

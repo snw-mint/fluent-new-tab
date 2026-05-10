@@ -29,7 +29,7 @@
       }
     }
   },
-  "permissions": ["storage", "unlimitedStorage", "search", "alerts"],
+  "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
   "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",
