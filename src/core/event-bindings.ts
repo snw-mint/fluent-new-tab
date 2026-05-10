@@ -182,8 +182,8 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
       if (wantsEnable) {
         requestFeaturePermissionUI(
           'weatherAlerts',
-          'Open-Meteo Climate & Air Quality API',
-          'https://open-meteo.com/',
+          'Air Quality API',
+          'https://open-meteo.com/en/docs/air-quality-api',
           () => {
             options.setWeatherAlertsEnabled(true);
             localStorage.setItem('weatherAlertsEnabled', 'true');
