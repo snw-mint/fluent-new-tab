@@ -29,7 +29,7 @@
       }
     }
   },
-  "permissions": ["storage", "unlimitedStorage", "search"],
+  "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
   "optional_host_permissions": [
     "https://suggestqueries.google.com/*",
     "https://peapix.com/*",
@@ -39,6 +39,7 @@
     "https://commons.wikimedia.org/*",
     "https://upload.wikimedia.org/*",
     "https://geocoding-api.open-meteo.com/*",
-    "https://api.open-meteo.com/*"
+    "https://api.open-meteo.com/*",
+    "https://air-quality-api.open-meteo.com/*"
   ]
 }

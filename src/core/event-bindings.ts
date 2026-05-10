@@ -24,6 +24,9 @@ interface WeatherBindingOptions {
   searchCity: () => void;
   toggleFahrenheit: HTMLInputElement | null;
   getWeatherUnit: () => WeatherUnit;
+  toggleWeatherAlerts: HTMLInputElement | null;
+  getWeatherAlertsEnabled: () => boolean;
+  setWeatherAlertsEnabled: (enabled: boolean) => void;
 }
 
 interface LauncherBindingOptions {
@@ -166,6 +169,47 @@ function bindWeatherFeature(options: WeatherBindingOptions): void {
     options.cityInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         options.searchCity();
+      }
+    });
+  }
+
+  if (options.toggleWeatherAlerts) {
+    options.toggleWeatherAlerts.checked = options.getWeatherAlertsEnabled();
+    options.toggleWeatherAlerts.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      const wantsEnable = target.checked;
+
+      if (wantsEnable) {
+        requestFeaturePermissionUI(
+          'weatherAlerts',
+          'Air Quality API',
+          'https://open-meteo.com/en/docs/air-quality-api',
+          () => {
+            options.setWeatherAlertsEnabled(true);
+            localStorage.setItem('weatherAlertsEnabled', 'true');
+            (chrome.runtime as any).sendMessage({
+              action: 'updateWeatherAlertsStatus',
+              enabled: true,
+              lat: currentCityData.lat,
+              lon: currentCityData.lon,
+            });
+            options.initWeather();
+          },
+          () => {
+            target.checked = false;
+            options.setWeatherAlertsEnabled(false);
+          },
+        );
+      } else {
+        options.setWeatherAlertsEnabled(false);
+        localStorage.setItem('weatherAlertsEnabled', 'false');
+        (chrome.runtime as any).sendMessage({
+          action: 'updateWeatherAlertsStatus',
+          enabled: false,
+        });
+
+        const widget = document.getElementById('weather-alerts-widget');
+        if (widget) widget.remove();
       }
     });
   }

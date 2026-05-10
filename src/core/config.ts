@@ -209,6 +209,7 @@ const APP_KEYS: string[] = [
   'shortcuts',
   'theme',
   'weatherEnabled',
+  'weatherAlertsEnabled',
   'fluent_city_data',
   'shortcutsVisible',
   'shortcutsRows',

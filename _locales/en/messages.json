@@ -26,6 +26,7 @@
   "dateWeekday": { "message": "Weekday" },
   "weatherTitle": { "message": "Weather" },
   "useFahrenheitLabel": { "message": "Use Fahrenheit" },
+  "weatherAlertsLabel": { "message": "Weather alerts" },
   "shortcutsTitle": { "message": "Shortcuts" },
   "enableFoldersLabel": { "message": "Enable Folders" },
   "hideShortcutNamesLabel": { "message": "Hide Names" },
@@ -269,5 +270,38 @@
   "greetNight5": {
     "message": "Sweet dreams, $NAME$. See you tomorrow.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": { "content": "$1", "example": "7" }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": { "content": "$1", "example": "7" }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": { "content": "$1", "example": "60" }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": { "content": "$1", "example": "8" }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": { "content": "$1", "example": "grass" }
+    }
   }
 }
