@@ -628,20 +628,27 @@
             <p class="support-subtitle">Combined rating data from Chrome, Edge, and Firefox extensions.</p>
 
             <div class="reviews-grid">
+                <!-- Elementos ocultos para evitar erros de referência nula caso o script.js antigo ainda os procure -->
+                <div style="display: none;" id="total-users"></div>
+                <div style="display: none;" id="total-rating"></div>
+                <div style="display: none;" id="total-stars"></div>
+                <div style="display: none;" id="total-review-count"></div>
+                <div style="display: none;" id="total-last-updated"></div>
+
                 <article class="review-stat-card">
                     <p class="review-label">Total Users</p>
-                    <p class="review-value" id="total-users">2.213</p>
+                    <p class="review-value" id="stats-users">0</p>
                 </article>
 
                 <article class="review-stat-card">
                     <p class="review-label">Average Rating</p>
-                    <p class="review-value"><span id="total-rating">4.8</span><span class="review-inline">/5</span></p>
-                    <p class="review-stars" aria-label="4.8 out of 5 stars" id="total-stars">★★★★★</p>
+                    <p class="review-value"><span id="stats-rating">0.0</span><span class="review-inline">/5</span></p>
+                    <p class="review-stars" aria-label="0 out of 5 stars" id="stats-stars">★★★★★</p>
                 </article>
 
                 <article class="review-stat-card">
                     <p class="review-label">Total Reviews</p>
-                    <p class="review-value" id="total-review-count">45</p>
+                    <p class="review-value" id="stats-reviews">0</p>
                 </article>
             </div>
 
@@ -652,7 +659,7 @@
                     target="_blank" rel="noopener noreferrer">Edge</a> &amp;
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
                     rel="noopener noreferrer">Firefox</a>
-                · Updated: <span id="total-last-updated">2026-05-05</span>
+                · Updated: <span id="stats-updated">...</span>
             </p>
         </div>
     </section>
@@ -844,6 +851,66 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ratingsSection = document.querySelector('[data-rating-section]');
+            if (!ratingsSection) return;
+
+            let hasAnimated = false;
+
+            const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+            const animateValue = (element, start, end, duration, isFloat = false) => {
+                let startTime = null;
+                const step = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const currentVal = start + (end - start) * easeOutExpo(progress);
+
+                    element.textContent = isFloat ? (currentVal / 1000).toFixed(3) : Math.floor(currentVal);
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        element.textContent = isFloat ? (end / 1000).toFixed(3) : end;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const fetchAndAnimateRatings = async () => {
+                try {
+                    const response = await fetch('data/ratings.json');
+                    if (!response.ok) throw new Error('Falha ao carregar ratings.json');
+                    const data = await response.json();
+
+                    const usersEl = document.getElementById('stats-users');
+                    const reviewsEl = document.getElementById('stats-reviews');
+                    const ratingEl = document.getElementById('stats-rating');
+                    const starsEl = document.getElementById('stats-stars');
+                    const updatedEl = document.getElementById('stats-updated');
+
+                    if (usersEl) animateValue(usersEl, 0, data.userCount * 1000, 2000, true);
+                    if (reviewsEl) animateValue(reviewsEl, 0, data.reviewCount, 2000, false);
+
+                    if (ratingEl) ratingEl.textContent = data.rating.toFixed(1);
+                    if (starsEl) starsEl.setAttribute('aria-label', `${data.rating.toFixed(1)} out of 5 stars`);
+                    if (updatedEl) updatedEl.textContent = data.lastUpdated;
+                } catch (error) {
+                    console.error('Erro ao buscar dados de avaliação:', error);
+                }
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    fetchAndAnimateRatings();
+                }
+            }, { threshold: 0.2 });
+
+            observer.observe(ratingsSection);
+        });
+    </script>
 </body>
 
 </html>
