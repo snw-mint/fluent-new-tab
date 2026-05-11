@@ -3365,11 +3365,21 @@ function showReauthNotice(features: string[]): void {
     cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
     confirmVariant: 'accent',
     onConfirm: async () => {
+      const allOrigins: string[] = [];
       for (const feature of features) {
         const origins =
           HOST_PERMISSIONS[feature as keyof typeof HOST_PERMISSIONS];
-        if (origins) await requestPermission(origins);
+        if (origins) {
+          allOrigins.push(...origins);
+        }
       }
+
+      if (allOrigins.length > 0) {
+        // Remove duplicates just in case
+        const uniqueOrigins = [...new Set(allOrigins)];
+        await requestPermission(uniqueOrigins);
+      }
+
       await setStorageLocalItems({ reauth_needed: [] });
       (chrome as any).action?.setBadgeText?.({ text: '' });
     },
