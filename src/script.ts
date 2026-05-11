@@ -148,7 +148,7 @@ function openShortcutModal(existingItem: Shortcut | null): void {
       modalTitle.textContent = window.getTranslation('addShortcutTitle');
     setCustomIconVisibility(false);
   }
-  setTimeout(() => inputName?.focus(), 100);
+  setTimeout(() => inputUrl?.focus(), 100);
 }
 
 function setCustomIconVisibility(show: boolean): void {
@@ -2606,6 +2606,28 @@ function initAllEventBindings() {
       saveAndRender();
       editingIndex = null;
       closeModal();
+    });
+  }
+
+  const inputUrlNode = getInputById('inputUrl') as HTMLInputElement | null;
+  const inputNameNode = getInputById('inputName') as HTMLInputElement | null;
+
+  if (inputUrlNode && inputNameNode) {
+    inputUrlNode.addEventListener('blur', () => {
+      const currentUrl = inputUrlNode.value.trim();
+      const currentName = inputNameNode.value.trim();
+
+      if (currentUrl && !currentName) {
+        let processUrl = currentUrl;
+        if (!/^https?:\/\//i.test(processUrl)) {
+          processUrl = 'https://' + processUrl;
+        }
+
+        const derived = deriveShortcutNameFromUrl(processUrl);
+        if (derived && derived !== 'New Shortcut') {
+          inputNameNode.value = derived;
+        }
+      }
     });
   }
 
