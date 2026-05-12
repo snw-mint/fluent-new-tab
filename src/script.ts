@@ -3166,6 +3166,14 @@ function initAllEventBindings() {
     closePopups,
   });
 
+  bindMainUiScaleFeature({
+    mainUiScaleSlider,
+    getMainUiScale: () => mainUiScale,
+    setMainUiScale: (val: number) => {
+      mainUiScale = val;
+    },
+  });
+
   bindLauncherFolderButton();
 
   bindWallpaperFeature({

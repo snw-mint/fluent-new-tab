@@ -736,8 +736,9 @@ function bindDisplayFeature(options: DisplayBindingOptions): void {
     function updateSliderProgress(slider: HTMLInputElement) {
       const min = parseInt(slider.min);
       const max = parseInt(slider.max);
-      const progress = ((parseInt(slider.value) - min) / (max - min)) * 100;
-      slider.style.setProperty('--slider-progress', `${progress}%`);
+      const val = parseInt(slider.value);
+      const progress = (val - min) / (max - min); // Sem o * 100
+      slider.style.setProperty('--slider-progress', `${progress}`);
     }
   }
 }
@@ -759,10 +760,10 @@ function bindShortcutRadiusFeature(
 
       const min = parseInt(options.shortcutRadiusSlider!.min, 10);
       const max = parseInt(options.shortcutRadiusSlider!.max, 10);
-      const progress = ((valNum - min) / (max - min)) * 100;
+      const progress = (valNum - min) / (max - min);
       options.shortcutRadiusSlider!.style.setProperty(
         '--slider-progress',
-        `${progress}%`,
+        `${progress}`,
       );
     };
 
@@ -771,12 +772,10 @@ function bindShortcutRadiusFeature(
     const applyRadius = (valNum: number) => {
       let radiusValue = '';
       if (valNum === 0) {
-        radiusValue = '0.875rem'; // $radius-xl
+        radiusValue = '0.875rem';
       } else if (valNum > 0) {
-        // maps 1 to 100 -> 0.875rem to 50%
         radiusValue = `calc(0.875rem + ((50% - 0.875rem) * (${valNum} / 100)))`;
       } else {
-        // maps -1 to -100 -> 0.875rem down to 0.2rem
         radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
       }
 
@@ -826,6 +825,52 @@ function bindShortcutRadiusFeature(
       if (grid) {
         grid.setAttribute('data-hide-names', String(isEnabled));
       }
+    });
+  }
+}
+
+interface MainUiScaleBindingOptions {
+  mainUiScaleSlider: HTMLInputElement | null;
+  getMainUiScale: () => number;
+  setMainUiScale: (scale: number) => void;
+}
+
+function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
+  if (options.mainUiScaleSlider) {
+    const slider = options.mainUiScaleSlider;
+    slider.value = String(options.getMainUiScale());
+
+    const updateSliderProgress = (sliderInput: HTMLInputElement) => {
+      const min = parseFloat(sliderInput.min);
+      const max = parseFloat(sliderInput.max);
+      const val = parseFloat(sliderInput.value);
+      const progress = (val - min) / (max - min);
+      sliderInput.style.setProperty('--slider-progress', `${progress}`);
+    };
+
+    updateSliderProgress(slider);
+
+    slider.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement;
+      updateSliderProgress(target);
+      document.documentElement.style.setProperty(
+        '--main-ui-scale',
+        target.value,
+      );
+
+      if (!localStorage.getItem('displayScale')) {
+        document.documentElement.style.setProperty(
+          '--display-scale',
+          target.value,
+        );
+      }
+    });
+
+    slider.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      const value = parseFloat(target.value);
+      options.setMainUiScale(value);
+      localStorage.setItem('mainUiScale', String(value));
     });
   }
 }

@@ -318,10 +318,6 @@
   transition: background 0.2s ease;
 }
 
-html[data-theme='dark'] .shortcut-item.sortable-placeholder {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
-}
 .sortable-dragging {
   opacity: 0.9;
   transform: scale(1.05);

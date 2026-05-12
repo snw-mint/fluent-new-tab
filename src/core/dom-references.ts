@@ -37,6 +37,8 @@ const toggleAccentWallpaper = getById<HTMLInputElement>(
 
 const accentPresetsRow = getById<HTMLDivElement>('accentPresetsRow');
 const accentCustomColor = getById<HTMLInputElement>('accentCustomColor');
+const mainUiScaleRow = getById<HTMLDivElement>('mainUiScaleRow');
+const mainUiScaleSlider = getById<HTMLInputElement>('mainUiScaleSlider');
 
 const shortcutsGrid = getById<HTMLDivElement>('shortcutsGrid');
 const addModal = getById<HTMLDivElement>('addModal');

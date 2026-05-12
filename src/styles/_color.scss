@@ -12,6 +12,8 @@
   --accent-color: #0078d4;
 }
 
+/* Dark theme overrides */
+
 html[data-theme='dark'] {
   --bg-color: #{$color-dark-bg};
   --text-color: #{$color-accent-contrast};
@@ -374,32 +376,6 @@ html[data-theme='dark'] {
   }
 }
 
-body[data-wallpaper-active='true'] {
-  .greeting-text,
-  .time-date-text,
-  .time-date-sub,
-  .translate-link,
-  .settings-btn svg path,
-  .settings-label,
-  .weather-widget,
-  .launcher-btn svg path,
-  .shortcut-title {
-    color: $color-accent-contrast !important;
-    fill: $color-accent-contrast !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .greeting-icon.outline {
-    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
-  }
-
-  .settings-btn:hover,
-  .launcher-btn:hover,
-  .weather-widget:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-}
-
 html:not([data-theme='dark']) {
   body[data-wallpaper-active='true'] {
     .settings-wrapper:hover,
@@ -489,6 +465,74 @@ html:not([data-theme='dark']) {
 [data-theme='dark'] input[type='range'].fluent-slider::-webkit-slider-thumb {
   border-color: #2b2b2b;
 }
+
+[data-theme='dark'] .suggestions-open {
+  background-color: #3b3b3b !important;
+  border-color: #333333 !important;
+  border-bottom-color: transparent !important;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.3) !important;
+
+  .suggestions-container {
+    background-color: #3b3b3b !important;
+    border-left-color: #333333 !important;
+    border-right-color: #333333 !important;
+    border-bottom-color: #333333 !important;
+  }
+}
+
+[data-theme='dark'] .compact.suggestions-open {
+  background-color: #3b3b3b !important;
+
+  .suggestions-container {
+    background-color: #3b3b3b !important;
+  }
+}
+
+body[data-wallpaper-active='true'] {
+  .greeting-text,
+  .time-date-text,
+  .time-date-sub,
+  .translate-link,
+  .settings-btn svg path,
+  .settings-label,
+  .weather-widget,
+  .launcher-btn svg path,
+  .shortcut-title {
+    color: $color-accent-contrast !important;
+    fill: $color-accent-contrast !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .greeting-icon.outline {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
+  }
+
+  .settings-btn:hover,
+  .launcher-btn:hover,
+  .weather-widget:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+[data-theme='dark'] input[type='range'].fluent-slider::-webkit-slider-thumb {
+  border-color: #2b2b2b;
+}
+
+html[data-theme='dark'] .shortcut-item.sortable-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+html[data-theme='dark'] .weather-alert-container {
+  background: var(--card-bg, rgba(32, 32, 32, 0.6));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+}
+
+html[data-theme='dark'] .weather-alert-text {
+  color: var(--text-color, #ffffff);
+}
+
+/* Additional specific overrides reduce blur feature */
 
 body.blur-reduced {
   .settings-popup,

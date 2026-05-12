@@ -98,9 +98,23 @@ let askAiMode = false;
 let sfxMicInstance: HTMLAudioElement | null = null;
 let sfxAskAiInstance: HTMLAudioElement | null = null;
 
-let displayScale = parseInt(localStorage.getItem('displayScale') || '100');
+let mainUiScale = parseFloat(localStorage.getItem('mainUiScale') || '1');
+if (mainUiScale !== 1) {
+  document.documentElement.style.setProperty(
+    '--main-ui-scale',
+    `${mainUiScale}`,
+  );
+}
 
-if (displayScale !== 100) {
+const savedDisplayScale = localStorage.getItem('displayScale');
+let displayScale = parseInt(savedDisplayScale || '100');
+
+if (!savedDisplayScale) {
+  document.documentElement.style.setProperty(
+    '--display-scale',
+    `${mainUiScale}`,
+  );
+} else if (displayScale !== 100) {
   document.documentElement.style.setProperty(
     '--display-scale',
     `${displayScale / 100}`,
