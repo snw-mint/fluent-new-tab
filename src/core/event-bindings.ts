@@ -236,14 +236,12 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   const savedMode = localStorage.getItem('accentColorMode') || 'auto';
   const savedColor = localStorage.getItem('accentColorValue') || '#0078D4';
 
-  if (options.accentPresetsRow) {
-    const presetBtns =
-      options.accentPresetsRow.querySelectorAll<HTMLElement>(
+  const clearPresetSelection = () => {
+    const allBtns =
+      options.accentPresetsRow?.querySelectorAll<HTMLElement>(
         '.color-preset-btn',
       );
-
-    // 1. Limpa o estado visual de todos os botões no carregamento da página
-    presetBtns.forEach((b) => {
+    allBtns?.forEach((b) => {
       b.classList.remove('selected');
       if (
         b.classList.contains('auto-preset') ||
@@ -252,8 +250,11 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
         b.style.backgroundColor = '';
       }
     });
+  };
 
-    // 2. Aplica a classe 'selected' apenas no botão correto baseado no cache
+  if (options.accentPresetsRow) {
+    clearPresetSelection();
+
     if (savedMode === 'auto') {
       const autoBtn = options.accentPresetsRow.querySelector<HTMLElement>(
         '[data-color="auto"]',
@@ -273,78 +274,6 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
         options.accentCustomColor.value = savedColor;
       }
     }
-
-    // 3. Recria os ouvintes de clique limpando regras antigas do toggle
-    presetBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement).tagName === 'INPUT') return;
-
-        // Limpa visualmente ao clicar
-        presetBtns.forEach((b) => {
-          b.classList.remove('selected');
-          if (
-            b.classList.contains('auto-preset') ||
-            b.classList.contains('custom-preset')
-          ) {
-            b.style.backgroundColor = '';
-          }
-        });
-
-        btn.classList.add('selected');
-
-        const color = btn.getAttribute('data-color');
-
-        if (color === 'auto') {
-          localStorage.setItem('accentColorMode', 'auto');
-          void options.applyWallpaperLogic();
-        } else if (color) {
-          localStorage.setItem('accentColorValue', color);
-          localStorage.setItem('accentColorMode', 'manual');
-          options.applyAccentColor(color);
-
-          // Limpa o valor do conta-gotas se escolheu uma cor sólida padrão
-          if (
-            !btn.classList.contains('custom-preset') &&
-            options.accentCustomColor
-          ) {
-            options.accentCustomColor.value = '#000000';
-          }
-        }
-      });
-    });
-  }
-
-  // 4. Garante que o Conta-gotas salve apenas no modo manual
-  if (options.accentCustomColor) {
-    const customBtn = options.accentCustomColor.closest(
-      '.custom-preset',
-    ) as HTMLElement;
-
-    options.accentCustomColor.addEventListener('input', (event) => {
-      const target = event.target as HTMLInputElement;
-      if (!target || !customBtn) return;
-
-      const color = target.value;
-      const allBtns =
-        options.accentPresetsRow?.querySelectorAll<HTMLElement>(
-          '.color-preset-btn',
-        );
-      allBtns?.forEach((b) => {
-        b.classList.remove('selected');
-        if (b.classList.contains('auto-preset')) b.style.backgroundColor = '';
-      });
-
-      customBtn.classList.add('selected');
-      options.applyAccentColor(color);
-    });
-
-    options.accentCustomColor.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement;
-      if (!target) return;
-
-      localStorage.setItem('accentColorValue', target.value);
-      localStorage.setItem('accentColorMode', 'manual');
-    });
   }
 
   if (options.toggleAppearance) {
@@ -363,9 +292,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
         if (toggleAuto && toggleAuto.checked) {
           toggleAuto.checked = false;
           localStorage.setItem('accentColorMode', 'manual');
-          const allBtns =
-            options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
-          allBtns?.forEach((b) => b.classList.remove('selected'));
+          clearPresetSelection();
           const currentSavedColor =
             localStorage.getItem('accentColorValue') || '#0078D4';
           const presetBtn = options.accentPresetsRow?.querySelector(
@@ -390,10 +317,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
 
       if (target.checked) {
         localStorage.setItem('accentColorMode', 'auto');
-
-        const allBtns =
-          options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
-        allBtns?.forEach((b) => b.classList.remove('selected'));
+        clearPresetSelection();
         const autoBtn = options.accentPresetsRow?.querySelector(
           '[data-color="auto"]',
         );
@@ -407,9 +331,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
           localStorage.getItem('accentColorValue') || '#0078D4';
         options.applyAccentColor(currentSavedColor);
 
-        const allBtns =
-          options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
-        allBtns?.forEach((b) => b.classList.remove('selected'));
+        clearPresetSelection();
         const presetBtn = options.accentPresetsRow?.querySelector(
           `[data-color="${currentSavedColor}"]`,
         );
@@ -435,15 +357,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     presetBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         if ((e.target as HTMLElement).tagName === 'INPUT') return;
-        presetBtns.forEach((b) => {
-          b.classList.remove('selected');
-          if (
-            b.classList.contains('auto-preset') ||
-            b.classList.contains('custom-preset')
-          ) {
-            b.style.backgroundColor = '';
-          }
-        });
+        clearPresetSelection();
 
         btn.classList.add('selected');
         if (
@@ -479,9 +393,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
 
       const color = target.value;
       customBtn.style.backgroundColor = color;
-      const allBtns =
-        options.accentPresetsRow?.querySelectorAll('.color-preset-btn');
-      allBtns?.forEach((b) => b.classList.remove('selected'));
+      clearPresetSelection();
       customBtn.classList.add('selected');
       options.applyAccentColor(color);
     });
