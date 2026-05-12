@@ -3377,7 +3377,8 @@ function showReauthNotice(features: string[]): void {
       if (allOrigins.length > 0) {
         // Remove duplicates just in case
         const uniqueOrigins = [...new Set(allOrigins)];
-        await requestPermission(uniqueOrigins);
+        const granted = await requestPermission(uniqueOrigins);
+        if (!granted) return;
       }
 
       await setStorageLocalItems({ reauth_needed: [] });
