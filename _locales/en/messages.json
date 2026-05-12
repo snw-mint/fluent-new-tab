@@ -7,7 +7,7 @@
   "nosourceOption": { "message": "No source" },
   "overlayLabel": { "message": "Image Overlay" },
   "appearanceTitle": { "message": "Appearance" },
-  "accentWallpaperOption": { "message": "Get from wallpaper" },
+  "mainUiScaleLabel": { "message": "Main UI Scale" },
   "tabNameLabel": { "message": "Tab Name" },
   "tabFaviconLabel": { "message": "Tab Icon" },
   "styleNone": { "message": "None" },

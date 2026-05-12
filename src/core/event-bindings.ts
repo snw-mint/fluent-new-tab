@@ -238,16 +238,29 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
 
   if (options.accentPresetsRow) {
     const presetBtns =
-      options.accentPresetsRow.querySelectorAll('.color-preset-btn');
-    presetBtns.forEach((b) => b.classList.remove('selected'));
+      options.accentPresetsRow.querySelectorAll<HTMLElement>(
+        '.color-preset-btn',
+      );
 
+    // 1. Limpa o estado visual de todos os botões no carregamento da página
+    presetBtns.forEach((b) => {
+      b.classList.remove('selected');
+      if (
+        b.classList.contains('auto-preset') ||
+        b.classList.contains('custom-preset')
+      ) {
+        b.style.backgroundColor = '';
+      }
+    });
+
+    // 2. Aplica a classe 'selected' apenas no botão correto baseado no cache
     if (savedMode === 'auto') {
-      const autoBtn = options.accentPresetsRow.querySelector(
+      const autoBtn = options.accentPresetsRow.querySelector<HTMLElement>(
         '[data-color="auto"]',
       );
       if (autoBtn) autoBtn.classList.add('selected');
     } else {
-      const presetBtn = options.accentPresetsRow.querySelector(
+      const presetBtn = options.accentPresetsRow.querySelector<HTMLElement>(
         `[data-color="${savedColor}"]`,
       );
       if (presetBtn) {
@@ -256,13 +269,82 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
         const customBtn = options.accentCustomColor.closest(
           '.custom-preset',
         ) as HTMLElement;
-        if (customBtn) {
-          customBtn.classList.add('selected');
-          customBtn.style.backgroundColor = savedColor;
-        }
+        if (customBtn) customBtn.classList.add('selected');
         options.accentCustomColor.value = savedColor;
       }
     }
+
+    // 3. Recria os ouvintes de clique limpando regras antigas do toggle
+    presetBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).tagName === 'INPUT') return;
+
+        // Limpa visualmente ao clicar
+        presetBtns.forEach((b) => {
+          b.classList.remove('selected');
+          if (
+            b.classList.contains('auto-preset') ||
+            b.classList.contains('custom-preset')
+          ) {
+            b.style.backgroundColor = '';
+          }
+        });
+
+        btn.classList.add('selected');
+
+        const color = btn.getAttribute('data-color');
+
+        if (color === 'auto') {
+          localStorage.setItem('accentColorMode', 'auto');
+          void options.applyWallpaperLogic();
+        } else if (color) {
+          localStorage.setItem('accentColorValue', color);
+          localStorage.setItem('accentColorMode', 'manual');
+          options.applyAccentColor(color);
+
+          // Limpa o valor do conta-gotas se escolheu uma cor sólida padrão
+          if (
+            !btn.classList.contains('custom-preset') &&
+            options.accentCustomColor
+          ) {
+            options.accentCustomColor.value = '#000000';
+          }
+        }
+      });
+    });
+  }
+
+  // 4. Garante que o Conta-gotas salve apenas no modo manual
+  if (options.accentCustomColor) {
+    const customBtn = options.accentCustomColor.closest(
+      '.custom-preset',
+    ) as HTMLElement;
+
+    options.accentCustomColor.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement;
+      if (!target || !customBtn) return;
+
+      const color = target.value;
+      const allBtns =
+        options.accentPresetsRow?.querySelectorAll<HTMLElement>(
+          '.color-preset-btn',
+        );
+      allBtns?.forEach((b) => {
+        b.classList.remove('selected');
+        if (b.classList.contains('auto-preset')) b.style.backgroundColor = '';
+      });
+
+      customBtn.classList.add('selected');
+      options.applyAccentColor(color);
+    });
+
+    options.accentCustomColor.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement;
+      if (!target) return;
+
+      localStorage.setItem('accentColorValue', target.value);
+      localStorage.setItem('accentColorMode', 'manual');
+    });
   }
 
   if (options.toggleAppearance) {
@@ -346,14 +428,30 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
 
   if (options.accentPresetsRow) {
     const presetBtns =
-      options.accentPresetsRow.querySelectorAll('.color-preset-btn');
+      options.accentPresetsRow.querySelectorAll<HTMLElement>(
+        '.color-preset-btn',
+      );
 
     presetBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         if ((e.target as HTMLElement).tagName === 'INPUT') return;
+        presetBtns.forEach((b) => {
+          b.classList.remove('selected');
+          if (
+            b.classList.contains('auto-preset') ||
+            b.classList.contains('custom-preset')
+          ) {
+            b.style.backgroundColor = '';
+          }
+        });
 
-        presetBtns.forEach((b) => b.classList.remove('selected'));
         btn.classList.add('selected');
+        if (
+          !btn.classList.contains('custom-preset') &&
+          options.accentCustomColor
+        ) {
+          options.accentCustomColor.value = '#000000';
+        }
 
         const color = btn.getAttribute('data-color');
 
@@ -876,12 +974,12 @@ function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
 }
 
 function bindWallpaperFeature(options: WallpaperBindingOptions): void {
-  const toggleAccentAuto = document.getElementById(
-    'toggleAccentWallpaper',
-  ) as HTMLInputElement | null;
+  const autoColorBtn = document.querySelector(
+    '.color-preset-btn.auto-preset',
+  ) as HTMLButtonElement | null;
 
-  if (toggleAccentAuto) {
-    toggleAccentAuto.disabled = !options.getWallpaperEnabled();
+  if (autoColorBtn) {
+    autoColorBtn.disabled = !options.getWallpaperEnabled();
   }
 
   if (options.toggleWallpaper) {
@@ -894,11 +992,13 @@ function bindWallpaperFeature(options: WallpaperBindingOptions): void {
       localStorage.setItem('wallpaperEnabled', String(isEnabled));
       options.updateWallpaperUIState(isEnabled, true);
 
-      if (toggleAccentAuto) {
-        toggleAccentAuto.disabled = !isEnabled;
-        if (!isEnabled && toggleAccentAuto.checked) {
-          toggleAccentAuto.checked = false;
-          toggleAccentAuto.dispatchEvent(new Event('change'));
+      if (autoColorBtn) {
+        autoColorBtn.disabled = !isEnabled;
+        if (!isEnabled && autoColorBtn.classList.contains('selected')) {
+          const defaultColorBtn = document.querySelector(
+            '.color-preset-btn[data-color="#0078d4"]',
+          ) as HTMLButtonElement | null;
+          if (defaultColorBtn) defaultColorBtn.click();
         }
       }
 

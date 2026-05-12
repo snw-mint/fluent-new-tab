@@ -494,7 +494,6 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
 .color-presets-row {
   display: flex;
-  gap: 0.5rem;
   justify-content: space-between;
   margin-top: 0.4rem;
   margin-bottom: 0.375rem;
@@ -502,55 +501,77 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
   .color-preset-btn {
     @include button-reset;
-    width: 1.375rem;
-    height: 1.375rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: $radius-sm;
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease,
       border-color 0.2s ease;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
 
+    .icon-filled {
+      display: none;
+    }
+    .icon-outline {
+      display: block;
+    }
+
     &:hover {
       transform: scale(1.15);
       box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     }
+
     &.selected {
       border: 0.125rem solid var(--search-bg);
       box-shadow:
         0 0 0 0.125rem var(--accent-color),
         0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
       transform: scale(1.05);
+
+      color: var(--accent-contrast-color);
+
+      .icon-filled {
+        display: block;
+      }
+      .icon-outline {
+        display: none;
+      }
     }
 
-    &.auto-preset {
-      background: linear-gradient(135deg, #ffffff 50%, #2b2b2b 50%);
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(1);
     }
 
+    &.auto-preset,
     &.custom-preset {
       background-color: rgba(0, 0, 0, 0.06);
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
 
       svg {
         width: 0.875rem;
         height: 0.875rem;
-        opacity: 0.8;
         pointer-events: none;
         position: relative;
         z-index: 1;
       }
+    }
 
-      &:hover svg {
-        opacity: 1;
-      }
+    &.auto-preset.selected,
+    &.custom-preset.selected {
+      background-color: var(--accent-color);
     }
   }
 }

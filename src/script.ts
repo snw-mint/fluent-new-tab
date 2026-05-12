@@ -970,8 +970,8 @@ function updateOverlaySliderProgress(slider: HTMLInputElement): void {
   const min = parseFloat(slider.min || '0');
   const max = parseFloat(slider.max || '1');
   const range = max - min || 1;
-  const percentage = ((value - min) / range) * 100;
-  slider.style.setProperty('--slider-progress', `${percentage}%`);
+  const progress = (value - min) / range;
+  slider.style.setProperty('--slider-progress', `${progress}`);
 }
 
 const MAX_OVERLAY_OPACITY = 0.7;
