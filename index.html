@@ -74,9 +74,9 @@
   <div class="header-controls">
 
     <a href="#" id="weatherWidget" class="weather-widget" target="_blank" style="display: none">
-      <span class="weather-city" id="weatherCity">City</span>
+      <span class="weather-city" id="weatherCity">--</span>
       <div class="weather-icon" id="weatherIcon"></div>
-      <span class="weather-temp" id="weatherTemp">00°</span>
+      <span class="weather-temp" id="weatherTemp">--</span>
     </a>
 
     <div class="settings-wrapper">
@@ -342,12 +342,34 @@
                   fill="currentColor" />
               </svg>
             </div>
+
             <div class="setting-content collapsed" id="display-slider-container">
+
+              <div id="subScale" class="display-sub-setting" style="margin-bottom: 0.5rem">
+                <div class="slider-row-display">
+                  <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
+                  <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5"
+                    value="100" />
+                </div>
+              </div>
+
+              <div id="subDate" class="display-sub-setting" style="display: none">
+                <label class="setting-label-small" data-i18n="dateFormatLabel">Format</label>
+                <select id="dateFormatSelect" class="settings-select">
+                  <option value="text" data-i18n="dateText">Written</option>
+                  <option value="numeric" data-i18n="dateNumeric">Numeric</option>
+                  <option value="weekday" data-i18n="dateWeekday">Weekday</option>
+                </select>
+              </div>
+
               <div id="subGreeting" class="display-sub-setting">
+                <label class="setting-label-small" style="margin-bottom: 0.5rem" data-i18n="greetingNameLabel">Your
+                  Name</label>
                 <div class="input-row">
-                  <input type="text" id="greetingNameInput" placeholder="Your Name (Optional)" maxlength="20"
+                  <input type="text" id="greetingNameInput" placeholder="e.g., John (optional)" maxlength="20"
                     data-i18n="namePlaceholder" />
                 </div>
+
                 <div class="setting-content-spaced">
                   <label class="setting-label-small" data-i18n="iconsStyleLabel">Icon Style</label>
                   <select id="greetingStyleSelect" class="settings-select">
@@ -359,7 +381,7 @@
               </div>
 
               <div id="subTime" class="display-sub-setting" style="display: none">
-                <div class="switch-row child-setting">
+                <div class="switch-row child-setting" style="margin-bottom: 1rem">
                   <label for="toggleSeconds" data-i18n="showSecondsLabel">Show seconds</label>
                   <label class="fluent-checkbox">
                     <input type="checkbox" id="toggleSeconds" />
@@ -387,23 +409,6 @@
                 </div>
               </div>
 
-              <div id="subDate" class="display-sub-setting" style="display: none">
-                <label class="setting-label-small" data-i18n="dateFormatLabel">Format</label>
-                <select id="dateFormatSelect" class="settings-select">
-                  <option value="text" data-i18n="dateText">Written</option>
-                  <option value="numeric" data-i18n="dateNumeric">Numeric</option>
-                  <option value="weekday" data-i18n="dateWeekday">Weekday</option>
-                </select>
-              </div>
-
-              <div id="subScale" class="display-sub-setting">
-                <div class="slider-row-display">
-                  <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
-                  <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5"
-                    value="100" />
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -426,7 +431,7 @@
         </div>
 
         <div id="cityInputGroup" class="input-row">
-          <input type="text" id="cityInput" placeholder="City..." data-i18n="cityPlaceholder" />
+          <input type="text" id="cityInput" placeholder="e.g., New York" data-i18n="cityPlaceholder" />
           <button id="saveCityBtn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />

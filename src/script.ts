@@ -276,11 +276,11 @@ class WarningModalManager {
 
     this.btnCancel.onclick = () => {
       this.close();
-      if (options.onCancel) options.onCancel();
+      options.onCancel?.(); // simplifica o if desnecessário
     };
   }
 
-  private close(): void {
+  public close(): void {
     this.overlay.classList.remove('active');
     document.removeEventListener('keydown', this.handleKeydownBound);
     this.btnConfirm.onclick = null;
@@ -1095,6 +1095,7 @@ async function applyWallpaperLogic() {
     if (!wallpaperEnabled) {
       document.body.style.backgroundImage = 'none';
       document.body.removeAttribute('data-wallpaper-active');
+      updateCreditsUI('none');
       return;
     }
 
@@ -1168,10 +1169,12 @@ async function applyWallpaperLogic() {
             } else {
               document.body.style.backgroundImage = 'none';
               document.body.removeAttribute('data-wallpaper-active');
+              updateCreditsUI('none');
             }
           } catch (e) {
             document.body.style.backgroundImage = 'none';
             document.body.removeAttribute('data-wallpaper-active');
+            updateCreditsUI('none');
           }
         }
       } finally {
@@ -1199,9 +1202,13 @@ async function loadCustomWallpaper() {
       void handleAutoAccentColor(url, `upload_${blob.size}`);
     } else {
       console.warn('No custom wallpaper found.');
+      body.style.backgroundImage = 'none';
+      body.removeAttribute('data-wallpaper-active');
     }
   } catch (e) {
     console.error('Failed to load wallpaper:', e);
+    body.style.backgroundImage = 'none';
+    body.removeAttribute('data-wallpaper-active');
   }
 }
 
@@ -1374,214 +1381,6 @@ function bindExternalShortcutDrop(): void {
   });
 }
 
-function initSortable() {
-  if (!shortcutsGrid) return;
-
-  let hoveredFolderEl: HTMLElement | null = null;
-  const BODY_DRAG_CLASS = 'dragging-out-of-folder';
-  let globalDragOverHandler: ((event: DragEvent) => void) | null = null;
-
-  const clearFolderHover = (): void => {
-    if (hoveredFolderEl) hoveredFolderEl.classList.remove('folder-drag-hover');
-    hoveredFolderEl = null;
-  };
-
-  const getClientPoint = (
-    event: Event | null | undefined,
-  ): { x: number; y: number } | null => {
-    if (!event) return null;
-    if ('clientX' in event && 'clientY' in event) {
-      const mouseEvt = event as MouseEvent;
-      return { x: mouseEvt.clientX, y: mouseEvt.clientY };
-    }
-    const touchEvt = event as TouchEvent;
-    const touch = touchEvt.touches?.[0] || touchEvt.changedTouches?.[0];
-    if (touch) return { x: touch.clientX, y: touch.clientY };
-    return null;
-  };
-
-  const setBodyDragOverlay = (enabled: boolean): void => {
-    document.body.classList.toggle(BODY_DRAG_CLASS, enabled);
-  };
-
-  const detachGlobalDragOver = (): void => {
-    if (globalDragOverHandler) {
-      document.removeEventListener('dragover', globalDragOverHandler, true);
-      globalDragOverHandler = null;
-    }
-  };
-
-  const isPointOutsideGrid = (event: Event | null | undefined): boolean => {
-    const point = getClientPoint(event);
-    if (!point || !shortcutsGrid) return false;
-    const rect = shortcutsGrid.getBoundingClientRect();
-    return (
-      point.x < rect.left ||
-      point.x > rect.right ||
-      point.y < rect.top ||
-      point.y > rect.bottom
-    );
-  };
-
-  const sortableOptions = {
-    animation: 200,
-    dragClass: 'sortable-dragging',
-    ghostClass: 'sortable-placeholder',
-    draggable: '.shortcut-item:not(.add-card-wrapper):not(.folder-back-btn)',
-    filter: '.add-card-wrapper, .menu-wrapper, .folder-back-btn',
-    handle: '.shortcut-card',
-    delay: 120,
-    delayOnTouchOnly: true,
-    touchStartThreshold: 4,
-    setData: function (dataTransfer, dragEl) {
-      const link = dragEl.matches('.shortcut-card')
-        ? dragEl
-        : dragEl.querySelector('.shortcut-card');
-      const url = link?.getAttribute('href');
-      if (url) {
-        dataTransfer.setData('text/uri-list', url);
-        dataTransfer.setData('text/plain', url);
-      }
-    },
-
-    onStart: (evt: any) => {
-      shortcutsGrid.classList.add('sorting');
-      document.body.classList.add('is-sorting-shortcuts');
-
-      const draggedEl = (evt?.item || evt?.dragged) as HTMLElement | null;
-      const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
-      const insideFolder = Boolean(currentFolderId);
-
-      if (insideFolder && !isDraggingFolder) {
-        globalDragOverHandler = (event: DragEvent) => {
-          const outsideGrid = isPointOutsideGrid(event);
-          setBodyDragOverlay(outsideGrid);
-          event.preventDefault();
-          if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
-        };
-        document.addEventListener('dragover', globalDragOverHandler, true);
-      }
-    },
-
-    onMove: (evt: any, originalEvent: DragEvent | TouchEvent | MouseEvent) => {
-      document
-        .querySelectorAll('.folder-drag-hover')
-        .forEach((el) => el.classList.remove('folder-drag-hover'));
-
-      const relatedEl = evt.related as HTMLElement | null;
-      if (relatedEl?.classList.contains('add-card-wrapper')) return false;
-      if (relatedEl?.classList.contains('folder-back-btn')) return false;
-
-      const draggedEl = (evt?.dragged || evt?.item) as HTMLElement | null;
-      const isDraggingFolder = draggedEl?.dataset?.type === 'folder';
-      const insideFolder = Boolean(currentFolderId);
-
-      const outsideGrid = insideFolder && isPointOutsideGrid(originalEvent);
-      setBodyDragOverlay(outsideGrid);
-      if (
-        outsideGrid &&
-        originalEvent &&
-        'dataTransfer' in originalEvent &&
-        originalEvent.dataTransfer
-      ) {
-        originalEvent.preventDefault();
-        originalEvent.dataTransfer.dropEffect = 'move';
-      }
-
-      if (
-        !currentFolderId &&
-        !isDraggingFolder &&
-        relatedEl?.dataset?.type === 'folder'
-      ) {
-        hoveredFolderEl = relatedEl;
-        relatedEl.classList.add('folder-drag-hover');
-        return false;
-      }
-
-      hoveredFolderEl = null;
-      return true;
-    },
-
-    onEnd: function (evt: any) {
-      shortcutsGrid.classList.remove('sorting');
-      document.body.classList.remove('is-sorting-shortcuts');
-      setBodyDragOverlay(false);
-      detachGlobalDragOver();
-
-      const draggedEl = evt?.item as HTMLElement | null;
-      const targetArray = getActiveShortcutsList();
-      const isInsideFolder = targetArray !== shortcuts;
-      const indexOffset = isInsideFolder ? 1 : 0;
-      const adjustedOldIndex = (evt.oldIndex ?? -1) - indexOffset;
-      const adjustedNewIndex = (evt.newIndex ?? -1) - indexOffset;
-
-      const originalEvent = evt?.originalEvent as Event | null;
-      const folderDropTarget =
-        !isInsideFolder &&
-        hoveredFolderEl &&
-        hoveredFolderEl.dataset.type === 'folder'
-          ? hoveredFolderEl
-          : null;
-      const droppingOutsideGrid =
-        isInsideFolder && isPointOutsideGrid(originalEvent);
-
-      clearFolderHover();
-
-      if (adjustedOldIndex < 0) return;
-
-      const movedItem = targetArray[adjustedOldIndex];
-      if (!movedItem) return;
-
-      let queueRender = false;
-
-      if (!isInsideFolder && folderDropTarget) {
-        const folderId = folderDropTarget.dataset.id;
-        const folderShortcut = shortcuts.find(
-          (s) => s.id === folderId && s.type === 'folder',
-        );
-
-        if (!folderShortcut || movedItem.type === 'folder') {
-          queueRender = true;
-        } else {
-          const folderChildren = folderShortcut.children || [];
-          if (folderChildren.length >= MAX_FOLDER_CAPACITY) {
-            showGridLimitWarning(MAX_FOLDER_CAPACITY, true);
-            queueRender = true;
-          } else {
-            targetArray.splice(adjustedOldIndex, 1);
-            folderShortcut.children = folderChildren;
-            folderChildren.push(movedItem);
-            queueRender = true;
-          }
-        }
-      } else if (droppingOutsideGrid) {
-        const maxMain = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
-        if (shortcuts.length >= maxMain) {
-          showGridLimitWarning(maxMain, false);
-          queueRender = true;
-        } else {
-          targetArray.splice(adjustedOldIndex, 1);
-          shortcuts.push(movedItem);
-          queueRender = true;
-        }
-      } else if (evt.oldIndex !== evt.newIndex && adjustedNewIndex >= 0) {
-        const reorderedItem = targetArray.splice(adjustedOldIndex, 1)[0];
-        if (reorderedItem) {
-          targetArray.splice(adjustedNewIndex, 0, reorderedItem);
-          queueRender = true;
-        }
-      }
-
-      if (queueRender) {
-        requestAnimationFrame(() => {
-          saveAndRender();
-        });
-      }
-    },
-  } as { setData: (dataTransfer: DataTransfer, dragEl: HTMLElement) => void };
-
-  Sortable.create(shortcutsGrid, sortableOptions as any);
-}
 async function initWeather() {
   const cachedString = localStorage.getItem(CACHE_KEY);
   if (cachedString) {
@@ -1810,7 +1609,12 @@ function updateCreditsUI(
 
   if (!creditsContainer || !creditsSpan) return;
 
-  if (source === 'local' || source === 'preset' || source === 'upload') {
+  if (
+    source === 'local' ||
+    source === 'preset' ||
+    source === 'upload' ||
+    source === 'none'
+  ) {
     creditsContainer.classList.add('hidden');
   } else {
     creditsSpan.innerHTML = '';
@@ -1854,25 +1658,6 @@ function applyInitialFoldersSetting() {
   if (toggleFolders) toggleFolders.checked = foldersEnabled;
   updateLauncherFooterVariant();
 }
-function applyInitialSearchBarVisibility() {
-  updateSearchSettings(false);
-  if (toggleSearchBar) {
-    toggleSearchBar.checked = searchBarVisible;
-  }
-}
-
-function applyInitialSuggestionsActive() {
-  if (toggleSuggestions) {
-    toggleSuggestions.checked = suggestionsActive;
-  }
-}
-
-function applyInitialClearSearch() {
-  if (toggleClearSearch) {
-    toggleClearSearch.checked = clearSearchEnabled;
-  }
-  updateGoogleParams();
-}
 
 function applyInitialReducedEffectsState() {
   updateReducedEffectsVisibility(reducedEffectsEnabled, false);
@@ -1891,13 +1676,6 @@ function applyInitialReducedEffectsState() {
       if (toggleDisableBlur) toggleDisableBlur.checked = false;
     }
   }
-}
-
-function applyInitialVoiceSearch() {
-  if (toggleVoiceSearch) {
-    toggleVoiceSearch.checked = voiceSearchEnabled;
-  }
-  updateVoiceSearchAvailability();
 }
 
 function applyInitialAnimationsDisabled() {
@@ -2519,7 +2297,13 @@ function initVisual() {
   bindExternalShortcutDrop();
   applyInitialShortcutsVisibility();
   applyInitialFoldersSetting();
-  applyInitialSearchBarVisibility();
+  updateSearchSettings(false);
+  if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
+  if (toggleSuggestions) toggleSuggestions.checked = suggestionsActive;
+  if (toggleClearSearch) toggleClearSearch.checked = clearSearchEnabled;
+  if (toggleVoiceSearch) toggleVoiceSearch.checked = voiceSearchEnabled;
+  updateGoogleParams();
+  updateVoiceSearchAvailability();
 
   updateCompactBarStyle();
 
@@ -3050,27 +2834,23 @@ function initAllEventBindings() {
   }
 
   bindSearchFeature({
-    applyInitialSearchEngine,
     engineBtn,
     dropdown,
     closePopups,
     items,
     hasEngine: (engine) => engine in engines,
     setSearchEngine,
-    applyInitialSearchBarVisibility,
     toggleSearchBar,
     setSearchBarVisible: (visible) => {
       searchBarVisible = visible;
     },
     updateSearchSettings,
-    applyInitialSuggestionsActive,
     toggleSuggestions,
     getSuggestionsActive: () => suggestionsActive,
     setSuggestionsActive: (enabled) => {
       suggestionsActive = enabled;
     },
     clearSuggestions,
-    applyInitialClearSearch,
     toggleClearSearch,
     setClearSearchEnabled: (enabled) => {
       clearSearchEnabled = enabled;
@@ -3084,7 +2864,6 @@ function initAllEventBindings() {
       compactBarEnabled = enabled;
     },
     updateCompactBarStyle,
-    applyInitialVoiceSearch,
     toggleVoiceSearch,
     setVoiceSearchEnabled: (enabled) => {
       voiceSearchEnabled = enabled;

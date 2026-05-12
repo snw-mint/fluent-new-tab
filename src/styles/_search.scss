@@ -339,30 +339,26 @@
       border-left: 0.25rem solid #ffffff !important;
       border-right: 0.25rem solid #ffffff !important;
       border-bottom: 0.25rem solid #ffffff !important;
-
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
       border-bottom-left-radius: $radius-xxl !important;
       border-bottom-right-radius: $radius-xxl !important;
-
       box-shadow: none !important;
       animation: fluentDrawerOpen 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
       transform-origin: top;
     }
-  }
 
-  &.compact.suggestions-open {
-    background-color: #ffffff !important;
-    border-color: transparent !important;
-
-    .suggestions-container {
-      left: 0;
-      width: 100%;
-      border: none !important;
+    &.compact {
       background-color: #ffffff !important;
 
-      border-bottom-left-radius: calc(#{$radius-xxl} + 1px) !important;
-      border-bottom-right-radius: calc(#{$radius-xxl} + 1px) !important;
+      .suggestions-container {
+        left: 0;
+        width: 100%;
+        border: none !important;
+        background-color: #ffffff !important;
+        border-bottom-left-radius: calc(#{$radius-xxl} + 1px) !important;
+        border-bottom-right-radius: calc(#{$radius-xxl} + 1px) !important;
+      }
     }
   }
 }

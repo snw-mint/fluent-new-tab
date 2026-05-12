@@ -96,17 +96,11 @@ async function fetchDailyWallpaper(
 
   const today = new Date().toISOString().slice(0, 10);
   const cacheKey = `wallpaper_cache_${source}`;
-  const now = Date.now();
-  const midnight = new Date();
-  midnight.setHours(24, 0, 0, 0);
-  const msUntilMidnight = midnight.getTime() - now;
-  const msSinceMidnight = 86400000 - msUntilMidnight;
 
   try {
     const cached = JSON.parse(
       localStorage.getItem(cacheKey) || 'null',
     ) as WallpaperCacheEntry | null;
-    const timestamp = cached?.timestamp || 0;
     const cachedDate = cached?.date || '';
     if (cached && cached.url && cachedDate === today && 'creditUrl' in cached) {
       console.log(`Loading ${source} from today's cache.`);
@@ -251,7 +245,6 @@ async function fetchDailyWallpaper(
         JSON.stringify({
           url: imageUrl,
           date: today,
-          timestamp: now,
           credit: creditText,
           creditUrl: creditUrl,
         }),

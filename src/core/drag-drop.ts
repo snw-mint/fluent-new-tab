@@ -31,6 +31,9 @@ let mouseY = 0;
 let offsetX = 0;
 let offsetY = 0;
 let dragStartRect: DOMRect | null = null;
+let ghostBaseX = 0;
+let ghostBaseY = 0;
+let ghostScale = 1;
 
 function initVanillaDragAndDrop(options: DragDropOptions): void {
   activeDragOptions = options;
@@ -116,6 +119,12 @@ function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
     activeDragOptions.gridContainer.appendChild(ghostNode);
   }
 
+  ghostNode.style.transform = 'translate(0px, 0px)';
+  const zeroRect = ghostNode.getBoundingClientRect();
+  ghostBaseX = zeroRect.left;
+  ghostBaseY = zeroRect.top;
+  ghostScale = zeroRect.width / (ghostNode.offsetWidth || 1);
+
   function updateGhostPosition() {
     if (!ghostNode || !dragStartRect || !activeDragOptions) return;
 
@@ -132,25 +141,28 @@ function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
         mouseY < gridRect.top - 50 ||
         mouseY > gridRect.bottom + 50);
 
-    let targetX = mouseX - offsetX;
-    let targetY = mouseY - offsetY;
+    let screenTargetX = mouseX - offsetX;
+    let screenTargetY = mouseY - offsetY;
 
     if (!isOutside) {
-      targetX = Math.max(
+      screenTargetX = Math.max(
         gridRect.left,
-        Math.min(targetX, gridRect.right - dragStartRect.width),
+        Math.min(screenTargetX, gridRect.right - dragStartRect.width),
       );
       if (isSingleRow) {
-        targetY = dragStartRect.top;
+        screenTargetY = dragStartRect.top;
       } else {
-        targetY = Math.max(
+        screenTargetY = Math.max(
           gridRect.top,
-          Math.min(targetY, gridRect.bottom - dragStartRect.height),
+          Math.min(screenTargetY, gridRect.bottom - dragStartRect.height),
         );
       }
     }
 
-    ghostNode.style.transform = `translate(${targetX}px, ${targetY}px)`;
+    const tx = (screenTargetX - ghostBaseX) / ghostScale;
+    const ty = (screenTargetY - ghostBaseY) / ghostScale;
+
+    ghostNode.style.transform = `translate(${tx}px, ${ty}px)`;
     rAF_ID = requestAnimationFrame(updateGhostPosition);
   }
 

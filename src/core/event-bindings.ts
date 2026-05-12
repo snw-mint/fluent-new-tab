@@ -45,23 +45,19 @@ interface LauncherBindingOptions {
 }
 
 interface SearchBindingOptions {
-  applyInitialSearchEngine: () => void;
   engineBtn: HTMLButtonElement | null;
   dropdown: HTMLDivElement | null;
   closePopups: (except?: Element | null) => void;
   items: NodeListOf<HTMLElement>;
   hasEngine: (engine: string) => boolean;
   setSearchEngine: (engine: keyof typeof engines) => void;
-  applyInitialSearchBarVisibility: () => void;
   toggleSearchBar: HTMLInputElement | null;
   setSearchBarVisible: (visible: boolean) => void;
   updateSearchSettings: (animate?: boolean) => void;
-  applyInitialSuggestionsActive: () => void;
   toggleSuggestions: HTMLInputElement | null;
   getSuggestionsActive: () => boolean;
   setSuggestionsActive: (enabled: boolean) => void;
   clearSuggestions: () => void;
-  applyInitialClearSearch: () => void;
   toggleClearSearch: HTMLInputElement | null;
   setClearSearchEnabled: (enabled: boolean) => void;
   updateGoogleParams: () => void;
@@ -71,7 +67,6 @@ interface SearchBindingOptions {
   getCompactBarEnabled: () => boolean;
   setCompactBarEnabled: (enabled: boolean) => void;
   updateCompactBarStyle: () => void;
-  applyInitialVoiceSearch: () => void;
   toggleVoiceSearch: HTMLInputElement | null;
   setVoiceSearchEnabled: (enabled: boolean) => void;
   updateVoiceSearchAvailability: () => void;
@@ -480,12 +475,6 @@ function bindLauncherFeature(options: LauncherBindingOptions): void {
 }
 
 function bindSearchFeature(options: SearchBindingOptions): void {
-  options.applyInitialSearchEngine();
-  options.applyInitialSearchBarVisibility();
-  options.applyInitialSuggestionsActive();
-  options.applyInitialClearSearch();
-  options.applyInitialVoiceSearch();
-
   if (options.toggleSearchBar) {
     options.toggleSearchBar.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
