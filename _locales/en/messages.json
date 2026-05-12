@@ -17,7 +17,7 @@
   "displayTime": { "message": "Time" },
   "displayDate": { "message": "Date" },
   "displayAdvanced": { "message": "Time & Date" },
-  "displayScaleLabel": { "message": "Resize Display" },
+  "displayScaleLabel": { "message": "Display Scale" },
   "showSecondsLabel": { "message": "Show seconds" },
   "use12HourLabel": { "message": "Use 12-hour format" },
   "dateFormatLabel": { "message": "Format" },

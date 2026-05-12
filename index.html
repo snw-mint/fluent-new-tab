@@ -203,6 +203,12 @@
             </div>
             <div class="setting-content collapsed" id="accent-more-container">
 
+              <div class="slider-row child-setting" id="mainUiScaleRow">
+                <label for="mainUiScaleSlider" class="setting-label-small" data-i18n="mainUiScaleLabel">UI Scale</label>
+                <input type="range" id="mainUiScaleSlider" class="fluent-slider" min="0.5" max="2.0" step="0.1"
+                  value="1" />
+              </div>
+
               <div class="switch-row child-setting" id="accentWallpaperRow">
                 <label for="toggleAccentWallpaper" data-i18n="accentWallpaperOption">Get from wallpaper</label>
                 <label class="fluent-checkbox">
@@ -386,7 +392,7 @@
 
               <div id="subScale" class="display-sub-setting">
                 <div class="slider-row-display">
-                  <label class="setting-label-small" data-i18n="displayScaleLabel">Resize Display</label>
+                  <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
                   <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5"
                     value="100" />
                 </div>
