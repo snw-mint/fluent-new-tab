@@ -1,4 +1,4 @@
-# Fluent New Tab &nbsp; [ ![lastest version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsnw-mint%2Ffluent-new-tab%2Frefs%2Fheads%2Fmain%2Fmanifest.json&query=version&style=flat&label=latest%20version&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/releases) [ ![last commit](https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/activity) [ ![license](https://img.shields.io/badge/GPLv3-message?style=flat&label=license&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab?tab=GPL-3.0-1-ov-file)
+# <img src="assets\icon-128.png" width="50" align="center"> Fluent New Tab &nbsp; [ ![lastest version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsnw-mint%2Ffluent-new-tab%2Frefs%2Fheads%2Fmain%2Fmanifest.json&query=version&style=flat&label=latest%20version&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/releases) [ ![last commit](https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/activity) [ ![license](https://img.shields.io/badge/GPLv3-message?style=flat&label=license&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab?tab=GPL-3.0-1-ov-file)
 
 ![Fluent New Tab Main](repo-assets/main.png)
 
@@ -14,7 +14,7 @@
   <a href="TRANSLATING.md">Help translate</a>
 </p>
 
-## Why choose Fluent New Tab?
+## <img src="repo-assets/icons/why.svg" width="37" align="center"> Why choose Fluent New Tab?
 
 - Minimal, lightweight layout focused on productivity.
 - Built-in launcher for Microsoft 365, Google Workspace, and Proton.
@@ -25,7 +25,7 @@
 
 More details on the [official website.](https://snw-mint.github.io/fluent-new-tab/)
 
-## Installation
+## <img src="repo-assets/icons/install.svg" width="37" align="center"> Installation
 
 The easiest option is the official store, with automatic updates.
 
@@ -50,33 +50,17 @@ For the latest version:
 4. Enable **Developer Mode**.
 5. Click **Load Unpacked** and select the unzipped folder.
 
-## Local development (TypeScript + SCSS)
+## <img src="repo-assets/icons/support.svg" width="37" align="center"> Support the project
 
-This project uses a build step.
+Fluent New Tab is an independent, open-source project maintained solely by me. If you enjoy using the extension and want to help keep it alive, ad-free, and regularly updated, consider supporting my work!
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Build extension files:
-   ```bash
-   npm run build
-   ```
-3. In `edge://extensions`, click **Load unpacked** and select the `dist/` folder.
+<p align="center">
+  <a href="https://www.buymeacoffee.com/snw.mint" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+</p>
 
-Source files are in `src/`:
+Not able to donate? You can still help immensely by **starring this repository**, leaving a review on the extension store, and sharing it with your friends!
 
-- `src/script.ts` → `dist/script.js`
-- `src/style.scss` → `dist/style.css`
-
-Runtime files (`script.js` and `style.css`) are generated only in `dist/`.
-
-## Support the project
-
-- GitHub Sponsors: https://github.com/sponsors/snw-mint
-- Buy Me A Coffe: https://buymeacoffee.com/snw.mint
-
-## Privacy
+## <img src="repo-assets/icons/privacy.svg" width="37" align="center"> Privacy
 
 Fluent New Tab follows a local-first approach.
 
@@ -87,14 +71,24 @@ Fluent New Tab follows a local-first approach.
 
 See the [privacy policy](https://snw-mint.github.io/fluent-new-tab/privacy.html) for details.
 
-## Contributing
+## <img src="repo-assets/icons/contributing.svg" width="37" align="center"> Contributing
 
-Contributions are welcome.
+Contributions, feedback, and bug reports are highly appreciated!
 
-- Translators: read the [Translation Guide](TRANSLATING.md).
-- Developers: read the [Developer Guide](CONTRIBUTING.md).
+- **Bug Reports & Feature Requests:** Please open a GitHub Issue if you found a bug or have a concrete feature request.
+- **Questions & Ideas:** Use GitHub Discussions for general questions, showing off your setup, or sharing open-ended ideas.
+- **Developers:** Want to run the project locally or submit a Pull Request? Check out our Developer Guide for local development instructions.
 
-## License and legal notice
+## <img src="repo-assets/icons/translations.svg" width="37" align="center"> Translations
+
+Fluent New Tab is available in multiple languages thanks to our community!
+
+If you spot a typo, an incorrect translation, or want to help translate the extension into a new language, **please do not open a Pull Request modifying code**.
+Instead, join our Crowdin Project to easily suggest corrections or add new translations.
+
+See the Translation Guide for more details.
+
+## <img src="repo-assets/icons/license.svg" width="37" align="center"> License and legal notice
 
 > [!IMPORTANT]  
 > "Fluent New Tab" is a strictly non-profit, open-source project. We do not accept paid promotions, data partnerships, or advertising offers. Please do not send unsolicited business inquiries.
