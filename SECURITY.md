@@ -1,6 +1,6 @@
-# Security Policy
+# <img src="repo-assets/icons/security.svg" width="37" align="center"> Security Policy
 
-## Supported Versions
+## <img src="repo-assets/icons/version.svg" width="37" align="center"> Supported Versions
 
 Currently, only the latest version of the extension receives security updates. We strongly recommend that users keep the extension updated through their browser's official store (Edge Add-ons or Firefox Add-ons).
 
@@ -9,7 +9,7 @@ Currently, only the latest version of the extension receives security updates. W
 | 3.3.x   | :white_check_mark: |
 | < 3.3.0 | :x:                |
 
-## Reporting a Vulnerability
+## <img src="repo-assets/icons/report.svg" width="37" align="center"> Reporting a Vulnerability
 
 Because **Fluent New Tab** uses a local-first, privacy-focused approach, we take the security of local data and browser code execution very seriously.
 

@@ -1,12 +1,12 @@
-# Translate Fluent New Tab
+# <img src="repo-assets\icons\translations.svg" width="37" align="center"> Translate Fluent New Tab
 
-Help us make Fluent New Tab accessible globally! We use **Crowdin** for localization, so you don't need any coding or Git experience to contribute.
+Help me make Fluent New Tab accessible globally! We use **Crowdin** for localization, so you don't need any coding or Git experience to contribute.
 
-[👉 Join our Crowdin Project](https://crowdin.com/project/fluent-new-tab)
+[👉 Join my Crowdin Project](https://crowdin.com/project/fluent-new-tab)
 
 ---
 
-## Guidelines
+## <img src="repo-assets/icons/guide.svg" width="37" align="center"> Guidelines
 
 To keep translations consistent and functional:
 
@@ -17,7 +17,7 @@ To keep translations consistent and functional:
 
 ---
 
-## Missing Your Language?
+## <img src="repo-assets/icons/missing.svg" width="37" align="center"> Missing Your Language?
 
 If your language isn't on Crowdin:
 
@@ -27,7 +27,7 @@ If your language isn't on Crowdin:
 
 ---
 
-## ⚠️ Attention Developers
+## <img src="repo-assets/icons/attention.svg" width="37" align="center"> Attention Developers
 
 **Do NOT open Pull Requests to edit translation files (`messages.json`).**
 

@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" align="center" /> Welcome to Fluent New Tab Contributing Guide
+# <img src="repo-assets/icons/contributing.svg" width="37" align="center"> Contributing Guide
 
 Thank you for your interest in contributing to **Fluent New Tab**! We are thrilled to have you here.
 
@@ -6,7 +6,7 @@ This project is built with **Vanilla HTML + TypeScript + SCSS** to ensure maximu
 
 ---
 
-## Development Setup
+## <img src="repo-assets/icons/code.svg" width="37" align="center"> Development Setup
 
 Since this is a browser extension, the dev flow is still simple, but now includes a build step.
 
@@ -28,7 +28,7 @@ Since this is a browser extension, the dev flow is still simple, but now include
 
 ---
 
-## Project Structure
+## <img src="repo-assets/icons/structure.svg" width="37" align="center"> Project Structure
 
 Here is an overview of the project's file organization:
 
@@ -84,7 +84,7 @@ fluent-new-tab/
 
 ---
 
-## Coding Guidelines
+## <img src="repo-assets/icons/coding.svg" width="37" align="center"> Coding Guidelines
 
 ### TypeScript
 
@@ -107,7 +107,7 @@ fluent-new-tab/
 
 ---
 
-## Submitting a Pull Request
+## <img src="repo-assets/icons/submit.svg" width="37" align="center"> Submitting a Pull Request
 
 Ready to contribute? Follow these standard steps:
 

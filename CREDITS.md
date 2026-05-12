@@ -1,4 +1,4 @@
-# Credits
+# <img src="repo-assets/icons/credits.svg" width="37" align="center">Credits
 
 - [TypeScript](https://www.typescriptlang.org) / [Apache 2.0](https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt) - [Homepage](https://www.typescriptlang.org)
 - [Sass](https://sass-lang.com) / [MIT](https://github.com/sass/dart-sass/blob/main/LICENSE) - [Homepage](https://sass-lang.com)
