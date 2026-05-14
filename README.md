@@ -29,7 +29,7 @@ Mapping Table for emoji assets in the "Greetings" feature
 | Code            | Emoji | Greeting                                          |
 | --------------- | ----- | ------------------------------------------------- |
 | `e11s` / `e11a` | 😮‍💨    | Good evening! Time to start winding down, $NAME$. |
-| `e8e` / `e8a`   | 😌    | $NAME$, I hope you had a fantastic day.           |
+| `e8s` / `e8a`   | 😌    | $NAME$, I hope you had a fantastic day.           |
 | `e12s` / `e12a` | 🌜    | Enjoy a relaxing evening, $NAME$                  |
 | `e13s` / `e13a` | 👏    | The day is almost over, $NAME$. Great job!        |
 | `e14s` / `e14a` | 🍵    | Grab a comfortable seat and relax, $NAME$.        |
