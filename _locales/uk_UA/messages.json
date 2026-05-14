@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Зовнішній вигляд"
   },
-  "accentWallpaperOption": {
-    "message": "Витягти зі шпалер"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
     "message": "Назва вкладки"
@@ -35,14 +35,26 @@
   "styleNone": {
     "message": "Немає"
   },
-  "iconsStyleLabel": {
-    "message": "Стиль іконки"
+  "emojiTypeLabel": {
+    "message": "Emoji Type"
+  },
+  "TypeNone": {
+    "message": "Немає"
+  },
+  "TypeStatic": {
+    "message": "Static"
+  },
+  "TypeAnimated": {
+    "message": "Animated"
   },
   "displayTitle": {
     "message": "Екран"
   },
   "displayGreeting": {
     "message": "Привітання"
+  },
+  "greetingNameLabel": {
+    "message": "Your Name"
   },
   "displayTime": {
     "message": "Час"
@@ -54,7 +66,7 @@
     "message": "Час і дата"
   },
   "displayScaleLabel": {
-    "message": "Змінити розмір екрана"
+    "message": "Display Scale"
   },
   "showSecondsLabel": {
     "message": "Показати секунди"
@@ -79,6 +91,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Використовуйте Фаренгейт"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "Ярлики"
@@ -207,10 +222,10 @@
     "message": "Пошук в Інтернеті"
   },
   "namePlaceholder": {
-    "message": "Ваше ім'я (необов'язково)"
+    "message": "e.g., John (optional)"
   },
   "cityPlaceholder": {
-    "message": "Ваше місто"
+    "message": "e.g., New York"
   },
   "addShortcutLabel": {
     "message": "Додати"
@@ -235,10 +250,7 @@
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+      "message": "Потрібен дозвіл"
     },
     "apiNameSuggestions": {
       "message": "Search Suggestions"
@@ -391,12 +403,12 @@
   "weekday_6": {
     "message": "Субота"
   },
-  "greetWeekMorning": {
+  "greetWeekMorning_v2": {
     "message": "Сьогодні $WEEK$. Чудового дня, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Понеділок"
       },
       "name": {
         "content": "$2",
@@ -404,12 +416,12 @@
       }
     }
   },
-  "greetWeekAfternoon": {
+  "greetWeekAfternoon_v2": {
     "message": "Як проходить ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Понеділок"
       },
       "name": {
         "content": "$2",
@@ -417,12 +429,12 @@
       }
     }
   },
-  "greetWeekNight": {
+  "greetWeekNight_v2": {
     "message": "Як пройшов ваш день ($WEEK$), $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Понеділок"
       },
       "name": {
         "content": "$2",
@@ -430,7 +442,7 @@
       }
     }
   },
-  "greetMorning1": {
+  "greetMorning1_v2": {
     "message": "Доброго ранку, $NAME$",
     "placeholders": {
       "name": {
@@ -439,7 +451,7 @@
       }
     }
   },
-  "greetMorning2": {
+  "greetMorning2_v2": {
     "message": "Починається новий день, $NAME$!",
     "placeholders": {
       "name": {
@@ -448,7 +460,7 @@
       }
     }
   },
-  "greetMorning3": {
+  "greetMorning3_v2": {
     "message": "Бажаю вам чудового дня, $NAME$",
     "placeholders": {
       "name": {
@@ -457,7 +469,7 @@
       }
     }
   },
-  "greetMorning4": {
+  "greetMorning4_v2": {
     "message": "Вітаємо, $NAME$! Готові до нового дня?",
     "placeholders": {
       "name": {
@@ -466,7 +478,7 @@
       }
     }
   },
-  "greetMorning5": {
+  "greetMorning5_v2": {
     "message": "Почнімо цей день чудово, $NAME$!",
     "placeholders": {
       "name": {
@@ -475,7 +487,7 @@
       }
     }
   },
-  "greetAfternoon1": {
+  "greetAfternoon1_v2": {
     "message": "Добрий день, $NAME$",
     "placeholders": {
       "name": {
@@ -484,7 +496,7 @@
       }
     }
   },
-  "greetAfternoon2": {
+  "greetAfternoon2_v2": {
     "message": "Раді бачити вас, $NAME$!",
     "placeholders": {
       "name": {
@@ -493,7 +505,7 @@
       }
     }
   },
-  "greetAfternoon3": {
+  "greetAfternoon3_v2": {
     "message": "Сподіваюся, у вас все добре, $NAME$",
     "placeholders": {
       "name": {
@@ -502,7 +514,7 @@
       }
     }
   },
-  "greetAfternoon4": {
+  "greetAfternoon4_v2": {
     "message": "Продовжуйте в тому ж дусі, $NAME$!",
     "placeholders": {
       "name": {
@@ -511,7 +523,7 @@
       }
     }
   },
-  "greetAfternoon5": {
+  "greetAfternoon5_v2": {
     "message": "Залишайтеся зосередженими та продуктивними, $NAME$",
     "placeholders": {
       "name": {
@@ -520,7 +532,7 @@
       }
     }
   },
-  "greetEvening1": {
+  "greetEvening1_v2": {
     "message": "Добрий вечір, $NAME$",
     "placeholders": {
       "name": {
@@ -529,7 +541,7 @@
       }
     }
   },
-  "greetEvening2": {
+  "greetEvening2_v2": {
     "message": "Час відпочити, $NAME$",
     "placeholders": {
       "name": {
@@ -538,7 +550,7 @@
       }
     }
   },
-  "greetEvening3": {
+  "greetEvening3_v2": {
     "message": "Бажаю вам спокійного вечора, $NAME$",
     "placeholders": {
       "name": {
@@ -547,7 +559,7 @@
       }
     }
   },
-  "greetEvening4": {
+  "greetEvening4_v2": {
     "message": "Час розслабитися, $NAME$",
     "placeholders": {
       "name": {
@@ -556,7 +568,7 @@
       }
     }
   },
-  "greetEvening5": {
+  "greetEvening5_v2": {
     "message": "Приємного вечора, $NAME$",
     "placeholders": {
       "name": {
@@ -565,7 +577,7 @@
       }
     }
   },
-  "greetNight1": {
+  "greetNight1_v2": {
     "message": "Сподіваюся, ви проводите спокійну ніч, $NAME$",
     "placeholders": {
       "name": {
@@ -574,7 +586,7 @@
       }
     }
   },
-  "greetNight2": {
+  "greetNight2_v2": {
     "message": "Ще не спите, $NAME$? Час відпочивати!",
     "placeholders": {
       "name": {
@@ -583,7 +595,7 @@
       }
     }
   },
-  "greetNight3": {
+  "greetNight3_v2": {
     "message": "Насолоджуйтесь тихими годинами, $NAME$",
     "placeholders": {
       "name": {
@@ -592,7 +604,7 @@
       }
     }
   },
-  "greetNight4": {
+  "greetNight4_v2": {
     "message": "Надобраніч, $NAME$. До завтра!",
     "placeholders": {
       "name": {
@@ -601,12 +613,60 @@
       }
     }
   },
-  "greetNight5": {
+  "greetNight5_v2": {
     "message": "Засиділися допізна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
         "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
       }
     }
   }
