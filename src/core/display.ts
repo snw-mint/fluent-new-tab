@@ -260,7 +260,7 @@ function renderGreeting(wrapper: HTMLElement): void {
     .replace(/,\s*\?$/, '?')
     .trim();
 
-  const fontSize = '2.5rem';
+  const fontSize = '2.25rem';
 
   const heading = document.createElement('h1');
   heading.className = 'greeting-text';

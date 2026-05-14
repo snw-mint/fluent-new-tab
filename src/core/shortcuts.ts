@@ -207,8 +207,8 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         img.className = 'shortcut-icon loaded';
         img.src = itemData.customIcon;
         img.alt = itemData.name;
-        img.style.width = '1.75rem';
-        img.style.height = '1.75rem';
+        img.style.width = '1.575rem';
+        img.style.height = '1.575rem';
         img.style.objectFit = 'contain';
         card.insertBefore(img, menuWrapper);
       } else {

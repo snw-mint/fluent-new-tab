@@ -32,11 +32,11 @@ if (shortcutRadius !== '0') {
   let radiusValue = '';
 
   if (valNum === 0) {
-    radiusValue = '0.875rem';
+    radiusValue = '0.7875rem';
   } else if (valNum > 0) {
-    radiusValue = `calc(0.875rem + ((50% - 0.875rem) * (${valNum} / 100)))`;
+    radiusValue = `calc(0.7875rem + ((50% - 0.7875rem) * (${valNum} / 100)))`;
   } else {
-    radiusValue = `calc(0.875rem - ((0.875rem - 0.2rem) * (${-valNum} / 100)))`;
+    radiusValue = `calc(0.7875rem - ((0.7875rem - 0.18rem) * (${-valNum} / 100)))`;
   }
 
   document.documentElement.style.setProperty('--shortcut-radius', radiusValue);

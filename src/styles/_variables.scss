@@ -21,7 +21,7 @@ $color-surface: #ffffff;
 $color-surface-muted: rgb(251, 251, 251);
 $color-glass-bg: rgba(255, 255, 255, 0.9);
 $color-glass-border: rgba(224, 224, 224, 0.5);
-$color-glass-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+$color-glass-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.2);
 $color-border-subtle: rgba(0, 0, 0, 0.05);
 $color-border-strong: rgba(0, 0, 0, 0.12);
 $color-overlay-weak: rgba(0, 0, 0, 0.05);
@@ -37,20 +37,20 @@ $color-dark-surface: #3b3b3b;
 $color-dark-card: #333333;
 $color-dark-overlay: rgba(255, 255, 255, 0.1);
 $color-dark-border: rgba(255, 255, 255, 0.08);
-$color-dark-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.5);
+$color-dark-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.5);
 
-$radius-xs: 0.25rem;
-$radius-sm: 0.375rem;
-$radius-md: 0.5rem;
-$radius-lg: 0.625rem;
-$radius-xl: 0.875rem;
-$radius-xxl: 1.375rem;
+$radius-xs: 0.225rem;
+$radius-sm: 0.3375rem;
+$radius-md: 0.45rem;
+$radius-lg: 0.5625rem;
+$radius-xl: 0.7875rem;
+$radius-xxl: 1.2375rem;
 $radius-pill: 99rem;
 $radius-round: 50%;
 
-$shadow-soft: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
-$shadow-hover: 0 0.375rem 1rem rgba(0, 0, 0, 0.12);
-$shadow-card-strong: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.2);
+$shadow-soft: 0 0.225rem 0.675rem rgba(0, 0, 0, 0.08);
+$shadow-hover: 0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
+$shadow-card-strong: 0 1.125rem 3.375rem rgba(0, 0, 0, 0.2);
 
 :root {
   --bg-color: #{$color-bg};

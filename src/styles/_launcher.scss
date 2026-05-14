@@ -11,14 +11,14 @@
 
 .left-controls {
   position: fixed;
-  top: 0.9375rem;
-  left: 0.9375rem;
+  top: 0.84375rem;
+  left: 0.84375rem;
   z-index: 500;
 
   .launcher-btn {
     @include button-reset;
-    width: 3rem;
-    height: 3rem;
+    width: 2.7rem;
+    height: 2.7rem;
     border: 1px solid transparent;
     border-radius: $radius-lg;
     @include flex-center;
@@ -30,8 +30,8 @@
     }
 
     svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.35rem;
+      height: 1.35rem;
 
       path {
         fill: var(--text-color);
@@ -43,12 +43,12 @@
 
 .launcher-popup {
   position: absolute;
-  top: 3.5rem;
+  top: 3.15rem;
   left: 0;
-  padding: 0.75rem;
+  padding: 0.675rem;
   display: none;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
   transform-origin: top left;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
   z-index: 1000;
@@ -61,7 +61,7 @@
   }
 
   .launcher-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-color);
   }
@@ -76,8 +76,8 @@
     @include flex-center;
     flex-direction: column;
     text-decoration: none;
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: $radius-lg;
     position: relative;
     transition: background-color 0.1s linear;
@@ -87,10 +87,10 @@
     }
 
     .launcher-icon {
-      width: 3rem;
-      height: 3rem;
+      width: 2.7rem;
+      height: 2.7rem;
       object-fit: contain;
-      filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+      filter: drop-shadow(0 0.1125rem 0.225rem rgba(0, 0, 0, 0.1));
     }
   }
 
@@ -98,13 +98,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.25rem;
-    padding: 0.5rem 0 0;
+    margin-top: 0.225rem;
+    padding: 0.45rem 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
 
     svg {
-      width: 1.25rem !important;
-      height: 1.25rem !important;
+      width: 1.125rem !important;
+      height: 1.125rem !important;
     }
 
     .btn-icon {
@@ -112,10 +112,10 @@
     }
 
     .launcher-all-link {
-      font-size: 0.75rem;
+      font-size: 0.675rem;
       color: var(--text-color);
       text-decoration: underline;
-      padding: 0.25rem 0.625rem;
+      padding: 0.225rem 0.5625rem;
       border-radius: $radius-sm;
       font-weight: 500;
       transition: all 0.2s ease;
@@ -133,9 +133,9 @@
       position: relative;
       isolation: isolate;
       justify-content: space-between;
-      gap: 0.625rem;
-      margin: 0.25rem -0.75rem -0.75rem;
-      padding: 0.4375rem 0.75rem;
+      gap: 0.5625rem;
+      margin: 0.225rem -0.675rem -0.675rem;
+      padding: 0.39375rem 0.675rem;
       background: transparent;
       border-radius: 0 0 $radius-md $radius-md;
 
@@ -159,8 +159,8 @@
       .btn-icon {
         @include button-reset;
         display: inline-flex;
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 1.575rem;
+        height: 1.575rem;
         border-radius: $radius-sm;
         @include flex-center;
         color: var(--text-color);

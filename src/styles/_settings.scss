@@ -14,12 +14,12 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: $radius-md;
-  padding: 0.75rem;
+  padding: 0.675rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.675rem;
 
   > *:not(:first-child) {
-    margin-top: 0.5rem;
+    margin-top: 0.45rem;
   }
 
   .setting-header-row {
@@ -27,7 +27,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 2rem;
+    min-height: 1.8rem;
 
     .group-title {
       margin-bottom: 0;
@@ -41,7 +41,7 @@
 #reducedEffectsOptions {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.225rem;
   width: 100%;
 }
 
@@ -58,7 +58,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 0.375rem;
+  gap: 0.3375rem;
 }
 
 .slider-row {
@@ -66,7 +66,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  gap: 0.25rem;
+  gap: 0.225rem;
 
   .fluent-slider {
     margin: 0;
@@ -80,7 +80,7 @@
   border: none;
 
   label {
-    font-size: 0.8125rem;
+    font-size: 0.73125rem;
     color: var(--text-color);
     opacity: 0.9;
     font-weight: 500;
@@ -88,45 +88,45 @@
 }
 
 .group-title {
-  @include flex-center(0.625rem);
+  @include flex-center(0.5625rem);
   color: var(--text-color);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.7875rem;
   align-items: center;
   justify-content: flex-start;
 
   svg {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.125rem;
+    height: 1.125rem;
     fill: currentColor;
   }
 }
 
 .setting-label-small {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.675rem;
   font-weight: 600;
   opacity: 0.7;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.1125rem;
 }
 
 label.setting-label-small[data-i18n='iconsStyleLabel'] {
-  margin-top: 0.8rem;
+  margin-top: 0.72rem;
 }
 
 .settings-select {
   width: 100%;
-  height: 2rem;
-  padding: 0.375rem 1.875rem 0.375rem 0.625rem;
+  height: 1.8rem;
+  padding: 0.3375rem 1.6875rem 0.3375rem 0.5625rem;
   border-radius: $radius-sm;
   border: 1px solid rgba(0, 0, 0, 0.16);
   background-color: rgba(255, 255, 255, 0.92);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.5 8 10.5 12 6.5' fill='none' stroke='%23333333' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.5625rem center;
-  background-size: 0.875rem 0.875rem;
-  font-size: 0.8125rem;
+  background-position: right 0.50625rem center;
+  background-size: 0.7875rem 0.7875rem;
+  font-size: 0.73125rem;
   color: var(--text-color);
   outline: none;
   cursor: pointer;
@@ -145,16 +145,16 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
 .settings-popup {
   position: absolute;
-  top: 3.125rem;
+  top: 2.8125rem;
   right: 0;
-  width: 16.25rem;
-  max-height: min(70vh, 42rem);
+  width: 14.625rem;
+  max-height: min(70vh, 37.8rem);
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0.75rem;
+  padding: 0.675rem;
   display: none;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
   isolation: isolate;
   transform-origin: top right;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
@@ -195,25 +195,25 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
   &-title {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin: 0.25rem 0 0.3125rem;
+    margin: 0.225rem 0 0.28125rem;
     color: var(--text-color);
   }
 
   &::-webkit-scrollbar {
-    width: 0.375rem;
+    width: 0.3375rem;
   }
 
   &::-webkit-scrollbar-track {
     background: transparent;
-    margin: 0.25rem 0;
+    margin: 0.225rem 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 1.25rem;
-    border: 0.125rem solid transparent;
+    border-radius: 1.125rem;
+    border: 0.1125rem solid transparent;
     background-clip: content-box;
 
     &:hover {
@@ -226,13 +226,13 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   input {
     flex: 1;
     min-width: 0;
-    padding: 0.5rem 0.625rem;
-    height: 2rem;
+    padding: 0.45rem 0.5625rem;
+    height: 1.8rem;
     border-radius: $radius-sm;
     border: 1px solid rgba(0, 0, 0, 0.16);
     background: rgba(255, 255, 255, 0.92);
     color: var(--text-color);
-    font-size: 0.8125rem;
+    font-size: 0.73125rem;
     outline: none;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
     transition: box-shadow 0.2s ease;
@@ -252,8 +252,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
   button {
     flex-shrink: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     padding: 0;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -277,7 +277,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 .theme-selector {
   display: flex;
   border-radius: $radius-xl;
-  gap: 0.25rem;
+  gap: 0.225rem;
 
   .theme-btn {
     color: var(--text-color);
@@ -286,7 +286,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     background: transparent;
     border-radius: $radius-md;
     cursor: pointer;
-    padding: 0.375rem;
+    padding: 0.3375rem;
     @include flex-center;
     transition: background 0.2s ease;
 
@@ -304,7 +304,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     &.active {
       background: var(--accent-color);
       color: var(--accent-contrast-color);
-      box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.1125rem 0.3375rem rgba(0, 0, 0, 0.1);
 
       .icon-outline {
         display: none;
@@ -315,8 +315,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     }
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1.125rem;
+      height: 1.125rem;
       fill: currentColor;
       transition: fill 0.3s ease;
     }
@@ -327,14 +327,14 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 2.5rem;
-  height: 1.25rem;
+  width: 2.25rem;
+  height: 1.125rem;
   input {
     opacity: 0;
     width: 0;
@@ -344,7 +344,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
       border-color: var(--accent-color);
       &:before {
         background-color: var(--accent-contrast-color);
-        left: calc(100% - 0.9375rem);
+        left: calc(100% - 0.84375rem);
       }
       &:hover {
         background-color: var(--accent-color);
@@ -368,9 +368,9 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     &:before {
       content: '';
       position: absolute;
-      height: 0.75rem;
-      width: 0.75rem;
-      left: 0.1875rem;
+      height: 0.675rem;
+      width: 0.675rem;
+      left: 0.16875rem;
       top: 50%;
       transform: translateY(-50%) scale(1);
       background-color: #616161;
@@ -400,8 +400,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   flex-shrink: 0;
   cursor: pointer;
   input {
@@ -412,9 +412,9 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     cursor: pointer;
   }
   .checkbox-box {
-    width: 0.8125rem;
-    height: 0.8125rem;
-    border-radius: 0.125rem;
+    width: 0.73125rem;
+    height: 0.73125rem;
+    border-radius: 0.1125rem;
     border: 1px solid rgba(0, 0, 0, 0.28);
     background: rgba(255, 255, 255, 0.82);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
@@ -427,8 +427,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
       box-shadow 160ms ease,
       transform 160ms ease;
     svg {
-      width: 1rem;
-      height: 1rem;
+      width: 0.9rem;
+      height: 0.9rem;
       opacity: 0;
       transform: scale(0.85);
       transition:
@@ -446,8 +446,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   }
 
   input:focus-visible + .checkbox-box {
-    outline: 0.125rem solid var(--accent-color);
-    outline-offset: 0.125rem;
+    outline: 0.1125rem solid var(--accent-color);
+    outline-offset: 0.1125rem;
   }
 
   input:active + .checkbox-box {
@@ -470,10 +470,10 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   margin-left: 0;
   padding-left: 0;
   border-left: none;
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
 
   label {
-    font-size: 0.8125rem;
+    font-size: 0.73125rem;
   }
 }
 
@@ -490,14 +490,14 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 .color-presets-row {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.4rem;
-  margin-bottom: 0.375rem;
-  padding: 0 0.25rem;
+  margin-top: 0.36rem;
+  margin-bottom: 0.3375rem;
+  padding: 0 0.225rem;
 
   .color-preset-btn {
     @include button-reset;
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.44rem;
+    height: 1.44rem;
     border-radius: $radius-sm;
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
@@ -511,7 +511,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
       transform 0.2s ease,
       box-shadow 0.2s ease,
       border-color 0.2s ease;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0.1125rem 0.225rem rgba(0, 0, 0, 0.08);
 
     .icon-filled {
       display: none;
@@ -522,14 +522,14 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
     &:hover {
       transform: scale(1.15);
-      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0.225rem 0.45rem rgba(0, 0, 0, 0.15);
     }
 
     &.selected {
-      border: 0.125rem solid var(--search-bg);
+      border: 0.1125rem solid var(--search-bg);
       box-shadow:
-        0 0 0 0.125rem var(--accent-color),
-        0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+        0 0 0 0.1125rem var(--accent-color),
+        0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.2);
       transform: scale(1.05);
 
       color: var(--accent-contrast-color);
@@ -556,8 +556,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
       overflow: hidden;
 
       svg {
-        width: 0.875rem;
-        height: 0.875rem;
+        width: 0.7875rem;
+        height: 0.7875rem;
         pointer-events: none;
         position: relative;
         z-index: 1;
@@ -586,11 +586,11 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   width: 100%;
   container-type: inline-size;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
+  margin-top: 0.675rem;
+  padding-top: 0.675rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   color: var(--text-color);
 
@@ -600,8 +600,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     opacity: 0.78;
     transition: opacity 0.2s ease;
     font-weight: 600;
-    font-size: 0.65rem;
-    margin-bottom: 0.2rem;
+    font-size: 0.585rem;
+    margin-bottom: 0.18rem;
 
     &:hover {
       opacity: 0.95;
@@ -625,12 +625,12 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     .footer-help-link {
       display: inline-flex;
       align-items: center;
-      font-size: clamp(0.5rem, 4cqw, 0.6875rem);
+      font-size: clamp(0.45rem, 4cqw, 0.61875rem);
       white-space: nowrap;
 
       &:not(:first-child)::before {
         content: '|';
-        margin: 0 0.5rem;
+        margin: 0 0.45rem;
         opacity: 0.65;
         text-decoration: none;
       }
@@ -642,7 +642,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.625rem;
+    gap: 0.5625rem;
   }
 
   .footer-icon-link {
@@ -656,8 +656,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     }
 
     svg {
-      width: 1rem;
-      height: 1rem;
+      width: 0.9rem;
+      height: 0.9rem;
       fill: var(--text-color);
     }
   }
@@ -665,8 +665,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
 .backup-row {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
+  gap: 0.45rem;
+  margin-top: 0.225rem;
 
   .backup-btn {
     flex: 1;
@@ -674,15 +674,15 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.375rem;
-    padding: 0.625rem 0.375rem;
+    gap: 0.3375rem;
+    padding: 0.5625rem 0.3375rem;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.5);
     border-radius: $radius-sm;
     cursor: pointer;
     color: var(--text-color);
-    font-size: 0.8125rem;
+    font-size: 0.73125rem;
     font-weight: 500;
     font-family: inherit;
     transition: all 0.2s ease;
@@ -711,7 +711,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 0.5rem 0;
+    padding: 0.45rem 0;
 
     .setting-label-small {
       margin: 0;
@@ -719,8 +719,8 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
 
     .chevron-icon {
       transition: transform 0.2s ease;
-      width: 1rem;
-      height: 1rem;
+      width: 0.9rem;
+      height: 0.9rem;
       flex-shrink: 0;
     }
 
@@ -734,9 +734,9 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     transition:
       max-height 0.2s ease,
       opacity 0.2s ease;
-    max-height: 3.125rem;
+    max-height: 2.8125rem;
     opacity: 1;
-    padding-top: 0.25rem;
+    padding-top: 0.225rem;
 
     &.collapsed {
       max-height: 0;
@@ -751,9 +751,9 @@ input[type='range'].fluent-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 0.25rem;
-  border-radius: 0.125rem;
-  --thumb-width: 1.25rem;
+  height: 0.225rem;
+  border-radius: 0.1125rem;
+  --thumb-width: 1.125rem;
   --thumb-half: calc(var(--thumb-width) / 2);
   --fill-position: calc(
     var(--thumb-half) + (100% - var(--thumb-width)) *
@@ -767,17 +767,17 @@ input[type='range'].fluent-slider {
   );
 
   outline: none;
-  margin: 0.5rem 0;
+  margin: 0.45rem 0;
 }
 
 input[type='range'].fluent-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   border-radius: 50%;
   background: var(--accent-color);
-  border: 0.25rem solid #ffffff;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  border: 0.225rem solid #ffffff;
+  box-shadow: 0 0.1125rem 0.225rem rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.1s;
 }
@@ -802,17 +802,17 @@ body:not([data-wallpaper-active='true']) {
 
 #uploadWallpaperContainer {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
 
   .backup-btn {
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding: 0.5rem 0.75rem;
+    padding: 0.45rem 0.675rem;
     width: 100%;
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1.125rem;
+      height: 1.125rem;
       flex-shrink: 0;
     }
   }
@@ -834,8 +834,8 @@ body:not([data-wallpaper-active='true']) {
   cursor: pointer;
 
   .bmc-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2.7rem;
+    height: 2.7rem;
     flex-shrink: 0;
 
     svg {
@@ -847,16 +847,16 @@ body:not([data-wallpaper-active='true']) {
 
   .bmc-text {
     flex: 1;
-    font-size: 0.875rem;
+    font-size: 0.7875rem;
     font-weight: 600;
-    margin-left: -0.6rem;
+    margin-left: -0.54rem;
   }
 
   .chevron-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 0.7rem;
-    margin-top: 0.13rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 0.63rem;
+    margin-top: 0.117rem;
     transition: transform 0.2s ease;
   }
 
@@ -870,5 +870,5 @@ body:not([data-wallpaper-active='true']) {
 }
 
 div#subDate {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.54rem;
 }

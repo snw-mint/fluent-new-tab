@@ -9,7 +9,7 @@
 @use './variables' as *;
 
 html {
-  font-size: 90%;
+  font-size: 100%;
 }
 
 * {
@@ -99,37 +99,37 @@ html[data-early-wallpaper='true'] body {
 .btn-save,
 .btn-cancel,
 #warning-modal-message {
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
 }
 
 .ask-ai-btn svg {
-  width: 2rem !important;
-  height: 2rem !important;
+  width: 1.8rem !important;
+  height: 1.8rem !important;
 }
 
 .modal-content .input-group label {
-  font-size: 0.875rem !important;
+  font-size: 0.7875rem !important;
 }
 
 .child-setting label {
-  font-size: 0.875rem !important;
+  font-size: 0.7875rem !important;
 }
 
 .search-btn svg,
 .backup-btn svg,
 .folder-back-btn svg,
 .shortcut-item[data-type='folder'] .shortcut-card > svg {
-  width: 1.5rem !important;
-  height: 1.5rem !important;
+  width: 1.35rem !important;
+  height: 1.35rem !important;
 }
 
 .add-card-wrapper .shortcut-card svg {
-  width: 1.75rem !important; /* ~28px */
-  height: 1.75rem !important;
+  width: 1.575rem !important; /* ~28px */
+  height: 1.575rem !important;
 }
 
 .launcher-btn svg,
 .settings-btn svg {
-  width: 1.5rem !important;
-  height: 1.5rem !important;
+  width: 1.35rem !important;
+  height: 1.35rem !important;
 }
