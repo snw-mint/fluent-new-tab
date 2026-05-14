@@ -90,7 +90,7 @@ const toggleSeconds = getById<HTMLInputElement>('toggleSeconds');
 const toggle12Hour = getById<HTMLInputElement>('toggle12Hour');
 const dateFormatSelect = getById<HTMLSelectElement>('dateFormatSelect');
 const greetingNameInput = getById<HTMLInputElement>('greetingNameInput');
-const greetingStyleSelect = getById<HTMLSelectElement>('greetingStyleSelect');
+const greetingTypeSelect = getById<HTMLSelectElement>('greetingTypeSelect');
 
 const engineBtn = getById<HTMLButtonElement>('engineBtn');
 const dropdown = getById<HTMLDivElement>('engineDropdown');

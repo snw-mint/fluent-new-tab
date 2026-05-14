@@ -293,7 +293,7 @@ async function fetchCityData(query: string): Promise<CityData | null> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
   if (!hasPerm) return null;
 
-  const language = 'en';
+  const language = 'en_US';
 
   const normalizeText = (value: string): string =>
     value

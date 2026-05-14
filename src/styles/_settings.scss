@@ -35,22 +35,24 @@
   }
 }
 
-.setting-content,
-.setting-content-spaced,
-#accentColorOptions,
-#reducedEffectsOptions {
+.setting-content {
   display: flex;
   flex-direction: column;
-  gap: 0.225rem;
   width: 100%;
-}
+  gap: 0.2rem;
 
+  &-spaced {
+    @extend .setting-content;
+    gap: 0.2rem;
+  }
+}
 .switch-row,
 .unit-toggle-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  min-height: 1.8rem;
 }
 
 .input-row {
@@ -72,6 +74,13 @@
     margin: 0;
     width: 100%;
   }
+}
+
+.display-sub-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.225rem;
+  width: 100%;
 }
 
 .child-setting {
@@ -110,10 +119,6 @@
   margin-bottom: 0.1125rem;
 }
 
-label.setting-label-small[data-i18n='iconsStyleLabel'] {
-  margin-top: 0.72rem;
-}
-
 .settings-select {
   width: 100%;
   height: 1.8rem;
@@ -143,12 +148,16 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   }
 }
 
+.settings-btn {
+  position: relative;
+}
+
 .settings-popup {
   position: absolute;
   top: 3rem;
   right: 0;
-  width: 14.625rem;
-  max-height: min(70vh, 37.8rem);
+  width: 15rem;
+  max-height: min(75vh, 37.8rem);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0.675rem;
@@ -323,13 +332,6 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   }
 }
 
-.switch-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.45rem;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -466,25 +468,12 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
   }
 }
 
-.child-setting {
-  margin-left: 0;
-  padding-left: 0;
-  border-left: none;
-  margin-top: 0.45rem;
-
-  label {
-    font-size: 0.73125rem;
-  }
-}
-
 #reducedEffectsOptions {
-  display: flex;
-  flex-direction: column;
+  @extend .setting-content;
 }
 
 #accentColorOptions {
-  display: flex;
-  flex-direction: column;
+  @extend .setting-content;
 }
 
 .color-presets-row {
@@ -713,10 +702,6 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     cursor: pointer;
     padding: 0.45rem 0;
 
-    .setting-label-small {
-      margin: 0;
-    }
-
     .chevron-icon {
       transition: transform 0.2s ease;
       width: 0.9rem;
@@ -729,7 +714,7 @@ label.setting-label-small[data-i18n='iconsStyleLabel'] {
     }
   }
 
-  .setting-content {
+  > .setting-content {
     overflow: hidden;
     transition:
       max-height 0.2s ease,
@@ -867,8 +852,4 @@ body:not([data-wallpaper-active='true']) {
   &:active {
     transform: scale(0.98);
   }
-}
-
-div#subDate {
-  margin-bottom: 0.54rem;
 }

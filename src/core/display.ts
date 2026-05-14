@@ -13,6 +13,54 @@
 
 let displayInterval: number | null = null;
 
+const CDN_BASE_URL =
+  'https://cdn.jsdelivr.net/gh/snw-mint/fluent-new-tab@cdn-greeting-assets/assets';
+
+const emojiMap: Record<string, string> = {
+  // Morning
+  greetWeekMorning_v2: 'e1',
+  greetMorning1_v2: 'e2',
+  greetMorning2_v2: 'e3',
+  greetMorning3_v2: 'e4',
+  greetMorning4_v2: 'e5',
+  greetMorning5_v2: 'e6',
+
+  // Afternoon
+  greetWeekAfternoon_v2: 'e7',
+  greetAfternoon1_v2: 'e1',
+  greetAfternoon2_v2: 'e8',
+  greetAfternoon3_v2: 'e9',
+  greetAfternoon4_v2: 'e4',
+  greetAfternoon5_v2: 'e10',
+
+  // Evening
+  greetWeekNight_v2: 'e15',
+  greetEvening1_v2: 'e11',
+  greetEvening2_v2: 'e8',
+  greetEvening3_v2: 'e12',
+  greetEvening4_v2: 'e13',
+  greetEvening5_v2: 'e14',
+
+  // Night
+  greetNight1_v2: 'e16',
+  greetNight2_v2: 'e17',
+  greetNight3_v2: 'e18',
+  greetNight4_v2: 'e19',
+  greetNight5_v2: 'e20',
+};
+
+function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+  const finalAnimated = isAnimated && !prefersReducedMotion;
+
+  const folder = finalAnimated ? 'animated' : 'static';
+  const suffix = finalAnimated ? 'a' : 's';
+
+  return `${CDN_BASE_URL}/${folder}/${emojiId}${suffix}.webp`;
+}
+
 function initDisplayWidget(wrapper: HTMLElement | null): void {
   if (!wrapper) return;
   if (displayInterval) {
@@ -142,36 +190,26 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 function renderGreeting(wrapper: HTMLElement): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
-  const greetingStyle = localStorage.getItem('greetingStyle') || '3d';
+  const greetingType = localStorage.getItem('greetingType') || 'static';
 
   const now = new Date();
   const currentMinute = now.getMinutes().toString();
-  const cacheKey = `${currentMinute}-${rawLang}-${userName}-${greetingStyle}`;
+  const cacheKey = `${currentMinute}-${rawLang}-${userName}-${greetingType}`;
 
   if (wrapper.dataset.lastCache === cacheKey) return;
 
   const hour = now.getHours();
   const dayOfWeek = now.getDay();
   let timeKeyPrefix = 'greetMorning';
-  let iconName = 'sun';
-  let timeOfDayLabel = 'morning';
 
   if (hour >= 5 && hour < 12) {
     timeKeyPrefix = 'greetMorning';
-    iconName = 'sun';
-    timeOfDayLabel = 'morning';
-  } else if (hour >= 12 && hour < 19) {
+  } else if (hour >= 12 && hour < 18) {
     timeKeyPrefix = 'greetAfternoon';
-    iconName = 'cloud-sun';
-    timeOfDayLabel = 'afternoon';
-  } else if (hour >= 19 && hour < 24) {
+  } else if (hour >= 18 && hour < 24) {
     timeKeyPrefix = 'greetEvening';
-    iconName = 'moon';
-    timeOfDayLabel = 'evening';
   } else {
     timeKeyPrefix = 'greetNight';
-    iconName = 'stars';
-    timeOfDayLabel = 'night';
   }
 
   let translationKey = '';
@@ -180,19 +218,18 @@ function renderGreeting(wrapper: HTMLElement): void {
 
   if (isWeekday && seed % 3 === 0) {
     if (hour >= 5 && hour < 12) {
-      translationKey = 'greetWeekMorning';
-    } else if (hour >= 12 && hour < 19) {
-      translationKey = 'greetWeekAfternoon';
-    } else if (hour >= 19 || hour < 5) {
-      translationKey = 'greetWeekNight';
+      translationKey = 'greetWeekMorning_v2';
+    } else if (hour >= 12 && hour < 18) {
+      translationKey = 'greetWeekAfternoon_v2';
+    } else if (hour >= 18 && hour < 24) {
+      translationKey = 'greetWeekNight_v2';
     }
   }
 
   if (!translationKey) {
     const randomIndex = (seed % 5) + 1;
-    translationKey = `${timeKeyPrefix}${randomIndex}`;
+    translationKey = `${timeKeyPrefix}${randomIndex}_v2`;
   }
-
   let usingFallback = false;
   const dayOfWeekKey = `weekday_${dayOfWeek}`;
   let currentDayName = '';
@@ -203,6 +240,7 @@ function renderGreeting(wrapper: HTMLElement): void {
   } else {
     usingFallback = true;
     try {
+      const localeForMessage = rawLang.replace('_', '-');
       currentDayName = chrome.i18n.getMessage(dayOfWeekKey);
     } catch (error) {
       const weekdays = [
@@ -228,6 +266,7 @@ function renderGreeting(wrapper: HTMLElement): void {
   } else {
     usingFallback = true;
     try {
+      const localeForMessage = rawLang.replace('_', '-');
       if (translationKey.startsWith('greetWeek')) {
         rawGreeting = chrome.i18n.getMessage(translationKey, [
           currentDayName,
@@ -268,20 +307,27 @@ function renderGreeting(wrapper: HTMLElement): void {
   heading.style.whiteSpace = 'nowrap';
   heading.textContent = finalGreetingText;
 
-  if (greetingStyle === 'none') {
+  if (greetingType === 'none') {
     wrapper.replaceChildren(heading);
   } else {
+    const emojiId = emojiMap[translationKey] || 'e1';
+    const isAnimated = greetingType === 'animated';
+    const iconUrl = getEmojiUrl(emojiId, isAnimated);
+
     const icon = document.createElement('img');
-    icon.src =
-      greetingStyle === '3d'
-        ? `assets/emojis/${iconName}.webp`
-        : `assets/icons/${iconName}.svg`;
-    icon.alt = timeOfDayLabel;
-    icon.className =
-      greetingStyle === '3d' ? 'greeting-icon' : 'greeting-icon outline';
-    icon.addEventListener('error', () => {
+    icon.src = iconUrl;
+    icon.alt = 'Greeting Emoji';
+    icon.className = 'greeting-icon';
+    icon.style.opacity = '0';
+    icon.style.transition = 'opacity 0.35s ease-out';
+
+    icon.onload = () => {
+      icon.style.opacity = '1';
+    };
+
+    icon.onerror = () => {
       icon.style.display = 'none';
-    });
+    };
 
     wrapper.replaceChildren(icon, heading);
   }

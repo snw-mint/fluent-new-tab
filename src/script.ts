@@ -775,7 +775,7 @@ function updateWallpaperUIState(enabled: boolean, animate = true): void {
       '.collapsible-setting',
     ) as HTMLElement | null);
   if (overlaySetting) {
-    overlaySetting.dataset.collapsibleDisplay = 'block';
+    overlaySetting.dataset.collapsibleDisplay = 'flex';
     setCollapsible(overlaySetting, enabled, animate);
   }
 
@@ -805,10 +805,10 @@ function updateDisplaySubSettingsUI(preset: string): void {
   if (subTime) subTime.style.display = 'none';
   if (subDate) subDate.style.display = 'none';
   if (preset === 'greeting' && subGreeting) {
-    subGreeting.style.display = 'block';
+    subGreeting.style.display = 'flex';
   } else if (preset === 'timedate') {
-    if (subTime) subTime.style.display = 'block';
-    if (subDate) subDate.style.display = 'block';
+    if (subTime) subTime.style.display = 'flex';
+    if (subDate) subDate.style.display = 'flex';
   }
 }
 
@@ -1950,9 +1950,11 @@ async function restorePreferencesBackupIfNeeded(): Promise<boolean> {
 
   Object.entries(backup).forEach(([key, value]) => {
     if (typeof value !== 'string') return;
-    if (localStorage.getItem(key) !== null) return;
-    localStorage.setItem(key, value);
-    restoredAny = true;
+    const currentValue = localStorage.getItem(key);
+    if (currentValue === null || currentValue === '') {
+      localStorage.setItem(key, value);
+      restoredAny = true;
+    }
   });
 
   return restoredAny;
@@ -2477,7 +2479,7 @@ function initAllEventBindings() {
       );
 
       if (displayAdvancedSetting) {
-        displayAdvancedSetting.style.display = hasAdvanced ? 'block' : 'none';
+        displayAdvancedSetting.style.display = hasAdvanced ? 'flex' : 'none';
       }
 
       if (hasAdvanced && displaySliderContainer && displayToggleBtn) {
@@ -2487,12 +2489,12 @@ function initAllEventBindings() {
       }
 
       if (preset === 'greeting' && subGreeting)
-        subGreeting.style.display = 'block';
-      if (preset === 'time' && subTime) subTime.style.display = 'block';
-      if (preset === 'date' && subDate) subDate.style.display = 'block';
+        subGreeting.style.display = 'flex';
+      if (preset === 'time' && subTime) subTime.style.display = 'flex';
+      if (preset === 'date' && subDate) subDate.style.display = 'flex';
       if (preset === 'advanced') {
-        if (subTime) subTime.style.display = 'block';
-        if (subDate) subDate.style.display = 'block';
+        if (subTime) subTime.style.display = 'flex';
+        if (subDate) subDate.style.display = 'flex';
       }
     };
 
@@ -2586,12 +2588,12 @@ function initAllEventBindings() {
     });
   }
 
-  if (greetingStyleSelect) {
-    greetingStyleSelect.value = localStorage.getItem('greetingStyle') || '3d';
-    greetingStyleSelect.addEventListener('change', (e) => {
+  if (greetingTypeSelect) {
+    greetingTypeSelect.value = localStorage.getItem('greetingType') || 'static';
+    greetingTypeSelect.addEventListener('change', (e) => {
       const target = getSelectTarget(e);
       if (!target) return;
-      localStorage.setItem('greetingStyle', target.value);
+      localStorage.setItem('greetingType', target.value);
       if (greetingWrapper) greetingWrapper.dataset.lastMinute = '';
       initBrand();
     });
@@ -2999,7 +3001,7 @@ function initAllEventBindings() {
       );
       languageSelect.value = optionExists
         ? defaultLang
-        : languageSelect.options[0]?.value || 'en';
+        : languageSelect.options[0]?.value || 'en_US';
     }
 
     languageSelect.addEventListener('change', (e) => {
@@ -3132,13 +3134,6 @@ async function initDeferred() {
     showPendingUpdateNoticeIfAny();
   }
 
-  const { reauth_needed } = (await getStorageLocalItems('reauth_needed')) as {
-    reauth_needed?: string[];
-  };
-  if (reauth_needed?.length) {
-    showReauthNotice(reauth_needed);
-  }
-
   const fadeEl = document.getElementById('wallpaper-fade');
   if (fadeEl) {
     fadeEl.addEventListener('transitionend', () => fadeEl.remove(), {
@@ -3147,52 +3142,8 @@ async function initDeferred() {
   }
 }
 
-function showReauthNotice(features: string[]): void {
-  const FEATURE_META: Record<string, string> = {
-    weather: 'Open-Meteo API',
-    suggestions: 'Search Suggestions',
-    bing: 'Bing Wallpaper',
-    nasa: 'NASA APOD',
-    wikimedia: 'Wikimedia Wallpaper',
-  };
-
-  const featureName = FEATURE_META[features[0]] || features[0];
-  const learnMoreUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
-
-  warningModal.show({
-    title: getLocalizedWarningText('reauthNoticeTitle', 'Permission Required'),
-    message: getLocalizedWarningText(
-      'reauthNoticeText',
-      "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again.",
-      { FEATURE: featureName },
-    ),
-    learnMoreUrl,
-    confirmText: getLocalizedWarningText(
-      'grantPermissionLabel',
-      'Grant Permission',
-    ),
-    cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
-    confirmVariant: 'accent',
-    onConfirm: async () => {
-      for (const feature of features) {
-        const origins =
-          HOST_PERMISSIONS[feature as keyof typeof HOST_PERMISSIONS];
-        if (origins) await requestPermission(origins);
-      }
-      await setStorageLocalItems({ reauth_needed: [] });
-      (chrome as any).action?.setBadgeText?.({ text: '' });
-    },
-    onCancel: () => {},
-  });
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
-  const restoredFromBackup = await restorePreferencesBackupIfNeeded();
-  if (restoredFromBackup) {
-    await persistPreferencesBackup();
-    location.reload();
-    return;
-  }
+  await restorePreferencesBackupIfNeeded();
 
   initCritical();
   initVisual();
