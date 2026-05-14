@@ -60,7 +60,7 @@ function renderSuggestionsUI(
     const div = document.createElement('div');
     div.className = 'suggestion-item';
     div.dataset.value = text;
-    div.innerHTML = iconSvg;
+    div.insertAdjacentHTML('afterbegin', iconSvg);
     const span = document.createElement('span');
     span.textContent = text;
     div.appendChild(span);
