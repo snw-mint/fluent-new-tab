@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "外觀"
   },
-  "accentWallpaperOption": {
-    "message": "從桌布擷取"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
     "message": "標籤名稱"
@@ -35,14 +35,26 @@
   "styleNone": {
     "message": "無"
   },
-  "iconsStyleLabel": {
-    "message": "圖示樣式"
+  "emojiTypeLabel": {
+    "message": "Emoji Type"
+  },
+  "TypeNone": {
+    "message": "無"
+  },
+  "TypeStatic": {
+    "message": "Static"
+  },
+  "TypeAnimated": {
+    "message": "Animated"
   },
   "displayTitle": {
     "message": "顯示"
   },
   "displayGreeting": {
     "message": "問候"
+  },
+  "greetingNameLabel": {
+    "message": "Your Name"
   },
   "displayTime": {
     "message": "時間"
@@ -54,7 +66,7 @@
     "message": "時間與日期"
   },
   "displayScaleLabel": {
-    "message": "調整顯示大小"
+    "message": "Display Scale"
   },
   "showSecondsLabel": {
     "message": "顯示秒數"
@@ -79,6 +91,9 @@
   },
   "useFahrenheitLabel": {
     "message": "使用華氏度"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "捷徑"
@@ -207,10 +222,10 @@
     "message": "搜尋網頁"
   },
   "namePlaceholder": {
-    "message": "您的名字（選填）"
+    "message": "e.g., John (optional)"
   },
   "cityPlaceholder": {
-    "message": "您的城市"
+    "message": "e.g., New York"
   },
   "addShortcutLabel": {
     "message": "新增"
@@ -235,10 +250,7 @@
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+      "message": "需經授權"
     },
     "apiNameSuggestions": {
       "message": "Search Suggestions"
@@ -391,12 +403,12 @@
   "weekday_6": {
     "message": "星期六"
   },
-  "greetWeekMorning": {
+  "greetWeekMorning_v2": {
     "message": "今天是$WEEK$。祝您度過美好的一天，$NAME$！",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "星期一"
       },
       "name": {
         "content": "$2",
@@ -404,12 +416,12 @@
       }
     }
   },
-  "greetWeekAfternoon": {
+  "greetWeekAfternoon_v2": {
     "message": "這個$WEEK$過得怎麼樣，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "星期一"
       },
       "name": {
         "content": "$2",
@@ -417,12 +429,12 @@
       }
     }
   },
-  "greetWeekNight": {
+  "greetWeekNight_v2": {
     "message": "這個$WEEK$過得怎麼樣，$NAME$？",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "星期一"
       },
       "name": {
         "content": "$2",
@@ -430,7 +442,7 @@
       }
     }
   },
-  "greetMorning1": {
+  "greetMorning1_v2": {
     "message": "早安，$NAME$",
     "placeholders": {
       "name": {
@@ -439,7 +451,7 @@
       }
     }
   },
-  "greetMorning2": {
+  "greetMorning2_v2": {
     "message": "新的一天開始了，$NAME$！",
     "placeholders": {
       "name": {
@@ -448,7 +460,7 @@
       }
     }
   },
-  "greetMorning3": {
+  "greetMorning3_v2": {
     "message": "祝您擁有美好的一天，$NAME$",
     "placeholders": {
       "name": {
@@ -457,7 +469,7 @@
       }
     }
   },
-  "greetMorning4": {
+  "greetMorning4_v2": {
     "message": "哈囉，$NAME$！準備好迎接今天了嗎？",
     "placeholders": {
       "name": {
@@ -466,7 +478,7 @@
       }
     }
   },
-  "greetMorning5": {
+  "greetMorning5_v2": {
     "message": "開啟美好的一天吧，$NAME$！",
     "placeholders": {
       "name": {
@@ -475,7 +487,7 @@
       }
     }
   },
-  "greetAfternoon1": {
+  "greetAfternoon1_v2": {
     "message": "下午好，$NAME$",
     "placeholders": {
       "name": {
@@ -484,7 +496,7 @@
       }
     }
   },
-  "greetAfternoon2": {
+  "greetAfternoon2_v2": {
     "message": "見到你真好，$NAME$",
     "placeholders": {
       "name": {
@@ -493,7 +505,7 @@
       }
     }
   },
-  "greetAfternoon3": {
+  "greetAfternoon3_v2": {
     "message": "希望你一切安好，$NAME$",
     "placeholders": {
       "name": {
@@ -502,7 +514,7 @@
       }
     }
   },
-  "greetAfternoon4": {
+  "greetAfternoon4_v2": {
     "message": "繼續保持出色表現，$NAME$！",
     "placeholders": {
       "name": {
@@ -511,7 +523,7 @@
       }
     }
   },
-  "greetAfternoon5": {
+  "greetAfternoon5_v2": {
     "message": "保持專注與高效能，$NAME$",
     "placeholders": {
       "name": {
@@ -520,7 +532,7 @@
       }
     }
   },
-  "greetEvening1": {
+  "greetEvening1_v2": {
     "message": "晚上好，$NAME$",
     "placeholders": {
       "name": {
@@ -529,7 +541,7 @@
       }
     }
   },
-  "greetEvening2": {
+  "greetEvening2_v2": {
     "message": "是時候放鬆了，$NAME$",
     "placeholders": {
       "name": {
@@ -538,7 +550,7 @@
       }
     }
   },
-  "greetEvening3": {
+  "greetEvening3_v2": {
     "message": "願您有個寧靜的夜晚，$NAME$",
     "placeholders": {
       "name": {
@@ -547,7 +559,7 @@
       }
     }
   },
-  "greetEvening4": {
+  "greetEvening4_v2": {
     "message": "是時候放鬆了，$NAME$",
     "placeholders": {
       "name": {
@@ -556,7 +568,7 @@
       }
     }
   },
-  "greetEvening5": {
+  "greetEvening5_v2": {
     "message": "祝您晚安愉快，$NAME$",
     "placeholders": {
       "name": {
@@ -565,7 +577,7 @@
       }
     }
   },
-  "greetNight1": {
+  "greetNight1_v2": {
     "message": "願你擁有寧靜的夜晚，$NAME$",
     "placeholders": {
       "name": {
@@ -574,7 +586,7 @@
       }
     }
   },
-  "greetNight2": {
+  "greetNight2_v2": {
     "message": "還醒著嗎，$NAME$？早點休息吧！",
     "placeholders": {
       "name": {
@@ -583,7 +595,7 @@
       }
     }
   },
-  "greetNight3": {
+  "greetNight3_v2": {
     "message": "享受這寧靜的時光，$NAME$",
     "placeholders": {
       "name": {
@@ -592,7 +604,7 @@
       }
     }
   },
-  "greetNight4": {
+  "greetNight4_v2": {
     "message": "晚安，$NAME$。明天見！",
     "placeholders": {
       "name": {
@@ -601,12 +613,60 @@
       }
     }
   },
-  "greetNight5": {
+  "greetNight5_v2": {
     "message": "今晚休息得很晚呢，$NAME$？",
     "placeholders": {
       "name": {
         "content": "$1",
         "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
       }
     }
   }
