@@ -81,7 +81,7 @@
 
     <div class="settings-wrapper">
       <span class="settings-label" data-i18n="settingsTitle">Page Settings</span>
-      <button id="settingsBtn" class="settings-btn" style="position: relative">
+      <button id="settingsBtn" class="settings-btn">
         <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g stroke-width="0" />
           <g stroke-linecap="round" stroke-linejoin="round" />
@@ -202,7 +202,7 @@
             </label>
           </div>
 
-          <div class="setting-content-spaced" id="tabNameRow">
+          <div class="display-sub-setting" id="tabNameRow" style="margin-top: 0.2rem;">
             <label for="tabNameInput" class="setting-label-small" data-i18n="tabNameLabel">Tab Name</label>
             <div class="input-row">
               <input type="text" id="tabNameInput" placeholder="New Tab" data-i18n="tabNamePlaceholder"
@@ -222,7 +222,7 @@
             </div>
             <div class="setting-content collapsed" id="accent-more-container">
 
-              <div class="slider-row child-setting" id="mainUiScaleRow">
+              <div class="slider-row child-setting" style="margin-bottom: 0.5rem;" id="mainUiScaleRow">
                 <label for="mainUiScaleSlider" class="setting-label-small" data-i18n="mainUiScaleLabel">Main UI
                   Scale</label>
                 <input type="range" id="mainUiScaleSlider" class="fluent-slider" min="0.5" max="2.0" step="0.1"
@@ -268,7 +268,7 @@
           </label>
         </div>
 
-        <div id="wallpaperSourceContainer" class="setting-content-spaced">
+        <div id="wallpaperSourceContainer" class="display-sub-setting">
           <label for="wallpaperSource" class="setting-label-small" data-i18n="wallpaperSourceLabel">Image Source</label>
           <select id="wallpaperSource" class="settings-select">
             <option value="upload" data-i18n="uploadOption">Upload Image</option>
@@ -325,12 +325,15 @@
         </div>
 
         <div id="displayMainOptions" class="setting-content-spaced">
-          <select id="displayTypeSelect" class="settings-select">
-            <option value="greeting" data-i18n="displayGreeting">Greeting</option>
-            <option value="time" data-i18n="displayTime">Time</option>
-            <option value="date" data-i18n="displayDate">Date</option>
-            <option value="advanced" data-i18n="displayAdvanced">Time & Date</option>
-          </select>
+          <div class="display-sub-setting">
+            <label class="setting-label-small" data-i18n="displayLabel">Display Type</label>
+            <select id="displayTypeSelect" class="settings-select">
+              <option value="greeting" data-i18n="displayGreeting">Greeting</option>
+              <option value="time" data-i18n="displayTime">Time</option>
+              <option value="date" data-i18n="displayDate">Date</option>
+              <option value="advanced" data-i18n="displayAdvanced">Time & Date</option>
+            </select>
+          </div>
 
           <div class="setting-item collapsible-setting" id="displayAdvancedSetting">
             <div class="setting-header" id="display-toggle-btn">
@@ -345,8 +348,8 @@
 
             <div class="setting-content collapsed" id="display-slider-container">
 
-              <div id="subScale" class="display-sub-setting" style="margin-bottom: 0.45rem">
-                <div class="slider-row-display">
+              <div id="subScale" class="display-sub-setting" style="margin-bottom: 0.3rem;">
+                <div class=" slider-row child-setting">
                   <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
                   <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5"
                     value="100" />
@@ -362,26 +365,28 @@
                 </select>
               </div>
 
-              <div id="subGreeting" class="display-sub-setting">
-                <label class="setting-label-small" style="margin-bottom: 0.45rem" data-i18n="greetingNameLabel">Your
-                  Name</label>
-                <div class="input-row">
-                  <input type="text" id="greetingNameInput" placeholder="e.g., John (optional)" maxlength="20"
-                    data-i18n="namePlaceholder" />
+              <div id="subGreeting" class="setting-content">
+                <div class="display-sub-setting">
+                  <label class="setting-label-small" data-i18n="greetingNameLabel">Your Name</label>
+                  <div class="input-row">
+                    <input type="text" id="greetingNameInput" placeholder="e.g., John (optional)" maxlength="20"
+                      data-i18n="namePlaceholder" />
+                  </div>
                 </div>
 
-                <div class="setting-content-spaced">
-                  <label class="setting-label-small" data-i18n="iconsStyleLabel">Icon Style</label>
-                  <select id="greetingStyleSelect" class="settings-select">
-                    <option value="none" data-i18n="styleNone">None</option>
-                    <option value="3d">Fluent Emojis</option>
-                    <option value="outline">Outline</option>
+                <div class="display-sub-setting">
+                  <label class="setting-label-small" data-i18n="emojiTypeLabel" style="margin-top: 0.4rem">Emoji
+                    Type</label>
+                  <select id="greetingTypeSelect" class="settings-select">
+                    <option value="none" data-i18n="TypeNone">None</option>
+                    <option value="static" data-i18n="TypeStatic">Static</option>
+                    <option value="animated" data-i18n="TypeAnimated">Animated</option>
                   </select>
                 </div>
               </div>
 
               <div id="subTime" class="display-sub-setting" style="display: none">
-                <div class="switch-row child-setting" style="margin-bottom: 0.9rem">
+                <div class="switch-row child-setting" style="margin-top: 0.3rem;">
                   <label for="toggleSeconds" data-i18n="showSecondsLabel">Show seconds</label>
                   <label class="fluent-checkbox">
                     <input type="checkbox" id="toggleSeconds" />
@@ -394,6 +399,7 @@
                     </span>
                   </label>
                 </div>
+
                 <div class="switch-row child-setting">
                   <label for="toggle12Hour" data-i18n="use12HourLabel">12-hour format</label>
                   <label class="fluent-checkbox">
@@ -430,13 +436,16 @@
           </label>
         </div>
 
-        <div id="cityInputGroup" class="input-row">
-          <input type="text" id="cityInput" placeholder="e.g., New York" data-i18n="cityPlaceholder" />
-          <button id="saveCityBtn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
+        <div id="cityInputGroup" class="display-sub-setting">
+          <label for="cityInput" class="setting-label-small" data-i18n="locationLabel">Location</label>
+          <div class="input-row">
+            <input type="text" id="cityInput" placeholder="e.g., New York" data-i18n="cityPlaceholder" />
+            <button id="saveCityBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div class="setting-item collapsible-setting" id="weatherMoreSetting">
@@ -497,7 +506,7 @@
           </label>
         </div>
 
-        <div id="rowsInputGroup" class="setting-content-spaced">
+        <div id="rowsInputGroup" class="display-sub-setting">
           <label for="rowsSelect" class="setting-label-small" data-i18n="rowsLabel">Rows</label>
           <select id="rowsSelect" class="settings-select">
             <option value="1" data-i18n="rows1">1 Row</option>
@@ -509,7 +518,8 @@
 
         <div class="setting-item collapsible-setting" id="shortcutsMoreSetting">
           <div class="setting-header" id="shortcuts-more-btn">
-            <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
+            <span class="setting-label-small" data-i18n="moreOptionsLabel">More
+              options</span>
             <svg class="chevron-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path
@@ -547,7 +557,7 @@
               </label>
             </div>
 
-            <div class="slider-row child-setting" id="shortcutRadiusRow">
+            <div class="slider-row child-setting" id="shortcutRadiusRow" style="margin-top: 0.4rem;">
               <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner
                 radius</label>
               <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-100" max="100" step="1"
@@ -574,7 +584,7 @@
           </label>
         </div>
 
-        <div id="launcherSelectGroup" class="setting-content-spaced">
+        <div id="launcherSelectGroup" class="display-sub-setting">
           <label class="setting-label-small" data-i18n="ecosystemLabel">Ecosystem</label>
           <select id="launcherProvider" class="settings-select">
             <option value="microsoft">Microsoft 365</option>
@@ -601,8 +611,8 @@
           </label>
         </div>
 
-        <div id="searchMainOptions">
-          <div id="searchStyleRow" class="setting-content-spaced">
+        <div id="searchMainOptions" class="setting-content">
+          <div id="searchStyleRow" class="display-sub-setting">
             <label for="searchBarStyleSelect" class="setting-label-small" data-i18n="searchBarStyleLabe">Search bar
               style</label>
             <select id="searchBarStyleSelect" class="settings-select">
@@ -743,7 +753,7 @@
           </div>
         </div>
 
-        <div id="languageSelectGroup" class="setting-content-spaced">
+        <div id="languageSelectGroup" class="display-sub-setting">
           <label class="setting-label-small" data-i18n="interfaceLanguageLabel">Interface Language</label>
           <select id="languageProvider" class="settings-select">
             <option value="cs_CZ">Čeština</option>

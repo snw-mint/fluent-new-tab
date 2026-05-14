@@ -218,7 +218,7 @@ const APP_KEYS: string[] = [
   'launcherProvider',
   'showGreeting',
   'greetingName',
-  'greetingStyle',
+  'greetingType',
   'userLanguage',
   'searchEngine',
   'searchBarVisible',

@@ -1,4 +1,4 @@
-const DEFAULT_LOCALE = 'en';
+const DEFAULT_LOCALE = 'en_US';
 window.translationsCache = {};
 
 async function loadTranslations() {
