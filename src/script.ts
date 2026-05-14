@@ -1237,7 +1237,7 @@ async function searchCity(): Promise<void> {
   if (!cityInput || !saveCityBtn) return;
   const query = cityInput.value.trim();
   if (!query) return;
-  saveCityBtn.innerHTML = '...';
+  saveCityBtn.textContent = '...';
   try {
     const cityData = await fetchCityData(query);
     if (cityData) {
@@ -1251,8 +1251,11 @@ async function searchCity(): Promise<void> {
   } catch (error) {
     alert('Error searching city.');
   } finally {
-    saveCityBtn.innerHTML =
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    saveCityBtn.textContent = '';
+    saveCityBtn.insertAdjacentHTML(
+      'beforeend',
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+    );
   }
 }
 
