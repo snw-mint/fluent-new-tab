@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Apariencia"
   },
-  "accentWallpaperOption": {
-    "message": "Extraer del fondo de pantalla"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
     "message": "Nombre de la pestaña"
@@ -35,14 +35,26 @@
   "styleNone": {
     "message": "Ninguno"
   },
-  "iconsStyleLabel": {
-    "message": "Estilo de icono"
+  "emojiTypeLabel": {
+    "message": "Emoji Type"
+  },
+  "TypeNone": {
+    "message": "Ninguno"
+  },
+  "TypeStatic": {
+    "message": "Static"
+  },
+  "TypeAnimated": {
+    "message": "Animated"
   },
   "displayTitle": {
     "message": "Pantalla"
   },
   "displayGreeting": {
     "message": "Saludo"
+  },
+  "greetingNameLabel": {
+    "message": "Your Name"
   },
   "displayTime": {
     "message": "Hora"
@@ -54,7 +66,7 @@
     "message": "Hora y fecha"
   },
   "displayScaleLabel": {
-    "message": "Ajustar el tamaño de la pantalla"
+    "message": "Display Scale"
   },
   "showSecondsLabel": {
     "message": "Mostrar segundos"
@@ -79,6 +91,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Utiliza grados Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "Atajos"
@@ -207,10 +222,10 @@
     "message": "Buscar en la web"
   },
   "namePlaceholder": {
-    "message": "Tu nombre (opcional)"
+    "message": "e.g., John (optional)"
   },
   "cityPlaceholder": {
-    "message": "Tu ciudad"
+    "message": "e.g., New York"
   },
   "addShortcutLabel": {
     "message": "Añadir"
@@ -235,10 +250,7 @@
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+      "message": "Se requiere permiso"
     },
     "apiNameSuggestions": {
       "message": "Search Suggestions"
@@ -391,12 +403,12 @@
   "weekday_6": {
     "message": "Sábado"
   },
-  "greetWeekMorning": {
+  "greetWeekMorning_v2": {
     "message": "¡Que tengas un excelente $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Lunes"
       },
       "name": {
         "content": "$2",
@@ -404,12 +416,12 @@
       }
     }
   },
-  "greetWeekAfternoon": {
+  "greetWeekAfternoon_v2": {
     "message": "¿Cómo va tu $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Lunes"
       },
       "name": {
         "content": "$2",
@@ -417,12 +429,12 @@
       }
     }
   },
-  "greetWeekNight": {
+  "greetWeekNight_v2": {
     "message": "¿Qué tal tu $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Lunes"
       },
       "name": {
         "content": "$2",
@@ -430,7 +442,7 @@
       }
     }
   },
-  "greetMorning1": {
+  "greetMorning1_v2": {
     "message": "Buenos días, $NAME$",
     "placeholders": {
       "name": {
@@ -439,7 +451,7 @@
       }
     }
   },
-  "greetMorning2": {
+  "greetMorning2_v2": {
     "message": "¡Empieza un nuevo día, $NAME$!",
     "placeholders": {
       "name": {
@@ -448,7 +460,7 @@
       }
     }
   },
-  "greetMorning3": {
+  "greetMorning3_v2": {
     "message": "Te deseo un día maravilloso, $NAME$",
     "placeholders": {
       "name": {
@@ -457,7 +469,7 @@
       }
     }
   },
-  "greetMorning4": {
+  "greetMorning4_v2": {
     "message": "Hola, $NAME$! ¿Listo para hoy?",
     "placeholders": {
       "name": {
@@ -466,7 +478,7 @@
       }
     }
   },
-  "greetMorning5": {
+  "greetMorning5_v2": {
     "message": "Empecemos bien el día, $NAME$",
     "placeholders": {
       "name": {
@@ -475,7 +487,7 @@
       }
     }
   },
-  "greetAfternoon1": {
+  "greetAfternoon1_v2": {
     "message": "Buenas tardes, $NAME$",
     "placeholders": {
       "name": {
@@ -484,7 +496,7 @@
       }
     }
   },
-  "greetAfternoon2": {
+  "greetAfternoon2_v2": {
     "message": "Me alegro de verte, $NAME$",
     "placeholders": {
       "name": {
@@ -493,7 +505,7 @@
       }
     }
   },
-  "greetAfternoon3": {
+  "greetAfternoon3_v2": {
     "message": "Espero que estés bien, $NAME$",
     "placeholders": {
       "name": {
@@ -502,7 +514,7 @@
       }
     }
   },
-  "greetAfternoon4": {
+  "greetAfternoon4_v2": {
     "message": "¡Sigue con tu excelente trabajo, $NAME$!",
     "placeholders": {
       "name": {
@@ -511,7 +523,7 @@
       }
     }
   },
-  "greetAfternoon5": {
+  "greetAfternoon5_v2": {
     "message": "Mantén la concentración y la productividad, $NAME$",
     "placeholders": {
       "name": {
@@ -520,7 +532,7 @@
       }
     }
   },
-  "greetEvening1": {
+  "greetEvening1_v2": {
     "message": "Buenas noches, $NAME$",
     "placeholders": {
       "name": {
@@ -529,7 +541,7 @@
       }
     }
   },
-  "greetEvening2": {
+  "greetEvening2_v2": {
     "message": "Es hora de relajarse, $NAME$",
     "placeholders": {
       "name": {
@@ -538,7 +550,7 @@
       }
     }
   },
-  "greetEvening3": {
+  "greetEvening3_v2": {
     "message": "Te deseo una tarde tranquila, $NAME$",
     "placeholders": {
       "name": {
@@ -547,7 +559,7 @@
       }
     }
   },
-  "greetEvening4": {
+  "greetEvening4_v2": {
     "message": "Es hora de relajarse, $NAME$",
     "placeholders": {
       "name": {
@@ -556,7 +568,7 @@
       }
     }
   },
-  "greetEvening5": {
+  "greetEvening5_v2": {
     "message": "Disfruta de tu velada, $NAME$",
     "placeholders": {
       "name": {
@@ -565,7 +577,7 @@
       }
     }
   },
-  "greetNight1": {
+  "greetNight1_v2": {
     "message": "Espero que estés pasando una noche tranquila, $NAME$",
     "placeholders": {
       "name": {
@@ -574,7 +586,7 @@
       }
     }
   },
-  "greetNight2": {
+  "greetNight2_v2": {
     "message": "¿Todavía despierto, $NAME$? ¡Que descanses pronto!",
     "placeholders": {
       "name": {
@@ -583,7 +595,7 @@
       }
     }
   },
-  "greetNight3": {
+  "greetNight3_v2": {
     "message": "Disfruta de las horas tranquilas, $NAME$",
     "placeholders": {
       "name": {
@@ -592,7 +604,7 @@
       }
     }
   },
-  "greetNight4": {
+  "greetNight4_v2": {
     "message": "Buenas noches, $NAME$. ¡Hasta mañana!",
     "placeholders": {
       "name": {
@@ -601,12 +613,60 @@
       }
     }
   },
-  "greetNight5": {
+  "greetNight5_v2": {
     "message": "¿Esta noche hasta tarde, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
         "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
       }
     }
   }
