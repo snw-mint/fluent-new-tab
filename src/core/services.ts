@@ -142,8 +142,8 @@ async function fetchDailyWallpaper(
         date?: string,
       ): Promise<NasaApodResponse> => {
         const url = date
-          ? `https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&thumbs=True&date=${encodeURIComponent(date)}`
-          : 'https://api.nasa.gov/planetary/apod?api_key=lP5JlT7l9NKOOWhBjDezKfFEvgwtmHfQH5pfSZHW&thumbs=True';
+          ? `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=True&date=${encodeURIComponent(date)}`
+          : 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=True';
         const response = await fetch(url);
         if (response.status === 429) throw new Error('NASA API limit reached.');
         if (response.status >= 500)
