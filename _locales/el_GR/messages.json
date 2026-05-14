@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Εμφάνιση"
   },
-  "accentWallpaperOption": {
-    "message": "Εξαγωγή από την ταπετσαρία"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
     "message": "Όνομα καρτέλας"
@@ -35,14 +35,26 @@
   "styleNone": {
     "message": "Κανένα"
   },
-  "iconsStyleLabel": {
-    "message": "Στυλ εικονιδίου"
+  "emojiTypeLabel": {
+    "message": "Emoji Type"
+  },
+  "TypeNone": {
+    "message": "Κανένα"
+  },
+  "TypeStatic": {
+    "message": "Static"
+  },
+  "TypeAnimated": {
+    "message": "Animated"
   },
   "displayTitle": {
     "message": "Οθόνη"
   },
   "displayGreeting": {
     "message": "Χαιρετισμός"
+  },
+  "greetingNameLabel": {
+    "message": "Your Name"
   },
   "displayTime": {
     "message": "Ώρα"
@@ -54,7 +66,7 @@
     "message": "Ώρα & Ημερομηνία"
   },
   "displayScaleLabel": {
-    "message": "Αλλαγή μεγέθους οθόνης"
+    "message": "Display Scale"
   },
   "showSecondsLabel": {
     "message": "Εμφάνιση δευτερολέπτων"
@@ -79,6 +91,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Χρησιμοποιήστε Φαρενάιτ"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "Συντομεύσεις"
@@ -207,10 +222,10 @@
     "message": "Αναζήτηση στο διαδίκτυο"
   },
   "namePlaceholder": {
-    "message": "Το όνομά σας (προαιρετικό)"
+    "message": "e.g., John (optional)"
   },
   "cityPlaceholder": {
-    "message": "Η πόλη σας"
+    "message": "e.g., New York"
   },
   "addShortcutLabel": {
     "message": "Προσθήκη"
@@ -235,10 +250,7 @@
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+      "message": "Απαιτείται άδεια"
     },
     "apiNameSuggestions": {
       "message": "Search Suggestions"
@@ -391,12 +403,12 @@
   "weekday_6": {
     "message": "Σάββατο"
   },
-  "greetWeekMorning": {
+  "greetWeekMorning_v2": {
     "message": "Σήμερα είναι $WEEK$. Να έχετε μια υπέροχη μέρα, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Δευτέρα"
       },
       "name": {
         "content": "$2",
@@ -404,12 +416,12 @@
       }
     }
   },
-  "greetWeekAfternoon": {
+  "greetWeekAfternoon_v2": {
     "message": "Πώς κυλάει η μέρα σας ($WEEK$), $NAME$;",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Δευτέρα"
       },
       "name": {
         "content": "$2",
@@ -417,12 +429,12 @@
       }
     }
   },
-  "greetWeekNight": {
+  "greetWeekNight_v2": {
     "message": "Πώς ήταν η μέρα σας ($WEEK$), $NAME$;",
     "placeholders": {
       "week": {
         "content": "$1",
-        "example": "Monday"
+        "example": "Δευτέρα"
       },
       "name": {
         "content": "$2",
@@ -430,7 +442,7 @@
       }
     }
   },
-  "greetMorning1": {
+  "greetMorning1_v2": {
     "message": "Καλημέρα, $NAME$",
     "placeholders": {
       "name": {
@@ -439,7 +451,7 @@
       }
     }
   },
-  "greetMorning2": {
+  "greetMorning2_v2": {
     "message": "Μια νέα μέρα ξεκινά, $NAME$!",
     "placeholders": {
       "name": {
@@ -448,7 +460,7 @@
       }
     }
   },
-  "greetMorning3": {
+  "greetMorning3_v2": {
     "message": "Σας εύχομαι μια υπέροχη μέρα, $NAME$",
     "placeholders": {
       "name": {
@@ -457,7 +469,7 @@
       }
     }
   },
-  "greetMorning4": {
+  "greetMorning4_v2": {
     "message": "Γεια σας, $NAME$! Έτοιμοι για σήμερα;",
     "placeholders": {
       "name": {
@@ -466,7 +478,7 @@
       }
     }
   },
-  "greetMorning5": {
+  "greetMorning5_v2": {
     "message": "Ας ξεκινήσουμε τη μέρα μας δυναμικά, $NAME$",
     "placeholders": {
       "name": {
@@ -475,7 +487,7 @@
       }
     }
   },
-  "greetAfternoon1": {
+  "greetAfternoon1_v2": {
     "message": "Καλό απόγευμα, $NAME$",
     "placeholders": {
       "name": {
@@ -484,7 +496,7 @@
       }
     }
   },
-  "greetAfternoon2": {
+  "greetAfternoon2_v2": {
     "message": "Χαίρομαι που σας βλέπω, $NAME$",
     "placeholders": {
       "name": {
@@ -493,7 +505,7 @@
       }
     }
   },
-  "greetAfternoon3": {
+  "greetAfternoon3_v2": {
     "message": "Ελπίζω να είστε καλά, $NAME$",
     "placeholders": {
       "name": {
@@ -502,7 +514,7 @@
       }
     }
   },
-  "greetAfternoon4": {
+  "greetAfternoon4_v2": {
     "message": "Συνεχίστε την εξαιρετική δουλειά, $NAME$!",
     "placeholders": {
       "name": {
@@ -511,7 +523,7 @@
       }
     }
   },
-  "greetAfternoon5": {
+  "greetAfternoon5_v2": {
     "message": "Συνεχίστε με συγκέντρωση και παραγωγικότητα, $NAME$",
     "placeholders": {
       "name": {
@@ -520,7 +532,7 @@
       }
     }
   },
-  "greetEvening1": {
+  "greetEvening1_v2": {
     "message": "Καλησπέρα, $NAME$",
     "placeholders": {
       "name": {
@@ -529,7 +541,7 @@
       }
     }
   },
-  "greetEvening2": {
+  "greetEvening2_v2": {
     "message": "Είναι ώρα να χαλαρώσετε, $NAME$",
     "placeholders": {
       "name": {
@@ -538,7 +550,7 @@
       }
     }
   },
-  "greetEvening3": {
+  "greetEvening3_v2": {
     "message": "Σας εύχομαι ένα ήρεμο βράδυ, $NAME$",
     "placeholders": {
       "name": {
@@ -547,7 +559,7 @@
       }
     }
   },
-  "greetEvening4": {
+  "greetEvening4_v2": {
     "message": "Ώρα να χαλαρώσετε, $NAME$",
     "placeholders": {
       "name": {
@@ -556,7 +568,7 @@
       }
     }
   },
-  "greetEvening5": {
+  "greetEvening5_v2": {
     "message": "Καλή σας βραδιά, $NAME$",
     "placeholders": {
       "name": {
@@ -565,7 +577,7 @@
       }
     }
   },
-  "greetNight1": {
+  "greetNight1_v2": {
     "message": "Ελπίζω να περνάτε ένα ήσυχο βράδυ, $NAME$",
     "placeholders": {
       "name": {
@@ -574,7 +586,7 @@
       }
     }
   },
-  "greetNight2": {
+  "greetNight2_v2": {
     "message": "Ακόμα ξύπνιοι, $NAME$; Καλή ξεκούραση!",
     "placeholders": {
       "name": {
@@ -583,7 +595,7 @@
       }
     }
   },
-  "greetNight3": {
+  "greetNight3_v2": {
     "message": "Απολαύστε τις ήσυχες ώρες, $NAME$",
     "placeholders": {
       "name": {
@@ -592,7 +604,7 @@
       }
     }
   },
-  "greetNight4": {
+  "greetNight4_v2": {
     "message": "Καληνύχτα, $NAME$. Τα λέμε αύριο!",
     "placeholders": {
       "name": {
@@ -601,12 +613,60 @@
       }
     }
   },
-  "greetNight5": {
+  "greetNight5_v2": {
     "message": "Ξενυχτάτε απόψε, $NAME$;",
     "placeholders": {
       "name": {
         "content": "$1",
         "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
       }
     }
   }
