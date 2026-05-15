@@ -24,7 +24,7 @@
     "message": "Megjelenés"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "A fő felület méretezése"
   },
   "tabNameLabel": {
     "message": "Fül neve"
@@ -45,7 +45,7 @@
     "message": "Üdvözlet"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Neved"
   },
   "displayTime": {
     "message": "Idő"
@@ -84,7 +84,7 @@
     "message": "Fahrenheit-skálát használjon"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Időjárási riasztások"
   },
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"
@@ -240,73 +240,73 @@
     "message": "További információk"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Üdvözlünk"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Az új Fluent munkaterületed készen áll. Válaszd ki a következő lépést."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Beállítások visszaállítása"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Van biztonsági mentésed?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Beállítás indítása"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Kezdd néhány egyszerű lépéssel."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Beállítás kihagyása"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Rendszer"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Világos"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Sötét"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Kezdés tiszta lappal."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stílus és Megjelenés"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Állítsd be a témát, a kiemelő színt, a nevedet és a nyelvet."
   },
   "btnBack": {
     "message": "Vissza"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Folytatás"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Kiemelő szín"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Modulok és Eszközök"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Válaszd ki, mi jelenjen meg az oldalon."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Minden készen áll"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Köszönjük, hogy a Fluent New Tab-ot használod!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Kezdés"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Nyisd meg az új lapot."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Sajnáljuk, a használt *.json fájl érvénytelen vagy sérült."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -467,7 +467,7 @@
     "message": "Szombat"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Legyen szuper $WEEK$od, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Hogy telik a $WEEK$od eddig, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, milyen volt a $WEEK$od?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Jó reggelt, $NAME$! Csodás napunk van!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Készen állsz meghódítani a napot, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Hozzuk ki a legtöbbet ebből a reggelből, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Jó reggelt! Remélem jól aludtál, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Ébresztő, $NAME$, vágjunk bele!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Remélem szuperül telik a délutánod, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, csak így tovább, nagyon nyomod!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Már a nap felénél járunk, $NAME$! Kitartás!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Szép délutánt! Pörög a munka, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Ne felejts el egy kis szünetet tartani, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Jó estét! Ideje egy kicsit lelassítani, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, remélem fantasztikus napod volt.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Legyen pihentető az estéd, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Mindjárt vége a napnak, $NAME$. Szép munka volt!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Dőlj hátra és lazíts egy kicsit, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Későre jár, $NAME$. Ideje pihenni.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, az éjszaka csendes és békés.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Még mindig tolod az ipart, $NAME$? Éjjeli bagoly!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Aludj jól és pihend ki magad, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Szép álmokat, $NAME$. Holnap találkozunk!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Várható lehűlés: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Várható felmelegedés: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Viharok várhatók a következő órákban."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Erős szél várható: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Kritikus UV-sugárzás: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Magas pollenkoncentráció ($POLLEN$) várható.",
     "placeholders": {
       "pollen": {
         "content": "$1",
