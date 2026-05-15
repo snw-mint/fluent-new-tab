@@ -1,5 +1,5 @@
 files:
-  - source: /crowdin/messages.json
+  - source: _locales\en_US\messages.json
     translation: /_locales/%locale_with_underscore%/messages.json
     type: chrome
     update_option: update_as_unapproved

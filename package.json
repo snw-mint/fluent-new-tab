@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:assets": "node tools/build.mjs",
+    "dev": "node tools/build.mjs --clean",
     "build:ts": "tsc -p tsconfig.json",
     "build:scss": "sass src/style.scss dist/style.css --no-source-map",
     "build:scss:min": "sass src/style.scss dist/style.css --no-source-map --style=compressed",

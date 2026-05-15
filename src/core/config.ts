@@ -237,7 +237,6 @@ const APP_KEYS: string[] = [
   'accentColorEnabled',
   'accentColorMode',
   'accentColorValue',
-
   'displayEnabled',
   'displayType',
   'showSeconds',

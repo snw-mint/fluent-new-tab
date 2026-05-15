@@ -102,8 +102,12 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const locale = rawLang.replace('_', '-');
 
   const showSeconds = localStorage.getItem('showSeconds') === 'true';
+
   const use12Hour = localStorage.getItem('use12Hour') === 'true';
-  const dateFormat = localStorage.getItem('dateFormat') || 'text';
+  let dateFormat = localStorage.getItem('dateFormat');
+  if (!dateFormat) {
+    dateFormat = type === 'timedate' ? 'weekday' : 'text';
+  }
 
   const now = new Date();
   const timeNodes: Node[] = [];

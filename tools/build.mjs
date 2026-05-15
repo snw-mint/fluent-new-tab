@@ -5,6 +5,7 @@
  * Usage:
  *   node tools/build.mjs           → dev build (copy only, no minification)
  *   node tools/build.mjs --release → full minification of all dist files
+ *   node tools/build.mjs --clean   → clears target assets in dist/ before copying
  */
 
 import {
@@ -13,6 +14,7 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  rmSync,
   writeFileSync,
   statSync,
 } from 'node:fs';
@@ -22,6 +24,7 @@ import { execSync } from 'node:child_process';
 const root = process.cwd();
 const dist = resolve(root, 'dist');
 const isRelease = process.argv.includes('--release');
+const isClean = process.argv.includes('--clean');
 
 if (!existsSync(dist)) {
   mkdirSync(dist, { recursive: true });
@@ -33,10 +36,15 @@ const copyMap = [
   ['assets', 'assets'],
   ['scripts', 'scripts'],
   ['_locales', '_locales'],
+  ['setup', 'setup'],
 ];
 
 for (const [from, to] of copyMap) {
-  cpSync(resolve(root, from), resolve(dist, to), {
+  const dest = resolve(dist, to);
+  if (isClean && existsSync(dest)) {
+    rmSync(dest, { recursive: true, force: true });
+  }
+  cpSync(resolve(root, from), dest, {
     recursive: true,
     force: true,
   });

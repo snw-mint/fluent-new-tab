@@ -13,8 +13,9 @@ const PERSISTENT_BACKUP_KEY = 'fluent_persistent_backup_v1';
 const DEFAULT_INSTALL_PREFERENCES = {
   shortcuts:
     '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snw.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
+  shortcutsTree:
+    '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snow.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
   theme: 'auto',
-  weatherEnabled: 'false',
   shortcutsVisible: 'true',
   shortcutsRows: '1',
   launcherEnabled: 'true',
@@ -25,27 +26,15 @@ const DEFAULT_INSTALL_PREFERENCES = {
   userLanguage: 'en_US',
   searchEngine: 'system',
   searchBarVisible: 'true',
-  suggestionsEnabled: 'false',
-  clearSearchEnabled: 'false',
   compactBarEnabled: 'false',
-  voiceSearchEnabled: 'false',
-  wallpaperEnabled: 'false',
-  wallpaperSource: 'local',
-  wallpaperType: 'preset',
-  wallpaperValue: 'preset_1',
-  animationsDisabled: 'false',
-  blurDisabled: 'false',
-  reducedEffectsEnabled: 'false',
   accentColorEnabled: 'false',
   accentColorMode: 'manual',
   accentColorValue: '#107C41',
   displayType: 'greeting',
   showSeconds: 'false',
-  use12Hour: 'true',
+  use12Hour: 'false',
   dateFormat: 'numeric',
   askAiEnabled: 'false',
-  shortcutsTree:
-    '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snow.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
 };
 
 chrome.runtime.onInstalled.addListener((details) => {
@@ -59,7 +48,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
 
     chrome.tabs.create({
-      url: 'https://snw-mint.github.io/fluent-new-tab/welcome.html',
+      url: chrome.runtime.getURL('setup/setup.html'),
     });
   }
 

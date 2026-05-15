@@ -1,238 +1,114 @@
 {
-  "appsTitle": {
-    "message": "Apps"
-  },
-  "moreApps": {
-    "message": "More Apps"
-  },
-  "settingsTitle": {
-    "message": "Settings"
-  },
-  "wallpaperTitle": {
-    "message": "Wallpaper"
-  },
-  "wallpaperSourceLabel": {
-    "message": "Image Source"
-  },
-  "nosourceOption": {
-    "message": "No source"
-  },
-  "overlayLabel": {
-    "message": "Image Overlay"
-  },
-  "appearanceTitle": {
-    "message": "Appearance"
-  },
-  "accentWallpaperOption": {
-    "message": "Get from wallpaper"
-  },
-  "tabNameLabel": {
-    "message": "Tab Name"
-  },
-  "tabFaviconLabel": {
-    "message": "Tab Icon"
-  },
-  "styleNone": {
-    "message": "None"
-  },
-  "iconsStyleLabel": {
-    "message": "Icon Style"
-  },
-  "displayTitle": {
-    "message": "Display"
-  },
-  "displayGreeting": {
-    "message": "Greeting"
-  },
-  "displayTime": {
-    "message": "Time"
-  },
-  "displayDate": {
-    "message": "Date"
-  },
-  "displayAdvanced": {
-    "message": "Time & Date"
-  },
-  "displayScaleLabel": {
-    "message": "Resize Display"
-  },
-  "showSecondsLabel": {
-    "message": "Show seconds"
-  },
-  "use12HourLabel": {
-    "message": "Use 12-hour format"
-  },
-  "dateFormatLabel": {
-    "message": "Format"
-  },
-  "dateText": {
-    "message": "Written"
-  },
-  "dateNumeric": {
-    "message": "Numeric"
-  },
-  "dateWeekday": {
-    "message": "Weekday"
-  },
-  "weatherTitle": {
-    "message": "Weather"
-  },
-  "useFahrenheitLabel": {
-    "message": "Use Fahrenheit"
-  },
-  "shortcutsTitle": {
-    "message": "Shortcuts"
-  },
-  "enableFoldersLabel": {
-    "message": "Enable Folders"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Hide Names"
-  },
-  "folderIconHelp": {
-    "message": "Find custom folder icons at"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Corner Radius"
-  },
-  "rows1": {
-    "message": "1 Row"
-  },
-  "rows2": {
-    "message": "2 Rows"
-  },
-  "rowsLabel": {
-    "message": "Rows"
-  },
-  "rows3": {
-    "message": "3 Rows"
-  },
-  "rows4": {
-    "message": "4 Rows"
-  },
-  "appLauncherTitle": {
-    "message": "App Launcher"
-  },
-  "ecosystemLabel": {
-    "message": "Ecosystem"
-  },
-  "searchTitle": {
-    "message": "Search"
-  },
-  "searchBarStyleLabe": {
-    "message": "Search bar style"
-  },
-  "searchStyleFull": {
-    "message": "Full width"
-  },
-  "searchStyleCompact": {
-    "message": "Compact"
-  },
-  "suggestionsOption": {
-    "message": "Suggestions"
-  },
-  "clearSearchOption": {
-    "message": "Clean search (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Voice search"
-  },
-  "askAiOption": {
-    "message": "Ask to AI"
-  },
-  "reduceVisualEffectsTitle": {
-    "message": "Reduce effects"
-  },
-  "reduceMotionTitle": {
-    "message": "Reduce motion"
-  },
-  "reduceBlurOption": {
-    "message": "Reduce blur"
-  },
-  "languageTitle": {
-    "message": "Language"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Interface Language"
-  },
-  "backupTitle": {
-    "message": "Data Backup"
-  },
-  "exportOption": {
-    "message": "Export"
-  },
-  "importOption": {
-    "message": "Import"
-  },
-  "addFolderTitle": {
-    "message": "Add Folder"
-  },
-  "folderNameLabel": {
-    "message": "Name"
-  },
-  "editFolderTitle": {
-    "message": "Edit Folder"
-  },
-  "chooseTypeTitle": {
-    "message": "Create New"
-  },
-  "backLabel": {
-    "message": "Back"
-  },
-  "addShortcutTitle": {
-    "message": "Add Shortcut"
-  },
-  "editShortcutTitle": {
-    "message": "Edit Shortcut"
-  },
-  "shortcutNameLabel": {
-    "message": "Name"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Custom Icon"
-  },
-  "faviconUrlLabel": {
-    "message": "Icon URL"
-  },
-  "btnCancel": {
-    "message": "Cancel"
-  },
-  "btnSave": {
-    "message": "Save"
-  },
-  "searchPlaceholder": {
-    "message": "Search the web"
-  },
-  "namePlaceholder": {
-    "message": "Your Name (optional)"
-  },
-  "cityPlaceholder": {
-    "message": "Your City"
-  },
-  "addShortcutLabel": {
-    "message": "Add"
-  },
-  "editLabel": {
-    "message": "Edit"
-  },
-  "removeLabel": {
-    "message": "Remove"
-  },
-  "moreOptionsLabel": {
-    "message": "More options"
-  },
-  "permissionRequiredTitle": {
-    "message": "Permission Required"
-  },
-  "grantPermissionLabel": {
-    "message": "Grant Permission"
-  },
-  "learnMoreLabel": {
-    "message": "Learn more"
-  },
+  "appsTitle": { "message": "Apps" },
+  "moreApps": { "message": "More Apps" },
+  "settingsTitle": { "message": "Settings" },
+  "wallpaperTitle": { "message": "Wallpaper" },
+  "wallpaperSourceLabel": { "message": "Image Source" },
+  "nosourceOption": { "message": "No source" },
+  "overlayLabel": { "message": "Image Overlay" },
+  "appearanceTitle": { "message": "Appearance" },
+  "mainUiScaleLabel": { "message": "Main UI Scale" },
+  "tabNameLabel": { "message": "Tab Name" },
+  "tabFaviconLabel": { "message": "Tab Icon" },
+  "styleNone": { "message": "None" },
+  "iconsStyleLabel": { "message": "Icon Style" },
+  "displayTitle": { "message": "Display" },
+  "displayGreeting": { "message": "Greeting" },
+  "greetingNameLabel": { "message": "Your Name" },
+  "displayTime": { "message": "Time" },
+  "displayDate": { "message": "Date" },
+  "displayAdvanced": { "message": "Time & Date" },
+  "displayScaleLabel": { "message": "Display Scale" },
+  "showSecondsLabel": { "message": "Show seconds" },
+  "use12HourLabel": { "message": "Use 12-hour format" },
+  "dateFormatLabel": { "message": "Format" },
+  "dateText": { "message": "Written" },
+  "dateNumeric": { "message": "Numeric" },
+  "dateWeekday": { "message": "Weekday" },
+  "weatherTitle": { "message": "Weather" },
+  "useFahrenheitLabel": { "message": "Use Fahrenheit" },
+  "weatherAlertsLabel": { "message": "Weather alerts" },
+  "shortcutsTitle": { "message": "Shortcuts" },
+  "enableFoldersLabel": { "message": "Enable Folders" },
+  "hideShortcutNamesLabel": { "message": "Hide Names" },
+  "folderIconHelp": { "message": "Find custom folder icons at" },
+  "shortcutRadiusLabel": { "message": "Corner Radius" },
+  "rows1": { "message": "1 Row" },
+  "rows2": { "message": "2 Rows" },
+  "rowsLabel": { "message": "Rows" },
+  "rows3": { "message": "3 Rows" },
+  "rows4": { "message": "4 Rows" },
+  "appLauncherTitle": { "message": "App Launcher" },
+  "ecosystemLabel": { "message": "Ecosystem" },
+  "searchTitle": { "message": "Search" },
+  "searchBarStyleLabe": { "message": "Search bar style" },
+  "searchStyleFull": { "message": "Full width" },
+  "searchStyleCompact": { "message": "Compact" },
+  "suggestionsOption": { "message": "Suggestions" },
+  "clearSearchOption": { "message": "Clean search (Google)" },
+  "voiceSearchOption": { "message": "Voice search" },
+  "askAiOption": { "message": "Ask to AI" },
+  "reduceVisualEffectsTitle": { "message": "Reduce effects" },
+  "reduceMotionTitle": { "message": "Reduce motion" },
+  "reduceBlurOption": { "message": "Reduce blur" },
+  "languageTitle": { "message": "Language" },
+  "interfaceLanguageLabel": { "message": "Interface Language" },
+  "backupTitle": { "message": "Data Backup" },
+  "exportOption": { "message": "Export" },
+  "importOption": { "message": "Import" },
+  "addFolderTitle": { "message": "Add Folder" },
+  "folderNameLabel": { "message": "Name" },
+  "editFolderTitle": { "message": "Edit Folder" },
+  "chooseTypeTitle": { "message": "Create New" },
+  "backLabel": { "message": "Back" },
+  "addShortcutTitle": { "message": "Add Shortcut" },
+  "editShortcutTitle": { "message": "Edit Shortcut" },
+  "shortcutNameLabel": { "message": "Name" },
+  "shortcutUrlLabel": { "message": "URL" },
+  "addFaviconLabel": { "message": "Custom Icon" },
+  "faviconUrlLabel": { "message": "Icon URL" },
+  "btnCancel": { "message": "Cancel" },
+  "btnSave": { "message": "Save" },
+  "searchPlaceholder": { "message": "Search the web" },
+  "namePlaceholder": { "message": "e.g., John (optional)" },
+  "cityPlaceholder": { "message": "e.g., New York" },
+  "addShortcutLabel": { "message": "Add" },
+  "editLabel": { "message": "Edit" },
+  "removeLabel": { "message": "Remove" },
+  "moreOptionsLabel": { "message": "More options" },
+  "permissionRequiredTitle": { "message": "Permission Required" },
+  "grantPermissionLabel": { "message": "Grant Permission" },
+  "learnMoreLabel": { "message": "Learn more" },
+  "wizardWelcomeTitle": { "message": "Welcome home" },
+  "wizardWelcomeSubtitle": {
+    "message": "Your new fluent workspace is ready. Choose your next step below."
+  },
+  "wizardRestoreTitle": { "message": "Restore settings" },
+  "wizardRestoreDesc": { "message": "Do you have a backup file? " },
+  "wizardStartTitle": { "message": "Start the setup" },
+  "wizardStartDesc": { "message": "Start with a few steps." },
+  "wizardSkipTitle": { "message": "Skip setup" },
+  "wizardThemeAuto": { "message": "Auto" },
+  "wizardThemeLight": { "message": "Light" },
+  "wizardThemeDark": { "message": "Dark" },
+  "wizardSkipDesc": { "message": "Start with a blank sheet." },
+  "wizardAppearanceTitle": { "message": "Style & Appearance" },
+  "wizardAppearanceDesc": {
+    "message": "Set your theme, accent color, name, and language."
+  },
+  "btnBack": { "message": "Back" },
+  "btnNext": { "message": "Continue" },
+  "wizardAccentLabel": { "message": "Accent Color" },
+  "wizardWidgetsTitle": { "message": "Widgets & Utilities" },
+  "wizardWidgetsDesc": { "message": "Choose what shows up on your page." },
+  "wizardFinalTitle": { "message": "You're all set" },
+  "wizardFinalSubtitle": { "message": "Thank you for using Fluent New Tab!" },
+  "wizardFinalStartTitle": { "message": "Get started" },
+  "wizardFinalStartDesc": { "message": "Open your new tab page." },
+  "wizardRestoreError": {
+    "message": "Sorry, the *.json file you used is invalid or corrupted."
+  },
+
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -252,143 +128,211 @@
     }
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab has been updated to version $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
+    "message": "Fluent New Tab has been updated to version $VERSION$, ",
+    "placeholders": { "version": { "content": "$1", "example": "v3.1" } }
   },
-  "updateNoticeChangelog": {
-    "message": "see changelog"
-  },
+  "updateNoticeChangelog": { "message": "see changelog" },
   "fetchingImagePlaceholder": {
     "message": "Fetching $SOURCE$ image...",
     "placeholders": {
-      "source": {
-        "content": "$1"
-      }
+      "source": { "content": "$1" }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Delete Folder"
-  },
+  "warningDeleteFolderTitle": { "message": "Delete Folder" },
   "warningDeleteFolderMessage": {
     "message": "Are you sure you want to delete the folder \"$FOLDER$\"? All shortcuts inside it will be removed.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
+    "placeholders": { "folder": { "content": "$1", "example": "Work" } }
   },
-  "warningDeleteFoldersTitle": {
-    "message": "Disable Folders?"
-  },
+  "warningDeleteFoldersTitle": { "message": "Disable Folders?" },
   "warningDeleteFoldersMessage": {
     "message": "All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup."
   },
-  "warningDeleteFoldersConfirm": {
-    "message": "Delete Folders"
-  },
-  "warningKeepEnabled": {
-    "message": "Keep Enabled"
-  },
+  "warningDeleteFoldersConfirm": { "message": "Delete Folders" },
+  "warningKeepEnabled": { "message": "Keep Enabled" },
   "warningAddEcosystemAppsTitle": {
     "message": "Add $ECOSYSTEM$ Apps?",
     "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
+      "ecosystem": { "content": "$1", "example": "Google Workspace" }
     }
   },
   "warningAddEcosystemAppsMessage": {
     "message": "This will create a folder with 9 $ECOSYSTEM$ apps in your shortcuts. Continue?",
     "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
+      "ecosystem": { "content": "$1", "example": "Google Workspace" }
     }
   },
-  "warningAddFolderConfirm": {
-    "message": "Add Folder"
-  },
-  "launcherNoAppsTitle": {
-    "message": "No Apps Available"
-  },
+  "warningAddFolderConfirm": { "message": "Add Folder" },
+  "launcherNoAppsTitle": { "message": "No Apps Available" },
   "launcherNoAppsAvailable": {
     "message": "No apps available for this ecosystem."
   },
-  "shortcutsLimitReached": {
-    "message": "Shortcuts limit reached!"
-  },
-  "warningGridFullTitle": {
-    "message": "Grid is Full"
-  },
+  "shortcutsLimitReached": { "message": "Shortcuts limit reached!" },
+  "warningGridFullTitle": { "message": "Grid is Full" },
   "warningGridFullMessage": {
     "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
+    "placeholders": { "limit": { "content": "$1", "example": "40" } }
   },
-  "warningFolderFullTitle": {
-    "message": "Folder is Full"
-  },
+  "warningFolderFullTitle": { "message": "Folder is Full" },
   "warningFolderFullMessage": {
     "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
+    "placeholders": { "limit": { "content": "$1", "example": "39" } }
   },
-  "warningRestoreBackupTitle": {
-    "message": "Restore Backup?"
-  },
+  "warningRestoreBackupTitle": { "message": "Restore Backup?" },
   "warningRestoreBackupMessage": {
     "message": "This will replace your current settings and shortcuts with the backup file data."
   },
-  "warningRestoreBackupConfirm": {
-    "message": "Restore"
-  },
-  "backupExportSuccess": {
-    "message": "Settings saved in the file"
-  },
+  "warningRestoreBackupConfirm": { "message": "Restore" },
+  "backupExportSuccess": { "message": "Settings saved in the file" },
   "warningInvalidBackupMessage": {
     "message": "The selected file is not a valid backup."
   },
-  "warningUnderstood": {
-    "message": "Understood"
+  "warningUnderstood": { "message": "Understood" },
+  "warningClose": { "message": "Close" },
+
+  "weekday_0": { "message": "Sunday" },
+  "weekday_1": { "message": "Monday" },
+  "weekday_2": { "message": "Tuesday" },
+  "weekday_3": { "message": "Wednesday" },
+  "weekday_4": { "message": "Thursday" },
+  "weekday_5": { "message": "Friday" },
+  "weekday_6": { "message": "Saturday" },
+
+  "greetWeekMorning": {
+    "message": "Have a great $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": { "content": "$1", "example": "Monday" },
+      "name": { "content": "$2", "example": "User" }
+    }
   },
-  "warningClose": {
-    "message": "Close"
+  "greetWeekAfternoon": {
+    "message": "How is your $WEEK$ going, $NAME$?",
+    "placeholders": {
+      "week": { "content": "$1", "example": "Monday" },
+      "name": { "content": "$2", "example": "User" }
+    }
   },
-  "weekday_0": {
-    "message": "Sunday"
+  "greetWeekNight": {
+    "message": "$NAME$, how was your $WEEK$?",
+    "placeholders": {
+      "week": { "content": "$1", "example": "Monday" },
+      "name": { "content": "$2", "example": "User" }
+    }
   },
-  "weekday_1": {
-    "message": "Monday"
+
+  "greetMorning1": {
+    "message": "$NAME$, it is a beautiful morning!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "weekday_2": {
-    "message": "Tuesday"
+  "greetMorning2": {
+    "message": "Ready to conquer the day, $NAME$?",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "weekday_3": {
-    "message": "Wednesday"
+  "greetMorning3": {
+    "message": "Let us make this morning count, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "weekday_4": {
-    "message": "Thursday"
+  "greetMorning4": {
+    "message": "Good morning! I hope you slept well, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "weekday_5": {
-    "message": "Friday"
+  "greetMorning5": {
+    "message": "Wakey wakey, $NAME$, let's get started!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "weekday_6": {
-    "message": "Saturday"
+
+  "greetAfternoon1": {
+    "message": "Hope your afternoon is going well, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, keep up the great momentum!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon3": {
+    "message": "Halfway through the day, $NAME$!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon4": {
+    "message": "Good afternoon! Staying productive, $NAME$?",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetAfternoon5": {
+    "message": "Do not forget to take a quick break, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+
+  "greetEvening1": {
+    "message": "Good evening! Time to start winding down, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, I hope you had a fantastic day.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening3": {
+    "message": "Enjoy a relaxing evening, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening4": {
+    "message": "The day is almost over, $NAME$. Great job!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetEvening5": {
+    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+
+  "greetNight1": {
+    "message": "It is getting late, $NAME$. Time to rest.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight2": {
+    "message": "$NAME$, the night is quiet and peaceful.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight3": {
+    "message": "Burning the midnight oil, $NAME$?",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight4": {
+    "message": "Have a good night of sleep, $NAME$!",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "greetNight5": {
+    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "placeholders": { "name": { "content": "$1", "example": "User" } }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": { "content": "$1", "example": "7" }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": { "content": "$1", "example": "7" }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": { "content": "$1", "example": "60" }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": { "content": "$1", "example": "8" }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": { "content": "$1", "example": "grass" }
+    }
   }
 }

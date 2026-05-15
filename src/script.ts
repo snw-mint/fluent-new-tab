@@ -37,6 +37,12 @@ function resetSettingsAccordions(): void {
       { container: displaySliderContainer, btn: displayToggleBtn },
       { container: shortcutsMoreContainer, btn: shortcutsMoreBtn },
       { container: overlaySliderContainer, btn: overlayToggleBtn },
+      { container: accentMoreContainer, btn: accentMoreBtn },
+      { container: searchMoreContainer, btn: searchMoreBtn },
+      {
+        container: weatherMoreContainer,
+        btn: document.getElementById('weather-more-btn'),
+      },
     ];
 
     accordions.forEach((acc) => {
@@ -54,8 +60,10 @@ function resetSettingsAccordions(): void {
 }
 
 function closePopups(except: Element | null = null): void {
-  if (configPopup && configPopup !== except)
+  if (configPopup && configPopup !== except) {
     configPopup.classList.remove('active');
+    resetSettingsAccordions();
+  }
   if (launcherPopup && launcherPopup !== except) {
     launcherPopup.classList.remove('active');
     if (appLauncherBtn) appLauncherBtn.classList.remove('active');
@@ -2299,6 +2307,9 @@ function initVisual() {
   bindExternalShortcutDrop();
   applyInitialShortcutsVisibility();
   applyInitialFoldersSetting();
+  const currentEngine = (localStorage.getItem('searchEngine') ||
+    'system') as keyof typeof engines;
+  setSearchEngine(currentEngine);
   updateSearchSettings(false);
   if (toggleSearchBar) toggleSearchBar.checked = searchBarVisible;
   if (toggleSuggestions) toggleSuggestions.checked = suggestionsActive;
