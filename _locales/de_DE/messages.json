@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Öffne deine Neuer-Tab-Seite."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Unterstützen Sie das Projekt"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Helfen Sie mit, das Projekt auf dem neuesten Stand zu halten."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Quellcode"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Projekt auf GitHub anzeigen."
+  },
   "wizardRestoreError": {
     "message": "Sorry, die verwendete *.json-Datei ist ungültig oder beschädigt."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Um diese Funktion nutzen zu können, benötigt „Fluent New Tab“ die Berechtigung, auf „$API_NAME$“ zuzugreifen. Dies dient dem Schutz deiner Privatsphäre und Sicherheit.",
     "placeholders": {
       "api_name": {
