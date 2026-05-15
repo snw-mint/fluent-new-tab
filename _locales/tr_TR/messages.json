@@ -24,7 +24,7 @@
     "message": "Görünüm"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Ana Arayüz Ölçeği"
   },
   "tabNameLabel": {
     "message": "Sekme Adı"
@@ -45,7 +45,7 @@
     "message": "Selamlama"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Adın"
   },
   "displayTime": {
     "message": "Zaman"
@@ -84,7 +84,7 @@
     "message": "Fahrenheit kullanın"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Hava Durumu Uyarıları"
   },
   "shortcutsTitle": {
     "message": "Kısayollar"
@@ -213,7 +213,7 @@
     "message": "Web'de ara"
   },
   "namePlaceholder": {
-    "message": "Adınız (isteğe bağlı)"
+    "message": "Adın (isteğe bağlı)"
   },
   "cityPlaceholder": {
     "message": "Şehriniz"
@@ -240,73 +240,73 @@
     "message": "Daha fazla bilgi edinin"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Tekrar hoş geldin"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Yeni Fluent çalışma alanın hazır. Aşağıdan bir sonraki adımını seç."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Ayarları geri yükle"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Yedek dosyan var mı?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Kuruluma başla"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Birkaç adımla hemen başla."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Kurulumu atla"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Sistem"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Açık"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Koyu"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Temiz bir kurulumla başla."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stil ve Görünüm"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Temanı, vurgu rengini, adını ve dilini ayarla."
   },
   "btnBack": {
     "message": "Geri"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Devam et"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Vurgu Rengi"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Araçlar ve Uygulamalar"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Sayfanda nelerin görüneceğini seç."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Her şey hazır!"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Fluent New Tab'ı kullandığın için teşekkürler!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Hemen başla"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Yeni sekme sayfanı aç."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Maalesef kullandığınız *.json dosyası geçersiz veya bozuk."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -467,7 +467,7 @@
     "message": "Cumartesi"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Harika bir $WEEK$ olsun, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "$WEEK$ günün nasıl geçiyor, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$WEEK$ günün nasıl geçti, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Günaydın $NAME$! Harika bir sabah!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Günü fethetmeye hazır mısın, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Bu sabahın hakkını verelim, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Günaydın! Umarım mışıl mışıl uyumuşsundur, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Uyanma vakti $NAME$, hadi başlayalım!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Umarım öğleden sonran keyifli geçiyordur, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "Kolay gelsin $NAME$, harika gidiyorsun!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Günün yarısını devirdik bile, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Tünaydın! İşler tıkırında mı, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Kısa bir mola vermeyi unutma, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "İyi akşamlar! Artık yavaş yavaş dinlenme vakti, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, umarım şahane bir gün geçirmişsindir.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Akşamın tadını çıkar ve bolca dinlen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Gün bitmek üzere, $NAME$. Eline sağlık!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Rahat bir köşeye geç ve günün yorgunluğunu at, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Saat geç oldu, $NAME$. Uyku vakti.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, gece çok sakin ve huzurlu.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Gece kuşluğu mu yapıyoruz, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Deliksiz bir uyku dilerim, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Tatlı rüyalar, $NAME$. Yarın görüşürüz!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Beklenen sıcaklık düşüşü: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Beklenen sıcaklık artışı: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Önümüzdeki birkaç saat içinde fırtına bekleniyor."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Kuvvetli rüzgar bekleniyor: $VALUE$ km/s",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Kritik seviyede UV ışını: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Yüksek polen ($POLLEN$) seviyeleri bekleniyor.",
     "placeholders": {
       "pollen": {
         "content": "$1",
