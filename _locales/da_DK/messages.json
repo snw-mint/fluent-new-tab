@@ -18,19 +18,19 @@
     "message": "Ingen kilde"
   },
   "overlayLabel": {
-    "message": "Billedoverlay"
+    "message": "Billedoverlejring"
   },
   "appearanceTitle": {
     "message": "Udseende"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Skalering af brugerflade"
   },
   "tabNameLabel": {
-    "message": "Fanebladets navn"
+    "message": "Fanens navn"
   },
   "tabFaviconLabel": {
-    "message": "Faneblad-ikon"
+    "message": "Faneikon"
   },
   "styleNone": {
     "message": "Ingen"
@@ -45,7 +45,7 @@
     "message": "Hilsen"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Dit navn"
   },
   "displayTime": {
     "message": "Tid"
@@ -57,34 +57,34 @@
     "message": "Tid og dato"
   },
   "displayScaleLabel": {
-    "message": "Tilpas skærmstørrelse"
+    "message": "Skærmskalering"
   },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },
   "use12HourLabel": {
-    "message": "Brug 12-timersformatet"
+    "message": "Brug 12-timers format"
   },
   "dateFormatLabel": {
-    "message": "Format"
+    "message": "Datoformat"
   },
   "dateText": {
-    "message": "Skrevet"
+    "message": "Tekst"
   },
   "dateNumeric": {
     "message": "Numerisk"
   },
   "dateWeekday": {
-    "message": "Hverdage"
+    "message": "Ugedag"
   },
   "weatherTitle": {
-    "message": "Vejret"
+    "message": "Vejr"
   },
   "useFahrenheitLabel": {
-    "message": "Brug Fahrenheit"
+    "message": "Brug fahrenheit"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Vejrvarsler"
   },
   "shortcutsTitle": {
     "message": "Genveje"
@@ -96,7 +96,7 @@
     "message": "Skjul navne"
   },
   "folderIconHelp": {
-    "message": "Find brugerdefinerede mappeikoner på"
+    "message": "Find tilpassede mappeikoner på:"
   },
   "shortcutRadiusLabel": {
     "message": "Hjørneradius"
@@ -123,10 +123,10 @@
     "message": "Økosystem"
   },
   "searchTitle": {
-    "message": "Søg"
+    "message": "Søgning"
   },
   "searchBarStyleLabe": {
-    "message": "Stil på søgefeltet"
+    "message": "Søgefeltets stil"
   },
   "searchStyleFull": {
     "message": "Fuld bredde"
@@ -135,7 +135,7 @@
     "message": "Kompakt"
   },
   "suggestionsOption": {
-    "message": "Forslag"
+    "message": "Søgeforslag"
   },
   "clearSearchOption": {
     "message": "Ren søgning (Google)"
@@ -144,10 +144,10 @@
     "message": "Stemmesøgning"
   },
   "askAiOption": {
-    "message": "Spørg AI'en"
+    "message": "Spørg AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Reducer effekter"
+    "message": "Reducer visuelle effekter"
   },
   "reduceMotionTitle": {
     "message": "Reducer bevægelse"
@@ -159,25 +159,25 @@
     "message": "Sprog"
   },
   "interfaceLanguageLabel": {
-    "message": "Grænsefladesprog"
+    "message": "Sprog for brugerflade"
   },
   "backupTitle": {
-    "message": "Sikkerhedskopi af data"
+    "message": "Sikkerhedskopiering"
   },
   "exportOption": {
-    "message": "Eksporter"
+    "message": "Eksportér"
   },
   "importOption": {
-    "message": "Importer"
+    "message": "Importér"
   },
   "addFolderTitle": {
     "message": "Tilføj mappe"
   },
   "folderNameLabel": {
-    "message": "Navn"
+    "message": "Mappenavn"
   },
   "editFolderTitle": {
-    "message": "Rediger mappe"
+    "message": "Redigér mappe"
   },
   "chooseTypeTitle": {
     "message": "Opret ny"
@@ -189,22 +189,22 @@
     "message": "Tilføj genvej"
   },
   "editShortcutTitle": {
-    "message": "Rediger genvej"
+    "message": "Redigér genvej"
   },
   "shortcutNameLabel": {
-    "message": "Navn"
+    "message": "Mappenavn"
   },
   "shortcutUrlLabel": {
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Brugerdefineret ikon"
+    "message": "Tilpasset ikon"
   },
   "faviconUrlLabel": {
     "message": "Ikon-URL"
   },
   "btnCancel": {
-    "message": "Annuller"
+    "message": "Annullér"
   },
   "btnSave": {
     "message": "Gem"
@@ -222,13 +222,13 @@
     "message": "Tilføj"
   },
   "editLabel": {
-    "message": "Rediger"
+    "message": "Redigér"
   },
   "removeLabel": {
     "message": "Fjern"
   },
   "moreOptionsLabel": {
-    "message": "Flere muligheder"
+    "message": "Flere indstillinger"
   },
   "permissionRequiredTitle": {
     "message": "Der kræves tilladelse"
@@ -240,73 +240,73 @@
     "message": "Læs mere"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Velkommen"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Dit nye Fluent-arbejdsområde er klar. Vælg dit næste trin nedenfor."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Gendan indstillinger"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Har du en sikkerhedskopifil?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Start opsætningen"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Kom i gang med et par enkle trin."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Spring opsætning over"
   },
   "wizardThemeAuto": {
     "message": "System"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Lys"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Mørk"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Start med en ren opsætning."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stil og udseende"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Indstil dit tema, din accentfarve, dit navn og dit sprog."
   },
   "btnBack": {
     "message": "Tilbage"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Fortsæt"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Accentfarve"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Widgets og værktøjer"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Vælg, hvad der skal vises på din side."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Du er klar"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Tak, fordi du bruger Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Kom i gang"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Åbn din nye fanebladsside."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Beklager, den *.json-fil du brugte er ugyldig eller beskadiget."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -359,7 +359,7 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Deaktivere mapper?"
+    "message": "Deaktiver mapper?"
   },
   "warningDeleteFoldersMessage": {
     "message": "Alle mapper og deres genveje vil blive slettet. Dette kan ikke fortrydes, medmindre du har en sikkerhedskopi."
@@ -368,7 +368,7 @@
     "message": "Slet mapper"
   },
   "warningKeepEnabled": {
-    "message": "Hold aktiveret"
+    "message": "Behold aktiveret"
   },
   "warningAddEcosystemAppsTitle": {
     "message": "Tilføj $ECOSYSTEM$ apps?",
@@ -401,7 +401,7 @@
     "message": "Grænsen for genveje er nået!"
   },
   "warningGridFullTitle": {
-    "message": "Gitteret er fuldt"
+    "message": "Startskærmen er fuld"
   },
   "warningGridFullMessage": {
     "message": "Du har nået den maksimale grænse for $LIMIT$ genveje på hovedskærmen. Slet nogle elementer eller grupper dem i en mappe for at frigøre plads.",
@@ -425,7 +425,7 @@
     }
   },
   "warningRestoreBackupTitle": {
-    "message": "Gendanne sikkerhedskopi?"
+    "message": "Gendan sikkerhedskopi?"
   },
   "warningRestoreBackupMessage": {
     "message": "Dette vil erstatte dine nuværende indstillinger og genveje med dataene fra sikkerhedskopifilen."
@@ -434,7 +434,7 @@
     "message": "Gendan"
   },
   "backupExportSuccess": {
-    "message": "Indstillinger gemt i filen"
+    "message": "Indstillingerne blev eksporteret"
   },
   "warningInvalidBackupMessage": {
     "message": "Den valgte fil er ikke en gyldig sikkerhedskopi."
@@ -467,7 +467,7 @@
     "message": "Lørdag"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Godmorgen her på $WEEK$en, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Hvordan går din $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "Hvordan har din $WEEK$ været, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Godmorgen, $NAME$! Håber du får en fantastisk dag!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Klar til at erobre dagen, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Lad os få det bedste ud af denne morgen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Godmorgen! Håber du har sovet godt, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Så er det op, $NAME$, lad os komme i gang!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Håber din eftermiddag går godt, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "Godt gået indtil videre, $NAME$! Fortsæt det gode arbejde.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Halvvejs gennem dagen, $NAME$! Du klarer det super.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Godeftermiddag! Er du stadig produktiv, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Husk at holde en lille pause, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Godaften! Tid til at slappe lidt af, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, jeg håber du har haft en skøn dag.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Nyd en afslappende aften, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Dagen er næsten forbi, $NAME$. Godt klaret!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Sæt dig godt til rette og slap af, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Det er ved at blive sent, $NAME$. Tid til at hvile sig.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, natten er rolig og fredelig.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Arbejder du sent i aften, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Sov godt, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Drøm sødt, $NAME$. Vi ses i morgen.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Forventet temperaturfald: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Forventet temperaturstigning: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Der forventes storm inden for de næste par timer."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Der forventes stærk vind: $VALUE$ km/t",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "UV-stråling på kritisk niveau: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Der forventes højt pollental ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
