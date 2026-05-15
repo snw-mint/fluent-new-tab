@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Mở trang tab mới của bạn."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Hãy ủng hộ dự án"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hãy giúp dự án luôn được cập nhật."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Mã nguồn"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Xem dự án trên GitHub."
+  },
   "wizardRestoreError": {
     "message": "Xin lỗi, tệp *.json bạn sử dụng không hợp lệ hoặc đã bị hỏng."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
     "placeholders": {
       "api_name": {
