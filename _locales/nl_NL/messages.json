@@ -24,7 +24,7 @@
     "message": "Uiterlijk"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Schaal hoofdinterface"
   },
   "tabNameLabel": {
     "message": "Tabbladnaam"
@@ -45,7 +45,7 @@
     "message": "Groet"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Jouw naam"
   },
   "displayTime": {
     "message": "Tijd"
@@ -57,19 +57,19 @@
     "message": "Tijd en datum"
   },
   "displayScaleLabel": {
-    "message": "Weergave aanpassen"
+    "message": "Weergaveschaal"
   },
   "showSecondsLabel": {
     "message": "Seconden weergeven"
   },
   "use12HourLabel": {
-    "message": "Gebruik de 12-uursnotatie"
+    "message": "12-uursklok gebruiken"
   },
   "dateFormatLabel": {
-    "message": "Indeling"
+    "message": "Datumnotatie"
   },
   "dateText": {
-    "message": "Geschreven"
+    "message": "Tekst"
   },
   "dateNumeric": {
     "message": "Numeriek"
@@ -81,10 +81,10 @@
     "message": "Weer"
   },
   "useFahrenheitLabel": {
-    "message": "Gebruik Fahrenheit"
+    "message": "Fahrenheit gebruiken"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Weerwaarschuwingen"
   },
   "shortcutsTitle": {
     "message": "Snelkoppelingen"
@@ -96,10 +96,10 @@
     "message": "Namen verbergen"
   },
   "folderIconHelp": {
-    "message": "Vind aangepaste mapiconen op"
+    "message": "Vind aangepaste mapiconen op:"
   },
   "shortcutRadiusLabel": {
-    "message": "Hoekradius"
+    "message": "Hoekafronding"
   },
   "rows1": {
     "message": "1 rij"
@@ -135,7 +135,7 @@
     "message": "Compact"
   },
   "suggestionsOption": {
-    "message": "Suggesties"
+    "message": "Zoeksuggesties"
   },
   "clearSearchOption": {
     "message": "Eenvoudig zoeken (Google)"
@@ -144,10 +144,10 @@
     "message": "Spraakgestuurd zoeken"
   },
   "askAiOption": {
-    "message": "Vraag het aan de AI"
+    "message": "Vraag het aan AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Effecten verminderen"
+    "message": "Visuele effecten verminderen"
   },
   "reduceMotionTitle": {
     "message": "Beweging verminderen"
@@ -174,7 +174,7 @@
     "message": "Map toevoegen"
   },
   "folderNameLabel": {
-    "message": "Naam"
+    "message": "Mapnaam"
   },
   "editFolderTitle": {
     "message": "Map bewerken"
@@ -192,7 +192,7 @@
     "message": "Snelkoppeling bewerken"
   },
   "shortcutNameLabel": {
-    "message": "Naam"
+    "message": "Mapnaam"
   },
   "shortcutUrlLabel": {
     "message": "URL"
@@ -240,73 +240,73 @@
     "message": "Meer informatie"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Welkom terug"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Je nieuwe Fluent werkruimte is klaar. Kies hieronder je volgende stap."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Instellingen herstellen"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Heb je een back-upbestand?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Start de set-up"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Begin met een paar simpele stappen."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Set-up overslaan"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Systeem"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Licht"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Donker"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Begin met een schone lei."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stijl & Uiterlijk"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Stel je thema, accentkleur, naam en taal in."
   },
   "btnBack": {
     "message": "Terug"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Volgende"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Accentkleur"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Widgets & Hulpprogramma's"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Kies wat er op je pagina verschijnt."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Je bent er helemaal klaar voor"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Bedankt voor het gebruiken van Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Aan de slag"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Open je nieuwe tabbladpagina."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Sorry, het *.json-bestand dat je hebt gebruikt is ongeldig of beschadigd."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -318,7 +318,7 @@
     "apiNameSuggestions": {
       "message": "Search Suggestions"
     },
-    "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt uw privacy en veiligheid.",
+    "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt je privacy en veiligheid.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -336,10 +336,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Bekijk changelog"
+    "message": "Bekijk de changelog"
   },
   "fetchingImagePlaceholder": {
-    "message": "Beeld ophalen van $SOURCE$...",
+    "message": "Afbeelding ophalen van $SOURCE$...",
     "placeholders": {
       "source": {
         "content": "$1"
@@ -434,7 +434,7 @@
     "message": "Herstellen"
   },
   "backupExportSuccess": {
-    "message": "Instellingen opgeslagen in het bestand"
+    "message": "Instellingen succesvol geëxporteerd"
   },
   "warningInvalidBackupMessage": {
     "message": "Het geselecteerde bestand is geen geldige back-up."
@@ -467,7 +467,7 @@
     "message": "Zaterdag"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Fijne $WEEK$ochtend, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Hoe verloopt je $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, hoe was je $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Goeiemorgen $NAME$! Het is een prachtige dag!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Klaar om te knallen vandaag, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Laten we er een mooie ochtend van maken, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Goedemorgen! Lekker geslapen, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Wakker worden, $NAME$, we gaan beginnen!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Hopelijk verloopt je middag goed, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, lekker bezig! Hou dit vast.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "We zijn alweer op de helft van de dag, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Goedemiddag! Nog steeds lekker productief, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Vergeet niet om even pauze te nemen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Goedenavond! Tijd om even af te schakelen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, ik hoop dat je een topdag had.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Geniet van een relaxte avond, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "De dag zit er bijna op, $NAME$. Goed gewerkt!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Plof lekker op de bank en relax, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Het wordt al laat, $NAME$. Tijd om te rusten.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, geniet van de rustige nacht.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Nog steeds aan het doorbikkelen, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Slaap lekker, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Welterusten, $NAME$. Tot morgen!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Verwachte temperatuurdaling: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Verwachte temperatuurstijging: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Storm verwacht in de komende uren."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Harde wind verwacht: $VALUE$ km/u",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Kritisch UV-niveau: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Hoge pollenconcentratie ($POLLEN$) verwacht.",
     "placeholders": {
       "pollen": {
         "content": "$1",
