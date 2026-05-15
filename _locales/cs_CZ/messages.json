@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Otevřít novou kartu."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Podpořte tento projekt"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Pomozte nám udržovat projekt aktuální."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Zdrojový kód"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Zobrazit projekt na GitHubu."
+  },
   "wizardRestoreError": {
     "message": "Omlouváme se, ale použitý soubor *.json je neplatný nebo poškozený."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
     "placeholders": {
       "api_name": {
