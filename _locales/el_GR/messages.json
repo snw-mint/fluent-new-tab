@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Ανοίξτε τη σελίδα νέας καρτέλας."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Υποστηρίξτε το έργο"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Βοηθήστε μας να διατηρούμε το έργο ενημερωμένο."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Πηγαίος κώδικας"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Δείτε το έργο στο GitHub."
+  },
   "wizardRestoreError": {
     "message": "Λυπούμαστε, το αρχείο *.json που χρησιμοποιήσατε δεν είναι έγκυρο ή είναι κατεστραμμένο."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
     "placeholders": {
       "api_name": {
