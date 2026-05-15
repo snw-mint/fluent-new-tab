@@ -24,7 +24,7 @@
     "message": "Hình thức"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Kích thước giao diện chính"
   },
   "tabNameLabel": {
     "message": "Tên tab"
@@ -42,10 +42,10 @@
     "message": "Màn hình"
   },
   "displayGreeting": {
-    "message": "Chào mừng"
+    "message": "Lời chào"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Tên của bạn"
   },
   "displayTime": {
     "message": "Thời gian"
@@ -69,7 +69,7 @@
     "message": "Định dạng"
   },
   "dateText": {
-    "message": "Viết"
+    "message": "Chữ"
   },
   "dateNumeric": {
     "message": "Số"
@@ -84,7 +84,7 @@
     "message": "Sử dụng độ Fahrenheit"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Cảnh báo thời tiết"
   },
   "shortcutsTitle": {
     "message": "Lối tắt"
@@ -99,7 +99,7 @@
     "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
   },
   "shortcutRadiusLabel": {
-    "message": "Bán kính góc"
+    "message": "Độ bo góc"
   },
   "rows1": {
     "message": "1 hàng"
@@ -240,73 +240,73 @@
     "message": "Tìm hiểu thêm"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Chào mừng bạn trở lại"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Không gian làm việc Fluent mới của bạn đã sẵn sàng. Hãy chọn bước tiếp theo bên dưới."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Khôi phục cài đặt"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Bạn có tệp sao lưu không?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Bắt đầu thiết lập"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Bắt đầu chỉ với vài bước đơn giản."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Bỏ qua thiết lập"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Hệ thống"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Sáng"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Tối"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Bắt đầu với một thiết lập hoàn toàn mới."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Giao diện & Hình thức"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Thiết lập chủ đề, màu nhấn, tên và ngôn ngữ của bạn."
   },
   "btnBack": {
     "message": "Quay lại"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Tiếp tục"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Màu nhấn"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Tiện ích & Công cụ"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Chọn những gì hiển thị trên trang của bạn."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Mọi thứ đã sẵn sàng"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Cảm ơn bạn đã sử dụng Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Bắt đầu thôi"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Mở trang tab mới của bạn."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Xin lỗi, tệp *.json bạn sử dụng không hợp lệ hoặc đã bị hỏng."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -434,7 +434,7 @@
     "message": "Khôi phục"
   },
   "backupExportSuccess": {
-    "message": "Các cài đặt đã được lưu trong tệp"
+    "message": "Các cài đặt đã được lưu thành công"
   },
   "warningInvalidBackupMessage": {
     "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
@@ -467,7 +467,7 @@
     "message": "Thứ Bảy"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Chúc một ngày $WEEK$ tuyệt vời nhé, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Ngày $WEEK$ của bạn thế nào rồi, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$ ơi, ngày $WEEK$ của bạn thế nào?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Chào buổi sáng $NAME$! Một buổi sáng thật đẹp trời!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Sẵn sàng bùng nổ hôm nay chưa, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Hãy làm cho buổi sáng này thật ý nghĩa nhé, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Chào buổi sáng! Hy vọng bạn đã ngủ ngon giấc, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Dậy thôi $NAME$ ơi, bắt đầu ngày mới nào!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Hy vọng buổi chiều của bạn đang diễn ra suôn sẻ, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$ à, cứ giữ vững phong độ này nhé!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Đã qua nửa ngày rồi đấy, $NAME$! Cố lên!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Chào buổi chiều! Vẫn đang làm việc năng suất chứ, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Đừng quên nghỉ ngơi một chút nhé, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Chào buổi tối! Đến lúc thư giãn rồi, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$ à, hy vọng bạn đã có một ngày thật tuyệt vời.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Tận hưởng một buổi tối thật chill nhé, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Ngày sắp tàn rồi, $NAME$. Bạn đã làm rất tốt!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Kiếm chỗ nào êm ái ngả lưng thôi, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Cũng muộn rồi đấy $NAME$. Đến giờ nghỉ ngơi rồi.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$ à, màn đêm thật yên tĩnh và thanh bình.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Vẫn còn thức cày cuốc sao, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Chúc bạn có một giấc ngủ thật ngon, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Chúc ngủ ngon và có những giấc mơ đẹp, $NAME$. Hẹn gặp lại ngày mai!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Dự kiến nhiệt độ giảm: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Dự kiến nhiệt độ tăng: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Dự kiến có bão trong vài giờ tới."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Dự kiến có gió mạnh: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Tia UV ở mức nguy hiểm: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Dự kiến mức độ phấn hoa ($POLLEN$) cao.",
     "placeholders": {
       "pollen": {
         "content": "$1",
