@@ -1,0 +1,25 @@
+have_fun: false
+
+ignore_patterns:
+  - '_locales/**'
+  - 'crowdin.yml'
+  - 'TRANSLATING.md'
+  - 'CREDITS.md'
+  - 'LICENSE'
+  - '**/*.md'
+  - '.github/ISSUE_TEMPLATE/**'
+  - 'package-lock.json'
+
+memory_config:
+  disabled: false
+
+code_review:
+  disable: false
+  comment_severity_threshold: LOW
+  max_review_comments: -1
+  prompt_file: 'styleguide.md'
+  pull_request_opened:
+    help: false
+    summary: true
+    code_review: false
+    include_drafts: false

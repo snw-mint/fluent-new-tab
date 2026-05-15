@@ -91,7 +91,7 @@
   "wizardThemeAuto": { "message": "System" },
   "wizardThemeLight": { "message": "Light" },
   "wizardThemeDark": { "message": "Dark" },
-  "wizardSkipDesc": { "message": "Start with a blank sheet." },
+  "wizardSkipDesc": { "message": "Start with a clean setup." },
   "wizardAppearanceTitle": { "message": "Style & Appearance" },
   "wizardAppearanceDesc": {
     "message": "Set your theme, accent color, name, and language."
