@@ -24,7 +24,7 @@
     "message": "Εμφάνιση"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Κλίμακα κύριας διεπαφής"
   },
   "tabNameLabel": {
     "message": "Όνομα καρτέλας"
@@ -45,7 +45,7 @@
     "message": "Χαιρετισμός"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Το όνομά σας"
   },
   "displayTime": {
     "message": "Ώρα"
@@ -63,7 +63,7 @@
     "message": "Εμφάνιση δευτερολέπτων"
   },
   "use12HourLabel": {
-    "message": "Χρησιμοποιήστε τη μορφή 12 ωρών"
+    "message": "Χρήση μορφής 12 ωρών"
   },
   "dateFormatLabel": {
     "message": "Μορφή"
@@ -72,7 +72,7 @@
     "message": "Γραπτό"
   },
   "dateNumeric": {
-    "message": "Αριθμητικός"
+    "message": "Αριθμητικό"
   },
   "dateWeekday": {
     "message": "Καθημερινή"
@@ -81,10 +81,10 @@
     "message": "Καιρός"
   },
   "useFahrenheitLabel": {
-    "message": "Χρησιμοποιήστε Φαρενάιτ"
+    "message": "Χρήση Φαρενάιτ"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Ειδοποιήσεις καιρού"
   },
   "shortcutsTitle": {
     "message": "Συντομεύσεις"
@@ -144,7 +144,7 @@
     "message": "Φωνητική αναζήτηση"
   },
   "askAiOption": {
-    "message": "Ρώτα την τεχνητή νοημοσύνη"
+    "message": "Ρώτα την AI"
   },
   "reduceVisualEffectsTitle": {
     "message": "Μείωση εφέ"
@@ -162,7 +162,7 @@
     "message": "Γλώσσα διεπαφής"
   },
   "backupTitle": {
-    "message": "Δημιουργία αντιγράφων ασφαλείας δεδομένων"
+    "message": "Δημιουργία αντιγράφων ασφαλείας"
   },
   "exportOption": {
     "message": "Εξαγωγή"
@@ -240,73 +240,73 @@
     "message": "Μάθετε περισσότερα"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Καλώς ήρθατε"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Ο νέος σας χώρος εργασίας Fluent είναι έτοιμος. Επιλέξτε το επόμενο βήμα παρακάτω."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Επαναφορά ρυθμίσεων"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Έχετε κάποιο αρχείο αντιγράφου ασφαλείας;"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Έναρξη ρύθμισης"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Ξεκινήστε με μερικά απλά βήματα."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Παράλειψη ρύθμισης"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Σύστημα"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Ανοιχτό"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Σκούρο"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Ξεκινήστε με μια καθαρή εγκατάσταση."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Στυλ & Εμφάνιση"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Ορίστε το θέμα, το χρώμα έμφασης, το όνομα και τη γλώσσα σας."
   },
   "btnBack": {
     "message": "Πίσω"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Συνέχεια"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Χρώμα έμφασης"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Γραφικά στοιχεία & Εργαλεία"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Επιλέξτε τι θα εμφανίζεται στη σελίδα σας."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Όλα είναι έτοιμα"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Σας ευχαριστούμε που χρησιμοποιείτε το Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Ξεκινήστε"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Ανοίξτε τη σελίδα νέας καρτέλας."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Λυπούμαστε, το αρχείο *.json που χρησιμοποιήσατε δεν είναι έγκυρο ή είναι κατεστραμμένο."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -318,7 +318,7 @@
     "apiNameSuggestions": {
       "message": "Search Suggestions"
     },
-    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία της ιδιωτικής σας ζωής και την ασφάλειά σας.",
+    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -434,7 +434,7 @@
     "message": "Επαναφορά"
   },
   "backupExportSuccess": {
-    "message": "Οι ρυθμίσεις αποθηκεύονται στο αρχείο"
+    "message": "Οι ρυθμίσεις αποθηκεύτηκαν επιτυχώς"
   },
   "warningInvalidBackupMessage": {
     "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
@@ -467,7 +467,7 @@
     "message": "Σάββατο"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Υπέροχη $WEEK$ να έχεις, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Πώς πάει η $WEEK$ σου, $NAME$;",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, πώς πήγε η $WEEK$ σου;",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Καλημερούδια $NAME$! Υπέροχο πρωινό σήμερα!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Έτοιμος/η να κατακτήσεις τη μέρα, $NAME$; Φύγαμε!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Πάμε γερά σήμερα το πρωί, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Καλημέρα! Ελπίζω να κοιμήθηκες σαν πουλάκι, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Ξύπνα, $NAME$, ξεκινάμε! Πάμε δυνατά!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Ελπίζω να κυλάει όμορφα το μεσημεράκι σου, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, συνέχισε έτσι δυναμικά! Μια χαρά τα πας.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Μισή μέρα έφυγε, $NAME$! Κουράγιο!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Καλό απόγευμα! Είσαι παραγωγικός/ή, $NAME$;",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Μην ξεχάσεις να κάνεις ένα μικρό διάλειμμα, $NAME$. Χαλάρωσε λίγο!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Καλησπέρα! Ώρα να κατεβάζεις ρυθμούς, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, ελπίζω να είχες μια τέλεια μέρα.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Απόλαυσε ένα χαλαρό βραδάκι, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Η μέρα σχεδόν τελείωσε, $NAME$. Τα πήγες περίφημα!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Άραξε στον καναπέ σου και χαλάρωσε, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Πέρασε η ώρα, $NAME$. Ώρα για ξεκούραση.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, η νύχτα είναι ήσυχη και γαλήνια.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Ακόμα ξύπνιος/α, $NAME$; Ξενυχτάμε;",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Καλό ύπνο να έχεις, $NAME$! Όνειρα γλυκά.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Όνειρα γλυκά, $NAME$. Τα λέμε αύριο.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Αναμενόμενη πτώση θερμοκρασίας: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Αναμενόμενη άνοδος θερμοκρασίας: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Αναμένονται καταιγίδες τις επόμενες ώρες."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Αναμένονται ισχυροί άνεμοι: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Ακτίνες UV σε κρίσιμα επίπεδα: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Αναμένονται υψηλά επίπεδα γύρης ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
