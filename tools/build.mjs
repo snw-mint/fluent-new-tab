@@ -85,6 +85,21 @@ for (const file of jsScripts) {
   console.log(`  ✔ Script minified: scripts/${file}`);
 }
 
+const setupScriptsDir = resolve(dist, 'setup');
+if (existsSync(setupScriptsDir)) {
+  const jsSetupScripts = readdirSync(setupScriptsDir).filter(
+    (f) => f.endsWith('.js') && !f.includes('.min.'),
+  );
+
+  for (const file of jsSetupScripts) {
+    const full = join(setupScriptsDir, file);
+    execSync(`npx terser "${full}" --compress --mangle --output "${full}"`, {
+      stdio: 'inherit',
+    });
+    console.log(`  ✔ Script minified: setup/${file}`);
+  }
+}
+
 function minifyJsonDir(dir) {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
@@ -103,29 +118,45 @@ function minifyJsonDir(dir) {
   }
 }
 
+// Minify JSON files in _locales/
 minifyJsonDir(resolve(dist, '_locales'));
 
+// Minify JSON files in setup/
+minifyJsonDir(resolve(dist, 'setup'));
+
+// Minify manifest.json
 const manifestPath = resolve(dist, 'manifest.json');
 try {
   const raw = readFileSync(manifestPath, 'utf8');
   writeFileSync(manifestPath, JSON.stringify(JSON.parse(raw)), 'utf8');
   console.log('  ✔ JSON minified: manifest.json');
 } catch (e) {
-  console.warn(`  ⚠ Could not minify manifest.json — ${e.message}`);
+  console.warn(`  ⚠ Could not minify manifest.json — ${e.message}`); //
 }
 
-const htmlPath = resolve(dist, 'index.html');
-try {
-  let html = readFileSync(htmlPath, 'utf8');
-  html = html.replace(/<!--[\s\S]*?-->/g, '');
-  html = html.replace(/\s+/g, ' ');
-  html = html.replace(/>\s+</g, '><');
-  html = html.trim();
+function minifyHtmlFile(filePath) {
+  try {
+    let html = readFileSync(filePath, 'utf8');
+    html = html.replace(/<!--[\s\S]*?-->/g, ''); // Remove HTML comments
+    html = html.replace(/\s+/g, ' '); // Collapse whitespace
+    html = html.replace(/>\s+</g, '><'); // Remove whitespace between tags
+    html = html.trim(); // Trim leading/trailing whitespace
 
-  writeFileSync(htmlPath, html, 'utf8');
-  console.log('  ✔ HTML minified: index.html');
-} catch (e) {
-  console.warn(`  ⚠ Could not minify index.html — ${e.message}`);
+    writeFileSync(filePath, html, 'utf8');
+    console.log(`  ✔ HTML minified: ${relative(dist, filePath)}`);
+  } catch (e) {
+    console.warn(
+      `  ⚠ Could not minify HTML: ${relative(dist, filePath)} — ${e.message}`,
+    );
+  }
+}
+
+// Minify index.html
+minifyHtmlFile(resolve(dist, 'index.html'));
+
+// Minify HTML files in setup/ (if any)
+if (existsSync(resolve(dist, 'setup'))) {
+  minifyHtmlDir(resolve(dist, 'setup'));
 }
 
 console.log('\n✅ Release build complete.');

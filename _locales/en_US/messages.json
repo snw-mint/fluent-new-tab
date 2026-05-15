@@ -88,7 +88,7 @@
   "wizardStartTitle": { "message": "Start the setup" },
   "wizardStartDesc": { "message": "Start with a few steps." },
   "wizardSkipTitle": { "message": "Skip setup" },
-  "wizardThemeAuto": { "message": "Auto" },
+  "wizardThemeAuto": { "message": "System" },
   "wizardThemeLight": { "message": "Light" },
   "wizardThemeDark": { "message": "Dark" },
   "wizardSkipDesc": { "message": "Start with a blank sheet." },
