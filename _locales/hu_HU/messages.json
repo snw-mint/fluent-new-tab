@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Nyisd meg az új lapot."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Támogassa a projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Segíts a projekt frissítésében!"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Forráskód"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "A projekt megtekintése a GitHubon."
+  },
   "wizardRestoreError": {
     "message": "Sajnáljuk, a használt *.json fájl érvénytelen vagy sérült."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "A funkció használatához a Fluent New Tab alkalmazásnak engedélyre van szüksége a „$API_NAME$” webhely eléréséhez. Ez biztosítja az Ön adatainak védelmét és biztonságát.",
     "placeholders": {
       "api_name": {
