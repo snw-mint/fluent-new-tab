@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "開啟您的新分頁。"
   },
+  "wizardFinalSupportTitle": {
+    "message": "支持這個專案"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "請協助保持專案內容的更新。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "原始碼"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "在 GitHub 上查看此專案。"
+  },
   "wizardRestoreError": {
     "message": "抱歉，您使用的 *.json 檔案無效或已損毀。"
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "若要使用此功能，Fluent New Tab 需要獲取存取「$API_NAME$」的權限。此舉旨在保障您的隱私與安全。",
     "placeholders": {
       "api_name": {
