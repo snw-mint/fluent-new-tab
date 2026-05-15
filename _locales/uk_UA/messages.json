@@ -24,7 +24,7 @@
     "message": "Зовнішній вигляд"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Масштаб інтерфейсу"
   },
   "tabNameLabel": {
     "message": "Назва вкладки"
@@ -45,7 +45,7 @@
     "message": "Привітання"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Ваше ім'я"
   },
   "displayTime": {
     "message": "Час"
@@ -63,13 +63,13 @@
     "message": "Показати секунди"
   },
   "use12HourLabel": {
-    "message": "Використовуйте 12-годинний формат"
+    "message": "Використовувати 12-годинний формат"
   },
   "dateFormatLabel": {
     "message": "Формат"
   },
   "dateText": {
-    "message": "Написано"
+    "message": "Текстовий"
   },
   "dateNumeric": {
     "message": "Числовий"
@@ -81,10 +81,10 @@
     "message": "Погода"
   },
   "useFahrenheitLabel": {
-    "message": "Використовуйте Фаренгейт"
+    "message": "Використовувати Фаренгейт"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Сповіщення про погоду"
   },
   "shortcutsTitle": {
     "message": "Ярлики"
@@ -99,7 +99,7 @@
     "message": "Знайдіть індивідуальні іконки для папок за адресою"
   },
   "shortcutRadiusLabel": {
-    "message": "Радіус повороту"
+    "message": "Радіус кутів"
   },
   "rows1": {
     "message": "1 рядок"
@@ -240,73 +240,73 @@
     "message": "Дізнатися більше"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Ласкаво просимо"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Ваш новий робочий простір Fluent готовий. Виберіть наступний крок нижче."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Відновити налаштування"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "У вас є файл резервної копії?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Почати налаштування"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Почніть з кількох простих кроків."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Пропустити налаштування"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Системна"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Світла"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Темна"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Почати з чистого аркуша."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Стиль і зовнішній вигляд"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Налаштуйте тему, колір акценту, ім'я та мову."
   },
   "btnBack": {
     "message": "Назад"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Продовжити"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Колір акценту"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Віджети та утиліти"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Виберіть, що відображатиметься на вашій сторінці."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Все готово"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Дякуємо, що використовуєте Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Почати роботу"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Відкрити нову вкладку."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Вибачте, вибраний файл *.json недійсний або пошкоджений."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -434,7 +434,7 @@
     "message": "Відновити"
   },
   "backupExportSuccess": {
-    "message": "Налаштування збережено у файлі"
+    "message": "Налаштування успішно збережено"
   },
   "warningInvalidBackupMessage": {
     "message": "Вибраний файл не є дійсною резервною копією."
@@ -467,7 +467,7 @@
     "message": "Субота"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Класного $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Як минає $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, як пройшов $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Добрий ранок, $NAME$! Надворі краса!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Готові звернути гори, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Заряджаємось позитивом на весь день, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Доброго ранку! Як спалося, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Підйом, $NAME$, погнали!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Сподіваюсь, твій день проходить чудово, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, так тримати! Ти молодець!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Половина дня позаду, $NAME$! Прорвемося!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Добридень! Робота кипить, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Не забудь зробити паузу на каву, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Добрий вечір! Час трохи розслабитися, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, сподіваюсь, твій день був просто топ.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Гарного і спокійного вечора, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "День майже закінчився, $NAME$. Крута робота!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Падай на диван і відпочивай, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Уже пізно, $NAME$. Час на бічну.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, навколо тиша і спокій.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Знову засиджуєшся допізна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Міцного сну, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Солодких снів, $NAME$. До завтра.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Очікується похолодання: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Очікується потепління: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "У найближчі години очікуються грози."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Очікується сильний вітер: $VALUE$ км/год",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Критичний рівень УФ-випромінювання: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Очікується високий рівень пилку ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
