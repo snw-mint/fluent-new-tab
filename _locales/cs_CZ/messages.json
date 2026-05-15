@@ -24,16 +24,16 @@
     "message": "Vzhled"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Měřítko hlavního rozhraní"
   },
   "tabNameLabel": {
-    "message": "Název záložky"
+    "message": "Název karty"
   },
   "tabFaviconLabel": {
-    "message": "Ikona záložky"
+    "message": "Ikona karty"
   },
   "styleNone": {
-    "message": "Žádné"
+    "message": "Žádný"
   },
   "iconsStyleLabel": {
     "message": "Styl ikon"
@@ -45,7 +45,7 @@
     "message": "Pozdrav"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Vaše jméno"
   },
   "displayTime": {
     "message": "Čas"
@@ -57,34 +57,34 @@
     "message": "Čas a datum"
   },
   "displayScaleLabel": {
-    "message": "Změnit velikost zobrazení"
+    "message": "Měřítko zobrazení"
   },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },
   "use12HourLabel": {
-    "message": "Použijte 12hodinový formát"
+    "message": "Použít 12hodinový formát"
   },
   "dateFormatLabel": {
-    "message": "Formát"
+    "message": "Formát data"
   },
   "dateText": {
-    "message": "Napsáno"
+    "message": "Textový"
   },
   "dateNumeric": {
     "message": "Číselný"
   },
   "dateWeekday": {
-    "message": "Pracovní den"
+    "message": "Den v týdnu"
   },
   "weatherTitle": {
     "message": "Počasí"
   },
   "useFahrenheitLabel": {
-    "message": "Použijte stupně Fahrenheita"
+    "message": "Použít stupně Fahrenheita"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Upozornění na počasí"
   },
   "shortcutsTitle": {
     "message": "Zkratky"
@@ -93,28 +93,28 @@
     "message": "Povolit složky"
   },
   "hideShortcutNamesLabel": {
-    "message": "Skrýt jména"
+    "message": "Skrýt názvy"
   },
   "folderIconHelp": {
-    "message": "Ikony složek na míru najdete na"
+    "message": "Vlastní ikony složek najdete na:"
   },
   "shortcutRadiusLabel": {
-    "message": "Poloměr rohu"
+    "message": "Zaoblení rohů"
   },
   "rows1": {
-    "message": "1 řada"
+    "message": "1 řádek"
   },
   "rows2": {
-    "message": "2 řady"
+    "message": "2 řádky"
   },
   "rowsLabel": {
     "message": "Řádky"
   },
   "rows3": {
-    "message": "3 řady"
+    "message": "3 řádky"
   },
   "rows4": {
-    "message": "4 řady"
+    "message": "4 řádky"
   },
   "appLauncherTitle": {
     "message": "Spouštěč aplikací"
@@ -123,19 +123,19 @@
     "message": "Ekosystém"
   },
   "searchTitle": {
-    "message": "Hledat"
+    "message": "Vyhledávání"
   },
   "searchBarStyleLabe": {
     "message": "Styl vyhledávacího pole"
   },
   "searchStyleFull": {
-    "message": "Na celou šířku"
+    "message": "Plná šířka"
   },
   "searchStyleCompact": {
     "message": "Kompaktní"
   },
   "suggestionsOption": {
-    "message": "Návrhy"
+    "message": "Návrhy vyhledávání"
   },
   "clearSearchOption": {
     "message": "Čisté vyhledávání (Google)"
@@ -144,13 +144,13 @@
     "message": "Hlasové vyhledávání"
   },
   "askAiOption": {
-    "message": "Zeptej se AI"
+    "message": "Zeptat se AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Omezit efekty"
+    "message": "Omezit vizuální efekty"
   },
   "reduceMotionTitle": {
-    "message": "Omezit pohyb"
+    "message": "Omezit animace"
   },
   "reduceBlurOption": {
     "message": "Snížit rozmazání"
@@ -165,16 +165,16 @@
     "message": "Zálohování dat"
   },
   "exportOption": {
-    "message": "Export"
+    "message": "Exportovat"
   },
   "importOption": {
-    "message": "Import"
+    "message": "Importovat"
   },
   "addFolderTitle": {
     "message": "Přidat složku"
   },
   "folderNameLabel": {
-    "message": "Název"
+    "message": "Název složky"
   },
   "editFolderTitle": {
     "message": "Upravit složku"
@@ -192,7 +192,7 @@
     "message": "Upravit zkratku"
   },
   "shortcutNameLabel": {
-    "message": "Název"
+    "message": "Název složky"
   },
   "shortcutUrlLabel": {
     "message": "URL"
@@ -231,7 +231,7 @@
     "message": "Další možnosti"
   },
   "permissionRequiredTitle": {
-    "message": "Je nutné povolení"
+    "message": "Vyžadováno oprávnění"
   },
   "grantPermissionLabel": {
     "message": "Udělit oprávnění"
@@ -240,73 +240,73 @@
     "message": "Další informace"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Vítejte doma"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Váš nový pracovní prostor Fluent je připraven. Vyberte svůj další krok níže."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Obnovit nastavení"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Máte záložní soubor?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Zahájit nastavení"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Začněte několika kroky."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Přeskočit nastavení"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Systémový"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Světlý"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Tmavý"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Začít s čistým štítem."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Styl a vzhled"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Nastavte si motiv, barvu zvýraznění, jméno a jazyk."
   },
   "btnBack": {
     "message": "Zpět"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Pokračovat"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Barva zvýraznění"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Widgety a nástroje"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Vyberte, co se zobrazí na vaší stránce."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Vše je připraveno"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Děkujeme, že používáte Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Začít"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Otevřít novou kartu."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Omlouváme se, ale použitý soubor *.json je neplatný nebo poškozený."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -359,7 +359,7 @@
     }
   },
   "warningDeleteFoldersTitle": {
-    "message": "Zakázat složky?"
+    "message": "Vypnout složky?"
   },
   "warningDeleteFoldersMessage": {
     "message": "Všechny složky a jejich zkratky budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
@@ -401,7 +401,7 @@
     "message": "Limit zkratek dosažen!"
   },
   "warningGridFullTitle": {
-    "message": "Mřížka je plná"
+    "message": "Hlavní obrazovka je plná"
   },
   "warningGridFullMessage": {
     "message": "Dosáhli jste maximálního limitu $LIMIT$ zkratek na hlavní obrazovce. Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
@@ -434,7 +434,7 @@
     "message": "Obnovit"
   },
   "backupExportSuccess": {
-    "message": "Nastavení uložená v souboru"
+    "message": "Nastavení úspěšně exportována"
   },
   "warningInvalidBackupMessage": {
     "message": "Vybraný soubor není platnou zálohou."
@@ -467,7 +467,7 @@
     "message": "Sobota"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Krásný $WEEK$, $NAME$! Ať se ti dnes daří!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Jak ti zatím jde $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, jaký byl tvůj $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Dobré ráno, $NAME$! Vstávat a cvičit!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Jdeme na to, $NAME$? Dneska to rozbalíme!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Ranní ptáče dál doskáče, $NAME$. Jdeme na to!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Dobré ráno! Doufám, že ses vyspal(a) dorůžova, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Budíček, $NAME$, práce nepočká!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Pohodové odpoledne, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, jen tak dál, super tempo!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Půlka dne za námi, $NAME$, to dáš!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Dobré odpoledne! Pořád v jednom kole, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Nezapomeň si dát oraz a kafe, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Dobrý večer! Čas hodit nohy nahoru, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, doufám, že dnešek stál za to.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Užij si klídek a pohodu, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Dnešek máme za sebou, $NAME$. Dobrá práce!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Sval se na gauč a vypni, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Už je pozdě, $NAME$. Čas jít na kutě.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, venku už je klid, užij si večer.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Pořád makáš, $NAME$? Nezapomeň taky spát!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Pořádně se vyspi, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Sladké sny, $NAME$. Vidíme se zítra.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Očekávané ochlazení: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Očekávané oteplení: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "V nejbližších hodinách se očekávají bouřky."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Očekává se silný vítr: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "UV záření na kritické úrovni: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Očekává se vysoká hladina pylů ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
