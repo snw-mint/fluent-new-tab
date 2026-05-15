@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Abrir sua nova página."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Apoie o projeto"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Ajude a manter o projeto atualizado."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Código-fonte"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Veja o projeto no GitHub."
+  },
   "wizardRestoreError": {
     "message": "Desculpe, o arquivo *.json usado está inválido ou corrompido."
   },
