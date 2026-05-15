@@ -15,16 +15,16 @@
     "message": "Kuvan lähde"
   },
   "nosourceOption": {
-    "message": "Lähdettä ei ole"
+    "message": "Ei lähdettä"
   },
   "overlayLabel": {
-    "message": "Kuvan peitto"
+    "message": "Peittokuva"
   },
   "appearanceTitle": {
     "message": "Ulkonäkö"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Käyttöliittymän skaalaus"
   },
   "tabNameLabel": {
     "message": "Välilehden nimi"
@@ -45,7 +45,7 @@
     "message": "Tervehdys"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Nimesi"
   },
   "displayTime": {
     "message": "Aika"
@@ -57,34 +57,34 @@
     "message": "Aika ja päivämäärä"
   },
   "displayScaleLabel": {
-    "message": "Muuta näytön kokoa"
+    "message": "Näytön skaalaus"
   },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },
   "use12HourLabel": {
-    "message": "Käytä 12-tunnin muotoa"
+    "message": "Käytä 12 tunnin kelloa"
   },
   "dateFormatLabel": {
-    "message": "Muoto"
+    "message": "Päivämäärän muoto"
   },
   "dateText": {
-    "message": "Kirjoitettu"
+    "message": "Teksti"
   },
   "dateNumeric": {
-    "message": "Numero"
+    "message": "Numeerinen"
   },
   "dateWeekday": {
-    "message": "Arkipäivä"
+    "message": "Viikonpäivä"
   },
   "weatherTitle": {
     "message": "Sää"
   },
   "useFahrenheitLabel": {
-    "message": "Käytä Fahrenheit-asteita"
+    "message": "Käytä Fahrenheiteja"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Säähälytykset"
   },
   "shortcutsTitle": {
     "message": "Pikakuvakkeet"
@@ -96,10 +96,10 @@
     "message": "Piilota nimet"
   },
   "folderIconHelp": {
-    "message": "Löydät mukautettuja kansiokuvakkeita osoitteesta"
+    "message": "Hae mukautettuja kansiokuvakkeita:"
   },
   "shortcutRadiusLabel": {
-    "message": "Kulman säde"
+    "message": "Kulmien pyöristys"
   },
   "rows1": {
     "message": "1 rivi"
@@ -135,10 +135,10 @@
     "message": "Kompakti"
   },
   "suggestionsOption": {
-    "message": "Ehdotukset"
+    "message": "Hakuehdotukset"
   },
   "clearSearchOption": {
-    "message": "Yksinkertainen haku (Google)"
+    "message": "Puhdas haku (Google)"
   },
   "voiceSearchOption": {
     "message": "Äänihaku"
@@ -147,7 +147,7 @@
     "message": "Kysy tekoälyltä"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Vähennä tehosteita"
+    "message": "Vähennä visuaalisia tehosteita"
   },
   "reduceMotionTitle": {
     "message": "Vähennä liikettä"
@@ -174,7 +174,7 @@
     "message": "Lisää kansio"
   },
   "folderNameLabel": {
-    "message": "Nimi"
+    "message": "Kansion nimi"
   },
   "editFolderTitle": {
     "message": "Muokkaa kansiota"
@@ -192,10 +192,10 @@
     "message": "Muokkaa pikakuvaketta"
   },
   "shortcutNameLabel": {
-    "message": "Nimi"
+    "message": "Kansion nimi"
   },
   "shortcutUrlLabel": {
-    "message": "URL"
+    "message": "URL-osoite"
   },
   "addFaviconLabel": {
     "message": "Mukautettu kuvake"
@@ -231,82 +231,82 @@
     "message": "Lisää vaihtoehtoja"
   },
   "permissionRequiredTitle": {
-    "message": "Vaaditaan lupa"
+    "message": "Lupa vaaditaan"
   },
   "grantPermissionLabel": {
-    "message": "Myönnä käyttöoikeus"
+    "message": "Myönnä lupa"
   },
   "learnMoreLabel": {
     "message": "Lisätietoja"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Tervetuloa"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Uusi Fluent-työtilasi on valmis. Valitse seuraava askel alta."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Palauta asetukset"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Onko sinulla varmuuskopiotiedosto?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Aloita asennus"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Aloita muutamalla vaiheella."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Ohita asennus"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Järjestelmä"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Vaalea"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Tumma"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Aloita puhtaalta pöydältä."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Tyyli ja ulkonäkö"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Aseta teema, korostusväri, nimi ja kieli."
   },
   "btnBack": {
     "message": "Takaisin"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Jatka"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Korostusväri"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Pienoisohjelmat ja työkalut"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Valitse, mitä sivullasi näkyy."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Kaikki valmiina"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Kiitos, että käytät Fluent New Tabia!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Aloita käyttö"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Avaa uusi välilehti."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Käyttämäsi *.json-tiedosto on virheellinen tai vioittunut."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -371,7 +371,7 @@
     "message": "Pidä käytössä"
   },
   "warningAddEcosystemAppsTitle": {
-    "message": "Lisätäänkö $ECOSYSTEM$ -sovellukset?",
+    "message": "Lisää $ECOSYSTEM$-sovellukset?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -392,7 +392,7 @@
     "message": "Lisää kansio"
   },
   "launcherNoAppsTitle": {
-    "message": "Sovelluksia ei ole saatavilla"
+    "message": "Ei sovelluksia"
   },
   "launcherNoAppsAvailable": {
     "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
@@ -401,7 +401,7 @@
     "message": "Pikakuvakkeiden raja saavutettu!"
   },
   "warningGridFullTitle": {
-    "message": "Ruudukko on täynnä"
+    "message": "Aloitusnäyttö on täynnä"
   },
   "warningGridFullMessage": {
     "message": "Olet saavuttanut $LIMIT$ pikakuvakkeen enimmäismäärän aloitusnäytöllä. Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
@@ -434,13 +434,13 @@
     "message": "Palauta"
   },
   "backupExportSuccess": {
-    "message": "Tiedostoon tallennetut asetukset"
+    "message": "Asetukset viety onnistuneesti"
   },
   "warningInvalidBackupMessage": {
     "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
   },
   "warningUnderstood": {
-    "message": "Ymmärretty"
+    "message": "Selvä"
   },
   "warningClose": {
     "message": "Sulje"
@@ -467,7 +467,7 @@
     "message": "Lauantai"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Tänään on $WEEK$. Mukavaa päivää, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Miten $WEEK$ sujuu, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "Miten $WEEK$ meni, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Huomenta $NAME$, mahtava aamu!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Valmiina uuteen päivään, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Tehdään tästä hyvä aamu, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Huomenta! Toivottavasti nukuit hyvin, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Herätys $NAME$, hommiin siitä!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Toivottavasti iltapäiväsi sujuu mukavasti, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "Hyvää pöhinää, $NAME$! Jatka samaan malliin.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Päivä on jo puolivälissä, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Iltapäivää! Painatko hommia menemään, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Muista pitää pieni tauko, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Iltaa! Aika alkaa rauhoittumaan, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, toivottavasti sinulla oli huippupäivä.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Nauti rennosta illasta, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Päivä on pulkassa, $NAME$. Hyvää työtä!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Ota mukava asento ja rentoudu, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Kello on jo paljon, $NAME$. Aika levätä.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "Yö on hiljainen ja rauhallinen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Vieläkö painat hommia, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Nuku hyvin, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Kauniita unia, $NAME$. Nähdään huomenna.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Lämpötilan odotetaan laskevan: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Lämpötilan odotetaan nousevan: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Myrskyjä odotettavissa lähitunteina."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Voimakasta tuulta luvassa: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "UV-säteily kriittisellä tasolla: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Korkeita siitepölymääriä ($POLLEN$) odotettavissa.",
     "placeholders": {
       "pollen": {
         "content": "$1",
