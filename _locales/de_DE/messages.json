@@ -24,7 +24,7 @@
     "message": "Aussehen"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "UI-Skalierung"
   },
   "tabNameLabel": {
     "message": "Registerkartenbezeichnung"
@@ -45,7 +45,7 @@
     "message": "Begrüßung"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Dein Name"
   },
   "displayTime": {
     "message": "Zeit"
@@ -84,7 +84,7 @@
     "message": "Fahrenheit verwenden"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Wetterwarnungen"
   },
   "shortcutsTitle": {
     "message": "Verknüpfungen"
@@ -138,13 +138,13 @@
     "message": "Vorschläge"
   },
   "clearSearchOption": {
-    "message": "Einfache Suche (Google)"
+    "message": "Reine Suche (Google)"
   },
   "voiceSearchOption": {
     "message": "Sprachsuche"
   },
   "askAiOption": {
-    "message": "Frage an die KI"
+    "message": "KI fragen"
   },
   "reduceVisualEffectsTitle": {
     "message": "Effekte reduzieren"
@@ -240,73 +240,73 @@
     "message": "Mehr erfahren"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Willkommen zu Hause"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Dein neuer Fluent-Arbeitsbereich ist bereit. Wähle unten deinen nächsten Schritt."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Einstellungen wiederherstellen"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Hast du eine Backup-Datei?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Setup starten"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Beginne mit wenigen Schritten."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Setup überspringen"
   },
   "wizardThemeAuto": {
     "message": "System"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Hell"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Dunkel"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Starte mit einem sauberen Setup."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stil & Aussehen"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Lege dein Design, die Akzentfarbe, deinen Namen und die Sprache fest."
   },
   "btnBack": {
     "message": "Zurück"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Weiter"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Akzentfarbe"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Widgets & Dienstprogramme"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Wähle aus, was auf deiner Seite angezeigt wird."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Alles bereit"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Danke, dass du Fluent New Tab nutzt!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Loslegen"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Öffne deine Neuer-Tab-Seite."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Sorry, die verwendete *.json-Datei ist ungültig oder beschädigt."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -318,7 +318,7 @@
     "apiNameSuggestions": {
       "message": "Search Suggestions"
     },
-    "message": "Um diese Funktion nutzen zu können, benötigt „Fluent New Tab“ die Berechtigung, auf „$API_NAME$“ zuzugreifen. Dies dient dem Schutz Ihrer Privatsphäre und Ihrer Sicherheit.",
+    "message": "Um diese Funktion nutzen zu können, benötigt „Fluent New Tab“ die Berechtigung, auf „$API_NAME$“ zuzugreifen. Dies dient dem Schutz deiner Privatsphäre und Sicherheit.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -434,10 +434,10 @@
     "message": "Wiederherstellen"
   },
   "backupExportSuccess": {
-    "message": "In der Datei gespeicherte Einstellungen"
+    "message": "Einstellungen erfolgreich exportiert"
   },
   "warningInvalidBackupMessage": {
-    "message": "Die ausgewählte Datei ist keine gültige Sicherung."
+    "message": "Die ausgewählte Datei ist kein gültiges Backup."
   },
   "warningUnderstood": {
     "message": "Verstanden"
@@ -467,7 +467,7 @@
     "message": "Samstag"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Guten Morgen an diesem $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Wie läuft dein $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, wie war dein $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Moin $NAME$! Ein wunderschöner Morgen!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Bereit, den Tag zu rocken, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Auf geht's in einen neuen Tag, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Guten Morgen! Gut geschlafen, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Raus aus den Federn, $NAME$, packen wir's an!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Hoffe, dein Nachmittag läuft super, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, weiter so, du rockst das!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Bergfest für heute, $NAME$! Halbzeit!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Mahlzeit! Schön produktiv heute, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Vergiss nicht, mal kurz durchzuatmen, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "N'Abend! Zeit, langsam runterzufahren, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, ich hoffe, dein Tag war genial.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Gönn dir einen entspannten Abend, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Der Tag neigt sich dem Ende, $NAME$. Top Job heute!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Mach's dir auf der Couch gemütlich, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Wird langsam spät, $NAME$. Zeit fürs Bett.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, genieß die abendliche Ruhe.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Immer noch am Hustlen, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Schlaf gut und träum was Schönes, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Gute Nacht, $NAME$. Wir sehen uns morgen!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Erwarteter Temperaturabfall: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Erwarteter Temperaturanstieg: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "In den nächsten Stunden werden Stürme erwartet."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Starker Wind erwartet: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "UV-Strahlung auf kritischem Niveau: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Hohe Pollenbelastung ($POLLEN$) erwartet.",
     "placeholders": {
       "pollen": {
         "content": "$1",
