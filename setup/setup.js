@@ -419,6 +419,23 @@ function handleRestoreFile(file) {
 function init() {
   loadTranslations();
 
+  chrome.storage.local.get('fluent_persistent_backup_v1', (data) => {
+    const backup = data.fluent_persistent_backup_v1;
+    if (backup) {
+      APP_KEYS.forEach((key) => {
+        if (localStorage.getItem(key) === null && backup[key] !== undefined) {
+          localStorage.setItem(key, backup[key]);
+        }
+      });
+      if (
+        localStorage.getItem(SHORTCUTS_TREE_KEY) === null &&
+        backup[SHORTCUTS_TREE_KEY] !== undefined
+      ) {
+        localStorage.setItem(SHORTCUTS_TREE_KEY, backup[SHORTCUTS_TREE_KEY]);
+      }
+    }
+  });
+
   const savedTheme = getCurrentTheme();
   applyTheme(savedTheme);
 

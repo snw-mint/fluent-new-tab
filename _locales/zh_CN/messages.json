@@ -312,12 +312,7 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
-    },
-    "apiNameSuggestions": {
-      "message": "Search Suggestions"
-    },
+
     "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
     "placeholders": {
       "api_name": {

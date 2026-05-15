@@ -312,12 +312,7 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
-    },
-    "apiNameSuggestions": {
-      "message": "Search Suggestions"
-    },
+
     "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
     "placeholders": {
       "api_name": {

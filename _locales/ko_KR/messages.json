@@ -312,12 +312,7 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
-    },
-    "apiNameSuggestions": {
-      "message": "Search Suggestions"
-    },
+
     "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
     "placeholders": {
       "api_name": {

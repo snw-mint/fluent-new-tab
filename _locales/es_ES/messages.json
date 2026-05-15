@@ -237,12 +237,7 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
-    },
-    "apiNameSuggestions": {
-      "message": "Search Suggestions"
-    },
+
     "message": "Para utilizar esta función, Fluent New Tab necesita permiso para acceder a «$API_NAME$». Esto garantiza tu privacidad y seguridad.",
     "placeholders": {
       "api_name": {

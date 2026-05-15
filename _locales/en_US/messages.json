@@ -105,6 +105,10 @@
   "wizardFinalSubtitle": { "message": "Thank you for using Fluent New Tab!" },
   "wizardFinalStartTitle": { "message": "Get started" },
   "wizardFinalStartDesc": { "message": "Open your new tab page." },
+  "wizardFinalSupportTitle": { "message": "Support the project" },
+  "wizardFinalSupportDesc": { "message": "Help keep the project updated." },
+  "wizardFinalGithubTitle": { "message": "Source code" },
+  "wizardFinalGithubDesc": { "message": "View project on GitHub." },
   "wizardRestoreError": {
     "message": "Sorry, the *.json file you used is invalid or corrupted."
   },
@@ -113,12 +117,7 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-    "reauthNoticeText": {
-      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
-    },
-    "apiNameSuggestions": {
-      "message": "Search Suggestions"
-    },
+
     "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
     "placeholders": {
       "api_name": {
