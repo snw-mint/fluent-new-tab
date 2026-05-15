@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Deschide pagina filă nouă."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Susțineți proiectul"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Ajută-ne să menținem proiectul la zi."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Cod sursă"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Vizualizează proiectul pe GitHub."
+  },
   "wizardRestoreError": {
     "message": "Lupăm, fișierul *.json pe care l-ai folosit este invalid sau corupt."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
     "placeholders": {
       "api_name": {
