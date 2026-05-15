@@ -24,7 +24,7 @@
     "message": "Aspect"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Scara interfeței principale"
   },
   "tabNameLabel": {
     "message": "Numele filei"
@@ -45,7 +45,7 @@
     "message": "Salutare"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Numele tău"
   },
   "displayTime": {
     "message": "Ora"
@@ -84,7 +84,7 @@
     "message": "Folosiți Fahrenheit"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Alerte meteo"
   },
   "shortcutsTitle": {
     "message": "Căi rapide"
@@ -213,7 +213,7 @@
     "message": "Caută pe web"
   },
   "namePlaceholder": {
-    "message": "Numele dvs. (opțional)"
+    "message": "Numele tău (opțional)"
   },
   "cityPlaceholder": {
     "message": "Orașul tău"
@@ -240,73 +240,73 @@
     "message": "Află mai multe"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Bine ai revenit"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Noul tău spațiu de lucru Fluent este gata. Alege pasul următor de mai jos."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Restaurează setările"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Ai un fișier de backup?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Începe configurarea"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Începe cu câțiva pași simpli."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Sari peste configurare"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Sistem"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Luminos"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Întunecat"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "Începe cu o configurare curată."
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Stil și aspect"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Setează tema, culoarea de accent, numele și limba."
   },
   "btnBack": {
     "message": "Înapoi"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Continuă"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Culoare de accent"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Widgeturi și utilitare"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Alege ce apare pe pagina ta."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Totul este gata"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Îți mulțumim că folosești Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Începe"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Deschide pagina filă nouă."
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "Lupăm, fișierul *.json pe care l-ai folosit este invalid sau corupt."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -467,7 +467,7 @@
     "message": "Sâmbătă"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Să ai o zi de $WEEK$ excelentă, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Cum îți merge în această $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, cum a fost ziua ta de $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "Neața $NAME$! E o dimineață superbă!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Gata să cucerești ziua, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Să facem dimineața asta să conteze, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Bună dimineața! Sper că ai dormit tun, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Trezirea, $NAME$, hai să-i dăm drumul!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Sper că ai o după-amiază faină, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, ține-o tot așa, super ritm!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Jumătatea zilei a trecut, $NAME$! Mai e puțin!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Salutare! Merge treaba, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Nu uita să iei și o pauză mică, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Seară faină! E timpul să o lași mai moale, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, sper că ai avut o zi de nota 10.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Bucură-te de o seară chill, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "Ziua e gata, $NAME$. Ai făcut o treabă excelentă!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Așează-te confortabil și relaxează-te, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Se face târziu, $NAME$. E timpul pentru somn.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, noaptea e liniștită și relaxantă.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Iar pierzi nopțile, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Să ai un somn odihnitor, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Vise plăcute, $NAME$. Ne vedem mâine.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Scădere de temperatură așteptată: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Creștere de temperatură așteptată: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "Sunt așteptate furtuni în următoarele ore."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Sunt așteptate vânturi puternice: $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Raze UV la nivel critic: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Nivel ridicat de polen ($POLLEN$) așteptat.",
     "placeholders": {
       "pollen": {
         "content": "$1",
