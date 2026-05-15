@@ -2991,7 +2991,7 @@ function initAllEventBindings() {
 
   if (languageSelect) {
     const savedLang = localStorage.getItem('userLanguage');
-    const defaultLang = 'en_US';
+    const defaultLang = 'en';
 
     if (savedLang) {
       languageSelect.value = savedLang;

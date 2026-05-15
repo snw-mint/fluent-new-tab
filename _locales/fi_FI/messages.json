@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Sovellukset"
+  },
+  "moreApps": {
+    "message": "Lisää sovelluksia"
+  },
+  "settingsTitle": {
+    "message": "Asetukset"
+  },
+  "wallpaperTitle": {
+    "message": "Taustakuva"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Kuvan lähde"
+  },
+  "nosourceOption": {
+    "message": "Lähdettä ei ole"
+  },
+  "overlayLabel": {
+    "message": "Kuvan peitto"
+  },
+  "appearanceTitle": {
+    "message": "Ulkonäkö"
+  },
+  "accentWallpaperOption": {
+    "message": "Poimi taustakuvasta"
+  },
+  "tabNameLabel": {
+    "message": "Välilehden nimi"
+  },
+  "tabFaviconLabel": {
+    "message": "Välilehtikuvake"
+  },
+  "styleNone": {
+    "message": "Ei mitään"
+  },
+  "iconsStyleLabel": {
+    "message": "Kuvaketyyli"
+  },
+  "displayTitle": {
+    "message": "Näyttö"
+  },
+  "displayGreeting": {
+    "message": "Tervehdys"
+  },
+  "displayTime": {
+    "message": "Aika"
+  },
+  "displayDate": {
+    "message": "Päivämäärä"
+  },
+  "displayAdvanced": {
+    "message": "Aika ja päivämäärä"
+  },
+  "displayScaleLabel": {
+    "message": "Muuta näytön kokoa"
+  },
+  "showSecondsLabel": {
+    "message": "Näytä sekunnit"
+  },
+  "use12HourLabel": {
+    "message": "Käytä 12-tunnin muotoa"
+  },
+  "dateFormatLabel": {
+    "message": "Muoto"
+  },
+  "dateText": {
+    "message": "Kirjoitettu"
+  },
+  "dateNumeric": {
+    "message": "Numero"
+  },
+  "dateWeekday": {
+    "message": "Arkipäivä"
+  },
+  "weatherTitle": {
+    "message": "Sää"
+  },
+  "useFahrenheitLabel": {
+    "message": "Käytä Fahrenheit-asteita"
+  },
+  "shortcutsTitle": {
+    "message": "Pikakuvakkeet"
+  },
+  "enableFoldersLabel": {
+    "message": "Ota kansiot käyttöön"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Piilota nimet"
+  },
+  "folderIconHelp": {
+    "message": "Löydät mukautettuja kansiokuvakkeita osoitteesta"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Kulman säde"
+  },
+  "rows1": {
+    "message": "1 rivi"
+  },
+  "rows2": {
+    "message": "2 riviä"
+  },
+  "rowsLabel": {
+    "message": "Rivit"
+  },
+  "rows3": {
+    "message": "3 riviä"
+  },
+  "rows4": {
+    "message": "4 riviä"
+  },
+  "appLauncherTitle": {
+    "message": "Sovelluskäynnistin"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosysteemi"
+  },
+  "searchTitle": {
+    "message": "Haku"
+  },
+  "searchBarStyleLabe": {
+    "message": "Hakupalkin tyyli"
+  },
+  "searchStyleFull": {
+    "message": "Koko leveys"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakti"
+  },
+  "suggestionsOption": {
+    "message": "Ehdotukset"
+  },
+  "clearSearchOption": {
+    "message": "Yksinkertainen haku (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Äänihaku"
+  },
+  "askAiOption": {
+    "message": "Kysy tekoälyltä"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Vähennä tehosteita"
+  },
+  "reduceMotionTitle": {
+    "message": "Vähennä liikettä"
+  },
+  "reduceBlurOption": {
+    "message": "Vähennä sumennusta"
+  },
+  "languageTitle": {
+    "message": "Kieli"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Käyttöliittymän kieli"
+  },
+  "backupTitle": {
+    "message": "Tietojen varmuuskopiointi"
+  },
+  "exportOption": {
+    "message": "Vie"
+  },
+  "importOption": {
+    "message": "Tuo"
+  },
+  "addFolderTitle": {
+    "message": "Lisää kansio"
+  },
+  "folderNameLabel": {
+    "message": "Nimi"
+  },
+  "editFolderTitle": {
+    "message": "Muokkaa kansiota"
+  },
+  "chooseTypeTitle": {
+    "message": "Luo uusi"
+  },
+  "backLabel": {
+    "message": "Takaisin"
+  },
+  "addShortcutTitle": {
+    "message": "Lisää pikakuvake"
+  },
+  "editShortcutTitle": {
+    "message": "Muokkaa pikakuvaketta"
+  },
+  "shortcutNameLabel": {
+    "message": "Nimi"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Mukautettu kuvake"
+  },
+  "faviconUrlLabel": {
+    "message": "Kuvakkeen URL-osoite"
+  },
+  "btnCancel": {
+    "message": "Peruuta"
+  },
+  "btnSave": {
+    "message": "Tallenna"
+  },
+  "searchPlaceholder": {
+    "message": "Hae verkosta"
+  },
+  "namePlaceholder": {
+    "message": "Nimesi (valinnainen)"
+  },
+  "cityPlaceholder": {
+    "message": "Kaupunkisi"
+  },
+  "addShortcutLabel": {
+    "message": "Lisää"
+  },
+  "editLabel": {
+    "message": "Muokkaa"
+  },
+  "removeLabel": {
+    "message": "Poista"
+  },
+  "moreOptionsLabel": {
+    "message": "Lisää vaihtoehtoja"
+  },
+  "permissionRequiredTitle": {
+    "message": "Vaaditaan lupa"
+  },
+  "grantPermissionLabel": {
+    "message": "Myönnä käyttöoikeus"
+  },
+  "learnMoreLabel": {
+    "message": "Lisätietoja"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Katso muutosloki"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Haetaan kuvaa osoitteesta $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Poista kansio"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Haluatko varmasti poistaa kansion \"$FOLDER$\"? Kaikki sen sisältämät pikakuvakkeet poistetaan.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Poista kansiot käytöstä?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Kaikki kansiot ja niiden pikakuvakkeet poistetaan. Tätä ei voi peruuttaa, ellei sinulla ole varmuuskopiota."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Poista kansiot"
+  },
+  "warningKeepEnabled": {
+    "message": "Pidä käytössä"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Lisätäänkö $ECOSYSTEM$ -sovellukset?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Tämä luo pikakuvakkeisiisi kansion, jossa on 9 $ECOSYSTEM$ -sovellusta. Jatketaanko?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Lisää kansio"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Sovelluksia ei ole saatavilla"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
+  },
+  "shortcutsLimitReached": {
+    "message": "Pikakuvakkeiden raja saavutettu!"
+  },
+  "warningGridFullTitle": {
+    "message": "Ruudukko on täynnä"
+  },
+  "warningGridFullMessage": {
+    "message": "Olet saavuttanut $LIMIT$ pikakuvakkeen enimmäismäärän aloitusnäytöllä. Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Kansio on täynnä"
+  },
+  "warningFolderFullMessage": {
+    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteen enimmäisrajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Palautetaanko varmuuskopio?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Tämä korvaa nykyiset asetuksesi ja pikakuvakkeesi varmuuskopiotiedoston tiedoilla."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Palauta"
+  },
+  "backupExportSuccess": {
+    "message": "Tiedostoon tallennetut asetukset"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
+  },
+  "warningUnderstood": {
+    "message": "Ymmärretty"
+  },
+  "warningClose": {
+    "message": "Sulje"
+  },
+  "weekday_0": {
+    "message": "Sunnuntai"
+  },
+  "weekday_1": {
+    "message": "Maanantai"
+  },
+  "weekday_2": {
+    "message": "Tiistai"
+  },
+  "weekday_3": {
+    "message": "Keskiviikko"
+  },
+  "weekday_4": {
+    "message": "Torstai"
+  },
+  "weekday_5": {
+    "message": "Perjantai"
+  },
+  "weekday_6": {
+    "message": "Lauantai"
+  }
+}

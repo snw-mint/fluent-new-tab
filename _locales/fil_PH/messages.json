@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Mga Apps"
+  },
+  "moreApps": {
+    "message": "Iba pang Apps"
+  },
+  "settingsTitle": {
+    "message": "Settings"
+  },
+  "wallpaperTitle": {
+    "message": "Wallpaper"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Pinagmulan ng larawan"
+  },
+  "nosourceOption": {
+    "message": "Walang source"
+  },
+  "overlayLabel": {
+    "message": "Image Overlay"
+  },
+  "appearanceTitle": {
+    "message": "Appearance"
+  },
+  "accentWallpaperOption": {
+    "message": "Kunin sa wallpaper"
+  },
+  "tabNameLabel": {
+    "message": "Pangalan ng Tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Tab Icon"
+  },
+  "styleNone": {
+    "message": "Wala"
+  },
+  "iconsStyleLabel": {
+    "message": "Style ng Icon"
+  },
+  "displayTitle": {
+    "message": "Display"
+  },
+  "displayGreeting": {
+    "message": "Pagbati"
+  },
+  "displayTime": {
+    "message": "Oras"
+  },
+  "displayDate": {
+    "message": "Date"
+  },
+  "displayAdvanced": {
+    "message": "Oras & Date"
+  },
+  "displayScaleLabel": {
+    "message": "Resize Display"
+  },
+  "showSecondsLabel": {
+    "message": "Ipakita ang seconds"
+  },
+  "use12HourLabel": {
+    "message": "Gumamit ng 12-hour format"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
+  "dateText": {
+    "message": "Sinulat"
+  },
+  "dateNumeric": {
+    "message": "Numero"
+  },
+  "dateWeekday": {
+    "message": "Weekday"
+  },
+  "weatherTitle": {
+    "message": "Panahon"
+  },
+  "useFahrenheitLabel": {
+    "message": "Gamitin ang Fahrenheit"
+  },
+  "shortcutsTitle": {
+    "message": "Mga Shortcut"
+  },
+  "enableFoldersLabel": {
+    "message": "I-enable ang Folders"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "I-hide ang mga Pangalan"
+  },
+  "folderIconHelp": {
+    "message": "Humanap ng custom folder icons sa"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Cornder Radius"
+  },
+  "rows1": {
+    "message": "1 Row"
+  },
+  "rows2": {
+    "message": "2 Rows"
+  },
+  "rowsLabel": {
+    "message": "Rows"
+  },
+  "rows3": {
+    "message": "3 Rows"
+  },
+  "rows4": {
+    "message": "4 Rows"
+  },
+  "appLauncherTitle": {
+    "message": "App Launcher"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosystem"
+  },
+  "searchTitle": {
+    "message": "Search"
+  },
+  "searchBarStyleLabe": {
+    "message": "Style ng Search bar"
+  },
+  "searchStyleFull": {
+    "message": "Buong width"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
+  "suggestionsOption": {
+    "message": "Mga Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "I-clear ang search (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Voice search"
+  },
+  "askAiOption": {
+    "message": "Mag-ask sa AI"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Bawasan ang effects"
+  },
+  "reduceMotionTitle": {
+    "message": "Bawasan ang motion"
+  },
+  "reduceBlurOption": {
+    "message": "Bawasan ang blur"
+  },
+  "languageTitle": {
+    "message": "Wika"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Wika sa Interface"
+  },
+  "backupTitle": {
+    "message": "Backup ng Data"
+  },
+  "exportOption": {
+    "message": "I-export"
+  },
+  "importOption": {
+    "message": "I-import"
+  },
+  "addFolderTitle": {
+    "message": "I-add ang Folder"
+  },
+  "folderNameLabel": {
+    "message": "Pangalan"
+  },
+  "editFolderTitle": {
+    "message": "I-edit ang Folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Lumikha ng bago"
+  },
+  "backLabel": {
+    "message": "Bumalik"
+  },
+  "addShortcutTitle": {
+    "message": "I-Add Shortcut"
+  },
+  "editShortcutTitle": {
+    "message": "I-Edit Shortcut"
+  },
+  "shortcutNameLabel": {
+    "message": "Pangalan"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Custom na Icon"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ng Icon"
+  },
+  "btnCancel": {
+    "message": "I-Cancel"
+  },
+  "btnSave": {
+    "message": "I-Save"
+  },
+  "searchPlaceholder": {
+    "message": "Mag-search sa web"
+  },
+  "namePlaceholder": {
+    "message": "Pangalan mo (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "City mo"
+  },
+  "addShortcutLabel": {
+    "message": "I-add"
+  },
+  "editLabel": {
+    "message": "I-edit"
+  },
+  "removeLabel": {
+    "message": "I-remove"
+  },
+  "moreOptionsLabel": {
+    "message": "Iba pang options"
+  },
+  "permissionRequiredTitle": {
+    "message": "Required ng Permission"
+  },
+  "grantPermissionLabel": {
+    "message": "Bigyan ng Permission"
+  },
+  "learnMoreLabel": {
+    "message": "Matuto pa"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-acces ang \"$API_NAME$\". Ito'y mae-ensure ang privacy at sacurity mo.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "tingnan ang changelog"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Fini-fetch ang $SOURCE$ na image...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "I-Delete ang Folder"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Sure ka ba na gusto mong i-delete ang folder na \"$FOLDER$\"? Ang lahat ng shortcuts sa loob ay mare-remove.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "I-Disable ang Folders?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Made-delete ang lahat ng folders at shortcuts nito. Hindi na ito maibabalik maliban kung may backup ka."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "I-Delete ang Folders"
+  },
+  "warningKeepEnabled": {
+    "message": "I-keep na Enabled"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "I-add ang $ECOSYSTEM$ Apps?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Gagawa ito ng folder na may 9 $ECOSYSTEM$ apps sa mga shortcuts mo. Ituloy?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "I-add ang Folder"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Walang Available na Apps"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Walang available na apps para sa ecosystem na ito."
+  },
+  "shortcutsLimitReached": {
+    "message": "Na-reach na ang shortcuts limit!"
+  },
+  "warningGridFullTitle": {
+    "message": "Full na ang Grid"
+  },
+  "warningGridFullMessage": {
+    "message": "Na-reach mo na ang maximum limit na $LIMIT$ shortcuts sa main screen. Mag-delete ng ilang items o i-group sila sa isang folder para magkaroon ng space.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Full na ang Folder"
+  },
+  "warningFolderFullMessage": {
+    "message": "Na-reach na ng folder na ito ang limit na $LIMIT$ items. Paki-remove ang ibang shortcuts bago mag-add ng bago.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "I-Restore ang Backup?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Ire-replace nito ang current settings at shortcuts mo gamit ang data ng backup file."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "I-Restore"
+  },
+  "backupExportSuccess": {
+    "message": "Na-save na yung settings sa file"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Hindi valid na backup ang file na napili."
+  },
+  "warningUnderstood": {
+    "message": "Naintindihan"
+  },
+  "warningClose": {
+    "message": "I-Close"
+  },
+  "weekday_0": {
+    "message": "Sunday"
+  },
+  "weekday_1": {
+    "message": "Monday"
+  },
+  "weekday_2": {
+    "message": "Tuesday"
+  },
+  "weekday_3": {
+    "message": "Wednesday"
+  },
+  "weekday_4": {
+    "message": "Thursday"
+  },
+  "weekday_5": {
+    "message": "Friday"
+  },
+  "weekday_6": {
+    "message": "Saturday"
+  }
+}

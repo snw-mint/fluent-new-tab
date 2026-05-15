@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Uygulamalar"
+  },
+  "moreApps": {
+    "message": "Daha Fazla Uygulama"
+  },
+  "settingsTitle": {
+    "message": "Ayarlar"
+  },
+  "wallpaperTitle": {
+    "message": "Duvar kağıdı"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Görsel Kaynağı"
+  },
+  "nosourceOption": {
+    "message": "Kaynak yok"
+  },
+  "overlayLabel": {
+    "message": "Görüntü Kaplaması"
+  },
+  "appearanceTitle": {
+    "message": "Görünüm"
+  },
+  "accentWallpaperOption": {
+    "message": "Duvar kağıdından çıkar"
+  },
+  "tabNameLabel": {
+    "message": "Sekme Adı"
+  },
+  "tabFaviconLabel": {
+    "message": "Sekme Simgesi"
+  },
+  "styleNone": {
+    "message": "Yok"
+  },
+  "iconsStyleLabel": {
+    "message": "Simge Stili"
+  },
+  "displayTitle": {
+    "message": "Ekran"
+  },
+  "displayGreeting": {
+    "message": "Selamlama"
+  },
+  "displayTime": {
+    "message": "Zaman"
+  },
+  "displayDate": {
+    "message": "Tarih"
+  },
+  "displayAdvanced": {
+    "message": "Saat ve Tarih"
+  },
+  "displayScaleLabel": {
+    "message": "Ekran Boyutunu Değiştir"
+  },
+  "showSecondsLabel": {
+    "message": "Saniyeleri göster"
+  },
+  "use12HourLabel": {
+    "message": "12 saatlik formatı kullanın"
+  },
+  "dateFormatLabel": {
+    "message": "Biçim"
+  },
+  "dateText": {
+    "message": "Yazılı"
+  },
+  "dateNumeric": {
+    "message": "Sayısal"
+  },
+  "dateWeekday": {
+    "message": "Hafta içi"
+  },
+  "weatherTitle": {
+    "message": "Hava durumu"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit kullanın"
+  },
+  "shortcutsTitle": {
+    "message": "Kısayollar"
+  },
+  "enableFoldersLabel": {
+    "message": "Klasörleri Etkinleştir"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "İsimleri Gizle"
+  },
+  "folderIconHelp": {
+    "message": "Özel klasör simgelerini şu adreste bulabilirsiniz:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Köşe Yarıçapı"
+  },
+  "rows1": {
+    "message": "1 Satır"
+  },
+  "rows2": {
+    "message": "2 Satır"
+  },
+  "rowsLabel": {
+    "message": "Satırlar"
+  },
+  "rows3": {
+    "message": "3 Satır"
+  },
+  "rows4": {
+    "message": "4 Satır"
+  },
+  "appLauncherTitle": {
+    "message": "Uygulama Başlatıcı"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosistem"
+  },
+  "searchTitle": {
+    "message": "Arama"
+  },
+  "searchBarStyleLabe": {
+    "message": "Arama çubuğu stili"
+  },
+  "searchStyleFull": {
+    "message": "Tam genişlik"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Öneriler"
+  },
+  "clearSearchOption": {
+    "message": "Sade arama (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Sesli Arama"
+  },
+  "askAiOption": {
+    "message": "AI'ya sor"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Efektleri azalt"
+  },
+  "reduceMotionTitle": {
+    "message": "Hareketi azalt"
+  },
+  "reduceBlurOption": {
+    "message": "Bulanıklığı azalt"
+  },
+  "languageTitle": {
+    "message": "Dil"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Arayüz Dili"
+  },
+  "backupTitle": {
+    "message": "Veri Yedekleme"
+  },
+  "exportOption": {
+    "message": "Dışa aktar"
+  },
+  "importOption": {
+    "message": "İçeri aktar"
+  },
+  "addFolderTitle": {
+    "message": "Klasör Ekle"
+  },
+  "folderNameLabel": {
+    "message": "Ad"
+  },
+  "editFolderTitle": {
+    "message": "Klasörü Düzenle"
+  },
+  "chooseTypeTitle": {
+    "message": "Yeni Oluştur"
+  },
+  "backLabel": {
+    "message": "Geri"
+  },
+  "addShortcutTitle": {
+    "message": "Kısayol Ekle"
+  },
+  "editShortcutTitle": {
+    "message": "Kısayolu Düzenle"
+  },
+  "shortcutNameLabel": {
+    "message": "Ad"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Özel Simge"
+  },
+  "faviconUrlLabel": {
+    "message": "Simge URL'si"
+  },
+  "btnCancel": {
+    "message": "İptal"
+  },
+  "btnSave": {
+    "message": "Kaydet"
+  },
+  "searchPlaceholder": {
+    "message": "Web'de ara"
+  },
+  "namePlaceholder": {
+    "message": "Adınız (isteğe bağlı)"
+  },
+  "cityPlaceholder": {
+    "message": "Şehriniz"
+  },
+  "addShortcutLabel": {
+    "message": "Ekle"
+  },
+  "editLabel": {
+    "message": "Düzenle"
+  },
+  "removeLabel": {
+    "message": "Kaldır"
+  },
+  "moreOptionsLabel": {
+    "message": "Daha Fazla Seçenek"
+  },
+  "permissionRequiredTitle": {
+    "message": "İzin Gerekiyor"
+  },
+  "grantPermissionLabel": {
+    "message": "İzin Ver"
+  },
+  "learnMoreLabel": {
+    "message": "Daha fazla bilgi edinin"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Değişiklik günlüğünü gör"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "$SOURCE$ adresindeki resim yükleniyor...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Klasörü Sil"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "\"$FOLDER$\" klasörünü silmek istediğinizden emin misiniz? İçindeki tüm kısayollar silinecektir.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Klasörler devre dışı bırakılsın mı?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Tüm klasörler ve kısayolları silinecektir. Yedeklemeniz yoksa bu işlem geri alınamaz."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Klasörleri Sil"
+  },
+  "warningKeepEnabled": {
+    "message": "Etkin Tut"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "$ECOSYSTEM$ uygulamaları eklensin mi?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Bu, kısayollarınızda 9 adet $ECOSYSTEM$ uygulaması içeren bir klasör oluşturacaktır. Devam etmek istiyor musunuz?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Klasör Ekle"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Kullanılabilir uygulama yok"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Bu ekosistem için mevcut uygulama yoktur."
+  },
+  "shortcutsLimitReached": {
+    "message": "Kısayol sınırına ulaşıldı!"
+  },
+  "warningGridFullTitle": {
+    "message": "Izgara Dolu"
+  },
+  "warningGridFullMessage": {
+    "message": "Ana ekranda $LIMIT$ kısayol sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Klasör Dolu"
+  },
+  "warningFolderFullMessage": {
+    "message": "Bu klasör $LIMIT$ öğelik mutlak sınıra ulaştı. Lütfen yeni öğeler eklemeden önce bazı kısayolları kaldırın.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Yedekleme geri yüklensin mi?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Bu, mevcut ayarlarınızı ve kısayollarınızı yedekleme dosyası verileriyle değiştirecektir."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Geri yükle"
+  },
+  "backupExportSuccess": {
+    "message": "Ayarlar dosyaya kaydedildi"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Seçilen dosya geçerli bir yedekleme değil."
+  },
+  "warningUnderstood": {
+    "message": "Anlaşıldı"
+  },
+  "warningClose": {
+    "message": "Kapat"
+  },
+  "weekday_0": {
+    "message": "Pazar"
+  },
+  "weekday_1": {
+    "message": "Pazartesi"
+  },
+  "weekday_2": {
+    "message": "Salı"
+  },
+  "weekday_3": {
+    "message": "Çarşamba"
+  },
+  "weekday_4": {
+    "message": "Perşembe"
+  },
+  "weekday_5": {
+    "message": "Cuma"
+  },
+  "weekday_6": {
+    "message": "Cumartesi"
+  }
+}

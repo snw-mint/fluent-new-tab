@@ -11,10 +11,7 @@
   "tabNameLabel": { "message": "Tab Name" },
   "tabFaviconLabel": { "message": "Tab Icon" },
   "styleNone": { "message": "None" },
-  "emojiTypeLabel": { "message": "Emoji Type" },
-  "TypeNone": { "message": "None" },
-  "TypeStatic": { "message": "Static" },
-  "TypeAnimated": { "message": "Animated" },
+  "iconsStyleLabel": { "message": "Icon Style" },
   "displayTitle": { "message": "Display" },
   "displayGreeting": { "message": "Greeting" },
   "greetingNameLabel": { "message": "Your Name" },
@@ -85,6 +82,9 @@
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
     },
     "apiNameSuggestions": {
       "message": "Search Suggestions"
@@ -167,21 +167,21 @@
   "weekday_5": { "message": "Friday" },
   "weekday_6": { "message": "Saturday" },
 
-  "greetWeekMorning_v2": {
+  "greetWeekMorning": {
     "message": "Have a great $WEEK$, $NAME$!",
     "placeholders": {
       "week": { "content": "$1", "example": "Monday" },
       "name": { "content": "$2", "example": "User" }
     }
   },
-  "greetWeekAfternoon_v2": {
+  "greetWeekAfternoon": {
     "message": "How is your $WEEK$ going, $NAME$?",
     "placeholders": {
       "week": { "content": "$1", "example": "Monday" },
       "name": { "content": "$2", "example": "User" }
     }
   },
-  "greetWeekNight_v2": {
+  "greetWeekNight": {
     "message": "$NAME$, how was your $WEEK$?",
     "placeholders": {
       "week": { "content": "$1", "example": "Monday" },
@@ -189,86 +189,86 @@
     }
   },
 
-  "greetMorning1_v2": {
+  "greetMorning1": {
     "message": "$NAME$, it is a beautiful morning!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetMorning2_v2": {
+  "greetMorning2": {
     "message": "Ready to conquer the day, $NAME$?",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetMorning3_v2": {
+  "greetMorning3": {
     "message": "Let us make this morning count, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetMorning4_v2": {
+  "greetMorning4": {
     "message": "Good morning! I hope you slept well, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetMorning5_v2": {
+  "greetMorning5": {
     "message": "Wakey wakey, $NAME$, let's get started!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
 
-  "greetAfternoon1_v2": {
+  "greetAfternoon1": {
     "message": "Hope your afternoon is going well, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetAfternoon2_v2": {
+  "greetAfternoon2": {
     "message": "$NAME$, keep up the great momentum!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetAfternoon3_v2": {
+  "greetAfternoon3": {
     "message": "Halfway through the day, $NAME$!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetAfternoon4_v2": {
+  "greetAfternoon4": {
     "message": "Good afternoon! Staying productive, $NAME$?",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetAfternoon5_v2": {
+  "greetAfternoon5": {
     "message": "Do not forget to take a quick break, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
 
-  "greetEvening1_v2": {
+  "greetEvening1": {
     "message": "Good evening! Time to start winding down, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetEvening2_v2": {
+  "greetEvening2": {
     "message": "$NAME$, I hope you had a fantastic day.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetEvening3_v2": {
+  "greetEvening3": {
     "message": "Enjoy a relaxing evening, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetEvening4_v2": {
+  "greetEvening4": {
     "message": "The day is almost over, $NAME$. Great job!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetEvening5_v2": {
+  "greetEvening5": {
     "message": "Grab a comfortable seat and relax, $NAME$.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
 
-  "greetNight1_v2": {
+  "greetNight1": {
     "message": "It is getting late, $NAME$. Time to rest.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetNight2_v2": {
+  "greetNight2": {
     "message": "$NAME$, the night is quiet and peaceful.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetNight3_v2": {
+  "greetNight3": {
     "message": "Burning the midnight oil, $NAME$?",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetNight4_v2": {
+  "greetNight4": {
     "message": "Have a good night of sleep, $NAME$!",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },
-  "greetNight5_v2": {
+  "greetNight5": {
     "message": "Sweet dreams, $NAME$. See you tomorrow.",
     "placeholders": { "name": { "content": "$1", "example": "User" } }
   },

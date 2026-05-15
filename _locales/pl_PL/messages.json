@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Aplikacje"
+  },
+  "moreApps": {
+    "message": "Więcej aplikacji"
+  },
+  "settingsTitle": {
+    "message": "Ustawienia"
+  },
+  "wallpaperTitle": {
+    "message": "Tapeta"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Źródło obrazu"
+  },
+  "nosourceOption": {
+    "message": "Brak źródła"
+  },
+  "overlayLabel": {
+    "message": "Nakładka obrazu"
+  },
+  "appearanceTitle": {
+    "message": "Wygląd"
+  },
+  "accentWallpaperOption": {
+    "message": "Wyodrębnij z tapety"
+  },
+  "tabNameLabel": {
+    "message": "Nazwa zakładki"
+  },
+  "tabFaviconLabel": {
+    "message": "Ikona zakładki"
+  },
+  "styleNone": {
+    "message": "Brak"
+  },
+  "iconsStyleLabel": {
+    "message": "Styl ikony"
+  },
+  "displayTitle": {
+    "message": "Wyświetlacz"
+  },
+  "displayGreeting": {
+    "message": "Powitanie"
+  },
+  "displayTime": {
+    "message": "Czas"
+  },
+  "displayDate": {
+    "message": "Data"
+  },
+  "displayAdvanced": {
+    "message": "Godzina i data"
+  },
+  "displayScaleLabel": {
+    "message": "Zmień rozmiar wyświetlacza"
+  },
+  "showSecondsLabel": {
+    "message": "Pokaż sekundy"
+  },
+  "use12HourLabel": {
+    "message": "Użyj formatu 12-godzinnego"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
+  "dateText": {
+    "message": "Napisane"
+  },
+  "dateNumeric": {
+    "message": "Liczbowy"
+  },
+  "dateWeekday": {
+    "message": "Dzień powszedni"
+  },
+  "weatherTitle": {
+    "message": "Pogoda"
+  },
+  "useFahrenheitLabel": {
+    "message": "Użyj stopni Fahrenheita"
+  },
+  "shortcutsTitle": {
+    "message": "Skróty"
+  },
+  "enableFoldersLabel": {
+    "message": "Włącz foldery"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ukryj nazwy"
+  },
+  "folderIconHelp": {
+    "message": "Znajdź niestandardowe ikony folderów na stronie"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Promień narożnika"
+  },
+  "rows1": {
+    "message": "1 wiersz"
+  },
+  "rows2": {
+    "message": "2 wiersze"
+  },
+  "rowsLabel": {
+    "message": "Wiersze"
+  },
+  "rows3": {
+    "message": "3 wiersze"
+  },
+  "rows4": {
+    "message": "4 wiersze"
+  },
+  "appLauncherTitle": {
+    "message": "Launcher aplikacji"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystem"
+  },
+  "searchTitle": {
+    "message": "Wyszukiwanie"
+  },
+  "searchBarStyleLabe": {
+    "message": "Styl paska wyszukiwania"
+  },
+  "searchStyleFull": {
+    "message": "Na całej szerokości"
+  },
+  "searchStyleCompact": {
+    "message": "Kompaktowy"
+  },
+  "suggestionsOption": {
+    "message": "Sugestie"
+  },
+  "clearSearchOption": {
+    "message": "Proste wyszukiwanie (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Wyszukiwanie głosowe"
+  },
+  "askAiOption": {
+    "message": "Zapytaj AI"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Zmniejsz efekty"
+  },
+  "reduceMotionTitle": {
+    "message": "Ogranicz ruch"
+  },
+  "reduceBlurOption": {
+    "message": "Zmniejsz rozmycie"
+  },
+  "languageTitle": {
+    "message": "Język"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Język interfejsu"
+  },
+  "backupTitle": {
+    "message": "Kopia zapasowa danych"
+  },
+  "exportOption": {
+    "message": "Eksportuj"
+  },
+  "importOption": {
+    "message": "Importuj"
+  },
+  "addFolderTitle": {
+    "message": "Dodaj folder"
+  },
+  "folderNameLabel": {
+    "message": "Nazwa"
+  },
+  "editFolderTitle": {
+    "message": "Edytuj folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Utwórz nowy"
+  },
+  "backLabel": {
+    "message": "Powrót"
+  },
+  "addShortcutTitle": {
+    "message": "Dodaj skrót"
+  },
+  "editShortcutTitle": {
+    "message": "Edytuj skrót"
+  },
+  "shortcutNameLabel": {
+    "message": "Nazwa"
+  },
+  "shortcutUrlLabel": {
+    "message": "Adres URL"
+  },
+  "addFaviconLabel": {
+    "message": "Ikona niestandardowa"
+  },
+  "faviconUrlLabel": {
+    "message": "Adres URL ikony"
+  },
+  "btnCancel": {
+    "message": "Anuluj"
+  },
+  "btnSave": {
+    "message": "Zapisz"
+  },
+  "searchPlaceholder": {
+    "message": "Wyszukaj w Internecie"
+  },
+  "namePlaceholder": {
+    "message": "Twoje imię i nazwisko (opcjonalnie)"
+  },
+  "cityPlaceholder": {
+    "message": "Twoje miasto"
+  },
+  "addShortcutLabel": {
+    "message": "Dodaj"
+  },
+  "editLabel": {
+    "message": "Edytuj"
+  },
+  "removeLabel": {
+    "message": "Usuń"
+  },
+  "moreOptionsLabel": {
+    "message": "Więcej opcji"
+  },
+  "permissionRequiredTitle": {
+    "message": "Wymagane uprawnienia"
+  },
+  "grantPermissionLabel": {
+    "message": "Wyraź zgodę"
+  },
+  "learnMoreLabel": {
+    "message": "Dowiedz się więcej"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Aby korzystać z tej funkcji, aplikacja Fluent New Tab potrzebuje uprawnień dostępu do serwisu „$API_NAME$”. Zapewnia to ochronę Twojej prywatności i bezpieczeństwa.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab został zaktualizowany do wersji $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Zobacz dziennik zmian"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Pobieranie obrazu z adresu $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Usuń folder"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Czy na pewno chcesz usunąć folder „$FOLDER$”? Wszystkie skróty znajdujące się w nim zostaną usunięte.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Wyłączyć foldery?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Wszystkie foldery i ich skróty zostaną usunięte. Nie można tego cofnąć, chyba że masz kopię zapasową."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Usuń foldery"
+  },
+  "warningKeepEnabled": {
+    "message": "Pozostaw włączone"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Dodaj aplikacje $ECOSYSTEM$?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Spowoduje to utworzenie folderu z 9 aplikacjami $ECOSYSTEM$ w skrótach. Kontynuować?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Dodaj folder"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Brak dostępnych aplikacji"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Brak aplikacji dostępnych dla tego ekosystemu."
+  },
+  "shortcutsLimitReached": {
+    "message": "Osiągnięto limit skrótów!"
+  },
+  "warningGridFullTitle": {
+    "message": "Siatka jest pełna"
+  },
+  "warningGridFullMessage": {
+    "message": "Osiągnąłeś maksymalny limit $LIMIT$ skrótów na ekranie głównym. Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Folder jest pełny"
+  },
+  "warningFolderFullMessage": {
+    "message": "Ten folder osiągnął maksymalny limit $LIMIT$ elementów. Usuń kilka skrótów przed dodaniem nowych.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Przywrócić kopię zapasową?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Spowoduje to zastąpienie bieżących ustawień i skrótów danymi z pliku kopii zapasowej."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Przywróć"
+  },
+  "backupExportSuccess": {
+    "message": "Ustawienia zapisane w pliku"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Wybrany plik nie jest prawidłową kopią zapasową."
+  },
+  "warningUnderstood": {
+    "message": "Rozumiem"
+  },
+  "warningClose": {
+    "message": "Zamknij"
+  },
+  "weekday_0": {
+    "message": "Niedziela"
+  },
+  "weekday_1": {
+    "message": "Poniedziałek"
+  },
+  "weekday_2": {
+    "message": "Wtorek"
+  },
+  "weekday_3": {
+    "message": "Środa"
+  },
+  "weekday_4": {
+    "message": "Czwartek"
+  },
+  "weekday_5": {
+    "message": "Piątek"
+  },
+  "weekday_6": {
+    "message": "Sobota"
+  }
+}

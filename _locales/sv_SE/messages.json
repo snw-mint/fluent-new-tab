@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Appar"
+  },
+  "moreApps": {
+    "message": "Fler appar"
+  },
+  "settingsTitle": {
+    "message": "Inställningar"
+  },
+  "wallpaperTitle": {
+    "message": "Bakgrundsbild"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Bildkälla"
+  },
+  "nosourceOption": {
+    "message": "Ingen källa"
+  },
+  "overlayLabel": {
+    "message": "Bildöverlägg"
+  },
+  "appearanceTitle": {
+    "message": "Utseende"
+  },
+  "accentWallpaperOption": {
+    "message": "Extrahera från bakgrund"
+  },
+  "tabNameLabel": {
+    "message": "Fliknamn"
+  },
+  "tabFaviconLabel": {
+    "message": "Flikikon"
+  },
+  "styleNone": {
+    "message": "Inget"
+  },
+  "iconsStyleLabel": {
+    "message": "Ikonstil"
+  },
+  "displayTitle": {
+    "message": "Visning"
+  },
+  "displayGreeting": {
+    "message": "Hälsning"
+  },
+  "displayTime": {
+    "message": "Tid"
+  },
+  "displayDate": {
+    "message": "Datum"
+  },
+  "displayAdvanced": {
+    "message": "Tid och datum"
+  },
+  "displayScaleLabel": {
+    "message": "Ändra skärmstorlek"
+  },
+  "showSecondsLabel": {
+    "message": "Visa sekunder"
+  },
+  "use12HourLabel": {
+    "message": "Använd 12-timmarsformat"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
+  "dateText": {
+    "message": "Skrivet"
+  },
+  "dateNumeric": {
+    "message": "Numeriskt"
+  },
+  "dateWeekday": {
+    "message": "Vardag"
+  },
+  "weatherTitle": {
+    "message": "Väder"
+  },
+  "useFahrenheitLabel": {
+    "message": "Använd Fahrenheit"
+  },
+  "shortcutsTitle": {
+    "message": "Genvägar"
+  },
+  "enableFoldersLabel": {
+    "message": "Aktivera mappar"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Dölj namn"
+  },
+  "folderIconHelp": {
+    "message": "Hitta anpassade mappikoner på"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hörnradie"
+  },
+  "rows1": {
+    "message": "1 rad"
+  },
+  "rows2": {
+    "message": "2 rader"
+  },
+  "rowsLabel": {
+    "message": "Rader"
+  },
+  "rows3": {
+    "message": "3 rader"
+  },
+  "rows4": {
+    "message": "4 rader"
+  },
+  "appLauncherTitle": {
+    "message": "Launcher för appar"
+  },
+  "ecosystemLabel": {
+    "message": "Ekosystem"
+  },
+  "searchTitle": {
+    "message": "Sök"
+  },
+  "searchBarStyleLabe": {
+    "message": "Stil på sökfältet"
+  },
+  "searchStyleFull": {
+    "message": "Full bredd"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Förslag"
+  },
+  "clearSearchOption": {
+    "message": "Enkel sökning (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Röstsökning"
+  },
+  "askAiOption": {
+    "message": "Fråga AI"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Minska effekterna"
+  },
+  "reduceMotionTitle": {
+    "message": "Minska rörelser"
+  },
+  "reduceBlurOption": {
+    "message": "Minska oskärpa"
+  },
+  "languageTitle": {
+    "message": "Språk"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Gränssnittsspråk"
+  },
+  "backupTitle": {
+    "message": "Säkerhetskopiering av data"
+  },
+  "exportOption": {
+    "message": "Exportera"
+  },
+  "importOption": {
+    "message": "Importera"
+  },
+  "addFolderTitle": {
+    "message": "Lägg till mapp"
+  },
+  "folderNameLabel": {
+    "message": "Namn"
+  },
+  "editFolderTitle": {
+    "message": "Redigera mapp"
+  },
+  "chooseTypeTitle": {
+    "message": "Skapa ny"
+  },
+  "backLabel": {
+    "message": "Tillbaka"
+  },
+  "addShortcutTitle": {
+    "message": "Lägg till genväg"
+  },
+  "editShortcutTitle": {
+    "message": "Redigera genväg"
+  },
+  "shortcutNameLabel": {
+    "message": "Namn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Anpassad ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Avbryt"
+  },
+  "btnSave": {
+    "message": "Spara"
+  },
+  "searchPlaceholder": {
+    "message": "Sök på webben"
+  },
+  "namePlaceholder": {
+    "message": "Ditt namn (valfritt)"
+  },
+  "cityPlaceholder": {
+    "message": "Din stad"
+  },
+  "addShortcutLabel": {
+    "message": "Lägg till"
+  },
+  "editLabel": {
+    "message": "Redigera"
+  },
+  "removeLabel": {
+    "message": "Ta bort"
+  },
+  "moreOptionsLabel": {
+    "message": "Fler alternativ"
+  },
+  "permissionRequiredTitle": {
+    "message": "Tillstånd krävs"
+  },
+  "grantPermissionLabel": {
+    "message": "Bevilja behörighet"
+  },
+  "learnMoreLabel": {
+    "message": "Läs mer"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab har uppdaterats till version $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Visa ändringsloggen"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Hämtar bilden från $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Ta bort mapp"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Är du säker på att du vill ta bort mappen \"$FOLDER$\"? Alla genvägar i mappen kommer att tas bort.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Inaktivera mappar?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Alla mappar och deras genvägar kommer att raderas. Detta kan inte ångras om du inte har en säkerhetskopia."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Ta bort mappar"
+  },
+  "warningKeepEnabled": {
+    "message": "Behåll aktiverat"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Lägg till $ECOSYSTEM$-appar?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Detta skapar en mapp med 9 $ECOSYSTEM$-appar bland dina genvägar. Vill du fortsätta?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Lägg till mapp"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Inga appar tillgängliga"
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Inga appar tillgängliga för detta ekosystem."
+  },
+  "shortcutsLimitReached": {
+    "message": "Genvägsgränsen har nåtts!"
+  },
+  "warningGridFullTitle": {
+    "message": "Nätet är fullt"
+  },
+  "warningGridFullMessage": {
+    "message": "Du har nått den maximala gränsen på $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Mappen är full"
+  },
+  "warningFolderFullMessage": {
+    "message": "Denna mapp har nått den absoluta gränsen för $LIMIT$ objekt. Ta bort några genvägar innan du lägger till nya.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Återställ säkerhetskopia?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Detta kommer att ersätta dina nuvarande inställningar och genvägar med data från säkerhetskopian."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Återställ"
+  },
+  "backupExportSuccess": {
+    "message": "Inställningarna sparas i filen"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Den valda filen är inte en giltig säkerhetskopia."
+  },
+  "warningUnderstood": {
+    "message": "Förstått"
+  },
+  "warningClose": {
+    "message": "Stäng"
+  },
+  "weekday_0": {
+    "message": "Söndag"
+  },
+  "weekday_1": {
+    "message": "Måndag"
+  },
+  "weekday_2": {
+    "message": "Tisdag"
+  },
+  "weekday_3": {
+    "message": "Onsdag"
+  },
+  "weekday_4": {
+    "message": "Torsdag"
+  },
+  "weekday_5": {
+    "message": "Fredag"
+  },
+  "weekday_6": {
+    "message": "Lördag"
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "appsTitle": {
+    "message": "Ứng dụng"
+  },
+  "moreApps": {
+    "message": "Nhiều ứng dụng hơn"
+  },
+  "settingsTitle": {
+    "message": "Cài đặt"
+  },
+  "wallpaperTitle": {
+    "message": "Hình nền"
+  },
+  "wallpaperSourceLabel": {
+    "message": "Nguồn hình ảnh"
+  },
+  "nosourceOption": {
+    "message": "Không có nguồn"
+  },
+  "overlayLabel": {
+    "message": "Lớp phủ hình ảnh"
+  },
+  "appearanceTitle": {
+    "message": "Hình thức"
+  },
+  "accentWallpaperOption": {
+    "message": "Trích xuất từ hình nền"
+  },
+  "tabNameLabel": {
+    "message": "Tên tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Biểu tượng tab"
+  },
+  "styleNone": {
+    "message": "Không có"
+  },
+  "iconsStyleLabel": {
+    "message": "Phong cách biểu tượng"
+  },
+  "displayTitle": {
+    "message": "Màn hình"
+  },
+  "displayGreeting": {
+    "message": "Chào mừng"
+  },
+  "displayTime": {
+    "message": "Thời gian"
+  },
+  "displayDate": {
+    "message": "Ngày"
+  },
+  "displayAdvanced": {
+    "message": "Thời gian & Ngày tháng"
+  },
+  "displayScaleLabel": {
+    "message": "Điều chỉnh kích thước màn hình"
+  },
+  "showSecondsLabel": {
+    "message": "Hiển thị giây"
+  },
+  "use12HourLabel": {
+    "message": "Sử dụng định dạng 12 giờ"
+  },
+  "dateFormatLabel": {
+    "message": "Định dạng"
+  },
+  "dateText": {
+    "message": "Viết"
+  },
+  "dateNumeric": {
+    "message": "Số"
+  },
+  "dateWeekday": {
+    "message": "Ngày trong tuần"
+  },
+  "weatherTitle": {
+    "message": "Thời tiết"
+  },
+  "useFahrenheitLabel": {
+    "message": "Sử dụng độ Fahrenheit"
+  },
+  "shortcutsTitle": {
+    "message": "Lối tắt"
+  },
+  "enableFoldersLabel": {
+    "message": "Bật thư mục"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ẩn tên"
+  },
+  "folderIconHelp": {
+    "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Bán kính góc"
+  },
+  "rows1": {
+    "message": "1 hàng"
+  },
+  "rows2": {
+    "message": "2 hàng"
+  },
+  "rowsLabel": {
+    "message": "Hàng"
+  },
+  "rows3": {
+    "message": "3 hàng"
+  },
+  "rows4": {
+    "message": "4 hàng"
+  },
+  "appLauncherTitle": {
+    "message": "Trình khởi chạy ứng dụng"
+  },
+  "ecosystemLabel": {
+    "message": "Hệ sinh thái"
+  },
+  "searchTitle": {
+    "message": "Tìm kiếm"
+  },
+  "searchBarStyleLabe": {
+    "message": "Kiểu thanh tìm kiếm"
+  },
+  "searchStyleFull": {
+    "message": "Toàn màn hình"
+  },
+  "searchStyleCompact": {
+    "message": "Nhỏ gọn"
+  },
+  "suggestionsOption": {
+    "message": "Gợi ý"
+  },
+  "clearSearchOption": {
+    "message": "Tìm kiếm đơn giản (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Tìm kiếm bằng giọng nói"
+  },
+  "askAiOption": {
+    "message": "Hỏi AI"
+  },
+  "reduceVisualEffectsTitle": {
+    "message": "Giảm hiệu ứng"
+  },
+  "reduceMotionTitle": {
+    "message": "Giảm chuyển động"
+  },
+  "reduceBlurOption": {
+    "message": "Giảm mờ"
+  },
+  "languageTitle": {
+    "message": "Ngôn ngữ"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Ngôn ngữ giao diện"
+  },
+  "backupTitle": {
+    "message": "Sao lưu dữ liệu"
+  },
+  "exportOption": {
+    "message": "Xuất"
+  },
+  "importOption": {
+    "message": "Nhập"
+  },
+  "addFolderTitle": {
+    "message": "Thêm thư mục"
+  },
+  "folderNameLabel": {
+    "message": "Tên"
+  },
+  "editFolderTitle": {
+    "message": "Chỉnh sửa thư mục"
+  },
+  "chooseTypeTitle": {
+    "message": "Tạo mới"
+  },
+  "backLabel": {
+    "message": "Quay lại"
+  },
+  "addShortcutTitle": {
+    "message": "Thêm lối tắt"
+  },
+  "editShortcutTitle": {
+    "message": "Chỉnh sửa lối tắt"
+  },
+  "shortcutNameLabel": {
+    "message": "Tên"
+  },
+  "shortcutUrlLabel": {
+    "message": "Địa chỉ URL"
+  },
+  "addFaviconLabel": {
+    "message": "Biểu tượng tùy chỉnh"
+  },
+  "faviconUrlLabel": {
+    "message": "URL biểu tượng"
+  },
+  "btnCancel": {
+    "message": "Hủy"
+  },
+  "btnSave": {
+    "message": "Lưu"
+  },
+  "searchPlaceholder": {
+    "message": "Tìm kiếm trên web"
+  },
+  "namePlaceholder": {
+    "message": "Tên của bạn (tùy chọn)"
+  },
+  "cityPlaceholder": {
+    "message": "Thành phố của bạn"
+  },
+  "addShortcutLabel": {
+    "message": "Thêm"
+  },
+  "editLabel": {
+    "message": "Chỉnh sửa"
+  },
+  "removeLabel": {
+    "message": "Xóa"
+  },
+  "moreOptionsLabel": {
+    "message": "Thêm tùy chọn"
+  },
+  "permissionRequiredTitle": {
+    "message": "Yêu cầu quyền truy cập"
+  },
+  "grantPermissionLabel": {
+    "message": "Cấp quyền"
+  },
+  "learnMoreLabel": {
+    "message": "Tìm hiểu thêm"
+  },
+  "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
+    "reauthNoticeText": {
+      "message": "We've updated our permissions for better privacy. To keep using the $FEATURE$ feature, please grant access again."
+    },
+    "apiNameSuggestions": {
+      "message": "Search Suggestions"
+    },
+    "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Xem nhật ký thay đổi"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Đang tải hình ảnh từ $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "warningDeleteFolderTitle": {
+    "message": "Xóa thư mục"
+  },
+  "warningDeleteFolderMessage": {
+    "message": "Bạn có chắc chắn muốn xóa thư mục \"$FOLDER$\" không? Tất cả các lối tắt bên trong thư mục đó sẽ bị xóa.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "warningDeleteFoldersTitle": {
+    "message": "Tắt thư mục?"
+  },
+  "warningDeleteFoldersMessage": {
+    "message": "Tất cả các thư mục và các lối tắt của chúng sẽ bị xóa. Việc này không thể hoàn tác trừ khi bạn có bản sao lưu."
+  },
+  "warningDeleteFoldersConfirm": {
+    "message": "Xóa thư mục"
+  },
+  "warningKeepEnabled": {
+    "message": "Giữ trạng thái bật"
+  },
+  "warningAddEcosystemAppsTitle": {
+    "message": "Thêm ứng dụng $ECOSYSTEM$?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddEcosystemAppsMessage": {
+    "message": "Điều này sẽ tạo ra một thư mục chứa 9 ứng dụng $ECOSYSTEM$ trong mục Lối tắt của bạn. Tiếp tục?",
+    "placeholders": {
+      "ecosystem": {
+        "content": "$1",
+        "example": "Google Workspace"
+      }
+    }
+  },
+  "warningAddFolderConfirm": {
+    "message": "Thêm thư mục"
+  },
+  "launcherNoAppsTitle": {
+    "message": "Không có ứng dụng nào có sẵn."
+  },
+  "launcherNoAppsAvailable": {
+    "message": "Không có ứng dụng nào có sẵn cho hệ sinh thái này."
+  },
+  "shortcutsLimitReached": {
+    "message": "Đã đạt giới hạn lối tắt!"
+  },
+  "warningGridFullTitle": {
+    "message": "Lưới đã đầy"
+  },
+  "warningGridFullMessage": {
+    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ lối tắt trên màn hình chính. Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "warningFolderFullTitle": {
+    "message": "Thư mục đã đầy"
+  },
+  "warningFolderFullMessage": {
+    "message": "Thư mục này đã đạt đến giới hạn tối đa $LIMIT$ mục. Vui lòng xóa một vài lối tắt trước khi thêm mới.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "warningRestoreBackupTitle": {
+    "message": "Khôi phục bản sao lưu?"
+  },
+  "warningRestoreBackupMessage": {
+    "message": "Điều này sẽ thay thế các cài đặt và phím tắt hiện tại của bạn bằng dữ liệu từ tệp sao lưu."
+  },
+  "warningRestoreBackupConfirm": {
+    "message": "Khôi phục"
+  },
+  "backupExportSuccess": {
+    "message": "Các cài đặt đã được lưu trong tệp"
+  },
+  "warningInvalidBackupMessage": {
+    "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
+  },
+  "warningUnderstood": {
+    "message": "Đã hiểu"
+  },
+  "warningClose": {
+    "message": "Đóng"
+  },
+  "weekday_0": {
+    "message": "Chủ nhật"
+  },
+  "weekday_1": {
+    "message": "Thứ Hai"
+  },
+  "weekday_2": {
+    "message": "Thứ Ba"
+  },
+  "weekday_3": {
+    "message": "Thứ Tư"
+  },
+  "weekday_4": {
+    "message": "Thứ Năm"
+  },
+  "weekday_5": {
+    "message": "Thứ Sáu"
+  },
+  "weekday_6": {
+    "message": "Thứ Bảy"
+  }
+}

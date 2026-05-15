@@ -18,35 +18,35 @@ const CDN_BASE_URL =
 
 const emojiMap: Record<string, string> = {
   // Morning
-  greetWeekMorning_v2: 'e1',
-  greetMorning1_v2: 'e2',
-  greetMorning2_v2: 'e3',
-  greetMorning3_v2: 'e4',
-  greetMorning4_v2: 'e5',
-  greetMorning5_v2: 'e6',
+  greetWeekMorningen: 'e1',
+  greetMorning1en: 'e2',
+  greetMorning2en: 'e3',
+  greetMorning3en: 'e4',
+  greetMorning4en: 'e5',
+  greetMorning5en: 'e6',
 
   // Afternoon
-  greetWeekAfternoon_v2: 'e7',
-  greetAfternoon1_v2: 'e1',
-  greetAfternoon2_v2: 'e8',
-  greetAfternoon3_v2: 'e9',
-  greetAfternoon4_v2: 'e4',
-  greetAfternoon5_v2: 'e10',
+  greetWeekAfternoonen: 'e7',
+  greetAfternoon1en: 'e1',
+  greetAfternoon2en: 'e8',
+  greetAfternoon3en: 'e9',
+  greetAfternoon4en: 'e4',
+  greetAfternoon5en: 'e10',
 
   // Evening
-  greetWeekNight_v2: 'e15',
-  greetEvening1_v2: 'e11',
-  greetEvening2_v2: 'e8',
-  greetEvening3_v2: 'e12',
-  greetEvening4_v2: 'e13',
-  greetEvening5_v2: 'e14',
+  greetWeekNighten: 'e15',
+  greetEvening1en: 'e11',
+  greetEvening2en: 'e8',
+  greetEvening3en: 'e12',
+  greetEvening4en: 'e13',
+  greetEvening5en: 'e14',
 
   // Night
-  greetNight1_v2: 'e16',
-  greetNight2_v2: 'e17',
-  greetNight3_v2: 'e18',
-  greetNight4_v2: 'e19',
-  greetNight5_v2: 'e20',
+  greetNight1en: 'e16',
+  greetNight2en: 'e17',
+  greetNight3en: 'e18',
+  greetNight4en: 'e19',
+  greetNight5en: 'e20',
 };
 
 function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
@@ -218,17 +218,17 @@ function renderGreeting(wrapper: HTMLElement): void {
 
   if (isWeekday && seed % 3 === 0) {
     if (hour >= 5 && hour < 12) {
-      translationKey = 'greetWeekMorning_v2';
+      translationKey = 'greetWeekMorning';
     } else if (hour >= 12 && hour < 18) {
-      translationKey = 'greetWeekAfternoon_v2';
+      translationKey = 'greetWeekAfternoon';
     } else if (hour >= 18 && hour < 24) {
-      translationKey = 'greetWeekNight_v2';
+      translationKey = 'greetWeekNight';
     }
   }
 
   if (!translationKey) {
     const randomIndex = (seed % 5) + 1;
-    translationKey = `${timeKeyPrefix}${randomIndex}_v2`;
+    translationKey = `${timeKeyPrefix}${randomIndex}`;
   }
   let usingFallback = false;
   const dayOfWeekKey = `weekday_${dayOfWeek}`;
