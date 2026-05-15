@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Apri la pagina della nuova scheda."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Soutenez le projet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Aidez-nous à maintenir ce projet à jour."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Code source"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Consultez le projet sur GitHub."
+  },
   "wizardRestoreError": {
     "message": "Ci dispiace, il file *.json che hai utilizzato non è valido o è danneggiato."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Per utilizzare questa funzione, Fluent New Tab necessita dell'autorizzazione ad accedere a \"$API_NAME$\". Ciò garantisce la tua privacy e sicurezza.",
     "placeholders": {
       "api_name": {
