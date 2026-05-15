@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Open your new tab page."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Поддержите проект"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Помогите поддерживать проект в актуальном состоянии."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Исходный код"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Посмотреть проект на GitHub."
+  },
   "wizardRestoreError": {
     "message": "Sorry, the *.json file you used is invalid or corrupted."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Для использования этой функции расширению Fluent New Tab требуется разрешение на доступ к $API_NAME$. Это необходимо для обеспечения вашей конфиденциальности и безопасности.",
     "placeholders": {
       "api_name": {
