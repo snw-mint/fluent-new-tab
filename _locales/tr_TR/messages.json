@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Görünüm"
   },
-  "accentWallpaperOption": {
-    "message": "Duvar kağıdından çıkar"
+  "mainUiScaleLabel": {
+    "message": "Ana Arayüz Ölçeği"
   },
   "tabNameLabel": {
     "message": "Sekme Adı"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "Selamlama"
+  },
+  "greetingNameLabel": {
+    "message": "Adın"
   },
   "displayTime": {
     "message": "Zaman"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Fahrenheit kullanın"
+  },
+  "weatherAlertsLabel": {
+    "message": "Hava Durumu Uyarıları"
   },
   "shortcutsTitle": {
     "message": "Kısayollar"
@@ -207,7 +213,7 @@
     "message": "Web'de ara"
   },
   "namePlaceholder": {
-    "message": "Adınız (isteğe bağlı)"
+    "message": "Adın (isteğe bağlı)"
   },
   "cityPlaceholder": {
     "message": "Şehriniz"
@@ -232,6 +238,75 @@
   },
   "learnMoreLabel": {
     "message": "Daha fazla bilgi edinin"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Tekrar hoş geldin"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Yeni Fluent çalışma alanın hazır. Aşağıdan bir sonraki adımını seç."
+  },
+  "wizardRestoreTitle": {
+    "message": "Ayarları geri yükle"
+  },
+  "wizardRestoreDesc": {
+    "message": "Yedek dosyan var mı?"
+  },
+  "wizardStartTitle": {
+    "message": "Kuruluma başla"
+  },
+  "wizardStartDesc": {
+    "message": "Birkaç adımla hemen başla."
+  },
+  "wizardSkipTitle": {
+    "message": "Kurulumu atla"
+  },
+  "wizardThemeAuto": {
+    "message": "Sistem"
+  },
+  "wizardThemeLight": {
+    "message": "Açık"
+  },
+  "wizardThemeDark": {
+    "message": "Koyu"
+  },
+  "wizardSkipDesc": {
+    "message": "Temiz bir kurulumla başla."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil ve Görünüm"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Temanı, vurgu rengini, adını ve dilini ayarla."
+  },
+  "btnBack": {
+    "message": "Geri"
+  },
+  "btnNext": {
+    "message": "Devam et"
+  },
+  "wizardAccentLabel": {
+    "message": "Vurgu Rengi"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Araçlar ve Uygulamalar"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Sayfanda nelerin görüneceğini seç."
+  },
+  "wizardFinalTitle": {
+    "message": "Her şey hazır!"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tab'ı kullandığın için teşekkürler!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Hemen başla"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Yeni sekme sayfanı aç."
+  },
+  "wizardRestoreError": {
+    "message": "Maalesef kullandığınız *.json dosyası geçersiz veya bozuk."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Cumartesi"
+  },
+  "greetWeekMorning": {
+    "message": "Harika bir $WEEK$ olsun, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$WEEK$ günün nasıl geçiyor, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$WEEK$ günün nasıl geçti, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Günaydın $NAME$! Harika bir sabah!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Günü fethetmeye hazır mısın, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Bu sabahın hakkını verelim, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Günaydın! Umarım mışıl mışıl uyumuşsundur, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Uyanma vakti $NAME$, hadi başlayalım!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Umarım öğleden sonran keyifli geçiyordur, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Kolay gelsin $NAME$, harika gidiyorsun!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Günün yarısını devirdik bile, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Tünaydın! İşler tıkırında mı, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Kısa bir mola vermeyi unutma, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "İyi akşamlar! Artık yavaş yavaş dinlenme vakti, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, umarım şahane bir gün geçirmişsindir.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Akşamın tadını çıkar ve bolca dinlen, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Gün bitmek üzere, $NAME$. Eline sağlık!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Rahat bir köşeye geç ve günün yorgunluğunu at, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Saat geç oldu, $NAME$. Uyku vakti.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, gece çok sakin ve huzurlu.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Gece kuşluğu mu yapıyoruz, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Deliksiz bir uyku dilerim, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Tatlı rüyalar, $NAME$. Yarın görüşürüz!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Beklenen sıcaklık düşüşü: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Beklenen sıcaklık artışı: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Önümüzdeki birkaç saat içinde fırtına bekleniyor."
+  },
+  "alertWindHigh": {
+    "message": "Kuvvetli rüzgar bekleniyor: $VALUE$ km/s",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Kritik seviyede UV ışını: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Yüksek polen ($POLLEN$) seviyeleri bekleniyor.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

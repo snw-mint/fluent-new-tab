@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Wygląd"
   },
-  "accentWallpaperOption": {
-    "message": "Wyodrębnij z tapety"
+  "mainUiScaleLabel": {
+    "message": "Skala głównego interfejsu"
   },
   "tabNameLabel": {
     "message": "Nazwa zakładki"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "Powitanie"
+  },
+  "greetingNameLabel": {
+    "message": "Twoje imię"
   },
   "displayTime": {
     "message": "Czas"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Użyj stopni Fahrenheita"
+  },
+  "weatherAlertsLabel": {
+    "message": "Alerty pogodowe"
   },
   "shortcutsTitle": {
     "message": "Skróty"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "Dowiedz się więcej"
   },
+  "wizardWelcomeTitle": {
+    "message": "Witaj z powrotem"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Twoja nowa przestrzeń robocza Fluent jest gotowa. Wybierz kolejny krok poniżej."
+  },
+  "wizardRestoreTitle": {
+    "message": "Przywróć ustawienia"
+  },
+  "wizardRestoreDesc": {
+    "message": "Masz plik kopii zapasowej?"
+  },
+  "wizardStartTitle": {
+    "message": "Rozpocznij konfigurację"
+  },
+  "wizardStartDesc": {
+    "message": "Zacznij od kilku prostych kroków."
+  },
+  "wizardSkipTitle": {
+    "message": "Pomiń konfigurację"
+  },
+  "wizardThemeAuto": {
+    "message": "Systemowy"
+  },
+  "wizardThemeLight": {
+    "message": "Jasny"
+  },
+  "wizardThemeDark": {
+    "message": "Ciemny"
+  },
+  "wizardSkipDesc": {
+    "message": "Zacznij od czystej konfiguracji."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Styl i wygląd"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Ustaw motyw, kolor wiodący, imię i język."
+  },
+  "btnBack": {
+    "message": "Powrót"
+  },
+  "btnNext": {
+    "message": "Dalej"
+  },
+  "wizardAccentLabel": {
+    "message": "Kolor wiodący"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widżety i narzędzia"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Wybierz, co ma się wyświetlać na Twojej stronie."
+  },
+  "wizardFinalTitle": {
+    "message": "Wszystko gotowe"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Dziękujemy za korzystanie z Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Zaczynamy"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Otwórz nową kartę."
+  },
+  "wizardRestoreError": {
+    "message": "Przepraszamy, użyty plik *.json jest nieprawidłowy lub uszkodzony."
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -359,7 +434,7 @@
     "message": "Przywróć"
   },
   "backupExportSuccess": {
-    "message": "Ustawienia zapisane w pliku"
+    "message": "Ustawienia zapisane pomyślnie"
   },
   "warningInvalidBackupMessage": {
     "message": "Wybrany plik nie jest prawidłową kopią zapasową."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Sobota"
+  },
+  "greetWeekMorning": {
+    "message": "Miłego dnia w ten $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Jak Ci mija $WEEK$, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, jak Ci minął $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Wstawaj, $NAME$! Piękny poranek przed nami!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Gotowy na podbój świata, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Wyciśnijmy z tego poranka ile się da, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Dzień dobry! Mam nadzieję, że spałeś jak suseł, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Pobudka, $NAME$, bierzemy się do roboty!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Oby popołudnie mijało ci lajtowo, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, trzymaj to tempo, super ci idzie!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Półmetek za nami, $NAME$! Dasz radę!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Dobre popołudnie! Robota wrze, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Nie zapomnij o chwili na oddech, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Dobry wieczór! Czas wrzucić na luz, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, mam nadzieję, że twój dzień był sztos.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Miłego i czillowego wieczoru, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Dzień prawie za nami, $NAME$. Dobra robota!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Wbijaj na kanapę i odpocznij, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Robi się późno, $NAME$. Czas w kimę.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, noc jest spokojna i cicha.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Znowu zarywasz nockę, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Śpij smacznie, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Kolorowych snów, $NAME$. Do jutra.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Spodziewany spadek temperatury: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Spodziewany wzrost temperatury: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "W ciągu kilku najbliższych godzin spodziewane są burze."
+  },
+  "alertWindHigh": {
+    "message": "Spodziewany silny wiatr: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Promieniowanie UV na krytycznym poziomie: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Spodziewane wysokie stężenie pyłków ($POLLEN$).",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

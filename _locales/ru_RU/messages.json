@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Внешний вид"
   },
-  "accentWallpaperOption": {
-    "message": "Извлечь из обоев"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
     "message": "Название вкладки"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "Приветствие"
+  },
+  "greetingNameLabel": {
+    "message": "Your Name"
   },
   "displayTime": {
     "message": "Время"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Используйте градусы по Фаренгейту"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "Ярлыки"
@@ -232,6 +238,75 @@
   },
   "learnMoreLabel": {
     "message": "Подробнее"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Welcome home"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Your new fluent workspace is ready. Choose your next step below."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restore settings"
+  },
+  "wizardRestoreDesc": {
+    "message": "Do you have a backup file? "
+  },
+  "wizardStartTitle": {
+    "message": "Start the setup"
+  },
+  "wizardStartDesc": {
+    "message": "Start with a few steps."
+  },
+  "wizardSkipTitle": {
+    "message": "Skip setup"
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Light"
+  },
+  "wizardThemeDark": {
+    "message": "Dark"
+  },
+  "wizardSkipDesc": {
+    "message": "Start with a clean setup."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Style & Appearance"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Set your theme, accent color, name, and language."
+  },
+  "btnBack": {
+    "message": "Назад"
+  },
+  "btnNext": {
+    "message": "Continue"
+  },
+  "wizardAccentLabel": {
+    "message": "Accent Color"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Utilities"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Choose what shows up on your page."
+  },
+  "wizardFinalTitle": {
+    "message": "You're all set"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Thank you for using Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Get started"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Open your new tab page."
+  },
+  "wizardRestoreError": {
+    "message": "Sorry, the *.json file you used is invalid or corrupted."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Суббота"
+  },
+  "greetWeekMorning": {
+    "message": "Have a great $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "How is your $WEEK$ going, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, how was your $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "$NAME$, it is a beautiful morning!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Ready to conquer the day, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Let us make this morning count, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Good morning! I hope you slept well, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Wakey wakey, $NAME$, let's get started!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Hope your afternoon is going well, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, keep up the great momentum!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Halfway through the day, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Good afternoon! Staying productive, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Do not forget to take a quick break, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Good evening! Time to start winding down, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, I hope you had a fantastic day.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Enjoy a relaxing evening, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "The day is almost over, $NAME$. Great job!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "It is getting late, $NAME$. Time to rest.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, the night is quiet and peaceful.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Burning the midnight oil, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Have a good night of sleep, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected temperature drop: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected temperature rise: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Storms expected in the next few hours."
+  },
+  "alertWindHigh": {
+    "message": "Strong winds expected: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV rays at critical levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "High pollen levels ($POLLEN$) expected.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

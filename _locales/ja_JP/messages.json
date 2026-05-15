@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "外観"
   },
-  "accentWallpaperOption": {
-    "message": "壁紙から抽出"
+  "mainUiScaleLabel": {
+    "message": "メインUIのスケール"
   },
   "tabNameLabel": {
     "message": "タブ名"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "ご挨拶"
+  },
+  "greetingNameLabel": {
+    "message": "あなたのお名前"
   },
   "displayTime": {
     "message": "時間"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "華氏を使用する"
+  },
+  "weatherAlertsLabel": {
+    "message": "気象警報"
   },
   "shortcutsTitle": {
     "message": "ショートカット"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "詳細はこちら"
   },
+  "wizardWelcomeTitle": {
+    "message": "おかえりなさい"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "新しいFluentワークスペースの準備が完了しました。次のステップを選択してください。"
+  },
+  "wizardRestoreTitle": {
+    "message": "設定を復元"
+  },
+  "wizardRestoreDesc": {
+    "message": "バックアップファイルはお持ちですか？"
+  },
+  "wizardStartTitle": {
+    "message": "セットアップを開始"
+  },
+  "wizardStartDesc": {
+    "message": "いくつかのステップで開始します。"
+  },
+  "wizardSkipTitle": {
+    "message": "セットアップをスキップ"
+  },
+  "wizardThemeAuto": {
+    "message": "システム"
+  },
+  "wizardThemeLight": {
+    "message": "ライト"
+  },
+  "wizardThemeDark": {
+    "message": "ダーク"
+  },
+  "wizardSkipDesc": {
+    "message": "クリーンな状態で使い始める。"
+  },
+  "wizardAppearanceTitle": {
+    "message": "スタイルと外観"
+  },
+  "wizardAppearanceDesc": {
+    "message": "テーマ、アクセントカラー、名前、言語を設定します。"
+  },
+  "btnBack": {
+    "message": "戻る"
+  },
+  "btnNext": {
+    "message": "次へ"
+  },
+  "wizardAccentLabel": {
+    "message": "アクセントカラー"
+  },
+  "wizardWidgetsTitle": {
+    "message": "ウィジェットとユーティリティ"
+  },
+  "wizardWidgetsDesc": {
+    "message": "ページに表示する内容を選択します。"
+  },
+  "wizardFinalTitle": {
+    "message": "準備完了です"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tabをご利用いただきありがとうございます！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "はじめる"
+  },
+  "wizardFinalStartDesc": {
+    "message": "新しいタブページを開きます。"
+  },
+  "wizardRestoreError": {
+    "message": "申し訳ありません。使用した *.json ファイルは無効であるか破損しています。"
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -359,7 +434,7 @@
     "message": "復元"
   },
   "backupExportSuccess": {
-    "message": "ファイルに保存された設定"
+    "message": "設定をファイルに保存しました"
   },
   "warningInvalidBackupMessage": {
     "message": "選択されたファイルは有効なバックアップではありません。"
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "土曜日"
+  },
+  "greetWeekMorning": {
+    "message": "$NAME$さん、素晴らしい$WEEK$になりますように！",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$NAME$さん、$WEEK$の調子はどうですか？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$さん、$WEEK$はどうでしたか？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "おはようございます、$NAME$さん！今日もいい日になりそうですね！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "$NAME$さん、今日も1日頑張っていきましょう！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "充実した朝にしましょう、$NAME$さん！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "おはようございます！よく眠れましたか、$NAME$さん？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "おはよー！$NAME$さん、そろそろ始めましょうか！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "$NAME$さん、午後も順調にいきますように。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$さん、その調子でガンガンいきましょう！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "1日の折り返し地点ですね、$NAME$さん。ファイト！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "こんにちは！作業ははかどっていますか、$NAME$さん？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "$NAME$さん、たまには息抜きも忘れないでくださいね。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "こんばんは！そろそろリラックスする時間ですよ、$NAME$さん。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$さん、今日が素晴らしい1日であったなら嬉しいです。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "$NAME$さん、のんびりとした夜をお過ごしください。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "今日も終わりですね、$NAME$さん。お疲れ様でした！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "楽な姿勢でリラックスしてくださいね、$NAME$さん。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "もう遅いですよ、$NAME$さん。そろそろ休みましょう。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$さん、静かで穏やかな夜ですね。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "まだ起きてるんですか、$NAME$さん？無理しないでくださいね。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "$NAME$さん、ぐっすり眠れますように！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "良い夢を、$NAME$さん。また明日！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "気温の低下が予想されます：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "気温の上昇が予想されます：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "今後数時間以内に嵐が予想されます。"
+  },
+  "alertWindHigh": {
+    "message": "強風が予想されます：$VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "紫外線が危険レベルです：$VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "花粉（$POLLEN$）の飛散量が多いと予想されます。",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

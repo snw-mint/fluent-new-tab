@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Megjelenés"
   },
-  "accentWallpaperOption": {
-    "message": "Kinyerés a háttérképből"
+  "mainUiScaleLabel": {
+    "message": "A fő felület méretezése"
   },
   "tabNameLabel": {
     "message": "Fül neve"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "Üdvözlet"
+  },
+  "greetingNameLabel": {
+    "message": "Neved"
   },
   "displayTime": {
     "message": "Idő"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Fahrenheit-skálát használjon"
+  },
+  "weatherAlertsLabel": {
+    "message": "Időjárási riasztások"
   },
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"
@@ -232,6 +238,75 @@
   },
   "learnMoreLabel": {
     "message": "További információk"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Üdvözlünk"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Az új Fluent munkaterületed készen áll. Válaszd ki a következő lépést."
+  },
+  "wizardRestoreTitle": {
+    "message": "Beállítások visszaállítása"
+  },
+  "wizardRestoreDesc": {
+    "message": "Van biztonsági mentésed?"
+  },
+  "wizardStartTitle": {
+    "message": "Beállítás indítása"
+  },
+  "wizardStartDesc": {
+    "message": "Kezdd néhány egyszerű lépéssel."
+  },
+  "wizardSkipTitle": {
+    "message": "Beállítás kihagyása"
+  },
+  "wizardThemeAuto": {
+    "message": "Rendszer"
+  },
+  "wizardThemeLight": {
+    "message": "Világos"
+  },
+  "wizardThemeDark": {
+    "message": "Sötét"
+  },
+  "wizardSkipDesc": {
+    "message": "Kezdés tiszta lappal."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stílus és Megjelenés"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Állítsd be a témát, a kiemelő színt, a nevedet és a nyelvet."
+  },
+  "btnBack": {
+    "message": "Vissza"
+  },
+  "btnNext": {
+    "message": "Folytatás"
+  },
+  "wizardAccentLabel": {
+    "message": "Kiemelő szín"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Modulok és Eszközök"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Válaszd ki, mi jelenjen meg az oldalon."
+  },
+  "wizardFinalTitle": {
+    "message": "Minden készen áll"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Köszönjük, hogy a Fluent New Tab-ot használod!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Kezdés"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Nyisd meg az új lapot."
+  },
+  "wizardRestoreError": {
+    "message": "Sajnáljuk, a használt *.json fájl érvénytelen vagy sérült."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Szombat"
+  },
+  "greetWeekMorning": {
+    "message": "Legyen szuper $WEEK$od, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Hogy telik a $WEEK$od eddig, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, milyen volt a $WEEK$od?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Jó reggelt, $NAME$! Csodás napunk van!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Készen állsz meghódítani a napot, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Hozzuk ki a legtöbbet ebből a reggelből, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Jó reggelt! Remélem jól aludtál, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Ébresztő, $NAME$, vágjunk bele!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Remélem szuperül telik a délutánod, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, csak így tovább, nagyon nyomod!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Már a nap felénél járunk, $NAME$! Kitartás!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Szép délutánt! Pörög a munka, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Ne felejts el egy kis szünetet tartani, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Jó estét! Ideje egy kicsit lelassítani, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, remélem fantasztikus napod volt.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Legyen pihentető az estéd, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Mindjárt vége a napnak, $NAME$. Szép munka volt!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Dőlj hátra és lazíts egy kicsit, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Későre jár, $NAME$. Ideje pihenni.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, az éjszaka csendes és békés.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Még mindig tolod az ipart, $NAME$? Éjjeli bagoly!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Aludj jól és pihend ki magad, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Szép álmokat, $NAME$. Holnap találkozunk!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Várható lehűlés: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Várható felmelegedés: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Viharok várhatók a következő órákban."
+  },
+  "alertWindHigh": {
+    "message": "Erős szél várható: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Kritikus UV-sugárzás: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Magas pollenkoncentráció ($POLLEN$) várható.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

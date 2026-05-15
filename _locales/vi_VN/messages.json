@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Hình thức"
   },
-  "accentWallpaperOption": {
-    "message": "Trích xuất từ hình nền"
+  "mainUiScaleLabel": {
+    "message": "Kích thước giao diện chính"
   },
   "tabNameLabel": {
     "message": "Tên tab"
@@ -42,7 +42,10 @@
     "message": "Màn hình"
   },
   "displayGreeting": {
-    "message": "Chào mừng"
+    "message": "Lời chào"
+  },
+  "greetingNameLabel": {
+    "message": "Tên của bạn"
   },
   "displayTime": {
     "message": "Thời gian"
@@ -66,7 +69,7 @@
     "message": "Định dạng"
   },
   "dateText": {
-    "message": "Viết"
+    "message": "Chữ"
   },
   "dateNumeric": {
     "message": "Số"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Sử dụng độ Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Cảnh báo thời tiết"
   },
   "shortcutsTitle": {
     "message": "Lối tắt"
@@ -93,7 +99,7 @@
     "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
   },
   "shortcutRadiusLabel": {
-    "message": "Bán kính góc"
+    "message": "Độ bo góc"
   },
   "rows1": {
     "message": "1 hàng"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "Tìm hiểu thêm"
   },
+  "wizardWelcomeTitle": {
+    "message": "Chào mừng bạn trở lại"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Không gian làm việc Fluent mới của bạn đã sẵn sàng. Hãy chọn bước tiếp theo bên dưới."
+  },
+  "wizardRestoreTitle": {
+    "message": "Khôi phục cài đặt"
+  },
+  "wizardRestoreDesc": {
+    "message": "Bạn có tệp sao lưu không?"
+  },
+  "wizardStartTitle": {
+    "message": "Bắt đầu thiết lập"
+  },
+  "wizardStartDesc": {
+    "message": "Bắt đầu chỉ với vài bước đơn giản."
+  },
+  "wizardSkipTitle": {
+    "message": "Bỏ qua thiết lập"
+  },
+  "wizardThemeAuto": {
+    "message": "Hệ thống"
+  },
+  "wizardThemeLight": {
+    "message": "Sáng"
+  },
+  "wizardThemeDark": {
+    "message": "Tối"
+  },
+  "wizardSkipDesc": {
+    "message": "Bắt đầu với một thiết lập hoàn toàn mới."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Giao diện & Hình thức"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Thiết lập chủ đề, màu nhấn, tên và ngôn ngữ của bạn."
+  },
+  "btnBack": {
+    "message": "Quay lại"
+  },
+  "btnNext": {
+    "message": "Tiếp tục"
+  },
+  "wizardAccentLabel": {
+    "message": "Màu nhấn"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Tiện ích & Công cụ"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Chọn những gì hiển thị trên trang của bạn."
+  },
+  "wizardFinalTitle": {
+    "message": "Mọi thứ đã sẵn sàng"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Cảm ơn bạn đã sử dụng Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Bắt đầu thôi"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Mở trang tab mới của bạn."
+  },
+  "wizardRestoreError": {
+    "message": "Xin lỗi, tệp *.json bạn sử dụng không hợp lệ hoặc đã bị hỏng."
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -359,7 +434,7 @@
     "message": "Khôi phục"
   },
   "backupExportSuccess": {
-    "message": "Các cài đặt đã được lưu trong tệp"
+    "message": "Các cài đặt đã được lưu thành công"
   },
   "warningInvalidBackupMessage": {
     "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Thứ Bảy"
+  },
+  "greetWeekMorning": {
+    "message": "Chúc một ngày $WEEK$ tuyệt vời nhé, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Ngày $WEEK$ của bạn thế nào rồi, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$ ơi, ngày $WEEK$ của bạn thế nào?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Chào buổi sáng $NAME$! Một buổi sáng thật đẹp trời!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Sẵn sàng bùng nổ hôm nay chưa, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Hãy làm cho buổi sáng này thật ý nghĩa nhé, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Chào buổi sáng! Hy vọng bạn đã ngủ ngon giấc, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Dậy thôi $NAME$ ơi, bắt đầu ngày mới nào!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Hy vọng buổi chiều của bạn đang diễn ra suôn sẻ, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$ à, cứ giữ vững phong độ này nhé!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Đã qua nửa ngày rồi đấy, $NAME$! Cố lên!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Chào buổi chiều! Vẫn đang làm việc năng suất chứ, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Đừng quên nghỉ ngơi một chút nhé, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Chào buổi tối! Đến lúc thư giãn rồi, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$ à, hy vọng bạn đã có một ngày thật tuyệt vời.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Tận hưởng một buổi tối thật chill nhé, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Ngày sắp tàn rồi, $NAME$. Bạn đã làm rất tốt!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Kiếm chỗ nào êm ái ngả lưng thôi, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Cũng muộn rồi đấy $NAME$. Đến giờ nghỉ ngơi rồi.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$ à, màn đêm thật yên tĩnh và thanh bình.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Vẫn còn thức cày cuốc sao, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Chúc bạn có một giấc ngủ thật ngon, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Chúc ngủ ngon và có những giấc mơ đẹp, $NAME$. Hẹn gặp lại ngày mai!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Dự kiến nhiệt độ giảm: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Dự kiến nhiệt độ tăng: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Dự kiến có bão trong vài giờ tới."
+  },
+  "alertWindHigh": {
+    "message": "Dự kiến có gió mạnh: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Tia UV ở mức nguy hiểm: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Dự kiến mức độ phấn hoa ($POLLEN$) cao.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@
     "message": "앱"
   },
   "moreApps": {
-    "message": "더 많은 앱"
+    "message": "앱 더보기"
   },
   "settingsTitle": {
     "message": "설정"
@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "외관"
   },
-  "accentWallpaperOption": {
-    "message": "배경화면에서 가져오기"
+  "mainUiScaleLabel": {
+    "message": "기본 UI 배율"
   },
   "tabNameLabel": {
     "message": "탭 이름"
@@ -44,6 +44,9 @@
   "displayGreeting": {
     "message": "인사말"
   },
+  "greetingNameLabel": {
+    "message": "이름"
+  },
   "displayTime": {
     "message": "시간"
   },
@@ -60,25 +63,28 @@
     "message": "초 표시"
   },
   "use12HourLabel": {
-    "message": "12시간 형식을 사용하세요"
+    "message": "12시간제 사용"
   },
   "dateFormatLabel": {
-    "message": "서식"
+    "message": "형식"
   },
   "dateText": {
-    "message": "작성됨"
+    "message": "텍스트"
   },
   "dateNumeric": {
     "message": "숫자"
   },
   "dateWeekday": {
-    "message": "평일"
+    "message": "요일"
   },
   "weatherTitle": {
     "message": "날씨"
   },
   "useFahrenheitLabel": {
     "message": "화씨 단위 사용"
+  },
+  "weatherAlertsLabel": {
+    "message": "날씨 알림"
   },
   "shortcutsTitle": {
     "message": "바로가기"
@@ -90,10 +96,10 @@
     "message": "이름 숨기기"
   },
   "folderIconHelp": {
-    "message": "맞춤형 폴더 아이콘은 다음에서 찾아보세요"
+    "message": "맞춤형 폴더 아이콘은 다음에서 찾아보세요:"
   },
   "shortcutRadiusLabel": {
-    "message": "곡률 반경"
+    "message": "모서리 반경"
   },
   "rows1": {
     "message": "1줄"
@@ -192,7 +198,7 @@
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "사용자 정의 아이콘"
+    "message": "맞춤형 아이콘"
   },
   "faviconUrlLabel": {
     "message": "아이콘 URL"
@@ -232,6 +238,75 @@
   },
   "learnMoreLabel": {
     "message": "자세히 알아보기"
+  },
+  "wizardWelcomeTitle": {
+    "message": "환영합니다"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "새로운 Fluent 작업 공간이 준비되었습니다. 아래에서 다음 단계를 선택하세요."
+  },
+  "wizardRestoreTitle": {
+    "message": "설정 복원"
+  },
+  "wizardRestoreDesc": {
+    "message": "백업 파일이 있으신가요?"
+  },
+  "wizardStartTitle": {
+    "message": "설정 시작"
+  },
+  "wizardStartDesc": {
+    "message": "몇 가지 단계만 거치면 시작할 수 있습니다."
+  },
+  "wizardSkipTitle": {
+    "message": "설정 건너뛰기"
+  },
+  "wizardThemeAuto": {
+    "message": "시스템"
+  },
+  "wizardThemeLight": {
+    "message": "라이트"
+  },
+  "wizardThemeDark": {
+    "message": "다크"
+  },
+  "wizardSkipDesc": {
+    "message": "기본 설정으로 시작합니다."
+  },
+  "wizardAppearanceTitle": {
+    "message": "스타일 및 외관"
+  },
+  "wizardAppearanceDesc": {
+    "message": "테마, 강조 색상, 이름 및 언어를 설정하세요."
+  },
+  "btnBack": {
+    "message": "뒤로"
+  },
+  "btnNext": {
+    "message": "계속"
+  },
+  "wizardAccentLabel": {
+    "message": "강조 색상"
+  },
+  "wizardWidgetsTitle": {
+    "message": "위젯 및 유틸리티"
+  },
+  "wizardWidgetsDesc": {
+    "message": "페이지에 표시할 항목을 선택하세요."
+  },
+  "wizardFinalTitle": {
+    "message": "모든 준비가 완료되었습니다"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tab을 사용해 주셔서 감사합니다!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "시작하기"
+  },
+  "wizardFinalStartDesc": {
+    "message": "새 탭 페이지를 엽니다."
+  },
+  "wizardRestoreError": {
+    "message": "죄송합니다. 사용한 *.json 파일이 유효하지 않거나 손상되었습니다."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -305,7 +380,7 @@
     }
   },
   "warningAddEcosystemAppsMessage": {
-    "message": "이 작업은 바로 가기에 9개의 $ECOSYSTEM$ 앱이 포함된 폴더를 생성합니다. 계속하시겠습니까?",
+    "message": "바로 가기에 9개의 $ECOSYSTEM$ 앱이 포함된 폴더를 생성합니다. 계속하시겠습니까?",
     "placeholders": {
       "ecosystem": {
         "content": "$1",
@@ -317,10 +392,10 @@
     "message": "폴더 추가"
   },
   "launcherNoAppsTitle": {
-    "message": "사용 가능한 앱이 없습니다."
+    "message": "사용 가능한 앱이 없습니다"
   },
   "launcherNoAppsAvailable": {
-    "message": "이 생태계에는 사용할 수 있는 앱이 없습니다."
+    "message": "이 생태계에서 사용할 수 있는 앱이 없습니다."
   },
   "shortcutsLimitReached": {
     "message": "바로가기 제한에 도달했습니다!"
@@ -341,7 +416,7 @@
     "message": "폴더가 가득 찼습니다"
   },
   "warningFolderFullMessage": {
-    "message": "이 폴더는 최대 $LIMIT$개 항목 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로가기를 제거하십시오.",
+    "message": "이 폴더는 최대 $LIMIT$개 항목 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로가기를 제거해 주세요.",
     "placeholders": {
       "limit": {
         "content": "$1",
@@ -353,13 +428,13 @@
     "message": "백업을 복원하시겠습니까?"
   },
   "warningRestoreBackupMessage": {
-    "message": "이 작업은 현재 설정 및 바로 가기를 백업 파일 데이터로 대체합니다."
+    "message": "이 작업은 현재 설정 및 바로 가기를 백업 파일의 데이터로 덮어씁니다."
   },
   "warningRestoreBackupConfirm": {
     "message": "복원"
   },
   "backupExportSuccess": {
-    "message": "파일에 저장된 설정"
+    "message": "설정이 성공적으로 내보내졌습니다"
   },
   "warningInvalidBackupMessage": {
     "message": "선택한 파일은 유효한 백업 파일이 아닙니다."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "토요일"
+  },
+  "greetWeekMorning": {
+    "message": "기분 좋은 $WEEK$ 아침이에요, $NAME$님! 화이팅!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$NAME$님, $WEEK$ 오후 잘 보내고 계신가요?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$님, 이번 $WEEK$ 하루는 어떠셨나요?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "좋은 아침이에요, $NAME$님! 상쾌한 하루네요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "오늘 하루도 뿌실 준비 되셨나요, $NAME$님? 가보자고!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "$NAME$님, 오늘 아침도 알차게 시작해봐요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "좋은 아침! 꿀잠 주무셨나요, $NAME$님?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "기상시간입니다 $NAME$님, 텐션 올려볼까요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "$NAME$님, 나른한 오후지만 힘내세요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$님, 이 기세 그대로 쭉쭉 가볼까요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "벌써 하루의 절반이 지났네요, $NAME$님! 조금만 더 화이팅!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "좋은 오후입니다! 열일 중이신가요, $NAME$님?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "$NAME$님, 중간중간 커피 한잔의 여유도 챙기세요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "저녁이네요! 이제 슬슬 쉬어갈 시간이에요, $NAME$님.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$님, 오늘 하루도 갓생 사셨기를 바라요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "$NAME$님, 편안한 저녁 시간 보내세요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "오늘 하루도 수고 많으셨어요, $NAME$님! 토닥토닥.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "$NAME$님, 푹신한 곳에 앉아 제대로 힐링하세요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "시간이 늦었네요, $NAME$님. 이제 쉴 시간이에요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$님, 고요하고 평화로운 밤이네요.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "아직 안 주무시나요, $NAME$님? 무리하지 마세요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "$NAME$님, 푹 쉬시고 꿀잠 주무세요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "좋은 꿈 꾸세요, $NAME$님. 내일 봬요!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "기온 하락 예상: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "기온 상승 예상: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "몇 시간 내에 폭풍이 예상됩니다."
+  },
+  "alertWindHigh": {
+    "message": "강풍 예상: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "자외선 수치 매우 높음: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "$POLLEN$ 꽃가루 농도 높음 예상.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Aspect"
   },
-  "accentWallpaperOption": {
-    "message": "Extrage din tapet"
+  "mainUiScaleLabel": {
+    "message": "Scara interfeței principale"
   },
   "tabNameLabel": {
     "message": "Numele filei"
@@ -43,6 +43,9 @@
   },
   "displayGreeting": {
     "message": "Salutare"
+  },
+  "greetingNameLabel": {
+    "message": "Numele tău"
   },
   "displayTime": {
     "message": "Ora"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Folosiți Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Alerte meteo"
   },
   "shortcutsTitle": {
     "message": "Căi rapide"
@@ -207,7 +213,7 @@
     "message": "Caută pe web"
   },
   "namePlaceholder": {
-    "message": "Numele dvs. (opțional)"
+    "message": "Numele tău (opțional)"
   },
   "cityPlaceholder": {
     "message": "Orașul tău"
@@ -232,6 +238,75 @@
   },
   "learnMoreLabel": {
     "message": "Află mai multe"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Bine ai revenit"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Noul tău spațiu de lucru Fluent este gata. Alege pasul următor de mai jos."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restaurează setările"
+  },
+  "wizardRestoreDesc": {
+    "message": "Ai un fișier de backup?"
+  },
+  "wizardStartTitle": {
+    "message": "Începe configurarea"
+  },
+  "wizardStartDesc": {
+    "message": "Începe cu câțiva pași simpli."
+  },
+  "wizardSkipTitle": {
+    "message": "Sari peste configurare"
+  },
+  "wizardThemeAuto": {
+    "message": "Sistem"
+  },
+  "wizardThemeLight": {
+    "message": "Luminos"
+  },
+  "wizardThemeDark": {
+    "message": "Întunecat"
+  },
+  "wizardSkipDesc": {
+    "message": "Începe cu o configurare curată."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil și aspect"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Setează tema, culoarea de accent, numele și limba."
+  },
+  "btnBack": {
+    "message": "Înapoi"
+  },
+  "btnNext": {
+    "message": "Continuă"
+  },
+  "wizardAccentLabel": {
+    "message": "Culoare de accent"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgeturi și utilitare"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Alege ce apare pe pagina ta."
+  },
+  "wizardFinalTitle": {
+    "message": "Totul este gata"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Îți mulțumim că folosești Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Începe"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Deschide pagina filă nouă."
+  },
+  "wizardRestoreError": {
+    "message": "Lupăm, fișierul *.json pe care l-ai folosit este invalid sau corupt."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Sâmbătă"
+  },
+  "greetWeekMorning": {
+    "message": "Să ai o zi de $WEEK$ excelentă, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Cum îți merge în această $WEEK$, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, cum a fost ziua ta de $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Neața $NAME$! E o dimineață superbă!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Gata să cucerești ziua, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Să facem dimineața asta să conteze, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Bună dimineața! Sper că ai dormit tun, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Trezirea, $NAME$, hai să-i dăm drumul!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Sper că ai o după-amiază faină, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, ține-o tot așa, super ritm!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Jumătatea zilei a trecut, $NAME$! Mai e puțin!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Salutare! Merge treaba, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Nu uita să iei și o pauză mică, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Seară faină! E timpul să o lași mai moale, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, sper că ai avut o zi de nota 10.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Bucură-te de o seară chill, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Ziua e gata, $NAME$. Ai făcut o treabă excelentă!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Așează-te confortabil și relaxează-te, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Se face târziu, $NAME$. E timpul pentru somn.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, noaptea e liniștită și relaxantă.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Iar pierzi nopțile, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Să ai un somn odihnitor, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Vise plăcute, $NAME$. Ne vedem mâine.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Scădere de temperatură așteptată: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Creștere de temperatură așteptată: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Sunt așteptate furtuni în următoarele ore."
+  },
+  "alertWindHigh": {
+    "message": "Sunt așteptate vânturi puternice: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Raze UV la nivel critic: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Nivel ridicat de polen ($POLLEN$) așteptat.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

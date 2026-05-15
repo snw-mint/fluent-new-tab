@@ -12,7 +12,7 @@
     "message": "Wallpaper"
   },
   "wallpaperSourceLabel": {
-    "message": "Pinagmulan ng larawan"
+    "message": "Source ng Image"
   },
   "nosourceOption": {
     "message": "Walang source"
@@ -23,11 +23,11 @@
   "appearanceTitle": {
     "message": "Appearance"
   },
-  "accentWallpaperOption": {
-    "message": "Kunin sa wallpaper"
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
   },
   "tabNameLabel": {
-    "message": "Pangalan ng Tab"
+    "message": "Tab Name"
   },
   "tabFaviconLabel": {
     "message": "Tab Icon"
@@ -42,7 +42,10 @@
     "message": "Display"
   },
   "displayGreeting": {
-    "message": "Pagbati"
+    "message": "Greeting"
+  },
+  "greetingNameLabel": {
+    "message": "Pangalan mo"
   },
   "displayTime": {
     "message": "Oras"
@@ -51,10 +54,10 @@
     "message": "Date"
   },
   "displayAdvanced": {
-    "message": "Oras & Date"
+    "message": "Time & Date"
   },
   "displayScaleLabel": {
-    "message": "Resize Display"
+    "message": "Display Scale"
   },
   "showSecondsLabel": {
     "message": "Ipakita ang seconds"
@@ -66,19 +69,22 @@
     "message": "Format"
   },
   "dateText": {
-    "message": "Sinulat"
+    "message": "Text"
   },
   "dateNumeric": {
-    "message": "Numero"
+    "message": "Numeric"
   },
   "dateWeekday": {
     "message": "Weekday"
   },
   "weatherTitle": {
-    "message": "Panahon"
+    "message": "Weather"
   },
   "useFahrenheitLabel": {
     "message": "Gamitin ang Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
   },
   "shortcutsTitle": {
     "message": "Mga Shortcut"
@@ -87,13 +93,13 @@
     "message": "I-enable ang Folders"
   },
   "hideShortcutNamesLabel": {
-    "message": "I-hide ang mga Pangalan"
+    "message": "I-hide ang Names"
   },
   "folderIconHelp": {
-    "message": "Humanap ng custom folder icons sa"
+    "message": "Maghanap ng custom folder icons sa:"
   },
   "shortcutRadiusLabel": {
-    "message": "Cornder Radius"
+    "message": "Corner Radius"
   },
   "rows1": {
     "message": "1 Row"
@@ -123,7 +129,7 @@
     "message": "Style ng Search bar"
   },
   "searchStyleFull": {
-    "message": "Buong width"
+    "message": "Full width"
   },
   "searchStyleCompact": {
     "message": "Compact"
@@ -132,7 +138,7 @@
     "message": "Mga Suggestions"
   },
   "clearSearchOption": {
-    "message": "I-clear ang search (Google)"
+    "message": "Clear search (Google)"
   },
   "voiceSearchOption": {
     "message": "Voice search"
@@ -141,7 +147,7 @@
     "message": "Mag-ask sa AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "Bawasan ang effects"
+    "message": "Bawasan ang visual effects"
   },
   "reduceMotionTitle": {
     "message": "Bawasan ang motion"
@@ -150,13 +156,13 @@
     "message": "Bawasan ang blur"
   },
   "languageTitle": {
-    "message": "Wika"
+    "message": "Language"
   },
   "interfaceLanguageLabel": {
-    "message": "Wika sa Interface"
+    "message": "Interface Language"
   },
   "backupTitle": {
-    "message": "Backup ng Data"
+    "message": "Data Backup"
   },
   "exportOption": {
     "message": "I-export"
@@ -174,16 +180,16 @@
     "message": "I-edit ang Folder"
   },
   "chooseTypeTitle": {
-    "message": "Lumikha ng bago"
+    "message": "Gumawa ng bago"
   },
   "backLabel": {
     "message": "Bumalik"
   },
   "addShortcutTitle": {
-    "message": "I-Add Shortcut"
+    "message": "Mag-add ng Shortcut"
   },
   "editShortcutTitle": {
-    "message": "I-Edit Shortcut"
+    "message": "I-edit ang Shortcut"
   },
   "shortcutNameLabel": {
     "message": "Pangalan"
@@ -198,10 +204,10 @@
     "message": "URL ng Icon"
   },
   "btnCancel": {
-    "message": "I-Cancel"
+    "message": "Cancel"
   },
   "btnSave": {
-    "message": "I-Save"
+    "message": "Save"
   },
   "searchPlaceholder": {
     "message": "Mag-search sa web"
@@ -225,13 +231,82 @@
     "message": "Iba pang options"
   },
   "permissionRequiredTitle": {
-    "message": "Required ng Permission"
+    "message": "Kailangan ng Permission"
   },
   "grantPermissionLabel": {
-    "message": "Bigyan ng Permission"
+    "message": "I-grant ang Permission"
   },
   "learnMoreLabel": {
-    "message": "Matuto pa"
+    "message": "Learn more"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Welcome home"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Handa na ang bagong fluent workspace mo. Choose your next step sa ibaba."
+  },
+  "wizardRestoreTitle": {
+    "message": "I-restore ang settings"
+  },
+  "wizardRestoreDesc": {
+    "message": "May backup file ka ba?"
+  },
+  "wizardStartTitle": {
+    "message": "Simulan ang setup"
+  },
+  "wizardStartDesc": {
+    "message": "Magsimula sa ilang steps."
+  },
+  "wizardSkipTitle": {
+    "message": "I-skip ang setup"
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Light"
+  },
+  "wizardThemeDark": {
+    "message": "Dark"
+  },
+  "wizardSkipDesc": {
+    "message": "Mag-start gamit ang clean setup."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Style & Appearance"
+  },
+  "wizardAppearanceDesc": {
+    "message": "I-set ang iyong theme, accent color, name, at language."
+  },
+  "btnBack": {
+    "message": "Bumalik"
+  },
+  "btnNext": {
+    "message": "Continue"
+  },
+  "wizardAccentLabel": {
+    "message": "Accent Color"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Utilities"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Piliin kung ano ang lalabas sa page mo."
+  },
+  "wizardFinalTitle": {
+    "message": "All set na!"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Thank you sa paggamit ng Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Get started"
+  },
+  "wizardFinalStartDesc": {
+    "message": "I-open ang iyong new tab page."
+  },
+  "wizardRestoreError": {
+    "message": "Sorry, invalid o corrupted ang *.json file na ginamit mo."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -243,7 +318,7 @@
     "apiNameSuggestions": {
       "message": "Search Suggestions"
     },
-    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-acces ang \"$API_NAME$\". Ito'y mae-ensure ang privacy at sacurity mo.",
+    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-access ang \"$API_NAME$\". Mae-ensure nito ang privacy at security mo.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -261,7 +336,7 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "tingnan ang changelog"
+    "message": "i-check ang changelog"
   },
   "fetchingImagePlaceholder": {
     "message": "Fini-fetch ang $SOURCE$ na image...",
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Saturday"
+  },
+  "greetWeekMorning": {
+    "message": "Magandang morning ngayong $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Kumusta ang $WEEK$ mo, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "Kamusta ang $WEEK$ mo, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Good morning, $NAME$! Ganda ng gising natin ah!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Ready ka na ba for today, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Let's make this day productive, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Good morning! Sana nakatulog ka nang maayos, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Gising na, $NAME$, let's go!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Sana okay ang hapon mo, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, keep it up! Laban lang!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Kalahati na ng araw natin, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Good afternoon! Productive pa ba tayo diyan, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Huwag kalimutang mag-break muna, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Good evening! Time to relax na, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, sana naging okay ang araw mo.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Enjoy your gabi at mag-relax, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Patapos na ang araw, $NAME$. Good job today!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Upo muna at mag-chill ka lang, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Gabi na, $NAME$. Time to sleep na.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, ang peaceful ng gabi natin ah.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Puyat mode na naman ba, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Have a good night sleep, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Sweet dreams, $NAME$. See you bukas!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Expected na bababa ang temp: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Expected na tataas ang temp: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "May paparating na bagyo in a few hours."
+  },
+  "alertWindHigh": {
+    "message": "Expected ang malakas na hangin: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Sobrang taas ng UV levels: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Mataas ang pollen levels ($POLLEN$) ngayon.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

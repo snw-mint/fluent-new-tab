@@ -15,22 +15,22 @@
     "message": "图片来源"
   },
   "nosourceOption": {
-    "message": "无来源"
+    "message": "无"
   },
   "overlayLabel": {
-    "message": "图像叠加"
+    "message": "背景叠加"
   },
   "appearanceTitle": {
     "message": "外观"
   },
-  "accentWallpaperOption": {
-    "message": "从壁纸中提取"
+  "mainUiScaleLabel": {
+    "message": "主界面缩放"
   },
   "tabNameLabel": {
-    "message": "标签名称"
+    "message": "标签页名称"
   },
   "tabFaviconLabel": {
-    "message": "标签图标"
+    "message": "标签页图标"
   },
   "styleNone": {
     "message": "无"
@@ -42,7 +42,10 @@
     "message": "显示"
   },
   "displayGreeting": {
-    "message": "问候"
+    "message": "问候语"
+  },
+  "greetingNameLabel": {
+    "message": "您的称呼"
   },
   "displayTime": {
     "message": "时间"
@@ -51,34 +54,37 @@
     "message": "日期"
   },
   "displayAdvanced": {
-    "message": "时间与日期"
+    "message": "时间和日期"
   },
   "displayScaleLabel": {
-    "message": "调整显示大小"
+    "message": "显示缩放"
   },
   "showSecondsLabel": {
-    "message": "显示秒"
+    "message": "显示秒数"
   },
   "use12HourLabel": {
     "message": "使用12小时制"
   },
   "dateFormatLabel": {
-    "message": "格式"
+    "message": "日期格式"
   },
   "dateText": {
-    "message": "撰写"
+    "message": "文本"
   },
   "dateNumeric": {
     "message": "数字"
   },
   "dateWeekday": {
-    "message": "工作日"
+    "message": "星期"
   },
   "weatherTitle": {
     "message": "天气"
   },
   "useFahrenheitLabel": {
     "message": "使用华氏度"
+  },
+  "weatherAlertsLabel": {
+    "message": "天气预警"
   },
   "shortcutsTitle": {
     "message": "快捷方式"
@@ -87,13 +93,13 @@
     "message": "启用文件夹"
   },
   "hideShortcutNamesLabel": {
-    "message": "隐藏姓名"
+    "message": "隐藏名称"
   },
   "folderIconHelp": {
     "message": "在以下位置查找自定义文件夹图标："
   },
   "shortcutRadiusLabel": {
-    "message": "转角半径"
+    "message": "圆角半径"
   },
   "rows1": {
     "message": "1 行"
@@ -102,7 +108,7 @@
     "message": "2 行"
   },
   "rowsLabel": {
-    "message": "行"
+    "message": "行数"
   },
   "rows3": {
     "message": "3 行"
@@ -126,10 +132,10 @@
     "message": "全宽"
   },
   "searchStyleCompact": {
-    "message": "紧凑型"
+    "message": "紧凑"
   },
   "suggestionsOption": {
-    "message": "建议"
+    "message": "搜索建议"
   },
   "clearSearchOption": {
     "message": "纯净搜索 (Google)"
@@ -138,13 +144,13 @@
     "message": "语音搜索"
   },
   "askAiOption": {
-    "message": "询问 AI"
+    "message": "问 AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "减少视觉效果"
+    "message": "减弱视觉效果"
   },
   "reduceMotionTitle": {
-    "message": "减少动态效果"
+    "message": "减弱动态效果"
   },
   "reduceBlurOption": {
     "message": "降低模糊度"
@@ -168,7 +174,7 @@
     "message": "添加文件夹"
   },
   "folderNameLabel": {
-    "message": "名称"
+    "message": "文件夹名称"
   },
   "editFolderTitle": {
     "message": "编辑文件夹"
@@ -186,16 +192,16 @@
     "message": "编辑快捷方式"
   },
   "shortcutNameLabel": {
-    "message": "名称"
+    "message": "文件夹名称"
   },
   "shortcutUrlLabel": {
-    "message": "URL"
+    "message": "网址"
   },
   "addFaviconLabel": {
     "message": "自定义图标"
   },
   "faviconUrlLabel": {
-    "message": "图标URL"
+    "message": "图标网址"
   },
   "btnCancel": {
     "message": "取消"
@@ -207,7 +213,7 @@
     "message": "搜索网页"
   },
   "namePlaceholder": {
-    "message": "您的姓名（可选）"
+    "message": "您的称呼（可选）"
   },
   "cityPlaceholder": {
     "message": "您的城市"
@@ -219,19 +225,88 @@
     "message": "编辑"
   },
   "removeLabel": {
-    "message": "移除"
+    "message": "删除"
   },
   "moreOptionsLabel": {
     "message": "更多选项"
   },
   "permissionRequiredTitle": {
-    "message": "需要授权"
+    "message": "需要权限"
   },
   "grantPermissionLabel": {
     "message": "授予权限"
   },
   "learnMoreLabel": {
     "message": "了解更多"
+  },
+  "wizardWelcomeTitle": {
+    "message": "欢迎回来"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "您的全新 Fluent 工作空间已准备就绪。请在下方选择下一步操作。"
+  },
+  "wizardRestoreTitle": {
+    "message": "恢复设置"
+  },
+  "wizardRestoreDesc": {
+    "message": "您有备份文件吗？"
+  },
+  "wizardStartTitle": {
+    "message": "开始设置"
+  },
+  "wizardStartDesc": {
+    "message": "只需几步即可完成设置。"
+  },
+  "wizardSkipTitle": {
+    "message": "跳过设置"
+  },
+  "wizardThemeAuto": {
+    "message": "跟随系统"
+  },
+  "wizardThemeLight": {
+    "message": "浅色"
+  },
+  "wizardThemeDark": {
+    "message": "深色"
+  },
+  "wizardSkipDesc": {
+    "message": "以纯净状态开始使用。"
+  },
+  "wizardAppearanceTitle": {
+    "message": "样式与外观"
+  },
+  "wizardAppearanceDesc": {
+    "message": "设置您的主题、主题色、称呼和语言。"
+  },
+  "btnBack": {
+    "message": "返回"
+  },
+  "btnNext": {
+    "message": "继续"
+  },
+  "wizardAccentLabel": {
+    "message": "主题色"
+  },
+  "wizardWidgetsTitle": {
+    "message": "小组件与实用工具"
+  },
+  "wizardWidgetsDesc": {
+    "message": "选择要在页面上显示的内容。"
+  },
+  "wizardFinalTitle": {
+    "message": "一切就绪"
+  },
+  "wizardFinalSubtitle": {
+    "message": "感谢您使用 Fluent New Tab！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "开始使用"
+  },
+  "wizardFinalStartDesc": {
+    "message": "打开您的新标签页。"
+  },
+  "wizardRestoreError": {
+    "message": "抱歉，您使用的 *.json 文件无效或已损坏。"
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -323,10 +398,10 @@
     "message": "此生态系统中没有可用应用程序。"
   },
   "shortcutsLimitReached": {
-    "message": "快捷方式已达到上限！"
+    "message": "快捷方式数量已达上限！"
   },
   "warningGridFullTitle": {
-    "message": "网格已满"
+    "message": "主屏幕已满"
   },
   "warningGridFullMessage": {
     "message": "主屏幕的快捷方式已达到 $LIMIT$ 个的上限。请删除部分项目或将它们分组到文件夹中以释放空间。",
@@ -359,13 +434,13 @@
     "message": "恢复"
   },
   "backupExportSuccess": {
-    "message": "设置已保存到文件中"
+    "message": "设置已成功导出"
   },
   "warningInvalidBackupMessage": {
     "message": "所选文件不是有效的备份。"
   },
   "warningUnderstood": {
-    "message": "明白了"
+    "message": "我知道了"
   },
   "warningClose": {
     "message": "关闭"
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "周六"
+  },
+  "greetWeekMorning": {
+    "message": "$NAME$，祝你$WEEK$元气满满！",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$NAME$，$WEEK$下午好，今天过得怎么样？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$，$WEEK$马上要结束啦，今天开心吗？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "早上好，$NAME$！今天又是美好的一天！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "$NAME$，准备好大干一场了吗？冲鸭！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "一日之计在于晨，$NAME$，加油！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "早安，$NAME$！昨晚睡得香吗？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "醒醒啦，$NAME$，该搬砖了！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "下午好，$NAME$，工作顺利哦！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$，继续保持这个势头，奥利给！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "$NAME$，一天已经过去一半啦，坚持住！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "下午好！$NAME$，今天效率拉满了吗？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "$NAME$，别忘了摸个鱼休息一下哦。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "晚上好！$NAME$，是时候放松一下啦。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$，希望你今天过得超赞。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "$NAME$，享受一个惬意的夜晚吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "今天快结束啦，$NAME$，干得漂亮！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "$NAME$，找个舒服的姿势躺平吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "夜深了，$NAME$，该休息咯。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$，享受这宁静的夜晚吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "$NAME$，还在爆肝熬夜吗？注意身体哦！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "$NAME$，祝你一夜好梦！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "晚安，$NAME$。咱们明天见！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "预计降温：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "预计升温：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "未来几小时内预计有暴风雨。"
+  },
+  "alertWindHigh": {
+    "message": "预计有强风：$VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "紫外线极强：指数 $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "预计花粉（$POLLEN$）浓度较高。",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

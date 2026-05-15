@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Зовнішній вигляд"
   },
-  "accentWallpaperOption": {
-    "message": "Витягти зі шпалер"
+  "mainUiScaleLabel": {
+    "message": "Масштаб інтерфейсу"
   },
   "tabNameLabel": {
     "message": "Назва вкладки"
@@ -44,6 +44,9 @@
   "displayGreeting": {
     "message": "Привітання"
   },
+  "greetingNameLabel": {
+    "message": "Ваше ім'я"
+  },
   "displayTime": {
     "message": "Час"
   },
@@ -60,13 +63,13 @@
     "message": "Показати секунди"
   },
   "use12HourLabel": {
-    "message": "Використовуйте 12-годинний формат"
+    "message": "Використовувати 12-годинний формат"
   },
   "dateFormatLabel": {
     "message": "Формат"
   },
   "dateText": {
-    "message": "Написано"
+    "message": "Текстовий"
   },
   "dateNumeric": {
     "message": "Числовий"
@@ -78,7 +81,10 @@
     "message": "Погода"
   },
   "useFahrenheitLabel": {
-    "message": "Використовуйте Фаренгейт"
+    "message": "Використовувати Фаренгейт"
+  },
+  "weatherAlertsLabel": {
+    "message": "Сповіщення про погоду"
   },
   "shortcutsTitle": {
     "message": "Ярлики"
@@ -93,7 +99,7 @@
     "message": "Знайдіть індивідуальні іконки для папок за адресою"
   },
   "shortcutRadiusLabel": {
-    "message": "Радіус повороту"
+    "message": "Радіус кутів"
   },
   "rows1": {
     "message": "1 рядок"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "Дізнатися більше"
   },
+  "wizardWelcomeTitle": {
+    "message": "Ласкаво просимо"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Ваш новий робочий простір Fluent готовий. Виберіть наступний крок нижче."
+  },
+  "wizardRestoreTitle": {
+    "message": "Відновити налаштування"
+  },
+  "wizardRestoreDesc": {
+    "message": "У вас є файл резервної копії?"
+  },
+  "wizardStartTitle": {
+    "message": "Почати налаштування"
+  },
+  "wizardStartDesc": {
+    "message": "Почніть з кількох простих кроків."
+  },
+  "wizardSkipTitle": {
+    "message": "Пропустити налаштування"
+  },
+  "wizardThemeAuto": {
+    "message": "Системна"
+  },
+  "wizardThemeLight": {
+    "message": "Світла"
+  },
+  "wizardThemeDark": {
+    "message": "Темна"
+  },
+  "wizardSkipDesc": {
+    "message": "Почати з чистого аркуша."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Стиль і зовнішній вигляд"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Налаштуйте тему, колір акценту, ім'я та мову."
+  },
+  "btnBack": {
+    "message": "Назад"
+  },
+  "btnNext": {
+    "message": "Продовжити"
+  },
+  "wizardAccentLabel": {
+    "message": "Колір акценту"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Віджети та утиліти"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Виберіть, що відображатиметься на вашій сторінці."
+  },
+  "wizardFinalTitle": {
+    "message": "Все готово"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Дякуємо, що використовуєте Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Почати роботу"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Відкрити нову вкладку."
+  },
+  "wizardRestoreError": {
+    "message": "Вибачте, вибраний файл *.json недійсний або пошкоджений."
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -359,7 +434,7 @@
     "message": "Відновити"
   },
   "backupExportSuccess": {
-    "message": "Налаштування збережено у файлі"
+    "message": "Налаштування успішно збережено"
   },
   "warningInvalidBackupMessage": {
     "message": "Вибраний файл не є дійсною резервною копією."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Субота"
+  },
+  "greetWeekMorning": {
+    "message": "Класного $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Як минає $WEEK$, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, як пройшов $WEEK$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Добрий ранок, $NAME$! Надворі краса!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Готові звернути гори, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Заряджаємось позитивом на весь день, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Доброго ранку! Як спалося, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Підйом, $NAME$, погнали!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Сподіваюсь, твій день проходить чудово, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, так тримати! Ти молодець!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Половина дня позаду, $NAME$! Прорвемося!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Добридень! Робота кипить, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Не забудь зробити паузу на каву, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Добрий вечір! Час трохи розслабитися, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, сподіваюсь, твій день був просто топ.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Гарного і спокійного вечора, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "День майже закінчився, $NAME$. Крута робота!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Падай на диван і відпочивай, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Уже пізно, $NAME$. Час на бічну.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, навколо тиша і спокій.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Знову засиджуєшся допізна, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Міцного сну, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Солодких снів, $NAME$. До завтра.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Очікується похолодання: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Очікується потепління: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "У найближчі години очікуються грози."
+  },
+  "alertWindHigh": {
+    "message": "Очікується сильний вітер: $VALUE$ км/год",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Критичний рівень УФ-випромінювання: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Очікується високий рівень пилку ($POLLEN$).",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

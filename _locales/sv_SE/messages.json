@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Utseende"
   },
-  "accentWallpaperOption": {
-    "message": "Extrahera från bakgrund"
+  "mainUiScaleLabel": {
+    "message": "Skala för gränssnitt"
   },
   "tabNameLabel": {
     "message": "Fliknamn"
@@ -44,6 +44,9 @@
   "displayGreeting": {
     "message": "Hälsning"
   },
+  "greetingNameLabel": {
+    "message": "Ditt namn"
+  },
   "displayTime": {
     "message": "Tid"
   },
@@ -54,7 +57,7 @@
     "message": "Tid och datum"
   },
   "displayScaleLabel": {
-    "message": "Ändra skärmstorlek"
+    "message": "Skärmskalning"
   },
   "showSecondsLabel": {
     "message": "Visa sekunder"
@@ -79,6 +82,9 @@
   },
   "useFahrenheitLabel": {
     "message": "Använd Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Vädervarningar"
   },
   "shortcutsTitle": {
     "message": "Genvägar"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "Läs mer"
   },
+  "wizardWelcomeTitle": {
+    "message": "Välkommen"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Din nya Fluent-arbetsyta är redo. Välj nästa steg nedan."
+  },
+  "wizardRestoreTitle": {
+    "message": "Återställ inställningar"
+  },
+  "wizardRestoreDesc": {
+    "message": "Har du en säkerhetskopia?"
+  },
+  "wizardStartTitle": {
+    "message": "Starta installationen"
+  },
+  "wizardStartDesc": {
+    "message": "Kom igång med några få steg."
+  },
+  "wizardSkipTitle": {
+    "message": "Hoppa över"
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Ljust"
+  },
+  "wizardThemeDark": {
+    "message": "Mörkt"
+  },
+  "wizardSkipDesc": {
+    "message": "Börja med en ren installation."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil & Utseende"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Ställ in ditt tema, accentfärg, namn och språk."
+  },
+  "btnBack": {
+    "message": "Tillbaka"
+  },
+  "btnNext": {
+    "message": "Fortsätt"
+  },
+  "wizardAccentLabel": {
+    "message": "Accentfärg"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Verktyg"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Välj vad som ska visas på din sida."
+  },
+  "wizardFinalTitle": {
+    "message": "Allt är klart"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Tack för att du använder Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Kom igång"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Öppna din nya fliksida."
+  },
+  "wizardRestoreError": {
+    "message": "Tyvärr, *.json-filen du använde är ogiltig eller skadad."
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -359,7 +434,7 @@
     "message": "Återställ"
   },
   "backupExportSuccess": {
-    "message": "Inställningarna sparas i filen"
+    "message": "Inställningarna sparades framgångsrikt"
   },
   "warningInvalidBackupMessage": {
     "message": "Den valda filen är inte en giltig säkerhetskopia."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Lördag"
+  },
+  "greetWeekMorning": {
+    "message": "Ha en grym $WEEK$, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Hur rullar din $WEEK$, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, hur har din $WEEK$ varit?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "God morgon $NAME$! Vilken härlig dag!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Redo att äga dagen, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Låt oss göra den här morgonen grym, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "God morgon! Hoppas du sovit gott, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Dags att vakna, $NAME$, nu kör vi!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Hoppas din eftermiddag är toppen, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "Snyggt jobbat $NAME$, håll ångan uppe!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Halvvägs genom dagen, $NAME$! Kämpa!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "God eftermiddag! Håller du dig produktiv, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Glöm inte att ta en liten paus, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Godafton! Dags att börja varva ner, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, hoppas du har haft en kanondag.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Njut av en skön kväll, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Dagen är nästan slut, $NAME$. Grymt jobbat!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Släng dig i soffan och chilla, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Det börjar bli sent, $NAME$. Dags att sova.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, natten är lugn och skön.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Sitter du uppe sent, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Sov så gott, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Dröm sött, $NAME$. Vi ses imorgon.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Förväntat temperaturfall: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Förväntad temperaturökning: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Oväder förväntas inom de närmaste timmarna."
+  },
+  "alertWindHigh": {
+    "message": "Hårda vindar förväntas: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "UV-strålning på kritisk nivå: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Höga pollenhalter ($POLLEN$) förväntas.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

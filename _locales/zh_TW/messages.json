@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "外觀"
   },
-  "accentWallpaperOption": {
-    "message": "從桌布擷取"
+  "mainUiScaleLabel": {
+    "message": "主介面縮放"
   },
   "tabNameLabel": {
     "message": "標籤名稱"
@@ -42,7 +42,10 @@
     "message": "顯示"
   },
   "displayGreeting": {
-    "message": "問候"
+    "message": "問候語"
+  },
+  "greetingNameLabel": {
+    "message": "您的稱呼"
   },
   "displayTime": {
     "message": "時間"
@@ -54,7 +57,7 @@
     "message": "時間與日期"
   },
   "displayScaleLabel": {
-    "message": "調整顯示大小"
+    "message": "顯示縮放"
   },
   "showSecondsLabel": {
     "message": "顯示秒數"
@@ -63,22 +66,25 @@
     "message": "使用 12 小時制"
   },
   "dateFormatLabel": {
-    "message": "格式"
+    "message": "日期格式"
   },
   "dateText": {
-    "message": "撰寫"
+    "message": "文字"
   },
   "dateNumeric": {
-    "message": "數值"
+    "message": "數字"
   },
   "dateWeekday": {
-    "message": "平日"
+    "message": "星期"
   },
   "weatherTitle": {
     "message": "天氣"
   },
   "useFahrenheitLabel": {
     "message": "使用華氏度"
+  },
+  "weatherAlertsLabel": {
+    "message": "天氣警報"
   },
   "shortcutsTitle": {
     "message": "捷徑"
@@ -93,7 +99,7 @@
     "message": "在以下位置尋找自訂資料夾圖示："
   },
   "shortcutRadiusLabel": {
-    "message": "彎角半徑"
+    "message": "圓角半徑"
   },
   "rows1": {
     "message": "1 列"
@@ -102,7 +108,7 @@
     "message": "2 列"
   },
   "rowsLabel": {
-    "message": "列"
+    "message": "列數"
   },
   "rows3": {
     "message": "3 列"
@@ -126,10 +132,10 @@
     "message": "全寬"
   },
   "searchStyleCompact": {
-    "message": "緊湊型"
+    "message": "精簡"
   },
   "suggestionsOption": {
-    "message": "建議"
+    "message": "搜尋建議"
   },
   "clearSearchOption": {
     "message": "簡易搜尋 (Google)"
@@ -207,7 +213,7 @@
     "message": "搜尋網頁"
   },
   "namePlaceholder": {
-    "message": "您的名字（選填）"
+    "message": "您的稱呼（選填）"
   },
   "cityPlaceholder": {
     "message": "您的城市"
@@ -225,13 +231,82 @@
     "message": "更多選項"
   },
   "permissionRequiredTitle": {
-    "message": "需經授權"
+    "message": "需要權限"
   },
   "grantPermissionLabel": {
     "message": "授予權限"
   },
   "learnMoreLabel": {
     "message": "了解更多"
+  },
+  "wizardWelcomeTitle": {
+    "message": "歡迎回來"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "您嶄新的 Fluent 工作區已準備就緒。請在下方選擇您的下一步。"
+  },
+  "wizardRestoreTitle": {
+    "message": "還原設定"
+  },
+  "wizardRestoreDesc": {
+    "message": "您有備份檔案嗎？"
+  },
+  "wizardStartTitle": {
+    "message": "開始設定"
+  },
+  "wizardStartDesc": {
+    "message": "只需幾個步驟即可完成設定。"
+  },
+  "wizardSkipTitle": {
+    "message": "略過設定"
+  },
+  "wizardThemeAuto": {
+    "message": "系統預設"
+  },
+  "wizardThemeLight": {
+    "message": "淺色"
+  },
+  "wizardThemeDark": {
+    "message": "深色"
+  },
+  "wizardSkipDesc": {
+    "message": "以純淨狀態開始使用。"
+  },
+  "wizardAppearanceTitle": {
+    "message": "樣式與外觀"
+  },
+  "wizardAppearanceDesc": {
+    "message": "設定您的佈景主題、強調色彩、稱呼及語言。"
+  },
+  "btnBack": {
+    "message": "返回"
+  },
+  "btnNext": {
+    "message": "繼續"
+  },
+  "wizardAccentLabel": {
+    "message": "強調色彩"
+  },
+  "wizardWidgetsTitle": {
+    "message": "小工具與實用程式"
+  },
+  "wizardWidgetsDesc": {
+    "message": "選擇要在頁面上顯示的內容。"
+  },
+  "wizardFinalTitle": {
+    "message": "一切就緒"
+  },
+  "wizardFinalSubtitle": {
+    "message": "感謝您使用 Fluent New Tab！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "開始使用"
+  },
+  "wizardFinalStartDesc": {
+    "message": "開啟您的新分頁。"
+  },
+  "wizardRestoreError": {
+    "message": "抱歉，您使用的 *.json 檔案無效或已損毀。"
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -287,7 +362,7 @@
     "message": "停用資料夾？"
   },
   "warningDeleteFoldersMessage": {
-    "message": "所有資料夾及其捷徑都將被刪除。除非您備有備份，否則此操作無法撤銷。"
+    "message": "所有資料夾及其捷徑都將被刪除。除非您備有備份，否則此操作無法復原。"
   },
   "warningDeleteFoldersConfirm": {
     "message": "刪除資料夾"
@@ -323,10 +398,10 @@
     "message": "此生態系統目前沒有可用應用程式。"
   },
   "shortcutsLimitReached": {
-    "message": "捷徑使用上限已達！"
+    "message": "捷徑數量已達上限！"
   },
   "warningGridFullTitle": {
-    "message": "網格已滿"
+    "message": "主畫面已滿"
   },
   "warningGridFullMessage": {
     "message": "主畫面的捷徑已達到 $LIMIT$ 個的上限。請刪除部分項目或將它們分組到資料夾中以釋放空間。",
@@ -359,13 +434,13 @@
     "message": "還原"
   },
   "backupExportSuccess": {
-    "message": "設定已儲存至檔案中"
+    "message": "設定已成功匯出"
   },
   "warningInvalidBackupMessage": {
     "message": "所選檔案並非有效的備份檔。"
   },
   "warningUnderstood": {
-    "message": "明白了"
+    "message": "我知道了"
   },
   "warningClose": {
     "message": "關閉"
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "星期六"
+  },
+  "greetWeekMorning": {
+    "message": "$NAME$，祝您有個美好的$WEEK$！",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "$NAME$，$WEEK$下午好，今天過得還順利嗎？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$，$WEEK$快結束了，今天開心嗎？",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "早安，$NAME$！今天又是美好的一天！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "$NAME$，準備好大展身手了嗎？衝吧！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "一日之計在於晨，$NAME$，加油！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "早安，$NAME$！昨晚睡得好嗎？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "起床囉，$NAME$，該上工啦！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "下午好，$NAME$，希望您工作順利！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$，繼續保持這個氣勢，水啦！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "$NAME$，一天已經過一半啦，撐住！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "下午好！$NAME$，今天效率有滿點嗎？",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "$NAME$，別忘了摸個魚休息一下喔。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "晚上好！$NAME$，是時候放鬆一下啦。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$，希望您今天過得超讚。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "$NAME$，享受一個愜意的夜晚吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "今天快結束啦，$NAME$，幹得好！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "$NAME$，找個舒服的姿勢耍廢一下吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "夜深了，$NAME$，該休息囉。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$，享受這寧靜的夜晚吧。",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "$NAME$，還在爆肝熬夜嗎？注意身體喔！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "$NAME$，祝您一夜好夢！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "晚安，$NAME$。我們明天見！",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "預計氣溫下降：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "預計氣溫上升：$VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "未來幾小時內預計有暴風雨。"
+  },
+  "alertWindHigh": {
+    "message": "預計有強風：$VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "紫外線達危險等級：$VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "預計花粉 ($POLLEN$) 濃度偏高。",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }

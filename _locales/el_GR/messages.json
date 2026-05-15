@@ -23,8 +23,8 @@
   "appearanceTitle": {
     "message": "Εμφάνιση"
   },
-  "accentWallpaperOption": {
-    "message": "Εξαγωγή από την ταπετσαρία"
+  "mainUiScaleLabel": {
+    "message": "Κλίμακα κύριας διεπαφής"
   },
   "tabNameLabel": {
     "message": "Όνομα καρτέλας"
@@ -44,6 +44,9 @@
   "displayGreeting": {
     "message": "Χαιρετισμός"
   },
+  "greetingNameLabel": {
+    "message": "Το όνομά σας"
+  },
   "displayTime": {
     "message": "Ώρα"
   },
@@ -60,7 +63,7 @@
     "message": "Εμφάνιση δευτερολέπτων"
   },
   "use12HourLabel": {
-    "message": "Χρησιμοποιήστε τη μορφή 12 ωρών"
+    "message": "Χρήση μορφής 12 ωρών"
   },
   "dateFormatLabel": {
     "message": "Μορφή"
@@ -69,7 +72,7 @@
     "message": "Γραπτό"
   },
   "dateNumeric": {
-    "message": "Αριθμητικός"
+    "message": "Αριθμητικό"
   },
   "dateWeekday": {
     "message": "Καθημερινή"
@@ -78,7 +81,10 @@
     "message": "Καιρός"
   },
   "useFahrenheitLabel": {
-    "message": "Χρησιμοποιήστε Φαρενάιτ"
+    "message": "Χρήση Φαρενάιτ"
+  },
+  "weatherAlertsLabel": {
+    "message": "Ειδοποιήσεις καιρού"
   },
   "shortcutsTitle": {
     "message": "Συντομεύσεις"
@@ -138,7 +144,7 @@
     "message": "Φωνητική αναζήτηση"
   },
   "askAiOption": {
-    "message": "Ρώτα την τεχνητή νοημοσύνη"
+    "message": "Ρώτα την AI"
   },
   "reduceVisualEffectsTitle": {
     "message": "Μείωση εφέ"
@@ -156,7 +162,7 @@
     "message": "Γλώσσα διεπαφής"
   },
   "backupTitle": {
-    "message": "Δημιουργία αντιγράφων ασφαλείας δεδομένων"
+    "message": "Δημιουργία αντιγράφων ασφαλείας"
   },
   "exportOption": {
     "message": "Εξαγωγή"
@@ -233,6 +239,75 @@
   "learnMoreLabel": {
     "message": "Μάθετε περισσότερα"
   },
+  "wizardWelcomeTitle": {
+    "message": "Καλώς ήρθατε"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Ο νέος σας χώρος εργασίας Fluent είναι έτοιμος. Επιλέξτε το επόμενο βήμα παρακάτω."
+  },
+  "wizardRestoreTitle": {
+    "message": "Επαναφορά ρυθμίσεων"
+  },
+  "wizardRestoreDesc": {
+    "message": "Έχετε κάποιο αρχείο αντιγράφου ασφαλείας;"
+  },
+  "wizardStartTitle": {
+    "message": "Έναρξη ρύθμισης"
+  },
+  "wizardStartDesc": {
+    "message": "Ξεκινήστε με μερικά απλά βήματα."
+  },
+  "wizardSkipTitle": {
+    "message": "Παράλειψη ρύθμισης"
+  },
+  "wizardThemeAuto": {
+    "message": "Σύστημα"
+  },
+  "wizardThemeLight": {
+    "message": "Ανοιχτό"
+  },
+  "wizardThemeDark": {
+    "message": "Σκούρο"
+  },
+  "wizardSkipDesc": {
+    "message": "Ξεκινήστε με μια καθαρή εγκατάσταση."
+  },
+  "wizardAppearanceTitle": {
+    "message": "Στυλ & Εμφάνιση"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Ορίστε το θέμα, το χρώμα έμφασης, το όνομα και τη γλώσσα σας."
+  },
+  "btnBack": {
+    "message": "Πίσω"
+  },
+  "btnNext": {
+    "message": "Συνέχεια"
+  },
+  "wizardAccentLabel": {
+    "message": "Χρώμα έμφασης"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Γραφικά στοιχεία & Εργαλεία"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Επιλέξτε τι θα εμφανίζεται στη σελίδα σας."
+  },
+  "wizardFinalTitle": {
+    "message": "Όλα είναι έτοιμα"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Σας ευχαριστούμε που χρησιμοποιείτε το Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Ξεκινήστε"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Ανοίξτε τη σελίδα νέας καρτέλας."
+  },
+  "wizardRestoreError": {
+    "message": "Λυπούμαστε, το αρχείο *.json που χρησιμοποιήσατε δεν είναι έγκυρο ή είναι κατεστραμμένο."
+  },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
       "message": "Permission Required"
@@ -243,7 +318,7 @@
     "apiNameSuggestions": {
       "message": "Search Suggestions"
     },
-    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία της ιδιωτικής σας ζωής και την ασφάλειά σας.",
+    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -359,7 +434,7 @@
     "message": "Επαναφορά"
   },
   "backupExportSuccess": {
-    "message": "Οι ρυθμίσεις αποθηκεύονται στο αρχείο"
+    "message": "Οι ρυθμίσεις αποθηκεύτηκαν επιτυχώς"
   },
   "warningInvalidBackupMessage": {
     "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
@@ -390,5 +465,272 @@
   },
   "weekday_6": {
     "message": "Σάββατο"
+  },
+  "greetWeekMorning": {
+    "message": "Υπέροχη $WEEK$ να έχεις, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Πώς πάει η $WEEK$ σου, $NAME$;",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, πώς πήγε η $WEEK$ σου;",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "Καλημερούδια $NAME$! Υπέροχο πρωινό σήμερα!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Έτοιμος/η να κατακτήσεις τη μέρα, $NAME$; Φύγαμε!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Πάμε γερά σήμερα το πρωί, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Καλημέρα! Ελπίζω να κοιμήθηκες σαν πουλάκι, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Ξύπνα, $NAME$, ξεκινάμε! Πάμε δυνατά!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Ελπίζω να κυλάει όμορφα το μεσημεράκι σου, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, συνέχισε έτσι δυναμικά! Μια χαρά τα πας.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Μισή μέρα έφυγε, $NAME$! Κουράγιο!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Καλό απόγευμα! Είσαι παραγωγικός/ή, $NAME$;",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Μην ξεχάσεις να κάνεις ένα μικρό διάλειμμα, $NAME$. Χαλάρωσε λίγο!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Καλησπέρα! Ώρα να κατεβάζεις ρυθμούς, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, ελπίζω να είχες μια τέλεια μέρα.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Απόλαυσε ένα χαλαρό βραδάκι, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Η μέρα σχεδόν τελείωσε, $NAME$. Τα πήγες περίφημα!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Άραξε στον καναπέ σου και χαλάρωσε, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Πέρασε η ώρα, $NAME$. Ώρα για ξεκούραση.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, η νύχτα είναι ήσυχη και γαλήνια.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Ακόμα ξύπνιος/α, $NAME$; Ξενυχτάμε;",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Καλό ύπνο να έχεις, $NAME$! Όνειρα γλυκά.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Όνειρα γλυκά, $NAME$. Τα λέμε αύριο.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "alertTempDrop": {
+    "message": "Αναμενόμενη πτώση θερμοκρασίας: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Αναμενόμενη άνοδος θερμοκρασίας: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Αναμένονται καταιγίδες τις επόμενες ώρες."
+  },
+  "alertWindHigh": {
+    "message": "Αναμένονται ισχυροί άνεμοι: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Ακτίνες UV σε κρίσιμα επίπεδα: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Αναμένονται υψηλά επίπεδα γύρης ($POLLEN$).",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
   }
 }
