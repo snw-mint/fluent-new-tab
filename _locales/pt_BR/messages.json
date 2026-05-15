@@ -24,7 +24,7 @@
     "message": "Aparência"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Escala da IU Principal"
   },
   "tabNameLabel": {
     "message": "Nome da guia"
@@ -45,7 +45,7 @@
     "message": "Saudações"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Seu Nome"
   },
   "displayTime": {
     "message": "Hora"
@@ -84,7 +84,7 @@
     "message": "Usar Fahrenheit"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Alertas de clima"
   },
   "shortcutsTitle": {
     "message": "Atalhos"
@@ -240,28 +240,28 @@
     "message": "Saiba mais"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Bem-vindo à casa"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Seu novo espaço de trabalho fluente está pronto. Escolha seu próximo passo abaixo."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Restaurar configurações"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "Você tem um arquivo de backup? "
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Iniciar a configuração"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Comece com alguns passos."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Pular configuração"
   },
   "wizardThemeAuto": {
-    "message": "Auto"
+    "message": "System"
   },
   "wizardThemeLight": {
     "message": "Light"
