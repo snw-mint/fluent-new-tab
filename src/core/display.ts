@@ -18,35 +18,35 @@ const CDN_BASE_URL =
 
 const emojiMap: Record<string, string> = {
   // Morning
-  greetWeekMorningen: 'e1',
-  greetMorning1en: 'e2',
-  greetMorning2en: 'e3',
-  greetMorning3en: 'e4',
-  greetMorning4en: 'e5',
-  greetMorning5en: 'e6',
+  greetWeekMorning: 'e1',
+  greetMorning1: 'e2',
+  greetMorning2: 'e3',
+  greetMorning3: 'e4',
+  greetMorning4: 'e5',
+  greetMorning5: 'e6',
 
   // Afternoon
-  greetWeekAfternoonen: 'e7',
-  greetAfternoon1en: 'e1',
-  greetAfternoon2en: 'e8',
-  greetAfternoon3en: 'e9',
-  greetAfternoon4en: 'e4',
-  greetAfternoon5en: 'e10',
+  greetWeekAfternoon: 'e7',
+  greetAfternoon1: 'e1',
+  greetAfternoon2: 'e8',
+  greetAfternoon3: 'e9',
+  greetAfternoon4: 'e4',
+  greetAfternoon5: 'e10',
 
   // Evening
-  greetWeekNighten: 'e15',
-  greetEvening1en: 'e11',
-  greetEvening2en: 'e8',
-  greetEvening3en: 'e12',
-  greetEvening4en: 'e13',
-  greetEvening5en: 'e14',
+  greetWeekNight: 'e15',
+  greetEvening1: 'e11',
+  greetEvening2: 'e8',
+  greetEvening3: 'e12',
+  greetEvening4: 'e13',
+  greetEvening5: 'e14',
 
   // Night
-  greetNight1en: 'e16',
-  greetNight2en: 'e17',
-  greetNight3en: 'e18',
-  greetNight4en: 'e19',
-  greetNight5en: 'e20',
+  greetNight1: 'e16',
+  greetNight2: 'e17',
+  greetNight3: 'e18',
+  greetNight4: 'e19',
+  greetNight5: 'e20',
 };
 
 function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
@@ -138,8 +138,23 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
       } else if (part.type === 'dayPeriod') {
         const span = document.createElement('span');
         span.className = 'time-ampm';
+        span.style.position = 'absolute';
+
+        if (index === 0) {
+          span.style.transform = 'translateX(calc(-100% - 0.5rem))';
+        }
+
         span.textContent = part.value;
         timeNodes.push(span);
+      } else if (
+        part.type === 'literal' &&
+        (parts[index + 1]?.type === 'dayPeriod' ||
+          parts[index - 1]?.type === 'dayPeriod')
+      ) {
+        const trimmed = part.value.trim();
+        if (trimmed.length > 0) {
+          timeNodes.push(document.createTextNode(trimmed));
+        }
       } else {
         timeNodes.push(document.createTextNode(part.value));
       }
