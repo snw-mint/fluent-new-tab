@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "I-open ang iyong new tab page."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Support the project"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Help keep the project updated."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Source code"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "View project on GitHub."
+  },
   "wizardRestoreError": {
     "message": "Sorry, invalid o corrupted ang *.json file na ginamit mo."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-access ang \"$API_NAME$\". Mae-ensure nito ang privacy at security mo.",
     "placeholders": {
       "api_name": {
