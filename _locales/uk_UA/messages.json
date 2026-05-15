@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Відкрити нову вкладку."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Підтримайте проект"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Допоможіть підтримувати проект в актуальному стані."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Вихідний код"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Переглянути проєкт на GitHub."
+  },
   "wizardRestoreError": {
     "message": "Вибачте, вибраний файл *.json недійсний або пошкоджений."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
     "placeholders": {
       "api_name": {

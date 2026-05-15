@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Open je nieuwe tabbladpagina."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Steun het project"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Help mee om het project up-to-date te houden."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Broncode"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Bekijk het project op GitHub."
+  },
   "wizardRestoreError": {
     "message": "Sorry, het *.json-bestand dat je hebt gebruikt is ongeldig of beschadigd."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt je privacy en veiligheid.",
     "placeholders": {
       "api_name": {

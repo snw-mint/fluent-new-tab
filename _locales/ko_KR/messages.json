@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "새 탭 페이지를 엽니다."
   },
+  "wizardFinalSupportTitle": {
+    "message": "이 프로젝트를 후원해 주세요"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "소스 코드"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "GitHub에서 프로젝트 보기."
+  },
   "wizardRestoreError": {
     "message": "죄송합니다. 사용한 *.json 파일이 유효하지 않거나 손상되었습니다."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
     "placeholders": {
       "api_name": {

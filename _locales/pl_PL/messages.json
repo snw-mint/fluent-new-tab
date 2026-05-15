@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Otwórz nową kartę."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Prosimy o wsparcie projektu"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Pomóż nam dbać o aktualność projektu."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kod źródłowy"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Zobacz projekt na GitHubie."
+  },
   "wizardRestoreError": {
     "message": "Przepraszamy, użyty plik *.json jest nieprawidłowy lub uszkodzony."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Aby korzystać z tej funkcji, aplikacja Fluent New Tab potrzebuje uprawnień dostępu do serwisu „$API_NAME$”. Zapewnia to ochronę Twojej prywatności i bezpieczeństwa.",
     "placeholders": {
       "api_name": {

@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Yeni sekme sayfanı aç."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Projeye destek olun"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Projenin güncel kalmasına yardımcı olun."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kaynak kodu"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Projeyi GitHub'da görüntüle."
+  },
   "wizardRestoreError": {
     "message": "Maalesef kullandığınız *.json dosyası geçersiz veya bozuk."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
     "placeholders": {
       "api_name": {

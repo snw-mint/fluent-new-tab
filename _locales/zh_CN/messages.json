@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "打开您的新标签页。"
   },
+  "wizardFinalSupportTitle": {
+    "message": "支持该项目"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "请协助保持项目内容的更新。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "源代码"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "在 GitHub 上查看该项目。"
+  },
   "wizardRestoreError": {
     "message": "抱歉，您使用的 *.json 文件无效或已损坏。"
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
     "placeholders": {
       "api_name": {

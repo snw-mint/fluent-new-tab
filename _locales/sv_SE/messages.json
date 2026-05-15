@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Öppna din nya fliksida."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Stöd projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hjälp till att hålla projektet uppdaterat."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Källkod"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Visa projektet på GitHub."
+  },
   "wizardRestoreError": {
     "message": "Tyvärr, *.json-filen du använde är ogiltig eller skadad."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
     "placeholders": {
       "api_name": {

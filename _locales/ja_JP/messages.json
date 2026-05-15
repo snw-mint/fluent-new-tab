@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "新しいタブページを開きます。"
   },
+  "wizardFinalSupportTitle": {
+    "message": "このプロジェクトを支援する"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "このプロジェクトの最新情報を維持するためにご協力ください。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "ソースコード"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "GitHubでプロジェクトを表示する。"
+  },
   "wizardRestoreError": {
     "message": "申し訳ありません。使用した *.json ファイルは無効であるか破損しています。"
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
     "placeholders": {
       "api_name": {

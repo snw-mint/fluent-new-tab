@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Avaa uusi välilehti."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Tue hanketta"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Auta pitämään projekti ajan tasalla."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Lähdekoodi"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Katso projekti GitHubissa."
+  },
   "wizardRestoreError": {
     "message": "Käyttämäsi *.json-tiedosto on virheellinen tai vioittunut."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
     "placeholders": {
       "api_name": {

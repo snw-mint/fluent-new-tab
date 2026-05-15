@@ -305,6 +305,18 @@
   "wizardFinalStartDesc": {
     "message": "Åbn din nye fanebladsside."
   },
+  "wizardFinalSupportTitle": {
+    "message": "Støt projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hjælp med at holde projektet opdateret."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kildekode"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Se projektet på GitHub."
+  },
   "wizardRestoreError": {
     "message": "Beklager, den *.json-fil du brugte er ugyldig eller beskadiget."
   },
@@ -312,7 +324,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "For at kunne bruge denne funktion skal Fluent New Tab have tilladelse til at få adgang til \"$API_NAME$\". Dette sikrer dit privatliv og din sikkerhed.",
     "placeholders": {
       "api_name": {
