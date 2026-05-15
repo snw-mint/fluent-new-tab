@@ -15,22 +15,22 @@
     "message": "图片来源"
   },
   "nosourceOption": {
-    "message": "无来源"
+    "message": "无"
   },
   "overlayLabel": {
-    "message": "图像叠加"
+    "message": "背景叠加"
   },
   "appearanceTitle": {
     "message": "外观"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "主界面缩放"
   },
   "tabNameLabel": {
-    "message": "标签名称"
+    "message": "标签页名称"
   },
   "tabFaviconLabel": {
-    "message": "标签图标"
+    "message": "标签页图标"
   },
   "styleNone": {
     "message": "无"
@@ -42,10 +42,10 @@
     "message": "显示"
   },
   "displayGreeting": {
-    "message": "问候"
+    "message": "问候语"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "您的称呼"
   },
   "displayTime": {
     "message": "时间"
@@ -54,28 +54,28 @@
     "message": "日期"
   },
   "displayAdvanced": {
-    "message": "时间与日期"
+    "message": "时间和日期"
   },
   "displayScaleLabel": {
-    "message": "调整显示大小"
+    "message": "显示缩放"
   },
   "showSecondsLabel": {
-    "message": "显示秒"
+    "message": "显示秒数"
   },
   "use12HourLabel": {
     "message": "使用12小时制"
   },
   "dateFormatLabel": {
-    "message": "格式"
+    "message": "日期格式"
   },
   "dateText": {
-    "message": "撰写"
+    "message": "文本"
   },
   "dateNumeric": {
     "message": "数字"
   },
   "dateWeekday": {
-    "message": "工作日"
+    "message": "星期"
   },
   "weatherTitle": {
     "message": "天气"
@@ -84,7 +84,7 @@
     "message": "使用华氏度"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "天气预警"
   },
   "shortcutsTitle": {
     "message": "快捷方式"
@@ -93,13 +93,13 @@
     "message": "启用文件夹"
   },
   "hideShortcutNamesLabel": {
-    "message": "隐藏姓名"
+    "message": "隐藏名称"
   },
   "folderIconHelp": {
     "message": "在以下位置查找自定义文件夹图标："
   },
   "shortcutRadiusLabel": {
-    "message": "转角半径"
+    "message": "圆角半径"
   },
   "rows1": {
     "message": "1 行"
@@ -108,7 +108,7 @@
     "message": "2 行"
   },
   "rowsLabel": {
-    "message": "行"
+    "message": "行数"
   },
   "rows3": {
     "message": "3 行"
@@ -132,10 +132,10 @@
     "message": "全宽"
   },
   "searchStyleCompact": {
-    "message": "紧凑型"
+    "message": "紧凑"
   },
   "suggestionsOption": {
-    "message": "建议"
+    "message": "搜索建议"
   },
   "clearSearchOption": {
     "message": "纯净搜索 (Google)"
@@ -144,13 +144,13 @@
     "message": "语音搜索"
   },
   "askAiOption": {
-    "message": "询问 AI"
+    "message": "问 AI"
   },
   "reduceVisualEffectsTitle": {
-    "message": "减少视觉效果"
+    "message": "减弱视觉效果"
   },
   "reduceMotionTitle": {
-    "message": "减少动态效果"
+    "message": "减弱动态效果"
   },
   "reduceBlurOption": {
     "message": "降低模糊度"
@@ -174,7 +174,7 @@
     "message": "添加文件夹"
   },
   "folderNameLabel": {
-    "message": "名称"
+    "message": "文件夹名称"
   },
   "editFolderTitle": {
     "message": "编辑文件夹"
@@ -192,16 +192,16 @@
     "message": "编辑快捷方式"
   },
   "shortcutNameLabel": {
-    "message": "名称"
+    "message": "文件夹名称"
   },
   "shortcutUrlLabel": {
-    "message": "URL"
+    "message": "网址"
   },
   "addFaviconLabel": {
     "message": "自定义图标"
   },
   "faviconUrlLabel": {
-    "message": "图标URL"
+    "message": "图标网址"
   },
   "btnCancel": {
     "message": "取消"
@@ -213,7 +213,7 @@
     "message": "搜索网页"
   },
   "namePlaceholder": {
-    "message": "您的姓名（可选）"
+    "message": "您的称呼（可选）"
   },
   "cityPlaceholder": {
     "message": "您的城市"
@@ -225,13 +225,13 @@
     "message": "编辑"
   },
   "removeLabel": {
-    "message": "移除"
+    "message": "删除"
   },
   "moreOptionsLabel": {
     "message": "更多选项"
   },
   "permissionRequiredTitle": {
-    "message": "需要授权"
+    "message": "需要权限"
   },
   "grantPermissionLabel": {
     "message": "授予权限"
@@ -240,73 +240,73 @@
     "message": "了解更多"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "欢迎回来"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "您的全新 Fluent 工作空间已准备就绪。请在下方选择下一步操作。"
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "恢复设置"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "您有备份文件吗？"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "开始设置"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "只需几步即可完成设置。"
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "跳过设置"
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "跟随系统"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "浅色"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "深色"
   },
   "wizardSkipDesc": {
-    "message": "Start with a blank sheet."
+    "message": "以纯净状态开始使用。"
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "样式与外观"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "设置您的主题、主题色、称呼和语言。"
   },
   "btnBack": {
     "message": "返回"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "继续"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "主题色"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "小组件与实用工具"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "选择要在页面上显示的内容。"
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "一切就绪"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "感谢您使用 Fluent New Tab！"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "开始使用"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "打开您的新标签页。"
   },
   "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
+    "message": "抱歉，您使用的 *.json 文件无效或已损坏。"
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -398,10 +398,10 @@
     "message": "此生态系统中没有可用应用程序。"
   },
   "shortcutsLimitReached": {
-    "message": "快捷方式已达到上限！"
+    "message": "快捷方式数量已达上限！"
   },
   "warningGridFullTitle": {
-    "message": "网格已满"
+    "message": "主屏幕已满"
   },
   "warningGridFullMessage": {
     "message": "主屏幕的快捷方式已达到 $LIMIT$ 个的上限。请删除部分项目或将它们分组到文件夹中以释放空间。",
@@ -434,13 +434,13 @@
     "message": "恢复"
   },
   "backupExportSuccess": {
-    "message": "设置已保存到文件中"
+    "message": "设置已成功导出"
   },
   "warningInvalidBackupMessage": {
     "message": "所选文件不是有效的备份。"
   },
   "warningUnderstood": {
-    "message": "明白了"
+    "message": "我知道了"
   },
   "warningClose": {
     "message": "关闭"
@@ -467,7 +467,7 @@
     "message": "周六"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "$NAME$，祝你$WEEK$元气满满！",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -480,7 +480,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "$NAME$，$WEEK$下午好，今天过得怎么样？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -493,7 +493,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$，$WEEK$马上要结束啦，今天开心吗？",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -506,7 +506,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "早上好，$NAME$！今天又是美好的一天！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -515,7 +515,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "$NAME$，准备好大干一场了吗？冲鸭！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -524,7 +524,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "一日之计在于晨，$NAME$，加油！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -533,7 +533,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "早安，$NAME$！昨晚睡得香吗？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -542,7 +542,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "醒醒啦，$NAME$，该搬砖了！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -551,7 +551,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "下午好，$NAME$，工作顺利哦！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -560,7 +560,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$，继续保持这个势头，奥利给！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -569,7 +569,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "$NAME$，一天已经过去一半啦，坚持住！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -578,7 +578,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "下午好！$NAME$，今天效率拉满了吗？",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -587,7 +587,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "$NAME$，别忘了摸个鱼休息一下哦。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "晚上好！$NAME$，是时候放松一下啦。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -605,7 +605,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$，希望你今天过得超赞。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -614,7 +614,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "$NAME$，享受一个惬意的夜晚吧。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -623,7 +623,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "今天快结束啦，$NAME$，干得漂亮！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -632,7 +632,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "$NAME$，找个舒服的姿势躺平吧。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "夜深了，$NAME$，该休息咯。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$，享受这宁静的夜晚吧。",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -659,7 +659,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "$NAME$，还在爆肝熬夜吗？注意身体哦！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -668,7 +668,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "$NAME$，祝你一夜好梦！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -677,7 +677,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "晚安，$NAME$。咱们明天见！",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -686,7 +686,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "预计降温：$VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -695,7 +695,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "预计升温：$VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -704,10 +704,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "未来几小时内预计有暴风雨。"
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "预计有强风：$VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -716,7 +716,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "紫外线极强：指数 $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -725,7 +725,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "预计花粉（$POLLEN$）浓度较高。",
     "placeholders": {
       "pollen": {
         "content": "$1",
