@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Hình nền"
   },
-  "wallpaperSourceLabel": {
-    "message": "Nguồn hình ảnh"
-  },
   "nosourceOption": {
     "message": "Không có nguồn"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Thời tiết"
   },
+  "locationLabel": {
+    "message": "Địa điểm"
+  },
   "useFahrenheitLabel": {
     "message": "Sử dụng độ Fahrenheit"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 hàng"
   },
-  "rowsLabel": {
-    "message": "Hàng"
-  },
   "rows3": {
     "message": "3 hàng"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Trình khởi chạy ứng dụng"
   },
-  "ecosystemLabel": {
-    "message": "Hệ sinh thái"
-  },
   "searchTitle": {
     "message": "Tìm kiếm"
-  },
-  "searchBarStyleLabe": {
-    "message": "Kiểu thanh tìm kiếm"
   },
   "searchStyleFull": {
     "message": "Toàn màn hình"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Ngôn ngữ"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Ngôn ngữ giao diện"
   },
   "backupTitle": {
     "message": "Sao lưu dữ liệu"
