@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 const DEFAULT_LOCALE = 'en_US';
 
 const APP_KEYS = [
@@ -115,7 +123,7 @@ function saveBlankSheet() {
   localStorage.setItem('displayEnabled', 'false');
   localStorage.setItem('searchBarVisible', 'false');
   localStorage.setItem('shortcutsVisible', 'false');
-  localStorage.setItem('launcherEnabled', 'false');
+  localStorage.setItem('launcherEnabled', 'true');
   localStorage.setItem('wallpaperEnabled', 'false');
   localStorage.setItem('weatherEnabled', 'false');
   localStorage.setItem('reducedEffectsEnabled', 'true');
@@ -171,6 +179,9 @@ function saveAppearance() {
   const name = document.getElementById('input-name')?.value.trim() || '';
   const lang = document.getElementById('select-language')?.value || 'en_US';
 
+  const tabName = document.getElementById('input-tab-name')?.value.trim() || '';
+  if (tabName) localStorage.setItem('tabName', tabName);
+
   localStorage.setItem('theme', theme);
   localStorage.setItem('accentColorEnabled', 'true');
   localStorage.setItem('accentColorMode', 'manual');
@@ -180,25 +191,18 @@ function saveAppearance() {
 }
 
 function saveWidgets() {
-  // Captura do Display
   const toggleDisplay = document.getElementById('toggle-display');
   const selectDisplay = document.getElementById('select-display');
   const displayEnabled = toggleDisplay ? toggleDisplay.checked : true;
   const displayType = selectDisplay ? selectDisplay.value : 'greeting';
-
-  // Captura da Search Engine
   const toggleSearch = document.getElementById('toggle-search');
   const selectSearch = document.getElementById('select-search');
   const searchEnabled = toggleSearch ? toggleSearch.checked : true;
   const searchEngine = selectSearch ? selectSearch.value : 'system';
-
-  // Captura dos Shortcuts
   const toggleShortcuts = document.getElementById('toggle-shortcuts');
   const selectShortcuts = document.getElementById('select-shortcuts');
   const shortcutsEnabled = toggleShortcuts ? toggleShortcuts.checked : true;
   const shortcutsRows = selectShortcuts ? selectShortcuts.value : '2';
-
-  // Captura do App Launcher
   const toggleLauncher = document.getElementById('toggle-launcher');
   const selectLauncher = document.getElementById('select-launcher');
   const launcherEnabled = toggleLauncher ? toggleLauncher.checked : true;
@@ -226,16 +230,33 @@ function saveWidgets() {
   localStorage.setItem('weatherEnabled', 'false');
 }
 
+const STEPS_ORDER = ['welcome', 'appearance', 'widgets', 'final'];
+
 function showStep(stepId) {
   const current = document.querySelector('.step.active');
-  if (current) {
-    current.classList.remove('active');
-  }
   const next = document.getElementById(`step-${stepId}`);
-  if (next) {
-    next.classList.add('active');
-    localStorage.setItem('setup_current_step', stepId);
+  if (!next) return;
+
+  if (current) {
+    const currentId = current.id.replace('step-', '');
+    const currentIndex = STEPS_ORDER.indexOf(currentId);
+    const nextIndex = STEPS_ORDER.indexOf(stepId);
+
+    if (currentIndex !== -1 && nextIndex !== -1) {
+      const directionClass =
+        nextIndex > currentIndex ? 'slide-next' : 'slide-prev';
+
+      document.body.classList.remove('slide-next', 'slide-prev');
+      void document.body.offsetWidth;
+      document.body.classList.add(directionClass);
+    }
+    current.classList.remove('active');
+  } else {
+    document.body.classList.add('slide-next');
   }
+
+  next.classList.add('active');
+  localStorage.setItem('setup_current_step', stepId);
 }
 
 function initThemePicker() {

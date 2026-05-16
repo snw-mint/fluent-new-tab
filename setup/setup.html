@@ -1,10 +1,17 @@
 <!doctype html>
+<!--
+ - Fluent New Tab
+ - Copyright (c) 2025-2026 SnowMint
+ - Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ - You should have received a copy of the GNU General Public License along with this program.
+ - If not, see <https://www.gnu.org/licenses/>.
+ -->
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fluent New Tab — Setup</title>
+  <title>Welcome</title>
   <link rel="stylesheet" href="/setup/setup.css" />
   <script src="/scripts/theme-loader.js"></script>
 </head>
@@ -12,6 +19,41 @@
 <body>
 
   <div id="step-welcome" class="step step-welcome active">
+
+    <div class="welcome-language-picker">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m9.34 6.372.05.105 5.56 14.5a.755.755 0 0 1-.418.971.73.73 0 0 1-.91-.333l-.043-.092-1.433-3.737H5.06l-.094-.006-1.546 3.76a.73.73 0 0 1-.963.401.754.754 0 0 1-.427-.885l.033-.096 5.964-14.5a.73.73 0 0 1 1.314-.088m9.406-4.37a.75.75 0 0 1 .743.65l.007.1V7.5h1.75a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.648.743L21.246 9l-1.75-.001v7.25a.75.75 0 0 1-.648.744l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102V2.753a.75.75 0 0 1 .75-.75M8.81 8.748l-3.16 7.538h6.11zm1.937-6.744h5.498a.75.75 0 0 1 .743.648l.006.102v3.004c0 2.344-1.9 4.245-4.245 4.245a.75.75 0 0 1 0-1.5c1.46 0 2.654-1.14 2.74-2.578l.005-.167V3.503h-4.747a.75.75 0 0 1-.102-1.493zh5.498z"
+          fill="currentColor" />
+      </svg>
+      <select id="select-language" class="welcome-lang-select" aria-label="Language">
+        <option value="cs_CZ">Čeština</option>
+        <option value="da_DK">Dansk</option>
+        <option value="de_DE">Deutsch</option>
+        <option value="el_GR">Ελληνικά</option>
+        <option value="en_US">English (US)</option>
+        <option value="es_ES">Español (España)</option>
+        <option value="fil_PH">Filipino</option>
+        <option value="fi_FI">Suomi</option>
+        <option value="fr_FR">Français</option>
+        <option value="hu_HU">Magyar</option>
+        <option value="it_IT">Italiano</option>
+        <option value="ja_JP">日本語</option>
+        <option value="ko_KR">한국어</option>
+        <option value="nl_NL">Nederlands</option>
+        <option value="pl_PL">Polski</option>
+        <option value="pt_BR">Português</option>
+        <option value="ro_RO">Română</option>
+        <option value="ru_RU">Русский</option>
+        <option value="sv_SE">Svenska</option>
+        <option value="tr_TR">Türkçe</option>
+        <option value="uk_UA">Українська</option>
+        <option value="vi_VN">Tiếng Việt</option>
+        <option value="zh_CN">中文 (简体)</option>
+        <option value="zh_TW">中文 (繁體)</option>
+      </select>
+    </div>
+
     <div class="welcome-container">
       <h1 class="welcome-title" data-i18n="wizardWelcomeTitle">Welcome home</h1>
       <p class="welcome-subtitle" data-i18n="wizardWelcomeSubtitle">Your new fluent workspace is ready. Choose your next
@@ -114,35 +156,11 @@
         </div>
 
         <div class="setting-block">
-          <label class="setting-label-large" for="select-language">
-            <span data-i18n="languageTitle">Language</span>
+          <label class="setting-label-large" for="input-tab-name">
+            <span data-i18n="tabNameLabel">Tab Name</span>
           </label>
-          <select id="select-language" class="settings-select-full">
-            <option value="cs_CZ">Čeština</option>
-            <option value="da_DK">Dansk</option>
-            <option value="de_DE">Deutsch</option>
-            <option value="el_GR">Ελληνικά</option>
-            <option value="en_US">English (US)</option>
-            <option value="es_ES">Español (España)</option>
-            <option value="fil_PH">Filipino</option>
-            <option value="fi_FI">Suomi</option>
-            <option value="fr_FR">Français</option>
-            <option value="hu_HU">Magyar</option>
-            <option value="it_IT">Italiano</option>
-            <option value="ja_JP">日本語</option>
-            <option value="ko_KR">한국어</option>
-            <option value="nl_NL">Nederlands</option>
-            <option value="pl_PL">Polski</option>
-            <option value="pt_BR">Português</option>
-            <option value="ro_RO">Română</option>
-            <option value="ru_RU">Русский</option>
-            <option value="sv_SE">Svenska</option>
-            <option value="tr_TR">Türkçe</option>
-            <option value="uk_UA">Українська</option>
-            <option value="vi_VN">Tiếng Việt</option>
-            <option value="zh_CN">中文 (简体)</option>
-            <option value="zh_TW">中文 (繁體)</option>
-          </select>
+          <input type="text" id="input-tab-name" class="text-input-full" maxlength="60" data-i18n="tabNamePlaceholder"
+            placeholder="New Tab" />
         </div>
       </div>
     </div>
@@ -288,6 +306,9 @@
   </div>
 
   <footer class="setup-footer">
+    <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer">By Snow
+      Mint</a>
+    <span>&middot;</span>
     <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank" rel="noopener noreferrer">Privacy
       Policy</a>
     <span>&middot;</span>

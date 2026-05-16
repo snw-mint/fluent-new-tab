@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 :root {
   --bg-color: #f9f9f9;
   --text-color: #242424;
@@ -64,16 +72,50 @@ body {
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
   display: flex;
   width: 100vw;
   height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  transition: opacity 0.25s ease-out;
 }
 
 .step.active {
   opacity: 1;
   pointer-events: all;
   z-index: 10;
+}
+
+body.slide-next .step.active {
+  animation: fluentPresentationSlideInRight 0.45s cubic-bezier(0.1, 0.9, 0.2, 1)
+    forwards;
+}
+
+body.slide-prev .step.active {
+  animation: fluentPresentationSlideInLeft 0.45s cubic-bezier(0.1, 0.9, 0.2, 1)
+    forwards;
+}
+
+@keyframes fluentPresentationSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fluentPresentationSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .step-welcome {
@@ -252,6 +294,45 @@ body {
   background-color: var(--overlay-strong);
 }
 
+.welcome-language-picker {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  z-index: 20;
+}
+
+.welcome-language-picker:hover {
+  opacity: 1;
+}
+
+.welcome-lang-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  padding-right: 1.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.5 8 10.5 12 6.5' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.welcome-lang-select option {
+  background: var(--surface);
+  color: var(--text-color);
+}
+
 .btn-next-large {
   background: var(--accent-color);
   color: var(--accent-contrast);
@@ -398,11 +479,12 @@ body {
   border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--text-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.15s ease;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.2s ease;
 }
 
 .settings-select-full {
@@ -415,9 +497,19 @@ body {
   background-size: 1rem 1rem;
 }
 
-.text-input-full:focus,
-.settings-select-full:focus {
-  border-color: var(--accent-color);
+.text-input-full::placeholder {
+  color: var(--text-color);
+  opacity: 0.45;
+}
+
+.text-input-full:hover,
+.settings-select-full:hover {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.text-input-full:focus-visible,
+.settings-select-full:focus-visible {
+  box-shadow: inset 0 -1px 0 var(--accent-color);
 }
 
 .vertical-widget {

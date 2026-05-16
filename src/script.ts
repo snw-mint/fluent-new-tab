@@ -21,10 +21,46 @@ function debounce<T extends unknown[]>(
     timeout = window.setTimeout(() => func(...args), wait);
   };
 }
+
+function applyMagneticSnap(
+  sliderId: string,
+  defaultValue: number,
+  snapThreshold = 5,
+): void {
+  const slider = document.getElementById(sliderId) as HTMLInputElement | null;
+  if (!slider) return;
+
+  slider.addEventListener('input', (event) => {
+    const target = event.target as HTMLInputElement;
+    const currentValue = parseFloat(target.value);
+
+    if (Math.abs(currentValue - defaultValue) <= snapThreshold) {
+      target.value = defaultValue.toString();
+    }
+    const min = parseFloat(target.min || '0');
+    const max = parseFloat(target.max || '100');
+    const progress = (parseFloat(target.value) - min) / (max - min || 1);
+    target.style.setProperty('--slider-progress', progress.toString());
+  });
+
+  slider.addEventListener('dblclick', (event) => {
+    const target = event.target as HTMLInputElement;
+    target.value = defaultValue.toString();
+
+    const min = parseFloat(target.min || '0');
+    const max = parseFloat(target.max || '100');
+    const progress = (parseFloat(target.value) - min) / (max - min || 1);
+    target.style.setProperty('--slider-progress', progress.toString());
+    target.dispatchEvent(new Event('input'));
+    target.dispatchEvent(new Event('change'));
+  });
+}
+
 function closeModal(): void {
   hideAllModals();
   editingIndex = null;
 }
+
 function hideAllModals(): void {
   if (addModal) addModal.classList.remove('active');
   if (chooseTypeModal) chooseTypeModal.classList.remove('active');
@@ -3132,6 +3168,10 @@ function initAllEventBindings() {
       }
     });
   }
+  applyMagneticSnap('displayScaleSlider', 100, 5);
+  applyMagneticSnap('shortcutRadiusSlider', 0, 5);
+  applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
+  applyMagneticSnap('wallpaper-overlay-slider', 0.2, 0.05);
 }
 
 async function initDeferred() {
