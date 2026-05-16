@@ -25,3 +25,23 @@ function getSelectTarget(event: Event): HTMLSelectElement | null {
 function getInputById(id: string): HTMLInputElement | null {
   return getById<HTMLInputElement>(id);
 }
+
+function sanitizeUrl(url: string | null | undefined): string {
+  if (!url) return '#';
+
+  // Remove control characters and whitespace that might bypass protocol checks
+  const cleanStr = url.replace(/[\x00-\x1F\x7F-\x9F\s]/g, '');
+  if (cleanStr.toLowerCase().startsWith('javascript:')) {
+    return '#';
+  }
+
+  try {
+    const parsed = new URL(url, window.location.href);
+    if (parsed.protocol.toLowerCase() === 'javascript:') {
+      return '#';
+    }
+    return url;
+  } catch (e) {
+    return url;
+  }
+}

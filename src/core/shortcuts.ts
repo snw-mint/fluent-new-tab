@@ -193,7 +193,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     if (itemData.id) item.dataset.id = itemData.id;
 
     const card = item.querySelector('.shortcut-card') as HTMLAnchorElement;
-    card.href = isFolder ? '#' : itemData.url || '#';
+    card.href = isFolder ? '#' : sanitizeUrl(itemData.url);
 
     if (isFolder) {
       card.style.display = 'flex';
@@ -260,7 +260,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     const titleLink = item.querySelector(
       '.shortcut-title',
     ) as HTMLAnchorElement;
-    titleLink.href = isFolder ? '#' : itemData.url || '#';
+    titleLink.href = isFolder ? '#' : sanitizeUrl(itemData.url);
     titleLink.textContent = itemData.name;
     titleLink.dataset.action = isFolder
       ? 'open-folder-title'
