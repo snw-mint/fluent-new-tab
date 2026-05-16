@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Змінити розмір екрана"
   },
+  "emojiTypeLabel": {
+    "message": "Тип емодзі"
+  },
+  "TypeStatic": {
+    "message": " Статичний"
+  },
+  "TypeAnimated": {
+    "message": "Анімований"
+  },
   "showSecondsLabel": {
     "message": "Показати секунди"
   },
