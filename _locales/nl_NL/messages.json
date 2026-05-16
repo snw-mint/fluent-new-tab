@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
-  "wallpaperSourceLabel": {
-    "message": "Afbeeldingsbron"
-  },
   "nosourceOption": {
     "message": "Geen bron"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Weer"
   },
+  "locationLabel": {
+    "message": "Locatie"
+  },
   "useFahrenheitLabel": {
     "message": "Fahrenheit gebruiken"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 rijen"
   },
-  "rowsLabel": {
-    "message": "Rijen"
-  },
   "rows3": {
     "message": "3 rijen"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "App-starter"
   },
-  "ecosystemLabel": {
-    "message": "Ecosysteem"
-  },
   "searchTitle": {
     "message": "Zoeken"
-  },
-  "searchBarStyleLabe": {
-    "message": "Stijl van de zoekbalk"
   },
   "searchStyleFull": {
     "message": "Volledige breedte"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Taal"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Interfacetaal"
   },
   "backupTitle": {
     "message": "Gegevensback-up"
