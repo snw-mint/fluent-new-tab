@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Ekran Boyutunu Değiştir"
   },
+  "emojiTypeLabel": {
+    "message": "Emoji Türü"
+  },
+  "TypeStatic": {
+    "message": " Statik"
+  },
+  "TypeAnimated": {
+    "message": "Animasyonlu"
+  },
   "showSecondsLabel": {
     "message": "Saniyeleri göster"
   },
