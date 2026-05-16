@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "화면 크기 조정"
   },
+  "emojiTypeLabel": {
+    "message": "이모지 유형"
+  },
+  "TypeStatic": {
+    "message": " 정적"
+  },
+  "TypeAnimated": {
+    "message": "애니메이션"
+  },
   "showSecondsLabel": {
     "message": "초 표시"
   },

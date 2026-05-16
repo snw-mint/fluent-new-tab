@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Anzeigeanpassung"
   },
+  "emojiTypeLabel": {
+    "message": "Emoji-Typ"
+  },
+  "TypeStatic": {
+    "message": " Statisch"
+  },
+  "TypeAnimated": {
+    "message": "Animiert"
+  },
   "showSecondsLabel": {
     "message": "Sekunden anzeigen"
   },

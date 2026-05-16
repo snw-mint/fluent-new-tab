@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Zmień rozmiar wyświetlacza"
   },
+  "emojiTypeLabel": {
+    "message": "Rodzaj emoji"
+  },
+  "TypeStatic": {
+    "message": " Statyczne"
+  },
+  "TypeAnimated": {
+    "message": "Animowane"
+  },
   "showSecondsLabel": {
     "message": "Pokaż sekundy"
   },

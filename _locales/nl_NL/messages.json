@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Weergaveschaal"
   },
+  "emojiTypeLabel": {
+    "message": "Type emoji"
+  },
+  "TypeStatic": {
+    "message": " Statisch"
+  },
+  "TypeAnimated": {
+    "message": "Geanimeerd"
+  },
   "showSecondsLabel": {
     "message": "Seconden weergeven"
   },

@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Redimensionare afișaj"
   },
+  "emojiTypeLabel": {
+    "message": "Tipul de emoji"
+  },
+  "TypeStatic": {
+    "message": " Static"
+  },
+  "TypeAnimated": {
+    "message": "Animat"
+  },
   "showSecondsLabel": {
     "message": "Afișează secundele"
   },

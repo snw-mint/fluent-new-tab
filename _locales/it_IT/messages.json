@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Ridimensiona lo schermo"
   },
+  "emojiTypeLabel": {
+    "message": "Tipo di emoji"
+  },
+  "TypeStatic": {
+    "message": " Statico"
+  },
+  "TypeAnimated": {
+    "message": "Animato"
+  },
   "showSecondsLabel": {
     "message": "Mostra i secondi"
   },

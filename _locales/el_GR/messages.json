@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Αλλαγή μεγέθους οθόνης"
   },
+  "emojiTypeLabel": {
+    "message": "Τύπος emoji"
+  },
+  "TypeStatic": {
+    "message": " Στατική"
+  },
+  "TypeAnimated": {
+    "message": "Κινούμενα σχέδια"
+  },
   "showSecondsLabel": {
     "message": "Εμφάνιση δευτερολέπτων"
   },

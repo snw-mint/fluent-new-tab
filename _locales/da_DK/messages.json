@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Skærmskalering"
   },
+  "emojiTypeLabel": {
+    "message": "Emoji-type"
+  },
+  "TypeStatic": {
+    "message": " Statisk"
+  },
+  "TypeAnimated": {
+    "message": "Animeret"
+  },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },

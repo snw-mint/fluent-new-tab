@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Näytön skaalaus"
   },
+  "emojiTypeLabel": {
+    "message": "Emoji-tyyppi"
+  },
+  "TypeStatic": {
+    "message": " Staattinen"
+  },
+  "TypeAnimated": {
+    "message": "Animoitu"
+  },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },

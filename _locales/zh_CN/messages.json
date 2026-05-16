@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "显示缩放"
   },
+  "emojiTypeLabel": {
+    "message": "表情符号类型"
+  },
+  "TypeStatic": {
+    "message": " 静态"
+  },
+  "TypeAnimated": {
+    "message": "动画"
+  },
   "showSecondsLabel": {
     "message": "显示秒数"
   },
