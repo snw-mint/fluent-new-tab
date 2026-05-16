@@ -126,7 +126,7 @@ function saveBlankSheet() {
   localStorage.setItem('launcherEnabled', 'true');
   localStorage.setItem('wallpaperEnabled', 'false');
   localStorage.setItem('weatherEnabled', 'false');
-  localStorage.setItem('reducedEffectsEnabled', 'true');
+  localStorage.setItem('reducedEffectsEnabled', 'false');
   localStorage.setItem('showGreeting', 'false');
 }
 
@@ -344,10 +344,7 @@ function initWidgetToggles() {
     const selectEl = document.getElementById(select);
     if (!toggleEl || !selectEl) return;
 
-    const isEnabled =
-      localStorage.getItem(storage) !== 'false' &&
-      (storage !== 'launcherEnabled' ||
-        localStorage.getItem(storage) === 'true');
+    const isEnabled = localStorage.getItem(storage) !== 'false';
 
     toggleEl.checked = isEnabled;
     selectEl.disabled = !isEnabled;
