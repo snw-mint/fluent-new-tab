@@ -151,12 +151,53 @@ function minifyHtmlFile(filePath) {
   }
 }
 
+function minifyHtmlDir(dir) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      minifyHtmlDir(full);
+    } else if (extname(entry) === '.html') {
+      minifyHtmlFile(full);
+    }
+  }
+}
+
+function minifyCssFile(filePath) {
+  try {
+    let css = readFileSync(filePath, 'utf8');
+    css = css.replace(/\/\*[\s\S]*?\*\//g, ''); // Remove comentários
+    css = css.replace(/\s+/g, ' '); // Colapsa quebras de linha e espaços extras
+    css = css.replace(/\s*([\{\}\:\;\,])\s*/g, '$1'); // Remove espaços em volta de caracteres de sintaxe
+    css = css.replace(/;\}/g, '}'); // Remove o último ponto-e-vírgula antes de fechar a chave
+    css = css.trim();
+
+    writeFileSync(filePath, css, 'utf8');
+    console.log(`  ✔ CSS minified: ${relative(dist, filePath)}`);
+  } catch (e) {
+    console.warn(
+      `  ⚠ Could not minify CSS: ${relative(dist, filePath)} — ${e.message}`,
+    );
+  }
+}
+
+function minifyCssDir(dir) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      minifyCssDir(full);
+    } else if (extname(entry) === '.css') {
+      minifyCssFile(full);
+    }
+  }
+}
+
 // Minify index.html
 minifyHtmlFile(resolve(dist, 'index.html'));
 
 // Minify HTML files in setup/ (if any)
 if (existsSync(resolve(dist, 'setup'))) {
   minifyHtmlDir(resolve(dist, 'setup'));
+  minifyCssDir(resolve(dist, 'setup'));
 }
 
 console.log('\n✅ Release build complete.');
