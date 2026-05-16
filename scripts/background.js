@@ -73,7 +73,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         fluent_city_lat: message.lat,
         fluent_city_lon: message.lon,
       });
-      chrome.alarms.create('weatherAlertsFetch', { periodInMinutes: 300 });
+      // Calibrado para checar a cada 3 horas (180 min)
+      chrome.alarms.create('weatherAlertsFetch', { periodInMinutes: 180 });
       fetchAndEvaluateAlerts(message.lat, message.lon);
     } else {
       chrome.alarms.clear('weatherAlertsFetch');
@@ -94,8 +95,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 
 async function fetchAndEvaluateAlerts(lat, lon) {
   try {
-    const climateUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,windgusts_10m,weathercode,uv_index&timezone=auto&forecast_days=1`;
-    const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,olive_pollen,ragweed_pollen&timezone=auto&forecast_days=1`;
+    const climateUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,windgusts_10m,weathercode,uv_index&timezone=auto&forecast_days=2`;
+    const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,olive_pollen,ragweed_pollen&timezone=auto&forecast_days=2`;
 
     const [climateRes, airRes] = await Promise.all([
       fetch(climateUrl).then((res) => res.json()),
@@ -103,8 +104,8 @@ async function fetchAndEvaluateAlerts(lat, lon) {
     ]);
 
     const hourIndex = new Date().getHours();
-    const futureHours = 8;
-    const endIndex = Math.min(hourIndex + futureHours, 23);
+    const futureHours = 14;
+    const endIndex = hourIndex + futureHours;
 
     let activeAlert = null;
 
@@ -113,28 +114,32 @@ async function fetchAndEvaluateAlerts(lat, lon) {
     const minTemp = Math.min(...temps);
     const currentTemp = temps[0];
 
-    if (currentTemp - minTemp >= 7) {
-      activeAlert = { type: 'temp_drop', value: minTemp };
-    } else if (maxTemp - currentTemp >= 7) {
-      activeAlert = { type: 'temp_rise', value: maxTemp };
+    if (currentTemp - minTemp >= 5) {
+      activeAlert = { type: 'temp_drop', value: Math.round(minTemp) };
+    } else if (maxTemp - currentTemp >= 5) {
+      activeAlert = { type: 'temp_rise', value: Math.round(maxTemp) };
     }
 
     if (!activeAlert) {
       const uvIndexes = climateRes.hourly.uv_index.slice(hourIndex, endIndex);
       const maxUv = Math.max(...uvIndexes);
-      if (maxUv >= 8) activeAlert = { type: 'uv_high', value: maxUv };
+      if (maxUv >= 6)
+        activeAlert = { type: 'uv_high', value: Math.round(maxUv) };
     }
 
     if (!activeAlert) {
       const codes = climateRes.hourly.weathercode.slice(hourIndex, endIndex);
-      const hasStorm = codes.some((code) => [95, 96, 99].includes(code));
+      const hasStorm = codes.some((code) =>
+        [65, 75, 95, 96, 99].includes(code),
+      );
       if (hasStorm) activeAlert = { type: 'storm', value: null };
     }
 
     if (!activeAlert) {
       const gusts = climateRes.hourly.windgusts_10m.slice(hourIndex, endIndex);
       const maxGust = Math.max(...gusts);
-      if (maxGust >= 60) activeAlert = { type: 'wind_high', value: maxGust };
+      if (maxGust >= 45)
+        activeAlert = { type: 'wind_high', value: Math.round(maxGust) };
     }
 
     if (!activeAlert && airRes.hourly) {
@@ -150,7 +155,7 @@ async function fetchAndEvaluateAlerts(lat, lon) {
         if (!airRes.hourly[pollen]) continue;
         const values = airRes.hourly[pollen].slice(hourIndex, endIndex);
         const maxPollen = Math.max(...values);
-        if (maxPollen > 50) {
+        if (maxPollen >= 25) {
           activeAlert = { type: 'pollen_high', value: pollen };
           break;
         }
