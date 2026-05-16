@@ -1012,7 +1012,7 @@ function setCollapsible(
 function updateOverlaySliderProgress(slider: HTMLInputElement): void {
   const value = parseFloat(slider.value);
   const min = parseFloat(slider.min || '0');
-  const max = parseFloat(slider.max || '1');
+  const max = parseFloat(slider.max || '0.9');
   const range = max - min || 1;
   const progress = (value - min) / range;
   slider.style.setProperty('--slider-progress', `${progress}`);
