@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Điều chỉnh kích thước màn hình"
   },
+  "emojiTypeLabel": {
+    "message": "Loại biểu tượng cảm xúc"
+  },
+  "TypeStatic": {
+    "message": " Tĩnh"
+  },
+  "TypeAnimated": {
+    "message": "Hoạt hình"
+  },
   "showSecondsLabel": {
     "message": "Hiển thị giây"
   },
