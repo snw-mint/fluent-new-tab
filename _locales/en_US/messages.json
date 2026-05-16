@@ -25,6 +25,7 @@
   "dateNumeric": { "message": "Numeric" },
   "dateWeekday": { "message": "Weekday" },
   "weatherTitle": { "message": "Weather" },
+  "locationLabel": { "message": "Location" },
   "useFahrenheitLabel": { "message": "Use Fahrenheit" },
   "weatherAlertsLabel": { "message": "Weather alerts" },
   "shortcutsTitle": { "message": "Shortcuts" },
