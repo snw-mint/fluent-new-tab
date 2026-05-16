@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Sfondo"
   },
-  "wallpaperSourceLabel": {
-    "message": "Sorgente immagine"
-  },
   "nosourceOption": {
     "message": "Nessuna fonte"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Meteo"
   },
+  "locationLabel": {
+    "message": "Lieu"
+  },
   "useFahrenheitLabel": {
     "message": "Usa i gradi Fahrenheit"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 righe"
   },
-  "rowsLabel": {
-    "message": "Righe"
-  },
   "rows3": {
     "message": "3 righe"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Launcher applicazioni"
   },
-  "ecosystemLabel": {
-    "message": "Ecosistema"
-  },
   "searchTitle": {
     "message": "Cerca"
-  },
-  "searchBarStyleLabe": {
-    "message": "Stile della barra di ricerca"
   },
   "searchStyleFull": {
     "message": "A tutta larghezza"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Lingua"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Lingua dell'interfaccia"
   },
   "backupTitle": {
     "message": "Backup dei dati"
