@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "배경화면"
   },
-  "wallpaperSourceLabel": {
-    "message": "이미지 출처"
-  },
   "nosourceOption": {
     "message": "출처 없음"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "날씨"
   },
+  "locationLabel": {
+    "message": "위치"
+  },
   "useFahrenheitLabel": {
     "message": "화씨 단위 사용"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2줄"
   },
-  "rowsLabel": {
-    "message": "줄"
-  },
   "rows3": {
     "message": "3줄"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "앱 실행기"
   },
-  "ecosystemLabel": {
-    "message": "생태계"
-  },
   "searchTitle": {
     "message": "검색"
-  },
-  "searchBarStyleLabe": {
-    "message": "검색창 스타일"
   },
   "searchStyleFull": {
     "message": "전체 너비"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "언어"
-  },
-  "interfaceLanguageLabel": {
-    "message": "인터페이스 언어"
   },
   "backupTitle": {
     "message": "데이터 백업"
