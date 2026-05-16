@@ -123,7 +123,7 @@ function saveBlankSheet() {
   localStorage.setItem('displayEnabled', 'false');
   localStorage.setItem('searchBarVisible', 'false');
   localStorage.setItem('shortcutsVisible', 'false');
-  localStorage.setItem('launcherEnabled', 'true');
+  localStorage.setItem('launcherEnabled', 'false');
   localStorage.setItem('wallpaperEnabled', 'false');
   localStorage.setItem('weatherEnabled', 'false');
   localStorage.setItem('reducedEffectsEnabled', 'false');
