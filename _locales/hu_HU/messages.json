@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
-  "wallpaperSourceLabel": {
-    "message": "Kép forrása"
-  },
   "nosourceOption": {
     "message": "Forrás nélkül"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Időjárás"
   },
+  "locationLabel": {
+    "message": "Helyszín"
+  },
   "useFahrenheitLabel": {
     "message": "Fahrenheit-skálát használjon"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 sor"
   },
-  "rowsLabel": {
-    "message": "Sorok"
-  },
   "rows3": {
     "message": "3 sor"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Alkalmazásindító"
   },
-  "ecosystemLabel": {
-    "message": "Ökoszisztéma"
-  },
   "searchTitle": {
     "message": "Keresés"
-  },
-  "searchBarStyleLabe": {
-    "message": "Keresősáv stílusa"
   },
   "searchStyleFull": {
     "message": "Teljes szélesség"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Nyelv"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Felület nyelve"
   },
   "backupTitle": {
     "message": "Adatmentés"
