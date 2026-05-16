@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Baggrund"
   },
-  "wallpaperSourceLabel": {
-    "message": "Billedkilde"
-  },
   "nosourceOption": {
     "message": "Ingen kilde"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Vejr"
   },
+  "locationLabel": {
+    "message": "Placering"
+  },
   "useFahrenheitLabel": {
     "message": "Brug fahrenheit"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 rækker"
   },
-  "rowsLabel": {
-    "message": "Rækker"
-  },
   "rows3": {
     "message": "3 rækker"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "App-starter"
   },
-  "ecosystemLabel": {
-    "message": "Økosystem"
-  },
   "searchTitle": {
     "message": "Søgning"
-  },
-  "searchBarStyleLabe": {
-    "message": "Søgefeltets stil"
   },
   "searchStyleFull": {
     "message": "Fuld bredde"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Sprog"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Sprog for brugerflade"
   },
   "backupTitle": {
     "message": "Sikkerhedskopiering"
