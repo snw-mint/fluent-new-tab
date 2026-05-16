@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "桌布"
   },
-  "wallpaperSourceLabel": {
-    "message": "圖片來源"
-  },
   "nosourceOption": {
     "message": "無來源"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "天氣"
   },
+  "locationLabel": {
+    "message": "地點"
+  },
   "useFahrenheitLabel": {
     "message": "使用華氏度"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 列"
   },
-  "rowsLabel": {
-    "message": "列數"
-  },
   "rows3": {
     "message": "3 列"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "應用程式啟動器"
   },
-  "ecosystemLabel": {
-    "message": "生態系"
-  },
   "searchTitle": {
     "message": "搜尋"
-  },
-  "searchBarStyleLabe": {
-    "message": "搜尋列樣式"
   },
   "searchStyleFull": {
     "message": "全寬"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "語言"
-  },
-  "interfaceLanguageLabel": {
-    "message": "介面語言"
   },
   "backupTitle": {
     "message": "資料備份"
