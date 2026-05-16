@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "表示サイズを変更"
   },
+  "emojiTypeLabel": {
+    "message": "絵文字の種類"
+  },
+  "TypeStatic": {
+    "message": " 静的"
+  },
+  "TypeAnimated": {
+    "message": "アニメーション"
+  },
   "showSecondsLabel": {
     "message": "秒を表示"
   },
