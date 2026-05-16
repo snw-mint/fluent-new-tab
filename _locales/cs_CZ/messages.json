@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Tapeta"
   },
-  "wallpaperSourceLabel": {
-    "message": "Zdroj obrázku"
-  },
   "nosourceOption": {
     "message": "Žádný zdroj"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Počasí"
   },
+  "locationLabel": {
+    "message": "Umístění"
+  },
   "useFahrenheitLabel": {
     "message": "Použít stupně Fahrenheita"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 řádky"
   },
-  "rowsLabel": {
-    "message": "Řádky"
-  },
   "rows3": {
     "message": "3 řádky"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Spouštěč aplikací"
   },
-  "ecosystemLabel": {
-    "message": "Ekosystém"
-  },
   "searchTitle": {
     "message": "Vyhledávání"
-  },
-  "searchBarStyleLabe": {
-    "message": "Styl vyhledávacího pole"
   },
   "searchStyleFull": {
     "message": "Plná šířka"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Jazyk"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Jazyk rozhraní"
   },
   "backupTitle": {
     "message": "Zálohování dat"
