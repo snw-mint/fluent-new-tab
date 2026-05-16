@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
-  "wallpaperSourceLabel": {
-    "message": "Source ng Image"
-  },
   "nosourceOption": {
     "message": "Walang source"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Weather"
   },
+  "locationLabel": {
+    "message": "Location"
+  },
   "useFahrenheitLabel": {
     "message": "Gamitin ang Fahrenheit"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 Rows"
   },
-  "rowsLabel": {
-    "message": "Rows"
-  },
   "rows3": {
     "message": "3 Rows"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "App Launcher"
   },
-  "ecosystemLabel": {
-    "message": "Ecosystem"
-  },
   "searchTitle": {
     "message": "Search"
-  },
-  "searchBarStyleLabe": {
-    "message": "Style ng Search bar"
   },
   "searchStyleFull": {
     "message": "Full width"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Language"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Interface Language"
   },
   "backupTitle": {
     "message": "Data Backup"
