@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Шпалери"
   },
-  "wallpaperSourceLabel": {
-    "message": "Джерело зображення"
-  },
   "nosourceOption": {
     "message": "Джерело відсутнє"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Погода"
   },
+  "locationLabel": {
+    "message": "Місцезнаходження"
+  },
   "useFahrenheitLabel": {
     "message": "Використовувати Фаренгейт"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 рядки"
   },
-  "rowsLabel": {
-    "message": "Рядки"
-  },
   "rows3": {
     "message": "3 рядки"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Лаунчер додатків"
   },
-  "ecosystemLabel": {
-    "message": "Екосистема"
-  },
   "searchTitle": {
     "message": "Пошук"
-  },
-  "searchBarStyleLabe": {
-    "message": "Стиль рядка пошуку"
   },
   "searchStyleFull": {
     "message": "На всю ширину"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Мова"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Мова інтерфейсу"
   },
   "backupTitle": {
     "message": "Резервне копіювання даних"
