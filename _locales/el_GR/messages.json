@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
-  "wallpaperSourceLabel": {
-    "message": "Πηγή εικόνας"
-  },
   "nosourceOption": {
     "message": "Χωρίς πηγή"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Καιρός"
   },
+  "locationLabel": {
+    "message": "Τοποθεσία"
+  },
   "useFahrenheitLabel": {
     "message": "Χρήση Φαρενάιτ"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 σειρές"
   },
-  "rowsLabel": {
-    "message": "Σειρές"
-  },
   "rows3": {
     "message": "3 σειρές"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Εκκινητής εφαρμογών"
   },
-  "ecosystemLabel": {
-    "message": "Οικοσύστημα"
-  },
   "searchTitle": {
     "message": "Αναζήτηση"
-  },
-  "searchBarStyleLabe": {
-    "message": "Στυλ γραμμής αναζήτησης"
   },
   "searchStyleFull": {
     "message": "Πλήρες πλάτος"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Γλώσσα"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Γλώσσα διεπαφής"
   },
   "backupTitle": {
     "message": "Δημιουργία αντιγράφων ασφαλείας"

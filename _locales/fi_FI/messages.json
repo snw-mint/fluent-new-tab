@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
-  "wallpaperSourceLabel": {
-    "message": "Kuvan lähde"
-  },
   "nosourceOption": {
     "message": "Ei lähdettä"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Sää"
   },
+  "locationLabel": {
+    "message": "Sijainti"
+  },
   "useFahrenheitLabel": {
     "message": "Käytä Fahrenheiteja"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 riviä"
   },
-  "rowsLabel": {
-    "message": "Rivit"
-  },
   "rows3": {
     "message": "3 riviä"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Sovelluskäynnistin"
   },
-  "ecosystemLabel": {
-    "message": "Ekosysteemi"
-  },
   "searchTitle": {
     "message": "Haku"
-  },
-  "searchBarStyleLabe": {
-    "message": "Hakupalkin tyyli"
   },
   "searchStyleFull": {
     "message": "Koko leveys"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Kieli"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Käyttöliittymän kieli"
   },
   "backupTitle": {
     "message": "Tietojen varmuuskopiointi"

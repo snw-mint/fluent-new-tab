@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "壁紙"
   },
-  "wallpaperSourceLabel": {
-    "message": "画像ソース"
-  },
   "nosourceOption": {
     "message": "出典なし"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "天気"
   },
+  "locationLabel": {
+    "message": "場所"
+  },
   "useFahrenheitLabel": {
     "message": "華氏を使用する"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2行"
   },
-  "rowsLabel": {
-    "message": "行"
-  },
   "rows3": {
     "message": "3行"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "アプリランチャー"
   },
-  "ecosystemLabel": {
-    "message": "エコシステム"
-  },
   "searchTitle": {
     "message": "検索"
-  },
-  "searchBarStyleLabe": {
-    "message": "検索バーのスタイル"
   },
   "searchStyleFull": {
     "message": "全幅"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "言語"
-  },
-  "interfaceLanguageLabel": {
-    "message": "インターフェース言語"
   },
   "backupTitle": {
     "message": "データバックアップ"

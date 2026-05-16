@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "壁纸"
   },
-  "wallpaperSourceLabel": {
-    "message": "图片来源"
-  },
   "nosourceOption": {
     "message": "无"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "天气"
   },
+  "locationLabel": {
+    "message": "位置"
+  },
   "useFahrenheitLabel": {
     "message": "使用华氏度"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 行"
   },
-  "rowsLabel": {
-    "message": "行数"
-  },
   "rows3": {
     "message": "3 行"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "应用启动器"
   },
-  "ecosystemLabel": {
-    "message": "生态系统"
-  },
   "searchTitle": {
     "message": "搜索"
-  },
-  "searchBarStyleLabe": {
-    "message": "搜索栏样式"
   },
   "searchStyleFull": {
     "message": "全宽"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "语言"
-  },
-  "interfaceLanguageLabel": {
-    "message": "界面语言"
   },
   "backupTitle": {
     "message": "数据备份"

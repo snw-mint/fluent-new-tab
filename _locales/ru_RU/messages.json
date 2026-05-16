@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Обои"
   },
-  "wallpaperSourceLabel": {
-    "message": "Источник изображения"
-  },
   "nosourceOption": {
     "message": "Источник отсутствует"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Погода"
   },
+  "locationLabel": {
+    "message": "Местоположение"
+  },
   "useFahrenheitLabel": {
     "message": "Используйте градусы по Фаренгейту"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 строки"
   },
-  "rowsLabel": {
-    "message": "Строки"
-  },
   "rows3": {
     "message": "3 строки"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Лаунчер приложений"
   },
-  "ecosystemLabel": {
-    "message": "Экосистема"
-  },
   "searchTitle": {
     "message": "Поиск"
-  },
-  "searchBarStyleLabe": {
-    "message": "Стиль строки поиска"
   },
   "searchStyleFull": {
     "message": "На всю ширину"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Язык"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Язык интерфейса"
   },
   "backupTitle": {
     "message": "Резервное копирование данных"

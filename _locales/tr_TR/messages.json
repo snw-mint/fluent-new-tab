@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
-  "wallpaperSourceLabel": {
-    "message": "Görsel Kaynağı"
-  },
   "nosourceOption": {
     "message": "Kaynak yok"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Hava durumu"
   },
+  "locationLabel": {
+    "message": "Konum"
+  },
   "useFahrenheitLabel": {
     "message": "Fahrenheit kullanın"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 Satır"
   },
-  "rowsLabel": {
-    "message": "Satırlar"
-  },
   "rows3": {
     "message": "3 Satır"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Uygulama Başlatıcı"
   },
-  "ecosystemLabel": {
-    "message": "Ekosistem"
-  },
   "searchTitle": {
     "message": "Arama"
-  },
-  "searchBarStyleLabe": {
-    "message": "Arama çubuğu stili"
   },
   "searchStyleFull": {
     "message": "Tam genişlik"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Dil"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Arayüz Dili"
   },
   "backupTitle": {
     "message": "Veri Yedekleme"

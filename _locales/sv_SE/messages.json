@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Bakgrundsbild"
   },
-  "wallpaperSourceLabel": {
-    "message": "Bildkälla"
-  },
   "nosourceOption": {
     "message": "Ingen källa"
   },
@@ -80,6 +77,9 @@
   "weatherTitle": {
     "message": "Väder"
   },
+  "locationLabel": {
+    "message": "Plats"
+  },
   "useFahrenheitLabel": {
     "message": "Använd Fahrenheit"
   },
@@ -107,9 +107,6 @@
   "rows2": {
     "message": "2 rader"
   },
-  "rowsLabel": {
-    "message": "Rader"
-  },
   "rows3": {
     "message": "3 rader"
   },
@@ -119,14 +116,8 @@
   "appLauncherTitle": {
     "message": "Launcher för appar"
   },
-  "ecosystemLabel": {
-    "message": "Ekosystem"
-  },
   "searchTitle": {
     "message": "Sök"
-  },
-  "searchBarStyleLabe": {
-    "message": "Stil på sökfältet"
   },
   "searchStyleFull": {
     "message": "Full bredd"
@@ -157,9 +148,6 @@
   },
   "languageTitle": {
     "message": "Språk"
-  },
-  "interfaceLanguageLabel": {
-    "message": "Gränssnittsspråk"
   },
   "backupTitle": {
     "message": "Säkerhetskopiering av data"
