@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "A kijelző méretének módosítása"
   },
+  "emojiTypeLabel": {
+    "message": "Emoji típus"
+  },
+  "TypeStatic": {
+    "message": " Statikus"
+  },
+  "TypeAnimated": {
+    "message": "Animált"
+  },
   "showSecondsLabel": {
     "message": "Másodpercek megjelenítése"
   },
