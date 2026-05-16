@@ -56,6 +56,15 @@
   "displayScaleLabel": {
     "message": "Redimensionar Display"
   },
+  "emojiTypeLabel": {
+    "message": "Tipo de emoji"
+  },
+  "TypeStatic": {
+    "message": " Estático"
+  },
+  "TypeAnimated": {
+    "message": "Animado"
+  },
   "showSecondsLabel": {
     "message": "Mostrar segundos"
   },
@@ -201,7 +210,7 @@
     "message": "Pesquisar na web"
   },
   "namePlaceholder": {
-    "message": "Seu nome (opcional)"
+    "message": "ex: John (opcional)"
   },
   "cityPlaceholder": {
     "message": "Sua cidade"
@@ -306,7 +315,7 @@
     "message": "Veja o projeto no GitHub."
   },
   "wizardRestoreError": {
-    "message": "Desculpe, o arquivo *.json usado está inválido ou corrompido."
+    "message": "Desculpe, o arquivo *.json usado é inválido ou está corrompido."
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
