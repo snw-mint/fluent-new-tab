@@ -173,8 +173,6 @@ html[data-theme='dark'] {
   }
 
   .input-row button {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.1);
     color: $color-accent-contrast;
   }
 
@@ -403,10 +401,6 @@ html[data-theme='dark'] {
       background-color: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.1);
     }
-  }
-
-  input[type='range'].fluent-slider::-webkit-slider-thumb {
-    border-color: #2b2b2b;
   }
 
   .suggestions-open {

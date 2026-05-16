@@ -116,7 +116,6 @@ html[data-early-wallpaper='true'] body {
 }
 
 .search-btn svg,
-.backup-btn svg,
 .folder-back-btn svg,
 .shortcut-item[data-type='folder'] .shortcut-card > svg {
   width: 1.35rem !important;
@@ -124,7 +123,7 @@ html[data-early-wallpaper='true'] body {
 }
 
 .add-card-wrapper .shortcut-card svg {
-  width: 1.575rem !important; /* ~28px */
+  width: 1.575rem !important;
   height: 1.575rem !important;
 }
 

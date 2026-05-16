@@ -306,33 +306,18 @@
 
 #uploadWallpaperContainer {
   width: 100%;
-  margin-top: 0.2rem;
+  margin-top: 0.45rem;
 
   .backup-btn {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0.35rem 0.675rem;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0.3rem 0.675rem;
     width: 100%;
-    height: 1.6rem;
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: none;
 
     svg {
-      width: 0.9rem;
-      height: 0.9rem;
+      width: 1rem;
+      height: 1rem;
       flex-shrink: 0;
-    }
-
-    span {
-      font-size: 0.675rem;
-      font-weight: 500;
-    }
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.06);
-      border-color: rgba(0, 0, 0, 0.1);
     }
   }
 }
@@ -732,6 +717,8 @@
     transition: all 0.2s ease;
 
     svg {
+      width: 1.35rem;
+      height: 1.35rem;
       opacity: 0.8;
     }
 
@@ -807,7 +794,7 @@ input[type='range'].fluent-slider {
   );
 
   outline: none;
-  margin: 0.45rem 0;
+  margin: 1rem 0;
 }
 
 input[type='range'].fluent-slider::-webkit-slider-thumb {
@@ -827,12 +814,10 @@ input[type='range'].fluent-slider::-webkit-slider-thumb {
 
 input[type='range'].fluent-slider::-webkit-slider-thumb:hover {
   border-width: 0.225rem;
-  transform: scale(1.15);
 }
 
 input[type='range'].fluent-slider::-webkit-slider-thumb:active {
   border-width: 0.225rem;
-  transform: scale(1.15);
 }
 
 input[type='range'].fluent-slider::-moz-range-thumb {
@@ -851,12 +836,10 @@ input[type='range'].fluent-slider::-moz-range-thumb {
 
 input[type='range'].fluent-slider::-moz-range-thumb:hover {
   border-width: 0.225rem;
-  transform: scale(1.15);
 }
 
 input[type='range'].fluent-slider::-moz-range-thumb:active {
   border-width: 0.225rem;
-  transform: scale(1.15);
 }
 
 input[type='range'].fluent-slider::-moz-range-track {
@@ -879,24 +862,6 @@ body:not([data-wallpaper-active='true']) {
 
     input {
       pointer-events: none;
-    }
-  }
-}
-
-#uploadWallpaperContainer {
-  width: 100%;
-  margin-top: 0.45rem;
-
-  .backup-btn {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 0.45rem 0.675rem;
-    width: 100%;
-
-    svg {
-      width: 1.125rem;
-      height: 1.125rem;
-      flex-shrink: 0;
     }
   }
 }
