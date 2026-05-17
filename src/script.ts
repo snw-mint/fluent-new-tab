@@ -2741,12 +2741,6 @@ function initAllEventBindings() {
 
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
-  [addModal, chooseTypeModal, addFolderModal].forEach((modal) => {
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  });
-
   initCustomIconToggle();
   initFolderCustomIconToggle();
 
