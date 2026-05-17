@@ -8,20 +8,6 @@ body:
       value: |
         Thanks for suggesting a new feature! Please fill in the details below.
 
-  - type: dropdown
-    id: browser
-    attributes:
-      label: Browser
-      description: Is this feature request specific to a browser? Select all that apply or choose "All browsers".
-      options:
-        - All browsers
-        - Microsoft Edge
-        - Mozilla Firefox
-        - Google Chrome
-        - Other Chromium-based
-    validations:
-      required: true
-
   - type: textarea
     id: description
     attributes:
