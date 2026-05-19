@@ -18,6 +18,7 @@ interface ChromeLike {
   runtime: {
     getManifest: () => { version: string };
     getURL: (path: string) => string;
+    lastError?: { message?: string };
   };
   storage?: {
     local?: {
@@ -40,11 +41,11 @@ interface ChromeLike {
   };
   permissions: {
     contains: (
-      permissions: { permissions: string[] },
+      permissions: { permissions?: string[]; origins?: string[] },
       callback: (result: boolean) => void,
     ) => void;
     request: (
-      permissions: { permissions: string[] },
+      permissions: { permissions?: string[]; origins?: string[] },
       callback?: (granted: boolean) => void,
     ) => void;
   };
@@ -74,6 +75,7 @@ declare const Sortable: SortableLike;
 
 interface Window {
   getTranslation: (key: string) => string;
+  chrome?: ChromeLike;
 }
 
 type ShortcutItemType = 'link' | 'folder';

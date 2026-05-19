@@ -81,9 +81,7 @@ async function saveWallpaperToDB(
         const base64Data = await convertBlobToBase64(blob);
         return await new Promise<boolean>((resolve, reject) => {
           chrome.storage.local.set({ [keyName]: base64Data }, () => {
-            // @ts-expect-error: Bypassing incomplete local chrome.runtime typings
             if (chrome.runtime.lastError) {
-              // @ts-expect-error: Bypassing incomplete local chrome.runtime typings
               reject(new Error(chrome.runtime.lastError.message));
             } else {
               resolve(true);

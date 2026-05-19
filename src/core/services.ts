@@ -31,7 +31,7 @@ const HOST_PERMISSIONS: Record<string, string[]> = {
 
 async function checkPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
-    const chromeApi = (window as any).chrome;
+    const chromeApi = window.chrome;
     if (
       !chromeApi ||
       !chromeApi.permissions ||
@@ -59,7 +59,7 @@ async function checkPermission(origins: string[]): Promise<boolean> {
 
 async function requestPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
-    const chromeApi = (window as any).chrome;
+    const chromeApi = window.chrome;
     if (
       !chromeApi ||
       !chromeApi.permissions ||

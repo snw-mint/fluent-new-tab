@@ -73,7 +73,7 @@ function renderWeatherAlertWidget(): void {
     return;
   }
 
-  const chromeApi = (window as any).chrome;
+  const chromeApi = window.chrome;
   if (!chromeApi?.storage?.local) return;
 
   chromeApi.storage.local.get(['currentWeatherAlert'], (result: any) => {
