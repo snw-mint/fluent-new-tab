@@ -219,21 +219,24 @@ async function fetchDailyWallpaper(
       }
 
       if (pages) {
-        for (const page of Object.values<any>(pages)) {
-          if (page?.imageinfo?.[0]) {
-            imageUrl = page.imageinfo[0].thumburl || page.imageinfo[0].url;
-            creditUrl = page.imageinfo[0].descriptionurl || '';
+        for (const key in pages) {
+          if (Object.prototype.hasOwnProperty.call(pages, key)) {
+            const page = pages[key] as any;
+            if (page?.imageinfo?.[0]) {
+              imageUrl = page.imageinfo[0].thumburl || page.imageinfo[0].url;
+              creditUrl = page.imageinfo[0].descriptionurl || '';
 
-            const meta = page.imageinfo[0].extmetadata;
-            creditText = meta?.Artist?.value || 'Wikimedia Commons';
-            creditText = creditText.replace(/<[^>]*>?/gm, '');
+              const meta = page.imageinfo[0].extmetadata;
+              creditText = meta?.Artist?.value || 'Wikimedia Commons';
+              creditText = creditText.replace(/<[^>]*>?/gm, '');
 
-            const MAX_CREDIT_LENGTH = 120;
-            if (creditText.length > MAX_CREDIT_LENGTH) {
-              creditText =
-                creditText.substring(0, MAX_CREDIT_LENGTH).trim() + '...';
+              const MAX_CREDIT_LENGTH = 120;
+              if (creditText.length > MAX_CREDIT_LENGTH) {
+                creditText =
+                  creditText.substring(0, MAX_CREDIT_LENGTH).trim() + '...';
+              }
+              break;
             }
-            break;
           }
         }
       }
