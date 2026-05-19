@@ -40,9 +40,17 @@ jobs:
             --exclude "*.map" \
             --exclude ".DS_Store"
 
+          cp ../manifest-firefox.json manifest.json
+
+          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip" . \
+            --exclude "*.map" \
+            --exclude ".DS_Store"
+
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
-          files: fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip
+          files: |
+            fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip
+            fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip
           generate_release_notes: true
           draft: true
