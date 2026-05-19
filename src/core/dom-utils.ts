@@ -37,11 +37,12 @@ function sanitizeUrl(url: string | null | undefined): string {
 
   try {
     const parsed = new URL(url, window.location.href);
-    if (parsed.protocol.toLowerCase() === 'javascript:') {
+    const allowedProtocols = ['http:', 'https:', 'ftp:', 'mailto:'];
+    if (!allowedProtocols.includes(parsed.protocol.toLowerCase())) {
       return '#';
     }
     return url;
   } catch (e) {
-    return url;
+    return '#';
   }
 }
