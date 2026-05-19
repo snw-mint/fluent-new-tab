@@ -205,7 +205,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       if (itemData.customIcon) {
         const img = document.createElement('img');
         img.className = 'shortcut-icon loaded';
-        img.src = itemData.customIcon;
+        img.src = sanitizeUrl(itemData.customIcon);
         img.alt = itemData.name;
         img.style.width = '1.575rem';
         img.style.height = '1.575rem';
@@ -232,7 +232,7 @@ function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         }
       }
 
-      img.src = targetIconSrc;
+      img.src = sanitizeUrl(targetIconSrc);
 
       img.onload = function () {
         img.classList.add('loaded');
