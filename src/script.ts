@@ -2756,13 +2756,15 @@ function initAllEventBindings() {
     closeFolderModalBtn.addEventListener('click', closeModal);
 
   if (btnChooseLink) {
-    btnChooseLink.addEventListener('click', () => {
+    btnChooseLink.addEventListener('click', (e) => {
+      e.preventDefault();
       openShortcutModal(null);
     });
   }
 
   if (btnChooseFolder) {
-    btnChooseFolder.addEventListener('click', () => {
+    btnChooseFolder.addEventListener('click', (e) => {
+      e.preventDefault();
       editingIndex = null;
       openFolderModal('', false);
     });
@@ -2771,8 +2773,8 @@ function initAllEventBindings() {
   if (formFolderNode) {
     formFolderNode.addEventListener('submit', (e) => {
       e.preventDefault();
-      const folderNameInput = inputFolderName;
-      if (!folderNameInput) return;
+
+      if (!inputFolderName) return;
 
       const targetArray = shortcuts;
 
@@ -2783,23 +2785,29 @@ function initAllEventBindings() {
       ) {
         targetArray[editingIndex] = {
           ...targetArray[editingIndex],
-          name: folderNameInput.value,
+          name: inputFolderName.value,
           customIcon: inputFolderIcon?.value || null,
         };
       } else {
-        const limit = allowedRows * 10;
+        const limit = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
+
         if (targetArray.length >= limit) {
           showGridLimitWarning(limit, false);
           return;
         }
+
         targetArray.push({
           id: 'folder_' + Date.now().toString(),
           type: 'folder',
-          name: folderNameInput.value,
+          name:
+            inputFolderName.value ||
+            window.getTranslation('addFolderTitle') ||
+            'New Folder',
           customIcon: inputFolderIcon?.value || null,
           children: [],
         });
       }
+
       foldersEnabled = true;
       if (toggleFolders) toggleFolders.checked = true;
       localStorage.setItem('foldersEnabled', 'true');
