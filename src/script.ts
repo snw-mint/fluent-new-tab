@@ -22,6 +22,21 @@ function debounce<T extends unknown[]>(
   };
 }
 
+function isValidBackupPayload(data: unknown): data is BackupPayload {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    return false;
+  }
+  for (const key in data) {
+    if (Object.prototype.hasOwnProperty.call(data, key)) {
+      const value = (data as Record<string, unknown>)[key];
+      if (typeof value !== 'string') {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 function applyMagneticSnap(
   sliderId: string,
   defaultValue: number,
@@ -3104,9 +3119,13 @@ function initAllEventBindings() {
       const reader = new FileReader();
       reader.onload = (event) => {
         try {
-          const data = JSON.parse(
+          const parsedData = JSON.parse(
             String((event.target as FileReader).result || '{}'),
-          ) as BackupPayload;
+          );
+          if (!isValidBackupPayload(parsedData)) {
+            throw new Error('Invalid backup data format');
+          }
+          const data = parsedData;
           warningModal.show({
             title: getLocalizedWarningText(
               'warningRestoreBackupTitle',
