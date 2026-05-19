@@ -3082,7 +3082,17 @@ function initAllEventBindings() {
   if (exportBtn) {
     exportBtn.addEventListener('click', () => {
       const backupData: Record<string, string> = {};
+      const keysToExclude = [
+        'weatherEnabled',
+        'weatherAlertsEnabled',
+        'suggestionsEnabled',
+        'wallpaperSource',
+        'wallpaperType',
+        'wallpaperValue',
+      ];
+
       APP_KEYS.forEach((key) => {
+        if (keysToExclude.includes(key)) return;
         const value = localStorage.getItem(key);
         if (value !== null) backupData[key] = value;
       });
@@ -3142,7 +3152,17 @@ function initAllEventBindings() {
             cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
             confirmVariant: 'danger',
             onConfirm: () => {
+              const keysToExclude = [
+                'weatherEnabled',
+                'weatherAlertsEnabled',
+                'suggestionsEnabled',
+                'wallpaperSource',
+                'wallpaperType',
+                'wallpaperValue',
+              ];
+
               APP_KEYS.forEach((key) => {
+                if (keysToExclude.includes(key)) return;
                 const value = data[key];
                 if (typeof value === 'string') localStorage.setItem(key, value);
               });
