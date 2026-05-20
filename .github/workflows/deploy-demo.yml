@@ -16,11 +16,11 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  deploy-demo:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}demo/index.html
 
     steps:
       - name: Checkout repository
@@ -32,91 +32,80 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: Install and Build Extension
+      - name: Install and Build
         run: |
           npm install
           npm run build:release
 
-      - name: Assemble Demo Directory
+      - name: Inject API Mock into Script
         run: |
-          mkdir -p demo/dist
-          cp -r dist/* demo/dist/
-          cp -r assets demo/
-          cp -r _locales demo/
-
-      - name: Create and Run Mock Injector
-        run: |
-          cat << 'EOF' > inject-mock.js
+          cat << 'EOF' > patch.js
           const fs = require('fs');
           const path = require('path');
 
-          const localePath = path.join('_locales', 'en_US', 'messages.json');
-          const fallbackPath = path.join('_locales', 'en', 'messages.json');
-          let locales = {};
+          const localePath = path.join('dist', '_locales', 'en_US', 'messages.json');
+          const fallbackPath = path.join('dist', '_locales', 'en', 'messages.json');
+          const targetScript = path.join('dist', 'script.js');
 
+          let messages = {};
           if (fs.existsSync(localePath)) {
-            locales = JSON.parse(fs.readFileSync(localePath, 'utf8'));
+            messages = fs.readFileSync(localePath, 'utf8');
           } else if (fs.existsSync(fallbackPath)) {
-            locales = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
+            messages = fs.readFileSync(fallbackPath, 'utf8');
           }
 
-          const mockCode = `
+          const mock = `
             window.chrome = window.chrome || {};
-            window.chrome.runtime = {
-              getURL: (p) => p.startsWith('/') ? p.substring(1) : p,
-              lastError: null
+            window.chrome.runtime = { 
+              getURL: path => path.startsWith('/') ? path.slice(1) : path 
             };
-            
             window.chrome.storage = {
               local: {
-                get: (k, cb) => {
+                get: (keys, cb) => {
                   let res = {};
-                  (Array.isArray(k) ? k : [k]).forEach(key => {
-                    let val = localStorage.getItem('demo_' + key);
-                    if (val !== null) res[key] = JSON.parse(val);
+                  [].concat(keys).forEach(k => {
+                    let v = localStorage.getItem('fnt_mock_' + k);
+                    if (v) res[k] = JSON.parse(v);
                   });
                   if (cb) cb(res);
                 },
                 set: (items, cb) => {
-                  Object.keys(items).forEach(key => localStorage.setItem('demo_' + key, JSON.stringify(items[key])));
+                  Object.entries(items).forEach(([k, v]) => {
+                    localStorage.setItem('fnt_mock_' + k, JSON.stringify(v));
+                  });
                   if (cb) cb();
                 }
               }
             };
-            
-            const PRELOADED_LOCALES = ${JSON.stringify(locales)};
+            const PRELOADED_LOCALE = ${messages || '{}'};
             window.chrome.i18n = {
               getMessage: (key, subs) => {
-                let text = PRELOADED_LOCALES[key]?.message || '';
+                let text = PRELOADED_LOCALE[key]?.message || '';
                 if (subs) {
-                  (Array.isArray(subs) ? subs : [subs]).forEach((v, i) => {
-                    text = text.replace(new RegExp('\\\\$' + (i+1), 'g'), v);
+                  [].concat(subs).forEach((val, index) => {
+                    text = text.replace(new RegExp('\\\\$' + (index + 1), 'g'), val);
                   });
                 }
                 return text;
               }
             };
-
             setTimeout(() => document.dispatchEvent(new Event('i18nReady')), 50);
           `;
 
-          const targetScript = path.join('demo', 'dist', 'script.js');
-
-          if (!fs.existsSync(targetScript)) {
-            console.error('Build output not found at: ' + targetScript);
-            process.exit(1);
-          }
-
           const originalCode = fs.readFileSync(targetScript, 'utf8');
-          fs.writeFileSync(targetScript, mockCode + '\n' + originalCode);
-          console.log('Mock injected successfully.');
+          fs.writeFileSync(targetScript, mock + '\n' + originalCode);
           EOF
-          node inject-mock.js
+          node patch.js
+
+      - name: Format Artifact Structure
+        run: |
+          mkdir -p public/demo
+          mv dist/* public/demo/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './demo'
+          path: 'public'
 
       - name: Deploy to GitHub Pages
         id: deployment
