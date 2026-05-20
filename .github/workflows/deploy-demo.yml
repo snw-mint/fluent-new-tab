@@ -3,14 +3,17 @@ name: Deploy Live Demo
 on:
   push:
     branches:
-      - leading
       - test-workflow
+      - leading
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy-demo:
@@ -26,80 +29,89 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install and Build Extension
         run: |
-          npm ci
+          npm install
           npm run build:release
 
       - name: Assemble Demo Directory
         run: |
-          cp -r dist demo/
+          mkdir -p demo/dist
+          cp -r dist/* demo/dist/
           cp -r assets demo/
           cp -r _locales demo/
 
-      - name: Pre-compile Locales and Mock API
+      - name: Create and Run Mock Injector
         run: |
-          node -e "
-            const fs = require('fs');
-            const path = require('path');
+          cat << 'EOF' > inject-mock.js
+          const fs = require('fs');
+          const path = require('path');
+
+          const localePath = path.join('_locales', 'en_US', 'messages.json');
+          const fallbackPath = path.join('_locales', 'en', 'messages.json');
+          let locales = {};
+
+          if (fs.existsSync(localePath)) {
+            locales = JSON.parse(fs.readFileSync(localePath, 'utf8'));
+          } else if (fs.existsSync(fallbackPath)) {
+            locales = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
+          }
+
+          const mockCode = `
+            window.chrome = window.chrome || {};
+            window.chrome.runtime = {
+              getURL: (p) => p.startsWith('/') ? p.substring(1) : p,
+              lastError: null
+            };
             
-            const localePath = path.join('_locales', 'en_US', 'messages.json');
-            const fallbackPath = path.join('_locales', 'en', 'messages.json');
-            let locales = {};
+            window.chrome.storage = {
+              local: {
+                get: (k, cb) => {
+                  let res = {};
+                  (Array.isArray(k) ? k : [k]).forEach(key => {
+                    let val = localStorage.getItem('demo_' + key);
+                    if (val !== null) res[key] = JSON.parse(val);
+                  });
+                  if (cb) cb(res);
+                },
+                set: (items, cb) => {
+                  Object.keys(items).forEach(key => localStorage.setItem('demo_' + key, JSON.stringify(items[key])));
+                  if (cb) cb();
+                }
+              }
+            };
             
-            if (fs.existsSync(localePath)) {
-              locales = JSON.parse(fs.readFileSync(localePath, 'utf8'));
-            } else if (fs.existsSync(fallbackPath)) {
-              locales = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
-            }
-
-            const mockCode = \`
-              window.chrome = window.chrome || {};
-              window.chrome.runtime = {
-                getURL: (p) => p.startsWith('/') ? p.substring(1) : p,
-                lastError: null
-              };
-              
-              window.chrome.storage = {
-                local: {
-                  get: (k, cb) => {
-                    let res = {};
-                    (Array.isArray(k) ? k : [k]).forEach(key => {
-                      let val = localStorage.getItem('demo_' + key);
-                      if (val !== null) res[key] = JSON.parse(val);
-                    });
-                    if (cb) cb(res);
-                  },
-                  set: (items, cb) => {
-                    Object.keys(items).forEach(key => localStorage.setItem('demo_' + key, JSON.stringify(items[key])));
-                    if (cb) cb();
-                  }
+            const PRELOADED_LOCALES = ${JSON.stringify(locales)};
+            window.chrome.i18n = {
+              getMessage: (key, subs) => {
+                let text = PRELOADED_LOCALES[key]?.message || '';
+                if (subs) {
+                  (Array.isArray(subs) ? subs : [subs]).forEach((v, i) => {
+                    text = text.replace(new RegExp('\\\\$' + (i+1), 'g'), v);
+                  });
                 }
-              };
-              
-              const PRELOADED_LOCALES = \${JSON.stringify(locales)};
-              window.chrome.i18n = {
-                getMessage: (key, subs) => {
-                  let text = PRELOADED_LOCALES[key]?.message || '';
-                  if (subs) {
-                    (Array.isArray(subs) ? subs : [subs]).forEach((v, i) => {
-                      text = text.replace(new RegExp('\\\\$' + (i+1), 'g'), v);
-                    });
-                  }
-                  return text;
-                }
-              };
+                return text;
+              }
+            };
 
-              setTimeout(() => document.dispatchEvent(new Event('i18nReady')), 50);
-            \`;
+            setTimeout(() => document.dispatchEvent(new Event('i18nReady')), 50);
+          `;
 
-            const targetScript = path.join('demo', 'dist', 'script.js');
-            const originalCode = fs.readFileSync(targetScript, 'utf8');
-            fs.writeFileSync(targetScript, mockCode + '\n' + originalCode);
-          "
+          const targetScript = path.join('demo', 'dist', 'script.js');
+
+          if (!fs.existsSync(targetScript)) {
+            console.error('Build output not found at: ' + targetScript);
+            process.exit(1);
+          }
+
+          const originalCode = fs.readFileSync(targetScript, 'utf8');
+          fs.writeFileSync(targetScript, mockCode + '\n' + originalCode);
+          console.log('Mock injected successfully.');
+          EOF
+          node inject-mock.js
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
