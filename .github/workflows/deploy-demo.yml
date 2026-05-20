@@ -18,10 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout leading branch
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: leading
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -149,15 +150,14 @@ jobs:
           EOF
           node patch-mock.js
 
-      - name: Replace Demo Folder
+      - name: Replace Demo Folder and Push
         run: |
-          rm -rf demo
+          rm -rf demo || true
           mv dist demo
 
-      - name: Commit to Leading Branch
-        run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add demo/
+          git add -A -f demo/
           git commit -m "chore: auto-update live demo [skip ci]" || echo "No changes to commit"
+          git pull origin leading --rebase || true
           git push origin leading
