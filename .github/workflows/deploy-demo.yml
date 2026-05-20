@@ -1,4 +1,4 @@
-name: Deploy Live Demo
+name: Build and Commit Live Demo
 
 on:
   push:
@@ -8,23 +8,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  deploy:
+  build-and-commit-demo:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}demo/index.html
 
     steps:
-      - name: Checkout repository
+      - name: Checkout leading branch
         uses: actions/checkout@v4
+        with:
+          ref: leading
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,9 +34,9 @@ jobs:
           npm install
           npm run build:release
 
-      - name: Process Locales, Mock API and Assemble Pages
+      - name: Inject API Mock
         run: |
-          cat << 'EOF' > patch.js
+          cat << 'EOF' > patch-mock.js
           const fs = require('fs');
           const path = require('path');
 
@@ -149,43 +146,18 @@ jobs:
           let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
           htmlContent = htmlContent.replace(/<head[^>]*>/i, match => match + '\n    <script src="mock-env.js"></script>');
           fs.writeFileSync(indexHtmlPath, htmlContent);
-
-          function copyRecursiveSync(src, dest) {
-            const exists = fs.existsSync(src);
-            const stats = exists && fs.statSync(src);
-            const isDirectory = exists && stats.isDirectory();
-            if (isDirectory) {
-              if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
-              fs.readdirSync(src).forEach(childItemName => {
-                copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-              });
-            } else {
-              fs.copyFileSync(src, dest);
-            }
-          }
-
-          const destPublic = path.join(__dirname, 'public');
-          if (fs.existsSync(destPublic)) fs.rmSync(destPublic, { recursive: true, force: true });
-          fs.mkdirSync(destPublic, { recursive: true });
-
-          const ignoredPaths = ['.git', '.github', 'node_modules', 'dist', 'public', 'patch.js', 'package.json', 'package-lock.json'];
-          fs.readdirSync(__dirname).forEach(item => {
-            if (!ignoredPaths.includes(item)) {
-              copyRecursiveSync(path.join(__dirname, item), path.join(destPublic, item));
-            }
-          });
-
-          const destDemo = path.join(destPublic, 'demo');
-          copyRecursiveSync(path.join(__dirname, 'dist'), destDemo);
-          console.log('Artifact structure generated successfully!');
           EOF
-          node patch.js
+          node patch-mock.js
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'public'
+      - name: Replace Demo Folder
+        run: |
+          rm -rf demo
+          mv dist demo
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit to Leading Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add demo/
+          git commit -m "chore: auto-update live demo [skip ci]" || echo "No changes to commit"
+          git push origin leading
