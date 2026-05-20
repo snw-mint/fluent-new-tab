@@ -164,6 +164,14 @@
             justify-content: flex-end;
         }
 
+        .form-actions button:disabled {
+            background-color: var(--color-border);
+            color: var(--color-text-muted);
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+
         /* Success State */
         #success-view {
             display: none;
@@ -328,7 +336,7 @@
                         <div id="branch-native-other" class="branch-group">
                             <label class="form-label">Please specify:</label>
                             <textarea class="fluent-textarea" name="entry.1740313797.other_option_response"
-                                placeholder="Tell us more..."></textarea>
+                                placeholder="Tell me more..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -336,35 +344,35 @@
                 <div id="branch-features" class="branch-group">
                     <label class="form-label">What feature were you looking for?</label>
                     <textarea class="fluent-textarea" name="entry.359779339"
-                        placeholder="Tell us more... (Optional)"></textarea>
+                        placeholder="Tell me more... (Optional)"></textarea>
                 </div>
 
                 <div id="branch-bug" class="branch-group">
                     <label class="form-label">Could you briefly describe the bug or issue?</label>
                     <textarea class="fluent-textarea" name="entry.74716002"
-                        placeholder="Tell us more... (Optional)"></textarea>
+                        placeholder="Tell me more... (Optional)"></textarea>
                 </div>
 
                 <div id="branch-privacy" class="branch-group">
                     <label class="form-label">Which permission or privacy aspect concerned you?</label>
                     <textarea class="fluent-textarea" name="entry.1040472792"
-                        placeholder="Tell us more... (Optional)"></textarea>
+                        placeholder="Tell me more... (Optional)"></textarea>
                 </div>
 
                 <div id="branch-switch" class="branch-group">
                     <label class="form-label">Which extension are you switching to?</label>
                     <textarea class="fluent-textarea" name="entry.213254177"
-                        placeholder="Tell us more... (Optional)"></textarea>
+                        placeholder="Tell me more... (Optional)"></textarea>
                 </div>
 
                 <div id="branch-others" class="branch-group">
                     <label class="form-label">Any other feedback to help me improve?</label>
                     <textarea class="fluent-textarea" name="entry.472098049"
-                        placeholder="Tell us more... (Optional)"></textarea>
+                        placeholder="Tell me more... (Optional)"></textarea>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn-primary">Submit Feedback</button>
+                    <button type="submit" class="btn-primary" disabled>Submit Feedback</button>
                 </div>
             </form>
 
@@ -541,6 +549,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('uninstall-form');
+            const submitBtn = form.querySelector('button[type="submit"]');
             const radios = document.querySelectorAll('input[type="radio"]');
             const branches = {
                 "It's missing features I need": document.getElementById('branch-features'),
@@ -558,24 +567,43 @@
                     if (branch) {
                         branch.style.display = 'none';
                         const textarea = branch.querySelector('textarea');
-                        if (textarea) textarea.value = '';
+                        if (textarea) {
+                            textarea.value = '';
+                            textarea.required = false;
+                        }
                     }
                 });
             }
 
             radios.forEach(radio => {
                 radio.addEventListener('change', (e) => {
+                    submitBtn.disabled = false;
                     hideAllBranches();
                     const selectedValue = e.target.value;
 
                     if (branches[selectedValue]) {
                         branches[selectedValue].style.display = 'block';
-                        setTimeout(() => {
-                            branches[selectedValue].querySelector('textarea').focus();
-                        }, 50);
+                        const textarea = branches[selectedValue].querySelector('textarea');
+                        if (textarea) {
+                            if (selectedValue === '__other_option__') {
+                                textarea.required = true;
+                            }
+                            setTimeout(() => {
+                                textarea.focus();
+                            }, 50);
+                        }
                     }
                 });
             });
+
+            const checkedRadio = document.querySelector('input[type="radio"]:checked');
+            if (checkedRadio) {
+                submitBtn.disabled = false;
+                if (checkedRadio.value === '__other_option__') {
+                    const otherTextarea = document.querySelector('textarea[name="entry.1740313797.other_option_response"]');
+                    if (otherTextarea) otherTextarea.required = true;
+                }
+            }
 
             let submitted = false;
             form.addEventListener('submit', () => {
