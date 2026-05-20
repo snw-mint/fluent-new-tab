@@ -37,7 +37,7 @@ jobs:
           npm install
           npm run build:release
 
-      - name: Create Initializer and API Mock
+      - name: Process Locales, Mock API and Assemble Pages
         run: |
           cat << 'EOF' > patch.js
           const fs = require('fs');
@@ -132,7 +132,7 @@ jobs:
                 let text = PRELOADED_LOCALE[key]?.message || '';
                 if (subs) {
                   [].concat(subs).forEach((val, index) => {
-                    text = text.replace(new RegExp('\\\\$' + (index + 1), 'g'), val);
+                    text = text.split('$' + (index + 1)).join(val);
                   });
                 }
                 return text;
@@ -149,13 +149,37 @@ jobs:
           let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
           htmlContent = htmlContent.replace(/<head[^>]*>/i, match => match + '\n    <script src="mock-env.js"></script>');
           fs.writeFileSync(indexHtmlPath, htmlContent);
+
+          function copyRecursiveSync(src, dest) {
+            const exists = fs.existsSync(src);
+            const stats = exists && fs.statSync(src);
+            const isDirectory = exists && stats.isDirectory();
+            if (isDirectory) {
+              if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+              fs.readdirSync(src).forEach(childItemName => {
+                copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
+              });
+            } else {
+              fs.copyFileSync(src, dest);
+            }
+          }
+
+          const destPublic = path.join(__dirname, 'public');
+          if (fs.existsSync(destPublic)) fs.rmSync(destPublic, { recursive: true, force: true });
+          fs.mkdirSync(destPublic, { recursive: true });
+
+          const ignoredPaths = ['.git', '.github', 'node_modules', 'dist', 'public', 'patch.js', 'package.json', 'package-lock.json'];
+          fs.readdirSync(__dirname).forEach(item => {
+            if (!ignoredPaths.includes(item)) {
+              copyRecursiveSync(path.join(__dirname, item), path.join(destPublic, item));
+            }
+          });
+
+          const destDemo = path.join(destPublic, 'demo');
+          copyRecursiveSync(path.join(__dirname, 'dist'), destDemo);
+          console.log('Artifact structure generated successfully!');
           EOF
           node patch.js
-
-      - name: Format Artifact Structure
-        run: |
-          mkdir -p public/demo
-          mv dist/* public/demo/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
