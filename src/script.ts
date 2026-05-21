@@ -550,12 +550,14 @@ const SpeechRecognitionCtor =
       webkitSpeechRecognition?: new () => any;
     }
   ).webkitSpeechRecognition;
+
 const voiceSearchSupported = typeof SpeechRecognitionCtor === 'function';
 let voiceRecognition: any = null;
 let voiceRecording = false;
 let voiceShouldSubmitOnEnd = false;
 let voiceFinalTranscript = '';
 let voiceSilenceTimeout: number | null = null;
+let isVoiceTransitioning = false;
 const VOICE_SILENCE_MS = 8000;
 
 function stopVoiceRingAnimation(): void {
@@ -571,7 +573,6 @@ function startVoiceRingAnimation(): void {
 function playVoiceStartSound(): void {
   const sfx = getSfx('mic');
   if (!sfx) return;
-
   sfx.currentTime = 0;
   sfx.play().catch(() => {});
 }
@@ -600,7 +601,6 @@ function normalizeVoiceLanguage(code: string | null | undefined): string {
 function getVoiceRecognitionLanguage(): string {
   const fromBrowser = normalizeVoiceLanguage(navigator.language);
   if (fromBrowser) return fromBrowser;
-
   return 'en-US';
 }
 
@@ -621,12 +621,26 @@ function scheduleVoiceSilenceStop(): void {
 function stopVoiceSearch(submitAfterStop = false): void {
   voiceShouldSubmitOnEnd = submitAfterStop;
   if (!voiceRecording || !voiceRecognition) return;
-  voiceRecognition.stop();
+  isVoiceTransitioning = true;
+  try {
+    voiceRecognition.stop();
+  } catch {
+    isVoiceTransitioning = false;
+  }
 }
 
 function ensureVoiceRecognition(): any {
   if (!voiceSearchSupported || !SpeechRecognitionCtor) return null;
-  if (voiceRecognition) return voiceRecognition;
+
+  if (voiceRecognition) {
+    try {
+      voiceRecognition.onstart = null;
+      voiceRecognition.onresult = null;
+      voiceRecognition.onerror = null;
+      voiceRecognition.onend = null;
+      voiceRecognition.abort();
+    } catch {}
+  }
 
   voiceRecognition = new SpeechRecognitionCtor();
   voiceRecognition.interimResults = false;
@@ -635,6 +649,7 @@ function ensureVoiceRecognition(): any {
 
   voiceRecognition.onstart = () => {
     voiceRecording = true;
+    isVoiceTransitioning = false;
     updateVoiceButtonRecordingState();
     startVoiceRingAnimation();
     scheduleVoiceSilenceStop();
@@ -668,12 +683,14 @@ function ensureVoiceRecognition(): any {
   voiceRecognition.onerror = () => {
     voiceShouldSubmitOnEnd = false;
     clearVoiceSilenceTimer();
+    isVoiceTransitioning = false;
   };
 
   voiceRecognition.onend = () => {
     const shouldSubmit = voiceShouldSubmitOnEnd;
     voiceRecording = false;
     voiceShouldSubmitOnEnd = false;
+    isVoiceTransitioning = false;
     clearVoiceSilenceTimer();
     updateVoiceButtonRecordingState();
     stopVoiceRingAnimation();
@@ -695,7 +712,13 @@ function ensureVoiceRecognition(): any {
 }
 
 function startVoiceSearch(): void {
-  if (!voiceSearchEnabled || !voiceSearchSupported || !searchBarVisible) return;
+  if (
+    !voiceSearchEnabled ||
+    !voiceSearchSupported ||
+    !searchBarVisible ||
+    isVoiceTransitioning
+  )
+    return;
 
   if (voiceRecording) {
     stopVoiceSearch(false);
@@ -714,10 +737,12 @@ function startVoiceSearch(): void {
   scheduleVoiceSilenceStop();
 
   try {
+    isVoiceTransitioning = true;
     recognition.start();
   } catch (error) {
     console.warn('Unable to start voice recognition.', error);
     voiceShouldSubmitOnEnd = false;
+    isVoiceTransitioning = false;
     stopVoiceRingAnimation();
   }
 }
