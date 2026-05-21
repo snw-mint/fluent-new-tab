@@ -1,4 +1,4 @@
-name: Build and Commit Live Demo
+name: Deploy Live Demo
 
 on:
   push:
@@ -8,21 +8,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build-and-commit-demo:
+  deploy-demo:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: leading
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,134 +28,79 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: Install and Build
+      - name: Install and Build Extension
         run: |
           npm install
           npm run build:release
 
-      - name: Inject API Mock
+      - name: Rename dist to demo
+        run: mv dist demo
+
+      - name: Inject mockup into demo
         run: |
-          cat << 'EOF' > patch-mock.js
+          cat << 'EOF' > inject-mock.js
           const fs = require('fs');
           const path = require('path');
-
-          const localePath = path.join('dist', '_locales', 'en_US', 'messages.json');
-          const fallbackPath = path.join('dist', '_locales', 'en', 'messages.json');
-          let messages = '{}';
+          const localePath = path.join('demo', '_locales', 'en_US', 'messages.json');
+          const fallbackPath = path.join('demo', '_locales', 'en', 'messages.json');
+          let locales = {};
           if (fs.existsSync(localePath)) {
-            messages = fs.readFileSync(localePath, 'utf8');
+            locales = JSON.parse(fs.readFileSync(localePath, 'utf8'));
           } else if (fs.existsSync(fallbackPath)) {
-            messages = fs.readFileSync(fallbackPath, 'utf8');
+            locales = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
           }
-
-          const PRESETS = {
-            shortcuts: '[{"name":"Wikipedia","url":"https://wikipedia.com","customIcon":"https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg"},{"name":"YouTube","url":"https://youtube.com","customIcon":null},{"name":"Github","url":"https://github.com/snw-mint/fluent-new-tab","customIcon":"https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"},{"name":"BMC","url":"https://buymeacoffee.com/snw.mint"},{"name":"Help","url":"https://snw-mint.github.io/fluent-new-tab/help","customIcon":"https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true","type":"link"},{"name":"Spotify","url":"https://spotify.com","customIcon":null},{"name":"Crowdin","url":"https://crowdin.com/project/fluent-new-tab","customIcon":"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/crowdin.svg"}]',
-            theme: 'auto',
-            shortcutsVisible: 'true',
-            shortcutsRows: '1',
-            launcherEnabled: 'true',
-            launcherProvider: 'microsoft',
-            showGreeting: 'true',
-            greetingName: '',
-            greetingType: 'none',
-            userLanguage: 'en_US',
-            searchEngine: 'system',
-            searchBarVisible: 'true',
-            compactBarEnabled: 'false',
-            accentColorEnabled: 'true',
-            accentColorMode: 'manual',
-            accentColorValue: '#107C41',
-            displayType: 'greeting',
-            showSeconds: 'false',
-            use12Hour: 'false',
-            dateFormat: 'numeric',
-            askAiEnabled: 'false'
-          };
-
-          const mockJS = `
-            if (!localStorage.getItem('fnt_demo_seeded')) {
-              const presets = ${JSON.stringify(PRESETS)};
-              for (const [key, value] of Object.entries(presets)) {
-                localStorage.setItem(key, value);
-              }
-              localStorage.setItem('fnt_demo_seeded', 'true');
-            }
-
+          const mockCode = `
             window.chrome = window.chrome || {};
-            
-            window.chrome.runtime = { 
-              id: "fnt-live-demo",
-              getURL: path => path.startsWith('/') ? path.slice(1) : path,
-              getManifest: () => ({ version: "3.6.2 Demo" }),
-              lastError: null,
-              onMessage: { addListener: () => {} },
-              sendMessage: (msg, cb) => { if(cb) cb({}); }
+            window.chrome.runtime = {
+              getURL: (p) => p.startsWith('/') ? p.substring(1) : p,
+              lastError: null
             };
-
-            window.chrome.permissions = {
-              contains: (p, cb) => { if(cb) cb(true); return Promise.resolve(true); },
-              request: (p, cb) => { if(cb) cb(true); return Promise.resolve(true); }
-            };
-
             window.chrome.storage = {
               local: {
-                get: (keys, cb) => {
+                get: (k, cb) => {
                   let res = {};
-                  let arr = Array.isArray(keys) ? keys : (typeof keys === 'string' ? [keys] : Object.keys(keys));
-                  arr.forEach(k => {
-                    let v = localStorage.getItem('fnt_local_' + k);
-                    res[k] = v ? JSON.parse(v) : (keys[k] !== undefined ? keys[k] : null);
+                  (Array.isArray(k) ? k : [k]).forEach(key => {
+                    let val = localStorage.getItem('demo_' + key);
+                    if (val !== null) res[key] = JSON.parse(val);
                   });
                   if (cb) cb(res);
                 },
                 set: (items, cb) => {
-                  Object.entries(items).forEach(([k, v]) => {
-                    localStorage.setItem('fnt_local_' + k, JSON.stringify(v));
-                  });
-                  if (cb) cb();
-                },
-                remove: (keys, cb) => {
-                  let arr = Array.isArray(keys) ? keys : [keys];
-                  arr.forEach(k => localStorage.removeItem('fnt_local_' + k));
+                  Object.keys(items).forEach(key => localStorage.setItem('demo_' + key, JSON.stringify(items[key])));
                   if (cb) cb();
                 }
               }
             };
-
-            const PRELOADED_LOCALE = ${messages || '{}'};
+            const PRELOADED_LOCALES = ${JSON.stringify(locales)};
             window.chrome.i18n = {
               getMessage: (key, subs) => {
-                let text = PRELOADED_LOCALE[key]?.message || '';
+                let text = PRELOADED_LOCALES[key]?.message || '';
                 if (subs) {
-                  [].concat(subs).forEach((val, index) => {
-                    text = text.split('$' + (index + 1)).join(val);
+                  (Array.isArray(subs) ? subs : [subs]).forEach((v, i) => {
+                    text = text.replace(new RegExp('\\\\$' + (i+1), 'g'), v);
                   });
                 }
                 return text;
-              },
-              getUILanguage: () => 'en-US'
+              }
             };
-            
             setTimeout(() => document.dispatchEvent(new Event('i18nReady')), 50);
           `;
-
-          fs.writeFileSync(path.join('dist', 'mock-env.js'), mockJS);
-
-          const indexHtmlPath = path.join('dist', 'index.html');
-          let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
-          htmlContent = htmlContent.replace(/<head[^>]*>/i, match => match + '\n    <script src="mock-env.js"></script>');
-          fs.writeFileSync(indexHtmlPath, htmlContent);
+          const targetScript = path.join('demo', 'script.js');
+          if (!fs.existsSync(targetScript)) {
+            console.error('Build output not found at: ' + targetScript);
+            process.exit(1);
+          }
+          const originalCode = fs.readFileSync(targetScript, 'utf8');
+          fs.writeFileSync(targetScript, mockCode + '\n' + originalCode);
+          console.log('Mock injected successfully.');
           EOF
-          node patch-mock.js
+          node inject-mock.js
 
-      - name: Replace Demo Folder and Push
-        run: |
-          rm -rf demo || true
-          mv dist demo
+      - name: Upload deploy artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./demo
 
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A -f demo/
-          git commit -m "chore: auto-update live demo [skip ci]" || echo "No changes to commit"
-          git pull origin leading --rebase || true
-          git push origin leading
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
