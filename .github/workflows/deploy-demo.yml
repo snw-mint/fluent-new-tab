@@ -33,16 +33,18 @@ jobs:
           npm install
           npm run build:release
 
-      - name: Rename dist to demo
-        run: mv dist demo
+      - name: Prepare publish directory
+        run: |
+          mkdir publish
+          mv dist publish/demo
 
       - name: Inject mockup into demo
         run: |
           cat << 'EOF' > inject-mock.js
           const fs = require('fs');
           const path = require('path');
-          const localePath = path.join('demo', '_locales', 'en_US', 'messages.json');
-          const fallbackPath = path.join('demo', '_locales', 'en', 'messages.json');
+          const localePath = path.join('publish', 'demo', '_locales', 'en_US', 'messages.json');
+          const fallbackPath = path.join('publish', 'demo', '_locales', 'en', 'messages.json');
           let locales = {};
           if (fs.existsSync(localePath)) {
             locales = JSON.parse(fs.readFileSync(localePath, 'utf8'));
@@ -85,7 +87,7 @@ jobs:
             };
             setTimeout(() => document.dispatchEvent(new Event('i18nReady')), 50);
           `;
-          const targetScript = path.join('demo', 'script.js');
+          const targetScript = path.join('publish', 'demo', 'script.js');
           if (!fs.existsSync(targetScript)) {
             console.error('Build output not found at: ' + targetScript);
             process.exit(1);
@@ -99,7 +101,7 @@ jobs:
       - name: Upload deploy artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./demo
+          path: ./publish
 
       - name: Deploy to GitHub Pages
         id: deployment
