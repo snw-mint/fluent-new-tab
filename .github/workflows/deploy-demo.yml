@@ -1,46 +1,54 @@
-name: Deploy Live Demo
+name: Deploy Pages with Separate Branches
 
 on:
+  workflow_dispatch:
   push:
+    branches:
+      - leading
+      - main
     tags:
       - 'v*.*.*'
       - 'v*.*'
-  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
-  deploy-demo:
+  deploy-pages:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
 
     steps:
-      - name: Checkout repository
+      # 1. Checkout branch leading (site) para ./site-root
+      - name: Checkout site (leading)
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: 'npm'
+          ref: leading
+          path: site-root
 
-      - name: Install and Build Extension
+      # 2. Checkout branch main (extensão/build) para ./extension
+      - name: Checkout extension (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: extension
+
+      # 3. Build demo a partir do código da main
+      - name: Install and Build Demo
+        working-directory: ./extension
         run: |
           npm install
           npm run build:release
 
-      # Move o build para a estrutura de publicação
+      # 4. Montar diretório de publicação
       - name: Prepare publish directory
         run: |
           mkdir -p publish/demo
-          cp -R dist/. publish/demo/
+          cp -r site-root/* publish/
+          cp -r extension/dist/* publish/demo/
 
       # Injeta o mock e faz patch no index.html já na pasta final!
       - name: Create Initializer and API Mock
@@ -148,11 +156,11 @@ jobs:
           EOF
           node patch.js
 
-      - name: Upload deploy artifact
+      # 6. Upload
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./publish
+          path: './publish'
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
