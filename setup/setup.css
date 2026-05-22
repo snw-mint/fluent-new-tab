@@ -719,3 +719,176 @@ body.slide-prev .step.active {
 .btn-cancel:hover {
   background: var(--overlay-strong);
 }
+
+.hidden-native-select {
+  display: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.fluent-select-container {
+  position: relative;
+  width: 50%;
+}
+
+.welcome-language-picker .fluent-select-container {
+  width: 8rem;
+}
+
+.fluent-select-trigger {
+  width: 100%;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: none;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  transition:
+    background 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.welcome-language-picker .fluent-select-trigger {
+  height: auto;
+  padding: 0 1.5rem 0 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.fluent-select-trigger:hover {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+  background: var(--surface-muted);
+}
+
+.fluent-select-trigger:focus-visible,
+.fluent-select-trigger.popup-open {
+  box-shadow: inset 0 -1px 0 var(--accent-color);
+}
+
+.fluent-select-arrow {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  -webkit-mask-image: url('data:image/svg+xml,%3Csvg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.22 8.47a.75.75 0 0 1 1.06 0L12 15.19l6.72-6.72a.75.75 0 1 1 1.06 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L4.22 9.53a.75.75 0 0 1 0-1.06" fill="black"/%3E%3C/svg%3E');
+  mask-image: url('data:image/svg+xml,%3Csvg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.22 8.47a.75.75 0 0 1 1.06 0L12 15.19l6.72-6.72a.75.75 0 1 1 1.06 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L4.22 9.53a.75.75 0 0 1 0-1.06" fill="black"/%3E%3C/svg%3E');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.welcome-language-picker .fluent-select-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fluent-select-popup {
+  position: fixed;
+  z-index: 9999;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+  display: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.fluent-select-popup.active {
+  display: block;
+}
+
+.fluent-select-options-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.fluent-select-option {
+  position: relative;
+  padding: 0 1rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+}
+
+.fluent-select-option:hover {
+  background: var(--surface-muted);
+}
+
+.fluent-select-option::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  width: 0.15rem;
+  border-radius: 2rem;
+  height: 50%;
+  background-color: var(--accent-color);
+  transform: translateY(-50%) scaleY(0);
+  transition: transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.fluent-select-option:hover::before {
+  transform: translateY(-50%) scaleY(0.6);
+}
+
+.fluent-select-option.selected {
+  background: var(--overlay-weak);
+  font-weight: 600;
+}
+
+.fluent-select-option.selected::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.fluent-select-options-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.fluent-select-options-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fluent-select-options-list::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 99rem;
+}
+
+.fluent-select-options-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+  opacity: 0.3;
+}

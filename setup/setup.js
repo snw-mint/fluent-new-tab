@@ -307,6 +307,17 @@ function initLanguageSelect() {
   if (!select) return;
   const saved = localStorage.getItem('userLanguage') || 'en_US';
   select.value = saved;
+
+  // Sincroniza o texto inicial do botão customizado com a opção salva
+  const container = select.closest('.fluent-select-container');
+  if (container) {
+    const triggerValue = container.querySelector('.fluent-select-value');
+    const selectedOption = select.options[select.selectedIndex];
+    if (triggerValue && selectedOption) {
+      triggerValue.textContent = selectedOption.textContent;
+    }
+  }
+
   select.addEventListener('change', () => {
     localStorage.setItem('userLanguage', select.value);
     const cacheKey = `i18n_cache_${select.value}`;
@@ -433,6 +444,140 @@ function handleRestoreFile(file) {
   };
   reader.readAsText(file);
 }
+
+function initCustomSelectSystem() {
+  const popup = document.getElementById('fluent-select-popup');
+  const listContainer = popup?.querySelector('.fluent-select-options-list');
+  const triggers = document.querySelectorAll('.fluent-select-trigger');
+  if (!popup || !listContainer) return;
+  let activeTrigger = null;
+  function closePopup() {
+    popup.classList.remove('active');
+    triggers.forEach((t) => t.classList.remove('popup-open'));
+    activeTrigger = null;
+  }
+
+  function positionPopup(trigger) {
+    const rect = trigger.getBoundingClientRect();
+    popup.style.width = `${rect.width}px`;
+    popup.style.left = `${rect.left + window.scrollX}px`;
+    const popupHeight = Math.min(260, listContainer.scrollHeight);
+    if (
+      rect.bottom + popupHeight > window.innerHeight &&
+      rect.top - popupHeight > 0
+    ) {
+      popup.style.top = `${rect.top + window.scrollY - popupHeight - 2}px`;
+    } else {
+      popup.style.top = `${rect.bottom + window.scrollY + 2}px`;
+    }
+  }
+
+  function openPopup(trigger) {
+    if (activeTrigger === trigger) {
+      closePopup();
+      return;
+    }
+
+    closePopup();
+    activeTrigger = trigger;
+    trigger.classList.add('popup-open');
+
+    const nativeSelectId = trigger.getAttribute('data-target');
+    const nativeSelect = document.getElementById(nativeSelectId);
+    if (!nativeSelect) return;
+    if (nativeSelect.disabled) {
+      activeTrigger = null;
+      trigger.classList.remove('popup-open');
+      return;
+    }
+    listContainer.innerHTML = '';
+
+    Array.from(nativeSelect.options).forEach((option) => {
+      const li = document.createElement('li');
+      li.className = 'fluent-select-option';
+      li.textContent = option.textContent;
+      li.setAttribute('role', 'option');
+      li.setAttribute('data-value', option.value);
+
+      if (option.selected) {
+        li.classList.add('selected');
+        li.setAttribute('aria-selected', 'true');
+      }
+
+      li.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nativeSelect.value = option.value;
+        nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        const triggerValue = trigger.querySelector('.fluent-select-value');
+        if (triggerValue) {
+          triggerValue.textContent = option.textContent;
+          if (option.hasAttribute('data-i18n')) {
+            triggerValue.setAttribute(
+              'data-i18n',
+              option.getAttribute('data-i18n'),
+            );
+          } else {
+            triggerValue.removeAttribute('data-i18n');
+          }
+        }
+
+        closePopup();
+      });
+
+      listContainer.appendChild(li);
+    });
+
+    popup.classList.add('active');
+    positionPopup(trigger);
+    const currentSelected = listContainer.querySelector(
+      '.fluent-select-option.selected',
+    );
+    if (currentSelected) {
+      listContainer.scrollTop =
+        currentSelected.offsetTop - listContainer.offsetTop;
+    }
+  }
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openPopup(trigger);
+    });
+  });
+  document.addEventListener('click', () => closePopup());
+  window.addEventListener('resize', () => {
+    if (activeTrigger) positionPopup(activeTrigger);
+  });
+  document.querySelectorAll('.split-main').forEach((container) => {
+    container.addEventListener('scroll', () => {
+      if (activeTrigger) positionPopup(activeTrigger);
+    });
+  });
+}
+
+const nativeInit = init;
+init = function () {
+  nativeInit();
+  initCustomSelectSystem();
+  setTimeout(() => {
+    document.querySelectorAll('.fluent-select-trigger').forEach((trigger) => {
+      const targetId = trigger.getAttribute('data-target');
+      const select = document.getElementById(targetId);
+      if (select) {
+        const triggerValue = trigger.querySelector('.fluent-select-value');
+        const selectedOption = select.options[select.selectedIndex];
+        if (triggerValue && selectedOption) {
+          triggerValue.textContent = selectedOption.textContent;
+          if (selectedOption.hasAttribute('data-i18n')) {
+            triggerValue.setAttribute(
+              'data-i18n',
+              selectedOption.getAttribute('data-i18n'),
+            );
+          }
+        }
+      }
+    });
+  }, 50);
+};
 
 function init() {
   loadTranslations();
