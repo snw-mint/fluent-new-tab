@@ -1123,6 +1123,40 @@
       <h3 id="warning-modal-title"></h3>
       <p id="warning-modal-message" class="warning-modal-text"></p>
 
+      <div id="customColorPickerContainer" class="custom-color-picker hidden">
+        <div class="picker-canvas-wrapper" id="matrixWrapper">
+          <canvas id="colorMatrixCanvas" class="matrix-canvas"></canvas>
+          <div id="matrixCursor" class="matrix-cursor"></div>
+        </div>
+
+        <div class="picker-hue-wrapper">
+          <input type="range" id="colorHueSlider" class="fluent-slider fluent-hue-slider" min="0" max="360" step="1"
+            value="0" />
+        </div>
+
+        <div class="picker-inputs-grid">
+          <div class="input-group hex-col">
+            <label>HEX</label>
+            <div class="hex-wrapper">
+              <span>#</span>
+              <input type="text" id="customColorHex" maxlength="6" placeholder="0078D4" />
+            </div>
+          </div>
+          <div class="input-group rgb-col">
+            <label>R</label>
+            <input type="number" id="customColorR" min="0" max="255" />
+          </div>
+          <div class="input-group rgb-col">
+            <label>G</label>
+            <input type="number" id="customColorG" min="0" max="255" />
+          </div>
+          <div class="input-group rgb-col">
+            <label>B</label>
+            <input type="number" id="customColorB" min="0" max="255" />
+          </div>
+        </div>
+      </div>
+
       <div class="modal-actions">
         <button id="warning-btn-confirm" class="btn-danger"></button>
         <button id="warning-btn-cancel" class="btn-cancel"></button>

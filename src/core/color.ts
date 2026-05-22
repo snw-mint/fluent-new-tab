@@ -136,3 +136,76 @@ function applyTheme(theme: ThemeMode): void {
 function applyInitialTheme(): void {
   applyTheme(savedTheme);
 }
+
+function hsvToHex(h: number, s: number, v: number): string {
+  s /= 100;
+  v /= 100;
+  const k = (n: number) => (n + h / 60) % 6;
+  const f = (n: number) => v - v * s * Math.max(Math.min(k(n), 4 - k(n), 1), 0);
+  const toHex = (x: number) => {
+    const hex = Math.round(x * 255).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+  return `#${toHex(f(5))}${toHex(f(3))}${toHex(f(1))}`.toUpperCase();
+}
+
+function hexToRgb(hex: string): { r: number; g: number; b: number } {
+  const cleanHex = hex.replace('#', '');
+  return {
+    r: parseInt(cleanHex.substring(0, 2), 16) || 0,
+    g: parseInt(cleanHex.substring(2, 4), 16) || 0,
+    b: parseInt(cleanHex.substring(4, 6), 16) || 0,
+  };
+}
+
+function rgbToHex(r: number, g: number, b: number): string {
+  const toHex = (c: number) => {
+    const hex = Math.max(0, Math.min(255, Math.round(c))).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+}
+
+function hexToHsv(hex: string): { h: number; s: number; v: number } {
+  let r = 0,
+    g = 0,
+    b = 0;
+  if (hex.length === 4) {
+    r = parseInt(hex[1] + hex[1], 16);
+    g = parseInt(hex[2] + hex[2], 16);
+    b = parseInt(hex[3] + hex[3], 16);
+  } else if (hex.length === 7) {
+    r = parseInt(hex.substring(1, 3), 16);
+    g = parseInt(hex.substring(3, 5), 16);
+    b = parseInt(hex.substring(5, 7), 16);
+  }
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  const d = max - min;
+  let h = 0;
+  const s = max === 0 ? 0 : d / max;
+  const v = max;
+
+  if (max !== min) {
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+  return {
+    h: Math.round(h * 360),
+    s: Math.round(s * 100),
+    v: Math.round(v * 100),
+  };
+}

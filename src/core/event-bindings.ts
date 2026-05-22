@@ -382,24 +382,212 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
     const customBtn = options.accentCustomColor.closest(
       '.custom-preset',
     ) as HTMLElement;
-    options.accentCustomColor.addEventListener('input', (event) => {
-      const target = event.target as HTMLInputElement;
-      if (!target || !customBtn) return;
 
-      const color = target.value;
-      customBtn.style.backgroundColor = color;
-      clearPresetSelection();
-      customBtn.classList.add('selected');
-      options.applyAccentColor(color);
-    });
-    options.accentCustomColor.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement;
-      if (!target) return;
+    options.accentCustomColor.addEventListener('click', (event) => {
+      event.preventDefault();
 
-      const color = target.value;
-      localStorage.setItem('accentColorValue', color);
-      localStorage.setItem('accentColorMode', 'manual');
-      if (toggleAuto) toggleAuto.checked = false;
+      const currentColor =
+        localStorage.getItem('accentColorValue') || '#0078D4';
+      let { h, s, v } = hexToHsv(currentColor);
+
+      const pickerContainer = document.getElementById(
+        'customColorPickerContainer',
+      ) as HTMLDivElement;
+      const canvasWrapper = document.getElementById(
+        'matrixWrapper',
+      ) as HTMLDivElement;
+      const canvas = document.getElementById(
+        'colorMatrixCanvas',
+      ) as HTMLCanvasElement;
+      const ctx = canvas.getContext('2d');
+      const cursor = document.getElementById('matrixCursor') as HTMLDivElement;
+      const hueSlider = document.getElementById(
+        'colorHueSlider',
+      ) as HTMLInputElement;
+
+      const hexInput = document.getElementById(
+        'customColorHex',
+      ) as HTMLInputElement;
+      const rInput = document.getElementById(
+        'customColorR',
+      ) as HTMLInputElement;
+      const gInput = document.getElementById(
+        'customColorG',
+      ) as HTMLInputElement;
+      const bInput = document.getElementById(
+        'customColorB',
+      ) as HTMLInputElement;
+
+      pickerContainer.classList.remove('hidden');
+
+      const drawMatrix = () => {
+        if (!ctx) return;
+        const width = canvas.width;
+        const height = canvas.height;
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = `hsl(${h}, 100%, 50%)`;
+        ctx.fillRect(0, 0, width, height);
+
+        const gradWhite = ctx.createLinearGradient(0, 0, width, 0);
+        gradWhite.addColorStop(0, 'rgba(255,255,255,1)');
+        gradWhite.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = gradWhite;
+        ctx.fillRect(0, 0, width, height);
+
+        const gradBlack = ctx.createLinearGradient(0, 0, 0, height);
+        gradBlack.addColorStop(0, 'rgba(0,0,0,0)');
+        gradBlack.addColorStop(1, 'rgba(0,0,0,1)');
+        ctx.fillStyle = gradBlack;
+        ctx.fillRect(0, 0, width, height);
+      };
+
+      const updateCursor = () => {
+        cursor.style.left = `${s}%`;
+        cursor.style.top = `${100 - v}%`;
+      };
+
+      const updateInputs = (updateHexAndRgb = true) => {
+        const hex = hsvToHex(h, s, v);
+
+        if (updateHexAndRgb) {
+          hexInput.value = hex.replace('#', '');
+          const rgb = hexToRgb(hex);
+          rInput.value = rgb.r.toString();
+          gInput.value = rgb.g.toString();
+          bInput.value = rgb.b.toString();
+        }
+
+        customBtn.style.backgroundColor = hex;
+
+        hueSlider.style.setProperty('--live-hue-color', `hsl(${h}, 100%, 50%)`);
+        const confirmBtn = document.getElementById('warning-btn-confirm');
+        if (confirmBtn) {
+          confirmBtn.style.setProperty('--live-save-color', hex);
+          const rgb = hexToRgb(hex);
+          const yiq = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+          confirmBtn.style.setProperty(
+            '--live-save-contrast',
+            yiq >= 128 ? '#202020' : '#FFFFFF',
+          );
+        }
+      };
+
+      const rect = canvasWrapper.getBoundingClientRect();
+      if (rect.width > 0) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+
+      hueSlider.value = h.toString();
+      updateInputs();
+      drawMatrix();
+      updateCursor();
+
+      let isDragging = false;
+
+      const handleCanvasInteraction = (e: MouseEvent | TouchEvent) => {
+        const rect = canvas.getBoundingClientRect();
+        const clientX =
+          'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+        const clientY =
+          'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+
+        let x = clientX - rect.left;
+        let y = clientY - rect.top;
+
+        x = Math.max(0, Math.min(x, rect.width));
+        y = Math.max(0, Math.min(y, rect.height));
+
+        s = Math.round((x / rect.width) * 100);
+        v = Math.round((1 - y / rect.height) * 100);
+
+        updateCursor();
+        updateInputs();
+      };
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handleCanvasInteraction(e);
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) handleCanvasInteraction(e);
+      });
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      hueSlider.addEventListener('input', (e) => {
+        h = parseInt((e.target as HTMLInputElement).value, 10);
+        drawMatrix();
+        updateInputs();
+      });
+
+      const applyFromHex = (hexVal: string) => {
+        if (/^[0-9A-F]{6}$/i.test(hexVal)) {
+          const newHsv = hexToHsv(`#${hexVal}`);
+          h = newHsv.h;
+          s = newHsv.s;
+          v = newHsv.v;
+          hueSlider.value = h.toString();
+          drawMatrix();
+          updateCursor();
+          updateInputs(false);
+
+          const rgb = hexToRgb(hexVal);
+          rInput.value = rgb.r.toString();
+          gInput.value = rgb.g.toString();
+          bInput.value = rgb.b.toString();
+        }
+      };
+
+      hexInput.addEventListener('input', (e) => {
+        let val = (e.target as HTMLInputElement).value.toUpperCase();
+        applyFromHex(val);
+      });
+
+      const handleRgbInput = () => {
+        let r = Math.min(255, Math.max(0, parseInt(rInput.value) || 0));
+        let g = Math.min(255, Math.max(0, parseInt(gInput.value) || 0));
+        let b = Math.min(255, Math.max(0, parseInt(bInput.value) || 0));
+
+        const newHex = rgbToHex(r, g, b).replace('#', '');
+        hexInput.value = newHex;
+        applyFromHex(newHex);
+      };
+
+      rInput.addEventListener('input', handleRgbInput);
+      gInput.addEventListener('input', handleRgbInput);
+      bInput.addEventListener('input', handleRgbInput);
+
+      warningModal.show({
+        title: 'Custom Color',
+        message: '',
+        confirmText: 'Save',
+        cancelText: 'Cancel',
+        confirmVariant: 'accent',
+        onConfirm: () => {
+          pickerContainer.classList.add('hidden');
+
+          const finalColor = `#${hexInput.value}`;
+          customBtn.style.backgroundColor = finalColor;
+
+          clearPresetSelection();
+          customBtn.classList.add('selected');
+
+          options.applyAccentColor(finalColor);
+          localStorage.setItem('accentColorValue', finalColor);
+          localStorage.setItem('accentColorMode', 'manual');
+
+          const toggleAuto = document.getElementById(
+            'toggleAccentWallpaper',
+          ) as HTMLInputElement;
+          if (toggleAuto) toggleAuto.checked = false;
+        },
+        onCancel: () => {
+          pickerContainer.classList.add('hidden');
+        },
+      });
     });
   }
 
