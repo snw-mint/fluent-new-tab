@@ -443,6 +443,38 @@ html[data-theme='dark'] {
   .color-preset-btn.auto-preset.selected {
     background-color: rgba(255, 255, 255, 0.1) !important;
   }
+
+  .fluent-select-popup {
+    background: var(--surface, #2b2b2b);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .fluent-select-option {
+    &:hover {
+      background: var(--hover-overlay);
+    }
+
+    &.selected {
+      background: var(--hover-overlay-strong);
+    }
+  }
+
+  .fluent-select-trigger {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.42);
+
+    &:hover {
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.62);
+    }
+
+    &:focus-visible,
+    &.popup-open {
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 -1px 0 var(--accent-color);
+    }
+  }
 }
 
 body[data-wallpaper-active='true'] {

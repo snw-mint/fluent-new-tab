@@ -92,6 +92,12 @@ interface EngineConfig {
   icon: string;
 }
 
+interface Window {
+  loadTranslations?: () => void | Promise<void>;
+  applyTranslations?: () => void;
+  getTranslation: (key: string) => string;
+}
+
 interface LauncherApp {
   name: string;
   url: string;

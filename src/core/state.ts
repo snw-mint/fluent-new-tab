@@ -123,3 +123,5 @@ if (!savedDisplayScale) {
 
 let tabName = localStorage.getItem('tabName') || '';
 let tabFavicon = localStorage.getItem('tabFavicon') || '';
+
+let activeSelectTrigger: HTMLButtonElement | null = null;

@@ -268,12 +268,18 @@
         </div>
 
         <div id="wallpaperSourceContainer" class="display-sub-setting">
-          <select id="wallpaperSource" class="settings-select" aria-label="Image Source">
-            <option value="upload" data-i18n="uploadOption">Upload Image</option>
-            <option value="bing">Bing</option>
-            <option value="nasa">NASA (APOD)</option>
-            <option value="wikimedia">Media Commons</option>
-          </select>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="wallpaperSource">
+              <span class="fluent-select-value" data-i18n="uploadOption">Upload Image</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="wallpaperSource" class="settings-select hidden-native-select" aria-label="Image Source">
+              <option value="upload" data-i18n="uploadOption">Upload Image</option>
+              <option value="bing">Bing</option>
+              <option value="nasa">NASA (APOD)</option>
+              <option value="wikimedia">Media Commons</option>
+            </select>
+          </div>
         </div>
 
         <div id="uploadWallpaperContainer" class="backup-row" style="display: none">
@@ -324,12 +330,18 @@
 
         <div id="displayMainOptions" class="setting-content-spaced">
           <div class="display-sub-setting">
-            <select id="displayTypeSelect" class="settings-select" aria-label="Display Type">
-              <option value="greeting" data-i18n="displayGreeting">Greeting</option>
-              <option value="time" data-i18n="displayTime">Time</option>
-              <option value="date" data-i18n="displayDate">Date</option>
-              <option value="advanced" data-i18n="displayAdvanced">Time & Date</option>
-            </select>
+            <div class="fluent-select-container">
+              <button type="button" class="fluent-select-trigger" data-target="displayTypeSelect">
+                <span class="fluent-select-value" data-i18n="displayGreeting">Greeting</span>
+                <span class="fluent-select-arrow"></span>
+              </button>
+              <select id="displayTypeSelect" class="settings-select hidden-native-select" aria-label="Display Type">
+                <option value="greeting" data-i18n="displayGreeting">Greeting</option>
+                <option value="time" data-i18n="displayTime">Time</option>
+                <option value="date" data-i18n="displayDate">Date</option>
+                <option value="advanced" data-i18n="displayAdvanced">Time & Date</option>
+              </select>
+            </div>
           </div>
 
           <div class="setting-item collapsible-setting" id="displayAdvancedSetting">
@@ -355,11 +367,17 @@
 
               <div id="subDate" class="display-sub-setting" style="display: none">
                 <label class="setting-label-small" data-i18n="dateFormatLabel">Format</label>
-                <select id="dateFormatSelect" class="settings-select">
-                  <option value="text" data-i18n="dateText">Written</option>
-                  <option value="numeric" data-i18n="dateNumeric">Numeric</option>
-                  <option value="weekday" data-i18n="dateWeekday">Weekday</option>
-                </select>
+                <div class="fluent-select-container">
+                  <button type="button" class="fluent-select-trigger" data-target="dateFormatSelect">
+                    <span class="fluent-select-value" data-i18n="dateText">Written</span>
+                    <span class="fluent-select-arrow"></span>
+                  </button>
+                  <select id="dateFormatSelect" class="settings-select hidden-native-select">
+                    <option value="text" data-i18n="dateText">Written</option>
+                    <option value="numeric" data-i18n="dateNumeric">Numeric</option>
+                    <option value="weekday" data-i18n="dateWeekday">Weekday</option>
+                  </select>
+                </div>
               </div>
 
               <div id="subGreeting" class="setting-content">
@@ -374,11 +392,17 @@
                 <div class="display-sub-setting">
                   <label class="setting-label-small" data-i18n="emojiTypeLabel" style="margin-top: 0.4rem">Emoji
                     Type</label>
-                  <select id="greetingTypeSelect" class="settings-select" style="margin-top: 0rem">
-                    <option value="none" data-i18n="styleNone">None</option>
-                    <option value="static" data-i18n="TypeStatic">Static</option>
-                    <option value="animated" data-i18n="TypeAnimated">Animated</option>
-                  </select>
+                  <div class="fluent-select-container" style="margin-top: 0rem">
+                    <button type="button" class="fluent-select-trigger" data-target="greetingTypeSelect">
+                      <span class="fluent-select-value" data-i18n="styleNone">None</span>
+                      <span class="fluent-select-arrow"></span>
+                    </button>
+                    <select id="greetingTypeSelect" class="settings-select hidden-native-select">
+                      <option value="none" data-i18n="styleNone">None</option>
+                      <option value="static" data-i18n="TypeStatic">Static</option>
+                      <option value="animated" data-i18n="TypeAnimated">Animated</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
@@ -504,12 +528,18 @@
         </div>
 
         <div id="rowsInputGroup" class="display-sub-setting">
-          <select id="rowsSelect" class="settings-select" aria-label="Rows">
-            <option value="1" data-i18n="rows1">1 Row</option>
-            <option value="2" data-i18n="rows2">2 Rows</option>
-            <option value="3" data-i18n="rows3">3 Rows</option>
-            <option value="4" data-i18n="rows4">4 Rows</option>
-          </select>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="rowsSelect">
+              <span class="fluent-select-value" data-i18n="rows1">1 Row</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="rowsSelect" class="settings-select hidden-native-select" aria-label="Rows">
+              <option value="1" data-i18n="rows1">1 Row</option>
+              <option value="2" data-i18n="rows2">2 Rows</option>
+              <option value="3" data-i18n="rows3">3 Rows</option>
+              <option value="4" data-i18n="rows4">4 Rows</option>
+            </select>
+          </div>
         </div>
 
         <div class="setting-item collapsible-setting" id="shortcutsMoreSetting">
@@ -581,11 +611,17 @@
         </div>
 
         <div id="launcherSelectGroup" class="display-sub-setting">
-          <select id="launcherProvider" class="settings-select" aria-label="Ecosystem">
-            <option value="microsoft">Microsoft 365</option>
-            <option value="google">Google Workspace</option>
-            <option value="proton">Proton AG</option>
-          </select>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="launcherProvider">
+              <span class="fluent-select-value">Microsoft 365</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="launcherProvider" class="settings-select hidden-native-select" aria-label="Ecosystem">
+              <option value="microsoft">Microsoft 365</option>
+              <option value="google">Google Workspace</option>
+              <option value="proton">Proton AG</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -608,10 +644,16 @@
 
         <div id="searchMainOptions" class="setting-content">
           <div id="searchStyleRow" class="display-sub-setting" aria-label="Search bar style">
-            <select id="searchBarStyleSelect" class="settings-select">
-              <option value="full" data-i18n="searchStyleFull">Full width</option>
-              <option value="compact" data-i18n="searchStyleCompact">Compact</option>
-            </select>
+            <div class="fluent-select-container">
+              <button type="button" class="fluent-select-trigger" data-target="searchBarStyleSelect">
+                <span class="fluent-select-value" data-i18n="searchStyleFull">Full width</span>
+                <span class="fluent-select-arrow"></span>
+              </button>
+              <select id="searchBarStyleSelect" class="settings-select hidden-native-select">
+                <option value="full" data-i18n="searchStyleFull">Full width</option>
+                <option value="compact" data-i18n="searchStyleCompact">Compact</option>
+              </select>
+            </div>
           </div>
 
           <div class="setting-item collapsible-setting" id="searchMoreSetting">
@@ -747,32 +789,38 @@
         </div>
 
         <div id="languageSelectGroup" class="display-sub-setting">
-          <select id="languageProvider" class="settings-select" aria-label="Interface Language">
-            <option value="cs_CZ">Čeština</option>
-            <option value="da_DK">Dansk</option>
-            <option value="de_DE">Deutsch</option>
-            <option value="el_GR">Ελληνικά</option>
-            <option value="en_US">English (US)</option>
-            <option value="es_ES">Español (España)</option>
-            <option value="fil_PH">Filipino</option>
-            <option value="fi_FI">Suomi</option>
-            <option value="fr_FR">Français</option>
-            <option value="hu_HU">Magyar</option>
-            <option value="it_IT">Italiano</option>
-            <option value="ja_JP">日本語</option>
-            <option value="ko_KR">한국어</option>
-            <option value="nl_NL">Nederlands</option>
-            <option value="pl_PL">Polski</option>
-            <option value="pt_BR">Português</option>
-            <option value="ro_RO">Română</option>
-            <option value="ru_RU">Русский</option>
-            <option value="sv_SE">Svenska</option>
-            <option value="tr_TR">Türkçe</option>
-            <option value="uk_UA">Українська</option>
-            <option value="vi_VN">Tiếng Việt</option>
-            <option value="zh_CN">中文 (简体)</option>
-            <option value="zh_TW">中文 (繁體)</option>
-          </select>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="languageProvider">
+              <span class="fluent-select-value">English (US)</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="languageProvider" class="settings-select hidden-native-select" aria-label="Interface Language">
+              <option value="cs_CZ">Čeština</option>
+              <option value="da_DK">Dansk</option>
+              <option value="de_DE">Deutsch</option>
+              <option value="el_GR">Ελληνικά</option>
+              <option value="en_US">English (US)</option>
+              <option value="es_ES">Español (España)</option>
+              <option value="fil_PH">Filipino</option>
+              <option value="fi_FI">Suomi</option>
+              <option value="fr_FR">Français</option>
+              <option value="hu_HU">Magyar</option>
+              <option value="it_IT">Italiano</option>
+              <option value="ja_JP">日本語</option>
+              <option value="ko_KR">한국어</option>
+              <option value="nl_NL">Nederlands</option>
+              <option value="pl_PL">Polski</option>
+              <option value="pt_BR">Português</option>
+              <option value="ro_RO">Română</option>
+              <option value="ru_RU">Русский</option>
+              <option value="sv_SE">Svenska</option>
+              <option value="tr_TR">Türkçe</option>
+              <option value="uk_UA">Українська</option>
+              <option value="vi_VN">Tiếng Việt</option>
+              <option value="zh_CN">中文 (简体)</option>
+              <option value="zh_TW">中文 (繁體)</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -1089,6 +1137,10 @@
         fill="#ffffff" />
     </svg>
     <span id="wallpaperCreditText"></span>
+  </div>
+
+  <div id="fluent-select-popup" class="fluent-select-popup" aria-hidden="true">
+    <ul class="fluent-select-options-list" role="listbox"></ul>
   </div>
 
   <script src="scripts/i18n.js"></script>
