@@ -32,55 +32,7 @@ Since this is a browser extension, the dev flow is still simple, but now include
 
 Here is an overview of the project's file organization:
 
-```text
-fluent-new-tab/
-├── src/
-│   ├── core/
-│   │   ├── color.ts             # This file manages accent color application.
-│   │   ├── config.ts            # Constants and static app configuration
-│   │   ├── display.ts           # This file manages the rendering and updating of the time, date, and greeting display.
-│   │   ├── dom-references.ts    # This file centralizes all DOM element references used across the application.
-│   │   ├── dom-units.ts         # This file provides utility functions for common DOM manipulations and element retrieval.
-│   │   ├── drag-drop.ts         # This file implements vanilla HTML5 drag-and-drop functionality for managing shortcuts.
-│   │   ├── event-bidings.ts     # This file contains functions to bind event listeners for various UI components and features.
-│   │   ├── launcher.ts          # This file manages the display, rendering, and interaction of the application launcher.
-│   │   ├── search.ts            # This file manages search functionality, including rendering and updating search suggestions.
-│   │   ├── services.ts          # This file provides functions for interacting with external APIs, including fetching wallpapers.
-│   │   ├── shortcuts.ts         # This file manages the rendering, interaction, and state of shortcuts and folders.
-│   │   ├── state.ts             # This file manages the application's global state, including user preference.
-│   │   ├── types.ts             # This file defines various TypeScript interfaces and type aliases used.
-│   │   ├── wallpaper-storage.ts # This file manages the storage and retrieval of custom wallpapers using IndexedDB
-│   │   └── weather.ts           # This file handles the rendering and display of weather information on the new tab page.
-│   ├── styles/
-│   │   ├── _animation.scss
-│   │   ├── _color.scss
-│   │   ├── _header-controls.scss
-│   │   ├── _launcher.scss
-│   │   ├── _layout.scss
-│   │   ├── _mixins.scss
-│   │   ├── _modals.scss
-│   │   ├── _reset-base.scss
-│   │   ├── _search.scss
-│   │   ├── _settings.scss
-│   │   ├── _shortcuts.scss
-│   │   ├── _variables.scss
-│   │   ├── _wallpaper-storage.scss
-│   │   └── _widgets.scss
-│   ├── script.ts            # Main app flow and feature orchestration
-│   └── style.scss           # Main SCSS entrypoint that imports partials
-├── dist/                    # Build output loaded as unpacked extension
-├── tools/
-│   └── build.mjs            # Copies static extension files to dist
-├── assets/                  # Core assets (Favicons, UI icons)
-│   └── apps/                # Ecosystem icons organized by provider
-│   └── search-engines/      # Search engine icons
-│   └── emojis/              # Fluent emojis for greetings
-│   └── greetings/           # Outline icons for greetings
-│   └── sfx/                 # Sound effects
-│   └── weather/             # Animated Weather icons
-├── index.html               # Main entry point (Structure)
-└── manifest.json            # Extension configuration
-```
+<img src="repo-assets\folder-structure.png" align="center">
 
 ---
 
