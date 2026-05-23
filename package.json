@@ -17,10 +17,12 @@
     "update-policy": "gh gist edit c9d8f1959b8377ab1b2b046deca70224 -f manifest.json ./manifest.json"
   },
   "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.1.42",
     "rimraf": "^6.0.1",
     "sass": "^1.92.1",
     "terser": "^5.44.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.14"
   }
 }

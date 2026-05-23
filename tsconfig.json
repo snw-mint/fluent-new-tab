@@ -2,32 +2,16 @@
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "rootDir": "./src",
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM"],
-    "module": "none",
-    "outFile": "dist/script.js",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "sourceMap": false,
     "removeComments": false,
-    "noEmitOnError": false,
     "strict": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "files": [
-    "src/core/types.ts",
-    "src/core/config.ts",
-    "src/core/dom-utils.ts",
-    "src/core/state.ts",
-    "src/core/dom-references.ts",
-    "src/core/color.ts",
-    "src/core/services.ts",
-    "src/core/weather.ts",
-    "src/core/shortcuts.ts",
-    "src/core/wallpaper-storage.ts",
-    "src/core/launcher.ts",
-    "src/core/search.ts",
-    "src/core/display.ts",
-    "src/core/event-bindings.ts",
-    "src/core/drag-drop.ts",
-    "src/script.ts"
-  ]
+  "include": ["src/**/*"]
 }
