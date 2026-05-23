@@ -1,6 +1,6 @@
-import { getLocalizedWarningText } from '../script.js';
-import { getLocalizedWarningText } from '../script.js';
-
+import { getLocalizedWarningText } from './dom-utils.js';
+import { shortcutsGrid } from './dom-references.js';
+import { HOST_PERMISSIONS, checkPermission, requestPermission } from './services.js';
 
 /*
  * Fluent New Tab
@@ -334,3 +334,62 @@ export function setCollapsible(
     element.addEventListener('transitionend', onCollapseEnd);
   }
 }
+
+export function syncShortcutDropdownState(): void {
+  const hasActiveDropdown = Boolean(
+    shortcutsGrid?.querySelector('.shortcut-dropdown.active'),
+  );
+  if (shortcutsGrid)
+    shortcutsGrid.classList.toggle('dropdown-open', hasActiveDropdown);
+
+  document.querySelectorAll('.menu-wrapper').forEach((wrapper) => {
+    const isOpen = Boolean(wrapper.querySelector('.shortcut-dropdown.active'));
+    wrapper.classList.toggle('dropdown-open', isOpen);
+  });
+}
+
+export async function requestFeaturePermissionUI(
+  feature: keyof typeof HOST_PERMISSIONS,
+  apiName: string,
+  learnMoreUrl: string,
+  onGranted: () => void,
+  onDenied: () => void,
+): Promise<void> {
+  const origins = HOST_PERMISSIONS[feature];
+  if (!origins) {
+    onGranted();
+    return;
+  }
+
+  const hasPerm = await checkPermission(origins);
+  if (hasPerm) {
+    onGranted();
+    return;
+  }
+
+  warningModal.show({
+    title: getLocalizedWarningText(
+      'permissionRequiredTitle',
+      'Permission Required',
+    ),
+    message: getLocalizedWarningText(
+      'permissionRequiredMessage',
+      'To use this feature, Fluent New Tab needs permission to access "$API_NAME$". This ensures your privacy and security.',
+      { API_NAME: apiName },
+    ),
+    learnMoreUrl: learnMoreUrl,
+    confirmText: getLocalizedWarningText(
+      'grantPermissionLabel',
+      'Grant Permission',
+    ),
+    cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
+    confirmVariant: 'accent',
+    onConfirm: async () => {
+      const granted = await requestPermission(origins);
+      if (granted) onGranted();
+      else onDenied();
+    },
+    onCancel: onDenied,
+  });
+}
+

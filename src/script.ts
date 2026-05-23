@@ -41,7 +41,6 @@ import {
   updateLauncherFooterVariant,
   updateLauncherVisibility
 } from './core/launcher.js';
-import {
 import { BackupPayload, ThemeMode } from './core/types.js';
 import { displaySliderContainer, displayToggleBtn, shortcutsMoreContainer, shortcutsMoreBtn, overlaySliderContainer, overlayToggleBtn, accentMoreContainer, accentMoreBtn, searchMoreContainer, searchMoreBtn, weatherMoreContainer, configPopup, launcherPopup, appLauncherBtn, dropdown, currentIcon, searchForm, searchWrapper, toggleSearchBar, voiceSearchBtn, searchInput, toggleVoiceSearch, suggestionsContainer, reducedEffectsOptions, toggleReducedEffects, toggleDisableAnimations, toggleDisableBlur, wallpaperSourceContainer, wallpaperSourceSelect, wallpaperOverlaySetting, overlaySlider, toggleWallpaper, displayMainOptions, subGreeting, subTime, subDate, greetingWrapper, shortcutsGrid, toggleShortcuts, toggleFolders, cityInput, toggleFahrenheit, toggleLauncher, launcherProvider, tabFaviconUploadBtn, tabFaviconInput, tabNameInput, tabFaviconFileInput, toggleAppearance, askAiBtn, themeBtns, accentColorOptions, accentPresetsRow, accentCustomColor, toggleDisplay, rowsSelect, toggleSuggestions, toggleClearSearch, shortcutForm, displayTypeSelect, displayAdvancedSetting, displayScaleSlider, shortcutRadiusSlider, shortcutRadiusRow, toggleHideShortcutNames, toggleSeconds, toggle12Hour, dateFormatSelect, greetingNameInput, greetingTypeSelect, configBtn, closeModalBtn, inputFolderName, inputFolderIcon, engineBtn, items, searchBarStyleSelect, toggleAskAi, toggleWeather, saveCityBtn, toggleWeatherAlerts, mainUiScaleSlider, uploadInput, languageSelect, versionDisplay, exportBtn, importBtn, importInput } from './core/dom-references.js';
 import { HOST_PERMISSIONS, checkPermission, requestPermission, fetchDailyWallpaper, fetchSuggestionsFromService } from './core/services.js';
@@ -51,8 +50,9 @@ import { renderSuggestionsUI, clearSuggestionsUI, updateSuggestionSelectionUI, a
 import { getWallpaperFromDB, saveWallpaperToDB, convertImageToWebp, processWallpaperImage } from './core/wallpaper-storage.js';
 import { handleAutoAccentColor, applyInitialTheme, applyTheme, applyInitialAccentColorState, applyAccentColor } from './core/color.js';
 import { initDisplayWidget } from './core/display.js';
-import { getById, getInputTarget, getInputById, getSelectTarget } from './core/dom-utils.js';
-
+import { getById, getInputTarget, getInputById, getSelectTarget, getLocalizedWarningText } from './core/dom-utils.js';
+import { warningModal, requestFeaturePermissionUI } from './core/ui-components.js';
+import {
   bindWeatherFeature,
   bindAccentColorFeature,
   bindLauncherFeature,
@@ -179,148 +179,7 @@ export function closePopups(except: Element | null = null): void {
 
 
 
-interface WarningModalOptions {
-  title: string;
-  message: string;
-  learnMoreUrl?: string;
-  confirmText?: string;
-  cancelText?: string;
-  confirmVariant?: 'accent' | 'danger';
-  onConfirm: () => void;
-  onCancel?: () => void;
-}
 
-class WarningModalManager {
-  private overlay: HTMLElement;
-  private titleEl: HTMLElement;
-  private messageEl: HTMLElement;
-  private btnConfirm: HTMLButtonElement;
-  private btnCancel: HTMLButtonElement;
-  private handleKeydownBound: (event: KeyboardEvent) => void;
-
-  constructor() {
-    this.overlay = document.getElementById('warningModal') as HTMLElement;
-    this.titleEl = document.getElementById(
-      'warning-modal-title',
-    ) as HTMLElement;
-    this.messageEl = document.getElementById(
-      'warning-modal-message',
-    ) as HTMLElement;
-    this.btnConfirm = document.getElementById(
-      'warning-btn-confirm',
-    ) as HTMLButtonElement;
-    this.btnCancel = document.getElementById(
-      'warning-btn-cancel',
-    ) as HTMLButtonElement;
-    this.handleKeydownBound = this.handleKeydown.bind(this);
-  }
-
-  public show(options: WarningModalOptions): void {
-    const confirmVariant = options.confirmVariant || 'accent';
-    this.titleEl.textContent = options.title;
-
-    this.messageEl.innerHTML = '';
-    this.messageEl.textContent = options.message;
-
-    if (options.learnMoreUrl) {
-      const link = document.createElement('a');
-      link.href = options.learnMoreUrl;
-      link.target = '_blank';
-      link.textContent = getLocalizedWarningText(
-        'learnMoreLabel',
-        'Learn more',
-      );
-      link.style.display = 'inline-block';
-      link.style.marginTop = '8px';
-      link.style.color = 'var(--text-color)';
-      link.style.textDecoration = 'underline';
-      this.messageEl.appendChild(document.createElement('br'));
-      this.messageEl.appendChild(link);
-    }
-
-    this.btnConfirm.textContent = options.confirmText || 'Confirm';
-    this.btnCancel.textContent = options.cancelText || 'Cancel';
-    this.btnConfirm.classList.toggle('btn-danger', confirmVariant === 'danger');
-    this.btnConfirm.classList.toggle('btn-save', confirmVariant !== 'danger');
-
-    document.removeEventListener('keydown', this.handleKeydownBound);
-
-    this.overlay.classList.add('active');
-
-    document.addEventListener('keydown', this.handleKeydownBound);
-
-    this.btnConfirm.onclick = () => {
-      this.close();
-      options.onConfirm();
-    };
-
-    this.btnCancel.onclick = () => {
-      this.close();
-      options.onCancel?.(); // simplifica o if desnecessário
-    };
-  }
-
-  public close(): void {
-    this.overlay.classList.remove('active');
-    document.removeEventListener('keydown', this.handleKeydownBound);
-    this.btnConfirm.onclick = null;
-    this.btnCancel.onclick = null;
-  }
-
-  private handleKeydown(event: KeyboardEvent): void {
-    if (!this.overlay.classList.contains('active')) return;
-    if (event.key !== 'Enter') return;
-    event.preventDefault();
-    this.btnConfirm.click();
-  }
-}
-
-const warningModal = new WarningModalManager();
-
-async function requestFeaturePermissionUI(
-  feature: keyof typeof HOST_PERMISSIONS,
-  apiName: string,
-  learnMoreUrl: string,
-  onGranted: () => void,
-  onDenied: () => void,
-): Promise<void> {
-  const origins = HOST_PERMISSIONS[feature];
-  if (!origins) {
-    onGranted();
-    return;
-  }
-
-  const hasPerm = await checkPermission(origins);
-  if (hasPerm) {
-    onGranted();
-    return;
-  }
-
-  warningModal.show({
-    title: getLocalizedWarningText(
-      'permissionRequiredTitle',
-      'Permission Required',
-    ),
-    message: getLocalizedWarningText(
-      'permissionRequiredMessage',
-      'To use this feature, Fluent New Tab needs permission to access "$API_NAME$". This ensures your privacy and security.',
-      { API_NAME: apiName },
-    ),
-    learnMoreUrl: learnMoreUrl,
-    confirmText: getLocalizedWarningText(
-      'grantPermissionLabel',
-      'Grant Permission',
-    ),
-    cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
-    confirmVariant: 'accent',
-    onConfirm: async () => {
-      const granted = await requestPermission(origins);
-      if (granted) onGranted();
-      else onDenied();
-    },
-    onCancel: onDenied,
-  });
-}
 
 
 
@@ -1288,22 +1147,7 @@ function showToast(message: string, iconPath: string, duration = 3500): void {
   }, duration);
 }
 
-function getLocalizedWarningText(
-  key: string,
-  fallback: string,
-  replacements?: Record<string, string>,
-): string {
-  let text = window.(window as any).getTranslation(key);
-  if (!text || text === key) text = fallback;
 
-  if (replacements) {
-    Object.entries(replacements).forEach(([token, value]) => {
-      text = text.replace(new RegExp(`\\$${token}\\$`, 'g'), value);
-    });
-  }
-
-  return text;
-}
 
 
 
@@ -1700,7 +1544,7 @@ function getLocalizedUpdateMessage(
   messageKey: string,
   substitutions: string[] = [],
 ): string {
-  const translated = window.(window as any).getTranslation(messageKey);
+  const translated = (window as any).getTranslation(messageKey);
   if (translated && translated !== messageKey) {
     let resolved = translated;
     substitutions.forEach((value, index) => {
@@ -1727,7 +1571,7 @@ function getLocalizedUpdateMessage(
 
 function getLocalizedNasaApodNoticeMessage(): string {
   const messageKey = 'nasaApodVideoNotice';
-  const translated = window.(window as any).getTranslation(messageKey);
+  const translated = (window as any).getTranslation(messageKey);
   if (translated && translated !== messageKey) return translated;
   return "Fetching today's NASA image...";
 }
@@ -2630,7 +2474,7 @@ function initAllEventBindings() {
           type: 'folder',
           name:
             inputFolderName.value ||
-            window.(window as any).getTranslation('addFolderTitle') ||
+            (window as any).getTranslation('addFolderTitle') ||
             'New Folder',
           customIcon: inputFolderIcon?.value || null,
           children: [],
@@ -2898,8 +2742,8 @@ function initAllEventBindings() {
 
       // CORREÇÃO: Em vez de recarregar a página, chamamos o motor de i18n do projeto
       // Se a sua função global de carregar traduções for assíncrona (como no setup.js)
-      if (typeof window.(window as any).loadTranslations === 'function') {
-        window.(window as any).loadTranslations();
+      if (typeof (window as any).loadTranslations === 'function') {
+        (window as any).loadTranslations();
       } else if (typeof (window as any).applyTranslations === 'function') {
         (window as any).applyTranslations();
       } else {

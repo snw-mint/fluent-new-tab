@@ -1,5 +1,10 @@
 import { ICON_MENU_DOTS, ICON_EDIT, ICON_REMOVE, ICON_ADD } from './config.js';
 import { sanitizeUrl } from './dom-utils.js';
+import { Shortcut } from './types.js';
+import { syncShortcutDropdownState } from './ui-components.js';
+
+export { syncShortcutDropdownState };
+
 
 /*
  * Fluent New Tab

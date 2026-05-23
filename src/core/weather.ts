@@ -1,4 +1,5 @@
 import { weatherAlertsEnabled } from './state.js';
+import { WeatherApiResponse, WeatherUnit, CityData } from './types.js';
 
 /*
  * Fluent New Tab

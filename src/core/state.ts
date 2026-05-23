@@ -1,4 +1,5 @@
 import { engines, launcherData } from './config.js';
+import { Shortcut, ThemeMode, WeatherUnit, CityData, WallpaperSource, WallpaperType } from './types.js';
 
 /*
  * Fluent New Tab

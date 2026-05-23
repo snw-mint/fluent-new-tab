@@ -1,7 +1,8 @@
 import { launcherData, engines } from './config.js';
 import { currentCityData } from './state.js';
 import { hexToHsv, hsvToHex, hexToRgb, rgbToHex } from './color.js';
-import { warningModal } from './ui-components.js';
+import { warningModal, requestFeaturePermissionUI } from './ui-components.js';
+import { WeatherUnit, WallpaperSource, WallpaperType } from './types.js';
 
 /*
  * Fluent New Tab

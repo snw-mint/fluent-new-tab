@@ -1,6 +1,17 @@
-import { toggleAppearance, accentColorOptions, toggleAccentWallpaper, themeBtns } from './dom-references.js';
-import { accentColorEnabled, accentColorMode, accentColorValue, savedTheme } from './state.js';
+import {
+  toggleAppearance,
+  accentColorOptions,
+  toggleAccentWallpaper,
+  themeBtns,
+} from './dom-references.js';
+import {
+  accentColorEnabled,
+  accentColorMode,
+  accentColorValue,
+  savedTheme,
+} from './state.js';
 import { setCollapsible } from './ui-components.js';
+import { ThemeMode } from './types.js';
 
 /*
  * Fluent New Tab
@@ -30,7 +41,9 @@ export function applyAccentColor(color: string): void {
   );
 }
 
-export async function getAverageColorFromImage(imageUrl: string): Promise<string> {
+export async function getAverageColorFromImage(
+  imageUrl: string,
+): Promise<string> {
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'Anonymous';

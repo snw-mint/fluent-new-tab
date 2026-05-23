@@ -10,6 +10,8 @@
  * This file manages the display, rendering, and interaction of the application launcher.
  */
 
+import { LauncherProviderData } from './types.js';
+
 interface LauncherVisibilityRefs {
   appLauncherWrapper: HTMLElement | null;
   launcherSelectGroup: HTMLElement | null;

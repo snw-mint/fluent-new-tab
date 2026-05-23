@@ -46,3 +46,20 @@ export function sanitizeUrl(url: string | null | undefined): string {
     return '#';
   }
 }
+
+export function getLocalizedWarningText(
+  key: string,
+  fallback: string,
+  replacements?: Record<string, string>,
+): string {
+  let text = (window as any).getTranslation(key);
+  if (!text || text === key) text = fallback;
+
+  if (replacements) {
+    Object.entries(replacements).forEach(([token, value]) => {
+      text = text.replace(new RegExp(`\\$${token}\\$`, 'g'), value);
+    });
+  }
+
+  return text;
+}

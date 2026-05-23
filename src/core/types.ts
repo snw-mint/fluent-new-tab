@@ -78,7 +78,7 @@ interface Window {
 
 type ShortcutItemType = 'link' | 'folder';
 
-interface Shortcut {
+export interface Shortcut {
   id?: string;
   type?: ShortcutItemType;
   name: string;
@@ -87,7 +87,7 @@ interface Shortcut {
   children?: Shortcut[];
 }
 
-interface EngineConfig {
+export interface EngineConfig {
   url: string;
   icon: string;
 }
@@ -104,12 +104,12 @@ interface LauncherApp {
   icon: string;
 }
 
-interface LauncherProviderData {
+export interface LauncherProviderData {
   apps: LauncherApp[];
   allAppsLink: string;
 }
 
-interface CityData {
+export interface CityData {
   name: string;
   lat: number;
   lon: number;
@@ -122,11 +122,11 @@ interface WeatherCurrent {
   is_day: number;
 }
 
-interface WeatherApiResponse {
+export interface WeatherApiResponse {
   current_weather?: WeatherCurrent;
 }
 
-interface GeocodingResult {
+export interface GeocodingResult {
   name: string;
   latitude: number;
   longitude: number;
@@ -137,7 +137,7 @@ interface GeocodingResult {
   admin3?: string;
 }
 
-interface GeocodingResponse {
+export interface GeocodingResponse {
   results?: GeocodingResult[];
 }
 
@@ -148,7 +148,7 @@ interface BingWallpaperItem {
   copyright?: string;
 }
 
-interface NasaApodResponse {
+export interface NasaApodResponse {
   media_type?: string;
   hdurl?: string;
   url?: string;
@@ -173,7 +173,7 @@ interface WikimediaQueryResponse {
   };
 }
 
-type SuggestionApiResponse = [string, string[]];
+export type SuggestionApiResponse = [string, string[]];
 
 interface WeatherCache {
   timestamp: number;
@@ -183,14 +183,14 @@ interface WeatherCache {
 
 type BackupPayload = Record<string, string | undefined>;
 
-interface WallpaperCacheEntry {
+export interface WallpaperCacheEntry {
   url?: string;
   date?: string;
   credit?: string;
   creditUrl?: string;
 }
 
-type ThemeMode = 'light' | 'dark' | 'auto';
-type WeatherUnit = 'c' | 'f';
-type WallpaperSource = 'local' | 'api';
-type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia';
+export type ThemeMode = 'light' | 'dark' | 'auto';
+export type WeatherUnit = 'c' | 'f';
+export type WallpaperSource = 'local' | 'api';
+export type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia';

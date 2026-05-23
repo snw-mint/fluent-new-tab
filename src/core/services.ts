@@ -11,6 +11,17 @@
  * search suggestions, and weather data, and managing browser permissions for these services.
  */
 
+import { 
+  WallpaperType, 
+  WallpaperCacheEntry, 
+  NasaApodResponse, 
+  SuggestionApiResponse, 
+  CityData, 
+  GeocodingResult, 
+  GeocodingResponse, 
+  WeatherApiResponse 
+} from './types.js';
+
 export const HOST_PERMISSIONS: Record<string, string[]> = {
   bing: ['https://peapix.com/*', 'https://img.peapix.com/*'],
   nasa: ['https://api.nasa.gov/*', 'https://apod.nasa.gov/*'],
@@ -271,7 +282,9 @@ export async function fetchDailyWallpaper(
   }
 }
 
-export async function fetchSuggestionsFromService(query: string): Promise<string[]> {
+export async function fetchSuggestionsFromService(
+  query: string,
+): Promise<string[]> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.suggestions);
   if (!hasPerm) return [];
 
