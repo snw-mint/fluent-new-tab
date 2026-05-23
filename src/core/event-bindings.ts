@@ -1,3 +1,8 @@
+import { launcherData, engines } from './config.js';
+import { currentCityData } from './state.js';
+import { hexToHsv, hsvToHex, hexToRgb, rgbToHex } from './color.js';
+import { warningModal } from './ui-components.js';
+
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -105,7 +110,7 @@ interface WallpaperBindingOptions {
   getCurrentWallpaperType: () => string;
 }
 
-function bindWeatherFeature(options: WeatherBindingOptions): void {
+export function bindWeatherFeature(options: WeatherBindingOptions): void {
   options.applyInitialWeatherState();
 
   if (options.toggleWeather) {
@@ -225,7 +230,7 @@ interface AccentColorBindingOptions {
   applyWallpaperLogic: () => Promise<void> | void;
 }
 
-function bindAccentColorFeature(options: AccentColorBindingOptions): void {
+export function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   options.applyInitialAccentState();
 
   const savedMode = localStorage.getItem('accentColorMode') || 'auto';
@@ -610,7 +615,7 @@ function bindAccentColorFeature(options: AccentColorBindingOptions): void {
   }
 }
 
-function bindLauncherFeature(options: LauncherBindingOptions): void {
+export function bindLauncherFeature(options: LauncherBindingOptions): void {
   options.applyInitialLauncherState();
 
   if (options.toggleLauncher) {
@@ -662,7 +667,7 @@ function bindLauncherFeature(options: LauncherBindingOptions): void {
   });
 }
 
-function bindSearchFeature(options: SearchBindingOptions): void {
+export function bindSearchFeature(options: SearchBindingOptions): void {
   if (options.toggleSearchBar) {
     options.toggleSearchBar.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -883,7 +888,7 @@ interface ShortcutRadiusBindingOptions {
   setHideShortcutNames: (enabled: boolean) => void;
 }
 
-function bindDisplayFeature(options: DisplayBindingOptions): void {
+export function bindDisplayFeature(options: DisplayBindingOptions): void {
   if (options.displayToggleBtn && options.displaySliderContainer) {
     options.displayToggleBtn.addEventListener('click', () => {
       const isCollapsed =
@@ -930,7 +935,7 @@ function bindDisplayFeature(options: DisplayBindingOptions): void {
   }
 }
 
-function bindShortcutRadiusFeature(
+export function bindShortcutRadiusFeature(
   options: ShortcutRadiusBindingOptions,
 ): void {
   if (options.shortcutRadiusSlider && options.shortcutRadiusRow) {
@@ -1022,7 +1027,7 @@ interface MainUiScaleBindingOptions {
   setMainUiScale: (scale: number) => void;
 }
 
-function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
+export function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
   if (options.mainUiScaleSlider) {
     const slider = options.mainUiScaleSlider;
     slider.value = String(options.getMainUiScale());
@@ -1062,7 +1067,7 @@ function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
   }
 }
 
-function bindWallpaperFeature(options: WallpaperBindingOptions): void {
+export function bindWallpaperFeature(options: WallpaperBindingOptions): void {
   const autoColorBtn = document.querySelector(
     '.color-preset-btn.auto-preset',
   ) as HTMLButtonElement | null;

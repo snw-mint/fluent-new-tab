@@ -1,3 +1,7 @@
+import { toggleAppearance, accentColorOptions, toggleAccentWallpaper, themeBtns } from './dom-references.js';
+import { accentColorEnabled, accentColorMode, accentColorValue, savedTheme } from './state.js';
+import { setCollapsible } from './ui-components.js';
+
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -11,9 +15,9 @@
  * and dynamic color extraction from images for theming.
  */
 
-const DEFAULT_ACCENT_COLOR = '#0078D4';
+export const DEFAULT_ACCENT_COLOR = '#0078D4';
 
-function applyAccentColor(color: string): void {
+export function applyAccentColor(color: string): void {
   document.documentElement.style.setProperty('--accent-color', color);
   const hex = color.replace('#', '');
   const r = parseInt(hex.substring(0, 2), 16);
@@ -26,7 +30,7 @@ function applyAccentColor(color: string): void {
   );
 }
 
-async function getAverageColorFromImage(imageUrl: string): Promise<string> {
+export async function getAverageColorFromImage(imageUrl: string): Promise<string> {
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'Anonymous';
@@ -75,7 +79,7 @@ async function getAverageColorFromImage(imageUrl: string): Promise<string> {
   });
 }
 
-async function handleAutoAccentColor(
+export async function handleAutoAccentColor(
   imageUrl: string,
   wallpaperId: string,
 ): Promise<void> {
@@ -100,7 +104,7 @@ async function handleAutoAccentColor(
   applyAccentColor(extractedColor);
 }
 
-function applyInitialAccentColorState(): void {
+export function applyInitialAccentColorState(): void {
   if (toggleAppearance) {
     toggleAppearance.checked = accentColorEnabled;
     setCollapsible(accentColorOptions, accentColorEnabled, false);
@@ -114,7 +118,7 @@ function applyInitialAccentColorState(): void {
   applyAccentColor(colorToApply);
 }
 
-function applyTheme(theme: ThemeMode): void {
+export function applyTheme(theme: ThemeMode): void {
   if (themeBtns) {
     themeBtns.forEach((btn) =>
       btn.classList.toggle('active', btn.dataset.theme === theme),
@@ -133,11 +137,11 @@ function applyTheme(theme: ThemeMode): void {
   }
 }
 
-function applyInitialTheme(): void {
+export function applyInitialTheme(): void {
   applyTheme(savedTheme);
 }
 
-function hsvToHex(h: number, s: number, v: number): string {
+export function hsvToHex(h: number, s: number, v: number): string {
   s /= 100;
   v /= 100;
   const k = (n: number) => (n + h / 60) % 6;
@@ -149,7 +153,7 @@ function hsvToHex(h: number, s: number, v: number): string {
   return `#${toHex(f(5))}${toHex(f(3))}${toHex(f(1))}`.toUpperCase();
 }
 
-function hexToRgb(hex: string): { r: number; g: number; b: number } {
+export function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const cleanHex = hex.replace('#', '');
   return {
     r: parseInt(cleanHex.substring(0, 2), 16) || 0,
@@ -158,7 +162,7 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
   };
 }
 
-function rgbToHex(r: number, g: number, b: number): string {
+export function rgbToHex(r: number, g: number, b: number): string {
   const toHex = (c: number) => {
     const hex = Math.max(0, Math.min(255, Math.round(c))).toString(16);
     return hex.length === 1 ? '0' + hex : hex;
@@ -166,7 +170,7 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
 }
 
-function hexToHsv(hex: string): { h: number; s: number; v: number } {
+export function hexToHsv(hex: string): { h: number; s: number; v: number } {
   let r = 0,
     g = 0,
     b = 0;

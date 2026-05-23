@@ -18,30 +18,30 @@ interface DragDropOptions {
   onMoveOutFolder: (itemIndex: number) => void;
 }
 
-let activeDragOptions: DragDropOptions | null = null;
-let draggedElement: HTMLElement | null = null;
-let ghostNode: HTMLElement | null = null;
-let placeholder: HTMLElement | null = null;
-let currentDropTarget: HTMLElement | null = null;
-let dropAction: 'reorder' | 'folder' | 'out-of-folder' = 'reorder';
-let rAF_ID: number = 0;
+export let activeDragOptions: DragDropOptions | null = null;
+export let draggedElement: HTMLElement | null = null;
+export let ghostNode: HTMLElement | null = null;
+export let placeholder: HTMLElement | null = null;
+export let currentDropTarget: HTMLElement | null = null;
+export let dropAction: 'reorder' | 'folder' | 'out-of-folder' = 'reorder';
+export let rAF_ID: number = 0;
 
-let mouseX = 0;
-let mouseY = 0;
-let offsetX = 0;
-let offsetY = 0;
-let dragStartRect: DOMRect | null = null;
-let ghostBaseX = 0;
-let ghostBaseY = 0;
-let ghostScale = 1;
+export let mouseX = 0;
+export let mouseY = 0;
+export let offsetX = 0;
+export let offsetY = 0;
+export let dragStartRect: DOMRect | null = null;
+export let ghostBaseX = 0;
+export let ghostBaseY = 0;
+export let ghostScale = 1;
 
-function initVanillaDragAndDrop(options: DragDropOptions): void {
+export function initVanillaDragAndDrop(options: DragDropOptions): void {
   activeDragOptions = options;
   const grid = options.gridContainer;
   grid.addEventListener('dragstart', handleDragStart);
 }
 
-function handleDragStart(event: DragEvent): void {
+export function handleDragStart(event: DragEvent): void {
   const target = event.target as HTMLElement;
   const item = target.closest('.shortcut-item') as HTMLElement | null;
 
@@ -100,7 +100,7 @@ function handleDragStart(event: DragEvent): void {
   }, 0);
 }
 
-function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
+export function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
   ghostNode = sourceItem.cloneNode(true) as HTMLElement;
 
   ghostNode.removeAttribute('id');
@@ -169,14 +169,14 @@ function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
   rAF_ID = requestAnimationFrame(updateGhostPosition);
 }
 
-function handleGlobalDragEnter(event: DragEvent): void {
+export function handleGlobalDragEnter(event: DragEvent): void {
   event.preventDefault();
   if (event.dataTransfer) {
     event.dataTransfer.dropEffect = 'move';
   }
 }
 
-function handleGlobalDragOver(event: DragEvent): void {
+export function handleGlobalDragOver(event: DragEvent): void {
   event.preventDefault();
   if (event.dataTransfer) {
     event.dataTransfer.dropEffect = 'move';
@@ -324,7 +324,7 @@ function handleGlobalDragOver(event: DragEvent): void {
   }
 }
 
-function movePlaceholderWithAnimation(
+export function movePlaceholderWithAnimation(
   parent: Node,
   referenceNode: Node | null,
 ): void {
@@ -370,7 +370,7 @@ function movePlaceholderWithAnimation(
   });
 }
 
-function handleGlobalDrop(event: DragEvent): void {
+export function handleGlobalDrop(event: DragEvent): void {
   event.preventDefault();
 
   if (draggedElement && activeDragOptions) {
@@ -418,11 +418,11 @@ function handleGlobalDrop(event: DragEvent): void {
   cleanupDrag();
 }
 
-function handleGlobalDragEnd(event: DragEvent): void {
+export function handleGlobalDragEnd(event: DragEvent): void {
   cleanupDrag();
 }
 
-function cleanupDrag(): void {
+export function cleanupDrag(): void {
   if (activeDragOptions)
     activeDragOptions.gridContainer.classList.remove('sorting');
   if (rAF_ID) cancelAnimationFrame(rAF_ID);

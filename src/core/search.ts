@@ -11,7 +11,7 @@
  * and applying specific search engine parameters.
  */
 
-const SEARCH_URLS: Record<string, string> = {
+export const SEARCH_URLS: Record<string, string> = {
   engine1: 'https://www.google.com/search?q=',
   google: 'https://www.google.com/search?q=',
   bing: 'https://www.bing.com/search?q=',
@@ -29,7 +29,7 @@ interface SearchSuggestionRefs {
   searchWrapper?: HTMLElement | null;
 }
 
-function clearSuggestionsUI(
+export function clearSuggestionsUI(
   suggestionsContainer: HTMLDivElement | null,
   searchWrapper?: HTMLElement | null,
 ): void {
@@ -39,7 +39,7 @@ function clearSuggestionsUI(
   suggestionsContainer.classList.remove('active');
 }
 
-function renderSuggestionsUI(
+export function renderSuggestionsUI(
   suggestions: string[],
   refs: SearchSuggestionRefs,
   onClear: () => void,
@@ -80,7 +80,7 @@ function renderSuggestionsUI(
   if (searchWrapper) searchWrapper.classList.add('suggestions-open');
 }
 
-function updateSuggestionSelectionUI(
+export function updateSuggestionSelectionUI(
   items: HTMLElement[],
   index: number,
   searchInput: HTMLInputElement | null,
@@ -94,7 +94,7 @@ function updateSuggestionSelectionUI(
   }
 }
 
-function applyGoogleSearchParams(
+export function applyGoogleSearchParams(
   searchForm: HTMLFormElement | null,
   currentEngine: string,
   clearSearchEnabled: boolean,
@@ -115,7 +115,7 @@ function applyGoogleSearchParams(
   }
 }
 
-function performSearch(query: string, engine: string): void {
+export function performSearch(query: string, engine: string): void {
   if (!query.trim()) return;
   if (engine === 'engine0' || engine === 'system') {
     try {

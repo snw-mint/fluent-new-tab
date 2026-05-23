@@ -11,7 +11,7 @@
  * search suggestions, and weather data, and managing browser permissions for these services.
  */
 
-const HOST_PERMISSIONS: Record<string, string[]> = {
+export const HOST_PERMISSIONS: Record<string, string[]> = {
   bing: ['https://peapix.com/*', 'https://img.peapix.com/*'],
   nasa: ['https://api.nasa.gov/*', 'https://apod.nasa.gov/*'],
   wikimedia: [
@@ -29,7 +29,7 @@ const HOST_PERMISSIONS: Record<string, string[]> = {
   ],
 };
 
-async function checkPermission(origins: string[]): Promise<boolean> {
+export async function checkPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
     if (
@@ -57,7 +57,7 @@ async function checkPermission(origins: string[]): Promise<boolean> {
   });
 }
 
-async function requestPermission(origins: string[]): Promise<boolean> {
+export async function requestPermission(origins: string[]): Promise<boolean> {
   return new Promise((resolve) => {
     const chromeApi = (window as any).chrome;
     if (
@@ -85,7 +85,7 @@ async function requestPermission(origins: string[]): Promise<boolean> {
   });
 }
 
-async function fetchDailyWallpaper(
+export async function fetchDailyWallpaper(
   source: WallpaperType,
 ): Promise<string | null> {
   const origins = HOST_PERMISSIONS[source as keyof typeof HOST_PERMISSIONS];
@@ -271,7 +271,7 @@ async function fetchDailyWallpaper(
   }
 }
 
-async function fetchSuggestionsFromService(query: string): Promise<string[]> {
+export async function fetchSuggestionsFromService(query: string): Promise<string[]> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.suggestions);
   if (!hasPerm) return [];
 
@@ -289,7 +289,7 @@ async function fetchSuggestionsFromService(query: string): Promise<string[]> {
   }
 }
 
-async function fetchCityData(query: string): Promise<CityData | null> {
+export async function fetchCityData(query: string): Promise<CityData | null> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
   if (!hasPerm) return null;
 
@@ -369,7 +369,7 @@ async function fetchCityData(query: string): Promise<CityData | null> {
   return null;
 }
 
-async function fetchWeatherData(
+export async function fetchWeatherData(
   cityData: CityData,
 ): Promise<WeatherApiResponse | null> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);

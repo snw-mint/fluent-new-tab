@@ -6,11 +6,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-const WALLPAPER_DB_NAME = 'FluentNewTabDB';
-const WALLPAPER_DB_VERSION = 1;
-const WALLPAPER_STORE_NAME = 'wallpapers';
+export const WALLPAPER_DB_NAME = 'FluentNewTabDB';
+export const WALLPAPER_DB_VERSION = 1;
+export const WALLPAPER_STORE_NAME = 'wallpapers';
 
-function openWallpaperDB(): Promise<IDBDatabase> {
+export function openWallpaperDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(WALLPAPER_DB_NAME, WALLPAPER_DB_VERSION);
 
@@ -32,7 +32,7 @@ function openWallpaperDB(): Promise<IDBDatabase> {
   });
 }
 
-function convertBlobToBase64(blob: Blob): Promise<string> {
+export function convertBlobToBase64(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(reader.result as string);
@@ -42,11 +42,11 @@ function convertBlobToBase64(blob: Blob): Promise<string> {
   });
 }
 
-function convertBase64ToBlob(base64: string): Promise<Blob> {
+export function convertBase64ToBlob(base64: string): Promise<Blob> {
   return fetch(base64).then((res) => res.blob());
 }
 
-async function saveWallpaperToDB(
+export async function saveWallpaperToDB(
   blob: Blob,
   keyName: string = 'custom_wallpaper',
 ): Promise<boolean> {
@@ -99,7 +99,7 @@ async function saveWallpaperToDB(
   }
 }
 
-async function getWallpaperFromDB(
+export async function getWallpaperFromDB(
   keyName: string = 'custom_wallpaper',
 ): Promise<Blob | null> {
   try {
@@ -145,7 +145,7 @@ async function getWallpaperFromDB(
   }
 }
 
-function convertImageToWebp(
+export function convertImageToWebp(
   imageSource: string,
   maxWidth = 1920,
   quality = 0.82,
@@ -184,7 +184,7 @@ function convertImageToWebp(
   });
 }
 
-function processWallpaperImage(file: File): Promise<Blob> {
+export function processWallpaperImage(file: File): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);

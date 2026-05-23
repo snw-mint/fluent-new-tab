@@ -11,6 +11,58 @@
  * orchestrating all core functionalities, event bindings, and UI updates.
  */
 
+import { initWeather, searchCity, updateWeatherVisibility } from './core/weather.js';
+import {
+  saveAndRender,
+  deleteShortcut,
+  updateShortcutsVisibility,
+  renderShortcuts,
+  updateSingleRowClass,
+  getActiveShortcutsList,
+  openModal,
+  openChooseTypeModal,
+  openFolderModal,
+  openShortcutModal,
+  closeModal,
+  hideAllModals,
+  setCustomIconVisibility,
+  initCustomIconToggle,
+  setFolderCustomIconVisibility,
+  initFolderCustomIconToggle,
+  syncShortcutDropdownState
+} from './core/shortcuts.js';
+import { initVanillaDragAndDrop } from './core/drag-drop.js';
+import {
+  renderLauncher,
+  createFolderFromLauncher,
+  getLauncherProviderKey,
+  getLauncherFolderName,
+  bindLauncherFolderButton,
+  updateLauncherFooterVariant,
+  updateLauncherVisibility
+} from './core/launcher.js';
+import {
+import { BackupPayload, ThemeMode } from './core/types.js';
+import { displaySliderContainer, displayToggleBtn, shortcutsMoreContainer, shortcutsMoreBtn, overlaySliderContainer, overlayToggleBtn, accentMoreContainer, accentMoreBtn, searchMoreContainer, searchMoreBtn, weatherMoreContainer, configPopup, launcherPopup, appLauncherBtn, dropdown, currentIcon, searchForm, searchWrapper, toggleSearchBar, voiceSearchBtn, searchInput, toggleVoiceSearch, suggestionsContainer, reducedEffectsOptions, toggleReducedEffects, toggleDisableAnimations, toggleDisableBlur, wallpaperSourceContainer, wallpaperSourceSelect, wallpaperOverlaySetting, overlaySlider, toggleWallpaper, displayMainOptions, subGreeting, subTime, subDate, greetingWrapper, shortcutsGrid, toggleShortcuts, toggleFolders, cityInput, toggleFahrenheit, toggleLauncher, launcherProvider, tabFaviconUploadBtn, tabFaviconInput, tabNameInput, tabFaviconFileInput, toggleAppearance, askAiBtn, themeBtns, accentColorOptions, accentPresetsRow, accentCustomColor, toggleDisplay, rowsSelect, toggleSuggestions, toggleClearSearch, shortcutForm, displayTypeSelect, displayAdvancedSetting, displayScaleSlider, shortcutRadiusSlider, shortcutRadiusRow, toggleHideShortcutNames, toggleSeconds, toggle12Hour, dateFormatSelect, greetingNameInput, greetingTypeSelect, configBtn, closeModalBtn, inputFolderName, inputFolderIcon, engineBtn, items, searchBarStyleSelect, toggleAskAi, toggleWeather, saveCityBtn, toggleWeatherAlerts, mainUiScaleSlider, uploadInput, languageSelect, versionDisplay, exportBtn, importBtn, importInput } from './core/dom-references.js';
+import { HOST_PERMISSIONS, checkPermission, requestPermission, fetchDailyWallpaper, fetchSuggestionsFromService } from './core/services.js';
+import { engines, APP_KEYS } from './core/config.js';
+import { searchBarVisible, compactBarEnabled, voiceSearchEnabled, wallpaperOverlay, currentWallpaperType, wallpaperEnabled, currentWallpaperSource, currentWallpaperValue, suggestionsCache, clearSearchEnabled, currentFolderId, allowedRows, savedEngine, shortcutsVisible, foldersEnabled, reducedEffectsEnabled, animationsDisabled, blurDisabled, currentCityData, weatherUnit, weatherEnabled, launcherEnabled, currentProvider, accentColorEnabled, tabName, tabFavicon, askAiEnabled, sfxMicInstance, sfxAskAiInstance, askAiMode, shortcuts, suggestionsActive, editingIndex, displayScale, shortcutRadius, hideShortcutNames, weatherAlertsEnabled, mainUiScale } from './core/state.js';
+import { renderSuggestionsUI, clearSuggestionsUI, updateSuggestionSelectionUI, applyGoogleSearchParams, performSearch } from './core/search.js';
+import { getWallpaperFromDB, saveWallpaperToDB, convertImageToWebp, processWallpaperImage } from './core/wallpaper-storage.js';
+import { handleAutoAccentColor, applyInitialTheme, applyTheme, applyInitialAccentColorState, applyAccentColor } from './core/color.js';
+import { initDisplayWidget } from './core/display.js';
+import { getById, getInputTarget, getInputById, getSelectTarget } from './core/dom-utils.js';
+
+  bindWeatherFeature,
+  bindAccentColorFeature,
+  bindLauncherFeature,
+  bindSearchFeature,
+  bindDisplayFeature,
+  bindShortcutRadiusFeature,
+  bindMainUiScaleFeature,
+  bindWallpaperFeature
+} from './core/event-bindings.js';
+
 function debounce<T extends unknown[]>(
   func: (...args: T) => void,
   wait: number,
@@ -71,17 +123,6 @@ function applyMagneticSnap(
   });
 }
 
-function closeModal(): void {
-  hideAllModals();
-  editingIndex = null;
-}
-
-function hideAllModals(): void {
-  if (addModal) addModal.classList.remove('active');
-  if (chooseTypeModal) chooseTypeModal.classList.remove('active');
-  if (addFolderModal) addFolderModal.classList.remove('active');
-}
-
 function resetSettingsAccordions(): void {
   try {
     const accordions = [
@@ -110,7 +151,7 @@ function resetSettingsAccordions(): void {
   }
 }
 
-function closePopups(except: Element | null = null): void {
+export function closePopups(except: Element | null = null): void {
   if (configPopup && configPopup !== except) {
     configPopup.classList.remove('active');
     resetSettingsAccordions();
@@ -136,136 +177,7 @@ function closePopups(except: Element | null = null): void {
   syncShortcutDropdownState();
 }
 
-function syncShortcutDropdownState(): void {
-  const hasActiveDropdown = Boolean(
-    shortcutsGrid?.querySelector('.shortcut-dropdown.active'),
-  );
-  if (shortcutsGrid)
-    shortcutsGrid.classList.toggle('dropdown-open', hasActiveDropdown);
 
-  document.querySelectorAll('.menu-wrapper').forEach((wrapper) => {
-    const isOpen = Boolean(wrapper.querySelector('.shortcut-dropdown.active'));
-    wrapper.classList.toggle('dropdown-open', isOpen);
-  });
-}
-
-function openModal(index: number | null = null): void {
-  editingIndex = index;
-
-  const currentArray = getActiveShortcutsList();
-  const existingItem = index !== null ? currentArray[index] : null;
-
-  if (existingItem?.type === 'folder') {
-    openFolderModal(existingItem.name, true);
-    return;
-  }
-  if (index === null && foldersEnabled && !currentFolderId) {
-    openChooseTypeModal();
-    return;
-  }
-  openShortcutModal(existingItem);
-}
-function openChooseTypeModal(): void {
-  hideAllModals();
-  if (chooseTypeModal) chooseTypeModal.classList.add('active');
-}
-
-function openFolderModal(name = '', isEditing = false): void {
-  hideAllModals();
-  if (!addFolderModal || !inputFolderName || !inputFolderIcon) return;
-  addFolderModal.classList.add('active');
-
-  const currentArray = getActiveShortcutsList();
-  const existingFolder =
-    editingIndex !== null ? currentArray[editingIndex] : null;
-
-  if (folderModalTitle) {
-    const tKey = isEditing ? 'editFolderTitle' : 'addFolderTitle';
-    folderModalTitle.textContent = window.getTranslation(tKey);
-  }
-
-  inputFolderName.value = name;
-  inputFolderIcon.value = existingFolder?.customIcon || '';
-  setFolderCustomIconVisibility(Boolean(existingFolder?.customIcon));
-
-  setTimeout(() => inputFolderName.focus(), 100);
-}
-
-function openShortcutModal(existingItem: Shortcut | null): void {
-  hideAllModals();
-  if (!addModal) return;
-
-  addModal.classList.add('active');
-  const modalTitle = addModal.querySelector('.modal-content h3');
-  const inputName = getInputById('inputName');
-  const inputUrl = getInputById('inputUrl');
-  const inputIcon = getInputById('inputIcon');
-
-  if (existingItem) {
-    if (inputName) inputName.value = existingItem.name;
-    if (inputUrl) inputUrl.value = existingItem.url || '';
-    if (inputIcon) inputIcon.value = existingItem.customIcon || '';
-    if (modalTitle)
-      modalTitle.textContent = window.getTranslation('editShortcutTitle');
-    setCustomIconVisibility(Boolean(existingItem.customIcon));
-  } else {
-    if (inputName) inputName.value = '';
-    if (inputUrl) inputUrl.value = '';
-    if (inputIcon) inputIcon.value = '';
-    if (modalTitle)
-      modalTitle.textContent = window.getTranslation('addShortcutTitle');
-    setCustomIconVisibility(false);
-  }
-  setTimeout(() => inputUrl?.focus(), 100);
-}
-
-function setCustomIconVisibility(show: boolean): void {
-  if (!customIconGroup || !toggleCustomIcon) return;
-  const inputIcon = document.getElementById(
-    'inputIcon',
-  ) as HTMLInputElement | null;
-  customIconGroup.classList.toggle('hidden', !show);
-  toggleCustomIcon.classList.toggle('expanded', show);
-  toggleCustomIcon.setAttribute('aria-expanded', show ? 'true' : 'false');
-  if (!show && inputIcon) {
-    inputIcon.value = '';
-  }
-}
-
-function initCustomIconToggle(): void {
-  if (!toggleCustomIcon || !customIconGroup) return;
-  const inputIcon = getInputById('inputIcon');
-
-  toggleCustomIcon.addEventListener('click', () => {
-    const isHidden = customIconGroup.classList.contains('hidden');
-
-    if (isHidden) {
-      setCustomIconVisibility(true);
-      if (inputIcon) {
-        setTimeout(() => inputIcon.focus(), 50);
-      }
-    } else {
-      setCustomIconVisibility(false);
-    }
-  });
-}
-let cachedActiveFolderId: string | null = null;
-let cachedActiveFolder: Shortcut | undefined = undefined;
-
-function getActiveShortcutsList(): Shortcut[] {
-  if (currentFolderId) {
-    if (cachedActiveFolderId !== currentFolderId) {
-      cachedActiveFolderId = currentFolderId;
-      cachedActiveFolder = shortcuts.find((s) => s.id === currentFolderId);
-    }
-    if (cachedActiveFolder && cachedActiveFolder.children)
-      return cachedActiveFolder.children;
-  } else {
-    cachedActiveFolderId = null;
-    cachedActiveFolder = undefined;
-  }
-  return shortcuts;
-}
 
 interface WarningModalOptions {
   title: string;
@@ -410,102 +322,7 @@ async function requestFeaturePermissionUI(
   });
 }
 
-function saveAndRender(): void {
-  localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
-  renderShortcuts();
-}
 
-function deleteShortcut(index: number): void {
-  const targetArray = getActiveShortcutsList();
-  const item = targetArray[index];
-
-  if (item && item.type === 'folder') {
-    const folderName =
-      item.name ||
-      getLocalizedWarningText('warningDeleteFolderTitle', 'Folder');
-    warningModal.show({
-      title: getLocalizedWarningText(
-        'warningDeleteFolderTitle',
-        'Delete Folder',
-      ),
-      message: getLocalizedWarningText(
-        'warningDeleteFolderMessage',
-        'Are you sure you want to delete the folder "$FOLDER$"? All shortcuts inside it will be removed.',
-        { FOLDER: folderName },
-      ),
-      confirmText: getLocalizedWarningText('removeLabel', 'Remove'),
-      cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
-      confirmVariant: 'danger',
-      onConfirm: () => {
-        if (currentFolderId === item.id) currentFolderId = null;
-        targetArray.splice(index, 1);
-        saveAndRender();
-      },
-    });
-    return;
-  }
-
-  targetArray.splice(index, 1);
-  saveAndRender();
-}
-function updateShortcutsVisibility(visible: boolean, animate = true): void {
-  if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
-  if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
-  if (shortcutsMoreSetting)
-    setCollapsible(shortcutsMoreSetting, visible, animate);
-}
-function renderShortcuts(): void {
-  const performRender = (): void => {
-    renderShortcutsGrid({
-      shortcutsGrid,
-      rowsSelect,
-      shortcuts,
-      currentFolderId: currentFolderId,
-      onOpenModal: openModal,
-      onDeleteShortcut: deleteShortcut,
-      onClosePopups: closePopups,
-      onOpenFolder: handleOpenFolder,
-      onGoBack: handleGoBack,
-    });
-    updateSingleRowClass();
-  };
-
-  const animateAndRender = (nextFolderId: string | null): void => {
-    currentFolderId = nextFolderId;
-    performRender();
-  };
-
-  const handleOpenFolder = (id: string): void => {
-    animateAndRender(id);
-  };
-
-  const handleGoBack = (): void => {
-    animateAndRender(null);
-  };
-
-  performRender();
-}
-
-function updateSingleRowClass(): void {
-  if (!shortcutsGrid) return;
-
-  const COLUMNS = 10;
-
-  const activeArray = getActiveShortcutsList();
-
-  const itemCount = activeArray.length;
-  const backSlot = currentFolderId ? 1 : 0;
-  const totalSlots = itemCount + 1 + backSlot;
-  const isSingleRow = totalSlots < COLUMNS;
-
-  shortcutsGrid.classList.toggle('single-row', isSingleRow);
-
-  if (isSingleRow) {
-    shortcutsGrid.style.setProperty('--shortcut-count', String(totalSlots));
-  } else {
-    shortcutsGrid.style.removeProperty('--shortcut-count');
-  }
-}
 
 function setSearchEngine(engineKey: keyof typeof engines): void {
   const config = engines[engineKey];
@@ -797,36 +614,9 @@ function updateSelection(items: HTMLElement[], index: number): void {
   updateSuggestionSelectionUI(items, index, searchInput);
 }
 
-function updateWeatherVisibility(animate = true): void {
-  if (!weatherWidget || !cityInputGroup) return;
-  const displayStyle = weatherEnabled ? 'flex' : 'none';
-  weatherWidget.style.display = displayStyle;
-  setCollapsible(cityInputGroup, weatherEnabled, animate);
-  const weatherMoreSetting = document.getElementById('weatherMoreSetting');
-  if (weatherMoreSetting)
-    setCollapsible(weatherMoreSetting, weatherEnabled, animate);
-}
 
-function renderWeather(data: WeatherApiResponse | null): void {
-  renderWeatherWidget(data, weatherUnit, currentCityData, {
-    weatherCity,
-    weatherTemp,
-    weatherIcon,
-    weatherWidget,
-  });
-}
 
-function updateLauncherVisibility(animate = true): void {
-  updateLauncherVisibilityUI(
-    launcherEnabled,
-    animate,
-    {
-      appLauncherWrapper,
-      launcherSelectGroup,
-    },
-    setCollapsible,
-  );
-}
+
 
 function updateReducedEffectsVisibility(
   enabled: boolean,
@@ -1326,31 +1116,7 @@ function updateGoogleParams() {
   applyGoogleSearchParams(searchForm, currentEngine, clearSearchEnabled);
 }
 
-async function searchCity(): Promise<void> {
-  if (!cityInput || !saveCityBtn) return;
-  const query = cityInput.value.trim();
-  if (!query) return;
-  saveCityBtn.textContent = '...';
-  try {
-    const cityData = await fetchCityData(query);
-    if (cityData) {
-      currentCityData = cityData;
-      localStorage.setItem(CITY_KEY, JSON.stringify(currentCityData));
-      cityInput.value = cityData.name;
-      fetchWeatherFromAPI(true);
-    } else {
-      alert('City not found.');
-    }
-  } catch (error) {
-    alert('Error searching city.');
-  } finally {
-    saveCityBtn.textContent = '';
-    saveCityBtn.insertAdjacentHTML(
-      'beforeend',
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
-    );
-  }
-}
+
 
 const MAX_MAIN_GRID_ITEMS = 40;
 const MAX_FOLDER_GRID_ROWS = 4;
@@ -1477,46 +1243,9 @@ function bindExternalShortcutDrop(): void {
   });
 }
 
-async function initWeather() {
-  const cachedString = localStorage.getItem(CACHE_KEY);
-  if (cachedString) {
-    const cached = JSON.parse(cachedString) as WeatherCache;
-    const now = Date.now();
-    if (
-      now - cached.timestamp < CACHE_DURATION &&
-      cached.city === currentCityData.name
-    ) {
-      renderWeather(cached.data);
-      return;
-    }
-  }
-  fetchWeatherFromAPI();
-}
-async function fetchWeatherFromAPI(forceUpdate = false): Promise<void> {
-  if (!weatherEnabled) return;
-  try {
-    const data = await fetchWeatherData(currentCityData);
-    if (!data) return;
-    localStorage.setItem(
-      CACHE_KEY,
-      JSON.stringify({
-        timestamp: Date.now(),
-        city: currentCityData.name,
-        data: data,
-      }),
-    );
-    renderWeather(data);
-  } catch (error) {
-    if (weatherTemp) weatherTemp.textContent = '--';
-  }
-}
 
-function renderLauncher(providerKey: keyof typeof launcherData): void {
-  renderLauncherApps(launcherData[providerKey], {
-    launcherGrid,
-    launcherAllAppsLink,
-  });
-}
+
+
 
 function toTitleCase(value: string): string {
   if (!value) return '';
@@ -1564,7 +1293,7 @@ function getLocalizedWarningText(
   fallback: string,
   replacements?: Record<string, string>,
 ): string {
-  let text = window.getTranslation(key);
+  let text = window.(window as any).getTranslation(key);
   if (!text || text === key) text = fallback;
 
   if (replacements) {
@@ -1576,124 +1305,7 @@ function getLocalizedWarningText(
   return text;
 }
 
-function getLauncherProviderKey(): keyof typeof launcherData {
-  const rawProvider = launcherProvider?.value as
-    | keyof typeof launcherData
-    | undefined;
-  if (rawProvider && launcherData[rawProvider]) return rawProvider;
-  return currentProvider;
-}
 
-function getLauncherFolderName(providerKey: keyof typeof launcherData): string {
-  const label = launcherProvider?.selectedOptions?.[0]?.textContent?.trim();
-  if (label) return label;
-  return toTitleCase(String(providerKey));
-}
-
-function createFolderFromLauncher(
-  providerKey: keyof typeof launcherData,
-): boolean {
-  const providerData = launcherData[providerKey];
-  if (!providerData?.apps?.length) return false;
-
-  const folderName = getLauncherFolderName(providerKey);
-  const newFolder: Shortcut = {
-    id: `folder_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
-    type: 'folder',
-    name: folderName,
-    children: providerData.apps.slice(0, 9).map((app) => ({
-      type: 'link',
-      name: app.name,
-      url: app.url,
-      customIcon: app.icon,
-    })),
-  };
-
-  const limit = Math.min(allowedRows * 10, MAX_MAIN_GRID_ITEMS);
-  if (shortcuts.length >= limit) {
-    warningModal.show({
-      title: getLocalizedWarningText('warningGridFullTitle', 'Grid is Full'),
-      message: getLocalizedWarningText(
-        'warningGridFullMessage',
-        'You have reached the maximum limit of $LIMIT$ shortcuts on the main screen. Delete some items or group them into a folder to free up space.',
-        { LIMIT: String(limit) },
-      ),
-      confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
-      cancelText: getLocalizedWarningText('warningClose', 'Close'),
-      onConfirm: () => {},
-    });
-    return false;
-  }
-
-  shortcuts.push(newFolder);
-  foldersEnabled = true;
-  if (toggleFolders) toggleFolders.checked = true;
-  localStorage.setItem('foldersEnabled', 'true');
-  updateLauncherFooterVariant();
-  saveAndRender();
-  closePopups();
-  return true;
-}
-
-function bindLauncherFolderButton(): void {
-  if (!btnLauncherToFolder) return;
-
-  btnLauncherToFolder.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const providerKey = getLauncherProviderKey();
-    const providerData = launcherData[providerKey];
-    const ecosystemName = getLauncherFolderName(providerKey);
-
-    if (!providerData?.apps?.length) {
-      warningModal.show({
-        title: getLocalizedWarningText(
-          'launcherNoAppsTitle',
-          'No Apps Available',
-        ),
-        message: getLocalizedWarningText(
-          'launcherNoAppsAvailable',
-          'No apps available for this ecosystem.',
-        ),
-        confirmText: getLocalizedWarningText('warningUnderstood', 'Understood'),
-        cancelText: getLocalizedWarningText('warningClose', 'Close'),
-        confirmVariant: 'accent',
-        onConfirm: () => {},
-      });
-      return;
-    }
-
-    warningModal.show({
-      title: getLocalizedWarningText(
-        'warningAddEcosystemAppsTitle',
-        `Add ${ecosystemName} Apps?`,
-        {
-          ECOSYSTEM: ecosystemName,
-        },
-      ),
-      message: getLocalizedWarningText(
-        'warningAddEcosystemAppsMessage',
-        `This will create a folder with 9 ${ecosystemName} apps in your shortcuts. Continue?`,
-        { ECOSYSTEM: ecosystemName },
-      ),
-      confirmText: getLocalizedWarningText(
-        'warningAddFolderConfirm',
-        'Add Folder',
-      ),
-      cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
-      confirmVariant: 'accent',
-      onConfirm: () => {
-        createFolderFromLauncher(providerKey);
-      },
-    });
-  });
-}
-
-function updateLauncherFooterVariant(): void {
-  if (!launcherPopup) return;
-  launcherPopup.classList.toggle('folders-enabled', foldersEnabled);
-}
 
 function updateCreditsUI(
   source: string,
@@ -2088,7 +1700,7 @@ function getLocalizedUpdateMessage(
   messageKey: string,
   substitutions: string[] = [],
 ): string {
-  const translated = window.getTranslation(messageKey);
+  const translated = window.(window as any).getTranslation(messageKey);
   if (translated && translated !== messageKey) {
     let resolved = translated;
     substitutions.forEach((value, index) => {
@@ -2115,7 +1727,7 @@ function getLocalizedUpdateMessage(
 
 function getLocalizedNasaApodNoticeMessage(): string {
   const messageKey = 'nasaApodVideoNotice';
-  const translated = window.getTranslation(messageKey);
+  const translated = window.(window as any).getTranslation(messageKey);
   if (translated && translated !== messageKey) return translated;
   return "Fetching today's NASA image...";
 }
@@ -2214,7 +1826,7 @@ function updateAskAiBtnVisibility(): void {
   askAiBtn.style.display = canShow ? 'flex' : 'none';
 }
 
-function getSfx(type: 'mic' | 'ai'): HTMLAudioElement | null {
+export function getSfx(type: 'mic' | 'ai'): HTMLAudioElement | null {
   if (type === 'mic' && !voiceSearchEnabled) return null;
   if (type === 'ai' && !askAiEnabled) return null;
 
@@ -2595,21 +2207,7 @@ function initVisual() {
   initCustomSelectSystem();
 }
 
-function initFolderCustomIconToggle(): void {
-  if (!toggleFolderCustomIcon || !folderCustomIconGroup) return;
-  toggleFolderCustomIcon.addEventListener('click', () => {
-    const isHidden = folderCustomIconGroup.classList.contains('hidden');
-    setFolderCustomIconVisibility(isHidden);
-  });
-}
 
-function setFolderCustomIconVisibility(show: boolean): void {
-  if (!folderCustomIconGroup || !toggleFolderCustomIcon) return;
-  folderCustomIconGroup.classList.toggle('hidden', !show);
-  toggleFolderCustomIcon.classList.toggle('expanded', show);
-  toggleFolderCustomIcon.setAttribute('aria-expanded', show ? 'true' : 'false');
-  if (!show && inputFolderIcon) inputFolderIcon.value = '';
-}
 
 function initAllEventBindings() {
   if (toggleDisplay) {
@@ -3032,7 +2630,7 @@ function initAllEventBindings() {
           type: 'folder',
           name:
             inputFolderName.value ||
-            window.getTranslation('addFolderTitle') ||
+            window.(window as any).getTranslation('addFolderTitle') ||
             'New Folder',
           customIcon: inputFolderIcon?.value || null,
           children: [],
@@ -3300,8 +2898,8 @@ function initAllEventBindings() {
 
       // CORREÇÃO: Em vez de recarregar a página, chamamos o motor de i18n do projeto
       // Se a sua função global de carregar traduções for assíncrona (como no setup.js)
-      if (typeof window.loadTranslations === 'function') {
-        window.loadTranslations();
+      if (typeof window.(window as any).loadTranslations === 'function') {
+        window.(window as any).loadTranslations();
       } else if (typeof (window as any).applyTranslations === 'function') {
         (window as any).applyTranslations();
       } else {

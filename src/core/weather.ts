@@ -1,3 +1,5 @@
+import { weatherAlertsEnabled } from './state.js';
+
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -17,7 +19,7 @@ interface WeatherRenderElements {
   weatherWidget: HTMLAnchorElement | null;
 }
 
-function getFluentIconFilename(code: number, isDay: number | boolean): string {
+export function getFluentIconFilename(code: number, isDay: number | boolean): string {
   switch (code) {
     case 0:
     case 1:
@@ -64,7 +66,7 @@ function getFluentIconFilename(code: number, isDay: number | boolean): string {
   }
 }
 
-function renderWeatherAlertWidget(): void {
+export function renderWeatherAlertWidget(): void {
   const containerId = 'weather-alerts-widget';
   let widget = document.getElementById(containerId);
 
@@ -153,7 +155,7 @@ function renderWeatherAlertWidget(): void {
   });
 }
 
-function renderWeatherWidget(
+export function renderWeatherWidget(
   data: WeatherApiResponse | null,
   weatherUnit: WeatherUnit,
   cityData: CityData,

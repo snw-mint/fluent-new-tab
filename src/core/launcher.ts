@@ -20,7 +20,7 @@ interface LauncherRenderRefs {
   launcherAllAppsLink: HTMLAnchorElement | null;
 }
 
-function updateLauncherVisibilityUI(
+export function updateLauncherVisibilityUI(
   enabled: boolean,
   animate: boolean,
   refs: LauncherVisibilityRefs,
@@ -38,7 +38,7 @@ function updateLauncherVisibilityUI(
   }
 }
 
-function renderLauncherApps(
+export function renderLauncherApps(
   data: LauncherProviderData | undefined,
   refs: LauncherRenderRefs,
 ): void {

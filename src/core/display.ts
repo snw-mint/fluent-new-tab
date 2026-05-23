@@ -11,12 +11,12 @@
  * and greeting display on the new tab page.
  */
 
-let displayInterval: number | null = null;
+export let displayInterval: number | null = null;
 
-const CDN_BASE_URL =
+export const CDN_BASE_URL =
   'https://cdn.jsdelivr.net/gh/snw-mint/fluent-new-tab@cdn-greeting-assets/assets';
 
-const emojiMap: Record<string, string> = {
+export const emojiMap: Record<string, string> = {
   // Morning
   greetWeekMorning: 'e1',
   greetMorning1: 'e2',
@@ -49,7 +49,7 @@ const emojiMap: Record<string, string> = {
   greetNight5: 'e20',
 };
 
-function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
+export function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches;
@@ -61,7 +61,7 @@ function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
   return `${CDN_BASE_URL}/${folder}/${emojiId}${suffix}.webp`;
 }
 
-function initDisplayWidget(wrapper: HTMLElement | null): void {
+export function initDisplayWidget(wrapper: HTMLElement | null): void {
   if (!wrapper) return;
   if (displayInterval) {
     window.clearInterval(displayInterval);
@@ -81,7 +81,7 @@ function initDisplayWidget(wrapper: HTMLElement | null): void {
   }, 1000);
 }
 
-function updateDisplayContent(wrapper: HTMLElement): void {
+export function updateDisplayContent(wrapper: HTMLElement): void {
   const displayType = localStorage.getItem('displayType') || 'greeting';
 
   if (wrapper.dataset.currentMode !== displayType) {
@@ -97,7 +97,7 @@ function updateDisplayContent(wrapper: HTMLElement): void {
   }
 }
 
-function renderTimeDate(wrapper: HTMLElement, type: string): void {
+export function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
 
@@ -206,7 +206,7 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   }
 }
 
-function renderGreeting(wrapper: HTMLElement): void {
+export function renderGreeting(wrapper: HTMLElement): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
   const greetingType = localStorage.getItem('greetingType') || 'static';
@@ -252,7 +252,7 @@ function renderGreeting(wrapper: HTMLElement): void {
   let usingFallback = false;
   const dayOfWeekKey = `weekday_${dayOfWeek}`;
   let currentDayName = '';
-  const dayMessage = window.getTranslation?.(dayOfWeekKey);
+  const dayMessage = (window as any).getTranslation?.(dayOfWeekKey);
 
   if (dayMessage && dayMessage !== dayOfWeekKey) {
     currentDayName = dayMessage;
@@ -276,7 +276,7 @@ function renderGreeting(wrapper: HTMLElement): void {
   }
 
   let rawGreeting = '';
-  const message = window.getTranslation?.(translationKey);
+  const message = (window as any).getTranslation?.(translationKey);
 
   if (message && message !== translationKey) {
     rawGreeting = message

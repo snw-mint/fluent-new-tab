@@ -10,23 +10,23 @@
  * This file provides utility functions for common DOM manipulations and element retrieval.
  */
 
-function getById<T extends HTMLElement>(id: string): T | null {
+export function getById<T extends HTMLElement>(id: string): T | null {
   return document.getElementById(id) as T | null;
 }
 
-function getInputTarget(event: Event): HTMLInputElement | null {
+export function getInputTarget(event: Event): HTMLInputElement | null {
   return event.target instanceof HTMLInputElement ? event.target : null;
 }
 
-function getSelectTarget(event: Event): HTMLSelectElement | null {
+export function getSelectTarget(event: Event): HTMLSelectElement | null {
   return event.target instanceof HTMLSelectElement ? event.target : null;
 }
 
-function getInputById(id: string): HTMLInputElement | null {
+export function getInputById(id: string): HTMLInputElement | null {
   return getById<HTMLInputElement>(id);
 }
 
-function sanitizeUrl(url: string | null | undefined): string {
+export function sanitizeUrl(url: string | null | undefined): string {
   if (!url) return '#';
 
   // Remove control characters and whitespace that might bypass protocol checks

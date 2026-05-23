@@ -69,8 +69,8 @@ interface SortableLike {
   ) => unknown;
 }
 
-declare const chrome: ChromeLike;
-declare const Sortable: SortableLike;
+export declare const chrome: ChromeLike;
+export declare const Sortable: SortableLike;
 
 interface Window {
   getTranslation: (key: string) => string;
