@@ -5,7 +5,6 @@ import { syncShortcutDropdownState } from './ui-components.js';
 
 export { syncShortcutDropdownState };
 
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -292,7 +291,8 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     const addTitle = document.createElement('span');
     addTitle.className = 'shortcut-title';
-    addTitle.textContent = (window as any).getTranslation('addShortcutLabel') || '';
+    addTitle.textContent =
+      (window as any).getTranslation('addShortcutLabel') || '';
 
     addBtn.appendChild(addCard);
     addBtn.appendChild(addTitle);
@@ -301,6 +301,24 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   }
 
   shortcutsGrid.appendChild(fragment);
+
+  const itemCount = visibleShortcuts.length;
+  const backSlot = isInsideFolder ? 1 : 0;
+  const hasAddBtn = visibleShortcuts.length < availableSlots;
+  const totalRenderedItems = itemCount + backSlot + (hasAddBtn ? 1 : 0);
+
+  if (currentRows === 1 && totalRenderedItems <= COLUMNS) {
+    shortcutsGrid.classList.add('single-row');
+  } else {
+    shortcutsGrid.classList.remove('single-row');
+  }
+
+  shortcutsGrid.style.setProperty(
+    '--shortcut-count',
+    String(totalRenderedItems),
+  );
+  shortcutsGrid.setAttribute('data-rows', String(currentRows));
+  shortcutsGrid.style.gridTemplateColumns = '';
 
   const handleGridClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;

@@ -23,6 +23,12 @@
     grid-template-columns: repeat(var(--shortcut-count, 10), 1fr);
     width: calc(var(--shortcut-count, 10) * (100% / 10));
     justify-content: center;
+    margin: 0 auto;
+
+    // Prevents any title or text from shrinking the native card bounds
+    .shortcut-item {
+      min-width: 2.8125rem;
+    }
   }
 
   &[data-hide-names='true'] {

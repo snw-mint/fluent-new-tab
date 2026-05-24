@@ -19,10 +19,12 @@ import {
   searchInput,
   weatherMoreContainer,
   shortcutsMoreContainer,
+  greetingWrapper,
 } from './dom-references.js';
 
 import {
   setAskAiMode,
+  setAskAiEnabled,
   askAiMode,
 } from './state.js';
 
@@ -191,6 +193,7 @@ export function initStandaloneListeners(): void {
     toggleAskAi.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
+      setAskAiEnabled(target.checked);
       localStorage.setItem('askAiEnabled', String(target.checked));
       if (askAiBtn) askAiBtn.style.display = target.checked ? 'flex' : 'none';
     });
@@ -202,13 +205,16 @@ export function initStandaloneListeners(): void {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem('displayType', target.value);
-      const greetingWrapper = document.getElementById('greeting-wrapper');
+      // Clear the cached mode so initDisplayWidget rebuilds from scratch
       if (greetingWrapper) {
-         if (target.value === 'none') {
-             greetingWrapper.innerHTML = '';
-         } else {
-             initDisplayWidget(greetingWrapper);
-         }
+        greetingWrapper.dataset.currentMode = '';
+        greetingWrapper.dataset.lastCache = '';
+        if (target.value === 'none') {
+          greetingWrapper.innerHTML = '';
+          greetingWrapper.style.display = 'none';
+        } else {
+          initDisplayWidget(greetingWrapper);
+        }
       }
     });
   }
@@ -217,7 +223,9 @@ export function initStandaloneListeners(): void {
     toggleSeconds.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
-      localStorage.setItem('displaySeconds', String(target.checked));
+      // display.ts reads 'showSeconds'
+      localStorage.setItem('showSeconds', String(target.checked));
+      if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
   }
 
@@ -225,7 +233,9 @@ export function initStandaloneListeners(): void {
     toggle12Hour.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
-      localStorage.setItem('display12Hour', String(target.checked));
+      // display.ts reads 'use12Hour'
+      localStorage.setItem('use12Hour', String(target.checked));
+      if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
   }
 
@@ -233,7 +243,9 @@ export function initStandaloneListeners(): void {
     dateFormatSelect.addEventListener('change', (e: Event) => {
       const target = getSelectTarget(e);
       if (!target) return;
-      localStorage.setItem('displayDateFormat', target.value);
+      // display.ts reads 'dateFormat'
+      localStorage.setItem('dateFormat', target.value);
+      if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
   }
   
@@ -242,6 +254,11 @@ export function initStandaloneListeners(): void {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('greetingName', target.value);
+      // Clear greeting cache so it re-renders with new name
+      if (greetingWrapper) {
+        greetingWrapper.dataset.lastCache = '';
+        initDisplayWidget(greetingWrapper);
+      }
     });
   }
 
@@ -250,6 +267,11 @@ export function initStandaloneListeners(): void {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem('greetingType', target.value);
+      // Clear greeting cache to apply new animation/static mode
+      if (greetingWrapper) {
+        greetingWrapper.dataset.lastCache = '';
+        initDisplayWidget(greetingWrapper);
+      }
     });
   }
 }

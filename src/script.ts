@@ -8,10 +8,17 @@
 
 declare const chrome: any;
 import { renderWeatherWidget } from './core/weather.js';
-import { checkPermission, HOST_PERMISSIONS, fetchSuggestionsFromService } from './core/services.js';
+import {
+  checkPermission,
+  HOST_PERMISSIONS,
+  fetchSuggestionsFromService,
+} from './core/services.js';
 import { renderShortcutsGrid } from './core/shortcuts.js';
 import { initVanillaDragAndDrop } from './core/drag-drop.js';
-import { renderLauncherApps, updateLauncherFooterVariant } from './core/launcher.js';
+import {
+  renderLauncherApps,
+  updateLauncherFooterVariant,
+} from './core/launcher.js';
 import { ThemeMode, WeatherApiResponse, Shortcut } from './core/types.js';
 import {
   displaySliderContainer,
@@ -98,6 +105,7 @@ import {
   cityInputGroup,
   appLauncherWrapper,
   suggestionsContainer,
+  reducedEffectsOptions,
 } from './core/dom-references.js';
 import { engines, APP_KEYS, launcherData } from './core/config.js';
 import {
@@ -163,7 +171,13 @@ import {
   savedEngine,
   currentWallpaperValue,
 } from './core/state.js';
-import { applyGoogleSearchParams, performSearch, clearSuggestionsUI, renderSuggestionsUI, updateSuggestionSelectionUI } from './core/search.js';
+import {
+  applyGoogleSearchParams,
+  performSearch,
+  clearSuggestionsUI,
+  renderSuggestionsUI,
+  updateSuggestionSelectionUI,
+} from './core/search.js';
 import {
   applyInitialTheme,
   applyTheme,
@@ -198,9 +212,10 @@ import {
 } from './core/event-bindings.js';
 import { bindMainUiFeatures, openModal, closePopups } from './core/main-ui.js';
 import { initStandaloneListeners } from './core/standalone-listeners.js';
-import { processWallpaperImage, saveWallpaperToDB } from './core/wallpaper-storage.js';
-
-// --- Local helper functions (orchestration wrappers) ---
+import {
+  processWallpaperImage,
+  saveWallpaperToDB,
+} from './core/wallpaper-storage.js';
 
 function getActiveShortcutsList(): Shortcut[] {
   if (currentFolderId) {
@@ -210,21 +225,6 @@ function getActiveShortcutsList(): Shortcut[] {
     if (folder && folder.children) return folder.children;
   }
   return shortcuts;
-}
-
-function updateSingleRowClass(): void {
-  if (!shortcutsGrid) return;
-  const COLUMNS = 10;
-  const activeArray = getActiveShortcutsList();
-  const itemCount = activeArray.length;
-  const backSlot = currentFolderId ? 1 : 0;
-  if (itemCount + backSlot <= COLUMNS) {
-    shortcutsGrid.classList.add('single-row');
-  } else {
-    shortcutsGrid.classList.remove('single-row');
-  }
-  shortcutsGrid.style.setProperty('--shortcut-count', String(itemCount + backSlot));
-  shortcutsGrid.style.gridTemplateColumns = `repeat(${COLUMNS}, minmax(0, 1fr))`;
 }
 
 function renderShortcuts(): void {
@@ -251,7 +251,6 @@ function renderShortcuts(): void {
       renderShortcuts();
     },
   });
-  updateSingleRowClass();
 }
 
 function saveAndRender(): void {
@@ -373,7 +372,6 @@ async function initCritical() {
 }
 
 function initVisual() {
-  
   if (toggleShortcuts) {
     toggleShortcuts.addEventListener('change', (e) => {
       const target = e.target as HTMLInputElement;
@@ -387,16 +385,26 @@ function initVisual() {
     toggleDisplay.checked = localStorage.getItem('displayEnabled') !== 'false';
   }
 
+  // Sync initial checked states from stored state
+  if (toggleReducedEffects)
+    toggleReducedEffects.checked = reducedEffectsEnabled;
+  if (toggleDisableAnimations)
+    toggleDisableAnimations.checked = animationsDisabled;
+  if (toggleDisableBlur) toggleDisableBlur.checked = blurDisabled;
+
   if (rowsSelect) {
     rowsSelect.value = String(allowedRows);
   }
 
   renderShortcuts();
-  
+
   updateSearchSettings(searchBarVisible, false);
   updateWeatherVisibility(weatherEnabled, false);
   updateLauncherVisibility(launcherEnabled, false);
   updateWallpaperUIState(wallpaperEnabled, false);
+  // Collapse reducedEffectsOptions if reduced effects is disabled
+  if (reducedEffectsOptions)
+    setCollapsible(reducedEffectsOptions, reducedEffectsEnabled, false);
 
   if (shortcutsGrid) {
     initVanillaDragAndDrop({
@@ -447,14 +455,13 @@ function initVisual() {
   }
 }
 
-
-
 // --- Missing Search & Wallpaper Orchestrators ---
 function updateShortcutsVisibility(visible: boolean, animate = true) {
   if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
   if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
   const shortcutsMoreSetting = document.getElementById('shortcutsMoreSetting');
-  if (shortcutsMoreSetting) setCollapsible(shortcutsMoreSetting, visible, animate);
+  if (shortcutsMoreSetting)
+    setCollapsible(shortcutsMoreSetting, visible, animate);
 }
 function updateSearchSettings(visible: boolean, animate = true) {
   if (searchWrapper) searchWrapper.style.display = visible ? '' : 'none';
@@ -473,8 +480,12 @@ function setSearchEngine(engineKey) {
   if (config) {
     if (currentIcon) {
       currentIcon.src = config.icon;
-      currentIcon.onerror = () => { currentIcon.style.display = 'none'; };
-      currentIcon.onload = () => { currentIcon.style.display = 'block'; };
+      currentIcon.onerror = () => {
+        currentIcon.style.display = 'none';
+      };
+      currentIcon.onload = () => {
+        currentIcon.style.display = 'block';
+      };
     }
     if (searchForm) searchForm.action = config.url;
     applyGoogleSearchParams(searchForm, engineKey, clearSearchEnabled);
@@ -499,9 +510,12 @@ async function loadCustomWallpaper() {
 async function applyWallpaperLogic() {
   try {
     if (overlaySlider) {
-        document.documentElement.style.setProperty('--overlay-opacity', wallpaperEnabled ? String(wallpaperOverlay) : '0');
+      document.documentElement.style.setProperty(
+        '--overlay-opacity',
+        wallpaperEnabled ? String(wallpaperOverlay) : '0',
+      );
     }
-    
+
     if (!wallpaperEnabled) {
       document.body.style.backgroundImage = 'none';
       document.body.removeAttribute('data-wallpaper-active');
@@ -532,13 +546,21 @@ function applyInitialWallpaperState() {
   updateWallpaperUIState(wallpaperEnabled, false);
 }
 function updateWallpaperUIState(visible: boolean, animate = true) {
-  const container = wallpaperSourceSelect ? (wallpaperSourceSelect.closest('.wallpaper-source-options') as HTMLElement) : null;
+  const container = wallpaperSourceSelect
+    ? (wallpaperSourceSelect.closest(
+        '.wallpaper-source-options',
+      ) as HTMLElement)
+    : null;
   if (container) setCollapsible(container, visible, animate);
   const uploadContainer = document.getElementById('uploadWallpaperContainer');
   if (uploadContainer) {
-    if (!visible || currentWallpaperType !== 'upload') uploadContainer.style.display = 'none';
+    if (!visible || currentWallpaperType !== 'upload')
+      uploadContainer.style.display = 'none';
     else uploadContainer.style.display = 'flex';
   }
+  // Collapse the overlay setting row when wallpaper is disabled
+  const wallpaperOverlayEl = document.getElementById('wallpaperOverlaySetting');
+  if (wallpaperOverlayEl) setCollapsible(wallpaperOverlayEl, visible, animate);
 }
 
 function applyInitialWeatherState() {
@@ -565,8 +587,10 @@ function applyInitialLauncherState() {
 }
 function updateLauncherVisibility(visible: boolean, animate = true) {
   const launcherMoreSetting = document.getElementById('launcherMoreSetting');
-  if (launcherMoreSetting) setCollapsible(launcherMoreSetting, visible, animate);
-  if (appLauncherWrapper) appLauncherWrapper.style.display = visible ? 'flex' : 'none';
+  if (launcherMoreSetting)
+    setCollapsible(launcherMoreSetting, visible, animate);
+  if (appLauncherWrapper)
+    appLauncherWrapper.style.display = visible ? 'flex' : 'none';
 }
 // -------------------------------------
 
@@ -574,7 +598,7 @@ function initAllEventBindings() {
   bindMainUiFeatures({
     getActiveShortcutsList,
     saveAndRender,
-    updateLauncherFooterVariant
+    updateLauncherFooterVariant,
   });
 
   if (toggleDisplay) {
@@ -657,23 +681,31 @@ function initAllEventBindings() {
     toggleReducedEffects.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-      setReducedEffectsEnabled(target.checked); // Fixed Cannot assign to read-only
+      setReducedEffectsEnabled(target.checked);
       localStorage.setItem('reducedEffectsEnabled', String(target.checked));
+      // Collapse/expand the sub-options container
+      if (reducedEffectsOptions)
+        setCollapsible(reducedEffectsOptions, target.checked, true);
     });
   }
 
   applyMagneticSnap('displayScaleSlider', 100, 5);
   applyMagneticSnap('shortcutRadiusSlider', 0, 5);
   applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
-  
+
   bindWeatherFeature({
     applyInitialWeatherState,
     toggleWeather,
     getWeatherEnabled: () => weatherEnabled,
-    setWeatherEnabled: (val) => { setWeatherEnabled(val); },
-    updateWeatherVisibility: (animate?: boolean) => updateWeatherVisibility(weatherEnabled, animate),
+    setWeatherEnabled: (val) => {
+      setWeatherEnabled(val);
+    },
+    updateWeatherVisibility: (animate?: boolean) =>
+      updateWeatherVisibility(weatherEnabled, animate),
     initWeather,
-    setWeatherUnit: (val) => { setWeatherUnit(val); },
+    setWeatherUnit: (val) => {
+      setWeatherUnit(val);
+    },
     saveCityBtn,
     cityInput,
     searchCity,
@@ -681,76 +713,127 @@ function initAllEventBindings() {
     getWeatherUnit: () => weatherUnit,
     toggleWeatherAlerts,
     getWeatherAlertsEnabled: () => weatherAlertsEnabled,
-    setWeatherAlertsEnabled: (val) => { setWeatherAlertsEnabled(val); }
+    setWeatherAlertsEnabled: (val) => {
+      setWeatherAlertsEnabled(val);
+    },
   });
 
   bindLauncherFeature({
     applyInitialLauncherState,
     toggleLauncher,
     getLauncherEnabled: () => launcherEnabled,
-    setLauncherEnabled: (val) => { setLauncherEnabled(val); },
-    updateLauncherVisibility: (animate?: boolean) => updateLauncherVisibility(launcherEnabled, animate),
+    setLauncherEnabled: (val) => {
+      setLauncherEnabled(val);
+    },
+    updateLauncherVisibility: (animate?: boolean) =>
+      updateLauncherVisibility(launcherEnabled, animate),
     renderLauncher,
     getCurrentProvider: () => currentProvider,
-    setCurrentProvider: (val) => { setCurrentProvider(val); },
+    setCurrentProvider: (val) => {
+      setCurrentProvider(val);
+    },
     launcherProvider,
     appLauncherBtn,
     launcherPopup,
-    closePopups
+    closePopups,
   });
 
   bindSearchFeature({
     engineBtn: document.getElementById('engineBtn') as HTMLButtonElement,
     dropdown: document.getElementById('dropdown') as HTMLDivElement,
     closePopups,
-    items: document.querySelectorAll('.dropdown-item') as NodeListOf<HTMLElement>,
+    items: document.querySelectorAll(
+      '.dropdown-item',
+    ) as NodeListOf<HTMLElement>,
     hasEngine: (engine) => !!engines[engine],
     setSearchEngine,
     toggleSearchBar,
-    setSearchBarVisible: (val) => { setSearchBarVisible(val); },
-    updateSearchSettings: (animate?: boolean) => updateSearchSettings(searchBarVisible, animate),
+    setSearchBarVisible: (val) => {
+      setSearchBarVisible(val);
+    },
+    updateSearchSettings: (animate?: boolean) =>
+      updateSearchSettings(searchBarVisible, animate),
     toggleSuggestions,
     getSuggestionsActive: () => suggestionsActive,
-    setSuggestionsActive: (val) => { setSuggestionsActive(val); },
-    clearSuggestions: () => { clearSuggestionsUI(suggestionsContainer, searchWrapper); },
+    setSuggestionsActive: (val) => {
+      setSuggestionsActive(val);
+    },
+    clearSuggestions: () => {
+      clearSuggestionsUI(suggestionsContainer, searchWrapper);
+    },
     toggleClearSearch,
-    setClearSearchEnabled: (val) => { setClearSearchEnabled(val); },
-    updateGoogleParams: () => { applyGoogleSearchParams(searchForm, savedEngine, clearSearchEnabled); },
+    setClearSearchEnabled: (val) => {
+      setClearSearchEnabled(val);
+    },
+    updateGoogleParams: () => {
+      applyGoogleSearchParams(searchForm, savedEngine, clearSearchEnabled);
+    },
     searchBarStyleSelect,
     searchMoreBtn,
     searchMoreContainer,
     getCompactBarEnabled: () => compactBarEnabled,
-    setCompactBarEnabled: (val) => { setCompactBarEnabled(val); },
+    setCompactBarEnabled: (val) => {
+      setCompactBarEnabled(val);
+    },
     updateCompactBarStyle,
     toggleVoiceSearch: null, // Basic stub, advanced voice search omitted to save space unless user asks
     setVoiceSearchEnabled: (val) => {},
     updateVoiceSearchAvailability: () => {},
     searchInput,
     debounce: (fn, wait) => {
-      let t; return (e) => { clearTimeout(t); t = setTimeout(() => fn(e), wait); };
+      let t;
+      return (e) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn(e), wait);
+      };
     },
     suggestionsCache: new Map(),
-    renderSuggestions: (sugs) => { renderSuggestionsUI(sugs, { suggestionsContainer, searchInput, searchForm, searchWrapper }, () => clearSuggestionsUI(suggestionsContainer, searchWrapper)); },
+    renderSuggestions: (sugs) => {
+      renderSuggestionsUI(
+        sugs,
+        { suggestionsContainer, searchInput, searchForm, searchWrapper },
+        () => clearSuggestionsUI(suggestionsContainer, searchWrapper),
+      );
+    },
     fetchSuggestions: (query) => {
       fetchSuggestionsFromService(query).then((suggestions) => {
-        if (!searchInput || searchInput.value.trim().toLowerCase() !== query.toLowerCase()) return;
-        renderSuggestionsUI(suggestions, { suggestionsContainer, searchInput, searchForm, searchWrapper }, () => clearSuggestionsUI(suggestionsContainer, searchWrapper));
+        if (
+          !searchInput ||
+          searchInput.value.trim().toLowerCase() !== query.toLowerCase()
+        )
+          return;
+        renderSuggestionsUI(
+          suggestions,
+          { suggestionsContainer, searchInput, searchForm, searchWrapper },
+          () => clearSuggestionsUI(suggestionsContainer, searchWrapper),
+        );
       });
     },
-    updateSelection: (items, index) => { updateSuggestionSelectionUI(items, index, searchInput); }
+    updateSelection: (items, index) => {
+      updateSuggestionSelectionUI(items, index, searchInput);
+    },
   });
 
   bindWallpaperFeature({
     applyInitialWallpaperState,
     toggleWallpaper,
-    setWallpaperEnabled: (val) => { setWallpaperEnabled(val); },
+    setWallpaperEnabled: (val) => {
+      setWallpaperEnabled(val);
+    },
     getWallpaperEnabled: () => wallpaperEnabled,
-    updateWallpaperUIState: (animate?: boolean) => updateWallpaperUIState(wallpaperEnabled, animate),
+    updateWallpaperUIState: (enabled: boolean, animate?: boolean) =>
+      updateWallpaperUIState(enabled, animate),
     applyWallpaperLogic,
     wallpaperSourceSelect,
-    setWallpaperSource: (val) => { setCurrentWallpaperSource(val); },
-    setWallpaperType: (val) => { setCurrentWallpaperType(val); },
-    setWallpaperValue: (val) => { setCurrentWallpaperValue(val); },
+    setWallpaperSource: (val) => {
+      setCurrentWallpaperSource(val);
+    },
+    setWallpaperType: (val) => {
+      setCurrentWallpaperType(val);
+    },
+    setWallpaperValue: (val) => {
+      setCurrentWallpaperValue(val);
+    },
     saveWallpaperConfig: () => {
       localStorage.setItem('wallpaperSource', currentWallpaperSource);
       localStorage.setItem('wallpaperType', currentWallpaperType);
@@ -765,9 +848,8 @@ function initAllEventBindings() {
     updateOverlaySliderProgress: (s) => {},
     setOverlayOpacity: (v, p) => {},
     getCurrentWallpaperSource: () => currentWallpaperSource,
-    getCurrentWallpaperType: () => currentWallpaperType
+    getCurrentWallpaperType: () => currentWallpaperType,
   });
-
 
   applyMagneticSnap('wallpaper-overlay-slider', 0.2, 0.05);
 }
