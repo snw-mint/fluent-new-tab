@@ -11,6 +11,10 @@
  */
 
 import { LauncherProviderData } from './types.js';
+import {
+  launcherPopup,
+} from './dom-references.js';
+import { foldersEnabled } from './state.js';
 
 interface LauncherVisibilityRefs {
   appLauncherWrapper: HTMLElement | null;
@@ -67,4 +71,9 @@ export function renderLauncherApps(
   if (refs.launcherAllAppsLink) {
     refs.launcherAllAppsLink.href = data.allAppsLink;
   }
+}
+
+export function updateLauncherFooterVariant(): void {
+  if (!launcherPopup) return;
+  launcherPopup.classList.toggle('folders-enabled', foldersEnabled);
 }

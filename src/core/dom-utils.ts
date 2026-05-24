@@ -52,14 +52,26 @@ export function getLocalizedWarningText(
   fallback: string,
   replacements?: Record<string, string>,
 ): string {
-  let text = (window as any).getTranslation(key);
-  if (!text || text === key) text = fallback;
-
-  if (replacements) {
-    Object.entries(replacements).forEach(([token, value]) => {
-      text = text.replace(new RegExp(`\\$${token}\\$`, 'g'), value);
-    });
+  const windowObj = window as any;
+  if (typeof windowObj.getTranslation === 'function') {
+    let text = windowObj.getTranslation(key) || fallback;
+    if (replacements) {
+      for (const [k, v] of Object.entries(replacements)) {
+        text = text.replace(new RegExp(`\\$${k}\\$`, 'g'), v);
+      }
+    }
+    return text;
   }
+  return fallback;
+}
 
-  return text;
+export function deriveShortcutNameFromUrl(rawUrl: string): string {
+  try {
+    const host = new URL(rawUrl).hostname.replace(/^www\./i, '');
+    if (!host) return 'New Shortcut';
+    const name = host.split('.')[0];
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  } catch {
+    return 'New Shortcut';
+  }
 }

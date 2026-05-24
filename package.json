@@ -5,20 +5,13 @@
   "description": "Build tooling for Fluent New Tab (browser extension)",
   "scripts": {
     "clean": "rimraf dist",
-    "build:assets": "node tools/build.mjs",
-    "dev": "node tools/build.mjs --clean",
-    "build:ts": "tsc -p tsconfig.json",
-    "build:scss": "sass src/style.scss dist/style.css --no-source-map",
-    "build:scss:min": "sass src/style.scss dist/style.css --no-source-map --style=compressed",
-    "build": "npm run clean && npm run build:assets && npm run build:ts && npm run build:scss",
-    "build:release": "npm run clean && npm run build:ts && npm run build:scss:min && node tools/build.mjs --release",
-    "watch:ts": "tsc -p tsconfig.json --watch",
-    "watch:scss": "sass --watch src/style.scss:dist/style.css --no-source-map",
-    "update-policy": "gh gist edit c9d8f1959b8377ab1b2b046deca70224 -f manifest.json ./manifest.json"
+    "dev": "vite",
+    "build": "npm run clean && vite build"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.1.42",
+    "esbuild": "^0.28.0",
     "rimraf": "^6.0.1",
     "sass": "^1.92.1",
     "terser": "^5.44.0",

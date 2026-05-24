@@ -35,8 +35,8 @@ export let ghostBaseX = 0;
 export let ghostBaseY = 0;
 export let ghostScale = 1;
 
-export function initVanillaDragAndDrop(options: DragDropOptions): void {
-  activeDragOptions = options;
+export function initVanillaDragAndDrop(options: any = {}) {
+  const { gridContainer, onReorder, onMoveToFolder, onMoveOutFolder } = options;
   const grid = options.gridContainer;
   grid.addEventListener('dragstart', handleDragStart);
 }

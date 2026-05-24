@@ -257,6 +257,7 @@ export function setCollapsible(
       element.style.marginBottom = '0px';
       element.style.paddingTop = '0px';
       element.style.paddingBottom = '0px';
+      element.style.display = 'none';
       element.dataset.state = 'closed';
     }
     requestAnimationFrame(() => {
@@ -329,6 +330,7 @@ export function setCollapsible(
       element.dataset.state = 'closed';
       element.style.transition = '';
       element.style.overflow = 'hidden';
+      element.style.display = 'none';
       element.removeEventListener('transitionend', onCollapseEnd);
     };
     element.addEventListener('transitionend', onCollapseEnd);

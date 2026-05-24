@@ -14,6 +14,7 @@ import { getById } from './dom-utils.js';
  */
 
 export const configBtn = getById<HTMLButtonElement>('settingsBtn');
+export const weatherMoreBtn = getById<HTMLButtonElement>('weather-more-btn');
 export const configPopup = getById<HTMLDivElement>('settingsPopup');
 export const versionDisplay = getById<HTMLAnchorElement>('versionDisplay');
 export const exportBtn = getById<HTMLButtonElement>('exportBtn');
