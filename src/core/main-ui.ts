@@ -32,7 +32,7 @@ import {
   customIconGroup,
   toggleCustomIcon,
   toggleFolders,
-  shortcutsGrid
+  shortcutsGrid,
 } from './dom-references.js';
 
 import {
@@ -44,16 +44,24 @@ import {
   setFoldersEnabled,
   activeSelectTrigger,
   setActiveSelectTrigger,
-  allowedRows
+  allowedRows,
 } from './state.js';
 
 import { syncShortcutDropdownState } from './shortcuts.js';
 import { showToast, warningModal } from './ui-components.js';
 import { APP_KEYS } from './config.js';
-import { deriveShortcutNameFromUrl, getInputById, getInputTarget, getLocalizedWarningText } from './dom-utils.js';
+import {
+  deriveShortcutNameFromUrl,
+  getInputById,
+  getInputTarget,
+  getLocalizedWarningText,
+} from './dom-utils.js';
 
 export const MAX_MAIN_GRID_ITEMS = 40;
-export const MAX_FOLDER_CAPACITY = 4 * 10 - 1; // FOLDER_FIXED_ROWS * 10 - 1
+export const MAX_FOLDER_CAPACITY = 4 * 10 - 1;
+
+let isShortcutFormLocked = false;
+let isFolderFormLocked = false;
 
 export interface MainUiOptions {
   getActiveShortcutsList: () => any[];
@@ -67,22 +75,25 @@ export function openChooseTypeModal(): void {
 }
 
 export function openFolderModal(name = '', isEditing = false): void {
+  isFolderFormLocked = false;
   hideAllModals();
   if (!addFolderModal || !inputFolderName || !inputFolderIcon) return;
   addFolderModal.classList.add('active');
 
   if (folderModalTitle) {
     const tKey = isEditing ? 'editFolderTitle' : 'addFolderTitle';
-    folderModalTitle.textContent = (window as any).getTranslation?.(tKey) || (isEditing ? 'Edit Folder' : 'New Folder');
+    folderModalTitle.textContent =
+      (window as any).getTranslation?.(tKey) ||
+      (isEditing ? 'Edit Folder' : 'New Folder');
   }
 
   inputFolderName.value = name;
-  
+
   if (!isEditing) {
     inputFolderIcon.value = '';
     setFolderCustomIconVisibility(false);
   } else {
-    // If we wanted to preserve the custom icon, we'd do it here. 
+    // If we wanted to preserve the custom icon, we'd do it here.
     // Since we're passing it from script.ts, let's keep it simple.
   }
 
@@ -90,6 +101,7 @@ export function openFolderModal(name = '', isEditing = false): void {
 }
 
 export function openShortcutModal(existingItem: any | null): void {
+  isShortcutFormLocked = false;
   hideAllModals();
   if (!addModal) return;
 
@@ -103,21 +115,29 @@ export function openShortcutModal(existingItem: any | null): void {
     if (inputName) inputName.value = existingItem.name || '';
     if (inputUrl) inputUrl.value = existingItem.url || '';
     if (inputIcon) inputIcon.value = existingItem.customIcon || '';
-    if (modalTitle) modalTitle.textContent = (window as any).getTranslation?.('editShortcutTitle') || 'Edit Shortcut';
+    if (modalTitle)
+      modalTitle.textContent =
+        (window as any).getTranslation?.('editShortcutTitle') ||
+        'Edit Shortcut';
     setCustomIconVisibility(Boolean(existingItem.customIcon));
   } else {
     if (inputName) inputName.value = '';
     if (inputUrl) inputUrl.value = '';
     if (inputIcon) inputIcon.value = '';
-    if (modalTitle) modalTitle.textContent = (window as any).getTranslation?.('addShortcutTitle') || 'Add Shortcut';
+    if (modalTitle)
+      modalTitle.textContent =
+        (window as any).getTranslation?.('addShortcutTitle') || 'Add Shortcut';
     setCustomIconVisibility(false);
   }
   setTimeout(() => inputUrl?.focus(), 100);
 }
 
-export function openModal(index: number | null, getActiveShortcutsList: () => any[]): void {
+export function openModal(
+  index: number | null,
+  getActiveShortcutsList: () => any[],
+): void {
   setEditingIndex(index);
-  
+
   const currentArray = getActiveShortcutsList();
   const existingItem = index !== null ? currentArray[index] : null;
 
@@ -210,7 +230,9 @@ export function setFolderCustomIconVisibility(show: boolean): void {
 
 export function setCustomIconVisibility(show: boolean): void {
   if (!customIconGroup || !toggleCustomIcon) return;
-  const inputIcon = document.getElementById('inputIcon') as HTMLInputElement | null;
+  const inputIcon = document.getElementById(
+    'inputIcon',
+  ) as HTMLInputElement | null;
   customIconGroup.classList.toggle('hidden', !show);
   toggleCustomIcon.classList.toggle('expanded', show);
   toggleCustomIcon.setAttribute('aria-expanded', show ? 'true' : 'false');
@@ -234,7 +256,10 @@ export function isValidBackupPayload(data: unknown): boolean {
   return true;
 }
 
-export function showGridLimitWarning(currentLimit: number, isFolderGrid: boolean): void {
+export function showGridLimitWarning(
+  currentLimit: number,
+  isFolderGrid: boolean,
+): void {
   const title = isFolderGrid
     ? getLocalizedWarningText('warningFolderFullTitle', 'Folder is Full')
     : getLocalizedWarningText('warningGridFullTitle', 'Grid is Full');
@@ -253,14 +278,18 @@ export function showGridLimitWarning(currentLimit: number, isFolderGrid: boolean
   warningModal.show({
     title,
     message,
-    confirmText: getLocalizedWarningText('warningGridFullConfirm', 'Understood'),
+    confirmText: getLocalizedWarningText(
+      'warningGridFullConfirm',
+      'Understood',
+    ),
     confirmVariant: 'accent',
     onConfirm: () => {},
   });
 }
 
 export function bindMainUiFeatures(options: MainUiOptions): void {
-  const { getActiveShortcutsList, saveAndRender, updateLauncherFooterVariant } = options;
+  const { getActiveShortcutsList, saveAndRender, updateLauncherFooterVariant } =
+    options;
 
   if (configBtn && configPopup) {
     configBtn.addEventListener('click', (e) => {
@@ -325,8 +354,10 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
   const closeFolderModalBtn = document.getElementById('closeFolderModalBtn');
   const formFolderNode = document.getElementById('folderForm');
 
-  if (closeChooseTypeBtn) closeChooseTypeBtn.addEventListener('click', closeModal);
-  if (closeFolderModalBtn) closeFolderModalBtn.addEventListener('click', closeModal);
+  if (closeChooseTypeBtn)
+    closeChooseTypeBtn.addEventListener('click', closeModal);
+  if (closeFolderModalBtn)
+    closeFolderModalBtn.addEventListener('click', closeModal);
 
   if (btnChooseLink) {
     btnChooseLink.addEventListener('click', (e) => {
@@ -347,11 +378,24 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
     shortcutForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      // Stop other concurrent micro-tasks from processing this event sequence
+      e.stopImmediatePropagation();
+
+      if (isShortcutFormLocked) return;
+      isShortcutFormLocked = true;
+
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
       const inputName = getInputById('inputName') as HTMLInputElement | null;
       const inputUrl = getInputById('inputUrl') as HTMLInputElement | null;
       const inputIcon = getInputById('inputIcon') as HTMLInputElement | null;
 
-      if (!inputName || !inputUrl) return;
+      if (!inputName || !inputUrl) {
+        isShortcutFormLocked = false;
+        return;
+      }
 
       let finalUrl = inputUrl.value.trim();
       if (finalUrl && !/^https?:\/\//i.test(finalUrl)) {
@@ -378,6 +422,7 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
 
         if (targetArray.length >= limit) {
           showGridLimitWarning(limit, Boolean(currentFolderId));
+          isShortcutFormLocked = false;
           return;
         }
 
@@ -421,8 +466,19 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
   if (formFolderNode) {
     formFolderNode.addEventListener('submit', (e) => {
       e.preventDefault();
+      e.stopImmediatePropagation();
 
-      if (!inputFolderName) return;
+      if (isFolderFormLocked) return;
+      isFolderFormLocked = true;
+
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
+      if (!inputFolderName) {
+        isFolderFormLocked = false;
+        return;
+      }
 
       const targetArray = shortcuts;
 
@@ -441,6 +497,7 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
 
         if (targetArray.length >= limit) {
           showGridLimitWarning(limit, false);
+          isFolderFormLocked = false;
           return;
         }
 
@@ -498,10 +555,11 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      const successMsg = (window as any).getLocalizedWarningText?.(
-        'backupExportSuccess',
-        'Settings saved in the file'
-      ) || 'Settings saved in the file';
+      const successMsg =
+        (window as any).getLocalizedWarningText?.(
+          'backupExportSuccess',
+          'Settings saved in the file',
+        ) || 'Settings saved in the file';
       showToast(successMsg, 'assets/icons/check.svg');
     });
   }
@@ -523,19 +581,27 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
           }
           const data = parsedData;
           warningModal.show({
-            title: (window as any).getLocalizedWarningText?.(
-              'warningRestoreBackupTitle',
-              'Restore Backup?'
-            ) || 'Restore Backup?',
-            message: (window as any).getLocalizedWarningText?.(
-              'warningRestoreBackupMessage',
-              'This will replace your current settings and shortcuts with the backup file data.'
-            ) || 'This will replace your current settings and shortcuts with the backup file data.',
-            confirmText: (window as any).getLocalizedWarningText?.(
-              'warningRestoreBackupConfirm',
-              'Restore'
-            ) || 'Restore',
-            cancelText: (window as any).getLocalizedWarningText?.('btnCancel', 'Cancel') || 'Cancel',
+            title:
+              (window as any).getLocalizedWarningText?.(
+                'warningRestoreBackupTitle',
+                'Restore Backup?',
+              ) || 'Restore Backup?',
+            message:
+              (window as any).getLocalizedWarningText?.(
+                'warningRestoreBackupMessage',
+                'This will replace your current settings and shortcuts with the backup file data.',
+              ) ||
+              'This will replace your current settings and shortcuts with the backup file data.',
+            confirmText:
+              (window as any).getLocalizedWarningText?.(
+                'warningRestoreBackupConfirm',
+                'Restore',
+              ) || 'Restore',
+            cancelText:
+              (window as any).getLocalizedWarningText?.(
+                'btnCancel',
+                'Cancel',
+              ) || 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => {
               const keysToExclude = [
@@ -560,10 +626,11 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
             },
           });
         } catch (error) {
-          const errorMsg = (window as any).getLocalizedWarningText?.(
-            'warningInvalidBackupMessage',
-            'The selected file is not a valid backup.'
-          ) || 'The selected file is not a valid backup.';
+          const errorMsg =
+            (window as any).getLocalizedWarningText?.(
+              'warningInvalidBackupMessage',
+              'The selected file is not a valid backup.',
+            ) || 'The selected file is not a valid backup.';
           showToast(errorMsg, 'assets/icons/dimiss.svg');
         }
         importInput.value = '';
