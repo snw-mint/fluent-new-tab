@@ -12,6 +12,7 @@ import {
   checkPermission,
   HOST_PERMISSIONS,
   fetchSuggestionsFromService,
+  fetchDailyWallpaper,
 } from './core/services.js';
 import { renderShortcutsGrid } from './core/shortcuts.js';
 import { initVanillaDragAndDrop } from './core/drag-drop.js';
@@ -217,10 +218,7 @@ import {
 } from './core/event-bindings.js';
 import { bindMainUiFeatures, openModal, closePopups } from './core/main-ui.js';
 import { initStandaloneListeners } from './core/standalone-listeners.js';
-import {
-  processWallpaperImage,
-  saveWallpaperToDB,
-} from './core/wallpaper-storage.js';
+import { WallpaperEngine } from './core/wallpaper.js';
 
 function getActiveShortcutsList(): Shortcut[] {
   if (currentFolderId) {
@@ -530,82 +528,6 @@ function setSearchEngine(engineKey) {
   }
 }
 
-async function loadCustomWallpaper() {
-  const { getWallpaperFromDB } = await import('./core/wallpaper-storage.js');
-  const blob = await getWallpaperFromDB();
-  if (blob) {
-    const url = URL.createObjectURL(blob);
-    document.body.style.backgroundImage = `url('${url}')`;
-  } else {
-    document.body.style.backgroundImage = 'none';
-    document.body.removeAttribute('data-wallpaper-active');
-  }
-}
-
-async function applyWallpaperLogic() {
-  try {
-    if (overlaySlider) {
-      document.documentElement.style.setProperty(
-        '--overlay-opacity',
-        wallpaperEnabled ? String(wallpaperOverlay) : '0',
-      );
-    }
-
-    if (!wallpaperEnabled) {
-      document.body.style.backgroundImage = 'none';
-      document.body.removeAttribute('data-wallpaper-active');
-      return;
-    }
-
-    document.body.setAttribute('data-wallpaper-active', 'true');
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = 'fixed';
-
-    if (currentWallpaperSource === 'local') {
-      if (currentWallpaperType === 'upload') {
-        await loadCustomWallpaper();
-      } else {
-        document.body.style.backgroundImage = 'none';
-      }
-    } else {
-      const url = `https://source.unsplash.com/1920x1080/?${encodeURIComponent(currentWallpaperValue || 'landscape')}`;
-      document.body.style.backgroundImage = `url('${url}')`;
-    }
-  } catch (error) {
-    console.error('Wallpaper Error:', error);
-  }
-}
-
-function applyInitialWallpaperState() {
-  updateWallpaperUIState(wallpaperEnabled, false);
-}
-
-function updateWallpaperUIState(visible: boolean, animate = true): void {
-  if (wallpaperSourceContainer) {
-    setCollapsible(wallpaperSourceContainer, visible, animate);
-  }
-
-  if (wallpaperSourceSelect) {
-    const parentRow = wallpaperSourceSelect.closest(
-      '.switch-row, .child-setting',
-    ) as HTMLElement | null;
-    if (parentRow) {
-      setCollapsible(parentRow, visible, animate);
-    }
-  }
-
-  if (wallpaperOverlaySetting) {
-    setCollapsible(wallpaperOverlaySetting, visible, animate);
-  }
-
-  const uploadContainer = document.getElementById('uploadWallpaperContainer');
-  if (uploadContainer) {
-    uploadContainer.style.display =
-      visible && currentWallpaperType === 'upload' ? 'flex' : 'none';
-  }
-}
-
 function updateDisplayVisibility(visible: boolean, animate = true): void {
   if (greetingWrapper) {
     greetingWrapper.style.display = visible ? '' : 'none';
@@ -652,6 +574,15 @@ function updateLauncherVisibility(visible: boolean, animate = true): void {
   }
   if (appLauncherWrapper) {
     appLauncherWrapper.style.display = visible ? 'flex' : 'none';
+  }
+}
+
+function updateWallpaperUIState(visible: boolean, animate = true): void {
+  if (wallpaperSourceContainer) {
+    setCollapsible(wallpaperSourceContainer, visible, animate);
+  }
+  if (wallpaperOverlaySetting) {
+    setCollapsible(wallpaperOverlaySetting, visible, animate);
   }
 }
 
@@ -887,16 +818,14 @@ function initAllEventBindings() {
     },
   });
 
+  // Substitua a chamada antiga dentro do seu src/script.ts por esta versão limpa:
   bindWallpaperFeature({
-    applyInitialWallpaperState,
     toggleWallpaper,
     setWallpaperEnabled: (val) => {
       setWallpaperEnabled(val);
     },
     getWallpaperEnabled: () => wallpaperEnabled,
-    updateWallpaperUIState: (enabled: boolean, animate?: boolean) =>
-      updateWallpaperUIState(enabled, animate),
-    applyWallpaperLogic,
+    updateWallpaperUIState,
     wallpaperSourceSelect,
     setWallpaperSource: (val) => {
       setCurrentWallpaperSource(val);
@@ -904,27 +833,16 @@ function initAllEventBindings() {
     setWallpaperType: (val) => {
       setCurrentWallpaperType(val);
     },
-    setWallpaperValue: (val) => {
-      setCurrentWallpaperValue(val);
-    },
     saveWallpaperConfig: () => {
       localStorage.setItem('wallpaperSource', currentWallpaperSource);
       localStorage.setItem('wallpaperType', currentWallpaperType);
-      localStorage.setItem('wallpaperValue', currentWallpaperValue);
     },
     uploadInput,
-    processWallpaperImage,
-    saveWallpaperToDB,
     overlayToggleBtn,
     overlaySliderContainer,
     overlaySlider,
-    updateOverlaySliderProgress: (s) => {},
-    setOverlayOpacity: (v, p) => {},
-    getCurrentWallpaperSource: () => currentWallpaperSource,
-    getCurrentWallpaperType: () => currentWallpaperType,
+    getCurrentWallpaperType: () => String(currentWallpaperType),
   });
-
-  applyMagneticSnap('wallpaper-overlay-slider', 0.2, 0.05);
 }
 
 async function bootstrap() {
@@ -933,6 +851,14 @@ async function bootstrap() {
     initVisual();
     initAllEventBindings();
     initStandaloneListeners();
+
+    await WallpaperEngine.render({
+      enabled: wallpaperEnabled,
+      source: currentWallpaperSource,
+      type: currentWallpaperType,
+      overlay: parseFloat(String(wallpaperOverlay || 0.4)),
+    });
+
     console.log('[Fluent New Tab] Initialization completed successfully.');
   } catch (error) {
     console.error(
