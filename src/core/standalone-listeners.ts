@@ -15,11 +15,17 @@ import {
   weatherMoreBtn,
   shortcutsMoreBtn,
   displayTypeSelect,
+  displayAdvancedSetting,
+  subGreeting,
+  subTime,
+  subDate,
   toggleSeconds,
   toggle12Hour,
   dateFormatSelect,
   greetingNameInput,
   greetingTypeSelect,
+  displayToggleBtn,
+  displaySliderContainer,
   askAiBtn,
   toggleAskAi,
   voiceSearchBtn,
@@ -29,9 +35,8 @@ import {
   shortcutsMoreContainer,
   greetingWrapper,
 } from './dom-references.js';
-
+import { setCollapsible } from './ui-components.js';
 import { setAskAiMode, setAskAiEnabled, askAiMode } from './state.js';
-
 import { getSelectTarget, getInputTarget } from './dom-utils.js';
 import { initDisplayWidget } from './display.js';
 
@@ -203,19 +208,73 @@ export function initStandaloneListeners(): void {
   }
 
   if (displayTypeSelect) {
+    const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
+    displayTypeSelect.value = savedPreset;
+
+    const updateAdvancedUI = (preset: string) => {
+      if (subGreeting) subGreeting.style.display = 'none';
+      if (subTime) subTime.style.display = 'none';
+      if (subDate) subDate.style.display = 'none';
+
+      const hasAdvanced = ['greeting', 'time', 'date', 'advanced'].includes(
+        preset,
+      );
+
+      if (displayAdvancedSetting) {
+        displayAdvancedSetting.style.display = hasAdvanced ? 'flex' : 'none';
+      }
+
+      if (hasAdvanced && displaySliderContainer && displayToggleBtn) {
+        if (!displaySliderContainer.classList.contains('collapsed')) {
+          displaySliderContainer.classList.add('collapsed');
+          displayToggleBtn.classList.remove('expanded');
+          displaySliderContainer.style.maxHeight = '';
+        }
+      }
+
+      if (preset === 'greeting' && subGreeting)
+        subGreeting.style.display = 'flex';
+      if (preset === 'time' && subTime) subTime.style.display = 'flex';
+      if (preset === 'date' && subDate) subDate.style.display = 'flex';
+      if (preset === 'advanced') {
+        if (subTime) subTime.style.display = 'flex';
+        if (subDate) subDate.style.display = 'flex';
+      }
+    };
+
+    updateAdvancedUI(savedPreset);
+
     displayTypeSelect.addEventListener('change', (e: Event) => {
       const target = getSelectTarget(e);
       if (!target) return;
-      localStorage.setItem('displayType', target.value);
+
+      const preset = target.value;
+      localStorage.setItem('displayPreset', preset);
+
+      if (preset === 'greeting') {
+        localStorage.setItem('displayType', 'greeting');
+      } else if (preset === 'time') {
+        localStorage.setItem('displayType', 'time');
+      } else if (preset === 'date') {
+        localStorage.setItem('displayType', 'date');
+      } else if (preset === 'weekday') {
+        localStorage.setItem('displayType', 'weekday');
+      } else if (preset === 'advanced') {
+        localStorage.setItem('displayType', 'timedate');
+      }
+
+      if (toggleSeconds)
+        toggleSeconds.checked = localStorage.getItem('showSeconds') === 'true';
+      if (toggle12Hour)
+        toggle12Hour.checked = localStorage.getItem('use12Hour') === 'true';
+      if (dateFormatSelect)
+        dateFormatSelect.value = localStorage.getItem('dateFormat') || 'text';
+
+      updateAdvancedUI(preset);
+
       if (greetingWrapper) {
-        greetingWrapper.dataset.currentMode = '';
         greetingWrapper.dataset.lastCache = '';
-        if (target.value === 'none') {
-          greetingWrapper.innerHTML = '';
-          greetingWrapper.style.display = 'none';
-        } else {
-          initDisplayWidget(greetingWrapper);
-        }
+        initDisplayWidget(greetingWrapper);
       }
     });
   }
@@ -269,5 +328,41 @@ export function initStandaloneListeners(): void {
         initDisplayWidget(greetingWrapper);
       }
     });
+  }
+}
+
+function updateDisplaySubControlsUI(
+  type: string,
+  animateCollapse = true,
+): void {
+  const getRow = (el: HTMLElement | null) =>
+    el?.closest('.switch-row, .child-setting') as HTMLElement | null;
+
+  const isGreeting = type === 'greeting';
+  const isTime = type === 'time';
+  const isDate = type === 'date';
+  const isTimeDate = type === 'time-date' || type === 'timedate';
+
+  if (greetingNameInput)
+    getRow(greetingNameInput)?.classList.toggle('hidden', !isGreeting);
+  if (greetingTypeSelect)
+    getRow(greetingTypeSelect)?.classList.toggle('hidden', !isGreeting);
+
+  if (toggleSeconds)
+    getRow(toggleSeconds)?.classList.toggle('hidden', !(isTime || isTimeDate));
+  if (toggle12Hour)
+    getRow(toggle12Hour)?.classList.toggle('hidden', !(isTime || isTimeDate));
+
+  if (dateFormatSelect)
+    getRow(dateFormatSelect)?.classList.toggle(
+      'hidden',
+      !(isDate || isTimeDate),
+    );
+  if (
+    displaySliderContainer &&
+    !displaySliderContainer.classList.contains('collapsed')
+  ) {
+    if (displayToggleBtn) displayToggleBtn.classList.remove('expanded');
+    setCollapsible(displaySliderContainer, false, animateCollapse);
   }
 }

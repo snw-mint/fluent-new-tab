@@ -77,14 +77,15 @@ export function initDisplayWidget(wrapper: HTMLElement | null): void {
 }
 
 export function updateDisplayContent(wrapper: HTMLElement): void {
-  const displayType = localStorage.getItem('displayType') || 'greeting';
-
+  let displayType = localStorage.getItem('displayType') || 'greeting';
+  if (displayType === 'time-date') {
+    displayType = 'timedate';
+  }
   if (wrapper.dataset.currentMode !== displayType) {
     wrapper.innerHTML = '';
     wrapper.dataset.currentMode = displayType;
     wrapper.dataset.lastCache = '';
   }
-
   if (displayType === 'greeting') {
     renderGreeting(wrapper);
   } else {

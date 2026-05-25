@@ -902,9 +902,19 @@ export function bindDisplayFeature(options: DisplayBindingOptions): void {
       }
     });
   }
+
   if (options.displayScaleSlider) {
     const slider = options.displayScaleSlider;
     slider.value = String(options.getDisplayScale());
+
+    const updateSliderProgress = (sliderInput: HTMLInputElement) => {
+      const min = parseInt(sliderInput.min);
+      const max = parseInt(sliderInput.max);
+      const val = parseInt(sliderInput.value);
+      const progress = (val - min) / (max - min);
+      sliderInput.style.setProperty('--slider-progress', `${progress}`);
+    };
+
     updateSliderProgress(slider);
 
     slider.addEventListener('input', (event) => {
@@ -922,14 +932,6 @@ export function bindDisplayFeature(options: DisplayBindingOptions): void {
       options.setDisplayScale(value);
       localStorage.setItem('displayScale', String(value));
     });
-
-    function updateSliderProgress(slider: HTMLInputElement) {
-      const min = parseInt(slider.min);
-      const max = parseInt(slider.max);
-      const val = parseInt(slider.value);
-      const progress = (val - min) / (max - min); // Sem o * 100
-      slider.style.setProperty('--slider-progress', `${progress}`);
-    }
   }
 }
 
