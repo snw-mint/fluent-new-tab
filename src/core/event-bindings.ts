@@ -11,6 +11,11 @@ import { currentCityData } from './state.js';
 import { hexToHsv, hsvToHex, hexToRgb, rgbToHex } from './color.js';
 import { warningModal, requestFeaturePermissionUI } from './ui-components.js';
 import { WeatherUnit, WallpaperSource, WallpaperType } from './types.js';
+import {
+  handleAskAiRedirect,
+  updateAskAiUiState,
+  registerVoiceSearchEngine,
+} from './search.js';
 
 interface WeatherBindingOptions {
   applyInitialWeatherState: () => void;
@@ -80,6 +85,11 @@ interface SearchBindingOptions {
   renderSuggestions: (suggestions: string[]) => void;
   fetchSuggestions: (query: string) => void;
   updateSelection: (items: HTMLElement[], index: number) => void;
+  askAiBtn: HTMLButtonElement | null;
+  toggleAskAi: HTMLInputElement | null;
+  voiceSearchBtn: HTMLButtonElement | null;
+  searchWrapper: HTMLElement | null;
+  searchForm: HTMLFormElement | null;
 }
 
 interface WallpaperBindingOptions {
@@ -858,6 +868,63 @@ export function bindSearchFeature(options: SearchBindingOptions): void {
         options.setSuggestionsActive(false);
         localStorage.setItem('suggestionsEnabled', 'false');
         options.clearSuggestions();
+      }
+    });
+  }
+
+  let askAiActiveMode = false;
+
+  if (options.askAiBtn) {
+    options.askAiBtn.addEventListener('click', () => {
+      askAiActiveMode = !askAiActiveMode;
+      updateAskAiUiState(askAiActiveMode, {
+        searchWrapper: options.searchWrapper,
+        searchInput: options.searchInput,
+        askAiBtn: options.askAiBtn,
+      });
+    });
+  }
+
+  if (options.searchForm) {
+    options.searchForm.addEventListener('submit', (event) => {
+      if (askAiActiveMode) {
+        event.preventDefault();
+        const currentQuery = options.searchInput?.value || '';
+        handleAskAiRedirect(currentQuery);
+        askAiActiveMode = false;
+        if (options.searchInput) options.searchInput.value = '';
+        updateAskAiUiState(false, {
+          searchWrapper: options.searchWrapper,
+          searchInput: options.searchInput,
+          askAiBtn: options.askAiBtn,
+        });
+        options.clearSuggestions();
+      } else {
+        options.clearSuggestions();
+      }
+    });
+  }
+
+  if (options.voiceSearchBtn) {
+    registerVoiceSearchEngine({
+      voiceSearchBtn: options.voiceSearchBtn,
+      searchInput: options.searchInput,
+      searchForm: options.searchForm,
+      getVoiceEnabled: () =>
+        localStorage.getItem('voiceSearchEnabled') !== 'false',
+    });
+  }
+
+  if (options.toggleAskAi) {
+    options.toggleAskAi.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+
+      const isEnabled = target.checked;
+      localStorage.setItem('askAiEnabled', String(isEnabled));
+
+      if (options.askAiBtn) {
+        options.askAiBtn.style.display = isEnabled ? 'flex' : 'none';
       }
     });
   }

@@ -153,3 +153,146 @@ export function performSearch(query: string, engine: string): void {
 
   window.location.href = url;
 }
+
+declare const chrome: any;
+declare const window: any;
+
+let voiceRecognitionInstance: any = null;
+let isVoiceListening = false;
+let lastVoiceClickTimestamp = 0;
+
+export function handleAskAiRedirect(query: string): void {
+  if (!query.trim()) return;
+  window.location.href = `https://www.perplexity.ai/search?q=${encodeURIComponent(query.trim())}`;
+}
+
+export function updateAskAiUiState(
+  active: boolean,
+  elements: {
+    searchWrapper: HTMLElement | null;
+    searchInput: HTMLInputElement | null;
+    askAiBtn: HTMLButtonElement | null;
+  },
+): void {
+  const { searchWrapper, searchInput, askAiBtn } = elements;
+  if (!searchWrapper || !searchInput || !askAiBtn) return;
+
+  askAiBtn.classList.toggle('active', active);
+  searchWrapper.classList.toggle('ask-ai-active', active);
+  searchWrapper.classList.toggle('ai-active', active);
+
+  if (active) {
+    try {
+      const audio = new Audio(chrome.runtime.getURL('assets/sfx/ai-sfx.webm'));
+      audio.volume = 0.4;
+      audio.play().catch((err) => console.log('SFX play blocked:', err));
+    } catch (e) {
+      console.warn('Audio system unavailable:', e);
+    }
+
+    const translated = window.getTranslation?.('askAiOption');
+    if (translated && translated !== 'askAiOption') {
+      searchInput.placeholder = translated;
+    } else {
+      searchInput.placeholder = 'Ask to AI.';
+    }
+
+    searchInput.focus();
+  } else {
+    const translatedSearch = window.getTranslation?.('searchPlaceholder');
+    if (translatedSearch && translatedSearch !== 'searchPlaceholder') {
+      searchInput.placeholder = translatedSearch;
+    } else {
+      searchInput.placeholder = 'Pesquise na web...';
+    }
+  }
+}
+
+export function registerVoiceSearchEngine(options: {
+  voiceSearchBtn: HTMLButtonElement | null;
+  searchInput: HTMLInputElement | null;
+  searchForm: HTMLFormElement | null;
+  getVoiceEnabled: () => boolean;
+}): void {
+  const { voiceSearchBtn, searchInput, searchForm, getVoiceEnabled } = options;
+  if (!voiceSearchBtn || !searchInput) return;
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) return;
+
+  voiceSearchBtn.addEventListener('click', () => {
+    const currentTime = Date.now();
+    if (currentTime - lastVoiceClickTimestamp < 400) return;
+    lastVoiceClickTimestamp = currentTime;
+
+    if (!getVoiceEnabled()) return;
+
+    if (isVoiceListening) {
+      safelyTerminateVoice();
+      return;
+    }
+
+    try {
+      if (!voiceRecognitionInstance) {
+        voiceRecognitionInstance = new SpeechRecognition();
+        voiceRecognitionInstance.continuous = false;
+        voiceRecognitionInstance.interimResults = false;
+
+        voiceRecognitionInstance.onstart = () => {
+          isVoiceListening = true;
+          voiceSearchBtn.classList.add('recording');
+          voiceSearchBtn.setAttribute('aria-pressed', 'true');
+
+          try {
+            const audio = new Audio(
+              chrome.runtime.getURL('assets/sfx/mic-ready.webm'),
+            );
+            audio.volume = 0.4;
+            audio.play().catch((err) => console.log('SFX play blocked:', err));
+          } catch (e) {
+            console.warn('Audio system unavailable:', e);
+          }
+        };
+
+        voiceRecognitionInstance.onresult = (event: any) => {
+          const transcriptResult = event.results[0][0].transcript;
+          if (transcriptResult && searchInput) {
+            searchInput.value = transcriptResult;
+            if (searchForm) {
+              searchForm.dispatchEvent(new Event('submit', { bubbles: true }));
+            }
+          }
+        };
+
+        voiceRecognitionInstance.onerror = () => {
+          safelyTerminateVoice();
+        };
+
+        voiceRecognitionInstance.onend = () => {
+          safelyTerminateVoice();
+        };
+      }
+
+      const currentLang = localStorage.getItem('userLanguage') || 'en_US';
+      voiceRecognitionInstance.lang = currentLang.replace('_', '-');
+      voiceRecognitionInstance.start();
+    } catch (error) {
+      console.error('Failed to wake up SpeechRecognition stream:', error);
+      safelyTerminateVoice();
+    }
+  });
+
+  function safelyTerminateVoice() {
+    isVoiceListening = false;
+    if (voiceSearchBtn) {
+      voiceSearchBtn.classList.remove('recording');
+      voiceSearchBtn.setAttribute('aria-pressed', 'false');
+    }
+    if (voiceRecognitionInstance) {
+      try {
+        voiceRecognitionInstance.abort();
+      } catch {}
+    }
+  }
+}

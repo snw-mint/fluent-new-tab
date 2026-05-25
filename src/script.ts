@@ -395,6 +395,15 @@ function initVisual() {
   if (toggleWallpaper) {
     toggleWallpaper.checked = wallpaperEnabled;
   }
+
+  const askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
+  if (toggleAskAi) {
+    toggleAskAi.checked = askAiEnabled;
+  }
+  if (askAiBtn) {
+    askAiBtn.style.display = askAiEnabled ? 'flex' : 'none';
+  }
+
   if (toggleReducedEffects)
     toggleReducedEffects.checked = reducedEffectsEnabled;
   if (toggleDisableAnimations)
@@ -405,6 +414,16 @@ function initVisual() {
   }
 
   renderShortcuts();
+
+  setSearchEngine(savedEngine);
+  updateCompactBarStyle();
+  if (compactBarEnabled) {
+    document.documentElement.setAttribute('data-compact-bar', 'true');
+  } else {
+    document.documentElement.removeAttribute('data-compact-bar');
+  }
+  updateVoiceSearchAvailability();
+
   updateShortcutsVisibility(shortcutsVisible, false);
   updateSearchSettings(searchBarVisible, false);
   updateWeatherVisibility(weatherEnabled, false);
@@ -460,6 +479,15 @@ function initVisual() {
     } catch {
       versionDisplay.textContent = 'v1.0';
     }
+  }
+}
+
+function updateVoiceSearchAvailability(): void {
+  if (voiceSearchBtn) {
+    const hasSpeechSupport =
+      'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+    voiceSearchBtn.style.display =
+      voiceSearchEnabled && hasSpeechSupport ? 'flex' : 'none';
   }
 }
 
@@ -772,7 +800,7 @@ function initAllEventBindings() {
 
   bindSearchFeature({
     engineBtn: document.getElementById('engineBtn') as HTMLButtonElement,
-    dropdown: document.getElementById('dropdown') as HTMLDivElement,
+    dropdown: dropdown,
     closePopups,
     items: document.querySelectorAll(
       '.dropdown-item',
@@ -808,17 +836,30 @@ function initAllEventBindings() {
       setCompactBarEnabled(val);
     },
     updateCompactBarStyle,
-    toggleVoiceSearch: null,
-    setVoiceSearchEnabled: (val) => {},
-    updateVoiceSearchAvailability: () => {},
+
+    toggleVoiceSearch: toggleVoiceSearch,
+    setVoiceSearchEnabled: (val) => {
+      setVoiceSearchEnabled(val);
+    },
+    updateVoiceSearchAvailability: () => {
+      updateVoiceSearchAvailability();
+    },
+
     searchInput,
     debounce: (fn, wait) => {
-      let t;
+      let t: any;
       return (e) => {
         clearTimeout(t);
         t = setTimeout(() => fn(e), wait);
       };
     },
+
+    askAiBtn: askAiBtn,
+    toggleAskAi: toggleAskAi,
+    voiceSearchBtn: voiceSearchBtn,
+    searchWrapper: searchWrapper,
+    searchForm: searchForm,
+
     suggestionsCache: new Map(),
     renderSuggestions: (sugs) => {
       renderSuggestionsUI(
@@ -892,9 +933,12 @@ async function bootstrap() {
     initVisual();
     initAllEventBindings();
     initStandaloneListeners();
-    console.log('[Fluent New Tab] Inicialização concluída com sucesso.');
+    console.log('[Fluent New Tab] Initialization completed successfully.');
   } catch (error) {
-    console.error('[Fluent New Tab] Erro crítico na inicialização:', error);
+    console.error(
+      '[Fluent New Tab] Critical error during initialization:',
+      error,
+    );
   }
 }
 

@@ -34,6 +34,7 @@ import {
   weatherMoreContainer,
   shortcutsMoreContainer,
   greetingWrapper,
+  searchWrapper,
 } from './dom-references.js';
 import { setCollapsible } from './ui-components.js';
 import { setAskAiMode, setAskAiEnabled, askAiMode } from './state.js';
@@ -166,44 +167,6 @@ export function initStandaloneListeners(): void {
         shortcutsMoreBtn.classList.remove('expanded');
         shortcutsMoreContainer.style.maxHeight = '0px';
       }
-    });
-  }
-
-  if (searchForm) {
-    searchForm.addEventListener('submit', (e: Event) => {
-      e.preventDefault();
-      const query = searchInput?.value || '';
-      if (query.trim() === '') return;
-      if (askAiMode) {
-        window.location.href = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
-      } else {
-        searchForm.submit();
-      }
-    });
-  }
-
-  if (voiceSearchBtn) {
-    voiceSearchBtn.addEventListener('click', () => {
-      if (typeof (window as any).startVoiceSearch === 'function') {
-        (window as any).startVoiceSearch();
-      }
-    });
-  }
-
-  if (askAiBtn) {
-    askAiBtn.addEventListener('click', () => {
-      setAskAiMode(!askAiMode);
-      if (searchInput) searchInput.focus();
-    });
-  }
-
-  if (toggleAskAi) {
-    toggleAskAi.addEventListener('change', (e: Event) => {
-      const target = getInputTarget(e);
-      if (!target) return;
-      setAskAiEnabled(target.checked);
-      localStorage.setItem('askAiEnabled', String(target.checked));
-      if (askAiBtn) askAiBtn.style.display = target.checked ? 'flex' : 'none';
     });
   }
 
