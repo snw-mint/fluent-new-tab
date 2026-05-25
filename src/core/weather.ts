@@ -1,6 +1,3 @@
-import { weatherAlertsEnabled } from './state.js';
-import { WeatherApiResponse, WeatherUnit, CityData } from './types.js';
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -9,9 +6,8 @@ import { WeatherApiResponse, WeatherUnit, CityData } from './types.js';
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file handles the rendering and display of weather information on the new tab page.
- */
+import { weatherAlertsEnabled } from './state.js';
+import { WeatherApiResponse, WeatherUnit, CityData } from './types.js';
 
 interface WeatherRenderElements {
   weatherCity: HTMLElement | null;
@@ -20,7 +16,10 @@ interface WeatherRenderElements {
   weatherWidget: HTMLAnchorElement | null;
 }
 
-export function getFluentIconFilename(code: number, isDay: number | boolean): string {
+export function getFluentIconFilename(
+  code: number,
+  isDay: number | boolean,
+): string {
   switch (code) {
     case 0:
     case 1:

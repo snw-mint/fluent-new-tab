@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import {
   toggleAppearance,
   accentColorOptions,
@@ -12,19 +20,6 @@ import {
 } from './state.js';
 import { setCollapsible } from './ui-components.js';
 import { ThemeMode } from './types.js';
-
-/*
- * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
- * Licensed under the GNU General Public License v3.0 (GPL-3.0)
- * You should have received a copy of the GNU General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
- */
-
-/*
- * This file manages accent color application, contrast calculation,
- * and dynamic color extraction from images for theming.
- */
 
 export const DEFAULT_ACCENT_COLOR = '#0078D4';
 

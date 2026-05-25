@@ -6,11 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file manages search functionality, including rendering and updating search suggestions,
- * and applying specific search engine parameters.
- */
-
 export const SEARCH_URLS: Record<string, string> = {
   engine1: 'https://www.google.com/search?q=',
   google: 'https://www.google.com/search?q=',

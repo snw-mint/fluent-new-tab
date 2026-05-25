@@ -1,7 +1,3 @@
-import { getLocalizedWarningText } from './dom-utils.js';
-import { shortcutsGrid } from './dom-references.js';
-import { HOST_PERMISSIONS, checkPermission, requestPermission } from './services.js';
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -10,13 +6,13 @@ import { HOST_PERMISSIONS, checkPermission, requestPermission } from './services
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * Reusable UI components extracted from script.ts:
- *   - WarningModalManager (class) + warningModal (instance)
- *   - showToast
- *   - applyMagneticSnap
- *   - Accordion system: prepareCollapsible / setCollapsible
- */
+import { getLocalizedWarningText } from './dom-utils.js';
+import { shortcutsGrid } from './dom-references.js';
+import {
+  HOST_PERMISSIONS,
+  checkPermission,
+  requestPermission,
+} from './services.js';
 
 export interface WarningModalOptions {
   title: string;
@@ -225,10 +221,10 @@ export function setCollapsible(
   prepareCollapsible(element);
 
   const restoreSpacing = () => {
-    element.style.marginTop = element.dataset.originalMarginTop;
-    element.style.marginBottom = element.dataset.originalMarginBottom;
-    element.style.paddingTop = element.dataset.originalPaddingTop;
-    element.style.paddingBottom = element.dataset.originalPaddingBottom;
+    element.style.marginTop = element.dataset.originalMarginTop || '';
+    element.style.marginBottom = element.dataset.originalMarginBottom || '';
+    element.style.paddingTop = element.dataset.originalPaddingTop || '';
+    element.style.paddingBottom = element.dataset.originalPaddingBottom || '';
   };
 
   const transitionValue =
@@ -238,7 +234,7 @@ export function setCollapsible(
   if (!animate) {
     element.style.transition = 'none';
     if (shouldExpand) {
-      element.style.display = element.dataset.originalDisplay;
+      element.style.display = element.dataset.originalDisplay || 'block';
       restoreSpacing();
       element.style.height = 'auto';
       element.style.opacity = '1';
@@ -247,7 +243,6 @@ export function setCollapsible(
       element.style.overflow = '';
       element.dataset.state = 'open';
     } else {
-      element.style.display = element.dataset.originalDisplay;
       element.style.height = '0px';
       element.style.opacity = '0';
       element.style.transform = 'scaleY(0.98) translateY(-6px)';
@@ -271,7 +266,7 @@ export function setCollapsible(
   if (shouldExpand) {
     if (currentState === 'open') return;
     element.dataset.state = 'animating';
-    element.style.display = element.dataset.originalDisplay;
+    element.style.display = element.dataset.originalDisplay || 'block';
     element.style.pointerEvents = 'none';
     element.style.overflow = 'hidden';
 
@@ -293,8 +288,12 @@ export function setCollapsible(
       restoreSpacing();
     });
 
-    const onExpandEnd = (event: TransitionEvent) => {
-      if (event.propertyName !== 'height') return;
+    let expandedTriggered = false;
+    const onExpandEnd = (event?: TransitionEvent) => {
+      if (event && event.propertyName !== 'height') return;
+      if (expandedTriggered) return;
+      expandedTriggered = true;
+
       element.style.height = 'auto';
       element.style.overflow = '';
       element.style.pointerEvents = 'auto';
@@ -302,7 +301,9 @@ export function setCollapsible(
       element.style.transition = '';
       element.removeEventListener('transitionend', onExpandEnd);
     };
+
     element.addEventListener('transitionend', onExpandEnd);
+    setTimeout(onExpandEnd, 450);
   } else {
     if (currentState === 'closed') return;
     element.dataset.state = 'animating';
@@ -325,15 +326,21 @@ export function setCollapsible(
       element.style.paddingBottom = '0px';
     });
 
-    const onCollapseEnd = (event: TransitionEvent) => {
-      if (event.propertyName !== 'height') return;
+    let collapsedTriggered = false;
+    const onCollapseEnd = (event?: TransitionEvent) => {
+      if (event && event.propertyName !== 'height') return;
+      if (collapsedTriggered) return;
+      collapsedTriggered = true;
+
+      element.style.display = 'none';
       element.dataset.state = 'closed';
       element.style.transition = '';
       element.style.overflow = 'hidden';
-      element.style.display = 'none';
       element.removeEventListener('transitionend', onCollapseEnd);
     };
+
     element.addEventListener('transitionend', onCollapseEnd);
+    setTimeout(onCollapseEnd, 450);
   }
 }
 
@@ -394,4 +401,3 @@ export async function requestFeaturePermissionUI(
     onCancel: onDenied,
   });
 }
-

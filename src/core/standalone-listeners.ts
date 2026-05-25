@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import {
   languageSelect,
   tabNameInput,
@@ -22,11 +30,7 @@ import {
   greetingWrapper,
 } from './dom-references.js';
 
-import {
-  setAskAiMode,
-  setAskAiEnabled,
-  askAiMode,
-} from './state.js';
+import { setAskAiMode, setAskAiEnabled, askAiMode } from './state.js';
 
 import { getSelectTarget, getInputTarget } from './dom-utils.js';
 import { initDisplayWidget } from './display.js';
@@ -37,7 +41,6 @@ declare const localStorage: any;
 declare const FileReader: any;
 
 export function initStandaloneListeners(): void {
-  // 1. Language Select
   if (languageSelect) {
     languageSelect.addEventListener('change', (e: Event) => {
       const target = getSelectTarget(e);
@@ -57,7 +60,6 @@ export function initStandaloneListeners(): void {
     });
   }
 
-  // 2. Tab Customization
   if (tabNameInput) {
     tabNameInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
@@ -70,7 +72,7 @@ export function initStandaloneListeners(): void {
       }
     });
   }
-  
+
   if (tabFaviconInput) {
     tabFaviconInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
@@ -113,7 +115,9 @@ export function initStandaloneListeners(): void {
             const result = reader.result as string;
             if (tabFaviconInput) tabFaviconInput.value = result;
             localStorage.setItem('tabIcon', result);
-            let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+            let link = document.querySelector(
+              "link[rel~='icon']",
+            ) as HTMLLinkElement;
             if (!link) {
               link = document.createElement('link');
               link.rel = 'icon';
@@ -129,7 +133,6 @@ export function initStandaloneListeners(): void {
     });
   }
 
-  // 3. Weather & Shortcuts More Settings
   if (weatherMoreBtn && weatherMoreContainer) {
     weatherMoreBtn.addEventListener('click', () => {
       const isCollapsed = weatherMoreContainer.classList.contains('collapsed');
@@ -147,7 +150,8 @@ export function initStandaloneListeners(): void {
 
   if (shortcutsMoreBtn && shortcutsMoreContainer) {
     shortcutsMoreBtn.addEventListener('click', () => {
-      const isCollapsed = shortcutsMoreContainer.classList.contains('collapsed');
+      const isCollapsed =
+        shortcutsMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
         shortcutsMoreContainer.classList.remove('collapsed');
         shortcutsMoreBtn.classList.add('expanded');
@@ -160,7 +164,6 @@ export function initStandaloneListeners(): void {
     });
   }
 
-  // 4. Search and AI
   if (searchForm) {
     searchForm.addEventListener('submit', (e: Event) => {
       e.preventDefault();
@@ -173,22 +176,22 @@ export function initStandaloneListeners(): void {
       }
     });
   }
-  
+
   if (voiceSearchBtn) {
     voiceSearchBtn.addEventListener('click', () => {
-       if (typeof (window as any).startVoiceSearch === 'function') {
-         (window as any).startVoiceSearch();
-       }
+      if (typeof (window as any).startVoiceSearch === 'function') {
+        (window as any).startVoiceSearch();
+      }
     });
   }
-  
+
   if (askAiBtn) {
     askAiBtn.addEventListener('click', () => {
       setAskAiMode(!askAiMode);
       if (searchInput) searchInput.focus();
     });
   }
-  
+
   if (toggleAskAi) {
     toggleAskAi.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
@@ -199,13 +202,11 @@ export function initStandaloneListeners(): void {
     });
   }
 
-  // 5. Display Configs
   if (displayTypeSelect) {
     displayTypeSelect.addEventListener('change', (e: Event) => {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem('displayType', target.value);
-      // Clear the cached mode so initDisplayWidget rebuilds from scratch
       if (greetingWrapper) {
         greetingWrapper.dataset.currentMode = '';
         greetingWrapper.dataset.lastCache = '';
@@ -223,7 +224,6 @@ export function initStandaloneListeners(): void {
     toggleSeconds.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
-      // display.ts reads 'showSeconds'
       localStorage.setItem('showSeconds', String(target.checked));
       if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
@@ -233,7 +233,6 @@ export function initStandaloneListeners(): void {
     toggle12Hour.addEventListener('change', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
-      // display.ts reads 'use12Hour'
       localStorage.setItem('use12Hour', String(target.checked));
       if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
@@ -243,18 +242,16 @@ export function initStandaloneListeners(): void {
     dateFormatSelect.addEventListener('change', (e: Event) => {
       const target = getSelectTarget(e);
       if (!target) return;
-      // display.ts reads 'dateFormat'
       localStorage.setItem('dateFormat', target.value);
       if (greetingWrapper) initDisplayWidget(greetingWrapper);
     });
   }
-  
+
   if (greetingNameInput) {
     greetingNameInput.addEventListener('input', (e: Event) => {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('greetingName', target.value);
-      // Clear greeting cache so it re-renders with new name
       if (greetingWrapper) {
         greetingWrapper.dataset.lastCache = '';
         initDisplayWidget(greetingWrapper);
@@ -267,7 +264,6 @@ export function initStandaloneListeners(): void {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem('greetingType', target.value);
-      // Clear greeting cache to apply new animation/static mode
       if (greetingWrapper) {
         greetingWrapper.dataset.lastCache = '';
         initDisplayWidget(greetingWrapper);

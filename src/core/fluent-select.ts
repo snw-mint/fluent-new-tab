@@ -6,11 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * Custom select dropdown system (fluent-select).
- * Provides a styled, accessible popup replacement for native <select> elements.
- */
-
 let activeSelectTrigger: HTMLButtonElement | null = null;
 let _popup: HTMLElement | null = null;
 

@@ -6,20 +6,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file provides functions for interacting with external APIs, including fetching wallpapers,
- * search suggestions, and weather data, and managing browser permissions for these services.
- */
-
-import { 
-  WallpaperType, 
-  WallpaperCacheEntry, 
-  NasaApodResponse, 
-  SuggestionApiResponse, 
-  CityData, 
-  GeocodingResult, 
-  GeocodingResponse, 
-  WeatherApiResponse 
+import {
+  WallpaperType,
+  WallpaperCacheEntry,
+  NasaApodResponse,
+  SuggestionApiResponse,
+  CityData,
+  GeocodingResult,
+  GeocodingResponse,
+  WeatherApiResponse,
 } from './types.js';
 
 export const HOST_PERMISSIONS: Record<string, string[]> = {

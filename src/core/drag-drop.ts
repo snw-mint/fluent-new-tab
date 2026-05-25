@@ -6,11 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file implements vanilla HTML5 drag-and-drop functionality for managing shortcuts,
- * including reordering, moving items in and out of folders, and handling drag animations.
- */
-
 interface DragDropOptions {
   gridContainer: HTMLElement;
   onReorder: (oldIndex: number, newIndex: number) => void;
@@ -35,8 +30,9 @@ export let ghostBaseX = 0;
 export let ghostBaseY = 0;
 export let ghostScale = 1;
 
-export function initVanillaDragAndDrop(options: any = {}) {
-  const { gridContainer, onReorder, onMoveToFolder, onMoveOutFolder } = options;
+export function initVanillaDragAndDrop(options: DragDropOptions) {
+  if (!options || !options.gridContainer) return;
+  activeDragOptions = options;
   const grid = options.gridContainer;
   grid.addEventListener('dragstart', handleDragStart);
 }

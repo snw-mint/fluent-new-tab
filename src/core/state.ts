@@ -1,6 +1,3 @@
-import { engines, launcherData } from './config.js';
-import { Shortcut, ThemeMode, WeatherUnit, CityData, WallpaperSource, WallpaperType } from './types.js';
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -9,10 +6,15 @@ import { Shortcut, ThemeMode, WeatherUnit, CityData, WallpaperSource, WallpaperT
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file manages the application's global state, including user preferences,
- * feature settings, and cached data for various components.
- */
+import { engines, launcherData } from './config.js';
+import {
+  Shortcut,
+  ThemeMode,
+  WeatherUnit,
+  CityData,
+  WallpaperSource,
+  WallpaperType,
+} from './types.js';
 
 export let shortcuts: Shortcut[] = [];
 export let editingIndex: number | null = null;
@@ -24,10 +26,12 @@ try {
 }
 
 export let allowedRows = parseInt(localStorage.getItem('shortcutsRows') || '2');
-export let shortcutsVisible = localStorage.getItem('shortcutsVisible') !== 'false';
+export let shortcutsVisible =
+  localStorage.getItem('shortcutsVisible') !== 'false';
 export let currentFolderId: string | null = null;
 export let foldersEnabled = localStorage.getItem('foldersEnabled') === 'true';
-export let hideShortcutNames = localStorage.getItem('hideShortcutNames') === 'true';
+export let hideShortcutNames =
+  localStorage.getItem('hideShortcutNames') === 'true';
 export let shortcutRadius = localStorage.getItem('shortcutRadius') || '0';
 
 if (shortcutRadius !== '0') {
@@ -45,16 +49,23 @@ if (shortcutRadius !== '0') {
   document.documentElement.style.setProperty('--shortcut-radius', radiusValue);
 }
 
-export const savedTheme = (localStorage.getItem('theme') || 'auto') as ThemeMode;
+export const savedTheme = (localStorage.getItem('theme') ||
+  'auto') as ThemeMode;
 export const savedEngine = (localStorage.getItem('searchEngine') ||
   'bing') as keyof typeof engines;
-export let searchBarVisible = localStorage.getItem('searchBarVisible') !== 'false';
-export let suggestionsActive = localStorage.getItem('suggestionsEnabled') === 'true';
+export let searchBarVisible =
+  localStorage.getItem('searchBarVisible') !== 'false';
+export let suggestionsActive =
+  localStorage.getItem('suggestionsEnabled') === 'true';
 export const suggestionsCache = new Map<string, string[]>();
-export let clearSearchEnabled = localStorage.getItem('clearSearchEnabled') === 'true';
-export let compactBarEnabled = localStorage.getItem('compactBarEnabled') === 'true';
-export let voiceSearchEnabled = localStorage.getItem('voiceSearchEnabled') === 'true';
-export const savedAnimationsDisabled = localStorage.getItem('animationsDisabled');
+export let clearSearchEnabled =
+  localStorage.getItem('clearSearchEnabled') === 'true';
+export let compactBarEnabled =
+  localStorage.getItem('compactBarEnabled') === 'true';
+export let voiceSearchEnabled =
+  localStorage.getItem('voiceSearchEnabled') === 'true';
+export const savedAnimationsDisabled =
+  localStorage.getItem('animationsDisabled');
 export let animationsDisabled =
   savedAnimationsDisabled !== null
     ? savedAnimationsDisabled === 'true'
@@ -71,8 +82,13 @@ export const CACHE_DURATION = 3600000;
 export let weatherEnabled = localStorage.getItem('weatherEnabled') === 'true';
 export let weatherAlertsEnabled =
   localStorage.getItem('weatherAlertsEnabled') === 'true';
-export let weatherUnit = (localStorage.getItem('weatherUnit') || 'c') as WeatherUnit;
-export let currentCityData: CityData = { name: 'New York', lat: 40.71, lon: -74.01 };
+export let weatherUnit = (localStorage.getItem('weatherUnit') ||
+  'c') as WeatherUnit;
+export let currentCityData: CityData = {
+  name: 'New York',
+  lat: 40.71,
+  lon: -74.01,
+};
 try {
   const saved = localStorage.getItem(CITY_KEY);
   if (saved) currentCityData = JSON.parse(saved) as CityData;
@@ -84,17 +100,21 @@ export let launcherEnabled = localStorage.getItem('launcherEnabled') === 'true';
 export let currentProvider = (localStorage.getItem('launcherProvider') ||
   'microsoft') as keyof typeof launcherData;
 
-export let wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
+export let wallpaperEnabled =
+  localStorage.getItem('wallpaperEnabled') === 'true';
 export let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
   'local') as WallpaperSource;
 export let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
   'upload') as WallpaperType;
-export let currentWallpaperValue = localStorage.getItem('wallpaperValue') || 'upload';
+export let currentWallpaperValue =
+  localStorage.getItem('wallpaperValue') || 'upload';
 export let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
-export let accentColorEnabled = localStorage.getItem('accentColorEnabled') === 'true';
+export let accentColorEnabled =
+  localStorage.getItem('accentColorEnabled') === 'true';
 export let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
-export let accentColorValue = localStorage.getItem('accentColorValue') || '#0078d4';
+export let accentColorValue =
+  localStorage.getItem('accentColorValue') || '#0078d4';
 
 export let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
 export let askAiMode = false;
@@ -129,44 +149,121 @@ export let tabFavicon = localStorage.getItem('tabFavicon') || '';
 
 export let activeSelectTrigger: HTMLButtonElement | null = null;
 
-
 // Auto-generated setters
-export function setShortcuts(val: any) { shortcuts = val; }
-export function setEditingIndex(val: any) { editingIndex = val; }
-export function setAllowedRows(val: any) { allowedRows = val; }
-export function setShortcutsVisible(val: any) { shortcutsVisible = val; }
-export function setCurrentFolderId(val: any) { currentFolderId = val; }
-export function setFoldersEnabled(val: any) { foldersEnabled = val; }
-export function setHideShortcutNames(val: any) { hideShortcutNames = val; }
-export function setShortcutRadius(val: any) { shortcutRadius = val; }
-export function setSearchBarVisible(val: any) { searchBarVisible = val; }
-export function setSuggestionsActive(val: any) { suggestionsActive = val; }
-export function setClearSearchEnabled(val: any) { clearSearchEnabled = val; }
-export function setCompactBarEnabled(val: any) { compactBarEnabled = val; }
-export function setVoiceSearchEnabled(val: any) { voiceSearchEnabled = val; }
-export function setAnimationsDisabled(val: any) { animationsDisabled = val; }
-export function setBlurDisabled(val: any) { blurDisabled = val; }
-export function setReducedEffectsEnabled(val: any) { reducedEffectsEnabled = val; }
-export function setWeatherEnabled(val: any) { weatherEnabled = val; }
-export function setWeatherAlertsEnabled(val: any) { weatherAlertsEnabled = val; }
-export function setWeatherUnit(val: any) { weatherUnit = val; }
-export function setCurrentCityData(val: any) { currentCityData = val; }
-export function setLauncherEnabled(val: any) { launcherEnabled = val; }
-export function setCurrentProvider(val: any) { currentProvider = val; }
-export function setWallpaperEnabled(val: any) { wallpaperEnabled = val; }
-export function setCurrentWallpaperSource(val: any) { currentWallpaperSource = val; }
-export function setCurrentWallpaperType(val: any) { currentWallpaperType = val; }
-export function setCurrentWallpaperValue(val: any) { currentWallpaperValue = val; }
-export function setWallpaperOverlay(val: any) { wallpaperOverlay = val; }
-export function setAccentColorEnabled(val: any) { accentColorEnabled = val; }
-export function setAccentColorMode(val: any) { accentColorMode = val; }
-export function setAccentColorValue(val: any) { accentColorValue = val; }
-export function setAskAiEnabled(val: any) { askAiEnabled = val; }
-export function setAskAiMode(val: any) { askAiMode = val; }
-export function setSfxMicInstance(val: any) { sfxMicInstance = val; }
-export function setSfxAskAiInstance(val: any) { sfxAskAiInstance = val; }
-export function setMainUiScale(val: any) { mainUiScale = val; }
-export function setDisplayScale(val: any) { displayScale = val; }
-export function setTabName(val: any) { tabName = val; }
-export function setTabFavicon(val: any) { tabFavicon = val; }
-export function setActiveSelectTrigger(val: any) { activeSelectTrigger = val; }
+export function setShortcuts(val: any) {
+  shortcuts = val;
+}
+export function setEditingIndex(val: any) {
+  editingIndex = val;
+}
+export function setAllowedRows(val: any) {
+  allowedRows = val;
+}
+export function setShortcutsVisible(val: any) {
+  shortcutsVisible = val;
+}
+export function setCurrentFolderId(val: any) {
+  currentFolderId = val;
+}
+export function setFoldersEnabled(val: any) {
+  foldersEnabled = val;
+}
+export function setHideShortcutNames(val: any) {
+  hideShortcutNames = val;
+}
+export function setShortcutRadius(val: any) {
+  shortcutRadius = val;
+}
+export function setSearchBarVisible(val: any) {
+  searchBarVisible = val;
+}
+export function setSuggestionsActive(val: any) {
+  suggestionsActive = val;
+}
+export function setClearSearchEnabled(val: any) {
+  clearSearchEnabled = val;
+}
+export function setCompactBarEnabled(val: any) {
+  compactBarEnabled = val;
+}
+export function setVoiceSearchEnabled(val: any) {
+  voiceSearchEnabled = val;
+}
+export function setAnimationsDisabled(val: any) {
+  animationsDisabled = val;
+}
+export function setBlurDisabled(val: any) {
+  blurDisabled = val;
+}
+export function setReducedEffectsEnabled(val: any) {
+  reducedEffectsEnabled = val;
+}
+export function setWeatherEnabled(val: any) {
+  weatherEnabled = val;
+}
+export function setWeatherAlertsEnabled(val: any) {
+  weatherAlertsEnabled = val;
+}
+export function setWeatherUnit(val: any) {
+  weatherUnit = val;
+}
+export function setCurrentCityData(val: any) {
+  currentCityData = val;
+}
+export function setLauncherEnabled(val: any) {
+  launcherEnabled = val;
+}
+export function setCurrentProvider(val: any) {
+  currentProvider = val;
+}
+export function setWallpaperEnabled(val: any) {
+  wallpaperEnabled = val;
+}
+export function setCurrentWallpaperSource(val: any) {
+  currentWallpaperSource = val;
+}
+export function setCurrentWallpaperType(val: any) {
+  currentWallpaperType = val;
+}
+export function setCurrentWallpaperValue(val: any) {
+  currentWallpaperValue = val;
+}
+export function setWallpaperOverlay(val: any) {
+  wallpaperOverlay = val;
+}
+export function setAccentColorEnabled(val: any) {
+  accentColorEnabled = val;
+}
+export function setAccentColorMode(val: any) {
+  accentColorMode = val;
+}
+export function setAccentColorValue(val: any) {
+  accentColorValue = val;
+}
+export function setAskAiEnabled(val: any) {
+  askAiEnabled = val;
+}
+export function setAskAiMode(val: any) {
+  askAiMode = val;
+}
+export function setSfxMicInstance(val: any) {
+  sfxMicInstance = val;
+}
+export function setSfxAskAiInstance(val: any) {
+  sfxAskAiInstance = val;
+}
+export function setMainUiScale(val: any) {
+  mainUiScale = val;
+}
+export function setDisplayScale(val: any) {
+  displayScale = val;
+}
+export function setTabName(val: any) {
+  tabName = val;
+}
+export function setTabFavicon(val: any) {
+  tabFavicon = val;
+}
+export function setActiveSelectTrigger(val: any) {
+  activeSelectTrigger = val;
+}

@@ -6,10 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file defines various configuration constants, search engine settings,
- * launcher application data, and local storage keys.
- */
 import { EngineConfig, LauncherProviderData } from './types.js';
 
 export const ICON_ADD = `<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13V3.754a.75.75 0 0 0-1.5 0V13H3.754a.75.75 0 0 0 0 1.5H13v9.252a.75.75 0 0 0 1.5 0V14.5l9.25.003a.75.75 0 0 0 0-1.5z" fill="currentColor"/></svg>`;

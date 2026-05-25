@@ -6,10 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file provides utility functions for common DOM manipulations and element retrieval.
- */
-
 export function getById<T extends HTMLElement>(id: string): T | null {
   return document.getElementById(id) as T | null;
 }

@@ -1,9 +1,3 @@
-import { launcherData, engines } from './config.js';
-import { currentCityData } from './state.js';
-import { hexToHsv, hsvToHex, hexToRgb, rgbToHex } from './color.js';
-import { warningModal, requestFeaturePermissionUI } from './ui-components.js';
-import { WeatherUnit, WallpaperSource, WallpaperType } from './types.js';
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -12,10 +6,11 @@ import { WeatherUnit, WallpaperSource, WallpaperType } from './types.js';
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file contains functions to bind event listeners for various UI components and features,
- * managing user interactions and updating application state accordingly.
- */
+import { launcherData, engines } from './config.js';
+import { currentCityData } from './state.js';
+import { hexToHsv, hsvToHex, hexToRgb, rgbToHex } from './color.js';
+import { warningModal, requestFeaturePermissionUI } from './ui-components.js';
+import { WeatherUnit, WallpaperSource, WallpaperType } from './types.js';
 
 interface WeatherBindingOptions {
   applyInitialWeatherState: () => void;
@@ -231,7 +226,9 @@ interface AccentColorBindingOptions {
   applyWallpaperLogic: () => Promise<void> | void;
 }
 
-export function bindAccentColorFeature(options: AccentColorBindingOptions): void {
+export function bindAccentColorFeature(
+  options: AccentColorBindingOptions,
+): void {
   options.applyInitialAccentState();
 
   const savedMode = localStorage.getItem('accentColorMode') || 'auto';
@@ -1028,7 +1025,9 @@ interface MainUiScaleBindingOptions {
   setMainUiScale: (scale: number) => void;
 }
 
-export function bindMainUiScaleFeature(options: MainUiScaleBindingOptions): void {
+export function bindMainUiScaleFeature(
+  options: MainUiScaleBindingOptions,
+): void {
   if (options.mainUiScaleSlider) {
     const slider = options.mainUiScaleSlider;
     slider.value = String(options.getMainUiScale());

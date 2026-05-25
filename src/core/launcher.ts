@@ -6,14 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file manages the display, rendering, and interaction of the application launcher.
- */
-
 import { LauncherProviderData } from './types.js';
-import {
-  launcherPopup,
-} from './dom-references.js';
+import { launcherPopup } from './dom-references.js';
 import { foldersEnabled } from './state.js';
 
 interface LauncherVisibilityRefs {

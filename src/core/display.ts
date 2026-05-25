@@ -6,11 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file manages the rendering and updating of the time, date,
- * and greeting display on the new tab page.
- */
-
 export let displayInterval: number | null = null;
 
 export const CDN_BASE_URL =

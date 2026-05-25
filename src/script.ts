@@ -106,6 +106,10 @@ import {
   appLauncherWrapper,
   suggestionsContainer,
   reducedEffectsOptions,
+  wallpaperSourceContainer,
+  wallpaperOverlaySetting,
+  displayMainOptions,
+  launcherSelectGroup,
 } from './core/dom-references.js';
 import { engines, APP_KEYS, launcherData } from './core/config.js';
 import {
@@ -170,6 +174,7 @@ import {
   setCurrentCityData,
   savedEngine,
   currentWallpaperValue,
+  shortcutsVisible,
 } from './core/state.js';
 import {
   applyGoogleSearchParams,
@@ -311,9 +316,7 @@ async function initWeather(): Promise<void> {
         renderWeather(cached.data);
         return;
       }
-    } catch {
-      // ignore corrupt cache
-    }
+    } catch {}
   }
   await fetchWeatherFromAPI();
 }
@@ -328,8 +331,6 @@ function renderLauncher(providerKey: keyof typeof launcherData): void {
     launcherAllAppsLink,
   });
 }
-
-// --- End local helpers ---
 
 let brandIntervalStarted = false;
 function applyBrandInterval() {
@@ -363,9 +364,7 @@ async function initCritical() {
     accentPresetsRow,
     accentCustomColor,
     applyAccentColor,
-    applyWallpaperLogic: () => {
-      /* Delegado para bindings */
-    },
+    applyWallpaperLogic: () => {},
   });
 
   applyBrandInterval();
@@ -384,25 +383,34 @@ function initVisual() {
   if (toggleDisplay) {
     toggleDisplay.checked = localStorage.getItem('displayEnabled') !== 'false';
   }
-
-  // Sync initial checked states from stored state
+  if (toggleLauncher) {
+    toggleLauncher.checked = launcherEnabled;
+  }
+  if (toggleShortcuts) {
+    toggleShortcuts.checked = shortcutsVisible;
+  }
+  if (toggleWeather) {
+    toggleWeather.checked = weatherEnabled;
+  }
+  if (toggleWallpaper) {
+    toggleWallpaper.checked = wallpaperEnabled;
+  }
   if (toggleReducedEffects)
     toggleReducedEffects.checked = reducedEffectsEnabled;
   if (toggleDisableAnimations)
     toggleDisableAnimations.checked = animationsDisabled;
   if (toggleDisableBlur) toggleDisableBlur.checked = blurDisabled;
-
   if (rowsSelect) {
     rowsSelect.value = String(allowedRows);
   }
 
   renderShortcuts();
-
+  updateShortcutsVisibility(shortcutsVisible, false);
   updateSearchSettings(searchBarVisible, false);
   updateWeatherVisibility(weatherEnabled, false);
   updateLauncherVisibility(launcherEnabled, false);
   updateWallpaperUIState(wallpaperEnabled, false);
-  // Collapse reducedEffectsOptions if reduced effects is disabled
+
   if (reducedEffectsOptions)
     setCollapsible(reducedEffectsOptions, reducedEffectsEnabled, false);
 
@@ -455,7 +463,6 @@ function initVisual() {
   }
 }
 
-// --- Missing Search & Wallpaper Orchestrators ---
 function updateShortcutsVisibility(visible: boolean, animate = true) {
   if (shortcutsGrid) shortcutsGrid.style.display = visible ? 'grid' : 'none';
   if (rowsInputGroup) setCollapsible(rowsInputGroup, visible, animate);
@@ -463,18 +470,21 @@ function updateShortcutsVisibility(visible: boolean, animate = true) {
   if (shortcutsMoreSetting)
     setCollapsible(shortcutsMoreSetting, visible, animate);
 }
+
 function updateSearchSettings(visible: boolean, animate = true) {
   if (searchWrapper) searchWrapper.style.display = visible ? '' : 'none';
   if (toggleSearchBar) toggleSearchBar.checked = visible;
   const searchMainOptions = document.getElementById('searchMainOptions');
   if (searchMainOptions) setCollapsible(searchMainOptions, visible, animate);
 }
+
 function updateCompactBarStyle() {
   if (searchWrapper) {
     if (compactBarEnabled) searchWrapper.classList.add('compact');
     else searchWrapper.classList.remove('compact');
   }
 }
+
 function setSearchEngine(engineKey) {
   const config = engines[engineKey];
   if (config) {
@@ -491,9 +501,6 @@ function setSearchEngine(engineKey) {
     applyGoogleSearchParams(searchForm, engineKey, clearSearchEnabled);
   }
 }
-// -------------------------------------
-
-// --- Missing Feature Orchestrators ---
 
 async function loadCustomWallpaper() {
   const { getWallpaperFromDB } = await import('./core/wallpaper-storage.js');
@@ -545,22 +552,42 @@ async function applyWallpaperLogic() {
 function applyInitialWallpaperState() {
   updateWallpaperUIState(wallpaperEnabled, false);
 }
-function updateWallpaperUIState(visible: boolean, animate = true) {
-  const container = wallpaperSourceSelect
-    ? (wallpaperSourceSelect.closest(
-        '.wallpaper-source-options',
-      ) as HTMLElement)
-    : null;
-  if (container) setCollapsible(container, visible, animate);
+
+function updateWallpaperUIState(visible: boolean, animate = true): void {
+  if (wallpaperSourceContainer) {
+    setCollapsible(wallpaperSourceContainer, visible, animate);
+  }
+
+  if (wallpaperSourceSelect) {
+    const parentRow = wallpaperSourceSelect.closest(
+      '.switch-row, .child-setting',
+    ) as HTMLElement | null;
+    if (parentRow) {
+      setCollapsible(parentRow, visible, animate);
+    }
+  }
+
+  if (wallpaperOverlaySetting) {
+    setCollapsible(wallpaperOverlaySetting, visible, animate);
+  }
+
   const uploadContainer = document.getElementById('uploadWallpaperContainer');
   if (uploadContainer) {
-    if (!visible || currentWallpaperType !== 'upload')
-      uploadContainer.style.display = 'none';
-    else uploadContainer.style.display = 'flex';
+    uploadContainer.style.display =
+      visible && currentWallpaperType === 'upload' ? 'flex' : 'none';
   }
-  // Collapse the overlay setting row when wallpaper is disabled
-  const wallpaperOverlayEl = document.getElementById('wallpaperOverlaySetting');
-  if (wallpaperOverlayEl) setCollapsible(wallpaperOverlayEl, visible, animate);
+}
+
+function updateDisplayVisibility(visible: boolean, animate = true): void {
+  if (greetingWrapper) {
+    greetingWrapper.style.display = visible ? '' : 'none';
+    if (visible) {
+      initDisplayWidget(greetingWrapper);
+    }
+  }
+  if (displayMainOptions) {
+    setCollapsible(displayMainOptions, visible, animate);
+  }
 }
 
 function applyInitialWeatherState() {
@@ -573,6 +600,7 @@ function updateWeatherVisibility(visible: boolean, animate = true) {
   const weatherMoreSetting = document.getElementById('weatherMoreSetting');
   if (weatherMoreSetting) setCollapsible(weatherMoreSetting, visible, animate);
 }
+
 function searchCity() {
   if (cityInput) {
     const city = cityInput.value.trim();
@@ -585,14 +613,19 @@ function searchCity() {
 function applyInitialLauncherState() {
   updateLauncherVisibility(launcherEnabled, false);
 }
-function updateLauncherVisibility(visible: boolean, animate = true) {
+
+function updateLauncherVisibility(visible: boolean, animate = true): void {
   const launcherMoreSetting = document.getElementById('launcherMoreSetting');
-  if (launcherMoreSetting)
+  if (launcherMoreSetting) {
     setCollapsible(launcherMoreSetting, visible, animate);
-  if (appLauncherWrapper)
+  }
+  if (launcherSelectGroup) {
+    setCollapsible(launcherSelectGroup, visible, animate);
+  }
+  if (appLauncherWrapper) {
     appLauncherWrapper.style.display = visible ? 'flex' : 'none';
+  }
 }
-// -------------------------------------
 
 function initAllEventBindings() {
   bindMainUiFeatures({
@@ -606,7 +639,7 @@ function initAllEventBindings() {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('displayEnabled', String(target.checked));
-      if (greetingWrapper) initDisplayWidget(greetingWrapper);
+      updateDisplayVisibility(target.checked, true);
     });
   }
 
@@ -621,7 +654,7 @@ function initAllEventBindings() {
     displayScaleSlider,
     getDisplayScale: () => displayScale,
     setDisplayScale: (scale: number) => {
-      setDisplayScale(scale); // Fixed Cannot assign to read-only
+      setDisplayScale(scale);
     },
   });
 
@@ -630,12 +663,12 @@ function initAllEventBindings() {
     shortcutRadiusRow,
     getShortcutRadius: () => shortcutRadius,
     setShortcutRadius: (radius: string) => {
-      setShortcutRadius(radius); // Fixed Cannot assign to read-only
+      setShortcutRadius(radius);
     },
     toggleHideShortcutNames,
     getHideShortcutNames: () => hideShortcutNames,
     setHideShortcutNames: (enabled: boolean) => {
-      setHideShortcutNames(enabled); // Fixed Cannot assign to read-only
+      setHideShortcutNames(enabled);
     },
   });
 
@@ -643,7 +676,7 @@ function initAllEventBindings() {
     mainUiScaleSlider,
     getMainUiScale: () => mainUiScale,
     setMainUiScale: (val: number) => {
-      setMainUiScale(val); // Fixed Cannot assign to read-only
+      setMainUiScale(val);
     },
   });
 
@@ -653,7 +686,7 @@ function initAllEventBindings() {
       const target = getSelectTarget(e);
       if (!target) return;
       const val = parseInt(target.value, 10);
-      setAllowedRows(val); // Fixed Cannot assign to read-only
+      setAllowedRows(val);
       localStorage.setItem('shortcutsRows', String(val));
       renderShortcuts();
     });
@@ -663,7 +696,7 @@ function initAllEventBindings() {
     toggleDisableAnimations.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-      setAnimationsDisabled(target.checked); // Fixed Cannot assign to read-only
+      setAnimationsDisabled(target.checked);
       localStorage.setItem('animationsDisabled', String(target.checked));
     });
   }
@@ -672,7 +705,7 @@ function initAllEventBindings() {
     toggleDisableBlur.addEventListener('change', (e) => {
       const target = getInputTarget(e);
       if (!target) return;
-      setBlurDisabled(target.checked); // Fixed Cannot assign to read-only
+      setBlurDisabled(target.checked);
       localStorage.setItem('blurDisabled', String(target.checked));
     });
   }
@@ -683,7 +716,6 @@ function initAllEventBindings() {
       if (!target) return;
       setReducedEffectsEnabled(target.checked);
       localStorage.setItem('reducedEffectsEnabled', String(target.checked));
-      // Collapse/expand the sub-options container
       if (reducedEffectsOptions)
         setCollapsible(reducedEffectsOptions, target.checked, true);
     });
@@ -776,7 +808,7 @@ function initAllEventBindings() {
       setCompactBarEnabled(val);
     },
     updateCompactBarStyle,
-    toggleVoiceSearch: null, // Basic stub, advanced voice search omitted to save space unless user asks
+    toggleVoiceSearch: null,
     setVoiceSearchEnabled: (val) => {},
     updateVoiceSearchAvailability: () => {},
     searchInput,
@@ -854,31 +886,18 @@ function initAllEventBindings() {
   applyMagneticSnap('wallpaper-overlay-slider', 0.2, 0.05);
 }
 
-// ... mantenha todos os seus imports e funções initCritical, initVisual, etc.
-
 async function bootstrap() {
   try {
-    // 1. Carrega backups e estados críticos primeiro
     await initCritical();
-
-    // 2. Monta a parte visual na tela com os estados prontos
     initVisual();
-
-    // 3. Vincula todos os cliques e eventos aos elementos renderizados
     initAllEventBindings();
     initStandaloneListeners();
-
-    // 4. Se o wallpaper em IndexedDB precisar de gatilho, garanta aqui
-    // applyWallpaperLogic();
-
     console.log('[Fluent New Tab] Inicialização concluída com sucesso.');
   } catch (error) {
     console.error('[Fluent New Tab] Erro crítico na inicialização:', error);
   }
 }
 
-// O motor ESM do Vite executa após o parse do HTML por padrão.
-// Garantimos que se o DOM já estiver pronto (ou quase), rodamos o bootstrap imediatamente.
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', bootstrap);
 } else {
@@ -887,7 +906,7 @@ if (document.readyState === 'loading') {
 
 document.addEventListener('i18nReady', () => {
   applyBrandInterval();
-  renderShortcuts(); // Call the local wrapper, not the imported core function
+  renderShortcuts();
 });
 
 document.body.addEventListener('dragover', (e) => {

@@ -1,10 +1,3 @@
-import { ICON_MENU_DOTS, ICON_EDIT, ICON_REMOVE, ICON_ADD } from './config.js';
-import { sanitizeUrl } from './dom-utils.js';
-import { Shortcut } from './types.js';
-import { syncShortcutDropdownState } from './ui-components.js';
-
-export { syncShortcutDropdownState };
-
 /*
  * Fluent New Tab
  * Copyright (c) 2025-2026 SnowMint
@@ -13,9 +6,12 @@ export { syncShortcutDropdownState };
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * This file manages the rendering, interaction, and state of shortcuts and folders on the new tab page.
- */
+import { ICON_MENU_DOTS, ICON_EDIT, ICON_REMOVE, ICON_ADD } from './config.js';
+import { sanitizeUrl } from './dom-utils.js';
+import { Shortcut } from './types.js';
+import { syncShortcutDropdownState } from './ui-components.js';
+
+export { syncShortcutDropdownState };
 
 interface ShortcutsRenderOptions {
   shortcutsGrid: HTMLDivElement | null;
