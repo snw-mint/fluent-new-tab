@@ -673,4 +673,70 @@ export function bindMainUiFeatures(options: MainUiOptions): void {
       }
     });
   }
+
+  if (toggleFolders) {
+    toggleFolders.checked = foldersEnabled;
+
+    toggleFolders.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      const isEnabling = target.checked;
+
+      if (!isEnabling) {
+        const hasExistingFolders = shortcuts.some(
+          (s: any) =>
+            s.type === 'folder' ||
+            (Array.isArray(s.children) && s.children.length > 0),
+        );
+
+        if (hasExistingFolders) {
+          warningModal.show({
+            title:
+              (window as any).getLocalizedWarningText?.(
+                'warningDeleteFoldersTitle',
+                'Disable Folders?',
+              ) || 'Disable Folders?',
+            message:
+              (window as any).getLocalizedWarningText?.(
+                'warningDeleteFoldersMessage',
+                'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
+              ) ||
+              'All folders and their shortcuts will be deleted. This cannot be undone.',
+            confirmText:
+              (window as any).getLocalizedWarningText?.(
+                'warningDeleteFoldersConfirm',
+                'Delete Folders',
+              ) || 'Delete Folders',
+            cancelText:
+              (window as any).getLocalizedWarningText?.(
+                'warningKeepEnabled',
+                'Keep Enabled',
+              ) || 'Keep Enabled',
+            confirmVariant: 'danger',
+            onConfirm: () => {
+              const prunedShortcuts = shortcuts.filter(
+                (item: any) =>
+                  item.type !== 'folder' && !Array.isArray(item.children),
+              );
+
+              shortcuts.length = 0;
+              shortcuts.push(...prunedShortcuts);
+
+              setFoldersEnabled(false);
+              localStorage.setItem('foldersEnabled', 'false');
+              updateLauncherFooterVariant();
+              saveAndRender();
+            },
+            onCancel: () => {
+              target.checked = true;
+            },
+          });
+          return;
+        }
+      }
+
+      setFoldersEnabled(isEnabling);
+      localStorage.setItem('foldersEnabled', String(isEnabling));
+      updateLauncherFooterVariant();
+    });
+  }
 }
