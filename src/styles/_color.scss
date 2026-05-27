@@ -36,7 +36,7 @@ html[data-theme='dark'] {
     background: $color-dark-surface;
 
     .dropdown-menu {
-      background: rgba(32, 32, 32);
+      background: #333333;
       border: 1px solid $color-dark-border;
       box-shadow: $color-dark-shadow;
 
@@ -63,7 +63,7 @@ html[data-theme='dark'] {
 
     &:has(.settings-popup.active) {
       .settings-wrapper {
-        background: #323232;
+        background: #333333;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
     }
@@ -121,7 +121,7 @@ html[data-theme='dark'] {
         }
 
         .shortcut-dropdown {
-          background-color: #202020;
+          background-color: #333333;
           border: 1px solid $color-dark-border;
           box-shadow: $color-dark-shadow;
 
@@ -198,16 +198,25 @@ html[data-theme='dark'] {
     }
   }
 
+  // Estilos comuns compartilhados por todos
   .settings-popup,
   .dropdown-menu,
   .launcher-popup {
-    background-color: #202020;
     border: 1px solid $color-dark-border;
     box-shadow: $color-dark-shadow;
 
     &::after {
       opacity: 0.05;
     }
+  }
+
+  .dropdown-menu,
+  .launcher-popup {
+    background-color: #333333;
+  }
+
+  .settings-popup {
+    background-color: #2b2b2b;
   }
 
   .settings-popup {
@@ -220,7 +229,7 @@ html[data-theme='dark'] {
     }
 
     .setting-group {
-      background-color: rgba(255, 255, 255, 0.06);
+      background-color: #3d3d3d;
       border-color: rgba(255, 255, 255, 0.1);
     }
   }
@@ -514,4 +523,3 @@ body[data-wallpaper-active='true'] {
     }
   }
 }
-

@@ -99,10 +99,44 @@ export function updateOverlay(opacityValue: number, isEnabled: boolean): void {
   document.documentElement.style.setProperty('--overlay-opacity', finalOpacity);
 }
 
+function hideCreditsBoot(): void {
+  const creditsDiv = document.getElementById('wallpaperCredits');
+  if (creditsDiv) {
+    creditsDiv.classList.add('hidden');
+  }
+}
+
+function showCreditsBoot(sourceType: string): void {
+  const creditsDiv = document.getElementById('wallpaperCredits');
+  const creditTextSpan = document.getElementById('wallpaperCreditText');
+  if (!creditsDiv || !creditTextSpan) return;
+
+  const cacheKey = `wallpaper_cache_${sourceType}`;
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    if (cached && (cached.credit || cached.creditUrl)) {
+      const text = cached.credit || 'Daily Wallpaper';
+      const url = cached.creditUrl || '';
+
+      if (url) {
+        creditTextSpan.innerHTML = `<a href="${url}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">${text}</a>`;
+      } else {
+        creditTextSpan.textContent = text;
+      }
+      creditsDiv.classList.remove('hidden');
+    } else {
+      creditsDiv.classList.add('hidden');
+    }
+  } catch (e) {
+    creditsDiv.classList.add('hidden');
+  }
+}
+
 export function clearWallpaper(): void {
   document.body.style.backgroundImage = 'none';
   document.body.removeAttribute('data-wallpaper-active');
   updateOverlay(0, false);
+  hideCreditsBoot();
 }
 
 export async function bootWallpaper(
@@ -136,6 +170,11 @@ export async function bootWallpaper(
     document.body.style.backgroundImage = `url('${url}')`;
     document.body.setAttribute('data-wallpaper-active', 'true');
     updateOverlay(overlay, true);
+    if (source === 'api') {
+      showCreditsBoot(type);
+    } else {
+      hideCreditsBoot();
+    }
   } else {
     clearWallpaper();
   }

@@ -77,6 +77,22 @@ export function bindWeatherFeature(options: any): void {
     });
   }
 
+  if (refs.weatherMoreBtn && refs.weatherMoreContainer) {
+    refs.weatherMoreBtn.addEventListener('click', () => {
+      const isCollapsed =
+        refs.weatherMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        refs.weatherMoreContainer.classList.remove('collapsed');
+        refs.weatherMoreBtn.classList.add('expanded');
+        refs.weatherMoreContainer.style.maxHeight = '500px';
+      } else {
+        refs.weatherMoreContainer.classList.add('collapsed');
+        refs.weatherMoreBtn.classList.remove('expanded');
+        refs.weatherMoreContainer.style.maxHeight = '';
+      }
+    });
+  }
+
   if (refs.toggleWeatherAlerts) {
     refs.toggleWeatherAlerts.checked = options.getWeatherAlertsEnabled();
     refs.toggleWeatherAlerts.addEventListener('change', (event) => {
@@ -532,8 +548,7 @@ export function bindShortcutRadiusFeature(options: any): void {
       setCollapsible(shortcutsMoreSetting, checked, true);
 
       if (!checked) {
-        const smc = document.getElementById('shortcutsMoreContainer');
-        if (smc) setCollapsible(smc, false, true);
+        if (refs.shortcutsMoreContainer) setCollapsible(refs.shortcutsMoreContainer, false, true);
       }
     });
   }
@@ -597,6 +612,22 @@ export function bindShortcutRadiusFeature(options: any): void {
       document
         .getElementById('shortcutsGrid')
         ?.setAttribute('data-hide-names', String(isEnabled));
+    });
+  }
+
+  if (refs.shortcutsMoreBtn && refs.shortcutsMoreContainer) {
+    refs.shortcutsMoreBtn.addEventListener('click', () => {
+      const isCollapsed =
+        refs.shortcutsMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        refs.shortcutsMoreContainer.classList.remove('collapsed');
+        refs.shortcutsMoreBtn.classList.add('expanded');
+        refs.shortcutsMoreContainer.style.maxHeight = '500px';
+      } else {
+        refs.shortcutsMoreContainer.classList.add('collapsed');
+        refs.shortcutsMoreBtn.classList.remove('expanded');
+        refs.shortcutsMoreContainer.style.maxHeight = '';
+      }
     });
   }
 }

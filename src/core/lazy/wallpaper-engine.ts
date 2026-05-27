@@ -155,7 +155,7 @@ export class WallpaperEngine {
         const url = cached.creditUrl || '';
 
         if (url) {
-          creditTextSpan.innerHTML = `<a href="${url}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none;">${text}</a>`;
+          creditTextSpan.innerHTML = `<a href="${url}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">${text}</a>`;
         } else {
           creditTextSpan.textContent = text;
         }
