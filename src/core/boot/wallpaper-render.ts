@@ -1,0 +1,142 @@
+export const WALLPAPER_DB_NAME = 'FluentNewTabDB';
+export const WALLPAPER_DB_VERSION = 1;
+export const WALLPAPER_STORE_NAME = 'wallpapers';
+
+export function openWallpaperDB(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(WALLPAPER_DB_NAME, WALLPAPER_DB_VERSION);
+
+    request.onupgradeneeded = (event) => {
+      const db = (event.target as IDBOpenDBRequest).result;
+      if (!db.objectStoreNames.contains(WALLPAPER_STORE_NAME)) {
+        db.createObjectStore(WALLPAPER_STORE_NAME);
+      }
+    };
+
+    request.onsuccess = (event) =>
+      resolve((event.target as IDBOpenDBRequest).result);
+
+    request.onerror = (event) => {
+      const errorMsg =
+        (event.target as IDBOpenDBRequest).error?.name || 'UnknownError';
+      reject('Error opening database: ' + errorMsg);
+    };
+  });
+}
+
+export function convertBase64ToBlob(base64: string): Promise<Blob> {
+  return fetch(base64).then((res) => res.blob());
+}
+
+export async function getWallpaperFromDB(
+  keyName = 'custom_wallpaper',
+): Promise<Blob | null> {
+  try {
+    const db = await openWallpaperDB();
+
+    return await new Promise<Blob | null>((resolve, reject) => {
+      const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readonly');
+      const store = transaction.objectStore(WALLPAPER_STORE_NAME);
+      const request = store.get(keyName);
+
+      request.onsuccess = (event) =>
+        resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
+      request.onerror = () => reject(new Error('Error reading from DB'));
+    });
+  } catch (error) {
+    const errorString = String(error);
+
+    if (
+      errorString.includes('InvalidStateError') ||
+      errorString.includes('Error opening database')
+    ) {
+      return await new Promise<Blob | null>((resolve) => {
+        const chromeApi = (window as any).chrome;
+        chromeApi.storage.local.get([keyName], async (result: any) => {
+          if (result[keyName]) {
+            try {
+              const blob = await convertBase64ToBlob(String(result[keyName]));
+              resolve(blob);
+            } catch (e) {
+              resolve(null);
+            }
+          } else {
+            resolve(null);
+          }
+        });
+      });
+    }
+    throw error;
+  }
+}
+
+export function initializeOverlay(): void {
+  let layer = document.getElementById('fluent-wallpaper-overlay');
+  if (!layer) {
+    layer = document.createElement('div');
+    layer.id = 'fluent-wallpaper-overlay';
+    Object.assign(layer.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: '#000',
+      pointerEvents: 'none',
+      zIndex: '-1',
+      opacity: '0',
+      transition: 'opacity 0.15s ease',
+    });
+    document.body.prepend(layer);
+  }
+}
+
+export function updateOverlay(opacityValue: number, isEnabled: boolean): void {
+  initializeOverlay();
+  const finalOpacity = isEnabled ? String(opacityValue) : '0';
+  const layer = document.getElementById('fluent-wallpaper-overlay');
+  if (layer) layer.style.opacity = finalOpacity;
+  document.documentElement.style.setProperty('--overlay-opacity', finalOpacity);
+}
+
+export function clearWallpaper(): void {
+  document.body.style.backgroundImage = 'none';
+  document.body.removeAttribute('data-wallpaper-active');
+  updateOverlay(0, false);
+}
+
+export async function bootWallpaper(
+  enabled: boolean,
+  source: string,
+  type: string,
+  overlay: number,
+): Promise<void> {
+  initializeOverlay();
+  if (!enabled) {
+    clearWallpaper();
+    return;
+  }
+
+  let url = '';
+  if (source === 'local' && type === 'upload') {
+    const blob = await getWallpaperFromDB();
+    if (blob) url = URL.createObjectURL(blob);
+  } else if (source === 'api') {
+    const cacheKey = `wallpaper_cache_${type}`;
+    try {
+      const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+      const today = new Date().toISOString().slice(0, 10);
+      if (cached && cached.url && cached.date === today) {
+        url = cached.url;
+      }
+    } catch {}
+  }
+
+  if (url) {
+    document.body.style.backgroundImage = `url('${url}')`;
+    document.body.setAttribute('data-wallpaper-active', 'true');
+    updateOverlay(overlay, true);
+  } else {
+    clearWallpaper();
+  }
+}

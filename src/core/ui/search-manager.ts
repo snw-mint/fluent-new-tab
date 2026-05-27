@@ -1,0 +1,248 @@
+import * as refs from '@/core/shared/dom-refs';
+import { requestFeaturePermissionUI } from '@/core/ui/ui-components';
+import {
+  handleAskAiRedirect,
+  updateAskAiUiState,
+  registerVoiceSearchEngine,
+} from '@/core/lazy/search-features';
+
+export function bindSearchFeature(options: any): void {
+  // Safe validation for local state tracking inside code-splitting bounds
+  const localSuggestionsCache = new Map<string, string[]>();
+
+  if (refs.toggleSearchBar) {
+    refs.toggleSearchBar.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setSearchBarVisible(target.checked);
+      localStorage.setItem('searchBarVisible', String(target.checked));
+      options.updateSearchSettings();
+    });
+  }
+
+  if (refs.searchMoreBtn && refs.searchMoreContainer) {
+    refs.searchMoreBtn.addEventListener('click', () => {
+      const isCollapsed =
+        refs.searchMoreContainer.classList.contains('collapsed');
+      if (isCollapsed) {
+        refs.searchMoreContainer.classList.remove('collapsed');
+        refs.searchMoreBtn.classList.add('expanded');
+        refs.searchMoreContainer.style.maxHeight = '500px';
+      } else {
+        refs.searchMoreContainer.classList.add('collapsed');
+        refs.searchMoreBtn.classList.remove('expanded');
+        refs.searchMoreContainer.style.maxHeight = '';
+      }
+    });
+  }
+
+  if (refs.searchBarStyleSelect) {
+    refs.searchBarStyleSelect.value = options.getCompactBarEnabled()
+      ? 'compact'
+      : 'full';
+    refs.searchBarStyleSelect.addEventListener('change', (event) => {
+      const target = event.target as HTMLSelectElement | null;
+      if (!target) return;
+      const isCompact = target.value === 'compact';
+      options.setCompactBarEnabled(isCompact);
+      localStorage.setItem('compactBarEnabled', String(isCompact));
+      if (isCompact)
+        document.documentElement.setAttribute('data-compact-bar', 'true');
+      else document.documentElement.removeAttribute('data-compact-bar');
+      options.updateCompactBarStyle();
+    });
+  }
+
+  if (refs.toggleVoiceSearch) {
+    refs.toggleVoiceSearch.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setVoiceSearchEnabled(target.checked);
+      localStorage.setItem('voiceSearchEnabled', String(target.checked));
+      options.updateVoiceSearchAvailability();
+    });
+  }
+
+  if (refs.toggleClearSearch) {
+    refs.toggleClearSearch.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      options.setClearSearchEnabled(target.checked);
+      localStorage.setItem('clearSearchEnabled', String(target.checked));
+      options.updateGoogleParams();
+    });
+  }
+
+  if (refs.engineBtn && refs.dropdown) {
+    refs.engineBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      // Safe dynamic import to close other popups if the system provides it
+      if (options.closePopups) {
+        options.closePopups(refs.dropdown);
+      } else {
+        import('@/core/ui/settings').then((m) => m.closePopups(refs.dropdown));
+      }
+      refs.dropdown?.classList.toggle('active');
+    });
+
+    refs.items.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        const target = event.currentTarget as HTMLElement;
+        const engine = target.dataset.engine || 'bing';
+        if (options.hasEngine(engine)) {
+          localStorage.setItem('searchEngine', engine);
+          options.setSearchEngine(engine);
+        }
+        refs.dropdown?.classList.remove('active');
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      const targetNode = event.target as Node | null;
+      if (!targetNode) return;
+      if (refs.dropdown?.classList.contains('active')) {
+        if (
+          !refs.dropdown.contains(targetNode) &&
+          !refs.engineBtn?.contains(targetNode)
+        ) {
+          refs.dropdown.classList.remove('active');
+        }
+      }
+    });
+  }
+
+  if (refs.searchInput) {
+    const handleInput = options.debounce((event: Event) => {
+      const target = event.target as HTMLInputElement;
+      const query = target.value.trim();
+      if (!query || !options.getSuggestionsActive()) {
+        options.clearSuggestions();
+        return;
+      }
+
+      const cacheKey = query.toLowerCase();
+      const currentCache = options.suggestionsCache || localSuggestionsCache;
+
+      if (currentCache.has(cacheKey)) {
+        options.renderSuggestions(currentCache.get(cacheKey)!);
+      } else {
+        options.fetchSuggestions(query);
+      }
+    }, 150);
+
+    refs.searchInput.addEventListener('input', handleInput);
+    refs.searchInput.addEventListener('focus', handleInput);
+    refs.searchInput.addEventListener('keydown', (event) => {
+      if (!options.getSuggestionsActive()) return;
+      const suggestionItems = Array.from(
+        document.querySelectorAll('.suggestion-item'),
+      ) as HTMLElement[];
+      if (!suggestionItems.length) return;
+      let currentIndex = suggestionItems.findIndex((item) =>
+        item.classList.contains('selected'),
+      );
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        currentIndex =
+          currentIndex < suggestionItems.length - 1 ? currentIndex + 1 : 0;
+        options.updateSelection(suggestionItems, currentIndex);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        currentIndex =
+          currentIndex > 0 ? currentIndex - 1 : suggestionItems.length - 1;
+        options.updateSelection(suggestionItems, currentIndex);
+      }
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    const targetNode = event.target as Node | null;
+    if (!targetNode || !refs.searchInput) return;
+    const container = document.getElementById('suggestionsContainer');
+    if (container && container.classList.contains('active')) {
+      if (
+        !container.contains(targetNode) &&
+        !refs.searchInput.contains(targetNode)
+      ) {
+        options.clearSuggestions();
+      }
+    }
+  });
+
+  if (refs.toggleSuggestions) {
+    refs.toggleSuggestions.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      if (target.checked) {
+        requestFeaturePermissionUI(
+          'suggestions',
+          'Google Search Suggestions',
+          'https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/query/suggest',
+          () => {
+            options.setSuggestionsActive(true);
+            localStorage.setItem('suggestionsEnabled', 'true');
+          },
+          () => {
+            target.checked = false;
+          },
+        );
+      } else {
+        options.setSuggestionsActive(false);
+        localStorage.setItem('suggestionsEnabled', 'false');
+        options.clearSuggestions();
+      }
+    });
+  }
+
+  let askAiActiveMode = false;
+  if (refs.askAiBtn) {
+    refs.askAiBtn.addEventListener('click', () => {
+      askAiActiveMode = !askAiActiveMode;
+      updateAskAiUiState(askAiActiveMode, {
+        searchWrapper: refs.searchWrapper,
+        searchInput: refs.searchInput,
+        askAiBtn: refs.askAiBtn,
+      });
+    });
+  }
+
+  if (refs.searchForm) {
+    refs.searchForm.addEventListener('submit', (event) => {
+      if (askAiActiveMode) {
+        event.preventDefault();
+        handleAskAiRedirect(refs.searchInput?.value || '');
+        askAiActiveMode = false;
+        if (refs.searchInput) refs.searchInput.value = '';
+        updateAskAiUiState(false, {
+          searchWrapper: refs.searchWrapper,
+          searchInput: refs.searchInput,
+          askAiBtn: refs.askAiBtn,
+        });
+        options.clearSuggestions();
+      } else {
+        options.clearSuggestions();
+      }
+    });
+  }
+
+  if (refs.voiceSearchBtn) {
+    registerVoiceSearchEngine({
+      voiceSearchBtn: refs.voiceSearchBtn,
+      searchInput: refs.searchInput,
+      searchForm: refs.searchForm,
+      getVoiceEnabled: () =>
+        localStorage.getItem('voiceSearchEnabled') !== 'false',
+    });
+  }
+
+  if (refs.toggleAskAi) {
+    refs.toggleAskAi.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      localStorage.setItem('askAiEnabled', String(target.checked));
+      if (refs.askAiBtn)
+        refs.askAiBtn.style.display = target.checked ? 'flex' : 'none';
+    });
+  }
+}

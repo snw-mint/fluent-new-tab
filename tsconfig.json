@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "rootDir": "./src",
     "target": "ES2022",
     "lib": ["ES2022", "DOM"],
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "types": ["chrome"],
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "sourceMap": false,
     "removeComments": false,
     "strict": false,
