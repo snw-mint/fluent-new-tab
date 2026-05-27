@@ -6,7 +6,7 @@ import {
   requestFeaturePermissionUI,
   setCollapsible,
 } from '@/core/ui/ui-components';
-import { currentCityData } from '@/core/shared/state';
+import { currentCityData, foldersEnabled, shortcuts, setFoldersEnabled, setShortcuts } from '@/core/shared/state';
 import {
   WeatherUnit,
   WallpaperType,
@@ -15,6 +15,9 @@ import {
 
 export function bindWeatherFeature(options: any): void {
   options.applyInitialWeatherState();
+  if (refs.cityInput && currentCityData && currentCityData.name) {
+    refs.cityInput.value = currentCityData.name;
+  }
   if (refs.toggleWeather) {
     refs.toggleWeather.checked = options.getWeatherEnabled();
     refs.toggleWeather.addEventListener('change', (event) => {
@@ -1142,12 +1145,11 @@ export function initGlobalUiSystem(
   }
 
   if (refs.toggleFolders) {
-    refs.toggleFolders.checked = (window as any).foldersEnabled;
+    refs.toggleFolders.checked = foldersEnabled;
     refs.toggleFolders.addEventListener('change', (e) => {
       const target = e.target as HTMLInputElement;
-      const shortcutsList = (window as any).shortcuts || [];
       if (!target.checked) {
-        const hasFolders = shortcutsList.some(
+        const hasFolders = shortcuts.some(
           (s: any) =>
             s.type === 'folder' ||
             (Array.isArray(s.children) && s.children.length > 0),
@@ -1161,13 +1163,13 @@ export function initGlobalUiSystem(
             cancelText: 'Keep Enabled',
             confirmVariant: 'danger',
             onConfirm: () => {
-              const pruned = shortcutsList.filter(
+              const pruned = shortcuts.filter(
                 (item: any) =>
                   item.type !== 'folder' && !Array.isArray(item.children),
               );
-              shortcutsList.length = 0;
-              shortcutsList.push(...pruned);
-              (window as any).foldersEnabled = false;
+              shortcuts.length = 0;
+              shortcuts.push(...pruned);
+              setFoldersEnabled(false);
               localStorage.setItem('foldersEnabled', 'false');
               updateLauncherFooter();
               saveAndRender();
@@ -1179,7 +1181,7 @@ export function initGlobalUiSystem(
           return;
         }
       }
-      (window as any).foldersEnabled = target.checked;
+      setFoldersEnabled(target.checked);
       localStorage.setItem('foldersEnabled', String(target.checked));
       updateLauncherFooter();
     });
