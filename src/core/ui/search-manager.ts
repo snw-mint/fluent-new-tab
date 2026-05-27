@@ -7,10 +7,10 @@ import {
 } from '@/core/lazy/search-features';
 
 export function bindSearchFeature(options: any): void {
-  // Safe validation for local state tracking inside code-splitting bounds
   const localSuggestionsCache = new Map<string, string[]>();
-
   if (refs.toggleSearchBar) {
+    refs.toggleSearchBar.checked =
+      localStorage.getItem('searchBarVisible') !== 'false';
     refs.toggleSearchBar.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -54,6 +54,8 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.toggleVoiceSearch) {
+    refs.toggleVoiceSearch.checked =
+      localStorage.getItem('voiceSearchEnabled') === 'true';
     refs.toggleVoiceSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -64,6 +66,8 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.toggleClearSearch) {
+    refs.toggleClearSearch.checked =
+      localStorage.getItem('clearSearchEnabled') === 'true';
     refs.toggleClearSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -76,7 +80,6 @@ export function bindSearchFeature(options: any): void {
   if (refs.engineBtn && refs.dropdown) {
     refs.engineBtn.addEventListener('click', (event) => {
       event.stopPropagation();
-      // Safe dynamic import to close other popups if the system provides it
       if (options.closePopups) {
         options.closePopups(refs.dropdown);
       } else {
@@ -171,6 +174,8 @@ export function bindSearchFeature(options: any): void {
   });
 
   if (refs.toggleSuggestions) {
+    refs.toggleSuggestions.checked =
+      localStorage.getItem('suggestionsEnabled') === 'true';
     refs.toggleSuggestions.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -232,11 +237,12 @@ export function bindSearchFeature(options: any): void {
       searchInput: refs.searchInput,
       searchForm: refs.searchForm,
       getVoiceEnabled: () =>
-        localStorage.getItem('voiceSearchEnabled') !== 'false',
+        localStorage.getItem('voiceSearchEnabled') === 'true',
     });
   }
 
   if (refs.toggleAskAi) {
+    refs.toggleAskAi.checked = localStorage.getItem('askAiEnabled') !== 'false';
     refs.toggleAskAi.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;

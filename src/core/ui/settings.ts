@@ -146,6 +146,8 @@ export function bindAccentColorFeature(options: any): void {
   }
 
   if (refs.toggleAppearance) {
+    refs.toggleAppearance.checked =
+      localStorage.getItem('accentColorEnabled') !== 'false';
     refs.toggleAppearance.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -271,21 +273,16 @@ export function bindDisplayFeature(options: any): void {
   ) as HTMLInputElement | null;
   if (toggleDisplay) {
     toggleDisplay.checked = options.getDisplayEnabled();
+    const mainOptionsInit = document.getElementById('displayMainOptions');
+    setCollapsible(mainOptionsInit, toggleDisplay.checked, false);
+
     toggleDisplay.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setDisplayVisible(target.checked);
-
       const mainOptions = document.getElementById('displayMainOptions');
-      if (mainOptions) {
-        mainOptions.style.display = target.checked ? '' : 'none';
-      }
+      setCollapsible(mainOptions, target.checked, true);
     });
-
-    const mainOptions = document.getElementById('displayMainOptions');
-    if (mainOptions) {
-      mainOptions.style.display = toggleDisplay.checked ? '' : 'none';
-    }
   }
 
   if (refs.displayToggleBtn && refs.displaySliderContainer) {
@@ -467,34 +464,35 @@ export function bindShortcutRadiusFeature(options: any): void {
   const toggleShortcuts = document.getElementById(
     'toggleShortcuts',
   ) as HTMLInputElement | null;
+  const rowsInputGroup = document.getElementById('rowsInputGroup');
+  const shortcutsMoreSetting = document.getElementById('shortcutsMoreSetting');
+  const shortcutsGrid = document.getElementById('shortcutsGrid');
+
   if (toggleShortcuts) {
-    toggleShortcuts.checked =
-      localStorage.getItem('shortcutsVisible') !== 'false';
+    const isVisible = localStorage.getItem('shortcutsVisible') !== 'false';
+    toggleShortcuts.checked = isVisible;
+
+    if (shortcutsGrid)
+      shortcutsGrid.style.display = isVisible ? 'grid' : 'none';
+    setCollapsible(rowsInputGroup, isVisible, false);
+    setCollapsible(shortcutsMoreSetting, isVisible, false);
+
     toggleShortcuts.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
-      const isVisible = target.checked;
-      localStorage.setItem('shortcutsVisible', String(isVisible));
+      const checked = target.checked;
+      localStorage.setItem('shortcutsVisible', String(checked));
 
-      const grid = document.getElementById('shortcutsGrid');
-      if (grid) grid.style.display = isVisible ? 'grid' : 'none';
+      if (shortcutsGrid)
+        shortcutsGrid.style.display = checked ? 'grid' : 'none';
+      setCollapsible(rowsInputGroup, checked, true);
+      setCollapsible(shortcutsMoreSetting, checked, true);
 
-      const mainOptions = document.getElementById('shortcutsMainOptions');
-      if (mainOptions) mainOptions.style.display = isVisible ? '' : 'none';
-
-      const smc = document.getElementById('shortcutsMoreContainer');
-      const smb = document.getElementById('shortcutsMoreBtn');
-      if (!isVisible && smc && smb) {
-        smc.classList.add('collapsed');
-        smb.classList.remove('expanded');
-        smc.style.maxHeight = '0px';
+      if (!checked) {
+        const smc = document.getElementById('shortcutsMoreContainer');
+        if (smc) setCollapsible(smc, false, true);
       }
     });
-
-    const mainOptions = document.getElementById('shortcutsMainOptions');
-    if (mainOptions) {
-      mainOptions.style.display = toggleShortcuts.checked ? '' : 'none';
-    }
   }
 
   if (refs.shortcutRadiusSlider && refs.shortcutRadiusRow) {
@@ -503,10 +501,7 @@ export function bindShortcutRadiusFeature(options: any): void {
 
     const updateSliderUI = (value: string) => {
       let valNum = parseInt(value, 10);
-      if (valNum >= -3 && valNum <= 3) {
-        valNum = 0;
-        refs.shortcutRadiusSlider.value = '0';
-      }
+      if (valNum >= -3 && valNum <= 3) valNum = 0;
       const min = parseInt(refs.shortcutRadiusSlider.min, 10);
       const max = parseInt(refs.shortcutRadiusSlider.max, 10);
       refs.shortcutRadiusSlider.style.setProperty(
@@ -564,35 +559,35 @@ export function bindShortcutRadiusFeature(options: any): void {
 }
 
 export function bindLauncherFeature(options: any): void {
-  options.applyInitialLauncherState();
+  const toggleLauncher = document.getElementById(
+    'toggleLauncher',
+  ) as HTMLInputElement | null;
+  const launcherSelectGroup = document.getElementById('launcherSelectGroup');
 
-  if (refs.toggleLauncher) {
-    refs.toggleLauncher.checked = options.getLauncherEnabled();
-    refs.toggleLauncher.addEventListener('change', (event) => {
+  if (toggleLauncher) {
+    const isEnabled = options.getLauncherEnabled();
+    toggleLauncher.checked = isEnabled;
+
+    setCollapsible(launcherSelectGroup, isEnabled, false);
+
+    toggleLauncher.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
-      const isEnabled = target.checked;
-      options.updateLauncherVisibility(isEnabled);
+      const checked = target.checked;
 
-      const mainOptions = document.getElementById('launcherMainOptions');
-      if (mainOptions) {
-        mainOptions.style.display = isEnabled ? '' : 'none';
-      }
+      options.setLauncherEnabled(checked);
+      localStorage.setItem('launcherEnabled', String(checked));
 
-      if (isEnabled) {
+      setCollapsible(launcherSelectGroup, checked, true);
+      options.updateLauncherVisibility(checked);
+
+      if (checked) {
         options.renderLauncher(options.getCurrentProvider());
       } else {
         const lms = document.getElementById('launcherMoreSetting');
-        const lmc = document.getElementById('launcherMoreContainer');
-        if (lms) lms.classList.add('collapsed');
-        if (lmc) lmc.style.maxHeight = '0px';
+        if (lms) setCollapsible(lms, false, true);
       }
     });
-
-    const mainOptions = document.getElementById('launcherMainOptions');
-    if (mainOptions) {
-      mainOptions.style.display = refs.toggleLauncher.checked ? '' : 'none';
-    }
   }
 
   if (refs.launcherProvider) {
@@ -614,29 +609,64 @@ export function bindLauncherFeature(options: any): void {
 
 export function bindReduceEffectsFeature(): void {
   const toggleReduceEffects = document.getElementById(
-    'toggleReduceEffects',
+    'toggleReducedEffects',
   ) as HTMLInputElement | null;
+  const reducedEffectsOptions = document.getElementById(
+    'reducedEffectsOptions',
+  );
+  const toggleDisableAnimations = document.getElementById(
+    'toggleDisableAnimations',
+  ) as HTMLInputElement | null;
+  const toggleDisableBlur = document.getElementById(
+    'toggleDisableBlur',
+  ) as HTMLInputElement | null;
+
   if (toggleReduceEffects) {
-    const isReduced = localStorage.getItem('reduceEffects') === 'true';
+    const isReduced = localStorage.getItem('reducedEffectsEnabled') === 'true';
     toggleReduceEffects.checked = isReduced;
 
-    if (isReduced) {
+    if (isReduced)
       document.documentElement.setAttribute('data-reduce-effects', 'true');
-    } else {
-      document.documentElement.removeAttribute('data-reduce-effects');
+    else document.documentElement.removeAttribute('data-reduce-effects');
+
+    setCollapsible(reducedEffectsOptions, isReduced, false);
+    if (toggleDisableAnimations) {
+      toggleDisableAnimations.checked =
+        localStorage.getItem('animationsDisabled') === 'true';
+      toggleDisableAnimations.disabled = !isReduced;
+    }
+    if (toggleDisableBlur) {
+      toggleDisableBlur.checked =
+        localStorage.getItem('blurDisabled') === 'true';
+      toggleDisableBlur.disabled = !isReduced;
     }
 
     toggleReduceEffects.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       const value = target.checked;
-      localStorage.setItem('reduceEffects', String(value));
+
+      localStorage.setItem('reducedEffectsEnabled', String(value));
 
       if (value) {
         document.documentElement.setAttribute('data-reduce-effects', 'true');
       } else {
         document.documentElement.removeAttribute('data-reduce-effects');
+        if (toggleDisableAnimations) {
+          toggleDisableAnimations.checked = false;
+          localStorage.setItem('animationsDisabled', 'false');
+          document.body.classList.remove('animations-disabled');
+        }
+        if (toggleDisableBlur) {
+          toggleDisableBlur.checked = false;
+          localStorage.setItem('blurDisabled', 'false');
+          document.body.classList.remove('blur-reduced');
+        }
       }
+
+      setCollapsible(reducedEffectsOptions, value, true);
+      if (toggleDisableAnimations) toggleDisableAnimations.disabled = !value;
+      if (toggleDisableBlur) toggleDisableBlur.disabled = !value;
     });
   }
 }
@@ -688,6 +718,11 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
   if (autoColorBtn) autoColorBtn.disabled = !options.getWallpaperEnabled();
 
   if (refs.toggleWallpaper) {
+    const isWallpaperEnabled =
+      localStorage.getItem('wallpaperEnabled') === 'true';
+    refs.toggleWallpaper.checked = isWallpaperEnabled;
+    options.updateWallpaperUIState(isWallpaperEnabled, false);
+
     refs.toggleWallpaper.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -719,8 +754,12 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
     const savedType = options.getCurrentWallpaperType();
     refs.wallpaperSourceSelect.value = savedType;
     const uploadContainer = document.getElementById('uploadWallpaperContainer');
-    if (uploadContainer)
-      uploadContainer.style.display = savedType === 'upload' ? 'flex' : 'none';
+    if (uploadContainer) {
+      const wallpaperActive =
+        localStorage.getItem('wallpaperEnabled') === 'true';
+      uploadContainer.style.display =
+        wallpaperActive && savedType === 'upload' ? 'flex' : 'none';
+    }
 
     refs.wallpaperSourceSelect.addEventListener('change', async (event) => {
       const target = event.target as HTMLSelectElement | null;
@@ -851,7 +890,6 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
       );
     };
 
-    // Safely fallback to native static DOM mapping instead of missing option payload link
     refs.overlaySlider.value = String(
       parseFloat(localStorage.getItem('wallpaperOverlay') || '0.2'),
     );

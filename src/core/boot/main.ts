@@ -494,12 +494,6 @@ async function bootInteractive(): Promise<void> {
           initDisplayWidget(refs.greetingWrapper);
         }
       }
-      const dss = refs.displaySliderContainer;
-      if (dss && refs.displayToggleBtn && !visible) {
-        dss.classList.add('collapsed');
-        refs.displayToggleBtn.classList.remove('expanded');
-        dss.style.maxHeight = '0px';
-      }
     },
     getDisplayEnabled: () => localStorage.getItem('displayEnabled') !== 'false',
   });

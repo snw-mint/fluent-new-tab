@@ -67,7 +67,7 @@ export let animationsDisabled =
 export const savedBlurDisabled = localStorage.getItem('blurDisabled');
 export let blurDisabled = savedBlurDisabled === 'true';
 export let reducedEffectsEnabled =
-  localStorage.getItem('reducedEffectsEnabled') !== 'false';
+  localStorage.getItem('reducedEffectsEnabled') === 'true';
 
 export const CACHE_KEY = 'fluent_weather_cache';
 export const CITY_KEY = 'fluent_city_data';
