@@ -14,6 +14,10 @@ export interface WallpaperConfig {
 }
 
 export class WallpaperEngine {
+  public static updateOverlay(opacity: number, enabled: boolean): void {
+    updateOverlay(opacity, enabled);
+  }
+
   public static async render(config: WallpaperConfig): Promise<void> {
     if (!config.enabled) {
       clearWallpaper();

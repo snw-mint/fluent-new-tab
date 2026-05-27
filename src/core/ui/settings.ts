@@ -748,7 +748,7 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
         enabled: isEnabled,
         source: localStorage.getItem('wallpaperSource') || 'local',
         type: localStorage.getItem('wallpaperType') || 'upload',
-        overlay: parseFloat(localStorage.getItem('wallpaperOverlay') || '0.4'),
+        overlay: parseFloat(localStorage.getItem('wallpaperOverlay') || '0.2'),
       });
     });
   }
@@ -757,6 +757,18 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
     // CORREÇÃO 1: Sincronizar o select com o tipo salvo em 'wallpaperType' no boot
     const savedType = localStorage.getItem('wallpaperType') || 'upload';
     refs.wallpaperSourceSelect.value = savedType;
+
+    const triggerValue = refs.wallpaperSourceContainer?.querySelector('.fluent-select-value');
+    const selectedOption = refs.wallpaperSourceSelect.querySelector(`option[value="${savedType}"]`);
+    if (triggerValue && selectedOption) {
+      triggerValue.textContent = selectedOption.textContent;
+      const i18nKey = selectedOption.getAttribute('data-i18n');
+      if (i18nKey) {
+        triggerValue.setAttribute('data-i18n', i18nKey);
+      } else {
+        triggerValue.removeAttribute('data-i18n');
+      }
+    }
 
     const uploadContainer = document.getElementById('uploadWallpaperContainer');
     if (uploadContainer) {
@@ -781,7 +793,7 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
       if (uploadContainer)
         uploadContainer.style.display = type === 'upload' ? 'flex' : 'none';
       const overlay = parseFloat(
-        localStorage.getItem('wallpaperOverlay') || '0.4',
+        localStorage.getItem('wallpaperOverlay') || '0.2',
       );
 
       if (source === 'api') {
@@ -857,7 +869,7 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
           source: 'local',
           type: 'upload',
           overlay: parseFloat(
-            localStorage.getItem('wallpaperOverlay') || '0.4',
+            localStorage.getItem('wallpaperOverlay') || '0.2',
           ),
         });
       } catch (error) {
@@ -886,7 +898,7 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
 
   if (refs.overlaySlider) {
     // CORREÇÃO 2: Inicializar o Slider com o valor salvo e aplicar progresso Fluent CSS
-    const savedOverlay = localStorage.getItem('wallpaperOverlay') || '0.4';
+    const savedOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
     refs.overlaySlider.value = savedOverlay;
 
     const updateSliderProg = (slider: HTMLInputElement) => {
