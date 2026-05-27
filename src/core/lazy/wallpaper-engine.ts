@@ -27,15 +27,36 @@ export class WallpaperEngine {
         const blob = await getWallpaperFromDB();
         if (blob) targetUrl = URL.createObjectURL(blob);
       } else if (config.source === 'api') {
-        const sourceName =
-          config.type.charAt(0).toUpperCase() + config.type.slice(1);
-        let msg = (window as any).getTranslation?.('fetchingImagePlaceholder');
-        if (!msg || msg === 'fetchingImagePlaceholder') {
-          msg = `Fetching ${sourceName} image...`;
-        } else {
-          msg = msg.replace(/\$SOURCE\$/g, sourceName);
+        const today = new Date().toISOString().slice(0, 10);
+        const cacheKey = `wallpaper_cache_${config.type}`;
+        let hasValidCache = false;
+
+        try {
+          const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+          if (
+            cached &&
+            cached.url &&
+            cached.date === today &&
+            'creditUrl' in cached
+          ) {
+            hasValidCache = true;
+          }
+        } catch {}
+
+        if (!hasValidCache) {
+          const sourceName =
+            config.type.charAt(0).toUpperCase() + config.type.slice(1);
+          let msg = (window as any).getTranslation?.(
+            'fetchingImagePlaceholder',
+          );
+          if (!msg || msg === 'fetchingImagePlaceholder') {
+            msg = `Fetching ${sourceName} image...`;
+          } else {
+            msg = msg.replace(/\$SOURCE\$/g, sourceName);
+          }
+          showToast(msg, '');
         }
-        showToast(msg, '');
+
         targetUrl = await fetchDailyWallpaper(config.type as any);
       }
     } catch (err) {

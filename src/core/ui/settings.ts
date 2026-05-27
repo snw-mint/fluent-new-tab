@@ -146,8 +146,11 @@ export function bindAccentColorFeature(options: any): void {
   }
 
   if (refs.toggleAppearance) {
-    refs.toggleAppearance.checked =
-      localStorage.getItem('accentColorEnabled') !== 'false';
+    const isEnabled = localStorage.getItem('accentColorEnabled') !== 'false';
+    refs.toggleAppearance.checked = isEnabled;
+
+    setCollapsible(refs.accentColorOptions, isEnabled, false);
+
     refs.toggleAppearance.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
@@ -751,8 +754,10 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
   }
 
   if (refs.wallpaperSourceSelect) {
-    const savedType = options.getCurrentWallpaperType();
+    // CORREÇÃO 1: Sincronizar o select com o tipo salvo em 'wallpaperType' no boot
+    const savedType = localStorage.getItem('wallpaperType') || 'upload';
     refs.wallpaperSourceSelect.value = savedType;
+
     const uploadContainer = document.getElementById('uploadWallpaperContainer');
     if (uploadContainer) {
       const wallpaperActive =
@@ -880,6 +885,10 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
   }
 
   if (refs.overlaySlider) {
+    // CORREÇÃO 2: Inicializar o Slider com o valor salvo e aplicar progresso Fluent CSS
+    const savedOverlay = localStorage.getItem('wallpaperOverlay') || '0.4';
+    refs.overlaySlider.value = savedOverlay;
+
     const updateSliderProg = (slider: HTMLInputElement) => {
       const min = parseFloat(slider.min) || 0;
       const max = parseFloat(slider.max) || 0.7;
@@ -888,11 +897,12 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
         '--slider-progress',
         String((val - min) / (max - min)),
       );
+      document.documentElement.style.setProperty(
+        '--overlay-opacity',
+        String(val),
+      );
     };
 
-    refs.overlaySlider.value = String(
-      parseFloat(localStorage.getItem('wallpaperOverlay') || '0.2'),
-    );
     updateSliderProg(refs.overlaySlider);
 
     refs.overlaySlider.addEventListener('input', (event) => {
