@@ -28,7 +28,6 @@ export const APP_KEYS: string[] = [
   'wallpaperType',
   'wallpaperValue',
   'animationsDisabled',
-  'blurDisabled',
   'reducedEffectsEnabled',
   'accentColorEnabled',
   'accentColorMode',

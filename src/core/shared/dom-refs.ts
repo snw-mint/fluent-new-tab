@@ -13,7 +13,7 @@ export const themeBtns = document.querySelectorAll<HTMLElement>('.theme-btn');
 export const toggleDisableAnimations = getById<HTMLInputElement>(
   'toggleDisableAnimations',
 );
-export const toggleDisableBlur = getById<HTMLInputElement>('toggleDisableBlur');
+
 export const toggleReducedEffects = getById<HTMLInputElement>(
   'toggleReducedEffects',
 );

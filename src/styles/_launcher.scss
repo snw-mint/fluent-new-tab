@@ -52,9 +52,10 @@
   transform-origin: top left;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
   z-index: 1000;
-  @include glass-panel($border: var(--border-color));
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
   @include card-radius($radius-md);
-  overflow: hidden;
 
   &.active {
     display: flex;
@@ -181,3 +182,5 @@
     }
   }
 }
+
+

@@ -6,7 +6,13 @@ import {
   requestFeaturePermissionUI,
   setCollapsible,
 } from '@/core/ui/ui-components';
-import { currentCityData, foldersEnabled, shortcuts, setFoldersEnabled, setShortcuts } from '@/core/shared/state';
+import {
+  currentCityData,
+  foldersEnabled,
+  shortcuts,
+  setFoldersEnabled,
+  setShortcuts,
+} from '@/core/shared/state';
 import {
   WeatherUnit,
   WallpaperType,
@@ -339,6 +345,27 @@ export function bindDisplayFeature(options: any): void {
     });
   }
 
+  if (refs.greetingNameInput) {
+    refs.greetingNameInput.value = localStorage.getItem('greetingName') || '';
+  }
+
+  if (refs.greetingTypeSelect) {
+    refs.greetingTypeSelect.value =
+      localStorage.getItem('greetingType') || 'static';
+  }
+
+  if (refs.toggleSeconds) {
+    refs.toggleSeconds.checked = localStorage.getItem('showSeconds') === 'true';
+  }
+
+  if (refs.toggle12Hour) {
+    refs.toggle12Hour.checked = localStorage.getItem('use12Hour') === 'true';
+  }
+
+  if (refs.dateFormatSelect) {
+    refs.dateFormatSelect.value = localStorage.getItem('dateFormat') || 'text';
+  }
+
   if (refs.displayTypeSelect) {
     const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
     refs.displayTypeSelect.value = savedPreset;
@@ -463,6 +490,16 @@ export function bindDisplayFeature(options: any): void {
         options.initDisplayWidget(refs.greetingWrapper);
       }
     });
+  }
+
+  if (refs.displayTypeSelect) {
+    refs.displayTypeSelect.dispatchEvent(new Event('change'));
+  }
+  if (refs.greetingTypeSelect) {
+    refs.greetingTypeSelect.dispatchEvent(new Event('change'));
+  }
+  if (refs.dateFormatSelect) {
+    refs.dateFormatSelect.dispatchEvent(new Event('change'));
   }
 }
 
@@ -623,9 +660,6 @@ export function bindReduceEffectsFeature(): void {
   const toggleDisableAnimations = document.getElementById(
     'toggleDisableAnimations',
   ) as HTMLInputElement | null;
-  const toggleDisableBlur = document.getElementById(
-    'toggleDisableBlur',
-  ) as HTMLInputElement | null;
 
   if (toggleReduceEffects) {
     const isReduced = localStorage.getItem('reducedEffectsEnabled') === 'true';
@@ -640,11 +674,6 @@ export function bindReduceEffectsFeature(): void {
       toggleDisableAnimations.checked =
         localStorage.getItem('animationsDisabled') === 'true';
       toggleDisableAnimations.disabled = !isReduced;
-    }
-    if (toggleDisableBlur) {
-      toggleDisableBlur.checked =
-        localStorage.getItem('blurDisabled') === 'true';
-      toggleDisableBlur.disabled = !isReduced;
     }
 
     toggleReduceEffects.addEventListener('change', (event) => {
@@ -663,16 +692,10 @@ export function bindReduceEffectsFeature(): void {
           localStorage.setItem('animationsDisabled', 'false');
           document.body.classList.remove('animations-disabled');
         }
-        if (toggleDisableBlur) {
-          toggleDisableBlur.checked = false;
-          localStorage.setItem('blurDisabled', 'false');
-          document.body.classList.remove('blur-reduced');
-        }
       }
 
       setCollapsible(reducedEffectsOptions, value, true);
       if (toggleDisableAnimations) toggleDisableAnimations.disabled = !value;
-      if (toggleDisableBlur) toggleDisableBlur.disabled = !value;
     });
   }
 }
@@ -761,8 +784,12 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
     const savedType = localStorage.getItem('wallpaperType') || 'upload';
     refs.wallpaperSourceSelect.value = savedType;
 
-    const triggerValue = refs.wallpaperSourceContainer?.querySelector('.fluent-select-value');
-    const selectedOption = refs.wallpaperSourceSelect.querySelector(`option[value="${savedType}"]`);
+    const triggerValue = refs.wallpaperSourceContainer?.querySelector(
+      '.fluent-select-value',
+    );
+    const selectedOption = refs.wallpaperSourceSelect.querySelector(
+      `option[value="${savedType}"]`,
+    );
     if (triggerValue && selectedOption) {
       triggerValue.textContent = selectedOption.textContent;
       const i18nKey = selectedOption.getAttribute('data-i18n');
@@ -1041,134 +1068,12 @@ export function initGlobalUiSystem(
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && refs.launcherPopup.classList.contains('active')) {
+      if (
+        e.key === 'Escape' &&
+        refs.launcherPopup.classList.contains('active')
+      ) {
         refs.launcherPopup.classList.remove('active');
         refs.appLauncherBtn.classList.remove('active');
-      }
-    });
-  }
-
-  if (refs.languageSelect) {
-    const savedLang = localStorage.getItem('userLanguage');
-    if (savedLang) refs.languageSelect.value = savedLang;
-    else
-      refs.languageSelect.value =
-        refs.languageSelect.options[0]?.value || 'en_US';
-
-    refs.languageSelect.addEventListener('change', (e) => {
-      const target = e.target as HTMLSelectElement | null;
-      if (!target) return;
-      const nextLang = target.value;
-      localStorage.setItem('userLanguage', nextLang);
-      localStorage.removeItem(`i18n_cache_${nextLang}`);
-
-      const win = window as any;
-      if (typeof win.loadTranslations === 'function') win.loadTranslations();
-      else if (typeof win.applyTranslations === 'function')
-        win.applyTranslations();
-      else document.dispatchEvent(new Event('i18nReady'));
-    });
-  }
-
-  if (refs.tabNameInput) {
-    refs.tabNameInput.addEventListener('input', (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      if (!target) return;
-      localStorage.setItem('tabName', target.value);
-      document.title =
-        target.value.trim() === '' ? 'Fluent New Tab' : target.value;
-    });
-  }
-
-  if (refs.tabFaviconInput) {
-    const updateFavicon = (val: string) => {
-      let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-      }
-      link.href = val;
-    };
-
-    refs.tabFaviconInput.addEventListener('input', (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      if (!target) return;
-      localStorage.setItem('tabIcon', target.value);
-      updateFavicon(target.value);
-    });
-
-    refs.tabFaviconInput.addEventListener('change', (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      if (!target) return;
-      localStorage.setItem('tabIcon', target.value);
-      updateFavicon(target.value);
-    });
-  }
-
-  if (refs.tabFaviconUploadBtn && refs.tabFaviconFileInput) {
-    refs.tabFaviconUploadBtn.addEventListener('click', (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      refs.tabFaviconFileInput.click();
-    });
-
-    refs.tabFaviconFileInput.addEventListener('change', async (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      const file = target?.files?.[0];
-      if (file) {
-        try {
-          const reader = new FileReader();
-          reader.onload = () => {
-            const result = reader.result as string;
-            if (refs.tabFaviconInput) refs.tabFaviconInput.value = result;
-            localStorage.setItem('tabIcon', result);
-            let link = document.querySelector(
-              "link[rel~='icon']",
-            ) as HTMLLinkElement;
-            if (!link) {
-              link = document.createElement('link');
-              link.rel = 'icon';
-              document.head.appendChild(link);
-            }
-            link.href = result;
-          };
-          reader.readAsDataURL(file);
-        } catch (error) {
-          console.error('Error uploading favicon:', error);
-        }
-      }
-    });
-  }
-
-  if (refs.weatherMoreBtn && refs.weatherMoreContainer) {
-    refs.weatherMoreBtn.addEventListener('click', () => {
-      const isCollapsed =
-        refs.weatherMoreContainer.classList.contains('collapsed');
-      if (isCollapsed) {
-        refs.weatherMoreContainer.classList.remove('collapsed');
-        refs.weatherMoreBtn.classList.add('expanded');
-        refs.weatherMoreContainer.style.maxHeight = '500px';
-      } else {
-        refs.weatherMoreContainer.classList.add('collapsed');
-        refs.weatherMoreBtn.classList.remove('expanded');
-        refs.weatherMoreContainer.style.maxHeight = '0px';
-      }
-    });
-  }
-
-  if (refs.shortcutsMoreBtn && refs.shortcutsMoreContainer) {
-    refs.shortcutsMoreBtn.addEventListener('click', () => {
-      const isCollapsed =
-        refs.shortcutsMoreContainer.classList.contains('collapsed');
-      if (isCollapsed) {
-        refs.shortcutsMoreContainer.classList.remove('collapsed');
-        refs.shortcutsMoreBtn.classList.add('expanded');
-        refs.shortcutsMoreContainer.style.maxHeight = '500px';
-      } else {
-        refs.shortcutsMoreContainer.classList.add('collapsed');
-        refs.shortcutsMoreBtn.classList.remove('expanded');
-        refs.shortcutsMoreContainer.style.maxHeight = '0px';
       }
     });
   }

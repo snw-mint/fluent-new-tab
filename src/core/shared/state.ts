@@ -64,8 +64,7 @@ export let animationsDisabled =
   savedAnimationsDisabled !== null
     ? savedAnimationsDisabled === 'true'
     : localStorage.getItem('performanceModeEnabled') === 'true';
-export const savedBlurDisabled = localStorage.getItem('blurDisabled');
-export let blurDisabled = savedBlurDisabled === 'true';
+
 export let reducedEffectsEnabled =
   localStorage.getItem('reducedEffectsEnabled') === 'true';
 
@@ -185,9 +184,7 @@ export function setVoiceSearchEnabled(val: any) {
 export function setAnimationsDisabled(val: any) {
   animationsDisabled = val;
 }
-export function setBlurDisabled(val: any) {
-  blurDisabled = val;
-}
+
 export function setReducedEffectsEnabled(val: any) {
   reducedEffectsEnabled = val;
 }

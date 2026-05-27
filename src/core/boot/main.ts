@@ -13,6 +13,8 @@ import { engines } from '@/core/boot/search-engines';
 import { applyGoogleSearchParams } from '@/core/boot/search';
 import { renderWeatherWidget } from '@/core/boot/weather-render';
 import { Shortcut } from '@/core/shared/types';
+import { initTabCustomization } from '@/core/ui/tab-customization';
+import { initLocalization } from '@/core/ui/localization';
 
 let brandIntervalStarted = false;
 
@@ -478,7 +480,8 @@ async function bootInteractive(): Promise<void> {
   };
 
   bindSearchFeature(searchUiConfig);
-
+  initTabCustomization();
+  initLocalization();
   searchUiConfig.updateSearchSettings(false);
   searchUiConfig.updateCompactBarStyle();
   searchUiConfig.updateVoiceSearchAvailability();
@@ -496,6 +499,7 @@ async function bootInteractive(): Promise<void> {
       }
     },
     getDisplayEnabled: () => localStorage.getItem('displayEnabled') !== 'false',
+    initDisplayWidget,
   });
 
   bindShortcutRadiusFeature({
@@ -564,14 +568,32 @@ async function bootInteractive(): Promise<void> {
 
   if (refs.themeBtns) {
     refs.themeBtns.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.theme === state.savedTheme);
       btn.addEventListener('click', () => {
         const theme = btn.dataset.theme as any;
         if (!theme) return;
         applyTheme(theme);
         localStorage.setItem('theme', theme);
+        refs.themeBtns.forEach((b) => {
+          b.classList.toggle('active', b.dataset.theme === theme);
+        });
       });
     });
   }
+
+  document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.menu-wrapper')) {
+      document.querySelectorAll('.shortcut-dropdown.active').forEach((menu) => {
+        menu.classList.remove('active');
+      });
+      import('@/core/ui/ui-components').then(
+        ({ syncShortcutDropdownState }) => {
+          syncShortcutDropdownState();
+        },
+      );
+    }
+  });
 }
 
 async function bootstrap(): Promise<void> {

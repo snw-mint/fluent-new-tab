@@ -154,15 +154,16 @@
   width: 15rem;
   max-height: min(75vh, 37.8rem);
   overflow-y: auto;
-  overflow-x: hidden;
   padding: 0.675rem;
   flex-direction: column;
   gap: 0.45rem;
-  isolation: isolate;
   transform-origin: top right;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-  @include glass-panel;
   @include card-radius($radius-md);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
+
   display: none;
 
   &.active {
@@ -195,10 +196,6 @@
         opacity: 0.9;
       }
     }
-  }
-
-  &.active {
-    display: flex;
   }
 
   &-title {
@@ -351,7 +348,7 @@
 
     &.active {
       background: var(--accent-color);
-      color: var(--accent-contrast-color);
+      color: #ffffff;
       box-shadow: 0 0.1125rem 0.3375rem rgba(0, 0, 0, 0.1);
 
       .icon-outline {

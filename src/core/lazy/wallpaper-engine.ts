@@ -21,6 +21,7 @@ export class WallpaperEngine {
   public static async render(config: WallpaperConfig): Promise<void> {
     if (!config.enabled) {
       clearWallpaper();
+      this.hideCredits();
       return;
     }
 
@@ -58,7 +59,7 @@ export class WallpaperEngine {
           } else {
             msg = msg.replace(/\$SOURCE\$/g, sourceName);
           }
-          showToast(msg, '');
+          showToast(msg, '/assets/search-engines/system.svg');
         }
 
         targetUrl = await fetchDailyWallpaper(config.type as any);
@@ -78,45 +79,92 @@ export class WallpaperEngine {
     url: string,
     config: WallpaperConfig,
   ): void {
-    const curtain = document.createElement('div');
-    Object.assign(curtain.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: '#000',
-      opacity: '0',
-      zIndex: '-2',
-      pointerEvents: 'none',
-      transition: 'opacity 0.35s ease-in-out',
-    });
-    document.body.appendChild(curtain);
+    const img = new Image();
+    img.src = url;
+    
+    img.onload = () => {
+      const curtain = document.createElement('div');
+      Object.assign(curtain.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: '#000',
+        opacity: '0',
+        zIndex: '-2',
+        pointerEvents: 'none',
+        transition: 'opacity 0.35s ease-in-out',
+      });
+      document.body.appendChild(curtain);
 
-    curtain.getBoundingClientRect();
-    curtain.style.opacity = '1';
+      curtain.getBoundingClientRect();
+      curtain.style.opacity = '1';
 
-    const completeFadeIn = () => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => {
-        document.body.style.backgroundImage = `url('${url}')`;
-        document.body.setAttribute('data-wallpaper-active', 'true');
-        updateOverlay(config.overlay, config.enabled);
+      curtain.addEventListener(
+        'transitionend',
+        () => {
+          const oldTransition = document.body.style.transition;
+          document.body.style.transition = 'none';
+          
+          document.body.style.backgroundImage = `url('${url}')`;
+          document.body.setAttribute('data-wallpaper-active', 'true');
+          updateOverlay(config.overlay, config.enabled);
+          
+          document.body.getBoundingClientRect();
+          document.body.style.transition = oldTransition;
 
-        curtain.style.opacity = '0';
-        curtain.addEventListener('transitionend', () => curtain.remove(), {
-          once: true,
-        });
-      };
-      img.onerror = () => {
-        curtain.style.opacity = '0';
-        curtain.addEventListener('transitionend', () => curtain.remove(), {
-          once: true,
-        });
-      };
+          if (config.source === 'api') {
+            this.showCredits(config.type);
+          } else {
+            this.hideCredits();
+          }
+
+          curtain.style.opacity = '0';
+          curtain.addEventListener('transitionend', () => curtain.remove(), {
+            once: true,
+          });
+        },
+        { once: true }
+      );
     };
 
-    curtain.addEventListener('transitionend', completeFadeIn, { once: true });
+    img.onerror = () => {
+      clearWallpaper();
+      this.hideCredits();
+    };
+  }
+
+  private static hideCredits(): void {
+    const creditsDiv = document.getElementById('wallpaperCredits');
+    if (creditsDiv) {
+      creditsDiv.classList.add('hidden');
+    }
+  }
+
+  private static showCredits(sourceType: string): void {
+    const creditsDiv = document.getElementById('wallpaperCredits');
+    const creditTextSpan = document.getElementById('wallpaperCreditText');
+    if (!creditsDiv || !creditTextSpan) return;
+
+    const cacheKey = `wallpaper_cache_${sourceType}`;
+    try {
+      const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+      if (cached && (cached.credit || cached.creditUrl)) {
+        const text = cached.credit || 'Daily Wallpaper';
+        const url = cached.creditUrl || '';
+
+        if (url) {
+          creditTextSpan.innerHTML = `<a href="${url}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none;">${text}</a>`;
+        } else {
+          creditTextSpan.textContent = text;
+        }
+        creditsDiv.classList.remove('hidden');
+      } else {
+        creditsDiv.classList.add('hidden');
+      }
+    } catch (e) {
+      creditsDiv.classList.add('hidden');
+    }
   }
 }

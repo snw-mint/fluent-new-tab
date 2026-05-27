@@ -35,7 +35,6 @@ const APP_KEYS = [
   'wallpaperType',
   'wallpaperValue',
   'animationsDisabled',
-  'blurDisabled',
   'reducedEffectsEnabled',
   'accentColorEnabled',
   'accentColorMode',

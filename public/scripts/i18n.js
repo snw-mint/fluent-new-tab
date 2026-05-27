@@ -77,4 +77,6 @@ window.getTranslation = function (key) {
   return key;
 };
 
+window.loadTranslations = loadTranslations;
+
 document.addEventListener('DOMContentLoaded', loadTranslations);
