@@ -32,13 +32,13 @@ The easiest option is the official store, with automatic updates.
 > [!IMPORTANT]
 > **Regarding Chrome "Not Trusted" warning:** This is a standard Google policy for new developers. It does NOT mean the extension is unsafe. As an open-source project, our code is transparent and can be audited anytime.
 
-[![Edge](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-edge.png)](https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc)
 [![Chrome](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-chrome.png)](https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/)
 [![Firefox](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/)
+[![Edge](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-edge.png)](https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc)
 [![Github](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-github.png)](https://github.com/snw-mint/fluent-new-tab/releases)
 
 > [!NOTE]
-> **Edge Add-ons delay:** Microsoft's manual review can take up to 7 business days. This is why the Edge-specific store version may lag behind other platforms.
+> **Edge Add-ons delay:** Microsoft's manual review takes up to 7 business days, which causes the Edge Add-ons version to lag behind. To get immediate updates and bug fixes, we highly recommend installing the version from the Chrome Web Store (fully compatible with Edge).
 
 ### Manual installation
 
