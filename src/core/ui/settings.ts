@@ -1019,6 +1019,35 @@ export function initGlobalUiSystem(
     });
   }
 
+  if (refs.appLauncherBtn && refs.launcherPopup) {
+    refs.appLauncherBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closePopups(refs.launcherPopup);
+      refs.launcherPopup.classList.toggle('active');
+      refs.appLauncherBtn?.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      const targetNode = e.target as Node | null;
+      if (targetNode && refs.launcherPopup.classList.contains('active')) {
+        if (
+          !refs.launcherPopup.contains(targetNode) &&
+          !refs.appLauncherBtn.contains(targetNode)
+        ) {
+          refs.launcherPopup.classList.remove('active');
+          refs.appLauncherBtn.classList.remove('active');
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && refs.launcherPopup.classList.contains('active')) {
+        refs.launcherPopup.classList.remove('active');
+        refs.appLauncherBtn.classList.remove('active');
+      }
+    });
+  }
+
   if (refs.languageSelect) {
     const savedLang = localStorage.getItem('userLanguage');
     if (savedLang) refs.languageSelect.value = savedLang;

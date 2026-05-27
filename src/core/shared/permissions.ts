@@ -5,7 +5,7 @@ export const HOST_PERMISSIONS: Record<string, string[]> = {
     'https://commons.wikimedia.org/*',
     'https://upload.wikimedia.org/',
   ],
-  suggestions: ['https://suggestqueries.google.com/*'],
+  suggestions: ['https://duckduckgo.com/*'],
   weather: [
     'https://geocoding-api.open-meteo.com/*',
     'https://api.open-meteo.com/*',

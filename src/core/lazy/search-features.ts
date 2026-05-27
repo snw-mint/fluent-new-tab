@@ -223,7 +223,7 @@ export async function fetchSuggestionsFromService(
   const hasPerm = await checkPermission(HOST_PERMISSIONS.suggestions);
   if (!hasPerm) return [];
 
-  const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`;
+  const url = `https://duckduckgo.com/ac/?q=${encodeURIComponent(query)}&type=list`;
   try {
     const response = await fetch(url);
     const data = await response.json();

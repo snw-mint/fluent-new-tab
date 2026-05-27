@@ -24,7 +24,7 @@
   },
   "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
   "optional_host_permissions": [
-    "https://suggestqueries.google.com/*",
+    "https://duckduckgo.com/*",
     "https://peapix.com/*",
     "https://img.peapix.com/*",
     "https://api.nasa.gov/*",

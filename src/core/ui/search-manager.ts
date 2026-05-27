@@ -182,8 +182,8 @@ export function bindSearchFeature(options: any): void {
       if (target.checked) {
         requestFeaturePermissionUI(
           'suggestions',
-          'Google Search Suggestions',
-          'https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/query/suggest',
+          'DuckDuckGo Search Suggestions',
+          'https://duckduckgo.com',
           () => {
             options.setSuggestionsActive(true);
             localStorage.setItem('suggestionsEnabled', 'true');
