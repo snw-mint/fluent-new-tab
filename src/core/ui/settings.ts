@@ -653,6 +653,20 @@ export function bindShortcutRadiusFeature(options: any): void {
       }
     });
   }
+
+  if (refs.rowsSelect) {
+    refs.rowsSelect.value = localStorage.getItem('shortcutsRows') || '2';
+    refs.rowsSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    refs.rowsSelect.addEventListener('change', (event) => {
+      const target = event.target as HTMLSelectElement | null;
+      if (!target) return;
+      localStorage.setItem('shortcutsRows', target.value);
+      if (options.setAllowedRows) {
+        options.setAllowedRows(parseInt(target.value, 10));
+      }
+      if (options.triggerRender) options.triggerRender();
+    });
+  }
 }
 
 export function bindLauncherFeature(options: any): void {

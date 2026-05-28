@@ -129,9 +129,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   shortcutsGrid.textContent = '';
   const fragment = document.createDocumentFragment();
   const COLUMNS = 10;
-  const currentRows = rowsSelect
-    ? parseInt(rowsSelect.value, 10)
-    : parseInt(localStorage.getItem('shortcutsRows') || '2', 10) || 2;
+  const currentRows = parseInt(localStorage.getItem('shortcutsRows') || '2', 10) || 2;
   const maxSlots = currentRows * COLUMNS;
   let activeArray: Shortcut[] = shortcuts;
   let isInsideFolder = false;

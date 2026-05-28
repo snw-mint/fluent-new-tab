@@ -664,6 +664,8 @@ async function bootInteractive(): Promise<void> {
     setShortcutRadius: state.setShortcutRadius,
     getHideShortcutNames: () => state.hideShortcutNames,
     setHideShortcutNames: state.setHideShortcutNames,
+    triggerRender: triggerShortcutsRender,
+    setAllowedRows: state.setAllowedRows,
   });
 
   bindMainUiScaleFeature({
