@@ -18,5 +18,10 @@
     "ts-morph": "^28.0.0",
     "typescript": "^6.0.2",
     "vite": "^8.0.14"
+  },
+  "overrides": {
+    "@crxjs/vite-plugin": {
+      "rollup": "^2.80.0"
+    }
   }
 }
