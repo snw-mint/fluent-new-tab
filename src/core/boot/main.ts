@@ -204,7 +204,7 @@ async function bootCritical(): Promise<void> {
     refs.voiceSearchBtn,
     state.searchBarVisible,
     state.compactBarEnabled,
-    state.voiceSearchEnabled
+    state.voiceSearchEnabled,
   );
 
   triggerShortcutsRender();
@@ -212,7 +212,42 @@ async function bootCritical(): Promise<void> {
 }
 
 async function bootInteractive(): Promise<void> {
-  // Lazy initialization logic
+  try {
+    const chromeApi = (window as any).chrome;
+    if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
+      chromeApi.storage.local.get(
+        ['update_notice_pending', 'update_notice_version'],
+        (data: any) => {
+          if (data.update_notice_pending) {
+            Promise.all([
+              import('@/core/ui/ui-components'),
+              import('@/core/shared/dom-utils'),
+            ]).then(([{ showToast }, { getLocalizedWarningText }]) => {
+              const version = data.update_notice_version || '';
+              const prefix = getLocalizedWarningText(
+                'updateNoticePrefix',
+                `Fluent New Tab has been updated to version $VERSION$, `,
+                { VERSION: version },
+              );
+              const suffix = getLocalizedWarningText(
+                'updateNoticeChangelog',
+                'see changelog',
+              );
+              const link = `<a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" class="update-release-notice-link">${suffix}</a>`;
+              showToast(`${prefix}${link}`, 'assets/icons/update.svg', 6000);
+            });
+            chromeApi.storage.local.remove([
+              'update_notice_pending',
+              'update_notice_version',
+            ]);
+          }
+        },
+      );
+    }
+  } catch (e) {
+    console.error('Error checking for updates:', e);
+  }
+
   const [
     {
       bindWeatherFeature,
@@ -225,9 +260,7 @@ async function bootInteractive(): Promise<void> {
       bindLauncherFeature,
       bindReduceEffectsFeature,
     },
-  ] = await Promise.all([
-    import('@/core/ui/settings'),
-  ]);
+  ] = await Promise.all([import('@/core/ui/settings')]);
 
   // Shortcuts Drag & Drop is deferred until interacted with or 'Edit' is clicked
   if (refs.shortcutsGrid) {
@@ -268,7 +301,9 @@ async function bootInteractive(): Promise<void> {
         });
       });
     };
-    refs.shortcutsGrid.addEventListener('pointerover', initShortcutsDragLazy, { once: true });
+    refs.shortcutsGrid.addEventListener('pointerover', initShortcutsDragLazy, {
+      once: true,
+    });
   }
 
   // Launcher Drag & Drop is deferred until Launcher is opened and drag begins
@@ -280,15 +315,16 @@ async function bootInteractive(): Promise<void> {
           itemClass: 'launcher-item',
           onReorder: (oldIndex, newIndex) => {
             if (!refs.launcherGrid) return;
-            const items = Array.from(refs.launcherGrid.children).filter((el) =>
-              el.classList.contains('launcher-item') &&
-              !el.classList.contains('sortable-placeholder') &&
-              !el.classList.contains('fluent-drag-ghost')
+            const items = Array.from(refs.launcherGrid.children).filter(
+              (el) =>
+                el.classList.contains('launcher-item') &&
+                !el.classList.contains('sortable-placeholder') &&
+                !el.classList.contains('fluent-drag-ghost'),
             ) as HTMLElement[];
-            
+
             const dragged = items[oldIndex];
             const target = items[newIndex];
-            
+
             if (dragged && target) {
               if (oldIndex < newIndex) {
                 target.after(dragged);
@@ -297,19 +333,26 @@ async function bootInteractive(): Promise<void> {
               }
             }
 
-            const newItems = Array.from(refs.launcherGrid.children).filter((el) =>
-              el.classList.contains('launcher-item') &&
-              !el.classList.contains('sortable-placeholder') &&
-              !el.classList.contains('fluent-drag-ghost')
+            const newItems = Array.from(refs.launcherGrid.children).filter(
+              (el) =>
+                el.classList.contains('launcher-item') &&
+                !el.classList.contains('sortable-placeholder') &&
+                !el.classList.contains('fluent-drag-ghost'),
             ) as HTMLElement[];
-            const newOrder = newItems.map((item) => item.getAttribute('data-id')).filter(Boolean) as string[];
+            const newOrder = newItems
+              .map((item) => item.getAttribute('data-id'))
+              .filter(Boolean) as string[];
             localStorage.setItem('launcherOrder', JSON.stringify(newOrder));
-            newItems.forEach((item, idx) => item.setAttribute('data-index', idx.toString()));
+            newItems.forEach((item, idx) =>
+              item.setAttribute('data-index', idx.toString()),
+            );
           },
         });
       });
     };
-    refs.launcherGrid.addEventListener('pointerover', initLauncherDragLazy, { once: true });
+    refs.launcherGrid.addEventListener('pointerover', initLauncherDragLazy, {
+      once: true,
+    });
   }
 
   if (refs.versionDisplay) {
@@ -383,7 +426,7 @@ async function bootInteractive(): Promise<void> {
     renderLauncher: (provider: string) => {
       Promise.all([
         import('@/core/ui/launcher-data'),
-        import('@/core/ui/launcher')
+        import('@/core/ui/launcher'),
       ]).then(([mData, mLauncher]) => {
         const data = mData.launcherData[provider];
         mLauncher.renderLauncherApps(data, {
@@ -559,8 +602,6 @@ async function bootInteractive(): Promise<void> {
     searchManagerLoaded = true;
     import('@/core/ui/search-manager').then(({ bindSearchFeature }) => {
       bindSearchFeature(searchUiConfig);
-      
-      // Initialize only the settings panel collapsible UI, NOT the search bar DOM.
       import('@/core/ui/ui-components').then(({ setCollapsible }) => {
         const smo = document.getElementById('searchMainOptions');
         if (smo) setCollapsible(smo, state.searchBarVisible, false);
@@ -568,12 +609,22 @@ async function bootInteractive(): Promise<void> {
     });
   };
 
-  refs.searchInput?.addEventListener('focus', initSearchManagerLazy, { once: true });
-  refs.configBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
-  refs.engineBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
-  refs.voiceSearchBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
-  refs.askAiBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
-  
+  refs.searchInput?.addEventListener('focus', initSearchManagerLazy, {
+    once: true,
+  });
+  refs.configBtn?.addEventListener('click', initSearchManagerLazy, {
+    once: true,
+  });
+  refs.engineBtn?.addEventListener('click', initSearchManagerLazy, {
+    once: true,
+  });
+  refs.voiceSearchBtn?.addEventListener('click', initSearchManagerLazy, {
+    once: true,
+  });
+  refs.askAiBtn?.addEventListener('click', initSearchManagerLazy, {
+    once: true,
+  });
+
   initTabCustomization();
   initLocalization();
 

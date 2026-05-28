@@ -122,7 +122,7 @@ export function showToast(
 
   const text = document.createElement('span');
   text.className = 'update-release-notice-prefix';
-  text.textContent = message;
+  text.innerHTML = message;
 
   notice.append(icon, text);
   document.body.appendChild(notice);
