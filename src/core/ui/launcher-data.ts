@@ -139,9 +139,9 @@ export const launcherData: Record<string, LauncherProviderData> = {
         icon: 'assets/apps/google/calendar.svg',
       },
       {
-        name: 'Meet',
-        url: 'https://meet.google.com',
-        icon: 'assets/apps/google/meet.svg',
+        name: 'Keep',
+        url: 'https://keep.google.com',
+        icon: 'assets/apps/google/keep.svg',
       },
       {
         name: 'Music',
