@@ -14,11 +14,11 @@ export const toggleDisableAnimations = getById<HTMLInputElement>(
   'toggleDisableAnimations',
 );
 
-export const toggleReducedEffects = getById<HTMLInputElement>(
-  'toggleReducedEffects',
+export const toggleAccessibility = getById<HTMLInputElement>(
+  'toggleAccessibility',
 );
-export const reducedEffectsOptions = getById<HTMLDivElement>(
-  'reducedEffectsOptions',
+export const accessibilityOptions = getById<HTMLDivElement>(
+  'accessibilityOptions',
 );
 export const toggleAppearance = getById<HTMLInputElement>('toggleAppearance');
 export const accentMoreSetting = getById<HTMLDivElement>('accentMoreSetting');
@@ -152,9 +152,6 @@ export const launcherPopup = getById<HTMLDivElement>('launcherPopup');
 export const launcherGrid = getById<HTMLDivElement>('launcherGrid');
 export const launcherAllAppsLink = getById<HTMLAnchorElement>(
   'launcherAllAppsLink',
-);
-export const btnLauncherToFolder = getById<HTMLButtonElement>(
-  'btn-launcher-to-folder',
 );
 export const toggleLauncher = getById<HTMLInputElement>('toggleLauncher');
 export const launcherProvider = getById<HTMLSelectElement>('launcherProvider');

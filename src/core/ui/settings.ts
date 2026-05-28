@@ -548,7 +548,13 @@ export function bindShortcutRadiusFeature(options: any): void {
       setCollapsible(shortcutsMoreSetting, checked, true);
 
       if (!checked) {
-        if (refs.shortcutsMoreContainer) setCollapsible(refs.shortcutsMoreContainer, false, true);
+        if (refs.shortcutsMoreContainer) {
+          refs.shortcutsMoreContainer.classList.add('collapsed');
+          refs.shortcutsMoreContainer.style.maxHeight = '';
+        }
+        if (refs.shortcutsMoreBtn) {
+          refs.shortcutsMoreBtn.classList.remove('expanded');
+        }
       }
     });
   }
@@ -683,14 +689,20 @@ export function bindLauncherFeature(options: any): void {
 
 export function bindReduceEffectsFeature(): void {
   const toggleReduceEffects = document.getElementById(
-    'toggleReducedEffects',
+    'toggleAccessibility',
   ) as HTMLInputElement | null;
-  const reducedEffectsOptions = document.getElementById(
-    'reducedEffectsOptions',
-  );
+  const accessibilityOptions = document.getElementById('accessibilityOptions');
   const toggleDisableAnimations = document.getElementById(
     'toggleDisableAnimations',
   ) as HTMLInputElement | null;
+
+  const applyAnimationsDisabled = (disabled: boolean) => {
+    if (disabled) {
+      document.documentElement.classList.add('animations-disabled');
+    } else {
+      document.documentElement.classList.remove('animations-disabled');
+    }
+  };
 
   if (toggleReduceEffects) {
     const isReduced = localStorage.getItem('reducedEffectsEnabled') === 'true';
@@ -700,11 +712,13 @@ export function bindReduceEffectsFeature(): void {
       document.documentElement.setAttribute('data-reduce-effects', 'true');
     else document.documentElement.removeAttribute('data-reduce-effects');
 
-    setCollapsible(reducedEffectsOptions, isReduced, false);
+    setCollapsible(accessibilityOptions, isReduced, false);
     if (toggleDisableAnimations) {
-      toggleDisableAnimations.checked =
+      const animsDisabled =
         localStorage.getItem('animationsDisabled') === 'true';
+      toggleDisableAnimations.checked = animsDisabled;
       toggleDisableAnimations.disabled = !isReduced;
+      applyAnimationsDisabled(isReduced && animsDisabled);
     }
 
     toggleReduceEffects.addEventListener('change', (event) => {
@@ -721,15 +735,26 @@ export function bindReduceEffectsFeature(): void {
         if (toggleDisableAnimations) {
           toggleDisableAnimations.checked = false;
           localStorage.setItem('animationsDisabled', 'false');
-          document.body.classList.remove('animations-disabled');
+          applyAnimationsDisabled(false);
         }
       }
 
-      setCollapsible(reducedEffectsOptions, value, true);
+      setCollapsible(accessibilityOptions, value, true);
       if (toggleDisableAnimations) toggleDisableAnimations.disabled = !value;
     });
   }
+
+  if (toggleDisableAnimations) {
+    toggleDisableAnimations.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      const disabled = target.checked;
+      localStorage.setItem('animationsDisabled', String(disabled));
+      applyAnimationsDisabled(disabled);
+    });
+  }
 }
+
 
 export function bindMainUiScaleFeature(options: any): void {
   if (refs.mainUiScaleSlider) {

@@ -48,7 +48,7 @@
   "clearSearchOption": { "message": "Clean search (Google)" },
   "voiceSearchOption": { "message": "Voice search" },
   "askAiOption": { "message": "Ask to AI" },
-  "reduceVisualEffectsTitle": { "message": "Reduce effects" },
+  "AccessibilityTitle": { "message": "Accessibility" },
   "reduceMotionTitle": { "message": "Reduce motion" },
   "reduceBlurOption": { "message": "Reduce blur" },
   "languageTitle": { "message": "Language" },
@@ -147,6 +147,7 @@
   },
   "warningDeleteFoldersConfirm": { "message": "Delete Folders" },
   "warningKeepEnabled": { "message": "Keep Enabled" },
+
   "warningAddEcosystemAppsTitle": {
     "message": "Add $ECOSYSTEM$ Apps?",
     "placeholders": {
@@ -159,6 +160,7 @@
       "ecosystem": { "content": "$1", "example": "Google Workspace" }
     }
   },
+
   "warningAddFolderConfirm": { "message": "Add Folder" },
   "launcherNoAppsTitle": { "message": "No Apps Available" },
   "launcherNoAppsAvailable": {

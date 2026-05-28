@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "詢問 AI"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "減少視覺效果"
   },
   "reduceMotionTitle": {

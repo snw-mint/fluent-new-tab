@@ -7,5 +7,15 @@
   "useTabs": false,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "endOfLine": "lf"
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "ignore",
+  "overrides": [
+    {
+      "files": ["*.html", "*.svg"],
+      "options": {
+        "printWidth": 99999
+      }
+    }
+  ]
 }

@@ -161,3 +161,19 @@
     transform: rotate(360deg);
   }
 }
+
+/* ─── Reduce Motion / Disable Animations ─────────────────────────────────── */
+/* Applied when the user enables "Reduce motion" in Accessibility settings.   */
+/* Suppresses all transitions and animations across the entire UI.             */
+
+html.animations-disabled {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+  }
+}

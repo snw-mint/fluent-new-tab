@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Spørg AI"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Reducer visuelle effekter"
   },
   "reduceMotionTitle": {

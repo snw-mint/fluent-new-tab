@@ -102,15 +102,6 @@
     padding: 0.45rem 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
 
-    svg {
-      width: 1.125rem !important;
-      height: 1.125rem !important;
-    }
-
-    .btn-icon {
-      display: none;
-    }
-
     .launcher-all-link {
       font-size: 0.675rem;
       color: var(--text-color);
@@ -128,59 +119,6 @@
     }
   }
 
-  &.folders-enabled {
-    .launcher-footer-actions {
-      position: relative;
-      isolation: isolate;
-      justify-content: space-between;
-      gap: 0.5625rem;
-      margin: 0.225rem -0.675rem -0.675rem;
-      padding: 0.39375rem 0.675rem;
-      background: transparent;
-      border-radius: 0 0 $radius-md $radius-md;
-
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: rgba(255, 255, 255, 0.34);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .btn-icon {
-        @include button-reset;
-        display: inline-flex;
-        width: 1.575rem;
-        height: 1.575rem;
-        border-radius: $radius-sm;
-        @include flex-center;
-        color: var(--text-color);
-        background: transparent;
-        border: none;
-        transition:
-          background-color 0.2s ease,
-          color 0.2s ease;
-
-        &:hover {
-          background: rgba(255, 255, 255, 0.12);
-          color: $color-accent;
-        }
-      }
-
-      .launcher-all-link {
-        opacity: 0.9;
-      }
-    }
-  }
 }
 
 

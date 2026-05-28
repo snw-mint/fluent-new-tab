@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Vraag het aan AI"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Visuele effecten verminderen"
   },
   "reduceMotionTitle": {

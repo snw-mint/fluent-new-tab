@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "KI fragen"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Effekte reduzieren"
   },
   "reduceMotionTitle": {
