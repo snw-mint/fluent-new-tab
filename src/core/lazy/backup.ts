@@ -74,20 +74,21 @@ export function initBackupSystem(): void {
   if (refs.exportBtn) {
     refs.exportBtn.addEventListener('click', () => {
       const backupData: Record<string, string> = {};
-      const keysToExclude = [
-        'weatherEnabled',
-        'weatherAlertsEnabled',
-        'suggestionsEnabled',
-        'wallpaperSource',
-        'wallpaperType',
-        'wallpaperValue',
-      ];
-
-      APP_KEYS.forEach((key) => {
-        if (keysToExclude.includes(key)) return;
+      for (let i = 0; i < APP_KEYS.length; i++) {
+        const key = APP_KEYS[i];
+        if (
+          key === 'weatherEnabled' ||
+          key === 'weatherAlertsEnabled' ||
+          key === 'suggestionsEnabled' ||
+          key === 'wallpaperSource' ||
+          key === 'wallpaperType' ||
+          key === 'wallpaperValue'
+        ) {
+          continue;
+        }
         const value = localStorage.getItem(key);
         if (value !== null) backupData[key] = value;
-      });
+      }
       backupData['shortcuts'] = localStorage.getItem('shortcuts') || '[]';
       backupData._backupDate = new Date().toISOString();
 
@@ -131,20 +132,21 @@ export function initBackupSystem(): void {
             cancelText: 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => {
-              const keysToExclude = [
-                'weatherEnabled',
-                'weatherAlertsEnabled',
-                'suggestionsEnabled',
-                'wallpaperSource',
-                'wallpaperType',
-                'wallpaperValue',
-              ];
-
-              APP_KEYS.forEach((key) => {
-                if (keysToExclude.includes(key)) return;
+              for (let i = 0; i < APP_KEYS.length; i++) {
+                const key = APP_KEYS[i];
+                if (
+                  key === 'weatherEnabled' ||
+                  key === 'weatherAlertsEnabled' ||
+                  key === 'suggestionsEnabled' ||
+                  key === 'wallpaperSource' ||
+                  key === 'wallpaperType' ||
+                  key === 'wallpaperValue'
+                ) {
+                  continue;
+                }
                 const value = data[key];
                 if (typeof value === 'string') localStorage.setItem(key, value);
-              });
+              }
               const treeBackup = data['shortcuts'];
               if (typeof treeBackup === 'string') {
                 localStorage.setItem('shortcuts', treeBackup);
