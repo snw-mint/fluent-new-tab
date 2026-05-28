@@ -15,6 +15,7 @@ import { renderWeatherWidget } from '@/core/boot/weather-render';
 import { Shortcut } from '@/core/shared/types';
 import { initTabCustomization } from '@/core/ui/tab-customization';
 import { initLocalization } from '@/core/ui/localization';
+import { initBasicSearchUI } from '@/core/boot/search';
 
 let brandIntervalStarted = false;
 
@@ -37,6 +38,25 @@ function getActiveShortcutsList(): Shortcut[] {
   return state.shortcuts;
 }
 
+let shortcutsFormSystemInitialized = false;
+function initShortcutsFormSystemLazy(): Promise<void> {
+  if (shortcutsFormSystemInitialized) return Promise.resolve();
+  shortcutsFormSystemInitialized = true;
+  return import('@/core/ui/shortcuts-manager').then((m) => {
+    m.initShortcutsFormSystem(
+      getActiveShortcutsList,
+      saveAndRenderShortcuts,
+      () => {
+        if (refs.launcherPopup)
+          refs.launcherPopup.classList.toggle(
+            'folders-enabled',
+            state.foldersEnabled,
+          );
+      },
+    );
+  });
+}
+
 function saveAndRenderShortcuts(): void {
   localStorage.setItem('shortcuts', JSON.stringify(state.shortcuts));
   triggerShortcutsRender();
@@ -49,9 +69,11 @@ function triggerShortcutsRender(): void {
     shortcuts: state.shortcuts,
     currentFolderId: state.currentFolderId,
     onOpenModal: (index) => {
-      import('@/core/ui/shortcuts-manager').then(({ openModal }) =>
-        openModal(index, getActiveShortcutsList),
-      );
+      initShortcutsFormSystemLazy().then(() => {
+        import('@/core/ui/shortcuts-manager').then(({ openModal }) =>
+          openModal(index, getActiveShortcutsList),
+        );
+      });
     },
     onDeleteShortcut: (index) => {
       const targetArray = getActiveShortcutsList();
@@ -177,15 +199,21 @@ async function bootCritical(): Promise<void> {
     refs.shortcutsGrid.style.display = state.shortcutsVisible ? 'grid' : 'none';
   }
 
+  initBasicSearchUI(
+    refs.searchWrapper,
+    refs.voiceSearchBtn,
+    state.searchBarVisible,
+    state.compactBarEnabled,
+    state.voiceSearchEnabled
+  );
+
   triggerShortcutsRender();
   applyBrandInterval();
 }
 
 async function bootInteractive(): Promise<void> {
+  // Lazy initialization logic
   const [
-    { initCustomSelectSystem },
-    { initVanillaDragAndDrop },
-    { renderLauncherApps },
     {
       bindWeatherFeature,
       bindAccentColorFeature,
@@ -197,92 +225,91 @@ async function bootInteractive(): Promise<void> {
       bindLauncherFeature,
       bindReduceEffectsFeature,
     },
-    { initShortcutsFormSystem },
-    { bindSearchFeature },
-    { setCollapsible, applyMagneticSnap },
-    { WallpaperEngine },
   ] = await Promise.all([
-    import('@/core/ui/fluent-select'),
-    import('@/core/ui/drag-drop'),
-    import('@/core/ui/launcher'),
     import('@/core/ui/settings'),
-    import('@/core/ui/shortcuts-manager'),
-    import('@/core/ui/search-manager'),
-    import('@/core/ui/ui-components'),
-    import('@/core/lazy/wallpaper-engine'),
   ]);
 
-  initCustomSelectSystem();
-
+  // Shortcuts Drag & Drop is deferred until interacted with or 'Edit' is clicked
   if (refs.shortcutsGrid) {
-    initVanillaDragAndDrop({
-      gridContainer: refs.shortcutsGrid,
-      onReorder: (oldIndex, newIndex) => {
-        const arr = getActiveShortcutsList();
-        const item = arr.splice(oldIndex, 1)[0];
-        if (item) {
-          arr.splice(newIndex, 0, item);
-          saveAndRenderShortcuts();
-        }
-      },
-      onMoveToFolder: (itemIndex, folderId) => {
-        const arr = getActiveShortcutsList();
-        const folder = state.shortcuts.find(
-          (s) => s.id === folderId && s.type === 'folder',
-        );
-        const item = arr[itemIndex];
-        if (folder && item && item.type !== 'folder') {
-          folder.children = folder.children || [];
-          arr.splice(itemIndex, 1);
-          folder.children.push(item);
-          saveAndRenderShortcuts();
-        }
-      },
-      onMoveOutFolder: (itemIndex) => {
-        if (!state.currentFolderId) return;
-        const arr = getActiveShortcutsList();
-        const item = arr.splice(itemIndex, 1)[0];
-        if (item) {
-          state.shortcuts.push(item);
-          saveAndRenderShortcuts();
-        }
-      },
-    });
+    const initShortcutsDragLazy = () => {
+      import('@/core/ui/drag-drop').then(({ initVanillaDragAndDrop }) => {
+        initVanillaDragAndDrop({
+          gridContainer: refs.shortcutsGrid,
+          onReorder: (oldIndex, newIndex) => {
+            const arr = getActiveShortcutsList();
+            const item = arr.splice(oldIndex, 1)[0];
+            if (item) {
+              arr.splice(newIndex, 0, item);
+              saveAndRenderShortcuts();
+            }
+          },
+          onMoveToFolder: (itemIndex, folderId) => {
+            const arr = getActiveShortcutsList();
+            const folder = state.shortcuts.find(
+              (s) => s.id === folderId && s.type === 'folder',
+            );
+            const item = arr[itemIndex];
+            if (folder && item && item.type !== 'folder') {
+              folder.children = folder.children || [];
+              arr.splice(itemIndex, 1);
+              folder.children.push(item);
+              saveAndRenderShortcuts();
+            }
+          },
+          onMoveOutFolder: (itemIndex) => {
+            if (!state.currentFolderId) return;
+            const arr = getActiveShortcutsList();
+            const item = arr.splice(itemIndex, 1)[0];
+            if (item) {
+              state.shortcuts.push(item);
+              saveAndRenderShortcuts();
+            }
+          },
+        });
+      });
+    };
+    refs.shortcutsGrid.addEventListener('dragstart', initShortcutsDragLazy, { once: true });
   }
 
+  // Launcher Drag & Drop is deferred until Launcher is opened and drag begins
   if (refs.launcherGrid) {
-    initVanillaDragAndDrop({
-      gridContainer: refs.launcherGrid,
-      itemClass: 'launcher-item',
-      onReorder: (oldIndex, newIndex) => {
-        if (!refs.launcherGrid) return;
-        const items = Array.from(refs.launcherGrid.children).filter((el) =>
-          el.classList.contains('launcher-item') &&
-          !el.classList.contains('sortable-placeholder') &&
-          !el.classList.contains('fluent-drag-ghost')
-        ) as HTMLElement[];
-        
-        const dragged = items[oldIndex];
-        const target = items[newIndex];
-        
-        if (dragged && target) {
-          if (oldIndex < newIndex) {
-            target.after(dragged);
-          } else {
-            target.before(dragged);
-          }
-        }
+    const initLauncherDragLazy = () => {
+      import('@/core/ui/drag-drop').then(({ initVanillaDragAndDrop }) => {
+        initVanillaDragAndDrop({
+          gridContainer: refs.launcherGrid,
+          itemClass: 'launcher-item',
+          onReorder: (oldIndex, newIndex) => {
+            if (!refs.launcherGrid) return;
+            const items = Array.from(refs.launcherGrid.children).filter((el) =>
+              el.classList.contains('launcher-item') &&
+              !el.classList.contains('sortable-placeholder') &&
+              !el.classList.contains('fluent-drag-ghost')
+            ) as HTMLElement[];
+            
+            const dragged = items[oldIndex];
+            const target = items[newIndex];
+            
+            if (dragged && target) {
+              if (oldIndex < newIndex) {
+                target.after(dragged);
+              } else {
+                target.before(dragged);
+              }
+            }
 
-        const newItems = Array.from(refs.launcherGrid.children).filter((el) =>
-          el.classList.contains('launcher-item') &&
-          !el.classList.contains('sortable-placeholder') &&
-          !el.classList.contains('fluent-drag-ghost')
-        ) as HTMLElement[];
-        const newOrder = newItems.map((item) => item.getAttribute('data-id')).filter(Boolean) as string[];
-        localStorage.setItem('launcherOrder', JSON.stringify(newOrder));
-        newItems.forEach((item, idx) => item.setAttribute('data-index', idx.toString()));
-      },
-    });
+            const newItems = Array.from(refs.launcherGrid.children).filter((el) =>
+              el.classList.contains('launcher-item') &&
+              !el.classList.contains('sortable-placeholder') &&
+              !el.classList.contains('fluent-drag-ghost')
+            ) as HTMLElement[];
+            const newOrder = newItems.map((item) => item.getAttribute('data-id')).filter(Boolean) as string[];
+            localStorage.setItem('launcherOrder', JSON.stringify(newOrder));
+            newItems.forEach((item, idx) => item.setAttribute('data-index', idx.toString()));
+          },
+        });
+      });
+    };
+    refs.launcherGrid.addEventListener('dragstart', initLauncherDragLazy, { once: true });
   }
 
   if (refs.versionDisplay) {
@@ -294,24 +321,30 @@ async function bootInteractive(): Promise<void> {
     }
   }
 
-  applyMagneticSnap('displayScaleSlider', 100, 5);
-  applyMagneticSnap('shortcutRadiusSlider', 0, 5);
-  applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
+  import('@/core/ui/ui-components').then(({ applyMagneticSnap }) => {
+    applyMagneticSnap('displayScaleSlider', 100, 5);
+    applyMagneticSnap('shortcutRadiusSlider', 0, 5);
+    applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
+  });
 
   const updateWeatherVisibility = (visible: boolean, animate = true) => {
     if (refs.weatherWidget)
       refs.weatherWidget.style.display = visible ? 'flex' : 'none';
-    if (refs.cityInputGroup)
-      setCollapsible(refs.cityInputGroup, visible, animate);
-    const wms = document.getElementById('weatherMoreSetting');
-    if (wms) setCollapsible(wms, visible, animate);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      if (refs.cityInputGroup)
+        setCollapsible(refs.cityInputGroup, visible, animate);
+      const wms = document.getElementById('weatherMoreSetting');
+      if (wms) setCollapsible(wms, visible, animate);
+    });
   };
 
   const updateLauncherVisibility = (visible: boolean, animate = true) => {
-    const lms = document.getElementById('launcherMoreSetting');
-    if (lms) setCollapsible(lms, visible, animate);
-    if (refs.launcherSelectGroup)
-      setCollapsible(refs.launcherSelectGroup, visible, animate);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      const lms = document.getElementById('launcherMoreSetting');
+      if (lms) setCollapsible(lms, visible, animate);
+      if (refs.launcherSelectGroup)
+        setCollapsible(refs.launcherSelectGroup, visible, animate);
+    });
     if (refs.appLauncherWrapper)
       refs.appLauncherWrapper.style.display = visible ? 'flex' : 'none';
   };
@@ -348,9 +381,12 @@ async function bootInteractive(): Promise<void> {
     setLauncherEnabled: state.setLauncherEnabled,
     updateLauncherVisibility,
     renderLauncher: (provider: string) => {
-      import('@/core/ui/launcher-data').then((m) => {
-        const data = m.launcherData[provider];
-        renderLauncherApps(data, {
+      Promise.all([
+        import('@/core/ui/launcher-data'),
+        import('@/core/ui/launcher')
+      ]).then(([mData, mLauncher]) => {
+        const data = mData.launcherData[provider];
+        mLauncher.renderLauncherApps(data, {
           launcherGrid: refs.launcherGrid,
           launcherAllAppsLink: refs.launcherAllAppsLink,
         });
@@ -384,6 +420,7 @@ async function bootInteractive(): Promise<void> {
     },
     resetAppearanceFeatures: () => {
       localStorage.removeItem('tabName');
+      localStorage.removeItem('tabFavicon');
       localStorage.removeItem('tabIcon');
       document.title = 'Fluent New Tab';
 
@@ -425,8 +462,10 @@ async function bootInteractive(): Promise<void> {
     updateSearchSettings: (animate = true) => {
       if (refs.searchWrapper)
         refs.searchWrapper.style.display = state.searchBarVisible ? '' : 'none';
-      const smo = document.getElementById('searchMainOptions');
-      if (smo) setCollapsible(smo, state.searchBarVisible, animate);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        const smo = document.getElementById('searchMainOptions');
+        if (smo) setCollapsible(smo, state.searchBarVisible, animate);
+      });
     },
     getSuggestionsActive: () => state.suggestionsActive,
     setSuggestionsActive: state.setSuggestionsActive,
@@ -514,12 +553,29 @@ async function bootInteractive(): Promise<void> {
     },
   };
 
-  bindSearchFeature(searchUiConfig);
+  let searchManagerLoaded = false;
+  const initSearchManagerLazy = () => {
+    if (searchManagerLoaded) return;
+    searchManagerLoaded = true;
+    import('@/core/ui/search-manager').then(({ bindSearchFeature }) => {
+      bindSearchFeature(searchUiConfig);
+      
+      // Initialize only the settings panel collapsible UI, NOT the search bar DOM.
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        const smo = document.getElementById('searchMainOptions');
+        if (smo) setCollapsible(smo, state.searchBarVisible, false);
+      });
+    });
+  };
+
+  refs.searchInput?.addEventListener('focus', initSearchManagerLazy, { once: true });
+  refs.configBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
+  refs.engineBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
+  refs.voiceSearchBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
+  refs.askAiBtn?.addEventListener('click', initSearchManagerLazy, { once: true });
+  
   initTabCustomization();
   initLocalization();
-  searchUiConfig.updateSearchSettings(false);
-  searchUiConfig.updateCompactBarStyle();
-  searchUiConfig.updateVoiceSearchAvailability();
 
   bindDisplayFeature({
     getDisplayScale: () => state.displayScale,
@@ -549,47 +605,46 @@ async function bootInteractive(): Promise<void> {
     setMainUiScale: state.setMainUiScale,
   });
 
-  bindWallpaperFeature(
-    {
-      getWallpaperEnabled: () => state.wallpaperEnabled,
-      setWallpaperEnabled: state.setWallpaperEnabled,
-      updateWallpaperUIState: (visible: boolean, animate = true) => {
-        if (refs.wallpaperSourceContainer)
-          setCollapsible(refs.wallpaperSourceContainer, visible, animate);
-        if (refs.wallpaperOverlaySetting)
-          setCollapsible(refs.wallpaperOverlaySetting, visible, animate);
-        const uploadContainer = document.getElementById(
-          'uploadWallpaperContainer',
-        );
-        if (uploadContainer) {
-          uploadContainer.style.display =
-            visible && state.currentWallpaperType === 'upload'
-              ? 'flex'
-              : 'none';
-        }
+  const initWallpaperEngine = async () => {
+    const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+    bindWallpaperFeature(
+      {
+        getWallpaperEnabled: () => state.wallpaperEnabled,
+        setWallpaperEnabled: state.setWallpaperEnabled,
+        updateWallpaperUIState: (visible: boolean, animate = true) => {
+          import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+            if (refs.wallpaperSourceContainer)
+              setCollapsible(refs.wallpaperSourceContainer, visible, animate);
+            if (refs.wallpaperOverlaySetting)
+              setCollapsible(refs.wallpaperOverlaySetting, visible, animate);
+          });
+          const uploadContainer = document.getElementById(
+            'uploadWallpaperContainer',
+          );
+          if (uploadContainer) {
+            uploadContainer.style.display =
+              visible && state.currentWallpaperType === 'upload'
+                ? 'flex'
+                : 'none';
+          }
+        },
+        setWallpaperSource: state.setCurrentWallpaperSource,
+        setWallpaperType: state.setCurrentWallpaperType,
+        saveWallpaperConfig: () => {
+          localStorage.setItem('wallpaperSource', state.currentWallpaperSource);
+          localStorage.setItem('wallpaperType', state.currentWallpaperType);
+        },
+        getCurrentWallpaperType: () => state.currentWallpaperType,
       },
-      setWallpaperSource: state.setCurrentWallpaperSource,
-      setWallpaperType: state.setCurrentWallpaperType,
-      saveWallpaperConfig: () => {
-        localStorage.setItem('wallpaperSource', state.currentWallpaperSource);
-        localStorage.setItem('wallpaperType', state.currentWallpaperType);
-      },
-      getCurrentWallpaperType: () => state.currentWallpaperType,
-    },
-    WallpaperEngine,
-  );
+      WallpaperEngine,
+    );
+  };
 
-  initShortcutsFormSystem(
-    getActiveShortcutsList,
-    saveAndRenderShortcuts,
-    () => {
-      if (refs.launcherPopup)
-        refs.launcherPopup.classList.toggle(
-          'folders-enabled',
-          state.foldersEnabled,
-        );
-    },
-  );
+  if (state.wallpaperEnabled || refs.toggleWallpaper) {
+    initWallpaperEngine();
+  }
+
+  // Removed initShortcutsFormSystemLazy from here
 
   initGlobalUiSystem(saveAndRenderShortcuts, () => {
     if (refs.launcherPopup)
@@ -599,7 +654,7 @@ async function bootInteractive(): Promise<void> {
       );
   });
 
-  import('@/core/lazy/backup').then((m) => m.initBackupSystem());
+  // Removed eager backup import
 
   if (refs.themeBtns) {
     refs.themeBtns.forEach((btn) => {

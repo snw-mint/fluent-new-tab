@@ -36,5 +36,6 @@ export default defineConfig({
     target: 'esnext',
     minify: 'esbuild',
     emptyOutDir: true,
+    modulePreload: false,
   },
 });

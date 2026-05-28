@@ -70,32 +70,8 @@ export async function getWallpaperFromDB(
   }
 }
 
-export function initializeOverlay(): void {
-  let layer = document.getElementById('fluent-wallpaper-overlay');
-  if (!layer) {
-    layer = document.createElement('div');
-    layer.id = 'fluent-wallpaper-overlay';
-    Object.assign(layer.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: '#000',
-      pointerEvents: 'none',
-      zIndex: '-1',
-      opacity: '0',
-      transition: 'opacity 0.15s ease',
-    });
-    document.body.prepend(layer);
-  }
-}
-
 export function updateOverlay(opacityValue: number, isEnabled: boolean): void {
-  initializeOverlay();
   const finalOpacity = isEnabled ? String(opacityValue) : '0';
-  const layer = document.getElementById('fluent-wallpaper-overlay');
-  if (layer) layer.style.opacity = finalOpacity;
   document.documentElement.style.setProperty('--overlay-opacity', finalOpacity);
 }
 
@@ -145,7 +121,6 @@ export async function bootWallpaper(
   type: string,
   overlay: number,
 ): Promise<void> {
-  initializeOverlay();
   if (!enabled) {
     clearWallpaper();
     return;

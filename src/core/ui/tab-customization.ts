@@ -1,6 +1,34 @@
 import * as refs from '@/core/shared/dom-refs';
 
 export function initTabCustomization(): void {
+  const updateFavicon = (val: string) => {
+    let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = val;
+  };
+
+  // Load and apply initial custom tab name
+  const savedTabName = localStorage.getItem('tabName');
+  if (savedTabName) {
+    document.title = savedTabName;
+    if (refs.tabNameInput) {
+      refs.tabNameInput.value = savedTabName;
+    }
+  }
+
+  // Load and apply initial custom favicon
+  const savedTabIcon = localStorage.getItem('tabFavicon') || localStorage.getItem('tabIcon');
+  if (savedTabIcon) {
+    updateFavicon(savedTabIcon);
+    if (refs.tabFaviconInput) {
+      refs.tabFaviconInput.value = savedTabIcon;
+    }
+  }
+
   if (refs.tabNameInput) {
     refs.tabNameInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
@@ -12,27 +40,17 @@ export function initTabCustomization(): void {
   }
 
   if (refs.tabFaviconInput) {
-    const updateFavicon = (val: string) => {
-      let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-      }
-      link.href = val;
-    };
-
     refs.tabFaviconInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (!target) return;
-      localStorage.setItem('tabIcon', target.value);
+      localStorage.setItem('tabFavicon', target.value);
       updateFavicon(target.value);
     });
 
     refs.tabFaviconInput.addEventListener('change', (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (!target) return;
-      localStorage.setItem('tabIcon', target.value);
+      localStorage.setItem('tabFavicon', target.value);
       updateFavicon(target.value);
     });
   }
@@ -53,16 +71,8 @@ export function initTabCustomization(): void {
           reader.onload = () => {
             const result = reader.result as string;
             if (refs.tabFaviconInput) refs.tabFaviconInput.value = result;
-            localStorage.setItem('tabIcon', result);
-            let link = document.querySelector(
-              "link[rel~='icon']",
-            ) as HTMLLinkElement;
-            if (!link) {
-              link = document.createElement('link');
-              link.rel = 'icon';
-              document.head.appendChild(link);
-            }
-            link.href = result;
+            localStorage.setItem('tabFavicon', result);
+            updateFavicon(result);
           };
           reader.readAsDataURL(file);
         } catch (error) {

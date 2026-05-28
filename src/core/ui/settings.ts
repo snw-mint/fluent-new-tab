@@ -1,11 +1,7 @@
 import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
-import {
-  warningModal,
-  requestFeaturePermissionUI,
-  setCollapsible,
-} from '@/core/ui/ui-components';
+// ui-components are imported dynamically when needed
 import {
   currentCityData,
   foldersEnabled,
@@ -34,20 +30,24 @@ export function bindWeatherFeature(options: any): void {
       if (wantsEnable) {
         options.setWeatherEnabled(true);
         options.updateWeatherVisibility(true);
-        requestFeaturePermissionUI(
-          'weather',
-          'Open-Meteo API',
-          'https://open-meteo.com/',
-          () => {
-            localStorage.setItem('weatherEnabled', 'true');
-            setTimeout(() => {
-              options.initWeather();
-            }, 250);
-          },
-          () => {
-            target.checked = false;
-            options.setWeatherEnabled(false);
-            options.updateWeatherVisibility(false);
+        import('@/core/ui/ui-components').then(
+          ({ requestFeaturePermissionUI }) => {
+            requestFeaturePermissionUI(
+              'weather',
+              'Open-Meteo API',
+              'https://open-meteo.com/',
+              () => {
+                localStorage.setItem('weatherEnabled', 'true');
+                setTimeout(() => {
+                  options.initWeather();
+                }, 250);
+              },
+              () => {
+                target.checked = false;
+                options.setWeatherEnabled(false);
+                options.updateWeatherVisibility(false);
+              },
+            );
           },
         );
       } else {
@@ -98,24 +98,28 @@ export function bindWeatherFeature(options: any): void {
     refs.toggleWeatherAlerts.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement;
       if (target.checked) {
-        requestFeaturePermissionUI(
-          'weatherAlerts',
-          'Air Quality API',
-          'https://open-meteo.com/en/docs/air-quality-api',
-          () => {
-            options.setWeatherAlertsEnabled(true);
-            localStorage.setItem('weatherAlertsEnabled', 'true');
-            chrome.runtime.sendMessage({
-              action: 'updateWeatherAlertsStatus',
-              enabled: true,
-              lat: currentCityData.lat,
-              lon: currentCityData.lon,
-            });
-            options.initWeather();
-          },
-          () => {
-            target.checked = false;
-            options.setWeatherAlertsEnabled(false);
+        import('@/core/ui/ui-components').then(
+          ({ requestFeaturePermissionUI }) => {
+            requestFeaturePermissionUI(
+              'weatherAlerts',
+              'Air Quality API',
+              'https://open-meteo.com/en/docs/air-quality-api',
+              () => {
+                options.setWeatherAlertsEnabled(true);
+                localStorage.setItem('weatherAlertsEnabled', 'true');
+                chrome.runtime.sendMessage({
+                  action: 'updateWeatherAlertsStatus',
+                  enabled: true,
+                  lat: currentCityData.lat,
+                  lon: currentCityData.lon,
+                });
+                options.initWeather();
+              },
+              () => {
+                target.checked = false;
+                options.setWeatherAlertsEnabled(false);
+              },
+            );
           },
         );
       } else {
@@ -174,14 +178,18 @@ export function bindAccentColorFeature(options: any): void {
     const isEnabled = localStorage.getItem('accentColorEnabled') !== 'false';
     refs.toggleAppearance.checked = isEnabled;
 
-    setCollapsible(refs.accentColorOptions, isEnabled, false);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      setCollapsible(refs.accentColorOptions, isEnabled, false);
+    });
 
     refs.toggleAppearance.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       const isEnabled = target.checked;
       localStorage.setItem('accentColorEnabled', String(isEnabled));
-      setCollapsible(refs.accentColorOptions, isEnabled, true);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        setCollapsible(refs.accentColorOptions, isEnabled, true);
+      });
 
       if (!isEnabled) {
         const toggleAuto = document.getElementById(
@@ -274,6 +282,7 @@ export function bindAccentColorFeature(options: any): void {
       event.preventDefault();
       const { initCustomColorPicker } =
         await import('@/core/lazy/color-picker');
+      const { warningModal } = await import('@/core/ui/ui-components');
       initCustomColorPicker(customBtn, warningModal, clearPresetSelection);
     });
   }
@@ -301,15 +310,19 @@ export function bindDisplayFeature(options: any): void {
   ) as HTMLInputElement | null;
   if (toggleDisplay) {
     toggleDisplay.checked = options.getDisplayEnabled();
-    const mainOptionsInit = document.getElementById('displayMainOptions');
-    setCollapsible(mainOptionsInit, toggleDisplay.checked, false);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      const mainOptionsInit = document.getElementById('displayMainOptions');
+      setCollapsible(mainOptionsInit, toggleDisplay.checked, false);
+    });
 
     toggleDisplay.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       options.setDisplayVisible(target.checked);
-      const mainOptions = document.getElementById('displayMainOptions');
-      setCollapsible(mainOptions, target.checked, true);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        const mainOptions = document.getElementById('displayMainOptions');
+        setCollapsible(mainOptions, target.checked, true);
+      });
     });
   }
 
@@ -533,8 +546,10 @@ export function bindShortcutRadiusFeature(options: any): void {
 
     if (shortcutsGrid)
       shortcutsGrid.style.display = isVisible ? 'grid' : 'none';
-    setCollapsible(rowsInputGroup, isVisible, false);
-    setCollapsible(shortcutsMoreSetting, isVisible, false);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      setCollapsible(rowsInputGroup, isVisible, false);
+      setCollapsible(shortcutsMoreSetting, isVisible, false);
+    });
 
     toggleShortcuts.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -544,8 +559,10 @@ export function bindShortcutRadiusFeature(options: any): void {
 
       if (shortcutsGrid)
         shortcutsGrid.style.display = checked ? 'grid' : 'none';
-      setCollapsible(rowsInputGroup, checked, true);
-      setCollapsible(shortcutsMoreSetting, checked, true);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        setCollapsible(rowsInputGroup, checked, true);
+        setCollapsible(shortcutsMoreSetting, checked, true);
+      });
 
       if (!checked) {
         if (refs.shortcutsMoreContainer) {
@@ -648,7 +665,9 @@ export function bindLauncherFeature(options: any): void {
     const isEnabled = options.getLauncherEnabled();
     toggleLauncher.checked = isEnabled;
 
-    setCollapsible(launcherSelectGroup, isEnabled, false);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      setCollapsible(launcherSelectGroup, isEnabled, false);
+    });
 
     toggleLauncher.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -658,14 +677,20 @@ export function bindLauncherFeature(options: any): void {
       options.setLauncherEnabled(checked);
       localStorage.setItem('launcherEnabled', String(checked));
 
-      setCollapsible(launcherSelectGroup, checked, true);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        setCollapsible(launcherSelectGroup, checked, true);
+      });
       options.updateLauncherVisibility(checked);
 
       if (checked) {
         options.renderLauncher(options.getCurrentProvider());
       } else {
         const lms = document.getElementById('launcherMoreSetting');
-        if (lms) setCollapsible(lms, false, true);
+        if (lms) {
+          import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+            setCollapsible(lms, false, true);
+          });
+        }
       }
     });
   }
@@ -712,7 +737,9 @@ export function bindReduceEffectsFeature(): void {
       document.documentElement.setAttribute('data-reduce-effects', 'true');
     else document.documentElement.removeAttribute('data-reduce-effects');
 
-    setCollapsible(accessibilityOptions, isReduced, false);
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      setCollapsible(accessibilityOptions, isReduced, false);
+    });
     if (toggleDisableAnimations) {
       const animsDisabled =
         localStorage.getItem('animationsDisabled') === 'true';
@@ -739,7 +766,9 @@ export function bindReduceEffectsFeature(): void {
         }
       }
 
-      setCollapsible(accessibilityOptions, value, true);
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        setCollapsible(accessibilityOptions, value, true);
+      });
       if (toggleDisableAnimations) toggleDisableAnimations.disabled = !value;
     });
   }
@@ -754,7 +783,6 @@ export function bindReduceEffectsFeature(): void {
     });
   }
 }
-
 
 export function bindMainUiScaleFeature(options: any): void {
   if (refs.mainUiScaleSlider) {
@@ -896,26 +924,30 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
               ? 'https://apod.nasa.gov/'
               : 'https://commons.wikimedia.org/';
 
-        requestFeaturePermissionUI(
-          type as any,
-          apiName,
-          learnMore,
-          async () => {
-            await WallpaperEngine.render({
-              enabled: options.getWallpaperEnabled(),
-              source,
-              type,
-              overlay,
-            });
-          },
-          () => {
-            target.value = 'upload';
-            options.setWallpaperSource('local');
-            options.setWallpaperType('upload');
-            options.saveWallpaperConfig();
-            localStorage.setItem('wallpaperSource', 'local');
-            localStorage.setItem('wallpaperType', 'upload');
-            if (uploadContainer) uploadContainer.style.display = 'flex';
+        import('@/core/ui/ui-components').then(
+          ({ requestFeaturePermissionUI }) => {
+            requestFeaturePermissionUI(
+              type as any,
+              apiName,
+              learnMore,
+              async () => {
+                await WallpaperEngine.render({
+                  enabled: options.getWallpaperEnabled(),
+                  source,
+                  type,
+                  overlay,
+                });
+              },
+              () => {
+                target.value = 'upload';
+                options.setWallpaperSource('local');
+                options.setWallpaperType('upload');
+                options.saveWallpaperConfig();
+                localStorage.setItem('wallpaperSource', 'local');
+                localStorage.setItem('wallpaperType', 'upload');
+                if (uploadContainer) uploadContainer.style.display = 'flex';
+              },
+            );
           },
         );
       } else {
@@ -1077,6 +1109,15 @@ export function initGlobalUiSystem(
       e.stopPropagation();
       closePopups(refs.configPopup);
       refs.configPopup.classList.toggle('active');
+      refs.configBtn?.classList.toggle('active');
+
+      if (!(window as any).customSelectSystemInitialized) {
+        (window as any).customSelectSystemInitialized = true;
+        import('@/core/ui/fluent-select').then((m) => {
+          m.initCustomSelectSystem();
+        });
+      }
+
       if (!refs.configPopup.classList.contains('active'))
         resetSettingsAccordions();
     });
@@ -1145,28 +1186,30 @@ export function initGlobalUiSystem(
             (Array.isArray(s.children) && s.children.length > 0),
         );
         if (hasFolders) {
-          warningModal.show({
-            title: 'Disable Folders?',
-            message:
-              'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
-            confirmText: 'Delete Folders',
-            cancelText: 'Keep Enabled',
-            confirmVariant: 'danger',
-            onConfirm: () => {
-              const pruned = shortcuts.filter(
-                (item: any) =>
-                  item.type !== 'folder' && !Array.isArray(item.children),
-              );
-              shortcuts.length = 0;
-              shortcuts.push(...pruned);
-              setFoldersEnabled(false);
-              localStorage.setItem('foldersEnabled', 'false');
-              updateLauncherFooter();
-              saveAndRender();
-            },
-            onCancel: () => {
-              target.checked = true;
-            },
+          import('@/core/ui/ui-components').then(({ warningModal }) => {
+            warningModal.show({
+              title: 'Disable Folders?',
+              message:
+                'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
+              confirmText: 'Delete Folders',
+              cancelText: 'Keep Enabled',
+              confirmVariant: 'danger',
+              onConfirm: () => {
+                const pruned = shortcuts.filter(
+                  (item: any) =>
+                    item.type !== 'folder' && !Array.isArray(item.children),
+                );
+                shortcuts.length = 0;
+                shortcuts.push(...pruned);
+                setFoldersEnabled(false);
+                localStorage.setItem('foldersEnabled', 'false');
+                updateLauncherFooter();
+                saveAndRender();
+              },
+              onCancel: () => {
+                target.checked = true;
+              },
+            });
           });
           return;
         }
@@ -1175,5 +1218,31 @@ export function initGlobalUiSystem(
       localStorage.setItem('foldersEnabled', String(target.checked));
       updateLauncherFooter();
     });
+  }
+
+  if (refs.exportBtn) {
+    refs.exportBtn.addEventListener(
+      'click',
+      (e) => {
+        import('@/core/lazy/backup').then((m) => {
+          m.initBackupSystem();
+          refs.exportBtn?.click(); // Click again to trigger the newly bound listener, or just call export directly if we export it
+        });
+      },
+      { once: true },
+    );
+  }
+
+  if (refs.importBtn) {
+    refs.importBtn.addEventListener(
+      'click',
+      (e) => {
+        import('@/core/lazy/backup').then((m) => {
+          m.initBackupSystem();
+          refs.importBtn?.click();
+        });
+      },
+      { once: true },
+    );
   }
 }

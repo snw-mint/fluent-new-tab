@@ -69,3 +69,27 @@ export function performSearch(query: string, engine: string): void {
 
   window.location.href = url;
 }
+
+export function initBasicSearchUI(
+  searchWrapper: HTMLElement | null,
+  voiceSearchBtn: HTMLElement | null,
+  searchBarVisible: boolean,
+  compactBarEnabled: boolean,
+  voiceSearchEnabled: boolean
+): void {
+  if (searchWrapper) {
+    searchWrapper.style.display = searchBarVisible ? '' : 'none';
+    if (compactBarEnabled) {
+      searchWrapper.classList.add('compact');
+    } else {
+      searchWrapper.classList.remove('compact');
+    }
+  }
+
+  if (voiceSearchBtn) {
+    const hasSpeechSupport =
+      'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+    voiceSearchBtn.style.display =
+      voiceSearchEnabled && hasSpeechSupport ? 'flex' : 'none';
+  }
+}
