@@ -14,7 +14,7 @@
   <a href="TRANSLATING.md">Help translate</a>
 </p>
 
-## <img src="repo-assets/icons/why.svg" width="37" align="center"> Why choose Fluent New Tab?
+## Why choose Fluent New Tab?
 
 - Minimal, lightweight layout focused on productivity.
 - Built-in launcher for Microsoft 365, Google Workspace, and Proton.
@@ -25,7 +25,7 @@
 
 More details on the [official website.](https://snw-mint.github.io/fluent-new-tab/)
 
-## <img src="repo-assets/icons/install.svg" width="37" align="center"> Installation
+## Installation
 
 The easiest option is the official store, with automatic updates.
 
@@ -50,7 +50,7 @@ For the latest version:
 4. Enable **Developer Mode**.
 5. Click **Load Unpacked** and select the unzipped folder.
 
-## <img src="repo-assets/icons/support.svg" width="37" align="center"> Support the project
+## Support the project
 
 Fluent New Tab is an independent, open-source project maintained solely by me. If you enjoy using the extension and want to help keep it alive, ad-free, and regularly updated, consider supporting my work!
 
@@ -60,7 +60,7 @@ Fluent New Tab is an independent, open-source project maintained solely by me. I
 
 Not able to donate? You can still help immensely by **starring this repository**, leaving a review on the extension store, and sharing it with your friends!
 
-## <img src="repo-assets/icons/privacy.svg" width="37" align="center"> Privacy
+## Privacy
 
 Fluent New Tab follows a local-first approach.
 
@@ -71,7 +71,7 @@ Fluent New Tab follows a local-first approach.
 
 See the [privacy policy](https://snw-mint.github.io/fluent-new-tab/privacy.html) for details.
 
-## <img src="repo-assets/icons/contributing.svg" width="37" align="center"> Contributing
+## Contributing
 
 Contributions, feedback, and bug reports are highly appreciated!
 
@@ -79,7 +79,7 @@ Contributions, feedback, and bug reports are highly appreciated!
 - **Questions & Ideas:** Use GitHub Discussions for general questions, showing off your setup, or sharing open-ended ideas.
 - **Developers:** Want to run the project locally or submit a Pull Request? Check out our Developer Guide for local development instructions.
 
-## <img src="repo-assets/icons/translations.svg" width="37" align="center"> Translations
+## Translations
 
 Fluent New Tab is available in multiple languages thanks to our community!
 
@@ -88,7 +88,7 @@ Instead, join our Crowdin Project to easily suggest corrections or add new trans
 
 See the Translation Guide for more details.
 
-## <img src="repo-assets/icons/license.svg" width="37" align="center"> License and legal notice
+## License and legal notice
 
 > [!IMPORTANT]  
 > "Fluent New Tab" is a strictly non-profit, open-source project. We do not accept paid promotions, data partnerships, or advertising offers. Please do not send unsolicited business inquiries.
