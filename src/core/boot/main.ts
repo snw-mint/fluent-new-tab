@@ -268,7 +268,7 @@ async function bootInteractive(): Promise<void> {
         });
       });
     };
-    refs.shortcutsGrid.addEventListener('dragstart', initShortcutsDragLazy, { once: true });
+    refs.shortcutsGrid.addEventListener('pointerover', initShortcutsDragLazy, { once: true });
   }
 
   // Launcher Drag & Drop is deferred until Launcher is opened and drag begins
@@ -309,7 +309,7 @@ async function bootInteractive(): Promise<void> {
         });
       });
     };
-    refs.launcherGrid.addEventListener('dragstart', initLauncherDragLazy, { once: true });
+    refs.launcherGrid.addEventListener('pointerover', initLauncherDragLazy, { once: true });
   }
 
   if (refs.versionDisplay) {

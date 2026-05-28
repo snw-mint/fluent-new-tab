@@ -15,6 +15,7 @@ export let placeholder: HTMLElement | null = null;
 export let currentDropTarget: HTMLElement | null = null;
 export let dropAction: 'reorder' | 'folder' | 'out-of-folder' = 'reorder';
 export let rAF_ID: number = 0;
+export let lastSwapTime = 0;
 
 export let mouseX = 0;
 export let mouseY = 0;
@@ -245,6 +246,11 @@ export function handleGlobalDragOver(event: DragEvent): void {
       el !== placeholder,
   ) as HTMLElement[];
 
+  const now = Date.now();
+  if (now - lastSwapTime < 250) { 
+    return; 
+  }
+
   let closestItem: HTMLElement | null = null;
   let minDistance = Infinity;
 
@@ -253,7 +259,11 @@ export function handleGlobalDragOver(event: DragEvent): void {
     const elCenterX = rect.left + rect.width / 2;
     const elCenterY = rect.top + rect.height / 2;
     const dist = Math.hypot(centerX - elCenterX, centerY - elCenterY);
-    if (dist < minDistance) {
+    
+    // Aplica um limite estrito: o cursor deve estar mais fundo dentro da área do item vizinho
+    const threshold = Math.min(rect.width, rect.height) * 0.45; 
+    
+    if (dist < threshold && dist < minDistance) {
       minDistance = dist;
       closestItem = el;
     }
@@ -323,6 +333,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
     placeholder !== referenceNode
   ) {
     movePlaceholderWithAnimation(parent, referenceNode);
+    lastSwapTime = now;
   }
 }
 
@@ -453,4 +464,5 @@ export function cleanupDrag(): void {
   draggedElement = null;
   placeholder = null;
   currentDropTarget = null;
+  lastSwapTime = 0;
 }
