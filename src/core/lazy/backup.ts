@@ -140,16 +140,31 @@ export function initBackupSystem(): void {
                 'wallpaperValue',
               ];
 
-              APP_KEYS.forEach((key) => {
-                if (keysToExclude.includes(key)) return;
-                const value = data[key];
-                if (typeof value === 'string') localStorage.setItem(key, value);
-              });
-              const treeBackup = data['shortcuts'];
-              if (typeof treeBackup === 'string') {
-                localStorage.setItem('shortcuts', treeBackup);
-              }
-              location.reload();
+              const keysToWrite = APP_KEYS.filter(
+                (key) => !keysToExclude.includes(key),
+              );
+
+              const processChunk = (startIndex: number) => {
+                const endIndex = Math.min(startIndex + 10, keysToWrite.length);
+                for (let i = startIndex; i < endIndex; i++) {
+                  const key = keysToWrite[i];
+                  const value = data[key];
+                  if (typeof value === 'string')
+                    localStorage.setItem(key, value);
+                }
+
+                if (endIndex < keysToWrite.length) {
+                  requestAnimationFrame(() => processChunk(endIndex));
+                } else {
+                  const treeBackup = data['shortcuts'];
+                  if (typeof treeBackup === 'string') {
+                    localStorage.setItem('shortcuts', treeBackup);
+                  }
+                  location.reload();
+                }
+              };
+
+              processChunk(0);
             },
           });
         } catch (error) {
