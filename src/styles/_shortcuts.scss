@@ -23,6 +23,10 @@
     grid-template-columns: repeat(var(--shortcut-count, 10), 1fr);
     width: calc(var(--shortcut-count, 10) * (100% / 10));
     justify-content: center;
+    margin: 0 auto;
+    .shortcut-item {
+      min-width: 2.8125rem;
+    }
   }
 
   &[data-hide-names='true'] {
@@ -174,7 +178,9 @@
         transform: translateY(-0.3375rem) scale(0.96);
         pointer-events: none;
         transition: all 0.18s ease;
-        @include glass-panel;
+        background-color: #ffffff;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
         @include card-radius($radius-md);
 
         &.active {
@@ -324,3 +330,5 @@
   z-index: 9999;
   cursor: grabbing;
 }
+
+

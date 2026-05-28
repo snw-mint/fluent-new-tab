@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Kérdezd meg az AI-t"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Effektek csökkentése"
   },
   "reduceMotionTitle": {

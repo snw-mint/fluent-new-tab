@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Întreabă IA"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Reduceți efectele"
   },
   "reduceMotionTitle": {

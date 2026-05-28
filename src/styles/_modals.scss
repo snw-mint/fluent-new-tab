@@ -316,11 +316,6 @@
       flex-shrink: 0;
     }
 
-    &:hover {
-      opacity: 1;
-      color: var(--accent-color);
-    }
-
     .chevron-icon {
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -353,8 +348,7 @@
     .folder-icon-help {
       font-size: 0.675rem;
       opacity: 0.8;
-      display: flex;
-      gap: 0.225rem;
+      display: block;
       padding-bottom: 0.45rem;
 
       a {

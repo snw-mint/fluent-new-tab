@@ -15,9 +15,7 @@
   right: 0.75rem;
   @include flex-center(0.3125rem);
   padding: 0.3125rem 0.625rem;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(0.5rem);
-  -webkit-backdrop-filter: blur(0.5rem);
+  background-color: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: $radius-xl;
   color: rgba(255, 255, 255, 0.85);

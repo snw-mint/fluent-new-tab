@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "AI에게 물어보세요"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "효과 줄이기"
   },
   "reduceMotionTitle": {

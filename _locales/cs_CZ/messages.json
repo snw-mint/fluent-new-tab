@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Zeptat se AI"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Omezit vizuální efekty"
   },
   "reduceMotionTitle": {

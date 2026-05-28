@@ -1,4 +1,4 @@
-# <img src="repo-assets\icons\translations.svg" width="37" align="center"> Translate Fluent New Tab
+# Translate Fluent New Tab
 
 Help me make Fluent New Tab accessible globally! We use **Crowdin** for localization, so you don't need any coding or Git experience to contribute.
 
@@ -6,7 +6,7 @@ Help me make Fluent New Tab accessible globally! We use **Crowdin** for localiza
 
 ---
 
-## <img src="repo-assets/icons/guide.svg" width="37" align="center"> Guidelines
+## Guidelines
 
 To keep translations consistent and functional:
 
@@ -17,7 +17,7 @@ To keep translations consistent and functional:
 
 ---
 
-## <img src="repo-assets/icons/missing.svg" width="37" align="center"> Missing Your Language?
+## Missing Your Language?
 
 If your language isn't on Crowdin:
 
@@ -27,7 +27,7 @@ If your language isn't on Crowdin:
 
 ---
 
-## <img src="repo-assets/icons/attention.svg" width="37" align="center"> Attention Developers
+## Attention Developers
 
 **Do NOT open Pull Requests to edit translation files (`messages.json`).**
 

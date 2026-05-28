@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Mag-ask sa AI"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Bawasan ang visual effects"
   },
   "reduceMotionTitle": {

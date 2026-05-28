@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "3.6.2",
+  "version": "4.0",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en_US",
   "icons": {
@@ -36,7 +36,7 @@
   },
   "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
   "optional_host_permissions": [
-    "https://suggestqueries.google.com/*",
+    "https://duckduckgo.com/*",
     "https://peapix.com/*",
     "https://img.peapix.com/*",
     "https://api.nasa.gov/*",

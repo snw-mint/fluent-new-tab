@@ -146,7 +146,7 @@
   "askAiOption": {
     "message": "Спросить у ИИ"
   },
-  "reduceVisualEffectsTitle": {
+  "AccessibilityTitle": {
     "message": "Уменьшить эффекты"
   },
   "reduceMotionTitle": {
