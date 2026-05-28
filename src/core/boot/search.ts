@@ -81,9 +81,11 @@ export function performSearch(query: string, engine: string): void {
 export function initBasicSearchUI(
   searchWrapper: HTMLElement | null,
   voiceSearchBtn: HTMLElement | null,
+  askAiBtn: HTMLElement | null,
   searchBarVisible: boolean,
   compactBarEnabled: boolean,
   voiceSearchEnabled: boolean,
+  askAiEnabled: boolean,
 ): void {
   if (searchWrapper) {
     searchWrapper.style.display = searchBarVisible ? '' : 'none';
@@ -99,5 +101,9 @@ export function initBasicSearchUI(
       'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
     voiceSearchBtn.style.display =
       voiceSearchEnabled && hasSpeechSupport ? 'flex' : 'none';
+  }
+
+  if (askAiBtn) {
+    askAiBtn.style.display = askAiEnabled ? 'flex' : 'none';
   }
 }

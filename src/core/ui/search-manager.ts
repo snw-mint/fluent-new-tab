@@ -48,6 +48,8 @@ export function bindSearchFeature(options: any): void {
     refs.searchBarStyleSelect.value = options.getCompactBarEnabled()
       ? 'compact'
       : 'full';
+    // Dispatch change so fluent-select updates its UI
+    refs.searchBarStyleSelect.dispatchEvent(new Event('change', { bubbles: true }));
     refs.searchBarStyleSelect.addEventListener('change', (event) => {
       const target = event.target as HTMLSelectElement | null;
       if (!target) return;

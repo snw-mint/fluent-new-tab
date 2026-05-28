@@ -210,9 +210,11 @@ async function bootCritical(): Promise<void> {
   initBasicSearchUI(
     refs.searchWrapper,
     refs.voiceSearchBtn,
+    refs.askAiBtn,
     state.searchBarVisible,
     state.compactBarEnabled,
     state.voiceSearchEnabled,
+    state.askAiEnabled,
   );
 
   triggerShortcutsRender();
@@ -629,6 +631,9 @@ async function bootInteractive(): Promise<void> {
     once: true,
   });
   refs.voiceSearchBtn?.addEventListener('click', initSearchManagerLazy, {
+    once: true,
+  });
+  refs.askAiBtn?.addEventListener('pointerover', initSearchManagerLazy, {
     once: true,
   });
   refs.askAiBtn?.addEventListener('click', initSearchManagerLazy, {
