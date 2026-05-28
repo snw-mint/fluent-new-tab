@@ -73,7 +73,7 @@ export function updateDisplayContent(wrapper: HTMLElement): void {
     displayType = 'timedate';
   }
   if (wrapper.dataset.currentMode !== displayType) {
-    wrapper.innerHTML = '';
+    wrapper.textContent = '';
     wrapper.dataset.currentMode = displayType;
     wrapper.dataset.lastCache = '';
   }

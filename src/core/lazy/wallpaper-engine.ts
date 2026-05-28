@@ -163,7 +163,14 @@ export class WallpaperEngine {
         const url = cached.creditUrl || '';
 
         if (url) {
-          creditTextSpan.innerHTML = `<a href="${url}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">${text}</a>`;
+          creditTextSpan.textContent = '';
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.className = 'wallpaper-credit-link';
+          a.style.cssText = 'color: inherit; text-decoration: none; pointer-events: auto;';
+          a.textContent = text;
+          creditTextSpan.appendChild(a);
         } else {
           creditTextSpan.textContent = text;
         }

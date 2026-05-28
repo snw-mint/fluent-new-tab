@@ -67,7 +67,7 @@ export function renderLauncherApps(
     } catch {}
   }
 
-  renderRefs.launcherGrid.innerHTML = '';
+  renderRefs.launcherGrid.textContent = '';
   orderedApps.forEach((app, index) => {
     const link = document.createElement('a');
     link.href = app.url;

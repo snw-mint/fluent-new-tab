@@ -241,8 +241,12 @@ async function bootInteractive(): Promise<void> {
                 'updateNoticeChangelog',
                 'see changelog',
               );
-              const link = `<a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" class="update-release-notice-link">${suffix}</a>`;
-              showToast(`${prefix}${link}`, 'assets/icons/update.svg', 6000);
+              const link = document.createElement('a');
+              link.href = 'https://github.com/snw-mint/fluent-new-tab/releases';
+              link.target = '_blank';
+              link.className = 'update-release-notice-link';
+              link.textContent = suffix;
+              showToast([prefix, link], 'assets/icons/update.svg', 6000);
             });
             chromeApi.storage.local.remove([
               'update_notice_pending',

@@ -139,7 +139,7 @@ export function renderWeatherAlertWidget(): void {
       document.body.appendChild(widget);
     }
 
-    widget.innerHTML = '';
+    widget.textContent = '';
 
     const img = document.createElement('img');
     img.src = `assets/weather/alerts/${alert.type}.svg`;

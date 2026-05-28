@@ -126,7 +126,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     localStorage.getItem('hideShortcutNames') === 'true';
   shortcutsGrid.setAttribute('data-hide-names', String(isHideNamesActive));
 
-  shortcutsGrid.innerHTML = '';
+  shortcutsGrid.textContent = '';
   const fragment = document.createDocumentFragment();
   const COLUMNS = 10;
   const currentRows = rowsSelect

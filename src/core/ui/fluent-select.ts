@@ -67,7 +67,7 @@ export function initCustomSelectSystem(): void {
       return;
     }
 
-    listContainer!.innerHTML = '';
+    listContainer!.textContent = '';
 
     Array.from(nativeSelect.options).forEach((option) => {
       const li = document.createElement('li');

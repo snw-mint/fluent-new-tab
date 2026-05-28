@@ -18,7 +18,7 @@ export function clearSuggestionsUI(
 ): void {
   if (searchWrapper) searchWrapper.classList.remove('suggestions-open');
   if (!suggestionsContainer) return;
-  suggestionsContainer.innerHTML = '';
+  suggestionsContainer.textContent = '';
   suggestionsContainer.classList.remove('active');
 }
 
@@ -30,7 +30,7 @@ export function renderSuggestionsUI(
   const { suggestionsContainer, searchInput, searchWrapper } = refs;
   if (!suggestionsContainer) return;
 
-  suggestionsContainer.innerHTML = '';
+  suggestionsContainer.textContent = '';
   if (suggestions.length === 0) {
     suggestionsContainer.classList.remove('active');
     if (searchWrapper) searchWrapper.classList.remove('suggestions-open');

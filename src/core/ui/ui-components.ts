@@ -45,7 +45,7 @@ export class WarningModalManager {
   public show(options: WarningModalOptions): void {
     const confirmVariant = options.confirmVariant || 'accent';
     this.titleEl.textContent = options.title;
-    this.messageEl.innerHTML = '';
+    this.messageEl.textContent = '';
     this.messageEl.textContent = options.message;
 
     if (options.learnMoreUrl) {
@@ -104,7 +104,7 @@ export const warningModal = new WarningModalManager();
 export let activeToastInstance: HTMLElement | null = null;
 
 export function showToast(
-  message: string,
+  message: string | Node | (string | Node)[],
   iconPath: string,
   duration = 3500,
 ): void {
@@ -122,7 +122,13 @@ export function showToast(
 
   const text = document.createElement('span');
   text.className = 'update-release-notice-prefix';
-  text.innerHTML = message;
+  if (Array.isArray(message)) {
+    text.replaceChildren(...message);
+  } else if (typeof message === 'string') {
+    text.textContent = message;
+  } else {
+    text.replaceChildren(message);
+  }
 
   notice.append(icon, text);
   document.body.appendChild(notice);
