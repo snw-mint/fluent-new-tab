@@ -1,9 +1,12 @@
 interface DragDropOptions {
   gridContainer: HTMLElement;
+  itemClass?: string;
   onReorder: (oldIndex: number, newIndex: number) => void;
-  onMoveToFolder: (itemIndex: number, folderId: string) => void;
-  onMoveOutFolder: (itemIndex: number) => void;
+  onMoveToFolder?: (itemIndex: number, folderId: string) => void;
+  onMoveOutFolder?: (itemIndex: number) => void;
 }
+
+const dragDropInstances = new Map<HTMLElement, DragDropOptions>();
 
 export let activeDragOptions: DragDropOptions | null = null;
 export let draggedElement: HTMLElement | null = null;
@@ -24,14 +27,23 @@ export let ghostScale = 1;
 
 export function initVanillaDragAndDrop(options: DragDropOptions) {
   if (!options || !options.gridContainer) return;
-  activeDragOptions = options;
+  dragDropInstances.set(options.gridContainer, options);
   const grid = options.gridContainer;
   grid.addEventListener('dragstart', handleDragStart);
 }
 
 export function handleDragStart(event: DragEvent): void {
   const target = event.target as HTMLElement;
-  const item = target.closest('.shortcut-item') as HTMLElement | null;
+  
+  let currentGrid = target;
+  while (currentGrid && !dragDropInstances.has(currentGrid)) {
+    currentGrid = currentGrid.parentElement as HTMLElement;
+  }
+  if (!currentGrid) return;
+  
+  activeDragOptions = dragDropInstances.get(currentGrid) || null;
+  const itemClass = activeDragOptions?.itemClass || 'shortcut-item';
+  const item = target.closest(`.${itemClass}`) as HTMLElement | null;
 
   if (
     !item ||
@@ -75,8 +87,9 @@ export function handleDragStart(event: DragEvent): void {
     draggedElement.style.display = 'none';
 
     if (!placeholder) {
+      const itemClass = activeDragOptions?.itemClass || 'shortcut-item';
       placeholder = document.createElement('div');
-      placeholder.className = 'shortcut-item sortable-placeholder';
+      placeholder.className = `${itemClass} sortable-placeholder`;
       placeholder.style.width = `${rect.width}px`;
       placeholder.style.height = `${rect.height}px`;
     }
@@ -221,9 +234,10 @@ export function handleGlobalDragOver(event: DragEvent): void {
     return;
   }
 
+  const itemClass = activeDragOptions.itemClass || 'shortcut-item';
   const items = Array.from(activeDragOptions.gridContainer.children).filter(
     (el) =>
-      el.classList.contains('shortcut-item') &&
+      el.classList.contains(itemClass) &&
       !el.classList.contains('add-card-wrapper') &&
       !el.classList.contains('folder-back-btn') &&
       el !== draggedElement &&
@@ -284,7 +298,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
 
   const allSortable = Array.from(parent.children).filter(
     (el) =>
-      el.classList.contains('shortcut-item') &&
+      el.classList.contains(itemClass) &&
       !el.classList.contains('add-card-wrapper') &&
       !el.classList.contains('folder-back-btn') &&
       el !== ghostNode &&
@@ -365,11 +379,11 @@ export function handleGlobalDrop(event: DragEvent): void {
     const oldIndex = parseInt(draggedElement.dataset.index || '-1', 10);
 
     if (dropAction === 'out-of-folder' && oldIndex > -1) {
-      activeDragOptions.onMoveOutFolder(oldIndex);
+      if (activeDragOptions.onMoveOutFolder) activeDragOptions.onMoveOutFolder(oldIndex);
     } else if (dropAction === 'folder' && currentDropTarget) {
       const folderId = currentDropTarget.dataset.id;
       if (folderId && oldIndex > -1) {
-        activeDragOptions.onMoveToFolder(oldIndex, folderId);
+        if (activeDragOptions.onMoveToFolder) activeDragOptions.onMoveToFolder(oldIndex, folderId);
       }
     } else if (
       dropAction === 'reorder' &&
@@ -378,9 +392,10 @@ export function handleGlobalDrop(event: DragEvent): void {
     ) {
       const grid = activeDragOptions.gridContainer;
 
+      const itemClass = activeDragOptions.itemClass || 'shortcut-item';
       const allItems = Array.from(grid.children).filter(
         (el) =>
-          el.classList.contains('shortcut-item') &&
+          el.classList.contains(itemClass) &&
           !el.classList.contains('add-card-wrapper') &&
           !el.classList.contains('folder-back-btn') &&
           el !== ghostNode,

@@ -71,6 +71,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
+
+    &.sorting * {
+      cursor: grabbing !important;
+    }
   }
 
   .launcher-item {

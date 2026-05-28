@@ -250,6 +250,41 @@ async function bootInteractive(): Promise<void> {
     });
   }
 
+  if (refs.launcherGrid) {
+    initVanillaDragAndDrop({
+      gridContainer: refs.launcherGrid,
+      itemClass: 'launcher-item',
+      onReorder: (oldIndex, newIndex) => {
+        if (!refs.launcherGrid) return;
+        const items = Array.from(refs.launcherGrid.children).filter((el) =>
+          el.classList.contains('launcher-item') &&
+          !el.classList.contains('sortable-placeholder') &&
+          !el.classList.contains('fluent-drag-ghost')
+        ) as HTMLElement[];
+        
+        const dragged = items[oldIndex];
+        const target = items[newIndex];
+        
+        if (dragged && target) {
+          if (oldIndex < newIndex) {
+            target.after(dragged);
+          } else {
+            target.before(dragged);
+          }
+        }
+
+        const newItems = Array.from(refs.launcherGrid.children).filter((el) =>
+          el.classList.contains('launcher-item') &&
+          !el.classList.contains('sortable-placeholder') &&
+          !el.classList.contains('fluent-drag-ghost')
+        ) as HTMLElement[];
+        const newOrder = newItems.map((item) => item.getAttribute('data-id')).filter(Boolean) as string[];
+        localStorage.setItem('launcherOrder', JSON.stringify(newOrder));
+        newItems.forEach((item, idx) => item.setAttribute('data-index', idx.toString()));
+      },
+    });
+  }
+
   if (refs.versionDisplay) {
     try {
       const chromeApi = (window as any).chrome;

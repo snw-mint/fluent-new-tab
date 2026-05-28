@@ -39,13 +39,36 @@ export function renderLauncherApps(
 ): void {
   if (!data || !renderRefs.launcherGrid) return;
 
+  const orderString = localStorage.getItem('launcherOrder');
+  let orderedApps = [...data.apps];
+
+  if (orderString) {
+    try {
+      const orderIds = JSON.parse(orderString) as string[];
+      if (Array.isArray(orderIds)) {
+        const ordered = [];
+        const remaining = [...orderedApps];
+        for (const id of orderIds) {
+          const index = remaining.findIndex((a) => a.name === id);
+          if (index !== -1) {
+            ordered.push(remaining.splice(index, 1)[0]);
+          }
+        }
+        orderedApps = [...ordered, ...remaining];
+      }
+    } catch {}
+  }
+
   renderRefs.launcherGrid.innerHTML = '';
-  data.apps.forEach((app) => {
+  orderedApps.forEach((app, index) => {
     const link = document.createElement('a');
     link.href = app.url;
     link.className = 'launcher-item';
     link.title = app.name;
     link.setAttribute('aria-label', app.name);
+    link.setAttribute('data-id', app.name);
+    link.setAttribute('data-index', index.toString());
+    link.draggable = true;
 
     const img = document.createElement('img');
     img.src = app.icon;
