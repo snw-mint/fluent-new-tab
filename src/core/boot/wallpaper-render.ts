@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 export const WALLPAPER_DB_NAME = 'FluentNewTabDB';
 export const WALLPAPER_DB_VERSION = 1;
 export const WALLPAPER_STORE_NAME = 'wallpapers';

@@ -1,5 +1,5 @@
 import { performSearch } from '@/core/boot/search';
-import { HOST_PERMISSIONS, checkPermission } from '@/core/shared/permissions'; // <-- ADICIONE ESTA LINHA
+import { HOST_PERMISSIONS, checkPermission } from '@/core/shared/permissions';
 
 interface SearchSuggestionRefs {
   suggestionsContainer: HTMLDivElement | null;

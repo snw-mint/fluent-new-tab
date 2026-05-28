@@ -73,7 +73,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         fluent_city_lat: message.lat,
         fluent_city_lon: message.lon,
       });
-      // Calibrado para checar a cada 3 horas (180 min)
+
       chrome.alarms.create('weatherAlertsFetch', { periodInMinutes: 180 });
       fetchAndEvaluateAlerts(message.lat, message.lon);
     } else {

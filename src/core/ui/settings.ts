@@ -1,7 +1,7 @@
 import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
-// ui-components are imported dynamically when needed
+
 import {
   currentCityData,
   foldersEnabled,
@@ -864,7 +864,6 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
   }
 
   if (refs.wallpaperSourceSelect) {
-    // CORREÇÃO 1: Sincronizar o select com o tipo salvo em 'wallpaperType' no boot
     const savedType = localStorage.getItem('wallpaperType') || 'upload';
     refs.wallpaperSourceSelect.value = savedType;
 
@@ -1015,7 +1014,6 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
   }
 
   if (refs.overlaySlider) {
-    // CORREÇÃO 2: Inicializar o Slider com o valor salvo e aplicar progresso Fluent CSS
     const savedOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
     refs.overlaySlider.value = savedOverlay;
 
@@ -1226,7 +1224,7 @@ export function initGlobalUiSystem(
       (e) => {
         import('@/core/lazy/backup').then((m) => {
           m.initBackupSystem();
-          refs.exportBtn?.click(); // Click again to trigger the newly bound listener, or just call export directly if we export it
+          refs.exportBtn?.click();
         });
       },
       { once: true },

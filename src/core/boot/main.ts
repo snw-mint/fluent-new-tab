@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import * as state from '@/core/shared/state';
 import * as refs from '@/core/shared/dom-refs';
 import {
@@ -262,7 +270,6 @@ async function bootInteractive(): Promise<void> {
     },
   ] = await Promise.all([import('@/core/ui/settings')]);
 
-  // Shortcuts Drag & Drop is deferred until interacted with or 'Edit' is clicked
   if (refs.shortcutsGrid) {
     const initShortcutsDragLazy = () => {
       import('@/core/ui/drag-drop').then(({ initVanillaDragAndDrop }) => {
@@ -306,7 +313,6 @@ async function bootInteractive(): Promise<void> {
     });
   }
 
-  // Launcher Drag & Drop is deferred until Launcher is opened and drag begins
   if (refs.launcherGrid) {
     const initLauncherDragLazy = () => {
       import('@/core/ui/drag-drop').then(({ initVanillaDragAndDrop }) => {
@@ -695,8 +701,6 @@ async function bootInteractive(): Promise<void> {
     initWallpaperEngine();
   }
 
-  // Removed initShortcutsFormSystemLazy from here
-
   initGlobalUiSystem(saveAndRenderShortcuts, () => {
     if (refs.launcherPopup)
       refs.launcherPopup.classList.toggle(
@@ -704,8 +708,6 @@ async function bootInteractive(): Promise<void> {
         state.foldersEnabled,
       );
   });
-
-  // Removed eager backup import
 
   if (refs.themeBtns) {
     refs.themeBtns.forEach((btn) => {

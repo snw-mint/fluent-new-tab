@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import {
   updateOverlay,
   getWallpaperFromDB,
@@ -81,7 +89,7 @@ export class WallpaperEngine {
   ): void {
     const img = new Image();
     img.src = url;
-    
+
     img.onload = () => {
       const curtain = document.createElement('div');
       Object.assign(curtain.style, {
@@ -106,11 +114,11 @@ export class WallpaperEngine {
         () => {
           const oldTransition = document.body.style.transition;
           document.body.style.transition = 'none';
-          
+
           document.body.style.backgroundImage = `url('${url}')`;
           document.body.setAttribute('data-wallpaper-active', 'true');
           updateOverlay(config.overlay, config.enabled);
-          
+
           document.body.getBoundingClientRect();
           document.body.style.transition = oldTransition;
 
@@ -125,7 +133,7 @@ export class WallpaperEngine {
             once: true,
           });
         },
-        { once: true }
+        { once: true },
       );
     };
 

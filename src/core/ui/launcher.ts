@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import * as refs from '@/core/shared/dom-refs';
 import { foldersEnabled } from '@/core/shared/state';
 import { LauncherProviderData } from '@/core/shared/types';

@@ -162,10 +162,6 @@
   }
 }
 
-/* ─── Reduce Motion / Disable Animations ─────────────────────────────────── */
-/* Applied when the user enables "Reduce motion" in Accessibility settings.   */
-/* Suppresses all transitions and animations across the entire UI.             */
-
 html.animations-disabled {
   *,
   *::before,

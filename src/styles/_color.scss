@@ -12,7 +12,6 @@
   --accent-color: #0078d4;
 }
 
-/* Dark theme overrides */
 html[data-theme='dark'] {
   --bg-color: #{$color-dark-bg};
   --text-color: #{$color-accent-contrast};
@@ -198,7 +197,6 @@ html[data-theme='dark'] {
     }
   }
 
-  // Estilos comuns compartilhados por todos
   .settings-popup,
   .dropdown-menu,
   .launcher-popup {

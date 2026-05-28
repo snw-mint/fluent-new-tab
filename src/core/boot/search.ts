@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 export const SEARCH_URLS: Record<string, string> = {
   engine1: 'https://www.google.com/search?q=',
   google: 'https://www.google.com/search?q=',
@@ -75,7 +83,7 @@ export function initBasicSearchUI(
   voiceSearchBtn: HTMLElement | null,
   searchBarVisible: boolean,
   compactBarEnabled: boolean,
-  voiceSearchEnabled: boolean
+  voiceSearchEnabled: boolean,
 ): void {
   if (searchWrapper) {
     searchWrapper.style.display = searchBarVisible ? '' : 'none';

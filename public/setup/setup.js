@@ -307,7 +307,6 @@ function initLanguageSelect() {
   const saved = localStorage.getItem('userLanguage') || 'en_US';
   select.value = saved;
 
-  // Sincroniza o texto inicial do botão customizado com a opção salva
   const container = select.closest('.fluent-select-container');
   if (container) {
     const triggerValue = container.querySelector('.fluent-select-value');

@@ -194,7 +194,6 @@ export function initShortcutsFormSystem(
   }
 
   if (refs.shortcutForm) {
-    // Removemos ouvintes duplicados caso o módulo seja carregado mais de uma vez
     const form = refs.shortcutForm as HTMLFormElement;
     form.onsubmit = (e) => {
       e.preventDefault();

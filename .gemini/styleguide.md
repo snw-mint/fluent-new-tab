@@ -56,23 +56,20 @@ Provide direct, highly technical feedback. Point out exactly where the code viol
 ### ❌ BAD: Global State & Synchronous Heavy Imports
 
 ```typescript
-// Do not do this
 import { initHeavyFeature } from '../lazy/heavy-feature';
 
-window.appState.theme = 'dark'; // Global state modification
-initHeavyFeature(); // Blocking the main thread
+window.appState.theme = 'dark';
+initHeavyFeature();
 ```
 
 ### ✅ GOOD: Shared State & Lazy Loading
 
 ```typescript
-// Do this instead
 import { state } from '../shared/state';
 
-state.theme = 'dark'; // Proper state management
+state.theme = 'dark';
 
 document.getElementById('btn').addEventListener('click', async () => {
-  // Dynamically load feature only when needed
   const { initHeavyFeature } = await import('../lazy/heavy-feature');
   initHeavyFeature();
 });
@@ -81,7 +78,6 @@ document.getElementById('btn').addEventListener('click', async () => {
 ### ❌ BAD: Unsafe DOM Injection
 
 ```typescript
-// Do not do this
 const updateWeatherUI = (data: any) => {
   document.getElementById('weather').innerHTML =
     `<div class="temp">${data.temp}</div>`;
@@ -91,7 +87,6 @@ const updateWeatherUI = (data: any) => {
 ### ✅ GOOD: Vanilla typed DOM manipulation
 
 ```typescript
-// Do this instead
 import { domRefs } from '../shared/dom-refs';
 
 const updateWeatherUI = (data: WeatherApiResponse): void => {

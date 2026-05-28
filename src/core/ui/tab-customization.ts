@@ -11,7 +11,6 @@ export function initTabCustomization(): void {
     link.href = val;
   };
 
-  // Load and apply initial custom tab name
   const savedTabName = localStorage.getItem('tabName');
   if (savedTabName) {
     document.title = savedTabName;
@@ -20,8 +19,8 @@ export function initTabCustomization(): void {
     }
   }
 
-  // Load and apply initial custom favicon
-  const savedTabIcon = localStorage.getItem('tabFavicon') || localStorage.getItem('tabIcon');
+  const savedTabIcon =
+    localStorage.getItem('tabFavicon') || localStorage.getItem('tabIcon');
   if (savedTabIcon) {
     updateFavicon(savedTabIcon);
     if (refs.tabFaviconInput) {

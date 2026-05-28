@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 interface DragDropOptions {
   gridContainer: HTMLElement;
   itemClass?: string;
@@ -35,13 +43,13 @@ export function initVanillaDragAndDrop(options: DragDropOptions) {
 
 export function handleDragStart(event: DragEvent): void {
   const target = event.target as HTMLElement;
-  
+
   let currentGrid = target;
   while (currentGrid && !dragDropInstances.has(currentGrid)) {
     currentGrid = currentGrid.parentElement as HTMLElement;
   }
   if (!currentGrid) return;
-  
+
   activeDragOptions = dragDropInstances.get(currentGrid) || null;
   const itemClass = activeDragOptions?.itemClass || 'shortcut-item';
   const item = target.closest(`.${itemClass}`) as HTMLElement | null;
@@ -247,8 +255,8 @@ export function handleGlobalDragOver(event: DragEvent): void {
   ) as HTMLElement[];
 
   const now = Date.now();
-  if (now - lastSwapTime < 250) { 
-    return; 
+  if (now - lastSwapTime < 250) {
+    return;
   }
 
   let closestItem: HTMLElement | null = null;
@@ -259,10 +267,9 @@ export function handleGlobalDragOver(event: DragEvent): void {
     const elCenterX = rect.left + rect.width / 2;
     const elCenterY = rect.top + rect.height / 2;
     const dist = Math.hypot(centerX - elCenterX, centerY - elCenterY);
-    
-    // Aplica um limite estrito: o cursor deve estar mais fundo dentro da área do item vizinho
-    const threshold = Math.min(rect.width, rect.height) * 0.45; 
-    
+
+    const threshold = Math.min(rect.width, rect.height) * 0.45;
+
     if (dist < threshold && dist < minDistance) {
       minDistance = dist;
       closestItem = el;
@@ -390,11 +397,13 @@ export function handleGlobalDrop(event: DragEvent): void {
     const oldIndex = parseInt(draggedElement.dataset.index || '-1', 10);
 
     if (dropAction === 'out-of-folder' && oldIndex > -1) {
-      if (activeDragOptions.onMoveOutFolder) activeDragOptions.onMoveOutFolder(oldIndex);
+      if (activeDragOptions.onMoveOutFolder)
+        activeDragOptions.onMoveOutFolder(oldIndex);
     } else if (dropAction === 'folder' && currentDropTarget) {
       const folderId = currentDropTarget.dataset.id;
       if (folderId && oldIndex > -1) {
-        if (activeDragOptions.onMoveToFolder) activeDragOptions.onMoveToFolder(oldIndex, folderId);
+        if (activeDragOptions.onMoveToFolder)
+          activeDragOptions.onMoveToFolder(oldIndex, folderId);
       }
     } else if (
       dropAction === 'reorder' &&
