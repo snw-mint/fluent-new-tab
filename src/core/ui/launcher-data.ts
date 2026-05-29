@@ -106,6 +106,21 @@ export const launcherData: Record<string, LauncherProviderData> = {
         url: 'https://app.clipchamp.com/',
         icon: 'assets/apps/microsoft/clip.svg',
       },
+      {
+        name: 'Loop',
+        url: 'https://loop.microsoft.com',
+        icon: 'assets/apps/microsoft/loop.svg',
+      },
+      {
+        name: 'Designer',
+        url: 'https://designer.microsoft.com',
+        icon: 'assets/apps/microsoft/designer.svg',
+      },
+      {
+        name: 'To Do',
+        url: 'https://todo.microsoft.com',
+        icon: 'assets/apps/microsoft/todo.svg',
+      },
     ],
     allAppsLink: 'https://www.microsoft365.com/apps',
   },
@@ -155,6 +170,21 @@ export const launcherData: Record<string, LauncherProviderData> = {
         name: 'Music',
         url: 'https://music.youtube.com',
         icon: 'assets/apps/google/music.svg',
+      },
+      {
+        name: 'Chat',
+        url: 'https://chat.google.com',
+        icon: 'assets/apps/google/chat.svg',
+      },
+      {
+        name: 'Meet',
+        url: 'https://meet.google.com',
+        icon: 'assets/apps/google/meet.svg',
+      },
+      {
+        name: 'Tasks',
+        url: 'https://tasks.google.com',
+        icon: 'assets/apps/google/task.svg',
       },
     ],
     allAppsLink: 'https://about.google/products/#:~:text=google%20products',
