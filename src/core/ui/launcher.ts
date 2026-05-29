@@ -82,6 +82,7 @@ export function renderLauncherApps(
     img.src = app.icon;
     img.className = 'launcher-icon';
     img.alt = app.name;
+    img.draggable = false;
 
     link.appendChild(img);
     renderRefs.launcherGrid?.appendChild(link);

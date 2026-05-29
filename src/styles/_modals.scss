@@ -10,18 +10,6 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-@keyframes modal-zoom-out-in {
-  from {
-    opacity: 0;
-    transform: scale(1.08);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -40,7 +28,6 @@
     .modal-content {
       opacity: 1;
       transform: scale(1);
-      animation: modal-zoom-out-in 0.14s ease-out;
     }
   }
 
@@ -54,8 +41,8 @@
     max-width: calc(100vw - 1.8rem);
     box-shadow: $shadow-card-strong;
     opacity: 0;
-    transform: scale(1);
-    transition: opacity 0.16s ease;
+    transform: scale(0.92);
+    transition: opacity 0.16s cubic-bezier(0.1, 0.9, 0.2, 1), transform 0.16s cubic-bezier(0.1, 0.9, 0.2, 1);
 
     h3 {
       margin-bottom: 1.125rem;

@@ -215,6 +215,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         img.style.width = '1.575rem';
         img.style.height = '1.575rem';
         img.style.objectFit = 'contain';
+        img.draggable = false;
         card.insertBefore(img, menuWrapper);
       } else {
         card.insertAdjacentHTML('afterbegin', FOLDER_ICON_SVG);
@@ -224,6 +225,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       img.decoding = 'async';
       img.className = 'shortcut-icon';
       img.alt = itemData.name;
+      img.draggable = false;
 
       let targetIconSrc = itemData.customIcon;
 
