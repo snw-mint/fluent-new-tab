@@ -313,16 +313,7 @@
   }
 }
 
-.shortcut-item.sortable-placeholder {
-  background: rgba(128, 128, 128, 0.08);
-  border: 1.5px dashed rgba(128, 128, 128, 0.3);
-  border-radius: var(
-    --shortcut-custom-radius,
-    var(--shortcut-radius, $radius-xl)
-  );
-  pointer-events: none;
-  transition: background 0.2s ease;
-}
+
 
 .sortable-dragging {
   opacity: 0.9;

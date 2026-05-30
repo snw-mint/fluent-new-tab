@@ -106,11 +106,6 @@ html[data-theme='dark'] {
 
   .shortcuts-grid {
     .shortcut-item {
-      &.sortable-placeholder {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
       .menu-wrapper {
         .menu-btn {
           background: #2f2f2f;

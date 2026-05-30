@@ -19,7 +19,8 @@ const dragDropInstances = new Map<HTMLElement, DragDropOptions>();
 export let activeDragOptions: DragDropOptions | null = null;
 export let draggedElement: HTMLElement | null = null;
 export let ghostNode: HTMLElement | null = null;
-export let placeholder: HTMLElement | null = null;
+export let originalParent: Node | null = null;
+export let originalNextSibling: Node | null = null;
 export let currentDropTarget: HTMLElement | null = null;
 export let dropAction: 'reorder' | 'folder' | 'out-of-folder' = 'reorder';
 export let rAF_ID: number = 0;
@@ -91,22 +92,12 @@ export function handleDragStart(event: DragEvent): void {
   document.addEventListener('drop', handleGlobalDrop);
   document.addEventListener('dragend', handleGlobalDragEnd);
 
+  originalParent = item.parentNode;
+  originalNextSibling = item.nextSibling;
+
   setTimeout(() => {
     if (!draggedElement) return;
-    draggedElement.style.display = 'none';
-
-    if (!placeholder) {
-      const itemClass = activeDragOptions?.itemClass || 'shortcut-item';
-      placeholder = document.createElement('div');
-      placeholder.className = `${itemClass} sortable-placeholder`;
-      placeholder.style.width = `${rect.width}px`;
-      placeholder.style.height = `${rect.height}px`;
-    }
-
-    draggedElement.parentNode?.insertBefore(
-      placeholder,
-      draggedElement.nextSibling,
-    );
+    draggedElement.style.opacity = '0';
   }, 0);
 }
 
@@ -234,8 +225,8 @@ export function handleGlobalDragOver(event: DragEvent): void {
   if (isOutside) {
     dropAction = 'out-of-folder';
     currentDropTarget = null;
-    if (placeholder && placeholder.parentNode) {
-      placeholder.parentNode.removeChild(placeholder);
+    if (draggedElement) {
+      draggedElement.style.display = 'none';
     }
     document
       .querySelectorAll('.folder-drag-hover')
@@ -250,8 +241,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
       !el.classList.contains('add-card-wrapper') &&
       !el.classList.contains('folder-back-btn') &&
       el !== draggedElement &&
-      el !== ghostNode &&
-      el !== placeholder,
+      el !== ghostNode,
   ) as HTMLElement[];
 
   const now = Date.now();
@@ -297,8 +287,8 @@ export function handleGlobalDragOver(event: DragEvent): void {
       dropAction = 'folder';
       currentDropTarget = item;
       item.classList.add('folder-drag-hover');
-      if (placeholder && placeholder.parentNode) {
-        placeholder.parentNode.removeChild(placeholder);
+      if (draggedElement) {
+        draggedElement.style.display = 'none';
       }
       return;
     }
@@ -306,6 +296,9 @@ export function handleGlobalDragOver(event: DragEvent): void {
 
   dropAction = 'reorder';
   currentDropTarget = item;
+  if (draggedElement) {
+    draggedElement.style.display = '';
+  }
   document
     .querySelectorAll('.folder-drag-hover')
     .forEach((el) => el.classList.remove('folder-drag-hover'));
@@ -318,8 +311,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
       el.classList.contains(itemClass) &&
       !el.classList.contains('add-card-wrapper') &&
       !el.classList.contains('folder-back-btn') &&
-      el !== ghostNode &&
-      el !== placeholder,
+      el !== ghostNode,
   );
 
   const draggedIdx = allSortable.indexOf(draggedElement as HTMLElement);
@@ -335,35 +327,34 @@ export function handleGlobalDragOver(event: DragEvent): void {
   const referenceNode = isAfter ? item.nextSibling : item;
 
   if (
-    placeholder &&
-    placeholder.nextSibling !== referenceNode &&
-    placeholder !== referenceNode
+    draggedElement &&
+    draggedElement.nextSibling !== referenceNode &&
+    draggedElement !== referenceNode
   ) {
-    movePlaceholderWithAnimation(parent, referenceNode);
+    moveElementWithAnimation(parent, referenceNode);
     lastSwapTime = now;
   }
 }
 
-export function movePlaceholderWithAnimation(
+export function moveElementWithAnimation(
   parent: Node,
   referenceNode: Node | null,
 ): void {
-  if (!activeDragOptions || !placeholder) return;
+  if (!activeDragOptions || !draggedElement) return;
   const grid = activeDragOptions.gridContainer;
   const siblings = Array.from(grid.children) as HTMLElement[];
   const rects = new Map<HTMLElement, DOMRect>();
 
   siblings.forEach((el) => rects.set(el, el.getBoundingClientRect()));
 
-  parent.insertBefore(placeholder, referenceNode);
+  parent.insertBefore(draggedElement, referenceNode);
 
   siblings.forEach((el) => {
     const oldRect = rects.get(el);
     if (
       !oldRect ||
       el === ghostNode ||
-      el === draggedElement ||
-      el === placeholder
+      el === draggedElement
     )
       return;
 
@@ -407,8 +398,8 @@ export function handleGlobalDrop(event: DragEvent): void {
       }
     } else if (
       dropAction === 'reorder' &&
-      placeholder &&
-      placeholder.parentNode
+      draggedElement &&
+      draggedElement.parentNode
     ) {
       const grid = activeDragOptions.gridContainer;
 
@@ -421,14 +412,7 @@ export function handleGlobalDrop(event: DragEvent): void {
           el !== ghostNode,
       );
 
-      const pureIndex = allItems.indexOf(placeholder as HTMLElement);
-      let newIndex = pureIndex;
-
-      if (oldIndex > -1 && newIndex > -1) {
-        if (newIndex > oldIndex) {
-          newIndex--;
-        }
-      }
+      const newIndex = allItems.indexOf(draggedElement);
 
       if (newIndex > -1 && oldIndex > -1) {
         if (oldIndex !== newIndex) {
@@ -458,11 +442,12 @@ export function cleanupDrag(): void {
   if (ghostNode && ghostNode.parentNode) {
     ghostNode.parentNode.removeChild(ghostNode);
   }
-  if (placeholder && placeholder.parentNode) {
-    placeholder.parentNode.removeChild(placeholder);
-  }
   if (draggedElement) {
     draggedElement.style.display = '';
+    draggedElement.style.opacity = '';
+    if (originalParent) {
+      originalParent.insertBefore(draggedElement, originalNextSibling);
+    }
   }
 
   document
@@ -471,7 +456,8 @@ export function cleanupDrag(): void {
 
   ghostNode = null;
   draggedElement = null;
-  placeholder = null;
+  originalParent = null;
+  originalNextSibling = null;
   currentDropTarget = null;
   lastSwapTime = 0;
 }
