@@ -25,6 +25,7 @@ export let currentDropTarget: HTMLElement | null = null;
 export let dropAction: 'reorder' | 'folder' | 'out-of-folder' = 'reorder';
 export let rAF_ID: number = 0;
 export let lastSwapTime = 0;
+export let dragSuccessful = false;
 
 export let mouseX = 0;
 export let mouseY = 0;
@@ -94,6 +95,7 @@ export function handleDragStart(event: DragEvent): void {
 
   originalParent = item.parentNode;
   originalNextSibling = item.nextSibling;
+  dragSuccessful = false;
 
   setTimeout(() => {
     if (!draggedElement) return;
@@ -388,11 +390,13 @@ export function handleGlobalDrop(event: DragEvent): void {
     const oldIndex = parseInt(draggedElement.dataset.index || '-1', 10);
 
     if (dropAction === 'out-of-folder' && oldIndex > -1) {
+      dragSuccessful = true;
       if (activeDragOptions.onMoveOutFolder)
         activeDragOptions.onMoveOutFolder(oldIndex);
     } else if (dropAction === 'folder' && currentDropTarget) {
       const folderId = currentDropTarget.dataset.id;
       if (folderId && oldIndex > -1) {
+        dragSuccessful = true;
         if (activeDragOptions.onMoveToFolder)
           activeDragOptions.onMoveToFolder(oldIndex, folderId);
       }
@@ -415,6 +419,7 @@ export function handleGlobalDrop(event: DragEvent): void {
       const newIndex = allItems.indexOf(draggedElement);
 
       if (newIndex > -1 && oldIndex > -1) {
+        dragSuccessful = true;
         if (oldIndex !== newIndex) {
           activeDragOptions.onReorder(oldIndex, newIndex);
         }
@@ -445,7 +450,7 @@ export function cleanupDrag(): void {
   if (draggedElement) {
     draggedElement.style.display = '';
     draggedElement.style.opacity = '';
-    if (originalParent) {
+    if (!dragSuccessful && originalParent) {
       originalParent.insertBefore(draggedElement, originalNextSibling);
     }
   }

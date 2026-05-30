@@ -331,24 +331,6 @@ async function bootInteractive(): Promise<void> {
           itemClass: 'launcher-item',
           onReorder: (oldIndex, newIndex) => {
             if (!refs.launcherGrid) return;
-            const items = Array.from(refs.launcherGrid.children).filter(
-              (el) =>
-                el.classList.contains('launcher-item') &&
-                !el.classList.contains('sortable-placeholder') &&
-                !el.classList.contains('fluent-drag-ghost'),
-            ) as HTMLElement[];
-
-            const dragged = items[oldIndex];
-            const target = items[newIndex];
-
-            if (dragged && target) {
-              if (oldIndex < newIndex) {
-                target.after(dragged);
-              } else {
-                target.before(dragged);
-              }
-            }
-
             const newItems = Array.from(refs.launcherGrid.children).filter(
               (el) =>
                 el.classList.contains('launcher-item') &&
