@@ -112,7 +112,7 @@ function triggerShortcutsRender(): void {
 async function fetchWeatherLogic(forceUpdate = false): Promise<void> {
   if (!state.currentCityData) return;
 
-  const { fetchWeatherData, fetchCityData } =
+  const { fetchWeatherData, fetchCityData, renderWeatherAlertWidget } =
     await import('@/core/lazy/providers/weather-api');
   let city = state.currentCityData;
 
@@ -141,6 +141,7 @@ async function fetchWeatherLogic(forceUpdate = false): Promise<void> {
       weatherIcon: refs.weatherIcon,
       weatherWidget: refs.weatherWidget,
     });
+    renderWeatherAlertWidget();
   }
 }
 
@@ -163,6 +164,9 @@ async function initWeatherLogic(): Promise<void> {
             weatherIcon: refs.weatherIcon,
             weatherWidget: refs.weatherWidget,
           },
+        );
+        import('@/core/lazy/providers/weather-api').then((m) =>
+          m.renderWeatherAlertWidget(),
         );
         return;
       }
@@ -673,8 +677,7 @@ async function bootInteractive(): Promise<void> {
     setMainUiScale: state.setMainUiScale,
   });
 
-  const initWallpaperEngine = async () => {
-    const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+  const initWallpaperEngine = () => {
     bindWallpaperFeature(
       {
         getWallpaperEnabled: () => state.wallpaperEnabled,
@@ -704,7 +707,10 @@ async function bootInteractive(): Promise<void> {
         },
         getCurrentWallpaperType: () => state.currentWallpaperType,
       },
-      WallpaperEngine,
+      async () => {
+        const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+        return WallpaperEngine;
+      },
     );
   };
 

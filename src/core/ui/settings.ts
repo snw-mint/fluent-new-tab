@@ -720,8 +720,15 @@ export function bindLauncherFeature(options: any): void {
       options.renderLauncher(provider);
     });
 
-    if (options.getLauncherEnabled()) {
-      options.renderLauncher(options.getCurrentProvider());
+    if (options.getLauncherEnabled() && refs.appLauncherBtn) {
+      let isLauncherLoaded = false;
+      const loadLauncher = () => {
+        if (isLauncherLoaded) return;
+        isLauncherLoaded = true;
+        options.renderLauncher(options.getCurrentProvider());
+      };
+      refs.appLauncherBtn.addEventListener('pointerover', loadLauncher, { once: true });
+      refs.appLauncherBtn.addEventListener('click', loadLauncher, { once: true });
     }
   }
 }
@@ -838,7 +845,7 @@ export function bindMainUiScaleFeature(options: any): void {
   }
 }
 
-export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
+export function bindWallpaperFeature(options: any, getWallpaperEngine: () => Promise<any>): void {
   const autoColorBtn = document.querySelector(
     '.color-preset-btn.auto-preset',
   ) as HTMLButtonElement | null;
@@ -868,7 +875,8 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
           )?.click();
         }
       }
-      await WallpaperEngine.render({
+      const engine = await getWallpaperEngine();
+      await engine.render({
         enabled: isEnabled,
         source: localStorage.getItem('wallpaperSource') || 'local',
         type: localStorage.getItem('wallpaperType') || 'upload',
@@ -944,7 +952,8 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
               apiName,
               learnMore,
               async () => {
-                await WallpaperEngine.render({
+                const engine = await getWallpaperEngine();
+                await engine.render({
                   enabled: options.getWallpaperEnabled(),
                   source,
                   type,
@@ -964,7 +973,8 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
           },
         );
       } else {
-        await WallpaperEngine.render({
+        const engine = await getWallpaperEngine();
+        await engine.render({
           enabled: options.getWallpaperEnabled(),
           source,
           type,
@@ -995,7 +1005,8 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
         options.saveWallpaperConfig();
         localStorage.setItem('wallpaperSource', 'local');
         localStorage.setItem('wallpaperType', 'upload');
-        await WallpaperEngine.render({
+        const engine = await getWallpaperEngine();
+        await engine.render({
           enabled: options.getWallpaperEnabled(),
           source: 'local',
           type: 'upload',
@@ -1051,17 +1062,21 @@ export function bindWallpaperFeature(options: any, WallpaperEngine: any): void {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       updateSliderProg(target);
-      WallpaperEngine.updateOverlay(
-        parseFloat(target.value),
-        options.getWallpaperEnabled(),
-      );
+      getWallpaperEngine().then((engine) => {
+        engine.updateOverlay(
+          parseFloat(target.value),
+          options.getWallpaperEnabled(),
+        );
+      });
     });
 
     refs.overlaySlider.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
       const opacity = parseFloat(target.value);
-      WallpaperEngine.updateOverlay(opacity, options.getWallpaperEnabled());
+      getWallpaperEngine().then((engine) => {
+        engine.updateOverlay(opacity, options.getWallpaperEnabled());
+      });
       localStorage.setItem('wallpaperOverlay', String(opacity));
     });
   }

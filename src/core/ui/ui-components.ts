@@ -1,10 +1,5 @@
 import { getLocalizedWarningText } from '@/core/shared/dom-utils';
 import { shortcutsGrid } from '@/core/shared/dom-refs';
-import {
-  HOST_PERMISSIONS,
-  checkPermission,
-  requestPermission,
-} from '@/core/shared/permissions';
 
 export interface WarningModalOptions {
   title: string;
@@ -353,13 +348,15 @@ export function syncShortcutDropdownState(): void {
 }
 
 export async function requestFeaturePermissionUI(
-  feature: keyof typeof HOST_PERMISSIONS,
+  feature: string,
   apiName: string,
   learnMoreUrl: string,
   onGranted: () => void,
   onDenied: () => void,
 ): Promise<void> {
-  const origins = HOST_PERMISSIONS[feature];
+  const { HOST_PERMISSIONS, checkPermission, requestPermission } = await import('@/core/shared/permissions');
+  
+  const origins = HOST_PERMISSIONS[feature as keyof typeof HOST_PERMISSIONS];
   if (!origins) {
     onGranted();
     return;
