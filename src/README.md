@@ -55,6 +55,7 @@ Here is a high-level view of how our code is organized:
         │   ├── color-picker.ts
         │   ├── search-features.ts
         │   ├── wallpaper-engine.ts
+        │   ├── visual-search.ts
         │   ├── wallpaper-storage.ts
         │   └── providers/
         │       ├── wallpaper-apis.ts
