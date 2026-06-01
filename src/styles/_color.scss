@@ -50,7 +50,6 @@ html[data-theme='dark'] {
   .greeting-icon.outline {
     filter: invert(1);
   }
-
 }
 
 body[data-wallpaper-active='true'] {
@@ -63,8 +62,8 @@ body[data-wallpaper-active='true'] {
   .weather-widget,
   .launcher-btn svg path,
   .shortcut-title {
-    color: #ffffff !important;
-    fill: #ffffff !important;
+    color: var(--accent-contrast-color) !important;
+    fill: var(--accent-contrast-color) !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 

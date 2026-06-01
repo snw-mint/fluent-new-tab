@@ -169,7 +169,7 @@
       width: 2.7rem;
       height: 2.7rem;
       border: 1px solid transparent;
-      border-radius: 0.45rem;
+      border-radius: var(--radius-md);
       @include flex-center;
       transition:
         background 0.2s ease,

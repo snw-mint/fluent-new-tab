@@ -305,9 +305,7 @@ export function bindAccentColorFeature(options: any): void {
 }
 
 export function bindSurfaceTintFeature(): void {
-  const toggleSurfaceTint = document.getElementById(
-    'toggleSurfaceTint',
-  ) as HTMLInputElement | null;
+  const toggleSurfaceTint = refs.toggleSurfaceTint as HTMLInputElement | null;
 
   if (!toggleSurfaceTint) return;
 

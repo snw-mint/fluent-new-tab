@@ -330,7 +330,7 @@
 
 .theme-selector {
   display: flex;
-  border-radius: 0.7875rem;
+  border-radius: var(--radius-xl);
   gap: 0.225rem;
 
   .theme-btn {
@@ -338,7 +338,7 @@
     flex: 1;
     border: none;
     background: transparent;
-    border-radius: 0.45rem;
+    border-radius: var(--radius-md);
     cursor: pointer;
     padding: 0.3375rem;
     @include flex-center;
@@ -532,7 +532,7 @@
     @include button-reset;
     width: 1.44rem;
     height: 1.44rem;
-    border-radius: 0.3375rem;
+    border-radius: var(--radius-sm);
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     cursor: pointer;
@@ -883,7 +883,7 @@ body:not([data-wallpaper-active='true']) {
   gap: 0.625rem;
   background-color: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0.45rem;
+  border-radius: var(--radius-md);
   padding: 0.2rem;
 
   text-decoration: none !important;
