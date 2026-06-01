@@ -6,16 +6,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
 @use './mixins' as *;
 
 .setting-group {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.04);
-  border-radius: $radius-md;
+  background-color: var(--hover-overlay);
+  border-radius: var(--radius-md);
   padding: 0.675rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-subtle);
   margin-bottom: 0.675rem;
 
   > *:not(:first-child) {
@@ -101,7 +100,7 @@
   @include flex-center(0.5625rem);
   color: var(--text-color);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: var(--font-size-base);
   align-items: center;
   justify-content: flex-start;
 
@@ -115,7 +114,7 @@
 
 .setting-label-small {
   display: block;
-  font-size: 0.675rem;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--text-color);
   opacity: 0.75;
@@ -126,15 +125,15 @@
   width: 100%;
   height: 1.8rem;
   padding: 0.3375rem 1.6875rem 0.3375rem 0.5625rem;
-  border-radius: $radius-sm;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  background-color: $color-bg-input;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
-  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M4.22%208.47a.75.75%200%200%201%201.06%200L12%2015.19l6.72-6.72a.75.75%200%201%201%201.06%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L4.22%209.53a.75.75%200%200%201%200-1.06%22%20fill%3D%22%23212121%22%2F%3E%3C%2Fsvg%3E');
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface-input);
+  box-shadow: var(--shadow-input);
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23888%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: right 0.50625rem center;
   background-size: 0.7875rem 0.7875rem;
-  font-size: 0.73125rem;
+  font-size: var(--font-size-sm);
   color: var(--text-color);
   outline: none;
   cursor: pointer;
@@ -144,7 +143,7 @@
   transition: box-shadow 0.2s ease;
 
   &:hover {
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+    box-shadow: var(--shadow-input-hover);
   }
 
   &:focus-visible {
@@ -168,10 +167,11 @@
   gap: 0.45rem;
   transform-origin: top right;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-  @include card-radius($radius-md);
-  background-color: #ffffff;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
+  @include card-radius(var(--radius-md));
+  background-color: var(--surface-base);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-color);
+  box-shadow: var(--shadow-lg);
 
   display: none;
 
@@ -198,7 +198,7 @@
     }
 
     &.favicon-link {
-      color: $color-link;
+      color: #08538c;
       opacity: 1;
 
       &:hover {
@@ -209,7 +209,7 @@
 
   &-title {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: var(--font-size-base);
     font-weight: 600;
     margin: 0.225rem 0 0.28125rem;
     color: var(--text-color);
@@ -256,21 +256,21 @@
     width: 100%;
     padding: 0.45rem 0.5625rem;
     height: 1.8rem;
-    border-radius: $radius-sm;
-    border: 1px solid rgba(0, 0, 0, 0.16);
-    background: $color-bg-input;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-base);
     color: var(--text-color);
-    font-size: 0.73125rem;
+    font-size: var(--font-size-sm);
     outline: none;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: var(--shadow-input);
     transition: box-shadow 0.2s ease;
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.45);
+      color: var(--text-disabled);
     }
 
     &:hover {
-      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+      box-shadow: var(--shadow-input-hover);
     }
 
     &:focus-visible {
@@ -290,7 +290,7 @@
     padding: 0;
     background: transparent;
     border: none;
-    border-radius: calc(#{$radius-sm} - 1px);
+    border-radius: calc(0.3375rem - 1px);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -300,12 +300,12 @@
     transition: all 0.2s ease;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.06);
+      background: var(--hover-overlay-active);
       opacity: 1;
     }
 
     &:active {
-      background: rgba(0, 0, 0, 0.1);
+      background: var(--border-base);
     }
   }
 }
@@ -330,7 +330,7 @@
 
 .theme-selector {
   display: flex;
-  border-radius: $radius-xl;
+  border-radius: var(--radius-xl);
   gap: 0.225rem;
 
   .theme-btn {
@@ -338,7 +338,7 @@
     flex: 1;
     border: none;
     background: transparent;
-    border-radius: $radius-md;
+    border-radius: var(--radius-md);
     cursor: pointer;
     padding: 0.3375rem;
     @include flex-center;
@@ -352,13 +352,12 @@
     }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--hover-overlay);
     }
 
     &.active {
       background: var(--accent-color);
-      color: #ffffff;
-      box-shadow: 0 0.1125rem 0.3375rem rgba(0, 0, 0, 0.1);
+      color: var(--accent-contrast-color);
 
       .icon-outline {
         display: none;
@@ -421,7 +420,7 @@
       top: 50%;
       transform: translateY(-50%) scale(1);
       background-color: #616161;
-      border-radius: $radius-round;
+      border-radius: 50%;
       transition:
         left 250ms cubic-bezier(0.8, 0, 0.2, 1),
         transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -431,7 +430,7 @@
 
   &:hover {
     .slider {
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: var(--hover-overlay);
       border-color: #616161;
 
       &:before {
@@ -463,9 +462,9 @@
     width: 0.73125rem;
     height: 0.73125rem;
     border-radius: 0.1125rem;
-    border: 1px solid rgba(0, 0, 0, 0.28);
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-base);
+    box-shadow: inset 0 0 0 1px var(--surface-base);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -482,9 +481,9 @@
       transition:
         opacity 120ms ease,
         transform 160ms ease;
-      path {
-        fill: var(--accent-contrast-color);
-      }
+      stroke: var(--accent-contrast-color);
+      stroke-width: 2.5;
+      fill: none;
     }
   }
 
@@ -533,7 +532,7 @@
     @include button-reset;
     width: 1.44rem;
     height: 1.44rem;
-    border-radius: $radius-sm;
+    border-radius: var(--radius-sm);
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     cursor: pointer;
@@ -561,7 +560,7 @@
     }
 
     &.selected {
-      border: 0.1125rem solid var(--search-bg);
+      border: 0.1125rem solid var(--surface-base);
       box-shadow:
         0 0 0 0.1125rem var(--accent-color),
         0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.2);
@@ -635,7 +634,7 @@
     opacity: 0.78;
     transition: opacity 0.2s ease;
     font-weight: 600;
-    font-size: 0.585rem;
+    font-size: var(--font-size-xs);
     margin-bottom: 0.18rem;
 
     &:hover {
@@ -713,12 +712,12 @@
     gap: 0.3375rem;
     padding: 0.5625rem 0.3375rem;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: $radius-sm;
+    border: 1px solid var(--border-base);
+    background: var(--hover-overlay);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     color: var(--text-color);
-    font-size: clamp(0.6rem, 1.8vw, 0.73125rem);
+    font-size: clamp(var(--font-size-xs), 1.8vw, var(--font-size-sm));
     font-weight: 500;
     font-family: inherit;
     line-height: 1.3;
@@ -790,7 +789,8 @@ input[type='range'].fluent-slider {
   appearance: none;
   width: 100%;
   height: 0.25rem;
-  border-radius: 50rem;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
   --thumb-width: 1.125rem;
   --thumb-half: calc(var(--thumb-width) / 2);
   --fill-position: calc(
@@ -801,7 +801,7 @@ input[type='range'].fluent-slider {
   background: linear-gradient(
     to right,
     var(--accent-color) var(--fill-position),
-    var(--search-bg) var(--fill-position)
+    var(--border-strong) var(--fill-position)
   );
 
   outline: none;
@@ -815,7 +815,7 @@ input[type='range'].fluent-slider::-webkit-slider-thumb {
   height: 1.2rem;
   border-radius: 50%;
   background: var(--accent-color);
-  border: 0.3rem solid #ffffff;
+  border: 0.3rem solid var(--surface-base);
   box-shadow: 0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition:
@@ -837,7 +837,7 @@ input[type='range'].fluent-slider::-moz-range-thumb {
   height: 1.25rem;
   border-radius: 50%;
   background: var(--accent-color);
-  border: 0.35rem solid #ffffff;
+  border: 0.35rem solid var(--surface-base);
   box-shadow: 0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition:
@@ -883,7 +883,7 @@ body:not([data-wallpaper-active='true']) {
   gap: 0.625rem;
   background-color: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: $radius-md;
+  border-radius: var(--radius-md);
   padding: 0.2rem;
 
   text-decoration: none !important;
@@ -906,7 +906,7 @@ body:not([data-wallpaper-active='true']) {
 
   .bmc-text {
     flex: 1;
-    font-size: 0.7875rem;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     margin-left: -0.54rem;
   }
@@ -955,7 +955,7 @@ body:not([data-wallpaper-active='true']) {
       background: transparent;
       border: none;
       box-shadow: none;
-      font-size: 0.9rem;
+      font-size: var(--font-size-base);
       font-weight: 500;
     }
 
@@ -972,23 +972,23 @@ body:not([data-wallpaper-active='true']) {
   width: 100%;
   height: 1.8rem;
   padding: 0.45rem 0.5625rem;
-  background: $color-bg-input;
+  background: var(--surface-base);
   color: var(--text-color);
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: $radius-sm;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
   font-family: inherit;
-  font-size: 0.73125rem;
+  font-size: var(--font-size-sm);
   text-align: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   outline: none;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-input);
   transition: box-shadow 0.2s ease;
 
   &:hover {
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+    box-shadow: var(--shadow-input-hover);
   }
 
   &:focus-visible,
@@ -1016,13 +1016,13 @@ body:not([data-wallpaper-active='true']) {
 .fluent-select-popup {
   position: absolute;
   z-index: 9999;
-  background: var(--search-bg, #ffffff);
+  background: var(--surface-base);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: $radius-md;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   display: none;
   overflow: hidden;
   box-sizing: border-box;
@@ -1046,10 +1046,10 @@ body:not([data-wallpaper-active='true']) {
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 1.125rem;
+    background-color: var(--border-base);
+    border-radius: var(--radius-pill);
     &:hover {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: var(--border-strong);
     }
   }
 }
@@ -1062,14 +1062,14 @@ body:not([data-wallpaper-active='true']) {
   align-items: center;
   color: var(--text-color);
   font-family: inherit;
-  font-size: 0.73125rem;
+  font-size: var(--font-size-sm);
   cursor: pointer;
   user-select: none;
   background: transparent;
-  border-radius: $radius-sm;
+  border-radius: var(--radius-sm);
 
   &:hover {
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--hover-overlay);
   }
 
   &::before {
@@ -1079,7 +1079,7 @@ body:not([data-wallpaper-active='true']) {
     top: 50%;
     width: 0.15rem;
     height: 50%;
-    border-radius: 2rem;
+    border-radius: var(--radius-pill);
     background-color: var(--accent-color);
     transform: translateY(-50%) scaleY(0);
     transition: transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);

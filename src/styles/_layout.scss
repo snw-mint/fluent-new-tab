@@ -6,7 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
 @use './mixins' as *;
 
 .container {
@@ -32,21 +31,21 @@
 }
 
 .greeting-text {
-  font-size: 2.25rem;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--text-color);
   margin: 0;
 }
 
 .time-date-text {
-  font-size: 4.5rem;
+  font-size: var(--font-size-xxl);
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--text-color);
 
   .time-date-sub {
     display: block;
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
     font-weight: 400;
     opacity: 0.7;
     margin-top: 0.45rem;
@@ -84,7 +83,7 @@
 .translate-link {
   display: block;
   margin: 0.28125rem 0 0.1125rem;
-  font-size: 0.61875rem;
+  font-size: var(--font-size-xs);
   color: var(--text-color);
   opacity: 0.7;
   text-decoration: none;

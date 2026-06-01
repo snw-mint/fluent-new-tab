@@ -6,68 +6,74 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-$font-body:
-  'Segoe UI',
-  'Segoe UI Web (West European)',
-  -apple-system,
-  BlinkMacSystemFont,
-  Roboto,
-  'Helvetica Neue',
-  sans-serif;
-
-$color-bg: #f9f9f9;
-$color-text: #242424;
-$color-surface: #ffffff;
-$color-surface-muted: rgb(251, 251, 251);
-$color-glass-bg: rgba(255, 255, 255, 0.9);
-$color-glass-border: rgba(224, 224, 224, 0.5);
-$color-glass-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.2);
-$color-border-subtle: rgba(0, 0, 0, 0.05);
-$color-border-strong: rgba(0, 0, 0, 0.12);
-$color-overlay-weak: rgba(0, 0, 0, 0.05);
-$color-overlay-strong: rgba(0, 0, 0, 0.08);
-$color-link: #08538c;
-$color-accent: var(--accent-color);
-$color-accent-contrast: #ffffff;
-$color-accent-warn: #ff4d4f;
-$color-accent-alert: #ff3b3b;
-$color-bg-input: rgba(255, 255, 255, 0.92);
-$color-bg-modal-footer: #f3f3f3;
-$color-dark-bg: #202020;
-$color-dark-surface: #3b3b3b;
-$color-dark-card: #333333;
-$color-dark-border: rgba(255, 255, 255, 0.08);
-$color-dark-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.5);
-$color-dark-bg-modal: #2b2b2b;
-$color-dark-bg-input: rgba(255, 255, 255, 0.08);
-$radius-xs: 0.225rem;
-$radius-sm: 0.3375rem;
-$radius-md: 0.45rem;
-$radius-lg: 0.5625rem;
-$radius-xl: 0.7875rem;
-$radius-xxl: 1.2375rem;
-$radius-pill: 99rem;
-$radius-round: 50%;
-$shadow-soft: 0 0.225rem 0.675rem rgba(0, 0, 0, 0.08);
-$shadow-hover: 0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
-$shadow-card-strong: 0 1.125rem 3.375rem rgba(0, 0, 0, 0.2);
-
 :root {
-  --bg-color: #{$color-bg};
-  --text-color: #{$color-text};
-  --search-bg: #{$color-surface};
-  --shadow-soft: #{$shadow-soft};
-  --shadow-hover: #{$shadow-hover};
-  --border-color: #{$color-border-subtle};
-  --border-radius: #{$radius-md};
+  /* ---------- Typography (Font Sizes) ---------- */
+  --font-size-xs: 0.675rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 2.25rem;
+  --font-size-xxl: 4.5rem;
+
+  /* ---------- Border Radius ---------- */
+  --radius-sm: 0.3375rem;
+  --radius-md: 0.45rem;
+  --radius-lg: 0.5625rem;
+  --radius-xl: 0.7875rem;
+  --radius-xxl: 1.2375rem;
+  --radius-pill: 99rem;
+  --radius-circle: 50%;
+
+  /* ---------- Colors (Light Theme Defaults) ---------- */
+  /* Surfaces */
+  --bg-color: #f9f9f9;
+  --surface-base: #ffffff;
+  --surface-muted: #fbfbfb;
+  --surface-dim: #f3f3f3;
+
+  /* Borders */
+  --search-border: #ebebeb;
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-base: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.16);
+
+  /* Text */
+  --text-color: #242424;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.45);
+
+  /* Overlays */
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --hover-overlay-strong: rgba(0, 0, 0, 0.08);
+  --hover-overlay-active: rgba(0, 0, 0, 0.06);
+
+  /* Accents */
   --accent-color: #0078d4;
+  --accent-contrast-color: #ffffff;
+  --color-danger: #ff4d4f;
+  --color-danger-dark: #9f213a;
+
+  /* Legacy variables from original */
+  --border-color: var(--border-subtle);
+  --border-radius: var(--radius-md);
   --surface-solid-primary: #ffffff;
   --surface-solid-secondary: #fbfbfb;
   --surface-blur-base: rgba(255, 255, 255, 0.9);
   --surface-blur-tint: rgba(255, 255, 255, 0);
-  --hover-overlay: rgba(0, 0, 0, 0.04);
-  --hover-overlay-strong: rgba(0, 0, 0, 0.08);
-  --hover-overlay-active: rgba(0, 0, 0, 0.06);
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 0.1125rem 0.3375rem rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 0.225rem 0.675rem rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 1.125rem 3.375rem rgba(0, 0, 0, 0.2);
+  --shadow-input: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  --shadow-input-hover: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+
+  /* Legacy shadow aliases */
+  --shadow-soft: var(--shadow-md);
+  --shadow-hover: 0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
+
+  /* ---------- Scale ---------- */
   --display-scale: 1;
   --main-ui-scale: 1;
 }

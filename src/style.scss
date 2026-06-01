@@ -20,5 +20,6 @@
 @use 'styles/launcher' as *;
 @use 'styles/animations' as *;
 @use 'styles/wallpaper-credits' as *;
-
-
+@use 'styles/variables';
+@use 'styles/color';
+@use 'styles/surface-tint';

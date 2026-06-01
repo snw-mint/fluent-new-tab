@@ -28,7 +28,8 @@ Here is a high-level view of how our code is organized:
     │   ├── _shortcuts.scss
     │   ├── _variables.scss
     │   ├── _wallpaper-credits.scss
-    │   └── _widgets.scss
+    │   ├── _widgets.scss
+    │   └── _surface-tint.scss
     └── core/
         ├── ui/
         │   ├── drag-drop.ts

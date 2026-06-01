@@ -6,7 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
 @use './mixins' as *;
 
 .wallpaper-credits {
@@ -17,9 +16,9 @@
   padding: 0.3125rem 0.625rem;
   background-color: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: $radius-xl;
+  border-radius: var(--radius-xl);
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.625rem;
+  font-size: var(--font-size-xs);
   font-weight: 400;
   z-index: 100;
   pointer-events: none;

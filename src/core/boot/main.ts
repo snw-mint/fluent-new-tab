@@ -277,6 +277,7 @@ async function bootInteractive(): Promise<void> {
       bindShortcutRadiusFeature,
       bindLauncherFeature,
       bindReduceEffectsFeature,
+      bindSurfaceTintFeature,
     },
   ] = await Promise.all([import('@/core/ui/settings')]);
 
@@ -439,6 +440,7 @@ async function bootInteractive(): Promise<void> {
 
   updateLauncherVisibility(state.launcherEnabled, false);
   bindReduceEffectsFeature();
+  bindSurfaceTintFeature();
 
   bindAccentColorFeature({
     applyInitialAccentState: () => {
@@ -690,7 +692,8 @@ async function bootInteractive(): Promise<void> {
         getCurrentWallpaperType: () => state.currentWallpaperType,
       },
       async () => {
-        const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+        const { WallpaperEngine } =
+          await import('@/core/lazy/wallpaper-engine');
         return WallpaperEngine;
       },
     );

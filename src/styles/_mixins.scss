@@ -6,28 +6,16 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
-
 @mixin flex-center($gap: 0) {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: $gap;
 }
 
-@mixin glass-panel(
-  $bg: $color-glass-bg,
-  $border: $color-glass-border,
-  $shadow: $color-glass-shadow
-) {
-  background: $bg;
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(30px) saturate(100%);
-  border: 1px solid $border;
-  box-shadow: $shadow;
-}
 
-@mixin card-radius($radius: $radius-md) {
+
+@mixin card-radius($radius: var(--radius-md)) {
   border-radius: $radius;
 }
 
@@ -40,9 +28,9 @@
   cursor: pointer;
 }
 
-@mixin hover-surface($color: $color-overlay-weak) {
+@mixin hover-surface($color: var(--hover-overlay)) {
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
     color 0.2s ease;
 
   &:hover {
@@ -50,10 +38,23 @@
   }
 }
 
-@mixin shadow-soft {
-  box-shadow: $shadow-soft;
-}
+@mixin btn-base {
+  @include flex-center(0.45rem);
+  padding: 0.45rem 0.9rem;
+  border: none;
+  background-color: var(--hover-overlay);
+  color: var(--text-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease;
 
-@mixin shadow-hover {
-  box-shadow: $shadow-hover;
+  &:hover {
+    background-color: var(--hover-overlay-strong);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
