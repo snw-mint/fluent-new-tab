@@ -6,8 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
-
 html {
   font-size: 100%;
 }
@@ -19,7 +17,14 @@ html {
 }
 
 body {
-  font-family: $font-body;
+  font-family:
+    'Segoe UI',
+    'Segoe UI Web (West European)',
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -99,7 +104,7 @@ html[data-early-wallpaper='true'] body {
 .btn-save,
 .btn-cancel,
 #warning-modal-message {
-  font-size: 0.9rem !important;
+  font-size: var(--font-size-base) !important;
 }
 
 .ask-ai-btn svg {
@@ -108,11 +113,11 @@ html[data-early-wallpaper='true'] body {
 }
 
 .modal-content .input-group label {
-  font-size: 0.7875rem !important;
+  font-size: var(--font-size-sm) !important;
 }
 
 .child-setting label {
-  font-size: 0.7875rem !important;
+  font-size: var(--font-size-sm) !important;
 }
 
 .search-btn svg,

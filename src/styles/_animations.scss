@@ -6,8 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -83,17 +81,17 @@
 @keyframes pulse-red {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba($color-accent-warn, 0.7);
+    box-shadow: 0 0 0 0 rgba(#ff4d4f, 0.7);
   }
 
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 6px rgba($color-accent-warn, 0);
+    box-shadow: 0 0 0 6px rgba(#ff4d4f, 0);
   }
 
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba($color-accent-warn, 0);
+    box-shadow: 0 0 0 0 rgba(#ff4d4f, 0);
   }
 }
 

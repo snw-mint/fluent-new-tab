@@ -6,7 +6,6 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
 @use './mixins' as *;
 
 .left-controls {
@@ -20,13 +19,13 @@
     width: 2.7rem;
     height: 2.7rem;
     border: 1px solid transparent;
-    border-radius: $radius-lg;
+    border-radius: var(--radius-lg);
     @include flex-center;
     transition: background 0.1s ease;
 
     &:hover,
     &.active {
-      background-color: $color-overlay-weak;
+      background-color: var(--hover-overlay);
     }
 
     svg {
@@ -52,10 +51,10 @@
   transform-origin: top left;
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
   z-index: 1000;
-  background-color: #ffffff;
+  background-color: var(--surface-base);
   border: 1px solid var(--border-color);
   box-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.15);
-  @include card-radius($radius-md);
+  @include card-radius(var(--radius-md));
   max-height: none;
 
   &.active {
@@ -63,7 +62,7 @@
   }
 
   .launcher-title {
-    font-size: 0.9rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
     color: var(--text-color);
     flex-shrink: 0;
@@ -88,7 +87,7 @@
     }
     &::-webkit-scrollbar-thumb {
       background: var(--border-color);
-      border-radius: $radius-sm;
+      border-radius: var(--radius-sm);
     }
     &::-webkit-scrollbar-thumb:hover {
       background: var(--text-color);
@@ -105,7 +104,7 @@
     text-decoration: none;
     width: 4.5rem;
     height: 4.5rem;
-    border-radius: $radius-lg;
+    border-radius: 0.5625rem;
     position: relative;
     transition: background-color 0.1s linear;
 
@@ -126,14 +125,14 @@
     justify-content: center;
     margin-top: 0.225rem;
     padding: 0.45rem 0 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid var(--border-base);
 
     .launcher-all-link {
-      font-size: 0.675rem;
+      font-size: var(--font-size-xs);
       color: var(--text-color);
       text-decoration: underline;
       padding: 0.225rem 0.5625rem;
-      border-radius: $radius-sm;
+      border-radius: var(--radius-sm);
       font-weight: 500;
       transition: all 0.2s ease;
       position: relative;

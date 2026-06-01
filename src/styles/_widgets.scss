@@ -6,16 +6,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-@use './variables' as *;
 @use './mixins' as *;
 
 .weather-widget {
   @include flex-center(0.5625rem);
   text-decoration: none;
   color: var(--text-color);
-  font-size: 0.84375rem;
+  font-size: var(--font-size-base);
   padding: 0.3375rem 0.7875rem;
-  border-radius: $radius-sm;
+  border-radius: var(--radius-sm);
   transition:
     background 0.2s ease,
     transform 0.2s ease;
@@ -24,7 +23,7 @@
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: var(--hover-overlay-strong);
 
     .fluent-icon {
       transform: translateY(-0.1125rem) scale(1.1);
@@ -69,16 +68,16 @@
   .unit-btn {
     flex: 1;
     padding: 0.45rem;
-    background-color: $color-overlay-weak;
+    background-color: var(--hover-overlay);
     border: 1px solid transparent;
-    border-radius: $radius-md;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-size: 0.73125rem;
+    font-size: var(--font-size-sm);
     font-weight: 500;
     color: var(--text-color);
     transition: all 0.2s ease;
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: var(--hover-overlay-strong);
     }
     &.active {
       background-color: var(--accent-color);
@@ -109,7 +108,7 @@
   margin: 0px auto;
   gap: 0.45rem;
   background: var(--card-bg, rgba(228, 228, 228, 0.8));
-  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  border: 1px solid var(--border-color, var(--border-base));
   border-radius: 8px;
   animation: 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards running
     fadeInUp;
@@ -124,7 +123,7 @@
 }
 
 .weather-alert-text {
-  font-size: 0.7rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--text-color, #212121);
   line-height: 1.3;
