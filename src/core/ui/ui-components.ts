@@ -98,6 +98,17 @@ export const warningModal = new WarningModalManager();
 
 export let activeToastInstance: HTMLElement | null = null;
 
+export function hideToast(): void {
+  if (activeToastInstance) {
+    const notice = activeToastInstance;
+    notice.classList.remove('visible');
+    window.setTimeout(() => {
+      if (notice.parentNode) notice.remove();
+    }, 250);
+    activeToastInstance = null;
+  }
+}
+
 export function showToast(
   message: string | Node | (string | Node)[],
   iconPath: string,
@@ -131,15 +142,13 @@ export function showToast(
 
   requestAnimationFrame(() => notice.classList.add('visible'));
 
-  window.setTimeout(() => {
-    if (activeToastInstance === notice) {
-      notice.classList.remove('visible');
-      window.setTimeout(() => {
-        if (notice.parentNode) notice.remove();
-      }, 250);
-      activeToastInstance = null;
-    }
-  }, duration);
+  if (duration > 0) {
+    window.setTimeout(() => {
+      if (activeToastInstance === notice) {
+        hideToast();
+      }
+    }, duration);
+  }
 }
 
 export function applyMagneticSnap(

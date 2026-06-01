@@ -12,7 +12,7 @@ import {
   clearWallpaper,
 } from '@/core/boot/wallpaper-render';
 import { fetchDailyWallpaper } from '@/core/lazy/providers/wallpaper-apis';
-import { showToast } from '@/core/ui/ui-components';
+import { showToast, hideToast } from '@/core/ui/ui-components';
 
 export interface WallpaperConfig {
   enabled: boolean;
@@ -67,7 +67,7 @@ export class WallpaperEngine {
           } else {
             msg = msg.replace(/\$SOURCE\$/g, sourceName);
           }
-          showToast(msg, '/assets/search-engines/system.svg');
+          showToast(msg, '/assets/search-engines/system.svg', 0);
         }
 
         targetUrl = await fetchDailyWallpaper(config.type as any);
@@ -119,6 +119,8 @@ export class WallpaperEngine {
           document.body.setAttribute('data-wallpaper-active', 'true');
           updateOverlay(config.overlay, config.enabled);
 
+          hideToast();
+
           document.body.getBoundingClientRect();
           document.body.style.transition = oldTransition;
 
@@ -138,6 +140,7 @@ export class WallpaperEngine {
     };
 
     img.onerror = () => {
+      hideToast();
       clearWallpaper();
       this.hideCredits();
     };
