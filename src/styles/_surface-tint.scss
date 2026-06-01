@@ -1,9 +1,10 @@
 html[data-surface-tint='true'] {
-  --surface-base: color-mix(in srgb, var(--accent-color) 6%, #ffffff);
-  --surface-muted: color-mix(in srgb, var(--accent-color) 8%, #fbfbfb);
-  --surface-dim: color-mix(in srgb, var(--accent-color) 10%, #f3f3f3);
+  --surface-base: color-mix(in srgb, var(--accent-color) 12%, #ffffff);
+  --surface-muted: color-mix(in srgb, var(--accent-color) 15%, #fbfbfb);
+  --surface-dim: color-mix(in srgb, var(--accent-color) 18%, #f3f3f3);
   --border-subtle: rgba(0, 0, 0, 0.04);
   --border-base: rgba(0, 0, 0, 0.08);
+
   --hover-overlay: rgba(0, 0, 0, 0.04);
   --hover-overlay-strong: rgba(0, 0, 0, 0.07);
   --hover-overlay-active: rgba(0, 0, 0, 0.05);
