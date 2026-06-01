@@ -129,7 +129,8 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   shortcutsGrid.textContent = '';
   const fragment = document.createDocumentFragment();
   const COLUMNS = 10;
-  const currentRows = parseInt(localStorage.getItem('shortcutsRows') || '2', 10) || 2;
+  const currentRows =
+    parseInt(localStorage.getItem('shortcutsRows') || '2', 10) || 2;
   const maxSlots = currentRows * COLUMNS;
   let activeArray: Shortcut[] = shortcuts;
   let isInsideFolder = false;
@@ -304,7 +305,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   const hasAddBtn = visibleShortcuts.length < availableSlots;
   const totalRenderedItems = itemCount + backSlot + (hasAddBtn ? 1 : 0);
 
-  if (currentRows === 1 && totalRenderedItems <= COLUMNS) {
+  if (totalRenderedItems <= COLUMNS) {
     shortcutsGrid.classList.add('single-row');
   } else {
     shortcutsGrid.classList.remove('single-row');
