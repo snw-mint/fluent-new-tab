@@ -292,6 +292,10 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.visualSearchBtn) {
+    refs.visualSearchBtn.addEventListener('pointerenter', () => {
+      import('@/core/lazy/visual-search').catch(() => {});
+    }, { once: true });
+
     refs.visualSearchBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -327,7 +331,7 @@ export function bindSearchFeature(options: any): void {
       if (file) {
         e.preventDefault();
         import('@/core/lazy/visual-search').then((m) => {
-          m.doImageFileSearch(file, false, refs.visualSearchBtn || undefined);
+          m.doImageFileSearch(file, false);
         });
         return;
       }
@@ -340,7 +344,7 @@ export function bindSearchFeature(options: any): void {
       if (url && /^https?:\/\//i.test(url)) {
         e.preventDefault();
         import('@/core/lazy/visual-search').then((m) => {
-          m.doImageUrlSearch(url, refs.visualSearchBtn || undefined);
+          m.doImageUrlSearch(url);
         });
       }
     });

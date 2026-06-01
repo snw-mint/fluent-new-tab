@@ -629,6 +629,24 @@ async function bootInteractive(): Promise<void> {
   refs.askAiBtn?.addEventListener('click', initSearchManagerLazy, {
     once: true,
   });
+  refs.visualSearchBtn?.addEventListener('pointerover', initSearchManagerLazy, {
+    once: true,
+  });
+  // For the first click on visual search, load the manager AND open the interface
+  // directly — this prevents the first click being "lost" while the manager loads async.
+  refs.visualSearchBtn?.addEventListener('click', (e) => {
+    const wasAlreadyLoaded = searchManagerLoaded;
+    initSearchManagerLazy();
+    if (!wasAlreadyLoaded) {
+      // Manager was just triggered for the first time; open the interface directly
+      // so this click isn't lost while the manager loads async.
+      e.preventDefault();
+      e.stopPropagation();
+      import('@/core/lazy/visual-search')
+        .then((m) => m.openVisualSearchInterface())
+        .catch((err) => console.error('Visual Search load error:', err));
+    }
+  }, { once: true });
 
   initTabCustomization();
   initLocalization();
