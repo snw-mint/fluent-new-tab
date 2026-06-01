@@ -271,9 +271,77 @@ export function bindSearchFeature(options: any): void {
     refs.toggleVisualSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
-      localStorage.setItem('visualSearchEnabled', String(target.checked));
-      if (refs.visualSearchBtn) {
-        refs.visualSearchBtn.style.display = target.checked ? 'flex' : 'none';
+      if (target.checked) {
+        requestFeaturePermissionUI(
+          'visualSearch',
+          'Google Lens',
+          'https://lens.google.com',
+          () => {
+            localStorage.setItem('visualSearchEnabled', 'true');
+            if (refs.visualSearchBtn) refs.visualSearchBtn.style.display = 'flex';
+          },
+          () => {
+            target.checked = false;
+          }
+        );
+      } else {
+        localStorage.setItem('visualSearchEnabled', 'false');
+        if (refs.visualSearchBtn) refs.visualSearchBtn.style.display = 'none';
+      }
+    });
+  }
+
+  if (refs.visualSearchBtn) {
+    refs.visualSearchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      import('@/core/lazy/visual-search')
+        .then((m) => m.openVisualSearchInterface())
+        .catch(err => console.error('Error opening Visual Search:', err));
+    });
+  }
+
+  if (refs.searchWrapper) {
+    refs.searchWrapper.addEventListener('dragover', (e) => {
+      const types = Array.from(e.dataTransfer?.types || []);
+      const hasImg = types.includes('Files') || types.includes('text/uri-list');
+      if (!hasImg) return;
+      e.preventDefault();
+      if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+      refs.searchWrapper?.classList.add('image-drag-over');
+    });
+
+    refs.searchWrapper.addEventListener('dragleave', (e) => {
+      if (!refs.searchWrapper?.contains(e.relatedTarget as Node)) {
+        refs.searchWrapper?.classList.remove('image-drag-over');
+      }
+    });
+
+    refs.searchWrapper.addEventListener('drop', async (e) => {
+      refs.searchWrapper?.classList.remove('image-drag-over');
+      
+      const file = Array.from(e.dataTransfer?.files || []).find((f) =>
+        f.type.startsWith('image/')
+      );
+      
+      if (file) {
+        e.preventDefault();
+        import('@/core/lazy/visual-search').then((m) => {
+          m.doImageFileSearch(file, false, refs.visualSearchBtn || undefined);
+        });
+        return;
+      }
+      
+      const url =
+        e.dataTransfer?.getData('text/uri-list') ||
+        e.dataTransfer?.getData('text/plain') ||
+        '';
+        
+      if (url && /^https?:\/\//i.test(url)) {
+        e.preventDefault();
+        import('@/core/lazy/visual-search').then((m) => {
+          m.doImageUrlSearch(url, refs.visualSearchBtn || undefined);
+        });
       }
     });
   }
