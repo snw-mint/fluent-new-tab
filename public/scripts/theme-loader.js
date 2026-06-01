@@ -16,6 +16,12 @@
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 
+  const surfaceTintEnabled =
+    localStorage.getItem('fluent_surface_tint') === 'true';
+  if (surfaceTintEnabled) {
+    document.documentElement.setAttribute('data-surface-tint', 'true');
+  }
+
   const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 
   if (!wallpaperEnabled) {

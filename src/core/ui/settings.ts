@@ -304,6 +304,31 @@ export function bindAccentColorFeature(options: any): void {
   }
 }
 
+export function bindSurfaceTintFeature(): void {
+  const toggleSurfaceTint = document.getElementById(
+    'toggleSurfaceTint',
+  ) as HTMLInputElement | null;
+
+  if (!toggleSurfaceTint) return;
+
+  const isActive = localStorage.getItem('fluent_surface_tint') === 'true';
+  toggleSurfaceTint.checked = isActive;
+
+  toggleSurfaceTint.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return;
+
+    const isChecked = target.checked;
+    localStorage.setItem('fluent_surface_tint', String(isChecked));
+
+    if (isChecked) {
+      document.documentElement.setAttribute('data-surface-tint', 'true');
+    } else {
+      document.documentElement.removeAttribute('data-surface-tint');
+    }
+  });
+}
+
 export function bindDisplayFeature(options: any): void {
   const toggleDisplay = document.getElementById(
     'toggleDisplay',
@@ -727,8 +752,12 @@ export function bindLauncherFeature(options: any): void {
         isLauncherLoaded = true;
         options.renderLauncher(options.getCurrentProvider());
       };
-      refs.appLauncherBtn.addEventListener('pointerover', loadLauncher, { once: true });
-      refs.appLauncherBtn.addEventListener('click', loadLauncher, { once: true });
+      refs.appLauncherBtn.addEventListener('pointerover', loadLauncher, {
+        once: true,
+      });
+      refs.appLauncherBtn.addEventListener('click', loadLauncher, {
+        once: true,
+      });
     }
   }
 }
@@ -845,7 +874,10 @@ export function bindMainUiScaleFeature(options: any): void {
   }
 }
 
-export function bindWallpaperFeature(options: any, getWallpaperEngine: () => Promise<any>): void {
+export function bindWallpaperFeature(
+  options: any,
+  getWallpaperEngine: () => Promise<any>,
+): void {
   const autoColorBtn = document.querySelector(
     '.color-preset-btn.auto-preset',
   ) as HTMLButtonElement | null;

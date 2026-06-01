@@ -73,7 +73,7 @@
 
   &:has(.settings-popup.active) {
     .settings-wrapper {
-      background: #ffffff;
+      background: var(--surface-base);
       box-shadow: 0 0.1125rem 0.45rem rgba(0, 0, 0, 0.1);
 
       .settings-label {

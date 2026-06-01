@@ -1,0 +1,21 @@
+html[data-surface-tint='true'] {
+  --surface-base: color-mix(in srgb, var(--accent-color) 6%, #ffffff);
+  --surface-muted: color-mix(in srgb, var(--accent-color) 8%, #fbfbfb);
+  --surface-dim: color-mix(in srgb, var(--accent-color) 10%, #f3f3f3);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-base: rgba(0, 0, 0, 0.08);
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --hover-overlay-strong: rgba(0, 0, 0, 0.07);
+  --hover-overlay-active: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme='dark'][data-surface-tint='true'] {
+  --surface-base: color-mix(in srgb, var(--accent-color) 16%, #2b2b2b);
+  --surface-muted: color-mix(in srgb, var(--accent-color) 18%, #333333);
+  --surface-dim: color-mix(in srgb, var(--accent-color) 20%, #202020);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-base: rgba(255, 255, 255, 0.1);
+  --hover-overlay: rgba(255, 255, 255, 0.05);
+  --hover-overlay-strong: rgba(255, 255, 255, 0.08);
+  --hover-overlay-active: rgba(255, 255, 255, 0.03);
+}
