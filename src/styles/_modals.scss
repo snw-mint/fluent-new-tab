@@ -66,7 +66,7 @@
         width: 100%;
         padding: 0.5625rem;
         border: 1px solid rgba(0, 0, 0, 0.16);
-        background: rgba(255, 255, 255, 0.92);
+        background: $color-bg-input;
         color: var(--text-color);
         border-radius: var(--border-radius);
         font-family: inherit;
@@ -104,7 +104,7 @@
       margin: 1.35rem -1.35rem -1.35rem;
       padding: 1.35rem;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
-      background: #f3f3f3;
+      background: $color-bg-modal-footer;
       gap: 0.45rem;
 
       .btn-cancel,
@@ -160,7 +160,7 @@
   padding: 1.35rem 0.9rem;
   border-radius: $radius-md;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #f3f3f3;
+  background: $color-bg-modal-footer;
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--text-color);
@@ -206,7 +206,7 @@
     margin: 1.35rem -1.35rem -1.35rem;
     padding: 1.35rem;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
-    background: #f3f3f3;
+    background: $color-bg-modal-footer;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 
     .btn-cancel,
@@ -216,7 +216,7 @@
     }
 
     .btn-cancel {
-      background: #fbfbfb;
+      background: $color-surface-muted;
     }
   }
 }
@@ -260,7 +260,7 @@
     margin: 1.35rem -1.35rem -1.35rem;
     padding: 1.35rem;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
-    background: #f3f3f3;
+    background: $color-bg-modal-footer;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 
     .btn-cancel,
@@ -271,7 +271,7 @@
     }
 
     .btn-cancel {
-      background: #fbfbfb;
+      background: $color-surface-muted;
     }
   }
 }

@@ -326,7 +326,7 @@
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     box-shadow: 0 0.675rem 1.8rem rgba(0, 0, 0, 0.15) !important;
-    background-color: #fbfbfb !important;
+    background-color: $color-surface-muted !important;
     border-color: #ffffff !important;
     border-bottom-color: transparent !important;
 
@@ -336,7 +336,7 @@
       width: calc(100% + 0.45rem);
       margin-top: 0 !important;
       border-top: none !important;
-      background-color: #fbfbfb !important;
+      background-color: $color-surface-muted !important;
       border-left: 0.225rem solid #ffffff !important;
       border-right: 0.225rem solid #ffffff !important;
       border-bottom: 0.225rem solid #ffffff !important;
@@ -350,13 +350,13 @@
     }
 
     &.compact {
-      background-color: #ffffff !important;
+      background-color: $color-surface !important;
 
       .suggestions-container {
         left: 0;
         width: 100%;
         border: none !important;
-        background-color: #ffffff !important;
+        background-color: $color-surface !important;
         border-bottom-left-radius: calc(#{$radius-xxl} + 1px) !important;
         border-bottom-right-radius: calc(#{$radius-xxl} + 1px) !important;
       }

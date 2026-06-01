@@ -117,7 +117,10 @@ export class WallpaperEngine {
 
           document.body.style.backgroundImage = `url('${url}')`;
           document.body.setAttribute('data-wallpaper-active', 'true');
-          updateOverlay(config.overlay, config.enabled);
+          const currentOverlay = parseFloat(
+            localStorage.getItem('wallpaperOverlay') || String(config.overlay),
+          );
+          updateOverlay(currentOverlay, config.enabled);
 
           hideToast();
 

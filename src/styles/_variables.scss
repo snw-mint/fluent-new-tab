@@ -31,14 +31,15 @@ $color-accent: var(--accent-color);
 $color-accent-contrast: #ffffff;
 $color-accent-warn: #ff4d4f;
 $color-accent-alert: #ff3b3b;
-
+$color-bg-input: rgba(255, 255, 255, 0.92);
+$color-bg-modal-footer: #f3f3f3;
 $color-dark-bg: #202020;
 $color-dark-surface: #3b3b3b;
 $color-dark-card: #333333;
-$color-dark-overlay: rgba(255, 255, 255, 0.1);
 $color-dark-border: rgba(255, 255, 255, 0.08);
 $color-dark-shadow: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.5);
-
+$color-dark-bg-modal: #2b2b2b;
+$color-dark-bg-input: rgba(255, 255, 255, 0.08);
 $radius-xs: 0.225rem;
 $radius-sm: 0.3375rem;
 $radius-md: 0.45rem;
@@ -47,7 +48,6 @@ $radius-xl: 0.7875rem;
 $radius-xxl: 1.2375rem;
 $radius-pill: 99rem;
 $radius-round: 50%;
-
 $shadow-soft: 0 0.225rem 0.675rem rgba(0, 0, 0, 0.08);
 $shadow-hover: 0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
 $shadow-card-strong: 0 1.125rem 3.375rem rgba(0, 0, 0, 0.2);
