@@ -29,6 +29,8 @@ export const accessibilityOptions = getById<HTMLDivElement>(
   'accessibilityOptions',
 );
 export const toggleAppearance = getById<HTMLInputElement>('toggleAppearance');
+export const toggleSurfaceTint = getById<HTMLInputElement>('toggleSurfaceTint');
+export const surfaceTintRow = getById<HTMLDivElement>('surfaceTintRow');
 export const accentMoreSetting = getById<HTMLDivElement>('accentMoreSetting');
 export const accentMoreBtn = getById<HTMLDivElement>('accent-more-btn');
 export const accentMoreContainer = getById<HTMLDivElement>(
