@@ -215,10 +215,12 @@ async function bootCritical(): Promise<void> {
     refs.searchWrapper,
     refs.voiceSearchBtn,
     refs.askAiBtn,
+    refs.visualSearchBtn,
     state.searchBarVisible,
     state.compactBarEnabled,
     state.voiceSearchEnabled,
     state.askAiEnabled,
+    state.visualSearchEnabled,
   );
 
   triggerShortcutsRender();

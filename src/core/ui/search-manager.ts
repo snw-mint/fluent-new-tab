@@ -261,4 +261,20 @@ export function bindSearchFeature(options: any): void {
         refs.askAiBtn.style.display = target.checked ? 'flex' : 'none';
     });
   }
+
+  if (refs.toggleVisualSearch) {
+    const isVisualSearchEnabled = localStorage.getItem('visualSearchEnabled') === 'true';
+    refs.toggleVisualSearch.checked = isVisualSearchEnabled;
+    if (refs.visualSearchBtn) {
+      refs.visualSearchBtn.style.display = isVisualSearchEnabled ? 'flex' : 'none';
+    }
+    refs.toggleVisualSearch.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      localStorage.setItem('visualSearchEnabled', String(target.checked));
+      if (refs.visualSearchBtn) {
+        refs.visualSearchBtn.style.display = target.checked ? 'flex' : 'none';
+      }
+    });
+  }
 }
