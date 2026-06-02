@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "壁纸"
   },
+  "uploadOption": {
+    "message": "上传图片"
+  },
+  "uploadBtnText": {
+    "message": "上传"
+  },
   "overlayLabel": {
     "message": "背景叠加"
+  },
+  "surfaceTintLabel": {
+    "message": "表面色调"
   },
   "appearanceTitle": {
     "message": "外观"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "语音搜索"
   },
+  "visualSearchOption": {
+    "message": "视觉搜索"
+  },
   "askAiOption": {
     "message": "问 AI"
   },
   "AccessibilityTitle": {
-    "message": "减弱视觉效果"
+    "message": "无障碍"
   },
   "reduceMotionTitle": {
     "message": "减弱动态效果"

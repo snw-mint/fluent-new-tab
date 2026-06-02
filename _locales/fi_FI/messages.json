@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
+  "uploadOption": {
+    "message": "Lataa kuva"
+  },
+  "uploadBtnText": {
+    "message": "Lataa"
+  },
   "overlayLabel": {
     "message": "Peittokuva"
+  },
+  "surfaceTintLabel": {
+    "message": "Pintasävy"
   },
   "appearanceTitle": {
     "message": "Ulkonäkö"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Äänihaku"
   },
+  "visualSearchOption": {
+    "message": "Visuaalinen haku"
+  },
   "askAiOption": {
     "message": "Kysy tekoälyltä"
   },
   "AccessibilityTitle": {
-    "message": "Vähennä visuaalisia tehosteita"
+    "message": "Esteettömyys"
   },
   "reduceMotionTitle": {
     "message": "Vähennä liikettä"

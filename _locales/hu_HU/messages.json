@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
+  "uploadOption": {
+    "message": "Kép feltöltése"
+  },
+  "uploadBtnText": {
+    "message": "Feltöltés"
+  },
   "overlayLabel": {
     "message": "Kép átfedés"
+  },
+  "surfaceTintLabel": {
+    "message": "Felület színezése"
   },
   "appearanceTitle": {
     "message": "Megjelenés"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Hangalapú keresés"
   },
+  "visualSearchOption": {
+    "message": "Vizuális keresés"
+  },
   "askAiOption": {
     "message": "Kérdezd meg az AI-t"
   },
   "AccessibilityTitle": {
-    "message": "Effektek csökkentése"
+    "message": "Kisegítő lehetőségek"
   },
   "reduceMotionTitle": {
     "message": "Mozgás csökkentése"

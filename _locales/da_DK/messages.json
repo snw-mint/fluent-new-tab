@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Baggrund"
   },
+  "uploadOption": {
+    "message": "Upload billede"
+  },
+  "uploadBtnText": {
+    "message": "Upload"
+  },
   "overlayLabel": {
     "message": "Billedoverlejring"
+  },
+  "surfaceTintLabel": {
+    "message": "Overfladefarve"
   },
   "appearanceTitle": {
     "message": "Udseende"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Stemmesøgning"
   },
+  "visualSearchOption": {
+    "message": "Visuel søgning"
+  },
   "askAiOption": {
     "message": "Spørg AI"
   },
   "AccessibilityTitle": {
-    "message": "Reducer visuelle effekter"
+    "message": "Tilgængelighed"
   },
   "reduceMotionTitle": {
     "message": "Reducer bevægelse"

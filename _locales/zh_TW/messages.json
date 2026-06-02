@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "桌布"
   },
+  "uploadOption": {
+    "message": "上傳圖片"
+  },
+  "uploadBtnText": {
+    "message": "上傳"
+  },
   "overlayLabel": {
     "message": "影像疊加"
+  },
+  "surfaceTintLabel": {
+    "message": "表面色調"
   },
   "appearanceTitle": {
     "message": "外觀"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "語音搜尋"
   },
+  "visualSearchOption": {
+    "message": "視覺搜尋"
+  },
   "askAiOption": {
     "message": "詢問 AI"
   },
   "AccessibilityTitle": {
-    "message": "減少視覺效果"
+    "message": "無障礙"
   },
   "reduceMotionTitle": {
     "message": "減少動態效果"

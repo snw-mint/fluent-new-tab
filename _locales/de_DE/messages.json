@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Hintergrundbild"
   },
+  "uploadOption": {
+    "message": "Bild hochladen"
+  },
+  "uploadBtnText": {
+    "message": "Hochladen"
+  },
   "overlayLabel": {
     "message": "Bildüberlagerung"
+  },
+  "surfaceTintLabel": {
+    "message": "Oberflächenfärbung"
   },
   "appearanceTitle": {
     "message": "Aussehen"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Sprachsuche"
   },
+  "visualSearchOption": {
+    "message": "Visuelle Suche"
+  },
   "askAiOption": {
     "message": "KI fragen"
   },
   "AccessibilityTitle": {
-    "message": "Effekte reduzieren"
+    "message": "Barrierefreiheit"
   },
   "reduceMotionTitle": {
     "message": "Bewegungen reduzieren"

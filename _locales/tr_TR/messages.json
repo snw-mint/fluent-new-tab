@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
+  "uploadOption": {
+    "message": "Resim Yükle"
+  },
+  "uploadBtnText": {
+    "message": "Yükle"
+  },
   "overlayLabel": {
     "message": "Görüntü Kaplaması"
+  },
+  "surfaceTintLabel": {
+    "message": "Yüzey Tonu"
   },
   "appearanceTitle": {
     "message": "Görünüm"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Sesli Arama"
   },
+  "visualSearchOption": {
+    "message": "Görsel Arama"
+  },
   "askAiOption": {
     "message": "AI'ya sor"
   },
   "AccessibilityTitle": {
-    "message": "Efektleri azalt"
+    "message": "Erişilebilirlik"
   },
   "reduceMotionTitle": {
     "message": "Hareketi azalt"

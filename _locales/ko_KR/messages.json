@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "배경화면"
   },
+  "uploadOption": {
+    "message": "이미지 업로드"
+  },
+  "uploadBtnText": {
+    "message": "업로드"
+  },
   "overlayLabel": {
     "message": "이미지 오버레이"
+  },
+  "surfaceTintLabel": {
+    "message": "표면 색조"
   },
   "appearanceTitle": {
     "message": "외관"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "음성 검색"
   },
+  "visualSearchOption": {
+    "message": "시각적 검색"
+  },
   "askAiOption": {
     "message": "AI에게 물어보세요"
   },
   "AccessibilityTitle": {
-    "message": "효과 줄이기"
+    "message": "접근성"
   },
   "reduceMotionTitle": {
     "message": "움직임 줄이기"

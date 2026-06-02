@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
+  "uploadOption": {
+    "message": "Μεταφόρτωση εικόνας"
+  },
+  "uploadBtnText": {
+    "message": "Μεταφόρτωση"
+  },
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
+  },
+  "surfaceTintLabel": {
+    "message": "Απόχρωση επιφάνειας"
   },
   "appearanceTitle": {
     "message": "Εμφάνιση"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Φωνητική αναζήτηση"
   },
+  "visualSearchOption": {
+    "message": "Οπτική αναζήτηση"
+  },
   "askAiOption": {
     "message": "Ρώτα την AI"
   },
   "AccessibilityTitle": {
-    "message": "Μείωση εφέ"
+    "message": "Προσβασιμότητα"
   },
   "reduceMotionTitle": {
     "message": "Μείωση κίνησης"

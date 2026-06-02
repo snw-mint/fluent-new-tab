@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Sfondo"
   },
+  "uploadOption": {
+    "message": "Importer une image"
+  },
+  "uploadBtnText": {
+    "message": "Importer"
+  },
   "overlayLabel": {
     "message": "Sovrapposizione immagine"
+  },
+  "surfaceTintLabel": {
+    "message": "Teinte de surface"
   },
   "appearanceTitle": {
     "message": "Aspetto"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Ricerca vocale"
   },
+  "visualSearchOption": {
+    "message": "Recherche visuelle"
+  },
   "askAiOption": {
     "message": "Chiedi all'IA"
   },
   "AccessibilityTitle": {
-    "message": "Riduci effetti"
+    "message": "Accessibilité"
   },
   "reduceMotionTitle": {
     "message": "Riduci movimento"

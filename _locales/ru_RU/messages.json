@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Обои"
   },
+  "uploadOption": {
+    "message": "Загрузить изображение"
+  },
+  "uploadBtnText": {
+    "message": "Загрузить"
+  },
   "overlayLabel": {
     "message": "Наложение изображения"
+  },
+  "surfaceTintLabel": {
+    "message": "Оттенок поверхности"
   },
   "appearanceTitle": {
     "message": "Внешний вид"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Голосовой поиск"
   },
+  "visualSearchOption": {
+    "message": "Визуальный поиск"
+  },
   "askAiOption": {
     "message": "Спросить у ИИ"
   },
   "AccessibilityTitle": {
-    "message": "Уменьшить эффекты"
+    "message": "Специальные возможности"
   },
   "reduceMotionTitle": {
     "message": "Уменьшить движение"

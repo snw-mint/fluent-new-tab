@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Hình nền"
   },
+  "uploadOption": {
+    "message": "Tải ảnh lên"
+  },
+  "uploadBtnText": {
+    "message": "Tải lên"
+  },
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
+  },
+  "surfaceTintLabel": {
+    "message": "Màu bề mặt"
   },
   "appearanceTitle": {
     "message": "Hình thức"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Tìm kiếm bằng giọng nói"
   },
+  "visualSearchOption": {
+    "message": "Tìm kiếm bằng hình ảnh"
+  },
   "askAiOption": {
     "message": "Hỏi AI"
   },
   "AccessibilityTitle": {
-    "message": "Giảm hiệu ứng"
+    "message": "Trợ năng"
   },
   "reduceMotionTitle": {
     "message": "Giảm chuyển động"

@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "壁紙"
   },
+  "uploadOption": {
+    "message": "画像をアップロード"
+  },
+  "uploadBtnText": {
+    "message": "アップロード"
+  },
   "overlayLabel": {
     "message": "画像オーバーレイ"
+  },
+  "surfaceTintLabel": {
+    "message": "表面の色合い"
   },
   "appearanceTitle": {
     "message": "外観"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "音声検索"
   },
+  "visualSearchOption": {
+    "message": "ビジュアル検索"
+  },
   "askAiOption": {
     "message": "AIに聞いてみる"
   },
   "AccessibilityTitle": {
-    "message": "エフェクトを減らす"
+    "message": "アクセシビリティ"
   },
   "reduceMotionTitle": {
     "message": "動きを減らす"

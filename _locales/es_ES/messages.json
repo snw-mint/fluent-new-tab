@@ -11,6 +11,12 @@
   "wallpaperTitle": {
     "message": "Fondo de pantalla"
   },
+  "uploadOption": {
+    "message": "Subir imagen"
+  },
+  "uploadBtnText": {
+    "message": "Subir"
+  },
   "wallpaperSourceLabel": {
     "message": "Fuente de la imagen"
   },
@@ -19,6 +25,9 @@
   },
   "overlayLabel": {
     "message": "Superposición de imágenes"
+  },
+  "surfaceTintLabel": {
+    "message": "Tinte de superficie"
   },
   "appearanceTitle": {
     "message": "Apariencia"
@@ -137,11 +146,14 @@
   "voiceSearchOption": {
     "message": "Búsqueda por voz"
   },
+  "visualSearchOption": {
+    "message": "Búsqueda visual"
+  },
   "askAiOption": {
     "message": "Pregúntale a la IA"
   },
   "AccessibilityTitle": {
-    "message": "Reducir efectos"
+    "message": "Accesibilidad"
   },
   "reduceMotionTitle": {
     "message": "Reducir el movimiento"
@@ -237,7 +249,6 @@
     "reauthNoticeTitle": {
       "message": "Permission Required"
     },
-
     "message": "Para utilizar esta función, Fluent New Tab necesita permiso para acceder a «$API_NAME$». Esto garantiza tu privacidad y seguridad.",
     "placeholders": {
       "api_name": {

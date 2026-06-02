@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Tapeta"
   },
+  "uploadOption": {
+    "message": "Nahrát obrázek"
+  },
+  "uploadBtnText": {
+    "message": "Nahrát"
+  },
   "overlayLabel": {
     "message": "Překrytí obrázku"
+  },
+  "surfaceTintLabel": {
+    "message": "Odstín povrchu"
   },
   "appearanceTitle": {
     "message": "Vzhled"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Hlasové vyhledávání"
   },
+  "visualSearchOption": {
+    "message": "Vizuální vyhledávání"
+  },
   "askAiOption": {
     "message": "Zeptat se AI"
   },
   "AccessibilityTitle": {
-    "message": "Omezit vizuální efekty"
+    "message": "Přístupnost"
   },
   "reduceMotionTitle": {
     "message": "Omezit animace"

@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Bakgrundsbild"
   },
+  "uploadOption": {
+    "message": "Ladda upp bild"
+  },
+  "uploadBtnText": {
+    "message": "Ladda upp"
+  },
   "overlayLabel": {
     "message": "Bildöverlägg"
+  },
+  "surfaceTintLabel": {
+    "message": "Ytfärg"
   },
   "appearanceTitle": {
     "message": "Utseende"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Röstsökning"
   },
+  "visualSearchOption": {
+    "message": "Visuell sökning"
+  },
   "askAiOption": {
     "message": "Fråga AI"
   },
   "AccessibilityTitle": {
-    "message": "Minska effekterna"
+    "message": "Tillgänglighet"
   },
   "reduceMotionTitle": {
     "message": "Minska rörelser"

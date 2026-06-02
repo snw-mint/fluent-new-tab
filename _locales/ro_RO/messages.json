@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Tapet"
   },
+  "uploadOption": {
+    "message": "Încarcă imagine"
+  },
+  "uploadBtnText": {
+    "message": "Încarcă"
+  },
   "overlayLabel": {
     "message": "Suprapunere imagine"
+  },
+  "surfaceTintLabel": {
+    "message": "Nuanță suprafață"
   },
   "appearanceTitle": {
     "message": "Aspect"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Căutare vocală"
   },
+  "visualSearchOption": {
+    "message": "Căutare vizuală"
+  },
   "askAiOption": {
     "message": "Întreabă IA"
   },
   "AccessibilityTitle": {
-    "message": "Reduceți efectele"
+    "message": "Accesibilitate"
   },
   "reduceMotionTitle": {
     "message": "Reduceți mișcarea"

@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Papel de parede"
   },
+  "uploadOption": {
+    "message": "Upload de Imagem"
+  },
+  "uploadBtnText": {
+    "message": "Upload"
+  },
   "overlayLabel": {
     "message": "Sobreposição de imagem"
+  },
+  "surfaceTintLabel": {
+    "message": "Tom da Superfície"
   },
   "appearanceTitle": {
     "message": "Aparência"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Pesquisa por voz"
   },
+  "visualSearchOption": {
+    "message": "Busca Visual"
+  },
   "askAiOption": {
     "message": "Pergunte à IA"
   },
   "AccessibilityTitle": {
-    "message": "Reduzir efeitos"
+    "message": "Acessibilidade"
   },
   "reduceMotionTitle": {
     "message": "Reduzir movimento"

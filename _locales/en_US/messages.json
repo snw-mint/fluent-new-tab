@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
+  "uploadOption": {
+    "message": "Upload Image"
+  },
+  "uploadBtnText": {
+    "message": "Upload"
+  },
   "overlayLabel": {
     "message": "Image Overlay"
+  },
+  "surfaceTintLabel": {
+    "message": "Surface Tint"
   },
   "appearanceTitle": {
     "message": "Appearance"
@@ -157,6 +166,9 @@
   },
   "voiceSearchOption": {
     "message": "Voice search"
+  },
+  "visualSearchOption": {
+    "message": "Visual search"
   },
   "askAiOption": {
     "message": "Ask to AI"

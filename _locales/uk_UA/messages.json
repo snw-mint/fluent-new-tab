@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Шпалери"
   },
+  "uploadOption": {
+    "message": "Завантажити зображення"
+  },
+  "uploadBtnText": {
+    "message": "Завантажити"
+  },
   "overlayLabel": {
     "message": "Накладення зображення"
+  },
+  "surfaceTintLabel": {
+    "message": "Відтінок поверхні"
   },
   "appearanceTitle": {
     "message": "Зовнішній вигляд"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Голосовий пошук"
   },
+  "visualSearchOption": {
+    "message": "Візуальний пошук"
+  },
   "askAiOption": {
     "message": "Запитай у ШІ"
   },
   "AccessibilityTitle": {
-    "message": "Зменшити ефекти"
+    "message": "Спеціальні можливості"
   },
   "reduceMotionTitle": {
     "message": "Зменшити рух"

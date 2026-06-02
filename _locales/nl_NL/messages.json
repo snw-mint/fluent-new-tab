@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
+  "uploadOption": {
+    "message": "Afbeelding uploaden"
+  },
+  "uploadBtnText": {
+    "message": "Uploaden"
+  },
   "overlayLabel": {
     "message": "Afbeeldingsoverlay"
+  },
+  "surfaceTintLabel": {
+    "message": "Oppervlaktetint"
   },
   "appearanceTitle": {
     "message": "Uiterlijk"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Spraakgestuurd zoeken"
   },
+  "visualSearchOption": {
+    "message": "Visueel zoeken"
+  },
   "askAiOption": {
     "message": "Vraag het aan AI"
   },
   "AccessibilityTitle": {
-    "message": "Visuele effecten verminderen"
+    "message": "Toegankelijkheid"
   },
   "reduceMotionTitle": {
     "message": "Beweging verminderen"

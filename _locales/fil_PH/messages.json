@@ -11,8 +11,17 @@
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
+  "uploadOption": {
+    "message": "Upload Image"
+  },
+  "uploadBtnText": {
+    "message": "Upload"
+  },
   "overlayLabel": {
     "message": "Image Overlay"
+  },
+  "surfaceTintLabel": {
+    "message": "Surface Tint"
   },
   "appearanceTitle": {
     "message": "Appearance"
@@ -158,11 +167,14 @@
   "voiceSearchOption": {
     "message": "Voice search"
   },
+  "visualSearchOption": {
+    "message": "Visual Search"
+  },
   "askAiOption": {
     "message": "Mag-ask sa AI"
   },
   "AccessibilityTitle": {
-    "message": "Bawasan ang visual effects"
+    "message": "Accessibility"
   },
   "reduceMotionTitle": {
     "message": "Bawasan ang motion"
