@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Sfondo"
   },
-  "nosourceOption": {
-    "message": "Nessuna fonte"
-  },
   "overlayLabel": {
     "message": "Sovrapposizione immagine"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Icona della scheda"
   },
+  "customColorTitle": {
+    "message": "Colore personalizzato"
+  },
+  "visualSearchTitle": {
+    "message": "Ricerca visiva"
+  },
+  "visualSearchDragText": {
+    "message": "Trascini un'immagine qui oppure"
+  },
+  "visualSearchUploadLink": {
+    "message": "caricare un file"
+  },
+  "visualSearchDivider": {
+    "message": "oppure"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Inserisca il link all'immagine"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Cerca"
+  },
   "styleNone": {
     "message": "Nessuno"
-  },
-  "iconsStyleLabel": {
-    "message": "Stile icona"
   },
   "displayTitle": {
     "message": "Visualizza"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Riduci movimento"
-  },
-  "reduceBlurOption": {
-    "message": "Riduci sfocatura"
   },
   "languageTitle": {
     "message": "Lingua"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Visualizza il progetto su GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Ci dispiace, il file *.json che hai utilizzato non è valido o è danneggiato."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Per utilizzare questa funzione, Fluent New Tab necessita dell'autorizzazione ad accedere a \"$API_NAME$\". Ciò garantisce la tua privacy e sicurezza.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Elimina cartella"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Sei sicuro di voler eliminare la cartella \"$FOLDER$\"? Tutti i collegamenti al suo interno verranno rimossi.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Disattivare le cartelle?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Tutte le cartelle e i relativi collegamenti verranno eliminati. Questa operazione non può essere annullata, a meno que non si disponga di un backup."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Elimina cartelle"
-  },
-  "warningKeepEnabled": {
-    "message": "Mantieni abilitato"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Aggiungi App $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Questo creerà una cartella con 9 app $ECOSYSTEM$ nei tuoi collegamenti. Continuare?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Aggiungi cartella"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Nessuna app disponibile"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Nessuna app disponibile per questo ecosistema."
-  },
-  "shortcutsLimitReached": {
-    "message": "Limite di scorciatoie raggiunto!"
-  },
-  "warningGridFullTitle": {
-    "message": "La griglia è piena"
-  },
-  "warningGridFullMessage": {
-    "message": "Hai raggiunto il limite massimo di collegamenti $LIMIT$ nella schermata principale. Elimina alcuni elementi o raggruppali in una cartella per liberare spazio.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "La cartella è piena"
-  },
-  "warningFolderFullMessage": {
-    "message": "Questa cartella ha raggiunto il limite massimo di $LIMIT$ elementi. Rimuovere alcuni collegamenti prima di aggiungerne di nuovi.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Ripristinare il backup?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Questo sostituirà le impostazioni e le scorciatoie attuali con i dati del file di backup."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Ripristina"
-  },
-  "backupExportSuccess": {
-    "message": "Impostazioni salvate nel file"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Il file selezionato non è un backup valido."
-  },
   "warningUnderstood": {
     "message": "Capito"
-  },
-  "warningClose": {
-    "message": "Chiudi"
   },
   "weekday_0": {
     "message": "Domenica"
