@@ -82,51 +82,57 @@ export async function fetchDailyWallpaper(
         return await response.json();
       };
 
-      const todayData = await fetchNasaApod();
-
-      if (
-        todayData.media_type === 'image' ||
-        todayData.media_type === 'video'
-      ) {
+      const applyApodData = (data: NasaApodResponse, date?: string): boolean => {
+        if (data.media_type !== 'image' && data.media_type !== 'video') return false;
         imageUrl =
-          todayData.media_type === 'video'
-            ? (todayData.thumbnail_url || todayData.url || '').replace(
+          data.media_type === 'video'
+            ? (data.thumbnail_url || data.url || '').replace(
                 /(hqdefault|mqdefault|sddefault|0)\.jpg/i,
                 'maxresdefault.jpg',
               )
-            : todayData.hdurl || todayData.url || '';
-        creditText = `NASA: ${todayData.title || 'APOD'}`;
+            : data.hdurl || data.url || '';
+        const suffix = date ? ` (${date})` : '';
+        creditText = `NASA: ${data.title || 'APOD'}${suffix}`;
         creditUrl = 'https://apod.nasa.gov/apod/astropix.html';
-      } else {
-        notifyWallpaperApiWarning('unavailable');
-        const yesterday = new Date(Date.now() - 86400000)
-          .toISOString()
-          .slice(0, 10);
+        return true;
+      };
 
-        try {
-          const yesterdayData = await fetchNasaApod(yesterday);
-          if (
-            yesterdayData.media_type === 'image' ||
-            yesterdayData.media_type === 'video'
-          ) {
-            imageUrl =
-              yesterdayData.media_type === 'video'
-                ? (
-                    yesterdayData.thumbnail_url ||
-                    yesterdayData.url ||
-                    ''
-                  ).replace(
-                    /(hqdefault|mqdefault|sddefault|0)\.jpg/i,
-                    'maxresdefault.jpg',
-                  )
-                : yesterdayData.hdurl || yesterdayData.url || '';
-            creditText = `NASA: ${yesterdayData.title || 'APOD'} (${yesterday})`;
-            creditUrl = 'https://apod.nasa.gov/apod/astropix.html';
-          } else {
+      const yesterday = new Date(Date.now() - 86400000)
+        .toISOString()
+        .slice(0, 10);
+
+      let todayData: NasaApodResponse | null = null;
+      try {
+        todayData = await fetchNasaApod();
+      } catch (todayError) {
+        // Server-side error (5xx / rate-limit): fall back to yesterday silently
+        const msg = todayError instanceof Error ? todayError.message : String(todayError);
+        const isServerErr =
+          msg.includes('503') || msg.includes('502') ||
+          msg.includes('504') || msg.includes('API limit');
+        if (isServerErr) {
+          console.warn(`NASA API unavailable (${msg}), trying yesterday's APOD…`);
+          try {
+            const fallbackData = await fetchNasaApod(yesterday);
+            if (!applyApodData(fallbackData, yesterday)) return null;
+          } catch {
+            throw todayError; // re-throw original so outer catch logs it
+          }
+        } else {
+          throw todayError;
+        }
+      }
+
+      if (todayData !== null) {
+        if (!applyApodData(todayData)) {
+          // Today's APOD is not an image/video — try yesterday
+          notifyWallpaperApiWarning('unavailable');
+          try {
+            const yesterdayData = await fetchNasaApod(yesterday);
+            if (!applyApodData(yesterdayData, yesterday)) return null;
+          } catch {
             return null;
           }
-        } catch (fallbackError) {
-          return null;
         }
       }
     } else if (source === 'wikimedia') {
@@ -190,8 +196,12 @@ export async function fetchDailyWallpaper(
       errorMessage.includes('504') ||
       errorMessage.includes('API limit');
 
-    if (source === 'nasa' && !isServerError) {
-      notifyWallpaperApiWarning('error');
+    if (source === 'nasa') {
+      if (isServerError) {
+        notifyWallpaperApiWarning('server-error');
+      } else {
+        notifyWallpaperApiWarning('error');
+      }
     }
 
     console.error(`Error while searching ${source}:`, error);

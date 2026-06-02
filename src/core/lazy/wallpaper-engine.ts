@@ -74,6 +74,7 @@ export class WallpaperEngine {
       }
     } catch (err) {
       console.error('Wallpaper Engine Error:', err);
+      hideToast();
     }
 
     if (targetUrl) {
