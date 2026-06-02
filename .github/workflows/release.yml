@@ -17,6 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,22 +30,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run release build
-        run: npm run build:release
+      - name: Run release build (Chrome)
+        run: npm run build
 
-      - name: Get version from tag
-        id: version
-        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
-
-      - name: Package extension as zip
+      - name: Package Chrome extension
         run: |
           cd dist
           zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
 
-          cp ../manifest-firefox.json manifest.json
+      - name: Run release build (Firefox)
+        run: |
+          mv manifest.json manifest-chrome.json
+          cp manifest-firefox.json manifest.json
+          npm run build
 
+      - name: Package Firefox extension
+        run: |
+          cd dist
           zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
