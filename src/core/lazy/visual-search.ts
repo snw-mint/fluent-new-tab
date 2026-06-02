@@ -207,8 +207,6 @@ export function openVisualSearchInterface(): void {
     target.value = '';
     if (fileToUpload) {
       closeVisualSearchInterface();
-      // Defer form submit so the browser no longer considers the file chooser
-      // "active" — otherwise window.open / form.target=_blank gets blocked.
       setTimeout(() => doImageFileSearch(fileToUpload, false), 100);
     }
   });

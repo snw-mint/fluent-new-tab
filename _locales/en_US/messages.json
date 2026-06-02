@@ -26,6 +26,27 @@
   "tabFaviconLabel": {
     "message": "Tab Icon"
   },
+  "customColorTitle": {
+    "message": "Custom Color"
+  },
+  "visualSearchTitle": {
+    "message": "Visual Search"
+  },
+  "visualSearchDragText": {
+    "message": "Drag an image here or"
+  },
+  "visualSearchUploadLink": {
+    "message": "upload a file"
+  },
+  "visualSearchDivider": {
+    "message": "or"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Paste image link"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Search"
+  },
   "styleNone": {
     "message": "None"
   },
@@ -624,11 +645,5 @@
         "example": "grass"
       }
     }
-  },
-  "customColorTitle": {
-    "message": "Custom Color"
-  },
-  "visualSearchTitle": {
-    "message": "Visual Search"
   }
 }

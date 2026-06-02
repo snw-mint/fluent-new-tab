@@ -7,6 +7,13 @@
  */
 
 import { applyAccentColor } from '@/core/boot/theme';
+import { getLocalizedWarningText } from '@/core/shared/dom-utils';
+
+function getSafeText(key: string, fallback: string): string {
+  const text = getLocalizedWarningText(key, fallback);
+  if (!text || text === key) return fallback;
+  return text;
+}
 
 export function hsvToHex(h: number, s: number, v: number): string {
   s /= 100;
@@ -240,10 +247,10 @@ export function initCustomColorPicker(
   bInput.addEventListener('input', handleRgbInput);
 
   warningModal.show({
-    title: chrome.i18n.getMessage('customColorTitle') || 'Custom Color',
+    title: getSafeText('customColorTitle', 'Custom Color'),
     message: '',
-    confirmText: chrome.i18n.getMessage('btnSave') || 'Save',
-    cancelText: chrome.i18n.getMessage('btnCancel') || 'Cancel',
+    confirmText: getSafeText('btnSave', 'Save'),
+    cancelText: getSafeText('btnCancel', 'Cancel'),
     confirmVariant: 'accent',
     onConfirm: () => {
       pickerContainer.classList.add('hidden');
