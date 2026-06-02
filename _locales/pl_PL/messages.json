@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Tapeta"
   },
-  "nosourceOption": {
-    "message": "Brak źródła"
-  },
   "overlayLabel": {
     "message": "Nakładka obrazu"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Ikona zakładki"
   },
+  "customColorTitle": {
+    "message": "Kolor na zamówienie"
+  },
+  "visualSearchTitle": {
+    "message": "Wyszukiwanie wizualne"
+  },
+  "visualSearchDragText": {
+    "message": "Proszę przeciągnąć obraz tutaj lub"
+  },
+  "visualSearchUploadLink": {
+    "message": "prześlij plik"
+  },
+  "visualSearchDivider": {
+    "message": "lub"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Wklej link do obrazka"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Wyszukiwanie"
+  },
   "styleNone": {
     "message": "Brak"
-  },
-  "iconsStyleLabel": {
-    "message": "Styl ikony"
   },
   "displayTitle": {
     "message": "Wyświetlacz"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Ogranicz ruch"
-  },
-  "reduceBlurOption": {
-    "message": "Zmniejsz rozmycie"
   },
   "languageTitle": {
     "message": "Język"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Zobacz projekt na GitHubie."
   },
-  "wizardRestoreError": {
-    "message": "Przepraszamy, użyty plik *.json jest nieprawidłowy lub uszkodzony."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Aby korzystać z tej funkcji, aplikacja Fluent New Tab potrzebuje uprawnień dostępu do serwisu „$API_NAME$”. Zapewnia to ochronę Twojej prywatności i bezpieczeństwa.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Usuń folder"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Czy na pewno chcesz usunąć folder „$FOLDER$”? Wszystkie skróty znajdujące się w nim zostaną usunięte.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Wyłączyć foldery?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Wszystkie foldery i ich skróty zostaną usunięte. Nie można tego cofnąć, chyba że masz kopię zapasową."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Usuń foldery"
-  },
-  "warningKeepEnabled": {
-    "message": "Pozostaw włączone"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Dodaj aplikacje $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Spowoduje to utworzenie folderu z 9 aplikacjami $ECOSYSTEM$ w skrótach. Kontynuować?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Dodaj folder"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Brak dostępnych aplikacji"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Brak aplikacji dostępnych dla tego ekosystemu."
-  },
-  "shortcutsLimitReached": {
-    "message": "Osiągnięto limit skrótów!"
-  },
-  "warningGridFullTitle": {
-    "message": "Siatka jest pełna"
-  },
-  "warningGridFullMessage": {
-    "message": "Osiągnąłeś maksymalny limit $LIMIT$ skrótów na ekranie głównym. Usuń niektóre elementy lub zgrupuj je w folderze, aby zwolnić miejsce.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Folder jest pełny"
-  },
-  "warningFolderFullMessage": {
-    "message": "Ten folder osiągnął maksymalny limit $LIMIT$ elementów. Usuń kilka skrótów przed dodaniem nowych.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Przywrócić kopię zapasową?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Spowoduje to zastąpienie bieżących ustawień i skrótów danymi z pliku kopii zapasowej."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Przywróć"
-  },
-  "backupExportSuccess": {
-    "message": "Ustawienia zapisane pomyślnie"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Wybrany plik nie jest prawidłową kopią zapasową."
-  },
   "warningUnderstood": {
     "message": "Rozumiem"
-  },
-  "warningClose": {
-    "message": "Zamknij"
   },
   "weekday_0": {
     "message": "Niedziela"
