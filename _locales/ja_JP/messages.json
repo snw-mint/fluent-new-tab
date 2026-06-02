@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "壁紙"
   },
-  "nosourceOption": {
-    "message": "出典なし"
-  },
   "overlayLabel": {
     "message": "画像オーバーレイ"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "タブアイコン"
   },
+  "customColorTitle": {
+    "message": "カスタムカラー"
+  },
+  "visualSearchTitle": {
+    "message": "ビジュアル検索"
+  },
+  "visualSearchDragText": {
+    "message": "ここに画像をドラッグするか、"
+  },
+  "visualSearchUploadLink": {
+    "message": "ファイルをアップロードする"
+  },
+  "visualSearchDivider": {
+    "message": "または"
+  },
+  "visualSearchPasteUrl": {
+    "message": "画像のリンクを貼り付ける"
+  },
+  "visualSearchSearchBtn": {
+    "message": "検索"
+  },
   "styleNone": {
     "message": "なし"
-  },
-  "iconsStyleLabel": {
-    "message": "アイコンスタイル"
   },
   "displayTitle": {
     "message": "表示"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "動きを減らす"
-  },
-  "reduceBlurOption": {
-    "message": "ぼやけを軽減する"
   },
   "languageTitle": {
     "message": "言語"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "GitHubでプロジェクトを表示する。"
   },
-  "wizardRestoreError": {
-    "message": "申し訳ありません。使用した *.json ファイルは無効であるか破損しています。"
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "フォルダを削除"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "「$FOLDER$」フォルダーを削除してもよろしいですか？このフォルダー内のすべてのショートカットが削除されます。",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "フォルダを無効化しますか？"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "すべてのフォルダーとそのショートカットが削除されます。バックアップがない限り、この操作は元に戻せません。"
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "フォルダを削除する"
-  },
-  "warningKeepEnabled": {
-    "message": "有効のままにする"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ アプリを追加しますか？",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "これにより、ショートカットに9つの $ECOSYSTEM$ アプリを含むフォルダが作成されます。続行しますか？",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "フォルダを追加"
-  },
-  "launcherNoAppsTitle": {
-    "message": "利用可能なアプリはありません"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "このエコシステム向けのアプリはありません。"
-  },
-  "shortcutsLimitReached": {
-    "message": "ショートカットの上限に達しました！"
-  },
-  "warningGridFullTitle": {
-    "message": "グリッドが満杯です"
-  },
-  "warningGridFullMessage": {
-    "message": "メイン画面の $LIMIT$ ショートカットが上限に達しました。スペースを空けるために、いくつかの項目を削除するか、フォルダにまとめてください。",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "フォルダがいっぱいです"
-  },
-  "warningFolderFullMessage": {
-    "message": "このフォルダは $LIMIT$ アイテムの絶対上限に達しました。新しいアイテムを追加する前に、いくつかのショートカットを削除してください。",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "バックアップを復元しますか？"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "これにより、現在の設定とショートカットがバックアップファイルのデータで置き換えられます。"
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "復元"
-  },
-  "backupExportSuccess": {
-    "message": "設定をファイルに保存しました"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "選択されたファイルは有効なバックアップではありません。"
-  },
   "warningUnderstood": {
     "message": "承知しました"
-  },
-  "warningClose": {
-    "message": "閉じる"
   },
   "weekday_0": {
     "message": "日曜日"
