@@ -306,6 +306,9 @@
     "message": "View project on GitHub."
   },
   "permissionRequiredMessage": {
+    "reauthNoticeTitle": {
+      "message": "Permission Required"
+    },
     "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
     "placeholders": {
       "api_name": {
@@ -336,27 +339,6 @@
   },
   "warningUnderstood": {
     "message": "Understood"
-  },
-  "weekday_0": {
-    "message": "Sunday"
-  },
-  "weekday_1": {
-    "message": "Monday"
-  },
-  "weekday_2": {
-    "message": "Tuesday"
-  },
-  "weekday_3": {
-    "message": "Wednesday"
-  },
-  "weekday_4": {
-    "message": "Thursday"
-  },
-  "weekday_5": {
-    "message": "Friday"
-  },
-  "weekday_6": {
-    "message": "Saturday"
   },
   "greetWeekMorning": {
     "message": "Have a great $WEEK$, $NAME$!",
@@ -625,10 +607,10 @@
       }
     }
   },
-  "customColorTitle": {
-    "message": "Custom Color"
-  },
   "visualSearchTitle": {
     "message": "Visual Search"
+  },
+  "visualSearchOption": {
+    "message": "Search by Image"
   }
 }

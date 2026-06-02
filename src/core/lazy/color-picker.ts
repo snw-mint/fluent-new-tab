@@ -240,10 +240,10 @@ export function initCustomColorPicker(
   bInput.addEventListener('input', handleRgbInput);
 
   warningModal.show({
-    title: 'Custom Color',
+    title: chrome.i18n.getMessage('customColorTitle') || 'Custom Color',
     message: '',
-    confirmText: 'Save',
-    cancelText: 'Cancel',
+    confirmText: chrome.i18n.getMessage('btnSave') || 'Save',
+    cancelText: chrome.i18n.getMessage('btnCancel') || 'Cancel',
     confirmVariant: 'accent',
     onConfirm: () => {
       pickerContainer.classList.add('hidden');
