@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "배경화면"
   },
-  "nosourceOption": {
-    "message": "출처 없음"
-  },
   "overlayLabel": {
     "message": "이미지 오버레이"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "탭 아이콘"
   },
+  "customColorTitle": {
+    "message": "사용자 지정 색상"
+  },
+  "visualSearchTitle": {
+    "message": "이미지 검색"
+  },
+  "visualSearchDragText": {
+    "message": "이미지를 여기로 드래그하거나"
+  },
+  "visualSearchUploadLink": {
+    "message": "파일 업로드"
+  },
+  "visualSearchDivider": {
+    "message": "또는"
+  },
+  "visualSearchPasteUrl": {
+    "message": "이미지 링크 붙여넣기"
+  },
+  "visualSearchSearchBtn": {
+    "message": "검색"
+  },
   "styleNone": {
     "message": "없음"
-  },
-  "iconsStyleLabel": {
-    "message": "아이콘 스타일"
   },
   "displayTitle": {
     "message": "표시"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "움직임 줄이기"
-  },
-  "reduceBlurOption": {
-    "message": "블러 효과 줄이기"
   },
   "languageTitle": {
     "message": "언어"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "GitHub에서 프로젝트 보기."
   },
-  "wizardRestoreError": {
-    "message": "죄송합니다. 사용한 *.json 파일이 유효하지 않거나 손상되었습니다."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "폴더 삭제"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "\"$FOLDER$\" 폴더를 삭제하시겠습니까? 해당 폴더 내의 모든 바로가기가 제거됩니다.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "폴더 비활성화?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "모든 폴더와 해당 바로가기가 삭제됩니다. 백업이 없는 경우 이 작업은 되돌릴 수 없습니다."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "폴더 삭제"
-  },
-  "warningKeepEnabled": {
-    "message": "활성화 상태 유지"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ 앱 추가?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "바로 가기에 9개의 $ECOSYSTEM$ 앱이 포함된 폴더를 생성합니다. 계속하시겠습니까?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "폴더 추가"
-  },
-  "launcherNoAppsTitle": {
-    "message": "사용 가능한 앱이 없습니다"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "이 생태계에서 사용할 수 있는 앱이 없습니다."
-  },
-  "shortcutsLimitReached": {
-    "message": "바로가기 제한에 도달했습니다!"
-  },
-  "warningGridFullTitle": {
-    "message": "그리드가 가득 찼습니다"
-  },
-  "warningGridFullMessage": {
-    "message": "메인 화면의 $LIMIT$개의 바로가기 최대 한도에 도달했습니다. 공간을 확보하려면 일부 항목을 삭제하거나 폴더로 그룹화하세요.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "폴더가 가득 찼습니다"
-  },
-  "warningFolderFullMessage": {
-    "message": "이 폴더는 최대 $LIMIT$개 항목 한도에 도달했습니다. 새 항목을 추가하기 전에 일부 바로가기를 제거해 주세요.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "백업을 복원하시겠습니까?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "이 작업은 현재 설정 및 바로 가기를 백업 파일의 데이터로 덮어씁니다."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "복원"
-  },
-  "backupExportSuccess": {
-    "message": "설정이 성공적으로 내보내졌습니다"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "선택한 파일은 유효한 백업 파일이 아닙니다."
-  },
   "warningUnderstood": {
     "message": "알겠습니다"
-  },
-  "warningClose": {
-    "message": "닫기"
   },
   "weekday_0": {
     "message": "일요일"
