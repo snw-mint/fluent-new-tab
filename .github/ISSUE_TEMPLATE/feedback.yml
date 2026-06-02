@@ -1,0 +1,62 @@
+name: 💬 Feedback & Improvement
+description: Suggest improvements for existing features or resources
+title: '[Feedback]: '
+labels: ['feedback']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to share your feedback!
+
+        Please note: This form is **exclusively** for suggesting improvements or giving feedback on **existing features/resources**.
+        - If you found a bug, please use the 🐞 **Bug Report** template.
+        - If you want to request a brand new feature, please use the 🚀 **Feature Request** template.
+
+  - type: input
+    id: feature
+    attributes:
+      label: Target Feature or Resource
+      description: Which existing feature, UI element, or resource is this feedback for?
+      placeholder: e.g., Search bar, Weather widget, Settings menu, Performance...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Experience/Behavior
+      description: How does the feature currently work, or what is your current experience with it?
+      placeholder: Describe the current state...
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: What specific change or improvement would you like to suggest for this feature?
+      placeholder: Describe your suggestion in detail and how it would improve your experience...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_or_usage
+    attributes:
+      label: Recommended Steps or Context (Optional)
+      description: If applicable, list the steps to navigate to this feature, or outline the steps of the improved user flow.
+      placeholder: |
+        1. Open the settings menu
+        2. Go to '...'
+        3. Notice the flow improvement here...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ Checklist
+      options:
+        - label: This feedback is about an existing feature, not a bug report or new feature request.
+          required: true
+        - label: I have searched for existing feedback/issues to avoid duplicates.
+          required: true
