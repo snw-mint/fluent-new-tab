@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
-  "nosourceOption": {
-    "message": "Χωρίς πηγή"
-  },
   "overlayLabel": {
     "message": "Επικάλυψη εικόνας"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Εικονίδιο καρτέλας"
   },
+  "customColorTitle": {
+    "message": "Προσαρμοσμένο χρώμα"
+  },
+  "visualSearchTitle": {
+    "message": "Οπτική αναζήτηση"
+  },
+  "visualSearchDragText": {
+    "message": "Σύρε μια εικόνα εδώ ή"
+  },
+  "visualSearchUploadLink": {
+    "message": "ανέβασε ένα αρχείο"
+  },
+  "visualSearchDivider": {
+    "message": "ή"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Επικόλληση συνδέσμου εικόνας"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Αναζήτηση"
+  },
   "styleNone": {
     "message": "Κανένα"
-  },
-  "iconsStyleLabel": {
-    "message": "Στυλ εικονιδίου"
   },
   "displayTitle": {
     "message": "Οθόνη"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Μείωση κίνησης"
-  },
-  "reduceBlurOption": {
-    "message": "Μείωση θολότητας"
   },
   "languageTitle": {
     "message": "Γλώσσα"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Δείτε το έργο στο GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Λυπούμαστε, το αρχείο *.json που χρησιμοποιήσατε δεν είναι έγκυρο ή είναι κατεστραμμένο."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Διαγραφή φακέλου"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε τον φάκελο \"$FOLDER$\"; Όλες οι συντομεύσεις που περιέχει θα διαγραφούν.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Απενεργοποίηση φακέλων;"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Όλοι οι φάκελοι και οι συντομεύσεις τους θα διαγραφούν. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί, εκτός εάν έχετε δημιουργήσει αντίγραφο ασφαλείας."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Διαγραφή φακέλων"
-  },
-  "warningKeepEnabled": {
-    "message": "Να παραμείνει ενεργό"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Προσθήκη εφαρμογών $ECOSYSTEM$;",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Αυτό θα δημιουργήσει ένα φάκελο με 9 εφαρμογές $ECOSYSTEM$ στις συντομεύσεις σας. Θέλετε να συνεχίσετε;",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Προσθήκη φακέλου"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Δεν υπάρχουν διαθέσιμες εφαρμογές"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Δεν υπάρχουν διαθέσιμες εφαρμογές για αυτό το οικοσύστημα."
-  },
-  "shortcutsLimitReached": {
-    "message": "Το όριο των συντομεύσεων έχει επιτευχθεί!"
-  },
-  "warningGridFullTitle": {
-    "message": "Το πλέγμα είναι γεμάτο"
-  },
-  "warningGridFullMessage": {
-    "message": "Έχετε φτάσει στο μέγιστο όριο των συντομεύσεων $LIMIT$ στην κύρια οθόνη. Διαγράψτε ορισμένα στοιχεία ή ομαδοποιήστε τα σε ένα φάκελο για να ελευθερώσετε χώρο.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Ο φάκελος είναι γεμάτος"
-  },
-  "warningFolderFullMessage": {
-    "message": "Αυτός ο φάκελος έχει φτάσει το απόλυτο όριο των $LIMIT$ στοιχείων. Παρακαλώ αφαιρέστε μερικές συντομεύσεις πριν προσθέσετε νέες.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Επαναφορά αντιγράφου ασφαλείας;"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Αυτό θα αντικαταστήσει τις τρέχουσες ρυθμίσεις και συντομεύσεις σας με τα δεδομένα του αρχείου αντιγράφου ασφαλείας."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Επαναφορά"
-  },
-  "backupExportSuccess": {
-    "message": "Οι ρυθμίσεις αποθηκεύτηκαν επιτυχώς"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας."
-  },
   "warningUnderstood": {
     "message": "Κατανοητό"
-  },
-  "warningClose": {
-    "message": "Κλείσιμο"
   },
   "weekday_0": {
     "message": "Κυριακή"
