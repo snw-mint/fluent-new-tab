@@ -82,6 +82,7 @@ export function bindWeatherFeature(options: any): void {
       const isCollapsed =
         refs.weatherMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        resetSettingsAccordions(refs.weatherMoreContainer);
         refs.weatherMoreContainer.classList.remove('collapsed');
         refs.weatherMoreBtn.classList.add('expanded');
         refs.weatherMoreContainer.style.maxHeight = '500px';
@@ -292,6 +293,7 @@ export function bindAccentColorFeature(options: any): void {
       const isCollapsed =
         refs.accentMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        resetSettingsAccordions(refs.accentMoreContainer);
         refs.accentMoreContainer.classList.remove('collapsed');
         refs.accentMoreBtn.classList.add('expanded');
         refs.accentMoreContainer.style.maxHeight = '500px';
@@ -354,6 +356,7 @@ export function bindDisplayFeature(options: any): void {
       const isCollapsed =
         refs.displaySliderContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        resetSettingsAccordions(refs.displaySliderContainer);
         refs.displaySliderContainer.classList.remove('collapsed');
         refs.displayToggleBtn.classList.add('expanded');
         refs.displaySliderContainer.style.maxHeight = '500px';
@@ -666,6 +669,7 @@ export function bindShortcutRadiusFeature(options: any): void {
       const isCollapsed =
         refs.shortcutsMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        resetSettingsAccordions(refs.shortcutsMoreContainer);
         refs.shortcutsMoreContainer.classList.remove('collapsed');
         refs.shortcutsMoreBtn.classList.add('expanded');
         refs.shortcutsMoreContainer.style.maxHeight = '500px';
@@ -811,6 +815,11 @@ export function bindReduceEffectsFeature(): void {
           toggleDisableAnimations.checked = false;
           localStorage.setItem('animationsDisabled', 'false');
           applyAnimationsDisabled(false);
+        }
+        if (refs.mainUiScaleSlider && refs.mainUiScaleSlider.value !== '1') {
+          refs.mainUiScaleSlider.value = '1';
+          refs.mainUiScaleSlider.dispatchEvent(new Event('input'));
+          refs.mainUiScaleSlider.dispatchEvent(new Event('change'));
         }
       }
 
@@ -1057,6 +1066,7 @@ export function bindWallpaperFeature(
       const isCollapsed =
         refs.overlaySliderContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        resetSettingsAccordions(refs.overlaySliderContainer);
         refs.overlaySliderContainer.classList.remove('collapsed');
         refs.overlayToggleBtn.classList.add('expanded');
         refs.overlaySliderContainer.style.maxHeight = '500px';
@@ -1112,7 +1122,7 @@ export function bindWallpaperFeature(
   }
 }
 
-export function resetSettingsAccordions(): void {
+export function resetSettingsAccordions(exceptContainer: Element | null = null): void {
   const accordions = [
     { container: refs.displaySliderContainer, btn: refs.displayToggleBtn },
     { container: refs.shortcutsMoreContainer, btn: refs.shortcutsMoreBtn },
@@ -1123,11 +1133,11 @@ export function resetSettingsAccordions(): void {
   ];
 
   accordions.forEach((acc) => {
-    if (acc.container) {
+    if (acc.container && acc.container !== exceptContainer) {
       acc.container.classList.add('collapsed');
       acc.container.style.maxHeight = '';
     }
-    if (acc.btn) acc.btn.classList.remove('expanded');
+    if (acc.btn && acc.container !== exceptContainer) acc.btn.classList.remove('expanded');
   });
 }
 

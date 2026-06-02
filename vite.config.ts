@@ -37,5 +37,12 @@ export default defineConfig({
     minify: 'esbuild',
     emptyOutDir: true,
     modulePreload: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]',
+      },
+    },
   },
 });

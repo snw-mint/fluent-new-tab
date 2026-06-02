@@ -33,6 +33,7 @@ export function bindSearchFeature(options: any): void {
       const isCollapsed =
         refs.searchMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
+        import('@/core/ui/settings').then((m) => m.resetSettingsAccordions(refs.searchMoreContainer));
         refs.searchMoreContainer.classList.remove('collapsed');
         refs.searchMoreBtn.classList.add('expanded');
         refs.searchMoreContainer.style.maxHeight = '500px';
