@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Bakgrundsbild"
   },
-  "nosourceOption": {
-    "message": "Ingen källa"
-  },
   "overlayLabel": {
     "message": "Bildöverlägg"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Flikikon"
   },
+  "customColorTitle": {
+    "message": "Anpassad färg"
+  },
+  "visualSearchTitle": {
+    "message": "Visuell sökning"
+  },
+  "visualSearchDragText": {
+    "message": "Dra en bild hit eller"
+  },
+  "visualSearchUploadLink": {
+    "message": "ladda upp en fil"
+  },
+  "visualSearchDivider": {
+    "message": "eller"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Klistra in bildlänken"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Sök"
+  },
   "styleNone": {
     "message": "Inget"
-  },
-  "iconsStyleLabel": {
-    "message": "Ikonstil"
   },
   "displayTitle": {
     "message": "Visning"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Minska rörelser"
-  },
-  "reduceBlurOption": {
-    "message": "Minska oskärpa"
   },
   "languageTitle": {
     "message": "Språk"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Visa projektet på GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Tyvärr, *.json-filen du använde är ogiltig eller skadad."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Ta bort mapp"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Är du säker på att du vill ta bort mappen \"$FOLDER$\"? Alla genvägar i mappen kommer att tas bort.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Inaktivera mappar?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Alla mappar och deras genvägar kommer att raderas. Detta kan inte ångras om du inte har en säkerhetskopia."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Ta bort mappar"
-  },
-  "warningKeepEnabled": {
-    "message": "Behåll aktiverat"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Lägg till $ECOSYSTEM$-appar?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Detta skapar en mapp med 9 $ECOSYSTEM$-appar bland dina genvägar. Vill du fortsätta?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Lägg till mapp"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Inga appar tillgängliga"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Inga appar tillgängliga för detta ekosystem."
-  },
-  "shortcutsLimitReached": {
-    "message": "Genvägsgränsen har nåtts!"
-  },
-  "warningGridFullTitle": {
-    "message": "Nätet är fullt"
-  },
-  "warningGridFullMessage": {
-    "message": "Du har nått den maximala gränsen på $LIMIT$ genvägar på huvudskärmen. Ta bort några objekt eller gruppera dem i en mapp för att frigöra utrymme.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Mappen är full"
-  },
-  "warningFolderFullMessage": {
-    "message": "Denna mapp har nått den absoluta gränsen för $LIMIT$ objekt. Ta bort några genvägar innan du lägger till nya.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Återställ säkerhetskopia?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Detta kommer att ersätta dina nuvarande inställningar och genvägar med data från säkerhetskopian."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Återställ"
-  },
-  "backupExportSuccess": {
-    "message": "Inställningarna sparades framgångsrikt"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Den valda filen är inte en giltig säkerhetskopia."
-  },
   "warningUnderstood": {
     "message": "Förstått"
-  },
-  "warningClose": {
-    "message": "Stäng"
   },
   "weekday_0": {
     "message": "Söndag"
