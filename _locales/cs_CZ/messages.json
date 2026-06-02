@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Tapeta"
   },
-  "nosourceOption": {
-    "message": "Žádný zdroj"
-  },
   "overlayLabel": {
     "message": "Překrytí obrázku"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Ikona karty"
   },
+  "customColorTitle": {
+    "message": "Vlastní barva"
+  },
+  "visualSearchTitle": {
+    "message": "Vizuální vyhledávání"
+  },
+  "visualSearchDragText": {
+    "message": "Přetáhněte sem obrázek nebo"
+  },
+  "visualSearchUploadLink": {
+    "message": "nahrát soubor"
+  },
+  "visualSearchDivider": {
+    "message": "nebo"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Vlož odkaz na obrázek"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Vyhledávání"
+  },
   "styleNone": {
     "message": "Žádný"
-  },
-  "iconsStyleLabel": {
-    "message": "Styl ikon"
   },
   "displayTitle": {
     "message": "Zobrazení"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Omezit animace"
-  },
-  "reduceBlurOption": {
-    "message": "Snížit rozmazání"
   },
   "languageTitle": {
     "message": "Jazyk"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Zobrazit projekt na GitHubu."
   },
-  "wizardRestoreError": {
-    "message": "Omlouváme se, ale použitý soubor *.json je neplatný nebo poškozený."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Odstranit složku"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Opravdu chcete smazat složku „$FOLDER$“? Všechny zkratky v ní budou odstraněny.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Vypnout složky?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Všechny složky a jejich zkratky budou smazány. Tento úkon nelze vrátit zpět, pokud nemáte zálohu."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Odstranit složky"
-  },
-  "warningKeepEnabled": {
-    "message": "Nechat zapnuté"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Přidat aplikace $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Tím se ve vašich zkratkách vytvoří složka s 9 aplikacemi $ECOSYSTEM$. Pokračovat?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Přidat složku"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Žádné dostupné aplikace"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Pro tento ekosystém nejsou k dispozici žádné aplikace."
-  },
-  "shortcutsLimitReached": {
-    "message": "Limit zkratek dosažen!"
-  },
-  "warningGridFullTitle": {
-    "message": "Hlavní obrazovka je plná"
-  },
-  "warningGridFullMessage": {
-    "message": "Dosáhli jste maximálního limitu $LIMIT$ zkratek na hlavní obrazovce. Odstraňte některé položky nebo je seskupte do složky, abyste uvolnili místo.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Složka je plná"
-  },
-  "warningFolderFullMessage": {
-    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových položek prosím odstraňte některé zkratky.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Obnovit zálohu?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Tím se nahradí vaše aktuální nastavení a zkratky daty ze záložního souboru."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Obnovit"
-  },
-  "backupExportSuccess": {
-    "message": "Nastavení úspěšně exportována"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Vybraný soubor není platnou zálohou."
-  },
   "warningUnderstood": {
     "message": "Rozumím"
-  },
-  "warningClose": {
-    "message": "Zavřít"
   },
   "weekday_0": {
     "message": "Neděle"
