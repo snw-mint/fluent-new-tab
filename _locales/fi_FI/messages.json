@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
-  "nosourceOption": {
-    "message": "Ei lähdettä"
-  },
   "overlayLabel": {
     "message": "Peittokuva"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Välilehtikuvake"
   },
+  "customColorTitle": {
+    "message": "Mukautettu väri"
+  },
+  "visualSearchTitle": {
+    "message": "Visuaalinen haku"
+  },
+  "visualSearchDragText": {
+    "message": "Vedä kuva tähän tai"
+  },
+  "visualSearchUploadLink": {
+    "message": "lataa tiedosto"
+  },
+  "visualSearchDivider": {
+    "message": "tai"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Liitä kuvan linkki"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Haku"
+  },
   "styleNone": {
     "message": "Ei mitään"
-  },
-  "iconsStyleLabel": {
-    "message": "Kuvaketyyli"
   },
   "displayTitle": {
     "message": "Näyttö"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Vähennä liikettä"
-  },
-  "reduceBlurOption": {
-    "message": "Vähennä sumennusta"
   },
   "languageTitle": {
     "message": "Kieli"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Katso projekti GitHubissa."
   },
-  "wizardRestoreError": {
-    "message": "Käyttämäsi *.json-tiedosto on virheellinen tai vioittunut."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Poista kansio"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Haluatko varmasti poistaa kansion \"$FOLDER$\"? Kaikki sen sisältämät pikakuvakkeet poistetaan.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Poista kansiot käytöstä?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Kaikki kansiot ja niiden pikakuvakkeet poistetaan. Tätä ei voi peruuttaa, ellei sinulla ole varmuuskopiota."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Poista kansiot"
-  },
-  "warningKeepEnabled": {
-    "message": "Pidä käytössä"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Lisää $ECOSYSTEM$-sovellukset?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Tämä luo pikakuvakkeisiisi kansion, jossa on 9 $ECOSYSTEM$ -sovellusta. Jatketaanko?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Lisää kansio"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Ei sovelluksia"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Tälle ekosysteemille ei ole saatavilla sovelluksia."
-  },
-  "shortcutsLimitReached": {
-    "message": "Pikakuvakkeiden raja saavutettu!"
-  },
-  "warningGridFullTitle": {
-    "message": "Aloitusnäyttö on täynnä"
-  },
-  "warningGridFullMessage": {
-    "message": "Olet saavuttanut $LIMIT$ pikakuvakkeen enimmäismäärän aloitusnäytöllä. Poista joitakin kohteita tai ryhmitä ne kansioon vapauttaaksesi tilaa.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Kansio on täynnä"
-  },
-  "warningFolderFullMessage": {
-    "message": "Tämä kansio on saavuttanut $LIMIT$ kohteen enimmäisrajan. Poista joitakin pikakuvakkeita ennen uusien lisäämistä.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Palautetaanko varmuuskopio?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Tämä korvaa nykyiset asetuksesi ja pikakuvakkeesi varmuuskopiotiedoston tiedoilla."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Palauta"
-  },
-  "backupExportSuccess": {
-    "message": "Asetukset viety onnistuneesti"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Valittu tiedosto ei ole kelvollinen varmuuskopio."
-  },
   "warningUnderstood": {
     "message": "Selvä"
-  },
-  "warningClose": {
-    "message": "Sulje"
   },
   "weekday_0": {
     "message": "Sunnuntai"
