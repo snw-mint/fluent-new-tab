@@ -131,6 +131,9 @@ export const toggleSuggestions = getById<HTMLInputElement>('toggleSuggestions');
 export const toggleClearSearch = getById<HTMLInputElement>('toggleClearSearch');
 export const clearSearchRow = getById<HTMLDivElement>('clearSearchRow');
 export const toggleVoiceSearch = getById<HTMLInputElement>('toggleVoiceSearch');
+export const toggleVisualSearch = getById<HTMLInputElement>('toggleVisualSearch');
+export const visualSearchRow = getById<HTMLDivElement>('visualSearchRow');
+export const visualSearchBtn = getById<HTMLButtonElement>('visualSearchBtn');
 export const suggestionsContainer = getById<HTMLDivElement>(
   'suggestionsContainer',
 );

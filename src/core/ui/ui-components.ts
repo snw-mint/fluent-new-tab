@@ -394,10 +394,25 @@ export async function requestFeaturePermissionUI(
     ),
     cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
     confirmVariant: 'accent',
-    onConfirm: async () => {
-      const granted = await requestPermission(origins);
-      if (granted) onGranted();
-      else onDenied();
+    onConfirm: () => {
+      const chromeApi = (window as any).chrome;
+      if (chromeApi?.permissions?.request) {
+        chromeApi.permissions.request({ origins }, (granted: boolean) => {
+          if (chromeApi.runtime?.lastError) {
+            console.error(chromeApi.runtime.lastError);
+            onDenied();
+          } else if (granted) {
+            onGranted();
+          } else {
+            onDenied();
+          }
+        });
+      } else {
+        requestPermission(origins).then((granted) => {
+          if (granted) onGranted();
+          else onDenied();
+        });
+      }
     },
     onCancel: onDenied,
   });

@@ -29,6 +29,7 @@ const APP_KEYS = [
   'clearSearchEnabled',
   'compactBarEnabled',
   'voiceSearchEnabled',
+  'visualSearchEnabled',
   'weatherUnit',
   'wallpaperEnabled',
   'wallpaperSource',
