@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Hình nền"
   },
-  "nosourceOption": {
-    "message": "Không có nguồn"
-  },
   "overlayLabel": {
     "message": "Lớp phủ hình ảnh"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Biểu tượng tab"
   },
+  "customColorTitle": {
+    "message": "Màu tùy chỉnh"
+  },
+  "visualSearchTitle": {
+    "message": "Tìm kiếm bằng hình ảnh"
+  },
+  "visualSearchDragText": {
+    "message": "Kéo một hình ảnh vào đây hoặc"
+  },
+  "visualSearchUploadLink": {
+    "message": "tải lên tệp"
+  },
+  "visualSearchDivider": {
+    "message": "hoặc"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Dán liên kết hình ảnh"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Tìm kiếm"
+  },
   "styleNone": {
     "message": "Không có"
-  },
-  "iconsStyleLabel": {
-    "message": "Phong cách biểu tượng"
   },
   "displayTitle": {
     "message": "Màn hình"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Giảm chuyển động"
-  },
-  "reduceBlurOption": {
-    "message": "Giảm mờ"
   },
   "languageTitle": {
     "message": "Ngôn ngữ"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Xem dự án trên GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Xin lỗi, tệp *.json bạn sử dụng không hợp lệ hoặc đã bị hỏng."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Xóa thư mục"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Bạn có chắc chắn muốn xóa thư mục \"$FOLDER$\" không? Tất cả các lối tắt bên trong thư mục đó sẽ bị xóa.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Tắt thư mục?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Tất cả các thư mục và các lối tắt của chúng sẽ bị xóa. Việc này không thể hoàn tác trừ khi bạn có bản sao lưu."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Xóa thư mục"
-  },
-  "warningKeepEnabled": {
-    "message": "Giữ trạng thái bật"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Thêm ứng dụng $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Điều này sẽ tạo ra một thư mục chứa 9 ứng dụng $ECOSYSTEM$ trong mục Lối tắt của bạn. Tiếp tục?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Thêm thư mục"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Không có ứng dụng nào có sẵn."
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Không có ứng dụng nào có sẵn cho hệ sinh thái này."
-  },
-  "shortcutsLimitReached": {
-    "message": "Đã đạt giới hạn lối tắt!"
-  },
-  "warningGridFullTitle": {
-    "message": "Lưới đã đầy"
-  },
-  "warningGridFullMessage": {
-    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ lối tắt trên màn hình chính. Hãy xóa một số mục hoặc nhóm chúng vào một thư mục để giải phóng không gian.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Thư mục đã đầy"
-  },
-  "warningFolderFullMessage": {
-    "message": "Thư mục này đã đạt đến giới hạn tối đa $LIMIT$ mục. Vui lòng xóa một vài lối tắt trước khi thêm mới.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Khôi phục bản sao lưu?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Điều này sẽ thay thế các cài đặt và phím tắt hiện tại của bạn bằng dữ liệu từ tệp sao lưu."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Khôi phục"
-  },
-  "backupExportSuccess": {
-    "message": "Các cài đặt đã được lưu thành công"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Tệp đã chọn không phải là bản sao lưu hợp lệ."
-  },
   "warningUnderstood": {
     "message": "Đã hiểu"
-  },
-  "warningClose": {
-    "message": "Đóng"
   },
   "weekday_0": {
     "message": "Chủ nhật"

@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
-  "nosourceOption": {
-    "message": "Geen bron"
-  },
   "overlayLabel": {
     "message": "Afbeeldingsoverlay"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Tabbladpictogram"
   },
+  "customColorTitle": {
+    "message": "Aangepaste kleur"
+  },
+  "visualSearchTitle": {
+    "message": "Visuele zoekfunctie"
+  },
+  "visualSearchDragText": {
+    "message": "Sleep hier een afbeelding of"
+  },
+  "visualSearchUploadLink": {
+    "message": "een bestand uploaden"
+  },
+  "visualSearchDivider": {
+    "message": "of"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Afbeeldingslink plakken"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Zoeken"
+  },
   "styleNone": {
     "message": "Geen"
-  },
-  "iconsStyleLabel": {
-    "message": "Pictogramstijl"
   },
   "displayTitle": {
     "message": "Weergave"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Beweging verminderen"
-  },
-  "reduceBlurOption": {
-    "message": "Onscherpte verminderen"
   },
   "languageTitle": {
     "message": "Taal"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Bekijk het project op GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Sorry, het *.json-bestand dat je hebt gebruikt is ongeldig of beschadigd."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt je privacy en veiligheid.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Map verwijderen"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Weet je zeker dat je de map \"$FOLDER$\" wilt verwijderen? Alle snelkoppelingen in deze map worden verwijderd.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Mappen uitschakelen?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Alle mappen en hun snelkoppelingen worden verwijderd. Dit kan niet ongedaan worden gemaakt, tenzij je een back-up hebt."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Mappen verwijderen"
-  },
-  "warningKeepEnabled": {
-    "message": "Ingeschakeld houden"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$-apps toevoegen?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Hierdoor wordt een map met 9 $ECOSYSTEM$ apps in je snelkoppelingen aangemaakt. Doorgaan?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Map toevoegen"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Geen apps beschikbaar"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Er zijn geen apps beschikbaar voor dit ecosysteem."
-  },
-  "shortcutsLimitReached": {
-    "message": "Limiet voor snelkoppelingen bereikt!"
-  },
-  "warningGridFullTitle": {
-    "message": "Het raster is vol"
-  },
-  "warningGridFullMessage": {
-    "message": "Je hebt de maximale limiet van $LIMIT$ snelkoppelingen op het hoofdscherm bereikt. Verwijder enkele items of groepeer ze in een map om ruimte vrij te maken.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Map is vol"
-  },
-  "warningFolderFullMessage": {
-    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat je nieuwe toevoegt.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Back-up herstellen?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Hierdoor worden je huidige instellingen en snelkoppelingen vervangen door de gegevens uit het back-upbestand."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Herstellen"
-  },
-  "backupExportSuccess": {
-    "message": "Instellingen succesvol geëxporteerd"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Het geselecteerde bestand is geen geldige back-up."
-  },
   "warningUnderstood": {
     "message": "Begrepen"
-  },
-  "warningClose": {
-    "message": "Sluiten"
   },
   "weekday_0": {
     "message": "Zondag"

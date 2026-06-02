@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Papel de parede"
   },
-  "nosourceOption": {
-    "message": "Sem fonte"
-  },
   "overlayLabel": {
     "message": "Sobreposição de imagem"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Ícone da guia"
   },
+  "customColorTitle": {
+    "message": "Cor Customizada"
+  },
+  "visualSearchTitle": {
+    "message": "Pesquisa visual"
+  },
+  "visualSearchDragText": {
+    "message": "Arraste uma imagem aqui ou"
+  },
+  "visualSearchUploadLink": {
+    "message": "carregue um arquivo"
+  },
+  "visualSearchDivider": {
+    "message": "ou"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Cole um link de imagem"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Pesquisar"
+  },
   "styleNone": {
     "message": "Nenhum"
-  },
-  "iconsStyleLabel": {
-    "message": "Estilo do ícone"
   },
   "displayTitle": {
     "message": "Display"
@@ -54,7 +69,7 @@
     "message": "Hora e data"
   },
   "displayScaleLabel": {
-    "message": "Redimensionar Display"
+    "message": "Escala do Display"
   },
   "emojiTypeLabel": {
     "message": "Tipo de emoji"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Reduzir movimento"
-  },
-  "reduceBlurOption": {
-    "message": "Reduzir desfoque"
   },
   "languageTitle": {
     "message": "Idioma"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Veja o projeto no GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Desculpe, o arquivo *.json usado é inválido ou está corrompido."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Para usar esse recurso, o Fluent New Tab precisa de permissão para acessar \"$API_NAME$\". Isso garante sua privacidade e segurança.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Excluir pasta"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Tem certeza de que deseja excluir a pasta “$FOLDER$”? Todos os atalhos dentro dela serão removidos.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Desativar pastas?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Todas as pastas e seus atalhos serão excluídos. Isso não pode ser desfeito, a menos que você tenha um backup."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Excluir pastas"
-  },
-  "warningKeepEnabled": {
-    "message": "Manter ativado"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Adicionar aplicativos $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Isso criará uma pasta com 9 apps $ECOSYSTEM$ em seus atalhos. Deseja continuar?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Adicionar pasta"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Não há aplicativos disponíveis"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Não há aplicativos disponíveis para este ecossistema."
-  },
-  "shortcutsLimitReached": {
-    "message": "Limite de atalhos atingido!"
-  },
-  "warningGridFullTitle": {
-    "message": "A grade está cheia"
-  },
-  "warningGridFullMessage": {
-    "message": "Você atingiu o limite máximo de $LIMIT$ atalhos na tela principal. Exclua alguns itens ou agrupe-os em uma pasta para liberar espaço.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "A pasta está cheia"
-  },
-  "warningFolderFullMessage": {
-    "message": "Esta pasta atingiu o limite máximo de $LIMIT$ itens. Remova alguns atalhos antes de adicionar novos.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Restaurar backup?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Isso substituirá suas configurações e atalhos atuais pelos dados do arquivo de backup."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Restaurar"
-  },
-  "backupExportSuccess": {
-    "message": "Configurações salvas no arquivo"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "O arquivo selecionado não é um backup válido."
-  },
   "warningUnderstood": {
     "message": "Entendido"
-  },
-  "warningClose": {
-    "message": "Fechar"
   },
   "weekday_0": {
     "message": "Domingo"

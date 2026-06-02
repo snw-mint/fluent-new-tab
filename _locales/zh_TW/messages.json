@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "桌布"
   },
-  "nosourceOption": {
-    "message": "無來源"
-  },
   "overlayLabel": {
     "message": "影像疊加"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "標籤圖示"
   },
+  "customColorTitle": {
+    "message": "自訂顏色"
+  },
+  "visualSearchTitle": {
+    "message": "視覺搜尋"
+  },
+  "visualSearchDragText": {
+    "message": "將圖片拖曳至此處，或"
+  },
+  "visualSearchUploadLink": {
+    "message": "上傳檔案"
+  },
+  "visualSearchDivider": {
+    "message": "或"
+  },
+  "visualSearchPasteUrl": {
+    "message": "貼上圖片連結"
+  },
+  "visualSearchSearchBtn": {
+    "message": "搜尋"
+  },
   "styleNone": {
     "message": "無"
-  },
-  "iconsStyleLabel": {
-    "message": "圖示樣式"
   },
   "displayTitle": {
     "message": "顯示"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "減少動態效果"
-  },
-  "reduceBlurOption": {
-    "message": "降低模糊度"
   },
   "languageTitle": {
     "message": "語言"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "在 GitHub 上查看此專案。"
   },
-  "wizardRestoreError": {
-    "message": "抱歉，您使用的 *.json 檔案無效或已損毀。"
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "若要使用此功能，Fluent New Tab 需要獲取存取「$API_NAME$」的權限。此舉旨在保障您的隱私與安全。",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "刪除資料夾"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "您確定要刪除資料夾「$FOLDER$」嗎？該資料夾內的所有捷徑都將被移除。",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "停用資料夾？"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "所有資料夾及其捷徑都將被刪除。除非您備有備份，否則此操作無法復原。"
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "刪除資料夾"
-  },
-  "warningKeepEnabled": {
-    "message": "保持啟用"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "新增 $ECOSYSTEM$ 應用程式？",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "這將為您的捷徑建立一個包含 9 個 $ECOSYSTEM$ 應用程式的資料夾。繼續？",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "新增資料夾"
-  },
-  "launcherNoAppsTitle": {
-    "message": "沒有可用應用程式"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "此生態系統目前沒有可用應用程式。"
-  },
-  "shortcutsLimitReached": {
-    "message": "捷徑數量已達上限！"
-  },
-  "warningGridFullTitle": {
-    "message": "主畫面已滿"
-  },
-  "warningGridFullMessage": {
-    "message": "主畫面的捷徑已達到 $LIMIT$ 個的上限。請刪除部分項目或將它們分組到資料夾中以釋放空間。",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "資料夾已滿"
-  },
-  "warningFolderFullMessage": {
-    "message": "此資料夾已達到 $LIMIT$ 項目的絕對上限。請先移除部分捷徑，再新增其他項目。",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "還原備份？"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "此操作將以備份檔案中的資料取代您當前的設定與捷徑。"
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "還原"
-  },
-  "backupExportSuccess": {
-    "message": "設定已成功匯出"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "所選檔案並非有效的備份檔。"
-  },
   "warningUnderstood": {
     "message": "我知道了"
-  },
-  "warningClose": {
-    "message": "關閉"
   },
   "weekday_0": {
     "message": "星期日"

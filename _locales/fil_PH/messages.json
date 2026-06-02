@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
-  "nosourceOption": {
-    "message": "Walang source"
-  },
   "overlayLabel": {
     "message": "Image Overlay"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Tab Icon"
   },
+  "customColorTitle": {
+    "message": "Custom Color"
+  },
+  "visualSearchTitle": {
+    "message": "Visual Search"
+  },
+  "visualSearchDragText": {
+    "message": "I-drag ang image dito o"
+  },
+  "visualSearchUploadLink": {
+    "message": "mag-upload ng file"
+  },
+  "visualSearchDivider": {
+    "message": "o"
+  },
+  "visualSearchPasteUrl": {
+    "message": "I-paste ang image link"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Search"
+  },
   "styleNone": {
     "message": "Wala"
-  },
-  "iconsStyleLabel": {
-    "message": "Style ng Icon"
   },
   "displayTitle": {
     "message": "Display"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Bawasan ang motion"
-  },
-  "reduceBlurOption": {
-    "message": "Bawasan ang blur"
   },
   "languageTitle": {
     "message": "Language"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "View project on GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Sorry, invalid o corrupted ang *.json file na ginamit mo."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-access ang \"$API_NAME$\". Mae-ensure nito ang privacy at security mo.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "I-Delete ang Folder"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Sure ka ba na gusto mong i-delete ang folder na \"$FOLDER$\"? Ang lahat ng shortcuts sa loob ay mare-remove.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "I-Disable ang Folders?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Made-delete ang lahat ng folders at shortcuts nito. Hindi na ito maibabalik maliban kung may backup ka."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "I-Delete ang Folders"
-  },
-  "warningKeepEnabled": {
-    "message": "I-keep na Enabled"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "I-add ang $ECOSYSTEM$ Apps?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Gagawa ito ng folder na may 9 $ECOSYSTEM$ apps sa mga shortcuts mo. Ituloy?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "I-add ang Folder"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Walang Available na Apps"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Walang available na apps para sa ecosystem na ito."
-  },
-  "shortcutsLimitReached": {
-    "message": "Na-reach na ang shortcuts limit!"
-  },
-  "warningGridFullTitle": {
-    "message": "Full na ang Grid"
-  },
-  "warningGridFullMessage": {
-    "message": "Na-reach mo na ang maximum limit na $LIMIT$ shortcuts sa main screen. Mag-delete ng ilang items o i-group sila sa isang folder para magkaroon ng space.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Full na ang Folder"
-  },
-  "warningFolderFullMessage": {
-    "message": "Na-reach na ng folder na ito ang limit na $LIMIT$ items. Paki-remove ang ibang shortcuts bago mag-add ng bago.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "I-Restore ang Backup?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Ire-replace nito ang current settings at shortcuts mo gamit ang data ng backup file."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "I-Restore"
-  },
-  "backupExportSuccess": {
-    "message": "Na-save na yung settings sa file"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Hindi valid na backup ang file na napili."
-  },
   "warningUnderstood": {
     "message": "Naintindihan"
-  },
-  "warningClose": {
-    "message": "I-Close"
   },
   "weekday_0": {
     "message": "Sunday"

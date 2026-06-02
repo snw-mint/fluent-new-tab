@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Обои"
   },
-  "nosourceOption": {
-    "message": "Источник отсутствует"
-  },
   "overlayLabel": {
     "message": "Наложение изображения"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Значок вкладки"
   },
+  "customColorTitle": {
+    "message": "Индивидуальный цвет"
+  },
+  "visualSearchTitle": {
+    "message": "Визуальный поиск"
+  },
+  "visualSearchDragText": {
+    "message": "Перетащите изображение сюда или"
+  },
+  "visualSearchUploadLink": {
+    "message": "загрузить файл"
+  },
+  "visualSearchDivider": {
+    "message": "или"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Вставьте ссылку на изображение"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Поиск"
+  },
   "styleNone": {
     "message": "Нет"
-  },
-  "iconsStyleLabel": {
-    "message": "Стиль значка"
   },
   "displayTitle": {
     "message": "Отображение"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Уменьшить движение"
-  },
-  "reduceBlurOption": {
-    "message": "Уменьшить размытие"
   },
   "languageTitle": {
     "message": "Язык"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Посмотреть проект на GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Sorry, the *.json file you used is invalid or corrupted."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Для использования этой функции расширению Fluent New Tab требуется разрешение на доступ к $API_NAME$. Это необходимо для обеспечения вашей конфиденциальности и безопасности.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Удалить папку"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Вы уверены, что хотите удалить папку «$FOLDER$»? Все ярлыки, находящиеся в ней, будут удалены.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Отключить папки?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Все папки и их ярлыки будут удалены. Это действие нельзя отменить, если у вас нет резервной копии."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Удалить папки"
-  },
-  "warningKeepEnabled": {
-    "message": "Оставить включенным"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Добавить приложения $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Это создаст папку с 9 приложениями $ECOSYSTEM$ в ваших ярлыках. Продолжить?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Добавить папку"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Нет доступных приложений"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Для этой экосистемы нет доступных приложений."
-  },
-  "shortcutsLimitReached": {
-    "message": "Достигнут лимит ярлыков!"
-  },
-  "warningGridFullTitle": {
-    "message": "Сетка заполнена"
-  },
-  "warningGridFullMessage": {
-    "message": "Вы достигли максимального лимита в $LIMIT$ ярлыков на главном экране. Удалите некоторые элементы или сгруппируйте их в папку, чтобы освободить место.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Папка переполнена"
-  },
-  "warningFolderFullMessage": {
-    "message": "Эта папка достигла максимального лимита в $LIMIT$ элементов. Пожалуйста, удалите некоторые ярлыки перед добавлением новых.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Восстановить резервную копию?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Это заменит ваши текущие настройки и ярлыки данными из файла резервной копии."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Восстановить"
-  },
-  "backupExportSuccess": {
-    "message": "Настройки сохранены в файле"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Выбранный файл не является действительной резервной копией."
-  },
   "warningUnderstood": {
     "message": "Понятно"
-  },
-  "warningClose": {
-    "message": "Закрыть"
   },
   "weekday_0": {
     "message": "Воскресенье"

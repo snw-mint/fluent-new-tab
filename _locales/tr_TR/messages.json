@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
-  "nosourceOption": {
-    "message": "Kaynak yok"
-  },
   "overlayLabel": {
     "message": "Görüntü Kaplaması"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Sekme Simgesi"
   },
+  "customColorTitle": {
+    "message": "Özel Renk"
+  },
+  "visualSearchTitle": {
+    "message": "Görsel Arama"
+  },
+  "visualSearchDragText": {
+    "message": "Buraya bir resim sürükleyin veya"
+  },
+  "visualSearchUploadLink": {
+    "message": "dosya yükle"
+  },
+  "visualSearchDivider": {
+    "message": "veya"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Resim bağlantısını yapıştır"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Arama"
+  },
   "styleNone": {
     "message": "Yok"
-  },
-  "iconsStyleLabel": {
-    "message": "Simge Stili"
   },
   "displayTitle": {
     "message": "Ekran"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Hareketi azalt"
-  },
-  "reduceBlurOption": {
-    "message": "Bulanıklığı azalt"
   },
   "languageTitle": {
     "message": "Dil"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Projeyi GitHub'da görüntüle."
   },
-  "wizardRestoreError": {
-    "message": "Maalesef kullandığınız *.json dosyası geçersiz veya bozuk."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Klasörü Sil"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "\"$FOLDER$\" klasörünü silmek istediğinizden emin misiniz? İçindeki tüm kısayollar silinecektir.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Klasörler devre dışı bırakılsın mı?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Tüm klasörler ve kısayolları silinecektir. Yedeklemeniz yoksa bu işlem geri alınamaz."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Klasörleri Sil"
-  },
-  "warningKeepEnabled": {
-    "message": "Etkin Tut"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ uygulamaları eklensin mi?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Bu, kısayollarınızda 9 adet $ECOSYSTEM$ uygulaması içeren bir klasör oluşturacaktır. Devam etmek istiyor musunuz?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Klasör Ekle"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Kullanılabilir uygulama yok"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Bu ekosistem için mevcut uygulama yoktur."
-  },
-  "shortcutsLimitReached": {
-    "message": "Kısayol sınırına ulaşıldı!"
-  },
-  "warningGridFullTitle": {
-    "message": "Izgara Dolu"
-  },
-  "warningGridFullMessage": {
-    "message": "Ana ekranda $LIMIT$ kısayol sınırına ulaştınız. Yer açmak için bazı öğeleri silin veya bir klasörde gruplandırın.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Klasör Dolu"
-  },
-  "warningFolderFullMessage": {
-    "message": "Bu klasör $LIMIT$ öğelik mutlak sınıra ulaştı. Lütfen yeni öğeler eklemeden önce bazı kısayolları kaldırın.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Yedekleme geri yüklensin mi?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Bu, mevcut ayarlarınızı ve kısayollarınızı yedekleme dosyası verileriyle değiştirecektir."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Geri yükle"
-  },
-  "backupExportSuccess": {
-    "message": "Ayarlar dosyaya kaydedildi"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Seçilen dosya geçerli bir yedekleme değil."
-  },
   "warningUnderstood": {
     "message": "Anlaşıldı"
-  },
-  "warningClose": {
-    "message": "Kapat"
   },
   "weekday_0": {
     "message": "Pazar"

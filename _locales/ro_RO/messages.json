@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Tapet"
   },
-  "nosourceOption": {
-    "message": "Fără sursă"
-  },
   "overlayLabel": {
     "message": "Suprapunere imagine"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Pictograma filei"
   },
+  "customColorTitle": {
+    "message": "Culoare personalizată"
+  },
+  "visualSearchTitle": {
+    "message": "Căutare vizuală"
+  },
+  "visualSearchDragText": {
+    "message": "Trage o imagine aici sau"
+  },
+  "visualSearchUploadLink": {
+    "message": "încarcă un fișier"
+  },
+  "visualSearchDivider": {
+    "message": "sau"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Lipiți linkul către imagine"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Căutare"
+  },
   "styleNone": {
     "message": "Niciuna"
-  },
-  "iconsStyleLabel": {
-    "message": "Stilul pictogramelor"
   },
   "displayTitle": {
     "message": "Afișare"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Reduceți mișcarea"
-  },
-  "reduceBlurOption": {
-    "message": "Reduceți neclaritatea"
   },
   "languageTitle": {
     "message": "Limba"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Vizualizează proiectul pe GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Lupăm, fișierul *.json pe care l-ai folosit este invalid sau corupt."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Ștergeți folderul"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Ești sigur că vrei să ștergi folderul „$FOLDER$”? Toate comenzile rapide din acesta vor fi eliminate.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Dezactivați folderele?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Toate folderele și comenzile rapide ale acestora vor fi șterse. Această operațiune nu poate fi anulată, cu excepția cazului în care aveți o copie de rezervă."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Ștergeți folderele"
-  },
-  "warningKeepEnabled": {
-    "message": "Păstrează activat"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Adaugi aplicațiile $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Aceasta va crea un folder cu 9 aplicații $ECOSYSTEM$ în comenzile rapide. Continuați?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Adaugă folder"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Nu sunt disponibile aplicații"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Nu există aplicații disponibile pentru acest ecosistem."
-  },
-  "shortcutsLimitReached": {
-    "message": "Limita de comenzi rapide atinsă!"
-  },
-  "warningGridFullTitle": {
-    "message": "Rețeaua este plină"
-  },
-  "warningGridFullMessage": {
-    "message": "Ai atins limita maximă de $LIMIT$ comenzi rapide pe ecranul principal. Șterge câteva elemente sau grupează-le într-un folder pentru a elibera spațiu.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Dosarul este plin"
-  },
-  "warningFolderFullMessage": {
-    "message": "Acest folder a atins limita maximă de $LIMIT$ elemente. Te rugăm să ștergi câteva comenzi rapide înainte de a adăuga altele noi.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Restaurezi copia de rezervă?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Aceasta va înlocui setările și comenzile rapide actuale cu datele din fișierul de rezervă."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Restaurare"
-  },
-  "backupExportSuccess": {
-    "message": "Setările salvate în fișier"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Fișierul selectat nu este o copie de rezervă validă."
-  },
   "warningUnderstood": {
     "message": "Am înțeles"
-  },
-  "warningClose": {
-    "message": "Închide"
   },
   "weekday_0": {
     "message": "Duminică"

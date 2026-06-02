@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
-  "nosourceOption": {
-    "message": "Forrás nélkül"
-  },
   "overlayLabel": {
     "message": "Kép átfedés"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Fül ikon"
   },
+  "customColorTitle": {
+    "message": "Egyedi szín"
+  },
+  "visualSearchTitle": {
+    "message": "Képalapú keresés"
+  },
+  "visualSearchDragText": {
+    "message": "Húzz ide egy képet, vagy"
+  },
+  "visualSearchUploadLink": {
+    "message": "fájl feltöltése"
+  },
+  "visualSearchDivider": {
+    "message": "vagy"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Kép linkjének beillesztése"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Keresés"
+  },
   "styleNone": {
     "message": "Nincs"
-  },
-  "iconsStyleLabel": {
-    "message": "Ikon stílus"
   },
   "displayTitle": {
     "message": "Kijelző"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Mozgás csökkentése"
-  },
-  "reduceBlurOption": {
-    "message": "Elmosódás csökkentése"
   },
   "languageTitle": {
     "message": "Nyelv"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "A projekt megtekintése a GitHubon."
   },
-  "wizardRestoreError": {
-    "message": "Sajnáljuk, a használt *.json fájl érvénytelen vagy sérült."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "A funkció használatához a Fluent New Tab alkalmazásnak engedélyre van szüksége a „$API_NAME$” webhely eléréséhez. Ez biztosítja az Ön adatainak védelmét és biztonságát.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Mappa törlése"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Biztosan törölni szeretnéd a(z) „$FOLDER$” mappát? A benne lévő összes parancsikon törlésre kerül.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Mappák letiltása?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Minden mappa és azok parancsikonjai törlésre kerülnek. Ez visszafordíthatatlan, hacsak nincs biztonsági másolatod."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Mappák törlése"
-  },
-  "warningKeepEnabled": {
-    "message": "Maradjon engedélyezve"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "$ECOSYSTEM$ alkalmazások hozzáadása?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Ezzel egy mappa jön létre 9 $ECOSYSTEM$ alkalmazással a parancsikonjaid között. Folytatni szeretnéd?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Mappa hozzáadása"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Nincs elérhető alkalmazás"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Ehhez az ökoszisztémához nincs elérhető alkalmazás."
-  },
-  "shortcutsLimitReached": {
-    "message": "A gyorsbillentyűk korlátja elérve!"
-  },
-  "warningGridFullTitle": {
-    "message": "A rács megtelt"
-  },
-  "warningGridFullMessage": {
-    "message": "Elérted a főképernyőn a $LIMIT$ parancsikonos maximális korlátot. Törölj néhány elemet, vagy csoportosítsd őket egy mappába, hogy helyet szabadíts fel.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "A mappa megtelt"
-  },
-  "warningFolderFullMessage": {
-    "message": "Ez a mappa elérte a $LIMIT$ elem maximális határát. Kérlek, távolíts el néhány parancsikont, mielőtt újakat adnál hozzá.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Biztonsági másolat visszaállítása?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Ez felülírja a jelenlegi beállításaidat és parancsikonjaidat a biztonsági másolat fájljában lévő adatokkal."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Visszaállítás"
-  },
-  "backupExportSuccess": {
-    "message": "A fájlba mentett beállítások"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "A kiválasztott fájl nem érvényes biztonsági másolat."
-  },
   "warningUnderstood": {
     "message": "Értettem"
-  },
-  "warningClose": {
-    "message": "Bezárás"
   },
   "weekday_0": {
     "message": "Vasárnap"

@@ -11,9 +11,6 @@
   "wallpaperTitle": {
     "message": "Шпалери"
   },
-  "nosourceOption": {
-    "message": "Джерело відсутнє"
-  },
   "overlayLabel": {
     "message": "Накладення зображення"
   },
@@ -29,11 +26,29 @@
   "tabFaviconLabel": {
     "message": "Значок вкладки"
   },
+  "customColorTitle": {
+    "message": "Індивідуальний колір"
+  },
+  "visualSearchTitle": {
+    "message": "Візуальний пошук"
+  },
+  "visualSearchDragText": {
+    "message": "Перетягніть зображення сюди або"
+  },
+  "visualSearchUploadLink": {
+    "message": "завантажити файл"
+  },
+  "visualSearchDivider": {
+    "message": "або"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Вставити посилання на зображення"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Пошук"
+  },
   "styleNone": {
     "message": "Немає"
-  },
-  "iconsStyleLabel": {
-    "message": "Стиль іконки"
   },
   "displayTitle": {
     "message": "Екран"
@@ -151,9 +166,6 @@
   },
   "reduceMotionTitle": {
     "message": "Зменшити рух"
-  },
-  "reduceBlurOption": {
-    "message": "Зменшити розмитість"
   },
   "languageTitle": {
     "message": "Мова"
@@ -314,13 +326,7 @@
   "wizardFinalGithubDesc": {
     "message": "Переглянути проєкт на GitHub."
   },
-  "wizardRestoreError": {
-    "message": "Вибачте, вибраний файл *.json недійсний або пошкоджений."
-  },
   "permissionRequiredMessage": {
-    "reauthNoticeTitle": {
-      "message": "Permission Required"
-    },
     "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
     "placeholders": {
       "api_name": {
@@ -349,104 +355,8 @@
       }
     }
   },
-  "warningDeleteFolderTitle": {
-    "message": "Видалити папку"
-  },
-  "warningDeleteFolderMessage": {
-    "message": "Ви впевнені, що хочете видалити папку «$FOLDER$»? Усі ярлики, що містяться в ній, будуть видалені.",
-    "placeholders": {
-      "folder": {
-        "content": "$1",
-        "example": "Work"
-      }
-    }
-  },
-  "warningDeleteFoldersTitle": {
-    "message": "Вимкнути папки?"
-  },
-  "warningDeleteFoldersMessage": {
-    "message": "Усі папки та їхні ярлики будуть видалені. Цю дію неможливо скасувати, якщо у вас немає резервної копії."
-  },
-  "warningDeleteFoldersConfirm": {
-    "message": "Видалити папки"
-  },
-  "warningKeepEnabled": {
-    "message": "Залишити увімкненими"
-  },
-  "warningAddEcosystemAppsTitle": {
-    "message": "Додати додатки $ECOSYSTEM$?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddEcosystemAppsMessage": {
-    "message": "Це створить папку з 9 додатками $ECOSYSTEM$ у ваших ярликах. Продовжити?",
-    "placeholders": {
-      "ecosystem": {
-        "content": "$1",
-        "example": "Google Workspace"
-      }
-    }
-  },
-  "warningAddFolderConfirm": {
-    "message": "Додати папку"
-  },
-  "launcherNoAppsTitle": {
-    "message": "Немає доступних додатків"
-  },
-  "launcherNoAppsAvailable": {
-    "message": "Для цієї екосистеми немає доступних додатків."
-  },
-  "shortcutsLimitReached": {
-    "message": "Досягнуто ліміту ярликів!"
-  },
-  "warningGridFullTitle": {
-    "message": "Сітка заповнена"
-  },
-  "warningGridFullMessage": {
-    "message": "Ви досягли максимального ліміту в $LIMIT$ ярликів на головному екрані. Видаліть деякі елементи або згрупуйте їх у папку, щоб звільнити місце.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "40"
-      }
-    }
-  },
-  "warningFolderFullTitle": {
-    "message": "Папка переповнена"
-  },
-  "warningFolderFullMessage": {
-    "message": "Ця папка досягла максимального ліміту в $LIMIT$ елементів. Будь ласка, видаліть кілька ярликів перед додаванням нових.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "39"
-      }
-    }
-  },
-  "warningRestoreBackupTitle": {
-    "message": "Відновити резервну копію?"
-  },
-  "warningRestoreBackupMessage": {
-    "message": "Це замінить ваші поточні налаштування та ярлики даними з файлу резервної копії."
-  },
-  "warningRestoreBackupConfirm": {
-    "message": "Відновити"
-  },
-  "backupExportSuccess": {
-    "message": "Налаштування успішно збережено"
-  },
-  "warningInvalidBackupMessage": {
-    "message": "Вибраний файл не є дійсною резервною копією."
-  },
   "warningUnderstood": {
     "message": "Зрозуміло"
-  },
-  "warningClose": {
-    "message": "Закрити"
   },
   "weekday_0": {
     "message": "Неділя"
