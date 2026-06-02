@@ -11,6 +11,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.1.42",
+    "@types/node": "^25.9.1",
     "esbuild": "^0.28.0",
     "rimraf": "^6.0.1",
     "sass": "^1.92.1",
