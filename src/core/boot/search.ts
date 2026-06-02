@@ -82,10 +82,12 @@ export function initBasicSearchUI(
   searchWrapper: HTMLElement | null,
   voiceSearchBtn: HTMLElement | null,
   askAiBtn: HTMLElement | null,
+  visualSearchBtn: HTMLElement | null,
   searchBarVisible: boolean,
   compactBarEnabled: boolean,
   voiceSearchEnabled: boolean,
   askAiEnabled: boolean,
+  visualSearchEnabled: boolean,
 ): void {
   if (searchWrapper) {
     searchWrapper.style.display = searchBarVisible ? '' : 'none';
@@ -105,5 +107,9 @@ export function initBasicSearchUI(
 
   if (askAiBtn) {
     askAiBtn.style.display = askAiEnabled ? 'flex' : 'none';
+  }
+
+  if (visualSearchBtn) {
+    visualSearchBtn.style.display = visualSearchEnabled ? 'flex' : 'none';
   }
 }
