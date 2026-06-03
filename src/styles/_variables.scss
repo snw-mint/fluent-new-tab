@@ -31,6 +31,11 @@
   --surface-muted: #fbfbfb;
   --surface-dim: #f3f3f3;
 
+  /* Search & Shortcuts specific */
+  --searchbar-bg: #fbfbfb;
+  --searchbar-border: #ffffff;
+  --shortcut-bg: #ffffff;
+
   /* Borders */
   --search-border: #ebebeb;
   --border-subtle: rgba(0, 0, 0, 0.05);
@@ -50,6 +55,7 @@
   /* Accents */
   --accent-color: #0078d4;
   --accent-contrast-color: #ffffff;
+  --accent-hover: color-mix(in srgb, var(--accent-color) 85%, #ffffff);
   --color-danger: #ff4d4f;
   --color-danger-dark: #9f213a;
 
@@ -60,6 +66,7 @@
   --surface-solid-secondary: #fbfbfb;
   --surface-blur-base: rgba(255, 255, 255, 0.9);
   --surface-blur-tint: rgba(255, 255, 255, 0);
+  --switch-thumb-disabled-color: #616161;
 
   /* ---------- Shadows ---------- */
   --shadow-sm: 0 0.1125rem 0.3375rem rgba(0, 0, 0, 0.05);

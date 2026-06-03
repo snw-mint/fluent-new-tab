@@ -18,6 +18,10 @@ html[data-theme='dark'] {
   --surface-muted: #333333;
   --surface-dim: #202020;
   --surface-input: transparent;
+  
+  --searchbar-bg: #3b3b3b;
+  --searchbar-border: #333333;
+  --shortcut-bg: #373737;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --search-border: #202020;
@@ -46,6 +50,7 @@ html[data-theme='dark'] {
   --surface-solid-secondary: #3b3b3b;
   --surface-blur-base: rgba(32, 32, 32, 0.8);
   --surface-blur-tint: rgba(0, 0, 0, 0);
+  --switch-thumb-disabled-color: #adadad;
 
   .greeting-icon.outline {
     filter: invert(1);

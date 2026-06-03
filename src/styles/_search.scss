@@ -11,8 +11,8 @@
 .search-bar {
   width: 100%;
   height: 3.6rem;
-  background: var(--surface-base);
-  border: 0.225rem solid var(--border-subtle);
+  background: var(--searchbar-bg);
+  border: 0.225rem solid var(--searchbar-border);
   border-radius: var(--radius-xxl);
   box-shadow:
     rgba(0, 0, 0, 0.08) 0rem 0rem 0.1125rem,
@@ -46,7 +46,7 @@
     height: 2.925rem;
     border-radius: calc(1.2375rem + 1px);
     border: none;
-    background-color: var(--surface-base);
+    background-color: var(--searchbar-bg);
 
     .search-btn,
     .current-engine-btn,

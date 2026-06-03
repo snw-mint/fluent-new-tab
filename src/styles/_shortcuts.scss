@@ -60,13 +60,13 @@
     .shortcut-card {
       width: 2.8125rem;
       height: 2.8125rem;
-      background: var(--surface-base);
+      background: var(--shortcut-bg);
       border-radius: var(
         --shortcut-custom-radius,
         var(--shortcut-radius, var(--radius-xl))
       );
       @include flex-center;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
       border: 1px solid var(--border-subtle);
       transition:
         transform 0.2s ease,
@@ -128,9 +128,9 @@
         height: 100%;
         pointer-events: auto;
         border-radius: 50%;
-        background: var(--surface-base);
+        background: var(--accent-color);
         @include flex-center;
-        color: var(--text-color);
+        color: var(--accent-contrast-color);
         box-shadow: 0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.15);
         opacity: 0;
         transform: scale(0.5);
@@ -159,7 +159,7 @@
         }
 
         &:hover {
-          background-color: var(--accent-color);
+          background-color: var(--accent-hover);
           color: var(--accent-contrast-color);
           transform: scale(1.1);
           box-shadow: 0 0.225rem 0.5625rem rgba(0, 0, 0, 0.2);
@@ -254,7 +254,7 @@
 
   &.add-card-wrapper {
     .shortcut-card {
-      background: var(--surface-base);
+      background: var(--shortcut-bg);
     }
 
     &:hover .shortcut-card {
@@ -311,7 +311,7 @@
 
 .fluent-drag-ghost {
   .shortcut-card {
-    background: var(--surface-base);
+    background: var(--shortcut-bg);
     box-shadow: var(--shadow-xl);
     border-color: transparent;
   }

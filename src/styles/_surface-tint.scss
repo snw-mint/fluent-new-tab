@@ -2,6 +2,9 @@ html[data-surface-tint='true'] {
   --surface-base: color-mix(in srgb, var(--accent-color) 12%, #ffffff);
   --surface-muted: color-mix(in srgb, var(--accent-color) 15%, #fbfbfb);
   --surface-dim: color-mix(in srgb, var(--accent-color) 18%, #f3f3f3);
+  --searchbar-bg: color-mix(in srgb, var(--accent-color) 15%, #fbfbfb);
+  --searchbar-border: color-mix(in srgb, var(--accent-color) 12%, #ffffff);
+  --shortcut-bg: color-mix(in srgb, var(--accent-color) 12%, #ffffff);
   --border-subtle: rgba(0, 0, 0, 0.04);
   --border-base: rgba(0, 0, 0, 0.08);
 
@@ -14,6 +17,9 @@ html[data-theme='dark'][data-surface-tint='true'] {
   --surface-base: color-mix(in srgb, var(--accent-color) 16%, #2b2b2b);
   --surface-muted: color-mix(in srgb, var(--accent-color) 18%, #333333);
   --surface-dim: color-mix(in srgb, var(--accent-color) 20%, #202020);
+  --searchbar-bg: color-mix(in srgb, var(--accent-color) 18%, #3b3b3b);
+  --searchbar-border: color-mix(in srgb, var(--accent-color) 16%, #333333);
+  --shortcut-bg: color-mix(in srgb, var(--accent-color) 16%, #373737);
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-base: rgba(255, 255, 255, 0.1);
   --hover-overlay: rgba(255, 255, 255, 0.05);

@@ -409,18 +409,5 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     }
   };
 
-  const handleGridContext = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    const card = target.closest('.shortcut-card');
-    if (!card) return;
-
-    event.preventDefault();
-    const dropNode = card.querySelector('.shortcut-dropdown');
-    onClosePopups(dropNode);
-    dropNode?.classList.add('active');
-    syncShortcutDropdownState();
-  };
-
   shortcutsGrid.onclick = handleGridClick;
-  shortcutsGrid.oncontextmenu = handleGridContext;
 }
