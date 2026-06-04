@@ -112,7 +112,10 @@ const minifyPostBuild = () => ({
     }
 
     // 5. Minify HTML files: main index.html and setup/setup.html
-    const htmlFiles = [path.join(outDir, 'index.html'), path.join(outDir, 'setup/setup.html')];
+    const htmlFiles = [
+      path.join(outDir, 'index.html'),
+      path.join(outDir, 'setup/setup.html'),
+    ];
     for (const fullPath of htmlFiles) {
       if (fs.existsSync(fullPath)) {
         try {
@@ -127,8 +130,14 @@ const minifyPostBuild = () => ({
           for (const match of styleMatches) {
             const [fullMatch, openTag, styleContent, closeTag] = match;
             if (styleContent.trim()) {
-              const minifiedStyle = await transform(styleContent, { loader: 'css', minify: true });
-              content = content.replace(fullMatch, `${openTag}${minifiedStyle.code.trim()}${closeTag}`);
+              const minifiedStyle = await transform(styleContent, {
+                loader: 'css',
+                minify: true,
+              });
+              content = content.replace(
+                fullMatch,
+                `${openTag}${minifiedStyle.code.trim()}${closeTag}`,
+              );
             }
           }
 
@@ -139,8 +148,14 @@ const minifyPostBuild = () => ({
             const [fullMatch, openTag, scriptContent, closeTag] = match;
             if (openTag.includes('src=')) continue;
             if (scriptContent.trim()) {
-              const minifiedScript = await transform(scriptContent, { loader: 'js', minify: true });
-              content = content.replace(fullMatch, `${openTag}${minifiedScript.code.trim()}${closeTag}`);
+              const minifiedScript = await transform(scriptContent, {
+                loader: 'js',
+                minify: true,
+              });
+              content = content.replace(
+                fullMatch,
+                `${openTag}${minifiedScript.code.trim()}${closeTag}`,
+              );
             }
           }
 
@@ -158,7 +173,7 @@ const minifyPostBuild = () => ({
     // 6. Remove README.md from build (both root dist/README.md and dist/src/README.md if it exists)
     const readmePaths = [
       path.join(outDir, 'README.md'),
-      path.join(outDir, 'src/README.md')
+      path.join(outDir, 'src/README.md'),
     ];
     for (const readmePath of readmePaths) {
       if (fs.existsSync(readmePath)) {
@@ -189,4 +204,3 @@ export default defineConfig({
     },
   },
 });
-
