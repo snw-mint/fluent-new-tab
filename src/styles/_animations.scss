@@ -158,6 +158,45 @@
   }
 }
 
+// ─── Theme selector micro-animations ───────────────────────────────────────
+
+@keyframes themeSunRotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes themeMoonSwing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-8deg); }
+  50%  { transform: rotate(8deg); }
+  75%  { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes themeLaptopTilt {
+  0%   { transform: rotate(0deg); }
+  35%  { transform: rotate(-3deg); }
+  70%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.theme-btn[data-theme='light'].animate svg {
+  animation: themeSunRotate 350ms ease;
+  transform-origin: center center;
+}
+
+.theme-btn[data-theme='dark'].animate svg {
+  animation: themeMoonSwing 450ms ease-out;
+  transform-origin: center center;
+}
+
+.theme-btn[data-theme='auto'].animate svg {
+  animation: themeLaptopTilt 400ms ease-out;
+  transform-origin: center 67%;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 html.animations-disabled {
   *,
   *::before,

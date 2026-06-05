@@ -749,11 +749,25 @@ async function bootInteractive(): Promise<void> {
   });
 
   if (refs.themeBtns) {
+    function playThemeAnimation(element: HTMLElement): void {
+      element.classList.remove('animate');
+      void element.offsetWidth; // force reflow to restart animation
+      element.classList.add('animate');
+      element.addEventListener(
+        'animationend',
+        () => {
+          element.classList.remove('animate');
+        },
+        { once: true },
+      );
+    }
+
     refs.themeBtns.forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.theme === state.savedTheme);
       btn.addEventListener('click', () => {
         const theme = btn.dataset.theme as any;
         if (!theme) return;
+        playThemeAnimation(btn);
         applyTheme(theme);
         localStorage.setItem('theme', theme);
         refs.themeBtns.forEach((b) => {
