@@ -17,6 +17,7 @@ import { Shortcut } from '@/core/shared/types';
 
 interface ShortcutsRenderOptions {
   shortcutsGrid: HTMLDivElement | null;
+  folderBackWrapper: HTMLElement | null;
   rowsSelect: HTMLSelectElement | null;
   shortcuts: Shortcut[];
   currentFolderId: string | null;
@@ -109,6 +110,7 @@ export function getShortcutTemplate(): HTMLDivElement {
 export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   const {
     shortcutsGrid,
+    folderBackWrapper,
     rowsSelect,
     shortcuts,
     currentFolderId,
@@ -145,45 +147,20 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   }
 
   const folderMaxSlots = FOLDER_FIXED_ROWS * COLUMNS;
-  const availableSlots = isInsideFolder ? folderMaxSlots - 1 : maxSlots;
+  const availableSlots = isInsideFolder ? folderMaxSlots : maxSlots;
   const visibleShortcuts = activeArray.slice(0, availableSlots);
-
-  if (isInsideFolder) {
-    const backBtn = document.createElement('div');
-    backBtn.className = 'shortcut-item folder-back-btn';
-    backBtn.dataset.action = 'go-back';
-
-    const backText = (window as any).getTranslation?.('backLabel');
-    const finalBackText =
-      backText && backText !== 'backLabel' ? backText : 'Back';
-
-    const backCard = document.createElement('a');
-    backCard.className = 'shortcut-card';
-    backCard.href = '#';
-    backCard.draggable = false;
-    backCard.style.display = 'flex';
-    backCard.style.alignItems = 'center';
-    backCard.style.justifyContent = 'center';
-    backCard.style.color = 'inherit';
-    backCard.style.textDecoration = 'none';
-
-    const backIconDiv = document.createElement('div');
-    backIconDiv.className = 'shortcut-icon';
-    backIconDiv.style.display = 'flex';
-    backIconDiv.style.alignItems = 'center';
-    backIconDiv.style.justifyContent = 'center';
-    backIconDiv.insertAdjacentHTML('beforeend', BACK_ICON_SVG);
-
-    backCard.appendChild(backIconDiv);
-
-    const backTitle = document.createElement('span');
-    backTitle.className = 'shortcut-title';
-    backTitle.textContent = finalBackText;
-
-    backBtn.appendChild(backCard);
-    backBtn.appendChild(backTitle);
-    backBtn.setAttribute('draggable', 'false');
-    fragment.appendChild(backBtn);
+  if (folderBackWrapper) {
+    if (isInsideFolder) {
+      folderBackWrapper.classList.add('visible');
+      const labelEl = folderBackWrapper.querySelector('.folder-back-label');
+      if (labelEl) {
+        const backText = (window as any).getTranslation?.('backLabel');
+        labelEl.textContent =
+          backText && backText !== 'backLabel' ? backText : 'Back';
+      }
+    } else {
+      folderBackWrapper.classList.remove('visible');
+    }
   }
 
   const template = getShortcutTemplate();
@@ -300,9 +277,8 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   shortcutsGrid.appendChild(fragment);
 
   const itemCount = visibleShortcuts.length;
-  const backSlot = isInsideFolder ? 1 : 0;
   const hasAddBtn = visibleShortcuts.length < availableSlots;
-  const totalRenderedItems = itemCount + backSlot + (hasAddBtn ? 1 : 0);
+  const totalRenderedItems = itemCount + (hasAddBtn ? 1 : 0);
 
   if (totalRenderedItems <= COLUMNS) {
     shortcutsGrid.classList.add('single-row');
@@ -316,15 +292,20 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   );
   shortcutsGrid.setAttribute('data-rows', String(currentRows));
 
+  if (folderBackWrapper && isInsideFolder) {
+    folderBackWrapper.style.setProperty(
+      '--shortcut-count',
+      String(totalRenderedItems),
+    );
+    if (totalRenderedItems <= COLUMNS) {
+      folderBackWrapper.classList.add('single-row');
+    } else {
+      folderBackWrapper.classList.remove('single-row');
+    }
+  }
+
   const handleGridClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-
-    const backBtn = target.closest('.folder-back-btn');
-    if (backBtn) {
-      event.preventDefault();
-      onGoBack();
-      return;
-    }
 
     const addBtn = target.closest('.add-card-wrapper');
     if (addBtn) {

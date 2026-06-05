@@ -623,19 +623,18 @@
   gap: 0.45rem;
   width: 100%;
   container-type: inline-size;
-  margin-top: 0.675rem;
-  padding-top: 0.675rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-base);
   color: var(--text-color);
+  font-size: 0.6rem;
+  font-weight: 600;
 
   .footer-link {
     color: var(--text-color);
     text-decoration: none;
     opacity: 0.78;
     transition: opacity 0.2s ease;
-    font-weight: 600;
-    font-size: var(--font-size-xs);
-    margin-bottom: 0.18rem;
 
     &:hover {
       opacity: 0.95;
@@ -643,8 +642,14 @@
     }
   }
 
+  .footer-author {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
   .footer-text {
-    opacity: 0.88;
+    opacity: 0.78;
   }
 
   .settings-footer-help {
@@ -659,7 +664,6 @@
     .footer-help-link {
       display: inline-flex;
       align-items: center;
-      font-size: clamp(0.45rem, 4cqw, 0.61875rem);
       white-space: nowrap;
 
       &:not(:first-child)::before {
@@ -677,6 +681,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.5625rem;
+    margin-top: 0.45rem;
   }
 
   .footer-icon-link {
@@ -881,8 +886,8 @@ body:not([data-wallpaper-active='true']) {
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  background-color: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--hover-overlay);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 0.2rem;
 

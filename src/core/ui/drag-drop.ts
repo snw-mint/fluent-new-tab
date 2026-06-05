@@ -135,7 +135,7 @@ export function createGhostNode(sourceItem: HTMLElement, rect: DOMRect): void {
     const isSingleRow =
       activeDragOptions.gridContainer.classList.contains('single-row');
     const isInsideFolder =
-      !!activeDragOptions.gridContainer.querySelector('.folder-back-btn');
+      !!document.getElementById('folderBackWrapper')?.classList.contains('visible');
 
     const isOutside =
       isInsideFolder &&
@@ -194,7 +194,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
   const isSingleRow =
     activeDragOptions.gridContainer.classList.contains('single-row');
   const isInsideFolder =
-    !!activeDragOptions.gridContainer.querySelector('.folder-back-btn');
+    !!document.getElementById('folderBackWrapper')?.classList.contains('visible');
 
   const isOutside =
     isInsideFolder &&
@@ -241,7 +241,6 @@ export function handleGlobalDragOver(event: DragEvent): void {
     (el) =>
       el.classList.contains(itemClass) &&
       !el.classList.contains('add-card-wrapper') &&
-      !el.classList.contains('folder-back-btn') &&
       el !== draggedElement &&
       el !== ghostNode,
   ) as HTMLElement[];
@@ -312,7 +311,6 @@ export function handleGlobalDragOver(event: DragEvent): void {
     (el) =>
       el.classList.contains(itemClass) &&
       !el.classList.contains('add-card-wrapper') &&
-      !el.classList.contains('folder-back-btn') &&
       el !== ghostNode,
   );
 
@@ -412,7 +410,6 @@ export function handleGlobalDrop(event: DragEvent): void {
         (el) =>
           el.classList.contains(itemClass) &&
           !el.classList.contains('add-card-wrapper') &&
-          !el.classList.contains('folder-back-btn') &&
           el !== ghostNode,
       );
 

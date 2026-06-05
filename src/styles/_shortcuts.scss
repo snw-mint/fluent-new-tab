@@ -269,16 +269,54 @@
       color 0.15s ease;
   }
 
-  &.folder-back-btn .shortcut-icon {
-    opacity: 1;
+}
+
+.shortcuts-area {
+  width: 100%;
+}
+
+.folder-back-wrapper {
+  display: none;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 0.9rem;
+
+  &.visible {
+    display: flex;
   }
 
-  &.folder-back-btn .shortcut-icon svg {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: var(--text-color);
+  &.visible.single-row {
+    width: calc(var(--shortcut-count, 10) * (100% / 10));
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.folder-back-btn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--surface-base);
+  color: var(--text-color);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--text-color) 6%, var(--surface-base));
+  }
+
+  svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    fill: currentColor;
+    flex-shrink: 0;
+    opacity: 0.75;
   }
 }
 

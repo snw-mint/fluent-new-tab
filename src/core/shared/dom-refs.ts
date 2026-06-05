@@ -47,6 +47,7 @@ export const mainUiScaleRow = getById<HTMLDivElement>('mainUiScaleRow');
 export const mainUiScaleSlider = getById<HTMLInputElement>('mainUiScaleSlider');
 
 export const shortcutsGrid = getById<HTMLDivElement>('shortcutsGrid');
+export const folderBackWrapper = getById<HTMLElement>('folderBackWrapper');
 export const addModal = getById<HTMLDivElement>('addModal');
 export const shortcutForm = getById<HTMLFormElement>('shortcutForm');
 export const closeModalBtn = getById<HTMLButtonElement>('closeModalBtn');

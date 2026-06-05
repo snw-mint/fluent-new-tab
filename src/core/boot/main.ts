@@ -73,6 +73,7 @@ function saveAndRenderShortcuts(): void {
 function triggerShortcutsRender(): void {
   renderShortcutsGrid({
     shortcutsGrid: refs.shortcutsGrid,
+    folderBackWrapper: refs.folderBackWrapper,
     rowsSelect: refs.rowsSelect,
     shortcuts: state.shortcuts,
     currentFolderId: state.currentFolderId,
@@ -209,6 +210,15 @@ async function bootCritical(): Promise<void> {
 
   if (refs.shortcutsGrid) {
     refs.shortcutsGrid.style.display = state.shortcutsVisible ? 'grid' : 'none';
+  }
+
+  const folderBackBtn = document.getElementById('folderBackBtn');
+  if (folderBackBtn) {
+    folderBackBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      state.setCurrentFolderId(null);
+      triggerShortcutsRender();
+    });
   }
 
   initBasicSearchUI(
@@ -637,19 +647,23 @@ async function bootInteractive(): Promise<void> {
   });
   // For the first click on visual search, load the manager AND open the interface
   // directly — this prevents the first click being "lost" while the manager loads async.
-  refs.visualSearchBtn?.addEventListener('click', (e) => {
-    const wasAlreadyLoaded = searchManagerLoaded;
-    initSearchManagerLazy();
-    if (!wasAlreadyLoaded) {
-      // Manager was just triggered for the first time; open the interface directly
-      // so this click isn't lost while the manager loads async.
-      e.preventDefault();
-      e.stopPropagation();
-      import('@/core/lazy/visual-search')
-        .then((m) => m.openVisualSearchInterface())
-        .catch((err) => console.error('Visual Search load error:', err));
-    }
-  }, { once: true });
+  refs.visualSearchBtn?.addEventListener(
+    'click',
+    (e) => {
+      const wasAlreadyLoaded = searchManagerLoaded;
+      initSearchManagerLazy();
+      if (!wasAlreadyLoaded) {
+        // Manager was just triggered for the first time; open the interface directly
+        // so this click isn't lost while the manager loads async.
+        e.preventDefault();
+        e.stopPropagation();
+        import('@/core/lazy/visual-search')
+          .then((m) => m.openVisualSearchInterface())
+          .catch((err) => console.error('Visual Search load error:', err));
+      }
+    },
+    { once: true },
+  );
 
   initTabCustomization();
   initLocalization();
