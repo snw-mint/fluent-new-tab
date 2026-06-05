@@ -67,7 +67,7 @@ export class WallpaperEngine {
           } else {
             msg = msg.replace(/\$SOURCE\$/g, sourceName);
           }
-          showToast(msg, '/assets/search-engines/system.svg', 0);
+          showToast(msg, '/assets/icons/fetch.svg', 0);
         }
 
         targetUrl = await fetchDailyWallpaper(config.type as any);
@@ -175,7 +175,8 @@ export class WallpaperEngine {
           a.href = url;
           a.target = '_blank';
           a.className = 'wallpaper-credit-link';
-          a.style.cssText = 'color: inherit; text-decoration: none; pointer-events: auto;';
+          a.style.cssText =
+            'color: inherit; text-decoration: none; pointer-events: auto;';
           a.textContent = text;
           creditTextSpan.appendChild(a);
         } else {

@@ -1,15 +1,15 @@
 {
   "appsTitle": {
-    "message": "Applicazioni"
+    "message": "Applications"
   },
   "moreApps": {
-    "message": "Altre app"
+    "message": "Plus d'applications"
   },
   "settingsTitle": {
-    "message": "Impostazioni"
+    "message": "Paramètres"
   },
   "wallpaperTitle": {
-    "message": "Sfondo"
+    "message": "Fond d'écran"
   },
   "uploadOption": {
     "message": "Importer une image"
@@ -18,22 +18,22 @@
     "message": "Importer"
   },
   "overlayLabel": {
-    "message": "Sovrapposizione immagine"
+    "message": "Superposition d'image"
   },
   "surfaceTintLabel": {
     "message": "Teinte de surface"
   },
   "appearanceTitle": {
-    "message": "Aspetto"
+    "message": "Apparence"
   },
   "mainUiScaleLabel": {
-    "message": "Scala dell'interfaccia utente principale"
+    "message": "Échelle de l'interface principale"
   },
   "tabNameLabel": {
-    "message": "Nome scheda"
+    "message": "Nom de l'onglet"
   },
   "tabFaviconLabel": {
-    "message": "Icona della scheda"
+    "message": "Icône de l'onglet"
   },
   "customColorTitle": {
     "message": "Couleur personnalisée"
@@ -51,37 +51,37 @@
     "message": "ou"
   },
   "visualSearchPasteUrl": {
-    "message": "Collez le lien vers l'image"
+    "message": "Collez le lien de l'image"
   },
   "visualSearchSearchBtn": {
-    "message": "Cerca"
+    "message": "Rechercher"
   },
   "styleNone": {
-    "message": "Nessuno"
+    "message": "Aucun"
   },
   "displayTitle": {
-    "message": "Visualizza"
+    "message": "Affichage"
   },
   "displayGreeting": {
-    "message": "Saluto"
+    "message": "Salutation"
   },
   "greetingNameLabel": {
-    "message": "Il tuo nome"
+    "message": "Votre nom"
   },
   "displayTime": {
-    "message": "Ora"
+    "message": "Heure"
   },
   "displayDate": {
-    "message": "Data"
+    "message": "Date"
   },
   "displayAdvanced": {
-    "message": "Ora e data"
+    "message": "Heure et date"
   },
   "displayScaleLabel": {
-    "message": "Ridimensiona lo schermo"
+    "message": "Échelle d'affichage"
   },
   "emojiTypeLabel": {
-    "message": "Type d'emoji"
+    "message": "Type d'émoji"
   },
   "TypeStatic": {
     "message": " Statique"
@@ -90,241 +90,241 @@
     "message": "Animé"
   },
   "showSecondsLabel": {
-    "message": "Mostra i secondi"
+    "message": "Afficher les secondes"
   },
   "use12HourLabel": {
-    "message": "Utilizza il formato delle 12 ore"
+    "message": "Format 12 heures"
   },
   "dateFormatLabel": {
-    "message": "Formato"
+    "message": "Format"
   },
   "dateText": {
-    "message": "Scritto"
+    "message": "Texte"
   },
   "dateNumeric": {
-    "message": "Numerico"
+    "message": "Numérique"
   },
   "dateWeekday": {
-    "message": "Giorno feriale"
+    "message": "Jour de la semaine"
   },
   "weatherTitle": {
-    "message": "Meteo"
+    "message": "Météo"
   },
   "locationLabel": {
     "message": "Lieu"
   },
   "useFahrenheitLabel": {
-    "message": "Usa i gradi Fahrenheit"
+    "message": "Utiliser les degrés Fahrenheit"
   },
   "weatherAlertsLabel": {
-    "message": "Avvisi meteorologici"
+    "message": "Alertes météo"
   },
   "shortcutsTitle": {
-    "message": "Scorciatoie"
+    "message": "Raccourcis"
   },
   "enableFoldersLabel": {
-    "message": "Abilita cartelle"
+    "message": "Activer les dossiers"
   },
   "hideShortcutNamesLabel": {
-    "message": "Nascondi nomi"
+    "message": "Masquer les noms"
   },
   "folderIconHelp": {
-    "message": "Trova icone personalizzate per le cartelle su"
+    "message": "Trouvez des icônes personnalisées sur"
   },
   "shortcutRadiusLabel": {
-    "message": "Raggio dell'angolo"
+    "message": "Arrondi des angles"
   },
   "rows1": {
-    "message": "1 riga"
+    "message": "1 ligne"
   },
   "rows2": {
-    "message": "2 righe"
+    "message": "2 lignes"
   },
   "rows3": {
-    "message": "3 righe"
+    "message": "3 lignes"
   },
   "rows4": {
-    "message": "4 righe"
+    "message": "4 lignes"
   },
   "appLauncherTitle": {
-    "message": "Launcher applicazioni"
+    "message": "Lanceur d'applications"
   },
   "searchTitle": {
-    "message": "Cerca"
+    "message": "Rechercher"
   },
   "searchStyleFull": {
-    "message": "A tutta larghezza"
+    "message": "Pleine largeur"
   },
   "searchStyleCompact": {
-    "message": "Compatto"
+    "message": "Compact"
   },
   "suggestionsOption": {
-    "message": "Suggerimenti"
+    "message": "Suggestions"
   },
   "clearSearchOption": {
-    "message": "Ricerca semplice (Google)"
+    "message": "Recherche simple (Google)"
   },
   "voiceSearchOption": {
-    "message": "Ricerca vocale"
+    "message": "Recherche vocale"
   },
   "visualSearchOption": {
     "message": "Recherche visuelle"
   },
   "askAiOption": {
-    "message": "Chiedi all'IA"
+    "message": "Demander à l'IA"
   },
   "AccessibilityTitle": {
     "message": "Accessibilité"
   },
   "reduceMotionTitle": {
-    "message": "Riduci movimento"
+    "message": "Réduire les animations"
   },
   "languageTitle": {
-    "message": "Lingua"
+    "message": "Langue"
   },
   "backupTitle": {
-    "message": "Backup dei dati"
+    "message": "Sauvegarde des données"
   },
   "exportOption": {
-    "message": "Esporta"
+    "message": "Exporter"
   },
   "importOption": {
-    "message": "Importa"
+    "message": "Importer"
   },
   "addFolderTitle": {
-    "message": "Aggiungi cartella"
+    "message": "Ajouter un dossier"
   },
   "folderNameLabel": {
-    "message": "Nome"
+    "message": "Nom"
   },
   "editFolderTitle": {
-    "message": "Modifica cartella"
+    "message": "Modifier le dossier"
   },
   "chooseTypeTitle": {
-    "message": "Crea nuovo"
+    "message": "Créer un nouveau"
   },
   "backLabel": {
-    "message": "Indietro"
+    "message": "Retour"
   },
   "addShortcutTitle": {
-    "message": "Aggiungi collegamento"
+    "message": "Ajouter un raccourci"
   },
   "editShortcutTitle": {
-    "message": "Modifica collegamento"
+    "message": "Modifier le raccourci"
   },
   "shortcutNameLabel": {
-    "message": "Nome"
+    "message": "Nom"
   },
   "shortcutUrlLabel": {
     "message": "URL"
   },
   "addFaviconLabel": {
-    "message": "Icona personalizzata"
+    "message": "Icône personnalisée"
   },
   "faviconUrlLabel": {
-    "message": "URL dell'icona"
+    "message": "URL de l'icône"
   },
   "btnCancel": {
-    "message": "Annulla"
+    "message": "Annuler"
   },
   "btnSave": {
-    "message": "Salva"
+    "message": "Sauvegarder"
   },
   "searchPlaceholder": {
-    "message": "Cerca nel web"
+    "message": "Rechercher sur le web"
   },
   "namePlaceholder": {
-    "message": "Il tuo nome (facoltativo)"
+    "message": "Votre nom (facultatif)"
   },
   "cityPlaceholder": {
-    "message": "La tua città"
+    "message": "Votre ville"
   },
   "addShortcutLabel": {
-    "message": "Aggiungi"
+    "message": "Ajouter"
   },
   "editLabel": {
-    "message": "Modifica"
+    "message": "Modifier"
   },
   "removeLabel": {
-    "message": "Rimuovi"
+    "message": "Supprimer"
   },
   "moreOptionsLabel": {
-    "message": "Altre opzioni"
+    "message": "Plus d'options"
   },
   "permissionRequiredTitle": {
-    "message": "È richiesta l'autorizzazione"
+    "message": "Autorisation requise"
   },
   "grantPermissionLabel": {
-    "message": "Concedi l'autorizzazione"
+    "message": "Accorder l'autorisation"
   },
   "learnMoreLabel": {
-    "message": "Per saperne di più"
+    "message": "En savoir plus"
   },
   "wizardWelcomeTitle": {
-    "message": "Benvenuti a casa"
+    "message": "Bienvenue à la maison"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Il tuo nuovo spazio di lavoro Fluent è pronto. Scegli qui sotto il passo successivo."
+    "message": "Votre nouvel espace de travail Fluent est prêt. Choisissez la prochaine étape ci-dessous."
   },
   "wizardRestoreTitle": {
-    "message": "Ripristina impostazioni"
+    "message": "Restaurer les paramètres"
   },
   "wizardRestoreDesc": {
-    "message": "Hai un file di backup?"
+    "message": "Avez-vous un fichier de sauvegarde ?"
   },
   "wizardStartTitle": {
-    "message": "Avvia l'installação"
+    "message": "Commencer la configuration"
   },
   "wizardStartDesc": {
-    "message": "Inizia con qualche passo."
+    "message": "Commencez en quelques étapes."
   },
   "wizardSkipTitle": {
-    "message": "Salta la configurazione"
+    "message": "Ignorer la configuration"
   },
   "wizardThemeAuto": {
-    "message": "Sistema"
+    "message": "Système"
   },
   "wizardThemeLight": {
-    "message": "Chiaro"
+    "message": "Clair"
   },
   "wizardThemeDark": {
-    "message": "Scuro"
+    "message": "Sombre"
   },
   "wizardSkipDesc": {
-    "message": "Inizia con una configurazione pulita."
+    "message": "Commencer avec une configuration vierge."
   },
   "wizardAppearanceTitle": {
-    "message": "Stile e aspetto"
+    "message": "Style et apparence"
   },
   "wizardAppearanceDesc": {
-    "message": "Imposta il tema, il colore di risalto, il nome e la lingua."
+    "message": "Définissez le thème, la couleur d'accentuation, le nom et la langue."
   },
   "btnBack": {
-    "message": "Indietro"
+    "message": "Retour"
   },
   "btnNext": {
-    "message": "Continua"
+    "message": "Continuer"
   },
   "wizardAccentLabel": {
-    "message": "Colore di accento"
+    "message": "Couleur d'accentuation"
   },
   "wizardWidgetsTitle": {
-    "message": "Widget e utilità"
+    "message": "Widgets et utilitaires"
   },
   "wizardWidgetsDesc": {
-    "message": "Scegli cosa visualizzare sulla tua pagina."
+    "message": "Choisissez ce que vous souhaitez afficher sur votre page."
   },
   "wizardFinalTitle": {
-    "message": "È tutto pronto"
+    "message": "Tout est prêt"
   },
   "wizardFinalSubtitle": {
-    "message": "Grazie per aver scelto Fluent New Tab!"
+    "message": "Merci d'avoir choisi Fluent New Tab !"
   },
   "wizardFinalStartTitle": {
-    "message": "Inizia"
+    "message": "Commencer"
   },
   "wizardFinalStartDesc": {
-    "message": "Apri la pagina della nuova scheda."
+    "message": "Ouvrir la page du nouvel onglet."
   },
   "wizardFinalSupportTitle": {
     "message": "Soutenez le projet"
@@ -339,7 +339,7 @@
     "message": "Consultez le projet sur GitHub."
   },
   "permissionRequiredMessage": {
-    "message": "Per utilizzare questa funzione, Fluent New Tab necessita dell'autorizzazione ad accedere a \"$API_NAME$\". Ciò garantisce la tua privacy e sicurezza.",
+    "message": "Pour utiliser cette fonctionnalité, Fluent New Tab nécessite l'autorisation d'accéder à \"$API_NAME$\". Cela garantit votre confidentialité et votre sécurité.",
     "placeholders": {
       "api_name": {
         "content": "$1",
@@ -348,7 +348,7 @@
     }
   },
   "updateNoticePrefix": {
-    "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$. ",
+    "message": "Fluent New Tab a été mis à jour vers la version $VERSION$. ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -357,10 +357,10 @@
     }
   },
   "updateNoticeChangelog": {
-    "message": "Vedi changelog"
+    "message": "Voir le journal des modifications"
   },
   "fetchingImagePlaceholder": {
-    "message": "Caricamento dell'immagine da $SOURCE$...",
+    "message": "Chargement de l'image depuis $SOURCE$...",
     "placeholders": {
       "source": {
         "content": "$1"
@@ -368,31 +368,31 @@
     }
   },
   "warningUnderstood": {
-    "message": "Capito"
+    "message": "Compris"
   },
   "weekday_0": {
-    "message": "Domenica"
+    "message": "Dimanche"
   },
   "weekday_1": {
-    "message": "Lunedì"
+    "message": "Lundi"
   },
   "weekday_2": {
-    "message": "Martedì"
+    "message": "Mardi"
   },
   "weekday_3": {
-    "message": "Mercoledì"
+    "message": "Mercredi"
   },
   "weekday_4": {
-    "message": "Giovedì"
+    "message": "Jeudi"
   },
   "weekday_5": {
-    "message": "Venerdì"
+    "message": "Vendredi"
   },
   "weekday_6": {
-    "message": "Sabato"
+    "message": "Samedi"
   },
   "greetWeekMorning": {
-    "message": "Ti auguro un ottimo $WEEK$, $NAME$!",
+    "message": "Passez un excellent $WEEK$, $NAME$ !",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -405,7 +405,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Come sta andando il tuo $WEEK$, $NAME$?",
+    "message": "Comment se passe votre $WEEK$, $NAME$ ?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -418,7 +418,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, allora, com'è andata la tua $WEEK$?",
+    "message": "Alors, comment s'est passé ce $WEEK$, $NAME$ ?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -431,7 +431,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, che bella mattinata!",
+    "message": "Quelle magnifique matinée, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -440,7 +440,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Pronti a conquistare la giornata, $NAME$?",
+    "message": "Prêt à conquérir cette belle journée, $NAME$ ?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -449,7 +449,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Facciamo in modo que questa mattinata sia significativa, $NAME$.",
+    "message": "Rendons cette matinée inoubliable, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -458,7 +458,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Buongiorno! Spero que tu abbia dormito bene, $NAME$.",
+    "message": "Bonjour ! J'espère que votre nuit a été douce, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -467,7 +467,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Svegliati, $NAME$, diamoci da fare!",
+    "message": "Debout, $NAME$, de grandes choses nous attendent !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -476,7 +476,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Spero que il tuo pomeriggio stia procedendo bene, $NAME$.",
+    "message": "J'espère que votre après-midi se déroule à merveille, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -485,7 +485,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, continua così!",
+    "message": "Continuez sur cette belle lancée, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -494,7 +494,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "A metà giornata, $NAME$!",
+    "message": "Nous y sommes presque, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -503,7 +503,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Buon pomeriggio! Stai lavorando sodo, $NAME$?",
+    "message": "Bon après-midi ! Toujours aussi concentré, $NAME$ ?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -512,7 +512,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Non dimenticare di concederti una breve pausa, $NAME$.",
+    "message": "N'oubliez pas de vous accorder une petite pause, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -521,7 +521,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Buonasera! È ora di rilassarsi un po$, $NAME$.",
+    "message": "Bonsoir ! Il est temps de vous détendre un peu, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -530,7 +530,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, spero que tu abbia trascorso una giornata fantastica.",
+    "message": "$NAME$, j'espère que votre journée a été fantastique.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -539,7 +539,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Ti auguro una serata rilassante, $NAME$.",
+    "message": "Je vous souhaite une soirée des plus relaxantes, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -548,7 +548,7 @@
     }
   },
   "greetEvening4": {
-    "message": "La giornata sta per finire, $NAME$. Ottimo lavoro!",
+    "message": "La journée s'achève en beauté, $NAME$. Beau travail !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -557,7 +557,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Mettetevi comodi e rilassatevi, $NAME$.",
+    "message": "Installez-vous confortablement et soufflez, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -566,7 +566,7 @@
     }
   },
   "greetNight1": {
-    "message": "Si sta facendo tardi, $NAME$. È ora di riposare.",
+    "message": "Il se fait tard, $NAME$. Il est temps de vous reposer.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -575,7 +575,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, la notte è tranquilla e serena.",
+    "message": "$NAME$, la nuit est calme et sereine.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -584,7 +584,7 @@
     }
   },
   "greetNight3": {
-    "message": "Stai lavorando fino a tarda notte, $NAME$?",
+    "message": "Encore éveillé à cette heure, $NAME$ ?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -593,7 +593,7 @@
     }
   },
   "greetNight4": {
-    "message": "Ti auguro una buona notte di sonno, $NAME$!",
+    "message": "Je vous souhaite une nuit des plus douces, $NAME$ !",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -602,7 +602,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sogni d'oro, $NAME$. A domani.",
+    "message": "Fais de beaux rêves, $NAME$. À demain.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -611,7 +611,7 @@
     }
   },
   "alertTempDrop": {
-    "message": "Abbassamento previsto della temperatura: $VALUE$°",
+    "message": "Baisse de température prévue : $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -620,7 +620,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Aumento previsto della temperatura: $VALUE$°",
+    "message": "Hausse de température prévue : $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -629,10 +629,10 @@
     }
   },
   "alertStorm": {
-    "message": "Nelle prossime ore sono previste tempeste."
+    "message": "Tempêtes prévues dans les prochaines heures."
   },
   "alertWindHigh": {
-    "message": "Sono previsti venti forti: $VALUE$ km/h",
+    "message": "Vents forts attendus : $VALUE$ km/h",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -641,7 +641,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "Raggi UV a livelli critici: $VALUE$",
+    "message": "Indice UV critique : $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -650,7 +650,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "Si prevedono livelli elevati di polline ($POLLEN$).",
+    "message": "Niveaux élevés de pollen attendus ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",

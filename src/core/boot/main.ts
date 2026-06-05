@@ -617,6 +617,9 @@ async function bootInteractive(): Promise<void> {
   refs.configBtn?.addEventListener('click', initSearchManagerLazy, {
     once: true,
   });
+  refs.engineBtn?.addEventListener('pointerover', initSearchManagerLazy, {
+    once: true,
+  });
   refs.engineBtn?.addEventListener('click', initSearchManagerLazy, {
     once: true,
   });
