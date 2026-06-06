@@ -273,13 +273,16 @@
 
 .shortcuts-area {
   width: 100%;
+  position: relative;
 }
 
 .folder-back-wrapper {
   display: none;
   justify-content: flex-start;
   width: 100%;
-  margin-top: 0.9rem;
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 0;
 
   &.visible {
     display: flex;
@@ -287,8 +290,8 @@
 
   &.visible.single-row {
     width: calc(var(--shortcut-count, 10) * (100% / 10));
-    margin-left: auto;
-    margin-right: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -309,6 +312,7 @@
 
   &:hover {
     background-color: color-mix(in srgb, var(--text-color) 6%, var(--surface-base));
+    border-color: transparent;
   }
 
   svg {
