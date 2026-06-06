@@ -125,12 +125,22 @@ export function showGridLimitWarning(
   currentLimit: number,
   isFolderGrid: boolean,
 ): void {
+  const getTrans = (window as any).getTranslation;
+  const titleKey = isFolderGrid ? 'folderFullTitle' : 'gridFullTitle';
+  const msgKey = isFolderGrid ? 'folderFullMessage' : 'gridFullMessage';
+  const defaultTitle = isFolderGrid ? 'Folder is Full' : 'Limit Reached';
+  const defaultMsg = isFolderGrid
+    ? `This folder has reached the absolute limit of ${currentLimit} items.`
+    : `You have reached the maximum limit of ${currentLimit} shortcuts on the main grid. To free up space, please remove some shortcuts or folders.`;
+
+  let title = getTrans?.(titleKey) || defaultTitle;
+  let message = getTrans?.(msgKey) || defaultMsg;
+  message = message.replace('$LIMIT$', currentLimit.toString());
+
   warningModal.show({
-    title: isFolderGrid ? 'Folder is Full' : 'Grid is Full',
-    message: isFolderGrid
-      ? `This folder has reached the absolute limit of ${currentLimit} items.`
-      : `You have reached the maximum limit of ${currentLimit} shortcuts on the main screen.`,
-    confirmText: 'Understood',
+    title,
+    message,
+    confirmText: getTrans?.('warningUnderstood') || 'Understood',
     confirmVariant: 'accent',
     onConfirm: () => {},
   });

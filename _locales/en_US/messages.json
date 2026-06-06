@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "View project on GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Grid is Full"
+  },
+  "gridFullMessage": {
+    "message": "You have reached the maximum limit of $LIMIT$ shortcuts on the main grid. To free up space, please remove some shortcuts or folders.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Folder is Full"
+  },
+  "folderFullMessage": {
+    "message": "This folder has reached the absolute limit of $LIMIT$ items. Please remove some shortcuts before adding new ones.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

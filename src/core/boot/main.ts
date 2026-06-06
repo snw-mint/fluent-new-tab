@@ -321,6 +321,15 @@ async function bootInteractive(): Promise<void> {
           },
           onMoveOutFolder: (itemIndex) => {
             if (!state.currentFolderId) return;
+            const limit = Math.min(state.allowedRows * 10, 40);
+            if (state.shortcuts.length >= limit) {
+              import('@/core/ui/shortcuts-manager').then(
+                ({ showGridLimitWarning }) => {
+                  showGridLimitWarning(limit, false);
+                },
+              );
+              return false;
+            }
             const arr = getActiveShortcutsList();
             const item = arr.splice(itemIndex, 1)[0];
             if (item) {

@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Visa projektet på GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Rutnätet är fullt"
+  },
+  "gridFullMessage": {
+    "message": "Du har nått den maximala gränsen på $LIMIT$ genvägar på huvudrutnätet. För att frigöra utrymme, ta bort några genvägar eller mappar.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Mappen är full"
+  },
+  "folderFullMessage": {
+    "message": "Den här mappen har nått den absoluta gränsen på $LIMIT$ objekt. Ta bort några genvägar innan du lägger till nya.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

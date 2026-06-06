@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Vizualizează proiectul pe GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Grila este plină"
+  },
+  "gridFullMessage": {
+    "message": "Ați atins limita maximă de $LIMIT$ scurtături pe grila principală. Pentru a elibera spațiu, vă rugăm să eliminați câteva scurtături sau dosare.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Dosarul este plin"
+  },
+  "folderFullMessage": {
+    "message": "Acest dosar a atins limita absolută de $LIMIT$ elemente. Vă rugăm să eliminați câteva scurtături înainte de a adăuga altele noi.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

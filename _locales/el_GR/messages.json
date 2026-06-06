@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Δείτε το έργο στο GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Το πλέγμα είναι γεμάτο"
+  },
+  "gridFullMessage": {
+    "message": "Έχετε φτάσει το μέγιστο όριο των $LIMIT$ συντομεύσεων στο κύριο πλέγμα. Για να ελευθερώσετε χώρο, αφαιρέστε ορισμένες συντομεύσεις ή φακέλους.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Ο φάκελος είναι γεμάτος"
+  },
+  "folderFullMessage": {
+    "message": "Αυτός ο φάκελος έχει φτάσει το απόλυτο όριο των $LIMIT$ στοιχείων. Αφαιρέστε ορισμένες συντομεύσεις πριν προσθέσετε νέες.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

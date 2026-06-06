@@ -223,6 +223,10 @@ Used internally to fill the `$WEEK$` placeholder in greeting messages.
 | `faviconUrlLabel` | Icon URL | Input label for the custom icon URL |
 | `namePlaceholder` | e.g., John (optional) | Placeholder for the greeting name input |
 | `cityPlaceholder` | e.g., New York | Placeholder for the city/location input |
+| `gridFullTitle` | Grid is Full | Title for the warning dialog when main grid shortcuts limit is reached |
+| `gridFullMessage` | You have reached the maximum limit of $LIMIT$ shortcuts... | Message for the grid full warning dialog. **⚠ placeholder:** `$LIMIT$` is the maximum items limit. |
+| `folderFullTitle` | Folder is Full | Title for the warning dialog when folder items limit is reached |
+| `folderFullMessage` | This folder has reached the absolute limit of $LIMIT$ items... | Message for the folder full warning dialog. **⚠ placeholder:** `$LIMIT$` is the maximum items limit. |
 
 ---
 

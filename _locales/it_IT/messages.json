@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Visualizza il progetto su GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "La griglia è piena"
+  },
+  "gridFullMessage": {
+    "message": "Hai raggiunto il limite massimo di $LIMIT$ scorciatoie sulla griglia principale. Per liberare spazio, rimuovi alcune scorciatoie o cartelle.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "La cartella è piena"
+  },
+  "folderFullMessage": {
+    "message": "Questa cartella ha raggiunto il limite assoluto di $LIMIT$ elementi. Rimuovi alcune scorciatoie prima di aggiungerne di nuove.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

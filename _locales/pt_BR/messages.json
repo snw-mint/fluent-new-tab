@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Veja o projeto no GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "A grade está cheia"
+  },
+  "gridFullMessage": {
+    "message": "Você atingiu o limite máximo de $LIMIT$ atalhos na grade principal. Para liberar espaço, remova alguns atalhos ou pastas.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "A pasta está cheia"
+  },
+  "folderFullMessage": {
+    "message": "Esta pasta atingiu o limite absoluto de $LIMIT$ itens. Remova alguns atalhos antes de adicionar novos.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

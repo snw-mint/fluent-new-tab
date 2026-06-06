@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Bekijk het project op GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Raster is vol"
+  },
+  "gridFullMessage": {
+    "message": "Je hebt de maximale limiet van $LIMIT$ snelkoppelingen op het hoofdraster bereikt. Verwijder enkele snelkoppelingen of mappen om ruimte vrij te maken.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Map is vol"
+  },
+  "folderFullMessage": {
+    "message": "Deze map heeft de absolute limiet van $LIMIT$ items bereikt. Verwijder enkele snelkoppelingen voordat je nieuwe toevoegt.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

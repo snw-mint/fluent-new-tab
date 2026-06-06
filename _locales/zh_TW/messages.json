@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "在 GitHub 上查看此專案。"
+  },
+
+  "gridFullTitle": {
+    "message": "網格已滿"
+  },
+  "gridFullMessage": {
+    "message": "您已達到主網格上 $LIMIT$ 個捷徑的最大限制。要釋放空間，請刪除一些捷徑或資料夾。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "資料夾已滿"
+  },
+  "folderFullMessage": {
+    "message": "此資料夾已達到 $LIMIT$ 個項目的絕對限制。請在新增捷徑之前刪除一些捷徑。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Katso projekti GitHubissa."
+  },
+
+  "gridFullTitle": {
+    "message": "Ruudukko on täynnä"
+  },
+  "gridFullMessage": {
+    "message": "Olet saavuttanut $LIMIT$ pikakuvakkeen enimmäisrajan pääruudukossa. Vapauta tilaa poistamalla pikakuvakkeita tai kansioita.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Kansio on täynnä"
+  },
+  "folderFullMessage": {
+    "message": "Tämä kansio on saavuttanut ehdottoman $LIMIT$ kohteen rajan. Poista joitakin pikakuvakkeita ennen kuin lisäät uusia.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

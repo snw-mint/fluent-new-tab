@@ -412,5 +412,30 @@
   },
   "warningClose": {
     "message": "Cerrar"
+  },
+
+  "gridFullTitle": {
+    "message": "La red está llena"
+  },
+  "gridFullMessage": {
+    "message": "Has alcanzado el límite máximo de accesos directos de $LIMIT$ en la pantalla principal. Elimina algunos elementos o agrúpalos en una carpeta para liberar espacio.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "La carpeta está llena"
+  },
+  "folderFullMessage": {
+    "message": "Esta carpeta ha alcanzado el límite absoluto de $LIMIT$ elementos. Elimine algunos accesos directos antes de añadir otros nuevos.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

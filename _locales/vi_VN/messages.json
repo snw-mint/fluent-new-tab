@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Xem dự án trên GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Lưới đã đầy"
+  },
+  "gridFullMessage": {
+    "message": "Bạn đã đạt đến giới hạn tối đa $LIMIT$ phím tắt trên lưới chính. Để giải phóng không gian, vui lòng xóa một số phím tắt hoặc thư mục.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Thư mục đã đầy"
+  },
+  "folderFullMessage": {
+    "message": "Thư mục này đã đạt đến giới hạn tuyệt đối là $LIMIT$ mục. Vui lòng xóa một số phím tắt trước khi thêm phím tắt mới.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

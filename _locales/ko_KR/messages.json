@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "GitHub에서 프로젝트 보기."
+  },
+
+  "gridFullTitle": {
+    "message": "그리드가 가득 찼습니다"
+  },
+  "gridFullMessage": {
+    "message": "메인 그리드의 최대 단축키 제한인 $LIMIT$개에 도달했습니다. 공간을 확보하려면 일부 단축키나 폴더를 제거하세요.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "폴더가 가득 찼습니다"
+  },
+  "folderFullMessage": {
+    "message": "이 폴더는 $LIMIT$개의 항목의 절대 한도에 도달했습니다. 새 단축키를 추가하기 전에 일부 단축키를 제거하세요.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

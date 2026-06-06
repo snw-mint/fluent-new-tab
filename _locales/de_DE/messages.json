@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Projekt auf GitHub anzeigen."
+  },
+
+  "gridFullTitle": {
+    "message": "Raster ist voll"
+  },
+  "gridFullMessage": {
+    "message": "Sie haben das maximale Limit von $LIMIT$ Verknüpfungen auf dem Hauptraster erreicht. Um Platz zu schaffen, entfernen Sie bitte einige Verknüpfungen oder Ordner.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Ordner ist voll"
+  },
+  "folderFullMessage": {
+    "message": "Dieser Ordner hat das absolute Limit von $LIMIT$ Elementen erreicht. Bitte entfernen Sie einige Verknüpfungen, bevor Sie neue hinzufügen.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

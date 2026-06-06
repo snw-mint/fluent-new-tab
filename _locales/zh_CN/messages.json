@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "在 GitHub 上查看该项目。"
+  },
+
+  "gridFullTitle": {
+    "message": "网格已满"
+  },
+  "gridFullMessage": {
+    "message": "您已达到主网格上 $LIMIT$ 个快捷方式的最大限制。要释放空间，请删除一些快捷方式或文件夹。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "文件夹已满"
+  },
+  "folderFullMessage": {
+    "message": "此文件夹已达到 $LIMIT$ 个项目的绝对限制。请在添加新快捷方式之前删除一些快捷方式。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

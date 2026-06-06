@@ -11,7 +11,7 @@ interface DragDropOptions {
   itemClass?: string;
   onReorder: (oldIndex: number, newIndex: number) => void;
   onMoveToFolder?: (itemIndex: number, folderId: string) => void;
-  onMoveOutFolder?: (itemIndex: number) => void;
+  onMoveOutFolder?: (itemIndex: number) => boolean | void;
 }
 
 const dragDropInstances = new Map<HTMLElement, DragDropOptions>();
@@ -420,9 +420,12 @@ export function handleGlobalDrop(event: DragEvent): void {
     const oldIndex = parseInt(draggedElement.dataset.index || '-1', 10);
 
     if (dropAction === 'out-of-folder' && oldIndex > -1) {
-      dragSuccessful = true;
-      if (activeDragOptions.onMoveOutFolder)
-        activeDragOptions.onMoveOutFolder(oldIndex);
+      if (activeDragOptions.onMoveOutFolder) {
+        const result = activeDragOptions.onMoveOutFolder(oldIndex);
+        dragSuccessful = result !== false;
+      } else {
+        dragSuccessful = true;
+      }
     } else if (dropAction === 'folder' && currentDropTarget) {
       const folderId = currentDropTarget.dataset.id;
       if (folderId && oldIndex > -1) {
@@ -477,6 +480,7 @@ export function cleanupDrag(): void {
     ghostNode.parentNode.removeChild(ghostNode);
   }
   if (draggedElement) {
+    draggedElement.style.display = '';
     draggedElement.style.opacity = '';
     if (!dragSuccessful && originalParent) {
       originalParent.insertBefore(draggedElement, originalNextSibling);

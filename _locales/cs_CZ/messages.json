@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Zobrazit projekt na GitHubu."
+  },
+
+  "gridFullTitle": {
+    "message": "Mřížka je plná"
+  },
+  "gridFullMessage": {
+    "message": "Dosáhli jste maximálního limitu $LIMIT$ zástupců na hlavní mřížce. Chcete-li uvolnit místo, odstraňte některé zástupce nebo složky.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Složka je plná"
+  },
+  "folderFullMessage": {
+    "message": "Tato složka dosáhla absolutního limitu $LIMIT$ položek. Před přidáním nových odstraňte některé zástupce.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

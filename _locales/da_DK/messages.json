@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Se projektet på GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Gitteret er fuldt"
+  },
+  "gridFullMessage": {
+    "message": "Du har nået den maksimale grænse på $LIMIT$ genveje på hovedgitteret. For at frigøre plads skal du fjerne nogle genveje eller mapper.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Mappen er fuld"
+  },
+  "folderFullMessage": {
+    "message": "Denne mappe har nået den absolutte grænse på $LIMIT$ elementer. Fjern venligst nogle genveje, før du tilføjer nye.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

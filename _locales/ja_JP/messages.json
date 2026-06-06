@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "GitHubでプロジェクトを表示する。"
+  },
+
+  "gridFullTitle": {
+    "message": "グリッドがいっぱいです"
+  },
+  "gridFullMessage": {
+    "message": "メイングリッドのショートカットの最大制限$LIMIT$個に達しました。スペースを空けるには、いくつかのショートカットやフォルダを削除してください。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "フォルダがいっぱいです"
+  },
+  "folderFullMessage": {
+    "message": "このフォルダは$LIMIT$個のアイテムの絶対制限に達しました。新しいものを追加する前に、いくつかのショートカットを削除してください。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

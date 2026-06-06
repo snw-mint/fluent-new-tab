@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Consultez le projet sur GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "La grille est pleine"
+  },
+  "gridFullMessage": {
+    "message": "Vous avez atteint la limite maximale de $LIMIT$ raccourcis sur la grille principale. Pour libérer de l'espace, veuillez supprimer des raccourcis ou des dossiers.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Le dossier est plein"
+  },
+  "folderFullMessage": {
+    "message": "Ce dossier a atteint la limite absolue de $LIMIT$ éléments. Veuillez supprimer des raccourcis avant d'en ajouter de nouveaux.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

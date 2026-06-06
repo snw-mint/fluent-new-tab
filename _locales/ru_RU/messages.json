@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Посмотреть проект на GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Сетка заполнена"
+  },
+  "gridFullMessage": {
+    "message": "Вы достигли максимального предела в $LIMIT$ ярлыков на главной сетке. Чтобы освободить место, удалите несколько ярлыков или папок.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Папка заполнена"
+  },
+  "folderFullMessage": {
+    "message": "Эта папка достигла абсолютного предела в $LIMIT$ элементов. Пожалуйста, удалите несколько ярлыков перед добавлением новых.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

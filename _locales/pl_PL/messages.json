@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Zobacz projekt na GitHubie."
+  },
+
+  "gridFullTitle": {
+    "message": "Siatka jest pełna"
+  },
+  "gridFullMessage": {
+    "message": "Osiągnąłeś maksymalny limit $LIMIT$ skrótów na głównej siatce. Aby zwolnić miejsce, usuń kilka skrótów lub folderów.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Folder jest pełny"
+  },
+  "folderFullMessage": {
+    "message": "Ten folder osiągnął absolutny limit $LIMIT$ elementów. Zanim dodasz nowe, usuń kilka skrótów.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

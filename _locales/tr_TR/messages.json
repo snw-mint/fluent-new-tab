@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "Projeyi GitHub'da görüntüle."
+  },
+
+  "gridFullTitle": {
+    "message": "Izgara Dolu"
+  },
+  "gridFullMessage": {
+    "message": "Ana ızgaradaki maksimum $LIMIT$ kısayol sınırına ulaştınız. Yer açmak için lütfen bazı kısayolları veya klasörleri kaldırın.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Klasör Dolu"
+  },
+  "folderFullMessage": {
+    "message": "Bu klasör $LIMIT$ öğelik mutlak sınıra ulaştı. Lütfen yenilerini eklemeden önce bazı kısayolları kaldırın.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

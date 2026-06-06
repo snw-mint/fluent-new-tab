@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "View project on GitHub."
+  },
+
+  "gridFullTitle": {
+    "message": "Puno na ang Grid"
+  },
+  "gridFullMessage": {
+    "message": "Naabot mo na ang maximum na limitasyon ng $LIMIT$ na shortcut sa pangunahing grid. Upang magbakante ng espasyo, mangyaring alisin ang ilang mga shortcut o folder.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Puno na ang Folder"
+  },
+  "folderFullMessage": {
+    "message": "Ang folder na ito ay umabot na sa ganap na limitasyon ng $LIMIT$ na item. Mangyaring alisin ang ilang mga shortcut bago magdagdag ng mga bago.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }

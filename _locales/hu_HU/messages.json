@@ -676,5 +676,30 @@
   },
   "wizardFinalGithubDesc": {
     "message": "A projekt megtekintése a GitHubon."
+  },
+
+  "gridFullTitle": {
+    "message": "A rács megtelt"
+  },
+  "gridFullMessage": {
+    "message": "Elérte a maximális $LIMIT$ parancsikon korlátot a fő rácson. Hely felszabadításához távolítson el néhány parancsikont vagy mappát.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "A mappa megtelt"
+  },
+  "folderFullMessage": {
+    "message": "Ez a mappa elérte a $LIMIT$ elem abszolút korlátját. Kérjük, távolítson el néhány parancsikont, mielőtt újakat adna hozzá.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
   }
 }
