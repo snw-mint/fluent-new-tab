@@ -33,8 +33,10 @@ export function initTabCustomization(): void {
       const target = e.target as HTMLInputElement;
       if (!target) return;
       localStorage.setItem('tabName', target.value);
+      const defaultTitle =
+        (window as any).getTranslation?.('newTabTitle') || 'New Tab';
       document.title =
-        target.value.trim() === '' ? 'Fluent New Tab' : target.value;
+        target.value.trim() === '' ? defaultTitle : target.value;
     });
   }
 

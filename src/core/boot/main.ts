@@ -477,7 +477,8 @@ async function bootInteractive(): Promise<void> {
       localStorage.removeItem('tabName');
       localStorage.removeItem('tabFavicon');
       localStorage.removeItem('tabIcon');
-      document.title = 'Fluent New Tab';
+      document.title =
+        (window as any).getTranslation?.('newTabTitle') || 'New Tab';
 
       const link = document.querySelector(
         "link[rel~='icon']",
