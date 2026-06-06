@@ -234,9 +234,9 @@
     }
   }
 
-  &[data-type='folder'].folder-drag-hover {
+  .shortcut-item[data-type='folder'].folder-drag-hover {
     .shortcut-card {
-      transform: scale(1.08) !important;
+      transform: scale(1.1) !important;
       border-radius: var(
         --shortcut-custom-radius,
         var(--shortcut-radius, var(--radius-xl))
@@ -244,7 +244,7 @@
       box-shadow:
         0 0 0 2px var(--accent-color),
         0 0.45rem 0.9rem rgba(0, 0, 0, 0.15) !important;
-      transition: all 0.2s ease !important;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     }
   }
 

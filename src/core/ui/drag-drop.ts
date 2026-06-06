@@ -27,6 +27,10 @@ export let rAF_ID: number = 0;
 export let lastSwapTime = 0;
 export let dragSuccessful = false;
 
+export let folderEdgeTimer: number | null = null;
+export let currentEdgeItem: HTMLElement | null = null;
+export let edgeDelayPassed = false;
+
 export let mouseX = 0;
 export let mouseY = 0;
 export let offsetX = 0;
@@ -280,29 +284,57 @@ export function handleGlobalDragOver(event: DragEvent): void {
     const xPercentage = relX / rect.width;
     const yPercentage = relY / rect.height;
     if (
-      xPercentage > 0.25 &&
-      xPercentage < 0.75 &&
-      yPercentage > 0.25 &&
-      yPercentage < 0.75
+      xPercentage > 0.15 &&
+      xPercentage < 0.85 &&
+      yPercentage > 0.15 &&
+      yPercentage < 0.85
     ) {
       dropAction = 'folder';
       currentDropTarget = item;
       item.classList.add('folder-drag-hover');
-      if (draggedElement) {
-        draggedElement.style.display = 'none';
+      
+      if (folderEdgeTimer) {
+        clearTimeout(folderEdgeTimer);
+        folderEdgeTimer = null;
       }
+      currentEdgeItem = null;
+      edgeDelayPassed = false;
       return;
-    }
-  }
+    } else {
+      dropAction = 'reorder';
+      currentDropTarget = item;
+      document
+        .querySelectorAll('.folder-drag-hover')
+        .forEach((el) => el.classList.remove('folder-drag-hover'));
 
-  dropAction = 'reorder';
-  currentDropTarget = item;
-  if (draggedElement) {
-    draggedElement.style.display = '';
+      if (currentEdgeItem !== item) {
+        if (folderEdgeTimer) clearTimeout(folderEdgeTimer);
+        currentEdgeItem = item;
+        edgeDelayPassed = false;
+        folderEdgeTimer = window.setTimeout(() => {
+          edgeDelayPassed = true;
+        }, 150) as unknown as number;
+      }
+      
+      if (!edgeDelayPassed) {
+        return; // Delay the swap to allow entering the folder
+      }
+    }
+  } else {
+    dropAction = 'reorder';
+    currentDropTarget = item;
+    
+    if (folderEdgeTimer) {
+      clearTimeout(folderEdgeTimer);
+      folderEdgeTimer = null;
+    }
+    currentEdgeItem = null;
+    edgeDelayPassed = false;
+    
+    document
+      .querySelectorAll('.folder-drag-hover')
+      .forEach((el) => el.classList.remove('folder-drag-hover'));
   }
-  document
-    .querySelectorAll('.folder-drag-hover')
-    .forEach((el) => el.classList.remove('folder-drag-hover'));
 
   const parent = item.parentNode;
   if (!parent) return;
@@ -445,7 +477,6 @@ export function cleanupDrag(): void {
     ghostNode.parentNode.removeChild(ghostNode);
   }
   if (draggedElement) {
-    draggedElement.style.display = '';
     draggedElement.style.opacity = '';
     if (!dragSuccessful && originalParent) {
       originalParent.insertBefore(draggedElement, originalNextSibling);
@@ -455,6 +486,13 @@ export function cleanupDrag(): void {
   document
     .querySelectorAll('.folder-drag-hover')
     .forEach((el) => el.classList.remove('folder-drag-hover'));
+
+  if (folderEdgeTimer) {
+    clearTimeout(folderEdgeTimer);
+    folderEdgeTimer = null;
+  }
+  currentEdgeItem = null;
+  edgeDelayPassed = false;
 
   ghostNode = null;
   draggedElement = null;
