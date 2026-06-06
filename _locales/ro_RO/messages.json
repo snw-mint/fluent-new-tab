@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Mai multe aplicații"
   },
+  "appLauncherTitle": {
+    "message": "Launcher de aplicații"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Numele filei"
+  },
+  "tabFaviconLabel": {
+    "message": "Pictograma filei"
+  },
+
   "settingsTitle": {
     "message": "Setări"
   },
+  "appearanceTitle": {
+    "message": "Aspect"
+  },
+  "mainUiScaleLabel": {
+    "message": "Scara interfeței principale"
+  },
+  "displayTitle": {
+    "message": "Afișare"
+  },
+  "displayScaleLabel": {
+    "message": "Redimensionare afișaj"
+  },
+  "AccessibilityTitle": {
+    "message": "Accesibilitate"
+  },
+  "reduceMotionTitle": {
+    "message": "Reduceți mișcarea"
+  },
+  "languageTitle": {
+    "message": "Limba"
+  },
+  "backupTitle": {
+    "message": "Backup de date"
+  },
+  "exportOption": {
+    "message": "Exportă"
+  },
+  "importOption": {
+    "message": "Importă"
+  },
+
   "wallpaperTitle": {
     "message": "Tapet"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Nuanță suprafață"
   },
-  "appearanceTitle": {
-    "message": "Aspect"
+  "fetchingImagePlaceholder": {
+    "message": "Se încarcă imaginea de la $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Scara interfeței principale"
-  },
-  "tabNameLabel": {
-    "message": "Numele filei"
-  },
-  "tabFaviconLabel": {
-    "message": "Pictograma filei"
-  },
+
   "customColorTitle": {
     "message": "Culoare personalizată"
   },
-  "visualSearchTitle": {
-    "message": "Căutare vizuală"
+  "wizardAccentLabel": {
+    "message": "Culoare de accent"
   },
-  "visualSearchDragText": {
-    "message": "Trage o imagine aici sau"
-  },
-  "visualSearchUploadLink": {
-    "message": "încarcă un fișier"
-  },
-  "visualSearchDivider": {
-    "message": "sau"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Lipiți linkul către imagine"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Căutare"
-  },
-  "styleNone": {
-    "message": "Niciuna"
-  },
-  "displayTitle": {
-    "message": "Afișare"
-  },
+
   "displayGreeting": {
     "message": "Salutare"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Ora și data"
-  },
-  "displayScaleLabel": {
-    "message": "Redimensionare afișaj"
   },
   "emojiTypeLabel": {
     "message": "Tipul de emoji"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Zi lucrătoare"
   },
-  "weatherTitle": {
-    "message": "Vremea"
-  },
-  "locationLabel": {
-    "message": "Locație"
-  },
-  "useFahrenheitLabel": {
-    "message": "Folosiți Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Alerte meteo"
-  },
-  "shortcutsTitle": {
-    "message": "Căi rapide"
-  },
-  "enableFoldersLabel": {
-    "message": "Activează folderele"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Ascunde numele"
-  },
-  "folderIconHelp": {
-    "message": "Găsiți pictograme personalizate pentru foldere la"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Raza de curbură a colțului"
-  },
-  "rows1": {
-    "message": "1 rând"
-  },
-  "rows2": {
-    "message": "2 rânduri"
-  },
-  "rows3": {
-    "message": "3 rânduri"
-  },
-  "rows4": {
-    "message": "4 rânduri"
-  },
-  "appLauncherTitle": {
-    "message": "Launcher de aplicații"
-  },
-  "searchTitle": {
-    "message": "Căutare"
-  },
-  "searchStyleFull": {
-    "message": "Lățime maximă"
-  },
-  "searchStyleCompact": {
-    "message": "Compact"
-  },
-  "suggestionsOption": {
-    "message": "Sugestii"
-  },
-  "clearSearchOption": {
-    "message": "Căutare simplă (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Căutare vocală"
-  },
-  "visualSearchOption": {
-    "message": "Căutare vizuală"
-  },
-  "askAiOption": {
-    "message": "Întreabă IA"
-  },
-  "AccessibilityTitle": {
-    "message": "Accesibilitate"
-  },
-  "reduceMotionTitle": {
-    "message": "Reduceți mișcarea"
-  },
-  "languageTitle": {
-    "message": "Limba"
-  },
-  "backupTitle": {
-    "message": "Backup de date"
-  },
-  "exportOption": {
-    "message": "Exportă"
-  },
-  "importOption": {
-    "message": "Importă"
-  },
-  "addFolderTitle": {
-    "message": "Adaugă folder"
-  },
-  "folderNameLabel": {
-    "message": "Nume"
-  },
-  "editFolderTitle": {
-    "message": "Editare folder"
-  },
-  "chooseTypeTitle": {
-    "message": "Creează nou"
-  },
-  "backLabel": {
-    "message": "Înapoi"
-  },
-  "addShortcutTitle": {
-    "message": "Adaugă scurtătură"
-  },
-  "editShortcutTitle": {
-    "message": "Editează comanda rapidă"
-  },
-  "shortcutNameLabel": {
-    "message": "Nume"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Pictogramă personalizată"
-  },
-  "faviconUrlLabel": {
-    "message": "URL pictogramă"
-  },
-  "btnCancel": {
-    "message": "Anulează"
-  },
-  "btnSave": {
-    "message": "Salvează"
-  },
-  "searchPlaceholder": {
-    "message": "Caută pe web"
-  },
-  "namePlaceholder": {
-    "message": "Numele tău (opțional)"
-  },
-  "cityPlaceholder": {
-    "message": "Orașul tău"
-  },
-  "addShortcutLabel": {
-    "message": "Adaugă"
-  },
-  "editLabel": {
-    "message": "Editează"
-  },
-  "removeLabel": {
-    "message": "Elimină"
-  },
-  "moreOptionsLabel": {
-    "message": "Mai multe opțiuni"
-  },
-  "permissionRequiredTitle": {
-    "message": "Este necesară autorizarea"
-  },
-  "grantPermissionLabel": {
-    "message": "Acordă permisiunea"
-  },
-  "learnMoreLabel": {
-    "message": "Află mai multe"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Bine ai revenit"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Noul tău spațiu de lucru Fluent este gata. Alege pasul următor de mai jos."
-  },
-  "wizardRestoreTitle": {
-    "message": "Restaurează setările"
-  },
-  "wizardRestoreDesc": {
-    "message": "Ai un fișier de backup?"
-  },
-  "wizardStartTitle": {
-    "message": "Începe configurarea"
-  },
-  "wizardStartDesc": {
-    "message": "Începe cu câțiva pași simpli."
-  },
-  "wizardSkipTitle": {
-    "message": "Sari peste configurare"
-  },
-  "wizardThemeAuto": {
-    "message": "Sistem"
-  },
-  "wizardThemeLight": {
-    "message": "Luminos"
-  },
-  "wizardThemeDark": {
-    "message": "Întunecat"
-  },
-  "wizardSkipDesc": {
-    "message": "Începe cu o configurare curată."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stil și aspect"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Setează tema, culoarea de accent, numele și limba."
-  },
-  "btnBack": {
-    "message": "Înapoi"
-  },
-  "btnNext": {
-    "message": "Continuă"
-  },
-  "wizardAccentLabel": {
-    "message": "Culoare de accent"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgeturi și utilitare"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Alege ce apare pe pagina ta."
-  },
-  "wizardFinalTitle": {
-    "message": "Totul este gata"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Îți mulțumim că folosești Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Începe"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Deschide pagina filă nouă."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Susțineți proiectul"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Ajută-ne să menținem proiectul la zi."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Cod sursă"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Vizualizează proiectul pe GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Vezi jurnalul modificărilor"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Se încarcă imaginea de la $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Am înțeles"
-  },
+
   "weekday_0": {
     "message": "Duminică"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Sâmbătă"
   },
+
   "greetWeekMorning": {
     "message": "Să ai o zi de $WEEK$ excelentă, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Vremea"
+  },
+  "locationLabel": {
+    "message": "Locație"
+  },
+  "useFahrenheitLabel": {
+    "message": "Folosiți Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Alerte meteo"
+  },
   "alertTempDrop": {
     "message": "Scădere de temperatură așteptată: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Căutare"
+  },
+  "searchStyleFull": {
+    "message": "Lățime maximă"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
+  "suggestionsOption": {
+    "message": "Sugestii"
+  },
+  "clearSearchOption": {
+    "message": "Căutare simplă (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Căutare vocală"
+  },
+  "visualSearchOption": {
+    "message": "Căutare vizuală"
+  },
+  "askAiOption": {
+    "message": "Întreabă IA"
+  },
+  "searchPlaceholder": {
+    "message": "Caută pe web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Căutare vizuală"
+  },
+  "visualSearchDragText": {
+    "message": "Trage o imagine aici sau"
+  },
+  "visualSearchUploadLink": {
+    "message": "încarcă un fișier"
+  },
+  "visualSearchDivider": {
+    "message": "sau"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Lipiți linkul către imagine"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Căutare"
+  },
+
+  "shortcutsTitle": {
+    "message": "Căi rapide"
+  },
+  "enableFoldersLabel": {
+    "message": "Activează folderele"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ascunde numele"
+  },
+  "folderIconHelp": {
+    "message": "Găsiți pictograme personalizate pentru foldere la"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Raza de curbură a colțului"
+  },
+  "rows1": {
+    "message": "1 rând"
+  },
+  "rows2": {
+    "message": "2 rânduri"
+  },
+  "rows3": {
+    "message": "3 rânduri"
+  },
+  "rows4": {
+    "message": "4 rânduri"
+  },
+
+  "addFolderTitle": {
+    "message": "Adaugă folder"
+  },
+  "folderNameLabel": {
+    "message": "Nume"
+  },
+  "editFolderTitle": {
+    "message": "Editare folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Creează nou"
+  },
+  "backLabel": {
+    "message": "Înapoi"
+  },
+  "addShortcutTitle": {
+    "message": "Adaugă scurtătură"
+  },
+  "editShortcutTitle": {
+    "message": "Editează comanda rapidă"
+  },
+  "shortcutNameLabel": {
+    "message": "Nume"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Pictogramă personalizată"
+  },
+  "faviconUrlLabel": {
+    "message": "URL pictogramă"
+  },
+  "btnCancel": {
+    "message": "Anulează"
+  },
+  "btnSave": {
+    "message": "Salvează"
+  },
+  "namePlaceholder": {
+    "message": "Numele tău (opțional)"
+  },
+  "cityPlaceholder": {
+    "message": "Orașul tău"
+  },
+  "addShortcutLabel": {
+    "message": "Adaugă"
+  },
+  "editLabel": {
+    "message": "Editează"
+  },
+  "removeLabel": {
+    "message": "Elimină"
+  },
+  "moreOptionsLabel": {
+    "message": "Mai multe opțiuni"
+  },
+
+  "styleNone": {
+    "message": "Niciuna"
+  },
+  "learnMoreLabel": {
+    "message": "Află mai multe"
+  },
+  "warningUnderstood": {
+    "message": "Am înțeles"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Este necesară autorizarea"
+  },
+  "grantPermissionLabel": {
+    "message": "Acordă permisiunea"
+  },
+  "permissionRequiredMessage": {
+    "message": "Pentru a utiliza această funcție, Fluent New Tab are nevoie de permisiunea de a accesa „$API_NAME$”. Acest lucru garantează confidențialitatea și securitatea datelor tale.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab a fost actualizat la versiunea $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Vezi jurnalul modificărilor"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Bine ai revenit"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Noul tău spațiu de lucru Fluent este gata. Alege pasul următor de mai jos."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restaurează setările"
+  },
+  "wizardRestoreDesc": {
+    "message": "Ai un fișier de backup?"
+  },
+  "wizardStartTitle": {
+    "message": "Începe configurarea"
+  },
+  "wizardStartDesc": {
+    "message": "Începe cu câțiva pași simpli."
+  },
+  "wizardSkipTitle": {
+    "message": "Sari peste configurare"
+  },
+  "wizardSkipDesc": {
+    "message": "Începe cu o configurare curată."
+  },
+  "wizardThemeAuto": {
+    "message": "Sistem"
+  },
+  "wizardThemeLight": {
+    "message": "Luminos"
+  },
+  "wizardThemeDark": {
+    "message": "Întunecat"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil și aspect"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Setează tema, culoarea de accent, numele și limba."
+  },
+  "btnBack": {
+    "message": "Înapoi"
+  },
+  "btnNext": {
+    "message": "Continuă"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgeturi și utilitare"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Alege ce apare pe pagina ta."
+  },
+  "wizardFinalTitle": {
+    "message": "Totul este gata"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Îți mulțumim că folosești Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Începe"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Deschide pagina filă nouă."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Susțineți proiectul"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Ajută-ne să menținem proiectul la zi."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Cod sursă"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Vizualizează proiectul pe GitHub."
   }
 }

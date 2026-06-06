@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Більше додатків"
   },
+  "appLauncherTitle": {
+    "message": "Лаунчер додатків"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Назва вкладки"
+  },
+  "tabFaviconLabel": {
+    "message": "Значок вкладки"
+  },
+
   "settingsTitle": {
     "message": "Налаштування"
   },
+  "appearanceTitle": {
+    "message": "Зовнішній вигляд"
+  },
+  "mainUiScaleLabel": {
+    "message": "Масштаб інтерфейсу"
+  },
+  "displayTitle": {
+    "message": "Екран"
+  },
+  "displayScaleLabel": {
+    "message": "Змінити розмір екрана"
+  },
+  "AccessibilityTitle": {
+    "message": "Спеціальні можливості"
+  },
+  "reduceMotionTitle": {
+    "message": "Зменшити рух"
+  },
+  "languageTitle": {
+    "message": "Мова"
+  },
+  "backupTitle": {
+    "message": "Резервне копіювання даних"
+  },
+  "exportOption": {
+    "message": "Експортувати"
+  },
+  "importOption": {
+    "message": "Імпортувати"
+  },
+
   "wallpaperTitle": {
     "message": "Шпалери"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Відтінок поверхні"
   },
-  "appearanceTitle": {
-    "message": "Зовнішній вигляд"
+  "fetchingImagePlaceholder": {
+    "message": "Завантажується зображення з $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Масштаб інтерфейсу"
-  },
-  "tabNameLabel": {
-    "message": "Назва вкладки"
-  },
-  "tabFaviconLabel": {
-    "message": "Значок вкладки"
-  },
+
   "customColorTitle": {
     "message": "Індивідуальний колір"
   },
-  "visualSearchTitle": {
-    "message": "Візуальний пошук"
+  "wizardAccentLabel": {
+    "message": "Колір акценту"
   },
-  "visualSearchDragText": {
-    "message": "Перетягніть зображення сюди або"
-  },
-  "visualSearchUploadLink": {
-    "message": "завантажити файл"
-  },
-  "visualSearchDivider": {
-    "message": "або"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Вставити посилання на зображення"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Пошук"
-  },
-  "styleNone": {
-    "message": "Немає"
-  },
-  "displayTitle": {
-    "message": "Екран"
-  },
+
   "displayGreeting": {
     "message": "Привітання"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Час і дата"
-  },
-  "displayScaleLabel": {
-    "message": "Змінити розмір екрана"
   },
   "emojiTypeLabel": {
     "message": "Тип емодзі"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Будні"
   },
-  "weatherTitle": {
-    "message": "Погода"
-  },
-  "locationLabel": {
-    "message": "Місцезнаходження"
-  },
-  "useFahrenheitLabel": {
-    "message": "Використовувати Фаренгейт"
-  },
-  "weatherAlertsLabel": {
-    "message": "Сповіщення про погоду"
-  },
-  "shortcutsTitle": {
-    "message": "Ярлики"
-  },
-  "enableFoldersLabel": {
-    "message": "Увімкнути папки"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Приховати імена"
-  },
-  "folderIconHelp": {
-    "message": "Знайдіть індивідуальні іконки для папок за адресою"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Радіус кутів"
-  },
-  "rows1": {
-    "message": "1 рядок"
-  },
-  "rows2": {
-    "message": "2 рядки"
-  },
-  "rows3": {
-    "message": "3 рядки"
-  },
-  "rows4": {
-    "message": "4 рядки"
-  },
-  "appLauncherTitle": {
-    "message": "Лаунчер додатків"
-  },
-  "searchTitle": {
-    "message": "Пошук"
-  },
-  "searchStyleFull": {
-    "message": "На всю ширину"
-  },
-  "searchStyleCompact": {
-    "message": "Компактний"
-  },
-  "suggestionsOption": {
-    "message": "Пропозиції"
-  },
-  "clearSearchOption": {
-    "message": "Звичайний пошук (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Голосовий пошук"
-  },
-  "visualSearchOption": {
-    "message": "Візуальний пошук"
-  },
-  "askAiOption": {
-    "message": "Запитай у ШІ"
-  },
-  "AccessibilityTitle": {
-    "message": "Спеціальні можливості"
-  },
-  "reduceMotionTitle": {
-    "message": "Зменшити рух"
-  },
-  "languageTitle": {
-    "message": "Мова"
-  },
-  "backupTitle": {
-    "message": "Резервне копіювання даних"
-  },
-  "exportOption": {
-    "message": "Експортувати"
-  },
-  "importOption": {
-    "message": "Імпортувати"
-  },
-  "addFolderTitle": {
-    "message": "Додати папку"
-  },
-  "folderNameLabel": {
-    "message": "Ім'я"
-  },
-  "editFolderTitle": {
-    "message": "Редагувати папку"
-  },
-  "chooseTypeTitle": {
-    "message": "Створити новий"
-  },
-  "backLabel": {
-    "message": "Назад"
-  },
-  "addShortcutTitle": {
-    "message": "Додати ярлик"
-  },
-  "editShortcutTitle": {
-    "message": "Редагувати ярлик"
-  },
-  "shortcutNameLabel": {
-    "message": "Ім'я"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Власний значок"
-  },
-  "faviconUrlLabel": {
-    "message": "URL-адреса значка"
-  },
-  "btnCancel": {
-    "message": "Скасувати"
-  },
-  "btnSave": {
-    "message": "Зберегти"
-  },
-  "searchPlaceholder": {
-    "message": "Пошук в Інтернеті"
-  },
-  "namePlaceholder": {
-    "message": "Ваше ім'я (необов'язково)"
-  },
-  "cityPlaceholder": {
-    "message": "Ваше місто"
-  },
-  "addShortcutLabel": {
-    "message": "Додати"
-  },
-  "editLabel": {
-    "message": "Редагувати"
-  },
-  "removeLabel": {
-    "message": "Видалити"
-  },
-  "moreOptionsLabel": {
-    "message": "Більше опцій"
-  },
-  "permissionRequiredTitle": {
-    "message": "Потрібен дозвіл"
-  },
-  "grantPermissionLabel": {
-    "message": "Надати дозвіл"
-  },
-  "learnMoreLabel": {
-    "message": "Дізнатися більше"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Ласкаво просимо"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Ваш новий робочий простір Fluent готовий. Виберіть наступний крок нижче."
-  },
-  "wizardRestoreTitle": {
-    "message": "Відновити налаштування"
-  },
-  "wizardRestoreDesc": {
-    "message": "У вас є файл резервної копії?"
-  },
-  "wizardStartTitle": {
-    "message": "Почати налаштування"
-  },
-  "wizardStartDesc": {
-    "message": "Почніть з кількох простих кроків."
-  },
-  "wizardSkipTitle": {
-    "message": "Пропустити налаштування"
-  },
-  "wizardThemeAuto": {
-    "message": "Системна"
-  },
-  "wizardThemeLight": {
-    "message": "Світла"
-  },
-  "wizardThemeDark": {
-    "message": "Темна"
-  },
-  "wizardSkipDesc": {
-    "message": "Почати з чистого аркуша."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Стиль і зовнішній вигляд"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Налаштуйте тему, колір акценту, ім'я та мову."
-  },
-  "btnBack": {
-    "message": "Назад"
-  },
-  "btnNext": {
-    "message": "Продовжити"
-  },
-  "wizardAccentLabel": {
-    "message": "Колір акценту"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Віджети та утиліти"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Виберіть, що відображатиметься на вашій сторінці."
-  },
-  "wizardFinalTitle": {
-    "message": "Все готово"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Дякуємо, що використовуєте Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Почати роботу"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Відкрити нову вкладку."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Підтримайте проект"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Допоможіть підтримувати проект в актуальному стані."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Вихідний код"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Переглянути проєкт на GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab оновлено до версії $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Переглянути журнал змін"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Завантажується зображення з $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Зрозуміло"
-  },
+
   "weekday_0": {
     "message": "Неділя"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Субота"
   },
+
   "greetWeekMorning": {
     "message": "Класного $WEEK$, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Погода"
+  },
+  "locationLabel": {
+    "message": "Місцезнаходження"
+  },
+  "useFahrenheitLabel": {
+    "message": "Використовувати Фаренгейт"
+  },
+  "weatherAlertsLabel": {
+    "message": "Сповіщення про погоду"
+  },
   "alertTempDrop": {
     "message": "Очікується похолодання: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Пошук"
+  },
+  "searchStyleFull": {
+    "message": "На всю ширину"
+  },
+  "searchStyleCompact": {
+    "message": "Компактний"
+  },
+  "suggestionsOption": {
+    "message": "Пропозиції"
+  },
+  "clearSearchOption": {
+    "message": "Звичайний пошук (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Голосовий пошук"
+  },
+  "visualSearchOption": {
+    "message": "Візуальний пошук"
+  },
+  "askAiOption": {
+    "message": "Запитай у ШІ"
+  },
+  "searchPlaceholder": {
+    "message": "Пошук в Інтернеті"
+  },
+
+  "visualSearchTitle": {
+    "message": "Візуальний пошук"
+  },
+  "visualSearchDragText": {
+    "message": "Перетягніть зображення сюди або"
+  },
+  "visualSearchUploadLink": {
+    "message": "завантажити файл"
+  },
+  "visualSearchDivider": {
+    "message": "або"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Вставити посилання на зображення"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Пошук"
+  },
+
+  "shortcutsTitle": {
+    "message": "Ярлики"
+  },
+  "enableFoldersLabel": {
+    "message": "Увімкнути папки"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Приховати імена"
+  },
+  "folderIconHelp": {
+    "message": "Знайдіть індивідуальні іконки для папок за адресою"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Радіус кутів"
+  },
+  "rows1": {
+    "message": "1 рядок"
+  },
+  "rows2": {
+    "message": "2 рядки"
+  },
+  "rows3": {
+    "message": "3 рядки"
+  },
+  "rows4": {
+    "message": "4 рядки"
+  },
+
+  "addFolderTitle": {
+    "message": "Додати папку"
+  },
+  "folderNameLabel": {
+    "message": "Ім'я"
+  },
+  "editFolderTitle": {
+    "message": "Редагувати папку"
+  },
+  "chooseTypeTitle": {
+    "message": "Створити новий"
+  },
+  "backLabel": {
+    "message": "Назад"
+  },
+  "addShortcutTitle": {
+    "message": "Додати ярлик"
+  },
+  "editShortcutTitle": {
+    "message": "Редагувати ярлик"
+  },
+  "shortcutNameLabel": {
+    "message": "Ім'я"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Власний значок"
+  },
+  "faviconUrlLabel": {
+    "message": "URL-адреса значка"
+  },
+  "btnCancel": {
+    "message": "Скасувати"
+  },
+  "btnSave": {
+    "message": "Зберегти"
+  },
+  "namePlaceholder": {
+    "message": "Ваше ім'я (необов'язково)"
+  },
+  "cityPlaceholder": {
+    "message": "Ваше місто"
+  },
+  "addShortcutLabel": {
+    "message": "Додати"
+  },
+  "editLabel": {
+    "message": "Редагувати"
+  },
+  "removeLabel": {
+    "message": "Видалити"
+  },
+  "moreOptionsLabel": {
+    "message": "Більше опцій"
+  },
+
+  "styleNone": {
+    "message": "Немає"
+  },
+  "learnMoreLabel": {
+    "message": "Дізнатися більше"
+  },
+  "warningUnderstood": {
+    "message": "Зрозуміло"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Потрібен дозвіл"
+  },
+  "grantPermissionLabel": {
+    "message": "Надати дозвіл"
+  },
+  "permissionRequiredMessage": {
+    "message": "Щоб скористатися цією функцією, додатку Fluent New Tab потрібен доступ до «$API_NAME$». Це гарантує вашу конфіденційність та безпеку.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab оновлено до версії $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Переглянути журнал змін"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Ласкаво просимо"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Ваш новий робочий простір Fluent готовий. Виберіть наступний крок нижче."
+  },
+  "wizardRestoreTitle": {
+    "message": "Відновити налаштування"
+  },
+  "wizardRestoreDesc": {
+    "message": "У вас є файл резервної копії?"
+  },
+  "wizardStartTitle": {
+    "message": "Почати налаштування"
+  },
+  "wizardStartDesc": {
+    "message": "Почніть з кількох простих кроків."
+  },
+  "wizardSkipTitle": {
+    "message": "Пропустити налаштування"
+  },
+  "wizardSkipDesc": {
+    "message": "Почати з чистого аркуша."
+  },
+  "wizardThemeAuto": {
+    "message": "Системна"
+  },
+  "wizardThemeLight": {
+    "message": "Світла"
+  },
+  "wizardThemeDark": {
+    "message": "Темна"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Стиль і зовнішній вигляд"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Налаштуйте тему, колір акценту, ім'я та мову."
+  },
+  "btnBack": {
+    "message": "Назад"
+  },
+  "btnNext": {
+    "message": "Продовжити"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Віджети та утиліти"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Виберіть, що відображатиметься на вашій сторінці."
+  },
+  "wizardFinalTitle": {
+    "message": "Все готово"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Дякуємо, що використовуєте Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Почати роботу"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Відкрити нову вкладку."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Підтримайте проект"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Допоможіть підтримувати проект в актуальному стані."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Вихідний код"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Переглянути проєкт на GitHub."
   }
 }

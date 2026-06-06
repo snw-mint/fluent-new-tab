@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Daha Fazla Uygulama"
   },
+  "appLauncherTitle": {
+    "message": "Uygulama Başlatıcı"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Sekme Adı"
+  },
+  "tabFaviconLabel": {
+    "message": "Sekme Simgesi"
+  },
+
   "settingsTitle": {
     "message": "Ayarlar"
   },
+  "appearanceTitle": {
+    "message": "Görünüm"
+  },
+  "mainUiScaleLabel": {
+    "message": "Ana Arayüz Ölçeği"
+  },
+  "displayTitle": {
+    "message": "Ekran"
+  },
+  "displayScaleLabel": {
+    "message": "Ekran Boyutunu Değiştir"
+  },
+  "AccessibilityTitle": {
+    "message": "Erişilebilirlik"
+  },
+  "reduceMotionTitle": {
+    "message": "Hareketi azalt"
+  },
+  "languageTitle": {
+    "message": "Dil"
+  },
+  "backupTitle": {
+    "message": "Veri Yedekleme"
+  },
+  "exportOption": {
+    "message": "Dışa aktar"
+  },
+  "importOption": {
+    "message": "İçeri aktar"
+  },
+
   "wallpaperTitle": {
     "message": "Duvar kağıdı"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Yüzey Tonu"
   },
-  "appearanceTitle": {
-    "message": "Görünüm"
+  "fetchingImagePlaceholder": {
+    "message": "$SOURCE$ adresindeki resim yükleniyor...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Ana Arayüz Ölçeği"
-  },
-  "tabNameLabel": {
-    "message": "Sekme Adı"
-  },
-  "tabFaviconLabel": {
-    "message": "Sekme Simgesi"
-  },
+
   "customColorTitle": {
     "message": "Özel Renk"
   },
-  "visualSearchTitle": {
-    "message": "Görsel Arama"
+  "wizardAccentLabel": {
+    "message": "Vurgu Rengi"
   },
-  "visualSearchDragText": {
-    "message": "Buraya bir resim sürükleyin veya"
-  },
-  "visualSearchUploadLink": {
-    "message": "dosya yükle"
-  },
-  "visualSearchDivider": {
-    "message": "veya"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Resim bağlantısını yapıştır"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Arama"
-  },
-  "styleNone": {
-    "message": "Yok"
-  },
-  "displayTitle": {
-    "message": "Ekran"
-  },
+
   "displayGreeting": {
     "message": "Selamlama"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Saat ve Tarih"
-  },
-  "displayScaleLabel": {
-    "message": "Ekran Boyutunu Değiştir"
   },
   "emojiTypeLabel": {
     "message": "Emoji Türü"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Hafta içi"
   },
-  "weatherTitle": {
-    "message": "Hava durumu"
-  },
-  "locationLabel": {
-    "message": "Konum"
-  },
-  "useFahrenheitLabel": {
-    "message": "Fahrenheit kullanın"
-  },
-  "weatherAlertsLabel": {
-    "message": "Hava Durumu Uyarıları"
-  },
-  "shortcutsTitle": {
-    "message": "Kısayollar"
-  },
-  "enableFoldersLabel": {
-    "message": "Klasörleri Etkinleştir"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "İsimleri Gizle"
-  },
-  "folderIconHelp": {
-    "message": "Özel klasör simgelerini şu adreste bulabilirsiniz:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Köşe Yarıçapı"
-  },
-  "rows1": {
-    "message": "1 Satır"
-  },
-  "rows2": {
-    "message": "2 Satır"
-  },
-  "rows3": {
-    "message": "3 Satır"
-  },
-  "rows4": {
-    "message": "4 Satır"
-  },
-  "appLauncherTitle": {
-    "message": "Uygulama Başlatıcı"
-  },
-  "searchTitle": {
-    "message": "Arama"
-  },
-  "searchStyleFull": {
-    "message": "Tam genişlik"
-  },
-  "searchStyleCompact": {
-    "message": "Kompakt"
-  },
-  "suggestionsOption": {
-    "message": "Öneriler"
-  },
-  "clearSearchOption": {
-    "message": "Sade arama (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Sesli Arama"
-  },
-  "visualSearchOption": {
-    "message": "Görsel Arama"
-  },
-  "askAiOption": {
-    "message": "AI'ya sor"
-  },
-  "AccessibilityTitle": {
-    "message": "Erişilebilirlik"
-  },
-  "reduceMotionTitle": {
-    "message": "Hareketi azalt"
-  },
-  "languageTitle": {
-    "message": "Dil"
-  },
-  "backupTitle": {
-    "message": "Veri Yedekleme"
-  },
-  "exportOption": {
-    "message": "Dışa aktar"
-  },
-  "importOption": {
-    "message": "İçeri aktar"
-  },
-  "addFolderTitle": {
-    "message": "Klasör Ekle"
-  },
-  "folderNameLabel": {
-    "message": "Ad"
-  },
-  "editFolderTitle": {
-    "message": "Klasörü Düzenle"
-  },
-  "chooseTypeTitle": {
-    "message": "Yeni Oluştur"
-  },
-  "backLabel": {
-    "message": "Geri"
-  },
-  "addShortcutTitle": {
-    "message": "Kısayol Ekle"
-  },
-  "editShortcutTitle": {
-    "message": "Kısayolu Düzenle"
-  },
-  "shortcutNameLabel": {
-    "message": "Ad"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Özel Simge"
-  },
-  "faviconUrlLabel": {
-    "message": "Simge URL'si"
-  },
-  "btnCancel": {
-    "message": "İptal"
-  },
-  "btnSave": {
-    "message": "Kaydet"
-  },
-  "searchPlaceholder": {
-    "message": "Web'de ara"
-  },
-  "namePlaceholder": {
-    "message": "Adın (isteğe bağlı)"
-  },
-  "cityPlaceholder": {
-    "message": "Şehriniz"
-  },
-  "addShortcutLabel": {
-    "message": "Ekle"
-  },
-  "editLabel": {
-    "message": "Düzenle"
-  },
-  "removeLabel": {
-    "message": "Kaldır"
-  },
-  "moreOptionsLabel": {
-    "message": "Daha Fazla Seçenek"
-  },
-  "permissionRequiredTitle": {
-    "message": "İzin Gerekiyor"
-  },
-  "grantPermissionLabel": {
-    "message": "İzin Ver"
-  },
-  "learnMoreLabel": {
-    "message": "Daha fazla bilgi edinin"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Tekrar hoş geldin"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Yeni Fluent çalışma alanın hazır. Aşağıdan bir sonraki adımını seç."
-  },
-  "wizardRestoreTitle": {
-    "message": "Ayarları geri yükle"
-  },
-  "wizardRestoreDesc": {
-    "message": "Yedek dosyan var mı?"
-  },
-  "wizardStartTitle": {
-    "message": "Kuruluma başla"
-  },
-  "wizardStartDesc": {
-    "message": "Birkaç adımla hemen başla."
-  },
-  "wizardSkipTitle": {
-    "message": "Kurulumu atla"
-  },
-  "wizardThemeAuto": {
-    "message": "Sistem"
-  },
-  "wizardThemeLight": {
-    "message": "Açık"
-  },
-  "wizardThemeDark": {
-    "message": "Koyu"
-  },
-  "wizardSkipDesc": {
-    "message": "Temiz bir kurulumla başla."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stil ve Görünüm"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Temanı, vurgu rengini, adını ve dilini ayarla."
-  },
-  "btnBack": {
-    "message": "Geri"
-  },
-  "btnNext": {
-    "message": "Devam et"
-  },
-  "wizardAccentLabel": {
-    "message": "Vurgu Rengi"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Araçlar ve Uygulamalar"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Sayfanda nelerin görüneceğini seç."
-  },
-  "wizardFinalTitle": {
-    "message": "Her şey hazır!"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Fluent New Tab'ı kullandığın için teşekkürler!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Hemen başla"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Yeni sekme sayfanı aç."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Projeye destek olun"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Projenin güncel kalmasına yardımcı olun."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Kaynak kodu"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Projeyi GitHub'da görüntüle."
-  },
-  "permissionRequiredMessage": {
-    "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Değişiklik günlüğünü gör"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "$SOURCE$ adresindeki resim yükleniyor...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Anlaşıldı"
-  },
+
   "weekday_0": {
     "message": "Pazar"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Cumartesi"
   },
+
   "greetWeekMorning": {
     "message": "Harika bir $WEEK$ olsun, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Hava durumu"
+  },
+  "locationLabel": {
+    "message": "Konum"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit kullanın"
+  },
+  "weatherAlertsLabel": {
+    "message": "Hava Durumu Uyarıları"
+  },
   "alertTempDrop": {
     "message": "Beklenen sıcaklık düşüşü: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Arama"
+  },
+  "searchStyleFull": {
+    "message": "Tam genişlik"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Öneriler"
+  },
+  "clearSearchOption": {
+    "message": "Sade arama (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Sesli Arama"
+  },
+  "visualSearchOption": {
+    "message": "Görsel Arama"
+  },
+  "askAiOption": {
+    "message": "AI'ya sor"
+  },
+  "searchPlaceholder": {
+    "message": "Web'de ara"
+  },
+
+  "visualSearchTitle": {
+    "message": "Görsel Arama"
+  },
+  "visualSearchDragText": {
+    "message": "Buraya bir resim sürükleyin veya"
+  },
+  "visualSearchUploadLink": {
+    "message": "dosya yükle"
+  },
+  "visualSearchDivider": {
+    "message": "veya"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Resim bağlantısını yapıştır"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Arama"
+  },
+
+  "shortcutsTitle": {
+    "message": "Kısayollar"
+  },
+  "enableFoldersLabel": {
+    "message": "Klasörleri Etkinleştir"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "İsimleri Gizle"
+  },
+  "folderIconHelp": {
+    "message": "Özel klasör simgelerini şu adreste bulabilirsiniz:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Köşe Yarıçapı"
+  },
+  "rows1": {
+    "message": "1 Satır"
+  },
+  "rows2": {
+    "message": "2 Satır"
+  },
+  "rows3": {
+    "message": "3 Satır"
+  },
+  "rows4": {
+    "message": "4 Satır"
+  },
+
+  "addFolderTitle": {
+    "message": "Klasör Ekle"
+  },
+  "folderNameLabel": {
+    "message": "Ad"
+  },
+  "editFolderTitle": {
+    "message": "Klasörü Düzenle"
+  },
+  "chooseTypeTitle": {
+    "message": "Yeni Oluştur"
+  },
+  "backLabel": {
+    "message": "Geri"
+  },
+  "addShortcutTitle": {
+    "message": "Kısayol Ekle"
+  },
+  "editShortcutTitle": {
+    "message": "Kısayolu Düzenle"
+  },
+  "shortcutNameLabel": {
+    "message": "Ad"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Özel Simge"
+  },
+  "faviconUrlLabel": {
+    "message": "Simge URL'si"
+  },
+  "btnCancel": {
+    "message": "İptal"
+  },
+  "btnSave": {
+    "message": "Kaydet"
+  },
+  "namePlaceholder": {
+    "message": "Adın (isteğe bağlı)"
+  },
+  "cityPlaceholder": {
+    "message": "Şehriniz"
+  },
+  "addShortcutLabel": {
+    "message": "Ekle"
+  },
+  "editLabel": {
+    "message": "Düzenle"
+  },
+  "removeLabel": {
+    "message": "Kaldır"
+  },
+  "moreOptionsLabel": {
+    "message": "Daha Fazla Seçenek"
+  },
+
+  "styleNone": {
+    "message": "Yok"
+  },
+  "learnMoreLabel": {
+    "message": "Daha fazla bilgi edinin"
+  },
+  "warningUnderstood": {
+    "message": "Anlaşıldı"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "İzin Gerekiyor"
+  },
+  "grantPermissionLabel": {
+    "message": "İzin Ver"
+  },
+  "permissionRequiredMessage": {
+    "message": "Bu özelliği kullanmak için Fluent New Tab'ın \"$API_NAME$\" adresine erişim iznine ihtiyacı vardır. Bu, gizliliğinizi ve güvenliğinizi sağlar.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab $VERSION$ sürümüne güncellendi. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Değişiklik günlüğünü gör"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Tekrar hoş geldin"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Yeni Fluent çalışma alanın hazır. Aşağıdan bir sonraki adımını seç."
+  },
+  "wizardRestoreTitle": {
+    "message": "Ayarları geri yükle"
+  },
+  "wizardRestoreDesc": {
+    "message": "Yedek dosyan var mı?"
+  },
+  "wizardStartTitle": {
+    "message": "Kuruluma başla"
+  },
+  "wizardStartDesc": {
+    "message": "Birkaç adımla hemen başla."
+  },
+  "wizardSkipTitle": {
+    "message": "Kurulumu atla"
+  },
+  "wizardSkipDesc": {
+    "message": "Temiz bir kurulumla başla."
+  },
+  "wizardThemeAuto": {
+    "message": "Sistem"
+  },
+  "wizardThemeLight": {
+    "message": "Açık"
+  },
+  "wizardThemeDark": {
+    "message": "Koyu"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil ve Görünüm"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Temanı, vurgu rengini, adını ve dilini ayarla."
+  },
+  "btnBack": {
+    "message": "Geri"
+  },
+  "btnNext": {
+    "message": "Devam et"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Araçlar ve Uygulamalar"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Sayfanda nelerin görüneceğini seç."
+  },
+  "wizardFinalTitle": {
+    "message": "Her şey hazır!"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tab'ı kullandığın için teşekkürler!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Hemen başla"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Yeni sekme sayfanı aç."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Projeye destek olun"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Projenin güncel kalmasına yardımcı olun."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kaynak kodu"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Projeyi GitHub'da görüntüle."
   }
 }

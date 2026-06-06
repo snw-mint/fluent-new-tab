@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "その他のアプリ"
   },
+  "appLauncherTitle": {
+    "message": "アプリランチャー"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "タブ名"
+  },
+  "tabFaviconLabel": {
+    "message": "タブアイコン"
+  },
+
   "settingsTitle": {
     "message": "設定"
   },
+  "appearanceTitle": {
+    "message": "外観"
+  },
+  "mainUiScaleLabel": {
+    "message": "メインUIのスケール"
+  },
+  "displayTitle": {
+    "message": "表示"
+  },
+  "displayScaleLabel": {
+    "message": "表示サイズを変更"
+  },
+  "AccessibilityTitle": {
+    "message": "アクセシビリティ"
+  },
+  "reduceMotionTitle": {
+    "message": "動きを減らす"
+  },
+  "languageTitle": {
+    "message": "言語"
+  },
+  "backupTitle": {
+    "message": "データバックアップ"
+  },
+  "exportOption": {
+    "message": "エクスポート"
+  },
+  "importOption": {
+    "message": "インポート"
+  },
+
   "wallpaperTitle": {
     "message": "壁紙"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "表面の色合い"
   },
-  "appearanceTitle": {
-    "message": "外観"
+  "fetchingImagePlaceholder": {
+    "message": "$SOURCE$ の画像を取得中...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "メインUIのスケール"
-  },
-  "tabNameLabel": {
-    "message": "タブ名"
-  },
-  "tabFaviconLabel": {
-    "message": "タブアイコン"
-  },
+
   "customColorTitle": {
     "message": "カスタムカラー"
   },
-  "visualSearchTitle": {
-    "message": "ビジュアル検索"
+  "wizardAccentLabel": {
+    "message": "アクセントカラー"
   },
-  "visualSearchDragText": {
-    "message": "ここに画像をドラッグするか、"
-  },
-  "visualSearchUploadLink": {
-    "message": "ファイルをアップロードする"
-  },
-  "visualSearchDivider": {
-    "message": "または"
-  },
-  "visualSearchPasteUrl": {
-    "message": "画像のリンクを貼り付ける"
-  },
-  "visualSearchSearchBtn": {
-    "message": "検索"
-  },
-  "styleNone": {
-    "message": "なし"
-  },
-  "displayTitle": {
-    "message": "表示"
-  },
+
   "displayGreeting": {
     "message": "ご挨拶"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "日時"
-  },
-  "displayScaleLabel": {
-    "message": "表示サイズを変更"
   },
   "emojiTypeLabel": {
     "message": "絵文字の種類"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "平日"
   },
-  "weatherTitle": {
-    "message": "天気"
-  },
-  "locationLabel": {
-    "message": "場所"
-  },
-  "useFahrenheitLabel": {
-    "message": "華氏を使用する"
-  },
-  "weatherAlertsLabel": {
-    "message": "気象警報"
-  },
-  "shortcutsTitle": {
-    "message": "ショートカット"
-  },
-  "enableFoldersLabel": {
-    "message": "フォルダを有効にする"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "名前を非表示にする"
-  },
-  "folderIconHelp": {
-    "message": "カスタムフォルダアイコンはこちら"
-  },
-  "shortcutRadiusLabel": {
-    "message": "曲率半径"
-  },
-  "rows1": {
-    "message": "1行"
-  },
-  "rows2": {
-    "message": "2行"
-  },
-  "rows3": {
-    "message": "3行"
-  },
-  "rows4": {
-    "message": "4行"
-  },
-  "appLauncherTitle": {
-    "message": "アプリランチャー"
-  },
-  "searchTitle": {
-    "message": "検索"
-  },
-  "searchStyleFull": {
-    "message": "全幅"
-  },
-  "searchStyleCompact": {
-    "message": "コンパクト"
-  },
-  "suggestionsOption": {
-    "message": "提案"
-  },
-  "clearSearchOption": {
-    "message": "シンプル検索 (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "音声検索"
-  },
-  "visualSearchOption": {
-    "message": "ビジュアル検索"
-  },
-  "askAiOption": {
-    "message": "AIに聞いてみる"
-  },
-  "AccessibilityTitle": {
-    "message": "アクセシビリティ"
-  },
-  "reduceMotionTitle": {
-    "message": "動きを減らす"
-  },
-  "languageTitle": {
-    "message": "言語"
-  },
-  "backupTitle": {
-    "message": "データバックアップ"
-  },
-  "exportOption": {
-    "message": "エクスポート"
-  },
-  "importOption": {
-    "message": "インポート"
-  },
-  "addFolderTitle": {
-    "message": "フォルダを追加"
-  },
-  "folderNameLabel": {
-    "message": "名前"
-  },
-  "editFolderTitle": {
-    "message": "フォルダを編集"
-  },
-  "chooseTypeTitle": {
-    "message": "新規作成"
-  },
-  "backLabel": {
-    "message": "戻る"
-  },
-  "addShortcutTitle": {
-    "message": "ショートカットを追加"
-  },
-  "editShortcutTitle": {
-    "message": "ショートカットを編集"
-  },
-  "shortcutNameLabel": {
-    "message": "名前"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "カスタムアイコン"
-  },
-  "faviconUrlLabel": {
-    "message": "アイコンURL"
-  },
-  "btnCancel": {
-    "message": "キャンセル"
-  },
-  "btnSave": {
-    "message": "保存"
-  },
-  "searchPlaceholder": {
-    "message": "ウェブを検索する"
-  },
-  "namePlaceholder": {
-    "message": "お名前（任意）"
-  },
-  "cityPlaceholder": {
-    "message": "あなたの街"
-  },
-  "addShortcutLabel": {
-    "message": "追加"
-  },
-  "editLabel": {
-    "message": "編集"
-  },
-  "removeLabel": {
-    "message": "削除"
-  },
-  "moreOptionsLabel": {
-    "message": "その他のオプション"
-  },
-  "permissionRequiredTitle": {
-    "message": "許可が必要です"
-  },
-  "grantPermissionLabel": {
-    "message": "許可を与える"
-  },
-  "learnMoreLabel": {
-    "message": "詳細はこちら"
-  },
-  "wizardWelcomeTitle": {
-    "message": "おかえりなさい"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "新しいFluentワークスペースの準備が完了しました。次のステップを選択してください。"
-  },
-  "wizardRestoreTitle": {
-    "message": "設定を復元"
-  },
-  "wizardRestoreDesc": {
-    "message": "バックアップファイルはお持ちですか？"
-  },
-  "wizardStartTitle": {
-    "message": "セットアップを開始"
-  },
-  "wizardStartDesc": {
-    "message": "いくつかのステップで開始します。"
-  },
-  "wizardSkipTitle": {
-    "message": "セットアップをスキップ"
-  },
-  "wizardThemeAuto": {
-    "message": "システム"
-  },
-  "wizardThemeLight": {
-    "message": "ライト"
-  },
-  "wizardThemeDark": {
-    "message": "ダーク"
-  },
-  "wizardSkipDesc": {
-    "message": "クリーンな状態で使い始める。"
-  },
-  "wizardAppearanceTitle": {
-    "message": "スタイルと外観"
-  },
-  "wizardAppearanceDesc": {
-    "message": "テーマ、アクセントカラー、名前、言語を設定します。"
-  },
-  "btnBack": {
-    "message": "戻る"
-  },
-  "btnNext": {
-    "message": "次へ"
-  },
-  "wizardAccentLabel": {
-    "message": "アクセントカラー"
-  },
-  "wizardWidgetsTitle": {
-    "message": "ウィジェットとユーティリティ"
-  },
-  "wizardWidgetsDesc": {
-    "message": "ページに表示する内容を選択します。"
-  },
-  "wizardFinalTitle": {
-    "message": "準備完了です"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Fluent New Tabをご利用いただきありがとうございます！"
-  },
-  "wizardFinalStartTitle": {
-    "message": "はじめる"
-  },
-  "wizardFinalStartDesc": {
-    "message": "新しいタブページを開きます。"
-  },
-  "wizardFinalSupportTitle": {
-    "message": "このプロジェクトを支援する"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "このプロジェクトの最新情報を維持するためにご協力ください。"
-  },
-  "wizardFinalGithubTitle": {
-    "message": "ソースコード"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "GitHubでプロジェクトを表示する。"
-  },
-  "permissionRequiredMessage": {
-    "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "変更履歴を参照"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "$SOURCE$ の画像を取得中...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "承知しました"
-  },
+
   "weekday_0": {
     "message": "日曜日"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "土曜日"
   },
+
   "greetWeekMorning": {
     "message": "$NAME$さん、素晴らしい$WEEK$になりますように！",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "天気"
+  },
+  "locationLabel": {
+    "message": "場所"
+  },
+  "useFahrenheitLabel": {
+    "message": "華氏を使用する"
+  },
+  "weatherAlertsLabel": {
+    "message": "気象警報"
+  },
   "alertTempDrop": {
     "message": "気温の低下が予想されます：$VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "検索"
+  },
+  "searchStyleFull": {
+    "message": "全幅"
+  },
+  "searchStyleCompact": {
+    "message": "コンパクト"
+  },
+  "suggestionsOption": {
+    "message": "提案"
+  },
+  "clearSearchOption": {
+    "message": "シンプル検索 (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "音声検索"
+  },
+  "visualSearchOption": {
+    "message": "ビジュアル検索"
+  },
+  "askAiOption": {
+    "message": "AIに聞いてみる"
+  },
+  "searchPlaceholder": {
+    "message": "ウェブを検索する"
+  },
+
+  "visualSearchTitle": {
+    "message": "ビジュアル検索"
+  },
+  "visualSearchDragText": {
+    "message": "ここに画像をドラッグするか、"
+  },
+  "visualSearchUploadLink": {
+    "message": "ファイルをアップロードする"
+  },
+  "visualSearchDivider": {
+    "message": "または"
+  },
+  "visualSearchPasteUrl": {
+    "message": "画像のリンクを貼り付ける"
+  },
+  "visualSearchSearchBtn": {
+    "message": "検索"
+  },
+
+  "shortcutsTitle": {
+    "message": "ショートカット"
+  },
+  "enableFoldersLabel": {
+    "message": "フォルダを有効にする"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "名前を非表示にする"
+  },
+  "folderIconHelp": {
+    "message": "カスタムフォルダアイコンはこちら"
+  },
+  "shortcutRadiusLabel": {
+    "message": "曲率半径"
+  },
+  "rows1": {
+    "message": "1行"
+  },
+  "rows2": {
+    "message": "2行"
+  },
+  "rows3": {
+    "message": "3行"
+  },
+  "rows4": {
+    "message": "4行"
+  },
+
+  "addFolderTitle": {
+    "message": "フォルダを追加"
+  },
+  "folderNameLabel": {
+    "message": "名前"
+  },
+  "editFolderTitle": {
+    "message": "フォルダを編集"
+  },
+  "chooseTypeTitle": {
+    "message": "新規作成"
+  },
+  "backLabel": {
+    "message": "戻る"
+  },
+  "addShortcutTitle": {
+    "message": "ショートカットを追加"
+  },
+  "editShortcutTitle": {
+    "message": "ショートカットを編集"
+  },
+  "shortcutNameLabel": {
+    "message": "名前"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "カスタムアイコン"
+  },
+  "faviconUrlLabel": {
+    "message": "アイコンURL"
+  },
+  "btnCancel": {
+    "message": "キャンセル"
+  },
+  "btnSave": {
+    "message": "保存"
+  },
+  "namePlaceholder": {
+    "message": "お名前（任意）"
+  },
+  "cityPlaceholder": {
+    "message": "あなたの街"
+  },
+  "addShortcutLabel": {
+    "message": "追加"
+  },
+  "editLabel": {
+    "message": "編集"
+  },
+  "removeLabel": {
+    "message": "削除"
+  },
+  "moreOptionsLabel": {
+    "message": "その他のオプション"
+  },
+
+  "styleNone": {
+    "message": "なし"
+  },
+  "learnMoreLabel": {
+    "message": "詳細はこちら"
+  },
+  "warningUnderstood": {
+    "message": "承知しました"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "許可が必要です"
+  },
+  "grantPermissionLabel": {
+    "message": "許可を与える"
+  },
+  "permissionRequiredMessage": {
+    "message": "この機能をご利用いただくには、Fluent New Tab が「$API_NAME$」にアクセスする許可が必要です。これにより、お客様のプライバシーとセキュリティが確保されます。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "変更履歴を参照"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "おかえりなさい"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "新しいFluentワークスペースの準備が完了しました。次のステップを選択してください。"
+  },
+  "wizardRestoreTitle": {
+    "message": "設定を復元"
+  },
+  "wizardRestoreDesc": {
+    "message": "バックアップファイルはお持ちですか？"
+  },
+  "wizardStartTitle": {
+    "message": "セットアップを開始"
+  },
+  "wizardStartDesc": {
+    "message": "いくつかのステップで開始します。"
+  },
+  "wizardSkipTitle": {
+    "message": "セットアップをスキップ"
+  },
+  "wizardSkipDesc": {
+    "message": "クリーンな状態で使い始める。"
+  },
+  "wizardThemeAuto": {
+    "message": "システム"
+  },
+  "wizardThemeLight": {
+    "message": "ライト"
+  },
+  "wizardThemeDark": {
+    "message": "ダーク"
+  },
+  "wizardAppearanceTitle": {
+    "message": "スタイルと外観"
+  },
+  "wizardAppearanceDesc": {
+    "message": "テーマ、アクセントカラー、名前、言語を設定します。"
+  },
+  "btnBack": {
+    "message": "戻る"
+  },
+  "btnNext": {
+    "message": "次へ"
+  },
+  "wizardWidgetsTitle": {
+    "message": "ウィジェットとユーティリティ"
+  },
+  "wizardWidgetsDesc": {
+    "message": "ページに表示する内容を選択します。"
+  },
+  "wizardFinalTitle": {
+    "message": "準備完了です"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tabをご利用いただきありがとうございます！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "はじめる"
+  },
+  "wizardFinalStartDesc": {
+    "message": "新しいタブページを開きます。"
+  },
+  "wizardFinalSupportTitle": {
+    "message": "このプロジェクトを支援する"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "このプロジェクトの最新情報を維持するためにご協力ください。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "ソースコード"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "GitHubでプロジェクトを表示する。"
   }
 }

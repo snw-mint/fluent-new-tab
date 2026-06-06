@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Nhiều ứng dụng hơn"
   },
+  "appLauncherTitle": {
+    "message": "Trình khởi chạy ứng dụng"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Tên tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Biểu tượng tab"
+  },
+
   "settingsTitle": {
     "message": "Cài đặt"
   },
+  "appearanceTitle": {
+    "message": "Hình thức"
+  },
+  "mainUiScaleLabel": {
+    "message": "Kích thước giao diện chính"
+  },
+  "displayTitle": {
+    "message": "Màn hình"
+  },
+  "displayScaleLabel": {
+    "message": "Điều chỉnh kích thước màn hình"
+  },
+  "AccessibilityTitle": {
+    "message": "Trợ năng"
+  },
+  "reduceMotionTitle": {
+    "message": "Giảm chuyển động"
+  },
+  "languageTitle": {
+    "message": "Ngôn ngữ"
+  },
+  "backupTitle": {
+    "message": "Sao lưu dữ liệu"
+  },
+  "exportOption": {
+    "message": "Xuất"
+  },
+  "importOption": {
+    "message": "Nhập"
+  },
+
   "wallpaperTitle": {
     "message": "Hình nền"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Màu bề mặt"
   },
-  "appearanceTitle": {
-    "message": "Hình thức"
+  "fetchingImagePlaceholder": {
+    "message": "Đang tải hình ảnh từ $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Kích thước giao diện chính"
-  },
-  "tabNameLabel": {
-    "message": "Tên tab"
-  },
-  "tabFaviconLabel": {
-    "message": "Biểu tượng tab"
-  },
+
   "customColorTitle": {
     "message": "Màu tùy chỉnh"
   },
-  "visualSearchTitle": {
-    "message": "Tìm kiếm bằng hình ảnh"
+  "wizardAccentLabel": {
+    "message": "Màu nhấn"
   },
-  "visualSearchDragText": {
-    "message": "Kéo một hình ảnh vào đây hoặc"
-  },
-  "visualSearchUploadLink": {
-    "message": "tải lên tệp"
-  },
-  "visualSearchDivider": {
-    "message": "hoặc"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Dán liên kết hình ảnh"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Tìm kiếm"
-  },
-  "styleNone": {
-    "message": "Không có"
-  },
-  "displayTitle": {
-    "message": "Màn hình"
-  },
+
   "displayGreeting": {
     "message": "Lời chào"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Thời gian & Ngày tháng"
-  },
-  "displayScaleLabel": {
-    "message": "Điều chỉnh kích thước màn hình"
   },
   "emojiTypeLabel": {
     "message": "Loại biểu tượng cảm xúc"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Ngày trong tuần"
   },
-  "weatherTitle": {
-    "message": "Thời tiết"
-  },
-  "locationLabel": {
-    "message": "Địa điểm"
-  },
-  "useFahrenheitLabel": {
-    "message": "Sử dụng độ Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Cảnh báo thời tiết"
-  },
-  "shortcutsTitle": {
-    "message": "Lối tắt"
-  },
-  "enableFoldersLabel": {
-    "message": "Bật thư mục"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Ẩn tên"
-  },
-  "folderIconHelp": {
-    "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Độ bo góc"
-  },
-  "rows1": {
-    "message": "1 hàng"
-  },
-  "rows2": {
-    "message": "2 hàng"
-  },
-  "rows3": {
-    "message": "3 hàng"
-  },
-  "rows4": {
-    "message": "4 hàng"
-  },
-  "appLauncherTitle": {
-    "message": "Trình khởi chạy ứng dụng"
-  },
-  "searchTitle": {
-    "message": "Tìm kiếm"
-  },
-  "searchStyleFull": {
-    "message": "Toàn màn hình"
-  },
-  "searchStyleCompact": {
-    "message": "Nhỏ gọn"
-  },
-  "suggestionsOption": {
-    "message": "Gợi ý"
-  },
-  "clearSearchOption": {
-    "message": "Tìm kiếm đơn giản (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Tìm kiếm bằng giọng nói"
-  },
-  "visualSearchOption": {
-    "message": "Tìm kiếm bằng hình ảnh"
-  },
-  "askAiOption": {
-    "message": "Hỏi AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Trợ năng"
-  },
-  "reduceMotionTitle": {
-    "message": "Giảm chuyển động"
-  },
-  "languageTitle": {
-    "message": "Ngôn ngữ"
-  },
-  "backupTitle": {
-    "message": "Sao lưu dữ liệu"
-  },
-  "exportOption": {
-    "message": "Xuất"
-  },
-  "importOption": {
-    "message": "Nhập"
-  },
-  "addFolderTitle": {
-    "message": "Thêm thư mục"
-  },
-  "folderNameLabel": {
-    "message": "Tên"
-  },
-  "editFolderTitle": {
-    "message": "Chỉnh sửa thư mục"
-  },
-  "chooseTypeTitle": {
-    "message": "Tạo mới"
-  },
-  "backLabel": {
-    "message": "Quay lại"
-  },
-  "addShortcutTitle": {
-    "message": "Thêm lối tắt"
-  },
-  "editShortcutTitle": {
-    "message": "Chỉnh sửa lối tắt"
-  },
-  "shortcutNameLabel": {
-    "message": "Tên"
-  },
-  "shortcutUrlLabel": {
-    "message": "Địa chỉ URL"
-  },
-  "addFaviconLabel": {
-    "message": "Biểu tượng tùy chỉnh"
-  },
-  "faviconUrlLabel": {
-    "message": "URL biểu tượng"
-  },
-  "btnCancel": {
-    "message": "Hủy"
-  },
-  "btnSave": {
-    "message": "Lưu"
-  },
-  "searchPlaceholder": {
-    "message": "Tìm kiếm trên web"
-  },
-  "namePlaceholder": {
-    "message": "Tên của bạn (tùy chọn)"
-  },
-  "cityPlaceholder": {
-    "message": "Thành phố của bạn"
-  },
-  "addShortcutLabel": {
-    "message": "Thêm"
-  },
-  "editLabel": {
-    "message": "Chỉnh sửa"
-  },
-  "removeLabel": {
-    "message": "Xóa"
-  },
-  "moreOptionsLabel": {
-    "message": "Thêm tùy chọn"
-  },
-  "permissionRequiredTitle": {
-    "message": "Yêu cầu quyền truy cập"
-  },
-  "grantPermissionLabel": {
-    "message": "Cấp quyền"
-  },
-  "learnMoreLabel": {
-    "message": "Tìm hiểu thêm"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Chào mừng bạn trở lại"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Không gian làm việc Fluent mới của bạn đã sẵn sàng. Hãy chọn bước tiếp theo bên dưới."
-  },
-  "wizardRestoreTitle": {
-    "message": "Khôi phục cài đặt"
-  },
-  "wizardRestoreDesc": {
-    "message": "Bạn có tệp sao lưu không?"
-  },
-  "wizardStartTitle": {
-    "message": "Bắt đầu thiết lập"
-  },
-  "wizardStartDesc": {
-    "message": "Bắt đầu chỉ với vài bước đơn giản."
-  },
-  "wizardSkipTitle": {
-    "message": "Bỏ qua thiết lập"
-  },
-  "wizardThemeAuto": {
-    "message": "Hệ thống"
-  },
-  "wizardThemeLight": {
-    "message": "Sáng"
-  },
-  "wizardThemeDark": {
-    "message": "Tối"
-  },
-  "wizardSkipDesc": {
-    "message": "Bắt đầu với một thiết lập hoàn toàn mới."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Giao diện & Hình thức"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Thiết lập chủ đề, màu nhấn, tên và ngôn ngữ của bạn."
-  },
-  "btnBack": {
-    "message": "Quay lại"
-  },
-  "btnNext": {
-    "message": "Tiếp tục"
-  },
-  "wizardAccentLabel": {
-    "message": "Màu nhấn"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Tiện ích & Công cụ"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Chọn những gì hiển thị trên trang của bạn."
-  },
-  "wizardFinalTitle": {
-    "message": "Mọi thứ đã sẵn sàng"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Cảm ơn bạn đã sử dụng Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Bắt đầu thôi"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Mở trang tab mới của bạn."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Hãy ủng hộ dự án"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Hãy giúp dự án luôn được cập nhật."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Mã nguồn"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Xem dự án trên GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Xem nhật ký thay đổi"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Đang tải hình ảnh từ $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Đã hiểu"
-  },
+
   "weekday_0": {
     "message": "Chủ nhật"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Thứ Bảy"
   },
+
   "greetWeekMorning": {
     "message": "Chúc một ngày $WEEK$ tuyệt vời nhé, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Thời tiết"
+  },
+  "locationLabel": {
+    "message": "Địa điểm"
+  },
+  "useFahrenheitLabel": {
+    "message": "Sử dụng độ Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Cảnh báo thời tiết"
+  },
   "alertTempDrop": {
     "message": "Dự kiến nhiệt độ giảm: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Tìm kiếm"
+  },
+  "searchStyleFull": {
+    "message": "Toàn màn hình"
+  },
+  "searchStyleCompact": {
+    "message": "Nhỏ gọn"
+  },
+  "suggestionsOption": {
+    "message": "Gợi ý"
+  },
+  "clearSearchOption": {
+    "message": "Tìm kiếm đơn giản (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Tìm kiếm bằng giọng nói"
+  },
+  "visualSearchOption": {
+    "message": "Tìm kiếm bằng hình ảnh"
+  },
+  "askAiOption": {
+    "message": "Hỏi AI"
+  },
+  "searchPlaceholder": {
+    "message": "Tìm kiếm trên web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Tìm kiếm bằng hình ảnh"
+  },
+  "visualSearchDragText": {
+    "message": "Kéo một hình ảnh vào đây hoặc"
+  },
+  "visualSearchUploadLink": {
+    "message": "tải lên tệp"
+  },
+  "visualSearchDivider": {
+    "message": "hoặc"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Dán liên kết hình ảnh"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Tìm kiếm"
+  },
+
+  "shortcutsTitle": {
+    "message": "Lối tắt"
+  },
+  "enableFoldersLabel": {
+    "message": "Bật thư mục"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ẩn tên"
+  },
+  "folderIconHelp": {
+    "message": "Tìm các biểu tượng thư mục tùy chỉnh tại"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Độ bo góc"
+  },
+  "rows1": {
+    "message": "1 hàng"
+  },
+  "rows2": {
+    "message": "2 hàng"
+  },
+  "rows3": {
+    "message": "3 hàng"
+  },
+  "rows4": {
+    "message": "4 hàng"
+  },
+
+  "addFolderTitle": {
+    "message": "Thêm thư mục"
+  },
+  "folderNameLabel": {
+    "message": "Tên"
+  },
+  "editFolderTitle": {
+    "message": "Chỉnh sửa thư mục"
+  },
+  "chooseTypeTitle": {
+    "message": "Tạo mới"
+  },
+  "backLabel": {
+    "message": "Quay lại"
+  },
+  "addShortcutTitle": {
+    "message": "Thêm lối tắt"
+  },
+  "editShortcutTitle": {
+    "message": "Chỉnh sửa lối tắt"
+  },
+  "shortcutNameLabel": {
+    "message": "Tên"
+  },
+  "shortcutUrlLabel": {
+    "message": "Địa chỉ URL"
+  },
+  "addFaviconLabel": {
+    "message": "Biểu tượng tùy chỉnh"
+  },
+  "faviconUrlLabel": {
+    "message": "URL biểu tượng"
+  },
+  "btnCancel": {
+    "message": "Hủy"
+  },
+  "btnSave": {
+    "message": "Lưu"
+  },
+  "namePlaceholder": {
+    "message": "Tên của bạn (tùy chọn)"
+  },
+  "cityPlaceholder": {
+    "message": "Thành phố của bạn"
+  },
+  "addShortcutLabel": {
+    "message": "Thêm"
+  },
+  "editLabel": {
+    "message": "Chỉnh sửa"
+  },
+  "removeLabel": {
+    "message": "Xóa"
+  },
+  "moreOptionsLabel": {
+    "message": "Thêm tùy chọn"
+  },
+
+  "styleNone": {
+    "message": "Không có"
+  },
+  "learnMoreLabel": {
+    "message": "Tìm hiểu thêm"
+  },
+  "warningUnderstood": {
+    "message": "Đã hiểu"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Yêu cầu quyền truy cập"
+  },
+  "grantPermissionLabel": {
+    "message": "Cấp quyền"
+  },
+  "permissionRequiredMessage": {
+    "message": "Để sử dụng tính năng này, Fluent New Tab cần quyền truy cập vào \"$API_NAME$\". Điều này nhằm đảm bảo quyền riêng tư và an toàn cho bạn.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Xem nhật ký thay đổi"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Chào mừng bạn trở lại"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Không gian làm việc Fluent mới của bạn đã sẵn sàng. Hãy chọn bước tiếp theo bên dưới."
+  },
+  "wizardRestoreTitle": {
+    "message": "Khôi phục cài đặt"
+  },
+  "wizardRestoreDesc": {
+    "message": "Bạn có tệp sao lưu không?"
+  },
+  "wizardStartTitle": {
+    "message": "Bắt đầu thiết lập"
+  },
+  "wizardStartDesc": {
+    "message": "Bắt đầu chỉ với vài bước đơn giản."
+  },
+  "wizardSkipTitle": {
+    "message": "Bỏ qua thiết lập"
+  },
+  "wizardSkipDesc": {
+    "message": "Bắt đầu với một thiết lập hoàn toàn mới."
+  },
+  "wizardThemeAuto": {
+    "message": "Hệ thống"
+  },
+  "wizardThemeLight": {
+    "message": "Sáng"
+  },
+  "wizardThemeDark": {
+    "message": "Tối"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Giao diện & Hình thức"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Thiết lập chủ đề, màu nhấn, tên và ngôn ngữ của bạn."
+  },
+  "btnBack": {
+    "message": "Quay lại"
+  },
+  "btnNext": {
+    "message": "Tiếp tục"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Tiện ích & Công cụ"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Chọn những gì hiển thị trên trang của bạn."
+  },
+  "wizardFinalTitle": {
+    "message": "Mọi thứ đã sẵn sàng"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Cảm ơn bạn đã sử dụng Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Bắt đầu thôi"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Mở trang tab mới của bạn."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Hãy ủng hộ dự án"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hãy giúp dự án luôn được cập nhật."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Mã nguồn"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Xem dự án trên GitHub."
   }
 }

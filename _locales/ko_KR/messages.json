@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "앱 더보기"
   },
+  "appLauncherTitle": {
+    "message": "앱 실행기"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "탭 이름"
+  },
+  "tabFaviconLabel": {
+    "message": "탭 아이콘"
+  },
+
   "settingsTitle": {
     "message": "설정"
   },
+  "appearanceTitle": {
+    "message": "외관"
+  },
+  "mainUiScaleLabel": {
+    "message": "기본 UI 배율"
+  },
+  "displayTitle": {
+    "message": "표시"
+  },
+  "displayScaleLabel": {
+    "message": "화면 크기 조정"
+  },
+  "AccessibilityTitle": {
+    "message": "접근성"
+  },
+  "reduceMotionTitle": {
+    "message": "움직임 줄이기"
+  },
+  "languageTitle": {
+    "message": "언어"
+  },
+  "backupTitle": {
+    "message": "데이터 백업"
+  },
+  "exportOption": {
+    "message": "내보내기"
+  },
+  "importOption": {
+    "message": "가져오기"
+  },
+
   "wallpaperTitle": {
     "message": "배경화면"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "표면 색조"
   },
-  "appearanceTitle": {
-    "message": "외관"
+  "fetchingImagePlaceholder": {
+    "message": "$SOURCE$ 이미지 불러오는 중...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "기본 UI 배율"
-  },
-  "tabNameLabel": {
-    "message": "탭 이름"
-  },
-  "tabFaviconLabel": {
-    "message": "탭 아이콘"
-  },
+
   "customColorTitle": {
     "message": "사용자 지정 색상"
   },
-  "visualSearchTitle": {
-    "message": "이미지 검색"
+  "wizardAccentLabel": {
+    "message": "강조 색상"
   },
-  "visualSearchDragText": {
-    "message": "이미지를 여기로 드래그하거나"
-  },
-  "visualSearchUploadLink": {
-    "message": "파일 업로드"
-  },
-  "visualSearchDivider": {
-    "message": "또는"
-  },
-  "visualSearchPasteUrl": {
-    "message": "이미지 링크 붙여넣기"
-  },
-  "visualSearchSearchBtn": {
-    "message": "검색"
-  },
-  "styleNone": {
-    "message": "없음"
-  },
-  "displayTitle": {
-    "message": "표시"
-  },
+
   "displayGreeting": {
     "message": "인사말"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "시간 및 날짜"
-  },
-  "displayScaleLabel": {
-    "message": "화면 크기 조정"
   },
   "emojiTypeLabel": {
     "message": "이모지 유형"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "요일"
   },
-  "weatherTitle": {
-    "message": "날씨"
-  },
-  "locationLabel": {
-    "message": "위치"
-  },
-  "useFahrenheitLabel": {
-    "message": "화씨 단위 사용"
-  },
-  "weatherAlertsLabel": {
-    "message": "날씨 알림"
-  },
-  "shortcutsTitle": {
-    "message": "바로가기"
-  },
-  "enableFoldersLabel": {
-    "message": "폴더 활성화"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "이름 숨기기"
-  },
-  "folderIconHelp": {
-    "message": "맞춤형 폴더 아이콘은 다음에서 찾아보세요:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "모서리 반경"
-  },
-  "rows1": {
-    "message": "1줄"
-  },
-  "rows2": {
-    "message": "2줄"
-  },
-  "rows3": {
-    "message": "3줄"
-  },
-  "rows4": {
-    "message": "4줄"
-  },
-  "appLauncherTitle": {
-    "message": "앱 실행기"
-  },
-  "searchTitle": {
-    "message": "검색"
-  },
-  "searchStyleFull": {
-    "message": "전체 너비"
-  },
-  "searchStyleCompact": {
-    "message": "컴팩트"
-  },
-  "suggestionsOption": {
-    "message": "제안"
-  },
-  "clearSearchOption": {
-    "message": "일반 검색 (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "음성 검색"
-  },
-  "visualSearchOption": {
-    "message": "시각적 검색"
-  },
-  "askAiOption": {
-    "message": "AI에게 물어보세요"
-  },
-  "AccessibilityTitle": {
-    "message": "접근성"
-  },
-  "reduceMotionTitle": {
-    "message": "움직임 줄이기"
-  },
-  "languageTitle": {
-    "message": "언어"
-  },
-  "backupTitle": {
-    "message": "데이터 백업"
-  },
-  "exportOption": {
-    "message": "내보내기"
-  },
-  "importOption": {
-    "message": "가져오기"
-  },
-  "addFolderTitle": {
-    "message": "폴더 추가"
-  },
-  "folderNameLabel": {
-    "message": "이름"
-  },
-  "editFolderTitle": {
-    "message": "폴더 편집"
-  },
-  "chooseTypeTitle": {
-    "message": "새로 만들기"
-  },
-  "backLabel": {
-    "message": "뒤로"
-  },
-  "addShortcutTitle": {
-    "message": "바로가기 추가"
-  },
-  "editShortcutTitle": {
-    "message": "바로가기 편집"
-  },
-  "shortcutNameLabel": {
-    "message": "이름"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "맞춤형 아이콘"
-  },
-  "faviconUrlLabel": {
-    "message": "아이콘 URL"
-  },
-  "btnCancel": {
-    "message": "취소"
-  },
-  "btnSave": {
-    "message": "저장"
-  },
-  "searchPlaceholder": {
-    "message": "웹 검색"
-  },
-  "namePlaceholder": {
-    "message": "이름 (선택 사항)"
-  },
-  "cityPlaceholder": {
-    "message": "도시"
-  },
-  "addShortcutLabel": {
-    "message": "추가"
-  },
-  "editLabel": {
-    "message": "편집"
-  },
-  "removeLabel": {
-    "message": "제거"
-  },
-  "moreOptionsLabel": {
-    "message": "추가 옵션"
-  },
-  "permissionRequiredTitle": {
-    "message": "권한 필요"
-  },
-  "grantPermissionLabel": {
-    "message": "권한 허용"
-  },
-  "learnMoreLabel": {
-    "message": "자세히 알아보기"
-  },
-  "wizardWelcomeTitle": {
-    "message": "환영합니다"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "새로운 Fluent 작업 공간이 준비되었습니다. 아래에서 다음 단계를 선택하세요."
-  },
-  "wizardRestoreTitle": {
-    "message": "설정 복원"
-  },
-  "wizardRestoreDesc": {
-    "message": "백업 파일이 있으신가요?"
-  },
-  "wizardStartTitle": {
-    "message": "설정 시작"
-  },
-  "wizardStartDesc": {
-    "message": "몇 가지 단계만 거치면 시작할 수 있습니다."
-  },
-  "wizardSkipTitle": {
-    "message": "설정 건너뛰기"
-  },
-  "wizardThemeAuto": {
-    "message": "시스템"
-  },
-  "wizardThemeLight": {
-    "message": "라이트"
-  },
-  "wizardThemeDark": {
-    "message": "다크"
-  },
-  "wizardSkipDesc": {
-    "message": "기본 설정으로 시작합니다."
-  },
-  "wizardAppearanceTitle": {
-    "message": "스타일 및 외관"
-  },
-  "wizardAppearanceDesc": {
-    "message": "테마, 강조 색상, 이름 및 언어를 설정하세요."
-  },
-  "btnBack": {
-    "message": "뒤로"
-  },
-  "btnNext": {
-    "message": "계속"
-  },
-  "wizardAccentLabel": {
-    "message": "강조 색상"
-  },
-  "wizardWidgetsTitle": {
-    "message": "위젯 및 유틸리티"
-  },
-  "wizardWidgetsDesc": {
-    "message": "페이지에 표시할 항목을 선택하세요."
-  },
-  "wizardFinalTitle": {
-    "message": "모든 준비가 완료되었습니다"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Fluent New Tab을 사용해 주셔서 감사합니다!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "시작하기"
-  },
-  "wizardFinalStartDesc": {
-    "message": "새 탭 페이지를 엽니다."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "이 프로젝트를 후원해 주세요"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "소스 코드"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "GitHub에서 프로젝트 보기."
-  },
-  "permissionRequiredMessage": {
-    "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "변경 내역 보기"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "$SOURCE$ 이미지 불러오는 중...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "알겠습니다"
-  },
+
   "weekday_0": {
     "message": "일요일"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "토요일"
   },
+
   "greetWeekMorning": {
     "message": "기분 좋은 $WEEK$ 아침이에요, $NAME$님! 화이팅!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "날씨"
+  },
+  "locationLabel": {
+    "message": "위치"
+  },
+  "useFahrenheitLabel": {
+    "message": "화씨 단위 사용"
+  },
+  "weatherAlertsLabel": {
+    "message": "날씨 알림"
+  },
   "alertTempDrop": {
     "message": "기온 하락 예상: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "검색"
+  },
+  "searchStyleFull": {
+    "message": "전체 너비"
+  },
+  "searchStyleCompact": {
+    "message": "컴팩트"
+  },
+  "suggestionsOption": {
+    "message": "제안"
+  },
+  "clearSearchOption": {
+    "message": "일반 검색 (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "음성 검색"
+  },
+  "visualSearchOption": {
+    "message": "시각적 검색"
+  },
+  "askAiOption": {
+    "message": "AI에게 물어보세요"
+  },
+  "searchPlaceholder": {
+    "message": "웹 검색"
+  },
+
+  "visualSearchTitle": {
+    "message": "이미지 검색"
+  },
+  "visualSearchDragText": {
+    "message": "이미지를 여기로 드래그하거나"
+  },
+  "visualSearchUploadLink": {
+    "message": "파일 업로드"
+  },
+  "visualSearchDivider": {
+    "message": "또는"
+  },
+  "visualSearchPasteUrl": {
+    "message": "이미지 링크 붙여넣기"
+  },
+  "visualSearchSearchBtn": {
+    "message": "검색"
+  },
+
+  "shortcutsTitle": {
+    "message": "바로가기"
+  },
+  "enableFoldersLabel": {
+    "message": "폴더 활성화"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "이름 숨기기"
+  },
+  "folderIconHelp": {
+    "message": "맞춤형 폴더 아이콘은 다음에서 찾아보세요:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "모서리 반경"
+  },
+  "rows1": {
+    "message": "1줄"
+  },
+  "rows2": {
+    "message": "2줄"
+  },
+  "rows3": {
+    "message": "3줄"
+  },
+  "rows4": {
+    "message": "4줄"
+  },
+
+  "addFolderTitle": {
+    "message": "폴더 추가"
+  },
+  "folderNameLabel": {
+    "message": "이름"
+  },
+  "editFolderTitle": {
+    "message": "폴더 편집"
+  },
+  "chooseTypeTitle": {
+    "message": "새로 만들기"
+  },
+  "backLabel": {
+    "message": "뒤로"
+  },
+  "addShortcutTitle": {
+    "message": "바로가기 추가"
+  },
+  "editShortcutTitle": {
+    "message": "바로가기 편집"
+  },
+  "shortcutNameLabel": {
+    "message": "이름"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "맞춤형 아이콘"
+  },
+  "faviconUrlLabel": {
+    "message": "아이콘 URL"
+  },
+  "btnCancel": {
+    "message": "취소"
+  },
+  "btnSave": {
+    "message": "저장"
+  },
+  "namePlaceholder": {
+    "message": "이름 (선택 사항)"
+  },
+  "cityPlaceholder": {
+    "message": "도시"
+  },
+  "addShortcutLabel": {
+    "message": "추가"
+  },
+  "editLabel": {
+    "message": "편집"
+  },
+  "removeLabel": {
+    "message": "제거"
+  },
+  "moreOptionsLabel": {
+    "message": "추가 옵션"
+  },
+
+  "styleNone": {
+    "message": "없음"
+  },
+  "learnMoreLabel": {
+    "message": "자세히 알아보기"
+  },
+  "warningUnderstood": {
+    "message": "알겠습니다"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "권한 필요"
+  },
+  "grantPermissionLabel": {
+    "message": "권한 허용"
+  },
+  "permissionRequiredMessage": {
+    "message": "이 기능을 사용하려면 Fluent New Tab이 \"$API_NAME$\"에 액세스할 수 있는 권한이 필요합니다. 이는 사용자의 개인정보와 보안을 보장하기 위함입니다.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "변경 내역 보기"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "환영합니다"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "새로운 Fluent 작업 공간이 준비되었습니다. 아래에서 다음 단계를 선택하세요."
+  },
+  "wizardRestoreTitle": {
+    "message": "설정 복원"
+  },
+  "wizardRestoreDesc": {
+    "message": "백업 파일이 있으신가요?"
+  },
+  "wizardStartTitle": {
+    "message": "설정 시작"
+  },
+  "wizardStartDesc": {
+    "message": "몇 가지 단계만 거치면 시작할 수 있습니다."
+  },
+  "wizardSkipTitle": {
+    "message": "설정 건너뛰기"
+  },
+  "wizardSkipDesc": {
+    "message": "기본 설정으로 시작합니다."
+  },
+  "wizardThemeAuto": {
+    "message": "시스템"
+  },
+  "wizardThemeLight": {
+    "message": "라이트"
+  },
+  "wizardThemeDark": {
+    "message": "다크"
+  },
+  "wizardAppearanceTitle": {
+    "message": "스타일 및 외관"
+  },
+  "wizardAppearanceDesc": {
+    "message": "테마, 강조 색상, 이름 및 언어를 설정하세요."
+  },
+  "btnBack": {
+    "message": "뒤로"
+  },
+  "btnNext": {
+    "message": "계속"
+  },
+  "wizardWidgetsTitle": {
+    "message": "위젯 및 유틸리티"
+  },
+  "wizardWidgetsDesc": {
+    "message": "페이지에 표시할 항목을 선택하세요."
+  },
+  "wizardFinalTitle": {
+    "message": "모든 준비가 완료되었습니다"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Fluent New Tab을 사용해 주셔서 감사합니다!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "시작하기"
+  },
+  "wizardFinalStartDesc": {
+    "message": "새 탭 페이지를 엽니다."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "이 프로젝트를 후원해 주세요"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "소스 코드"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "GitHub에서 프로젝트 보기."
   }
 }

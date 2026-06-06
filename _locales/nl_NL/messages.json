@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Meer apps"
   },
+  "appLauncherTitle": {
+    "message": "App-starter"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Tabbladnaam"
+  },
+  "tabFaviconLabel": {
+    "message": "Tabbladpictogram"
+  },
+
   "settingsTitle": {
     "message": "Instellingen"
   },
+  "appearanceTitle": {
+    "message": "Uiterlijk"
+  },
+  "mainUiScaleLabel": {
+    "message": "Schaal hoofdinterface"
+  },
+  "displayTitle": {
+    "message": "Weergave"
+  },
+  "displayScaleLabel": {
+    "message": "Weergaveschaal"
+  },
+  "AccessibilityTitle": {
+    "message": "Toegankelijkheid"
+  },
+  "reduceMotionTitle": {
+    "message": "Beweging verminderen"
+  },
+  "languageTitle": {
+    "message": "Taal"
+  },
+  "backupTitle": {
+    "message": "Gegevensback-up"
+  },
+  "exportOption": {
+    "message": "Exporteren"
+  },
+  "importOption": {
+    "message": "Importeren"
+  },
+
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Oppervlaktetint"
   },
-  "appearanceTitle": {
-    "message": "Uiterlijk"
+  "fetchingImagePlaceholder": {
+    "message": "Afbeelding ophalen van $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Schaal hoofdinterface"
-  },
-  "tabNameLabel": {
-    "message": "Tabbladnaam"
-  },
-  "tabFaviconLabel": {
-    "message": "Tabbladpictogram"
-  },
+
   "customColorTitle": {
     "message": "Aangepaste kleur"
   },
-  "visualSearchTitle": {
-    "message": "Visuele zoekfunctie"
+  "wizardAccentLabel": {
+    "message": "Accentkleur"
   },
-  "visualSearchDragText": {
-    "message": "Sleep hier een afbeelding of"
-  },
-  "visualSearchUploadLink": {
-    "message": "een bestand uploaden"
-  },
-  "visualSearchDivider": {
-    "message": "of"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Afbeeldingslink plakken"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Zoeken"
-  },
-  "styleNone": {
-    "message": "Geen"
-  },
-  "displayTitle": {
-    "message": "Weergave"
-  },
+
   "displayGreeting": {
     "message": "Groet"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Tijd en datum"
-  },
-  "displayScaleLabel": {
-    "message": "Weergaveschaal"
   },
   "emojiTypeLabel": {
     "message": "Type emoji"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Weekdag"
   },
-  "weatherTitle": {
-    "message": "Weer"
-  },
-  "locationLabel": {
-    "message": "Locatie"
-  },
-  "useFahrenheitLabel": {
-    "message": "Fahrenheit gebruiken"
-  },
-  "weatherAlertsLabel": {
-    "message": "Weerwaarschuwingen"
-  },
-  "shortcutsTitle": {
-    "message": "Snelkoppelingen"
-  },
-  "enableFoldersLabel": {
-    "message": "Mappen inschakelen"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Namen verbergen"
-  },
-  "folderIconHelp": {
-    "message": "Vind aangepaste mapiconen op:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Hoekafronding"
-  },
-  "rows1": {
-    "message": "1 rij"
-  },
-  "rows2": {
-    "message": "2 rijen"
-  },
-  "rows3": {
-    "message": "3 rijen"
-  },
-  "rows4": {
-    "message": "4 rijen"
-  },
-  "appLauncherTitle": {
-    "message": "App-starter"
-  },
-  "searchTitle": {
-    "message": "Zoeken"
-  },
-  "searchStyleFull": {
-    "message": "Volledige breedte"
-  },
-  "searchStyleCompact": {
-    "message": "Compact"
-  },
-  "suggestionsOption": {
-    "message": "Zoeksuggesties"
-  },
-  "clearSearchOption": {
-    "message": "Eenvoudig zoeken (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Spraakgestuurd zoeken"
-  },
-  "visualSearchOption": {
-    "message": "Visueel zoeken"
-  },
-  "askAiOption": {
-    "message": "Vraag het aan AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Toegankelijkheid"
-  },
-  "reduceMotionTitle": {
-    "message": "Beweging verminderen"
-  },
-  "languageTitle": {
-    "message": "Taal"
-  },
-  "backupTitle": {
-    "message": "Gegevensback-up"
-  },
-  "exportOption": {
-    "message": "Exporteren"
-  },
-  "importOption": {
-    "message": "Importeren"
-  },
-  "addFolderTitle": {
-    "message": "Map toevoegen"
-  },
-  "folderNameLabel": {
-    "message": "Mapnaam"
-  },
-  "editFolderTitle": {
-    "message": "Map bewerken"
-  },
-  "chooseTypeTitle": {
-    "message": "Nieuw maken"
-  },
-  "backLabel": {
-    "message": "Terug"
-  },
-  "addShortcutTitle": {
-    "message": "Snelkoppeling toevoegen"
-  },
-  "editShortcutTitle": {
-    "message": "Snelkoppeling bewerken"
-  },
-  "shortcutNameLabel": {
-    "message": "Mapnaam"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Aangepast pictogram"
-  },
-  "faviconUrlLabel": {
-    "message": "Pictogram-URL"
-  },
-  "btnCancel": {
-    "message": "Annuleren"
-  },
-  "btnSave": {
-    "message": "Opslaan"
-  },
-  "searchPlaceholder": {
-    "message": "Zoek op het web"
-  },
-  "namePlaceholder": {
-    "message": "Je naam (optioneel)"
-  },
-  "cityPlaceholder": {
-    "message": "Je stad"
-  },
-  "addShortcutLabel": {
-    "message": "Toevoegen"
-  },
-  "editLabel": {
-    "message": "Bewerken"
-  },
-  "removeLabel": {
-    "message": "Verwijderen"
-  },
-  "moreOptionsLabel": {
-    "message": "Meer opties"
-  },
-  "permissionRequiredTitle": {
-    "message": "Toestemming vereist"
-  },
-  "grantPermissionLabel": {
-    "message": "Toestemming verlenen"
-  },
-  "learnMoreLabel": {
-    "message": "Meer informatie"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Welkom terug"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Je nieuwe Fluent werkruimte is klaar. Kies hieronder je volgende stap."
-  },
-  "wizardRestoreTitle": {
-    "message": "Instellingen herstellen"
-  },
-  "wizardRestoreDesc": {
-    "message": "Heb je een back-upbestand?"
-  },
-  "wizardStartTitle": {
-    "message": "Start de set-up"
-  },
-  "wizardStartDesc": {
-    "message": "Begin met een paar simpele stappen."
-  },
-  "wizardSkipTitle": {
-    "message": "Set-up overslaan"
-  },
-  "wizardThemeAuto": {
-    "message": "Systeem"
-  },
-  "wizardThemeLight": {
-    "message": "Licht"
-  },
-  "wizardThemeDark": {
-    "message": "Donker"
-  },
-  "wizardSkipDesc": {
-    "message": "Begin met een schone lei."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stijl & Uiterlijk"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Stel je thema, accentkleur, naam en taal in."
-  },
-  "btnBack": {
-    "message": "Terug"
-  },
-  "btnNext": {
-    "message": "Volgende"
-  },
-  "wizardAccentLabel": {
-    "message": "Accentkleur"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets & Hulpprogramma's"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Kies wat er op je pagina verschijnt."
-  },
-  "wizardFinalTitle": {
-    "message": "Je bent er helemaal klaar voor"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Bedankt voor het gebruiken van Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Aan de slag"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Open je nieuwe tabbladpagina."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Steun het project"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Help mee om het project up-to-date te houden."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Broncode"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Bekijk het project op GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt je privacy en veiligheid.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Bekijk de changelog"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Afbeelding ophalen van $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Begrepen"
-  },
+
   "weekday_0": {
     "message": "Zondag"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Zaterdag"
   },
+
   "greetWeekMorning": {
     "message": "Fijne $WEEK$ochtend, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Weer"
+  },
+  "locationLabel": {
+    "message": "Locatie"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit gebruiken"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weerwaarschuwingen"
+  },
   "alertTempDrop": {
     "message": "Verwachte temperatuurdaling: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Zoeken"
+  },
+  "searchStyleFull": {
+    "message": "Volledige breedte"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
+  "suggestionsOption": {
+    "message": "Zoeksuggesties"
+  },
+  "clearSearchOption": {
+    "message": "Eenvoudig zoeken (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Spraakgestuurd zoeken"
+  },
+  "visualSearchOption": {
+    "message": "Visueel zoeken"
+  },
+  "askAiOption": {
+    "message": "Vraag het aan AI"
+  },
+  "searchPlaceholder": {
+    "message": "Zoek op het web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visuele zoekfunctie"
+  },
+  "visualSearchDragText": {
+    "message": "Sleep hier een afbeelding of"
+  },
+  "visualSearchUploadLink": {
+    "message": "een bestand uploaden"
+  },
+  "visualSearchDivider": {
+    "message": "of"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Afbeeldingslink plakken"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Zoeken"
+  },
+
+  "shortcutsTitle": {
+    "message": "Snelkoppelingen"
+  },
+  "enableFoldersLabel": {
+    "message": "Mappen inschakelen"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Namen verbergen"
+  },
+  "folderIconHelp": {
+    "message": "Vind aangepaste mapiconen op:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hoekafronding"
+  },
+  "rows1": {
+    "message": "1 rij"
+  },
+  "rows2": {
+    "message": "2 rijen"
+  },
+  "rows3": {
+    "message": "3 rijen"
+  },
+  "rows4": {
+    "message": "4 rijen"
+  },
+
+  "addFolderTitle": {
+    "message": "Map toevoegen"
+  },
+  "folderNameLabel": {
+    "message": "Mapnaam"
+  },
+  "editFolderTitle": {
+    "message": "Map bewerken"
+  },
+  "chooseTypeTitle": {
+    "message": "Nieuw maken"
+  },
+  "backLabel": {
+    "message": "Terug"
+  },
+  "addShortcutTitle": {
+    "message": "Snelkoppeling toevoegen"
+  },
+  "editShortcutTitle": {
+    "message": "Snelkoppeling bewerken"
+  },
+  "shortcutNameLabel": {
+    "message": "Mapnaam"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Aangepast pictogram"
+  },
+  "faviconUrlLabel": {
+    "message": "Pictogram-URL"
+  },
+  "btnCancel": {
+    "message": "Annuleren"
+  },
+  "btnSave": {
+    "message": "Opslaan"
+  },
+  "namePlaceholder": {
+    "message": "Je naam (optioneel)"
+  },
+  "cityPlaceholder": {
+    "message": "Je stad"
+  },
+  "addShortcutLabel": {
+    "message": "Toevoegen"
+  },
+  "editLabel": {
+    "message": "Bewerken"
+  },
+  "removeLabel": {
+    "message": "Verwijderen"
+  },
+  "moreOptionsLabel": {
+    "message": "Meer opties"
+  },
+
+  "styleNone": {
+    "message": "Geen"
+  },
+  "learnMoreLabel": {
+    "message": "Meer informatie"
+  },
+  "warningUnderstood": {
+    "message": "Begrepen"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Toestemming vereist"
+  },
+  "grantPermissionLabel": {
+    "message": "Toestemming verlenen"
+  },
+  "permissionRequiredMessage": {
+    "message": "Om deze functie te kunnen gebruiken, heeft Fluent New Tab toestemming nodig om toegang te krijgen tot \"$API_NAME$\". Dit waarborgt je privacy en veiligheid.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Bekijk de changelog"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Welkom terug"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Je nieuwe Fluent werkruimte is klaar. Kies hieronder je volgende stap."
+  },
+  "wizardRestoreTitle": {
+    "message": "Instellingen herstellen"
+  },
+  "wizardRestoreDesc": {
+    "message": "Heb je een back-upbestand?"
+  },
+  "wizardStartTitle": {
+    "message": "Start de set-up"
+  },
+  "wizardStartDesc": {
+    "message": "Begin met een paar simpele stappen."
+  },
+  "wizardSkipTitle": {
+    "message": "Set-up overslaan"
+  },
+  "wizardSkipDesc": {
+    "message": "Begin met een schone lei."
+  },
+  "wizardThemeAuto": {
+    "message": "Systeem"
+  },
+  "wizardThemeLight": {
+    "message": "Licht"
+  },
+  "wizardThemeDark": {
+    "message": "Donker"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stijl & Uiterlijk"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Stel je thema, accentkleur, naam en taal in."
+  },
+  "btnBack": {
+    "message": "Terug"
+  },
+  "btnNext": {
+    "message": "Volgende"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Hulpprogramma's"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Kies wat er op je pagina verschijnt."
+  },
+  "wizardFinalTitle": {
+    "message": "Je bent er helemaal klaar voor"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Bedankt voor het gebruiken van Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Aan de slag"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Open je nieuwe tabbladpagina."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Steun het project"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Help mee om het project up-to-date te houden."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Broncode"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Bekijk het project op GitHub."
   }
 }

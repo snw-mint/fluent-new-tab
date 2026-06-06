@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Další aplikace"
   },
+  "appLauncherTitle": {
+    "message": "Spouštěč aplikací"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Název karty"
+  },
+  "tabFaviconLabel": {
+    "message": "Ikona karty"
+  },
+
   "settingsTitle": {
     "message": "Nastavení"
   },
+  "appearanceTitle": {
+    "message": "Vzhled"
+  },
+  "mainUiScaleLabel": {
+    "message": "Měřítko hlavního rozhraní"
+  },
+  "displayTitle": {
+    "message": "Zobrazení"
+  },
+  "displayScaleLabel": {
+    "message": "Měřítko zobrazení"
+  },
+  "AccessibilityTitle": {
+    "message": "Přístupnost"
+  },
+  "reduceMotionTitle": {
+    "message": "Omezit animace"
+  },
+  "languageTitle": {
+    "message": "Jazyk"
+  },
+  "backupTitle": {
+    "message": "Zálohování dat"
+  },
+  "exportOption": {
+    "message": "Exportovat"
+  },
+  "importOption": {
+    "message": "Importovat"
+  },
+
   "wallpaperTitle": {
     "message": "Tapeta"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Odstín povrchu"
   },
-  "appearanceTitle": {
-    "message": "Vzhled"
+  "fetchingImagePlaceholder": {
+    "message": "Načítání obrázku z adresy $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Měřítko hlavního rozhraní"
-  },
-  "tabNameLabel": {
-    "message": "Název karty"
-  },
-  "tabFaviconLabel": {
-    "message": "Ikona karty"
-  },
+
   "customColorTitle": {
     "message": "Vlastní barva"
   },
-  "visualSearchTitle": {
-    "message": "Vizuální vyhledávání"
+  "wizardAccentLabel": {
+    "message": "Barva zvýraznění"
   },
-  "visualSearchDragText": {
-    "message": "Přetáhněte sem obrázek nebo"
-  },
-  "visualSearchUploadLink": {
-    "message": "nahrát soubor"
-  },
-  "visualSearchDivider": {
-    "message": "nebo"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Vlož odkaz na obrázek"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Vyhledávání"
-  },
-  "styleNone": {
-    "message": "Žádný"
-  },
-  "displayTitle": {
-    "message": "Zobrazení"
-  },
+
   "displayGreeting": {
     "message": "Pozdrav"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Čas a datum"
-  },
-  "displayScaleLabel": {
-    "message": "Měřítko zobrazení"
   },
   "emojiTypeLabel": {
     "message": "Typ emodži"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Den v týdnu"
   },
-  "weatherTitle": {
-    "message": "Počasí"
-  },
-  "locationLabel": {
-    "message": "Umístění"
-  },
-  "useFahrenheitLabel": {
-    "message": "Použít stupně Fahrenheita"
-  },
-  "weatherAlertsLabel": {
-    "message": "Upozornění na počasí"
-  },
-  "shortcutsTitle": {
-    "message": "Zkratky"
-  },
-  "enableFoldersLabel": {
-    "message": "Povolit složky"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Skrýt názvy"
-  },
-  "folderIconHelp": {
-    "message": "Vlastní ikony složek najdete na:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Zaoblení rohů"
-  },
-  "rows1": {
-    "message": "1 řádek"
-  },
-  "rows2": {
-    "message": "2 řádky"
-  },
-  "rows3": {
-    "message": "3 řádky"
-  },
-  "rows4": {
-    "message": "4 řádky"
-  },
-  "appLauncherTitle": {
-    "message": "Spouštěč aplikací"
-  },
-  "searchTitle": {
-    "message": "Vyhledávání"
-  },
-  "searchStyleFull": {
-    "message": "Plná šířka"
-  },
-  "searchStyleCompact": {
-    "message": "Kompaktní"
-  },
-  "suggestionsOption": {
-    "message": "Návrhy vyhledávání"
-  },
-  "clearSearchOption": {
-    "message": "Čisté vyhledávání (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Hlasové vyhledávání"
-  },
-  "visualSearchOption": {
-    "message": "Vizuální vyhledávání"
-  },
-  "askAiOption": {
-    "message": "Zeptat se AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Přístupnost"
-  },
-  "reduceMotionTitle": {
-    "message": "Omezit animace"
-  },
-  "languageTitle": {
-    "message": "Jazyk"
-  },
-  "backupTitle": {
-    "message": "Zálohování dat"
-  },
-  "exportOption": {
-    "message": "Exportovat"
-  },
-  "importOption": {
-    "message": "Importovat"
-  },
-  "addFolderTitle": {
-    "message": "Přidat složku"
-  },
-  "folderNameLabel": {
-    "message": "Název složky"
-  },
-  "editFolderTitle": {
-    "message": "Upravit složku"
-  },
-  "chooseTypeTitle": {
-    "message": "Vytvořit nový"
-  },
-  "backLabel": {
-    "message": "Zpět"
-  },
-  "addShortcutTitle": {
-    "message": "Přidat zkratku"
-  },
-  "editShortcutTitle": {
-    "message": "Upravit zkratku"
-  },
-  "shortcutNameLabel": {
-    "message": "Název složky"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Vlastní ikona"
-  },
-  "faviconUrlLabel": {
-    "message": "URL ikony"
-  },
-  "btnCancel": {
-    "message": "Zrušit"
-  },
-  "btnSave": {
-    "message": "Uložit"
-  },
-  "searchPlaceholder": {
-    "message": "Prohledat web"
-  },
-  "namePlaceholder": {
-    "message": "Vaše jméno (volitelné)"
-  },
-  "cityPlaceholder": {
-    "message": "Vaše město"
-  },
-  "addShortcutLabel": {
-    "message": "Přidat"
-  },
-  "editLabel": {
-    "message": "Upravit"
-  },
-  "removeLabel": {
-    "message": "Odebrat"
-  },
-  "moreOptionsLabel": {
-    "message": "Další možnosti"
-  },
-  "permissionRequiredTitle": {
-    "message": "Vyžadováno oprávnění"
-  },
-  "grantPermissionLabel": {
-    "message": "Udělit oprávnění"
-  },
-  "learnMoreLabel": {
-    "message": "Další informace"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Vítejte doma"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Váš nový pracovní prostor Fluent je připraven. Vyberte svůj další krok níže."
-  },
-  "wizardRestoreTitle": {
-    "message": "Obnovit nastavení"
-  },
-  "wizardRestoreDesc": {
-    "message": "Máte záložní soubor?"
-  },
-  "wizardStartTitle": {
-    "message": "Zahájit nastavení"
-  },
-  "wizardStartDesc": {
-    "message": "Začněte několika kroky."
-  },
-  "wizardSkipTitle": {
-    "message": "Přeskočit nastavení"
-  },
-  "wizardThemeAuto": {
-    "message": "Systémový"
-  },
-  "wizardThemeLight": {
-    "message": "Světlý"
-  },
-  "wizardThemeDark": {
-    "message": "Tmavý"
-  },
-  "wizardSkipDesc": {
-    "message": "Začít s čistým štítem."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Styl a vzhled"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Nastavte si motiv, barvu zvýraznění, jméno a jazyk."
-  },
-  "btnBack": {
-    "message": "Zpět"
-  },
-  "btnNext": {
-    "message": "Pokračovat"
-  },
-  "wizardAccentLabel": {
-    "message": "Barva zvýraznění"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgety a nástroje"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Vyberte, co se zobrazí na vaší stránce."
-  },
-  "wizardFinalTitle": {
-    "message": "Vše je připraveno"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Děkujeme, že používáte Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Začít"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Otevřít novou kartu."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Podpořte tento projekt"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Pomozte nám udržovat projekt aktuální."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Zdrojový kód"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Zobrazit projekt na GitHubu."
-  },
-  "permissionRequiredMessage": {
-    "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Zobrazit seznam změn"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Načítání obrázku z adresy $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Rozumím"
-  },
+
   "weekday_0": {
     "message": "Neděle"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Sobota"
   },
+
   "greetWeekMorning": {
     "message": "Krásný $WEEK$, $NAME$! Ať se ti dnes daří!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Počasí"
+  },
+  "locationLabel": {
+    "message": "Umístění"
+  },
+  "useFahrenheitLabel": {
+    "message": "Použít stupně Fahrenheita"
+  },
+  "weatherAlertsLabel": {
+    "message": "Upozornění na počasí"
+  },
   "alertTempDrop": {
     "message": "Očekávané ochlazení: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Vyhledávání"
+  },
+  "searchStyleFull": {
+    "message": "Plná šířka"
+  },
+  "searchStyleCompact": {
+    "message": "Kompaktní"
+  },
+  "suggestionsOption": {
+    "message": "Návrhy vyhledávání"
+  },
+  "clearSearchOption": {
+    "message": "Čisté vyhledávání (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Hlasové vyhledávání"
+  },
+  "visualSearchOption": {
+    "message": "Vizuální vyhledávání"
+  },
+  "askAiOption": {
+    "message": "Zeptat se AI"
+  },
+  "searchPlaceholder": {
+    "message": "Prohledat web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Vizuální vyhledávání"
+  },
+  "visualSearchDragText": {
+    "message": "Přetáhněte sem obrázek nebo"
+  },
+  "visualSearchUploadLink": {
+    "message": "nahrát soubor"
+  },
+  "visualSearchDivider": {
+    "message": "nebo"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Vlož odkaz na obrázek"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Vyhledávání"
+  },
+
+  "shortcutsTitle": {
+    "message": "Zkratky"
+  },
+  "enableFoldersLabel": {
+    "message": "Povolit složky"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skrýt názvy"
+  },
+  "folderIconHelp": {
+    "message": "Vlastní ikony složek najdete na:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Zaoblení rohů"
+  },
+  "rows1": {
+    "message": "1 řádek"
+  },
+  "rows2": {
+    "message": "2 řádky"
+  },
+  "rows3": {
+    "message": "3 řádky"
+  },
+  "rows4": {
+    "message": "4 řádky"
+  },
+
+  "addFolderTitle": {
+    "message": "Přidat složku"
+  },
+  "folderNameLabel": {
+    "message": "Název složky"
+  },
+  "editFolderTitle": {
+    "message": "Upravit složku"
+  },
+  "chooseTypeTitle": {
+    "message": "Vytvořit nový"
+  },
+  "backLabel": {
+    "message": "Zpět"
+  },
+  "addShortcutTitle": {
+    "message": "Přidat zkratku"
+  },
+  "editShortcutTitle": {
+    "message": "Upravit zkratku"
+  },
+  "shortcutNameLabel": {
+    "message": "Název složky"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Vlastní ikona"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ikony"
+  },
+  "btnCancel": {
+    "message": "Zrušit"
+  },
+  "btnSave": {
+    "message": "Uložit"
+  },
+  "namePlaceholder": {
+    "message": "Vaše jméno (volitelné)"
+  },
+  "cityPlaceholder": {
+    "message": "Vaše město"
+  },
+  "addShortcutLabel": {
+    "message": "Přidat"
+  },
+  "editLabel": {
+    "message": "Upravit"
+  },
+  "removeLabel": {
+    "message": "Odebrat"
+  },
+  "moreOptionsLabel": {
+    "message": "Další možnosti"
+  },
+
+  "styleNone": {
+    "message": "Žádný"
+  },
+  "learnMoreLabel": {
+    "message": "Další informace"
+  },
+  "warningUnderstood": {
+    "message": "Rozumím"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Vyžadováno oprávnění"
+  },
+  "grantPermissionLabel": {
+    "message": "Udělit oprávnění"
+  },
+  "permissionRequiredMessage": {
+    "message": "Aby bylo možné tuto funkci používat, potřebuje aplikace Fluent New Tab oprávnění k přístupu na adresu „$API_NAME$“. Tím je zajištěno vaše soukromí a bezpečnost.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Zobrazit seznam změn"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Vítejte doma"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Váš nový pracovní prostor Fluent je připraven. Vyberte svůj další krok níže."
+  },
+  "wizardRestoreTitle": {
+    "message": "Obnovit nastavení"
+  },
+  "wizardRestoreDesc": {
+    "message": "Máte záložní soubor?"
+  },
+  "wizardStartTitle": {
+    "message": "Zahájit nastavení"
+  },
+  "wizardStartDesc": {
+    "message": "Začněte několika kroky."
+  },
+  "wizardSkipTitle": {
+    "message": "Přeskočit nastavení"
+  },
+  "wizardSkipDesc": {
+    "message": "Začít s čistým štítem."
+  },
+  "wizardThemeAuto": {
+    "message": "Systémový"
+  },
+  "wizardThemeLight": {
+    "message": "Světlý"
+  },
+  "wizardThemeDark": {
+    "message": "Tmavý"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Styl a vzhled"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Nastavte si motiv, barvu zvýraznění, jméno a jazyk."
+  },
+  "btnBack": {
+    "message": "Zpět"
+  },
+  "btnNext": {
+    "message": "Pokračovat"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgety a nástroje"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Vyberte, co se zobrazí na vaší stránce."
+  },
+  "wizardFinalTitle": {
+    "message": "Vše je připraveno"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Děkujeme, že používáte Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Začít"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Otevřít novou kartu."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Podpořte tento projekt"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Pomozte nám udržovat projekt aktuální."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Zdrojový kód"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Zobrazit projekt na GitHubu."
   }
 }

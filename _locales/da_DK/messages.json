@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Flere apps"
   },
+  "appLauncherTitle": {
+    "message": "App-starter"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Fanens navn"
+  },
+  "tabFaviconLabel": {
+    "message": "Faneikon"
+  },
+
   "settingsTitle": {
     "message": "Indstillinger"
   },
+  "appearanceTitle": {
+    "message": "Udseende"
+  },
+  "mainUiScaleLabel": {
+    "message": "Skalering af brugerflade"
+  },
+  "displayTitle": {
+    "message": "Visning"
+  },
+  "displayScaleLabel": {
+    "message": "Skærmskalering"
+  },
+  "AccessibilityTitle": {
+    "message": "Tilgængelighed"
+  },
+  "reduceMotionTitle": {
+    "message": "Reducer bevægelse"
+  },
+  "languageTitle": {
+    "message": "Sprog"
+  },
+  "backupTitle": {
+    "message": "Sikkerhedskopiering"
+  },
+  "exportOption": {
+    "message": "Eksportér"
+  },
+  "importOption": {
+    "message": "Importér"
+  },
+
   "wallpaperTitle": {
     "message": "Baggrund"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Overfladefarve"
   },
-  "appearanceTitle": {
-    "message": "Udseende"
+  "fetchingImagePlaceholder": {
+    "message": "Henter billedet fra $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Skalering af brugerflade"
-  },
-  "tabNameLabel": {
-    "message": "Fanens navn"
-  },
-  "tabFaviconLabel": {
-    "message": "Faneikon"
-  },
+
   "customColorTitle": {
     "message": "Brugerdefineret farve"
   },
-  "visualSearchTitle": {
-    "message": "Visuel søgning"
+  "wizardAccentLabel": {
+    "message": "Accentfarve"
   },
-  "visualSearchDragText": {
-    "message": "Træk et billede hertil eller"
-  },
-  "visualSearchUploadLink": {
-    "message": "Upload en fil"
-  },
-  "visualSearchDivider": {
-    "message": "eller"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Indsæt billedlink"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Søgning"
-  },
-  "styleNone": {
-    "message": "Ingen"
-  },
-  "displayTitle": {
-    "message": "Visning"
-  },
+
   "displayGreeting": {
     "message": "Hilsen"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Tid og dato"
-  },
-  "displayScaleLabel": {
-    "message": "Skærmskalering"
   },
   "emojiTypeLabel": {
     "message": "Emoji-type"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Ugedag"
   },
-  "weatherTitle": {
-    "message": "Vejr"
-  },
-  "locationLabel": {
-    "message": "Placering"
-  },
-  "useFahrenheitLabel": {
-    "message": "Brug fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Vejrvarsler"
-  },
-  "shortcutsTitle": {
-    "message": "Genveje"
-  },
-  "enableFoldersLabel": {
-    "message": "Aktivér mapper"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Skjul navne"
-  },
-  "folderIconHelp": {
-    "message": "Find tilpassede mappeikoner på:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Hjørneradius"
-  },
-  "rows1": {
-    "message": "1 række"
-  },
-  "rows2": {
-    "message": "2 rækker"
-  },
-  "rows3": {
-    "message": "3 rækker"
-  },
-  "rows4": {
-    "message": "4 rækker"
-  },
-  "appLauncherTitle": {
-    "message": "App-starter"
-  },
-  "searchTitle": {
-    "message": "Søgning"
-  },
-  "searchStyleFull": {
-    "message": "Fuld bredde"
-  },
-  "searchStyleCompact": {
-    "message": "Kompakt"
-  },
-  "suggestionsOption": {
-    "message": "Søgeforslag"
-  },
-  "clearSearchOption": {
-    "message": "Ren søgning (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Stemmesøgning"
-  },
-  "visualSearchOption": {
-    "message": "Visuel søgning"
-  },
-  "askAiOption": {
-    "message": "Spørg AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Tilgængelighed"
-  },
-  "reduceMotionTitle": {
-    "message": "Reducer bevægelse"
-  },
-  "languageTitle": {
-    "message": "Sprog"
-  },
-  "backupTitle": {
-    "message": "Sikkerhedskopiering"
-  },
-  "exportOption": {
-    "message": "Eksportér"
-  },
-  "importOption": {
-    "message": "Importér"
-  },
-  "addFolderTitle": {
-    "message": "Tilføj mappe"
-  },
-  "folderNameLabel": {
-    "message": "Mappenavn"
-  },
-  "editFolderTitle": {
-    "message": "Redigér mappe"
-  },
-  "chooseTypeTitle": {
-    "message": "Opret ny"
-  },
-  "backLabel": {
-    "message": "Tilbage"
-  },
-  "addShortcutTitle": {
-    "message": "Tilføj genvej"
-  },
-  "editShortcutTitle": {
-    "message": "Redigér genvej"
-  },
-  "shortcutNameLabel": {
-    "message": "Mappenavn"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Tilpasset ikon"
-  },
-  "faviconUrlLabel": {
-    "message": "Ikon-URL"
-  },
-  "btnCancel": {
-    "message": "Annullér"
-  },
-  "btnSave": {
-    "message": "Gem"
-  },
-  "searchPlaceholder": {
-    "message": "Søg på nettet"
-  },
-  "namePlaceholder": {
-    "message": "Dit navn (valgfrit)"
-  },
-  "cityPlaceholder": {
-    "message": "Din by"
-  },
-  "addShortcutLabel": {
-    "message": "Tilføj"
-  },
-  "editLabel": {
-    "message": "Redigér"
-  },
-  "removeLabel": {
-    "message": "Fjern"
-  },
-  "moreOptionsLabel": {
-    "message": "Flere indstillinger"
-  },
-  "permissionRequiredTitle": {
-    "message": "Der kræves tilladelse"
-  },
-  "grantPermissionLabel": {
-    "message": "Giv tilladelse"
-  },
-  "learnMoreLabel": {
-    "message": "Læs mere"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Velkommen"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Dit nye Fluent-arbejdsområde er klar. Vælg dit næste trin nedenfor."
-  },
-  "wizardRestoreTitle": {
-    "message": "Gendan indstillinger"
-  },
-  "wizardRestoreDesc": {
-    "message": "Har du en sikkerhedskopifil?"
-  },
-  "wizardStartTitle": {
-    "message": "Start opsætningen"
-  },
-  "wizardStartDesc": {
-    "message": "Kom i gang med et par enkle trin."
-  },
-  "wizardSkipTitle": {
-    "message": "Spring opsætning over"
-  },
-  "wizardThemeAuto": {
-    "message": "System"
-  },
-  "wizardThemeLight": {
-    "message": "Lys"
-  },
-  "wizardThemeDark": {
-    "message": "Mørk"
-  },
-  "wizardSkipDesc": {
-    "message": "Start med en ren opsætning."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stil og udseende"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Indstil dit tema, din accentfarve, dit navn og dit sprog."
-  },
-  "btnBack": {
-    "message": "Tilbage"
-  },
-  "btnNext": {
-    "message": "Fortsæt"
-  },
-  "wizardAccentLabel": {
-    "message": "Accentfarve"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets og værktøjer"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Vælg, hvad der skal vises på din side."
-  },
-  "wizardFinalTitle": {
-    "message": "Du er klar"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Tak, fordi du bruger Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Kom i gang"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Åbn din nye fanebladsside."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Støt projektet"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Hjælp med at holde projektet opdateret."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Kildekode"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Se projektet på GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "For at kunne bruge denne funktion skal Fluent New Tab have tilladelse til at få adgang til \"$API_NAME$\". Dette sikrer dit privatliv og din sikkerhed.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Se ændringsloggen"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Henter billedet fra $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Forstået"
-  },
+
   "weekday_0": {
     "message": "Søndag"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Lørdag"
   },
+
   "greetWeekMorning": {
     "message": "Godmorgen her på $WEEK$en, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Vejr"
+  },
+  "locationLabel": {
+    "message": "Placering"
+  },
+  "useFahrenheitLabel": {
+    "message": "Brug fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Vejrvarsler"
+  },
   "alertTempDrop": {
     "message": "Forventet temperaturfald: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Søgning"
+  },
+  "searchStyleFull": {
+    "message": "Fuld bredde"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Søgeforslag"
+  },
+  "clearSearchOption": {
+    "message": "Ren søgning (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Stemmesøgning"
+  },
+  "visualSearchOption": {
+    "message": "Visuel søgning"
+  },
+  "askAiOption": {
+    "message": "Spørg AI"
+  },
+  "searchPlaceholder": {
+    "message": "Søg på nettet"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visuel søgning"
+  },
+  "visualSearchDragText": {
+    "message": "Træk et billede hertil eller"
+  },
+  "visualSearchUploadLink": {
+    "message": "Upload en fil"
+  },
+  "visualSearchDivider": {
+    "message": "eller"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Indsæt billedlink"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Søgning"
+  },
+
+  "shortcutsTitle": {
+    "message": "Genveje"
+  },
+  "enableFoldersLabel": {
+    "message": "Aktivér mapper"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Skjul navne"
+  },
+  "folderIconHelp": {
+    "message": "Find tilpassede mappeikoner på:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hjørneradius"
+  },
+  "rows1": {
+    "message": "1 række"
+  },
+  "rows2": {
+    "message": "2 rækker"
+  },
+  "rows3": {
+    "message": "3 rækker"
+  },
+  "rows4": {
+    "message": "4 rækker"
+  },
+
+  "addFolderTitle": {
+    "message": "Tilføj mappe"
+  },
+  "folderNameLabel": {
+    "message": "Mappenavn"
+  },
+  "editFolderTitle": {
+    "message": "Redigér mappe"
+  },
+  "chooseTypeTitle": {
+    "message": "Opret ny"
+  },
+  "backLabel": {
+    "message": "Tilbage"
+  },
+  "addShortcutTitle": {
+    "message": "Tilføj genvej"
+  },
+  "editShortcutTitle": {
+    "message": "Redigér genvej"
+  },
+  "shortcutNameLabel": {
+    "message": "Mappenavn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Tilpasset ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Annullér"
+  },
+  "btnSave": {
+    "message": "Gem"
+  },
+  "namePlaceholder": {
+    "message": "Dit navn (valgfrit)"
+  },
+  "cityPlaceholder": {
+    "message": "Din by"
+  },
+  "addShortcutLabel": {
+    "message": "Tilføj"
+  },
+  "editLabel": {
+    "message": "Redigér"
+  },
+  "removeLabel": {
+    "message": "Fjern"
+  },
+  "moreOptionsLabel": {
+    "message": "Flere indstillinger"
+  },
+
+  "styleNone": {
+    "message": "Ingen"
+  },
+  "learnMoreLabel": {
+    "message": "Læs mere"
+  },
+  "warningUnderstood": {
+    "message": "Forstået"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Der kræves tilladelse"
+  },
+  "grantPermissionLabel": {
+    "message": "Giv tilladelse"
+  },
+  "permissionRequiredMessage": {
+    "message": "For at kunne bruge denne funktion skal Fluent New Tab have tilladelse til at få adgang til \"$API_NAME$\". Dette sikrer dit privatliv og din sikkerhed.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Se ændringsloggen"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Velkommen"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Dit nye Fluent-arbejdsområde er klar. Vælg dit næste trin nedenfor."
+  },
+  "wizardRestoreTitle": {
+    "message": "Gendan indstillinger"
+  },
+  "wizardRestoreDesc": {
+    "message": "Har du en sikkerhedskopifil?"
+  },
+  "wizardStartTitle": {
+    "message": "Start opsætningen"
+  },
+  "wizardStartDesc": {
+    "message": "Kom i gang med et par enkle trin."
+  },
+  "wizardSkipTitle": {
+    "message": "Spring opsætning over"
+  },
+  "wizardSkipDesc": {
+    "message": "Start med en ren opsætning."
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Lys"
+  },
+  "wizardThemeDark": {
+    "message": "Mørk"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil og udseende"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Indstil dit tema, din accentfarve, dit navn og dit sprog."
+  },
+  "btnBack": {
+    "message": "Tilbage"
+  },
+  "btnNext": {
+    "message": "Fortsæt"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets og værktøjer"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Vælg, hvad der skal vises på din side."
+  },
+  "wizardFinalTitle": {
+    "message": "Du er klar"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Tak, fordi du bruger Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Kom i gang"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Åbn din nye fanebladsside."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Støt projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hjælp med at holde projektet opdateret."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kildekode"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Se projektet på GitHub."
   }
 }

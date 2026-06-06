@@ -5,9 +5,51 @@
   "moreApps": {
     "message": "Más aplicaciones"
   },
+  "appLauncherTitle": {
+    "message": "Lanzador de aplicaciones"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Nombre de la pestaña"
+  },
+  "tabFaviconLabel": {
+    "message": "Icono de pestaña"
+  },
+
   "settingsTitle": {
     "message": "Configuración"
   },
+  "appearanceTitle": {
+    "message": "Apariencia"
+  },
+  "displayTitle": {
+    "message": "Pantalla"
+  },
+  "displayScaleLabel": {
+    "message": "Ajustar el tamaño de la pantalla"
+  },
+  "AccessibilityTitle": {
+    "message": "Accesibilidad"
+  },
+  "reduceMotionTitle": {
+    "message": "Reducir el movimiento"
+  },
+  "languageTitle": {
+    "message": "Idioma"
+  },
+  "backupTitle": {
+    "message": "Copia de seguridad de datos"
+  },
+  "exportOption": {
+    "message": "Exportar"
+  },
+  "importOption": {
+    "message": "Importar"
+  },
+
   "wallpaperTitle": {
     "message": "Fondo de pantalla"
   },
@@ -17,39 +59,21 @@
   "uploadBtnText": {
     "message": "Subir"
   },
-  "wallpaperSourceLabel": {
-    "message": "Fuente de la imagen"
-  },
-  "nosourceOption": {
-    "message": "Sin fuente"
-  },
   "overlayLabel": {
     "message": "Superposición de imágenes"
   },
   "surfaceTintLabel": {
     "message": "Tinte de superficie"
   },
-  "appearanceTitle": {
-    "message": "Apariencia"
+  "fetchingImagePlaceholder": {
+    "message": "Cargando la imagen de $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "accentWallpaperOption": {
-    "message": "Extraer del fondo de pantalla"
-  },
-  "tabNameLabel": {
-    "message": "Nombre de la pestaña"
-  },
-  "tabFaviconLabel": {
-    "message": "Icono de pestaña"
-  },
-  "styleNone": {
-    "message": "Ninguno"
-  },
-  "iconsStyleLabel": {
-    "message": "Estilo de icono"
-  },
-  "displayTitle": {
-    "message": "Pantalla"
-  },
+
   "displayGreeting": {
     "message": "Saludo"
   },
@@ -61,9 +85,6 @@
   },
   "displayAdvanced": {
     "message": "Hora y fecha"
-  },
-  "displayScaleLabel": {
-    "message": "Ajustar el tamaño de la pantalla"
   },
   "showSecondsLabel": {
     "message": "Mostrar segundos"
@@ -83,53 +104,38 @@
   "dateWeekday": {
     "message": "Día laborable"
   },
+
+  "weekday_0": {
+    "message": "Domingo"
+  },
+  "weekday_1": {
+    "message": "Lunes"
+  },
+  "weekday_2": {
+    "message": "Martes"
+  },
+  "weekday_3": {
+    "message": "Miércoles"
+  },
+  "weekday_4": {
+    "message": "Jueves"
+  },
+  "weekday_5": {
+    "message": "Viernes"
+  },
+  "weekday_6": {
+    "message": "Sábado"
+  },
+
   "weatherTitle": {
     "message": "Clima"
   },
   "useFahrenheitLabel": {
     "message": "Utiliza grados Fahrenheit"
   },
-  "shortcutsTitle": {
-    "message": "Atajos"
-  },
-  "enableFoldersLabel": {
-    "message": "Habilitar carpetas"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Ocultar nombres"
-  },
-  "folderIconHelp": {
-    "message": "Encuentra iconos personalizados para carpetas en"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Radio de la curva"
-  },
-  "rows1": {
-    "message": "1 fila"
-  },
-  "rows2": {
-    "message": "2 filas"
-  },
-  "rowsLabel": {
-    "message": "Filas"
-  },
-  "rows3": {
-    "message": "3 filas"
-  },
-  "rows4": {
-    "message": "4 filas"
-  },
-  "appLauncherTitle": {
-    "message": "Lanzador de aplicaciones"
-  },
-  "ecosystemLabel": {
-    "message": "Ecosistema"
-  },
+
   "searchTitle": {
     "message": "Buscar"
-  },
-  "searchBarStyleLabe": {
-    "message": "Estilo de la barra de búsqueda"
   },
   "searchStyleFull": {
     "message": "A todo lo ancho"
@@ -152,30 +158,38 @@
   "askAiOption": {
     "message": "Pregúntale a la IA"
   },
-  "AccessibilityTitle": {
-    "message": "Accesibilidad"
+  "searchPlaceholder": {
+    "message": "Buscar en la web"
   },
-  "reduceMotionTitle": {
-    "message": "Reducir el movimiento"
+
+  "shortcutsTitle": {
+    "message": "Atajos"
   },
-  "reduceBlurOption": {
-    "message": "Reducir el desenfoque"
+  "enableFoldersLabel": {
+    "message": "Habilitar carpetas"
   },
-  "languageTitle": {
-    "message": "Idioma"
+  "hideShortcutNamesLabel": {
+    "message": "Ocultar nombres"
   },
-  "interfaceLanguageLabel": {
-    "message": "Idioma de la interfaz"
+  "folderIconHelp": {
+    "message": "Encuentra iconos personalizados para carpetas en"
   },
-  "backupTitle": {
-    "message": "Copia de seguridad de datos"
+  "shortcutRadiusLabel": {
+    "message": "Radio de la curva"
   },
-  "exportOption": {
-    "message": "Exportar"
+  "rows1": {
+    "message": "1 fila"
   },
-  "importOption": {
-    "message": "Importar"
+  "rows2": {
+    "message": "2 filas"
   },
+  "rows3": {
+    "message": "3 filas"
+  },
+  "rows4": {
+    "message": "4 filas"
+  },
+
   "addFolderTitle": {
     "message": "Añadir carpeta"
   },
@@ -215,9 +229,6 @@
   "btnSave": {
     "message": "Guardar"
   },
-  "searchPlaceholder": {
-    "message": "Buscar en la web"
-  },
   "namePlaceholder": {
     "message": "Tu nombre (opcional)"
   },
@@ -236,14 +247,22 @@
   "moreOptionsLabel": {
     "message": "Más opciones"
   },
+
+  "styleNone": {
+    "message": "Ninguno"
+  },
+  "learnMoreLabel": {
+    "message": "Más información"
+  },
+  "warningUnderstood": {
+    "message": "Entendido"
+  },
+
   "permissionRequiredTitle": {
     "message": "Se requiere permiso"
   },
   "grantPermissionLabel": {
     "message": "Conceder permiso"
-  },
-  "learnMoreLabel": {
-    "message": "Más información"
   },
   "permissionRequiredMessage": {
     "reauthNoticeTitle": {
@@ -257,6 +276,7 @@
       }
     }
   },
+
   "updateNoticePrefix": {
     "message": "Fluent New Tab se ha actualizado a la versión $VERSION$. ",
     "placeholders": {
@@ -269,13 +289,33 @@
   "updateNoticeChangelog": {
     "message": "Ver registro de cambios"
   },
-  "fetchingImagePlaceholder": {
-    "message": "Cargando la imagen de $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
+
+  "wallpaperSourceLabel": {
+    "message": "Fuente de la imagen"
+  },
+  "nosourceOption": {
+    "message": "Sin fuente"
+  },
+  "accentWallpaperOption": {
+    "message": "Extraer del fondo de pantalla"
+  },
+  "iconsStyleLabel": {
+    "message": "Estilo de icono"
+  },
+  "rowsLabel": {
+    "message": "Filas"
+  },
+  "ecosystemLabel": {
+    "message": "Ecosistema"
+  },
+  "searchBarStyleLabe": {
+    "message": "Estilo de la barra de búsqueda"
+  },
+  "reduceBlurOption": {
+    "message": "Reducir el desenfoque"
+  },
+  "interfaceLanguageLabel": {
+    "message": "Idioma de la interfaz"
   },
   "warningDeleteFolderTitle": {
     "message": "Eliminar carpeta"
@@ -370,31 +410,7 @@
   "warningInvalidBackupMessage": {
     "message": "El archivo seleccionado no es una copia de seguridad válida."
   },
-  "warningUnderstood": {
-    "message": "Entendido"
-  },
   "warningClose": {
     "message": "Cerrar"
-  },
-  "weekday_0": {
-    "message": "Domingo"
-  },
-  "weekday_1": {
-    "message": "Lunes"
-  },
-  "weekday_2": {
-    "message": "Martes"
-  },
-  "weekday_3": {
-    "message": "Miércoles"
-  },
-  "weekday_4": {
-    "message": "Jueves"
-  },
-  "weekday_5": {
-    "message": "Viernes"
-  },
-  "weekday_6": {
-    "message": "Sábado"
   }
 }

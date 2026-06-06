@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "更多應用程式"
   },
+  "appLauncherTitle": {
+    "message": "應用程式啟動器"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "標籤名稱"
+  },
+  "tabFaviconLabel": {
+    "message": "標籤圖示"
+  },
+
   "settingsTitle": {
     "message": "設定"
   },
+  "appearanceTitle": {
+    "message": "外觀"
+  },
+  "mainUiScaleLabel": {
+    "message": "主介面縮放"
+  },
+  "displayTitle": {
+    "message": "顯示"
+  },
+  "displayScaleLabel": {
+    "message": "顯示縮放"
+  },
+  "AccessibilityTitle": {
+    "message": "無障礙"
+  },
+  "reduceMotionTitle": {
+    "message": "減少動態效果"
+  },
+  "languageTitle": {
+    "message": "語言"
+  },
+  "backupTitle": {
+    "message": "資料備份"
+  },
+  "exportOption": {
+    "message": "匯出"
+  },
+  "importOption": {
+    "message": "匯入"
+  },
+
   "wallpaperTitle": {
     "message": "桌布"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "表面色調"
   },
-  "appearanceTitle": {
-    "message": "外觀"
+  "fetchingImagePlaceholder": {
+    "message": "正在載入 $SOURCE$ 圖片...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "主介面縮放"
-  },
-  "tabNameLabel": {
-    "message": "標籤名稱"
-  },
-  "tabFaviconLabel": {
-    "message": "標籤圖示"
-  },
+
   "customColorTitle": {
     "message": "自訂顏色"
   },
-  "visualSearchTitle": {
-    "message": "視覺搜尋"
+  "wizardAccentLabel": {
+    "message": "強調色彩"
   },
-  "visualSearchDragText": {
-    "message": "將圖片拖曳至此處，或"
-  },
-  "visualSearchUploadLink": {
-    "message": "上傳檔案"
-  },
-  "visualSearchDivider": {
-    "message": "或"
-  },
-  "visualSearchPasteUrl": {
-    "message": "貼上圖片連結"
-  },
-  "visualSearchSearchBtn": {
-    "message": "搜尋"
-  },
-  "styleNone": {
-    "message": "無"
-  },
-  "displayTitle": {
-    "message": "顯示"
-  },
+
   "displayGreeting": {
     "message": "問候語"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "時間與日期"
-  },
-  "displayScaleLabel": {
-    "message": "顯示縮放"
   },
   "emojiTypeLabel": {
     "message": "表情符號類型"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "星期"
   },
-  "weatherTitle": {
-    "message": "天氣"
-  },
-  "locationLabel": {
-    "message": "地點"
-  },
-  "useFahrenheitLabel": {
-    "message": "使用華氏度"
-  },
-  "weatherAlertsLabel": {
-    "message": "天氣警報"
-  },
-  "shortcutsTitle": {
-    "message": "捷徑"
-  },
-  "enableFoldersLabel": {
-    "message": "啟用資料夾"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "隱藏名稱"
-  },
-  "folderIconHelp": {
-    "message": "在以下位置尋找自訂資料夾圖示："
-  },
-  "shortcutRadiusLabel": {
-    "message": "圓角半徑"
-  },
-  "rows1": {
-    "message": "1 列"
-  },
-  "rows2": {
-    "message": "2 列"
-  },
-  "rows3": {
-    "message": "3 列"
-  },
-  "rows4": {
-    "message": "4 列"
-  },
-  "appLauncherTitle": {
-    "message": "應用程式啟動器"
-  },
-  "searchTitle": {
-    "message": "搜尋"
-  },
-  "searchStyleFull": {
-    "message": "全寬"
-  },
-  "searchStyleCompact": {
-    "message": "精簡"
-  },
-  "suggestionsOption": {
-    "message": "搜尋建議"
-  },
-  "clearSearchOption": {
-    "message": "簡易搜尋 (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "語音搜尋"
-  },
-  "visualSearchOption": {
-    "message": "視覺搜尋"
-  },
-  "askAiOption": {
-    "message": "詢問 AI"
-  },
-  "AccessibilityTitle": {
-    "message": "無障礙"
-  },
-  "reduceMotionTitle": {
-    "message": "減少動態效果"
-  },
-  "languageTitle": {
-    "message": "語言"
-  },
-  "backupTitle": {
-    "message": "資料備份"
-  },
-  "exportOption": {
-    "message": "匯出"
-  },
-  "importOption": {
-    "message": "匯入"
-  },
-  "addFolderTitle": {
-    "message": "新增資料夾"
-  },
-  "folderNameLabel": {
-    "message": "名稱"
-  },
-  "editFolderTitle": {
-    "message": "編輯資料夾"
-  },
-  "chooseTypeTitle": {
-    "message": "建立新項目"
-  },
-  "backLabel": {
-    "message": "返回"
-  },
-  "addShortcutTitle": {
-    "message": "新增捷徑"
-  },
-  "editShortcutTitle": {
-    "message": "編輯捷徑"
-  },
-  "shortcutNameLabel": {
-    "message": "名稱"
-  },
-  "shortcutUrlLabel": {
-    "message": "網址"
-  },
-  "addFaviconLabel": {
-    "message": "自訂圖示"
-  },
-  "faviconUrlLabel": {
-    "message": "圖示網址"
-  },
-  "btnCancel": {
-    "message": "取消"
-  },
-  "btnSave": {
-    "message": "儲存"
-  },
-  "searchPlaceholder": {
-    "message": "搜尋網頁"
-  },
-  "namePlaceholder": {
-    "message": "您的稱呼（選填）"
-  },
-  "cityPlaceholder": {
-    "message": "您的城市"
-  },
-  "addShortcutLabel": {
-    "message": "新增"
-  },
-  "editLabel": {
-    "message": "編輯"
-  },
-  "removeLabel": {
-    "message": "移除"
-  },
-  "moreOptionsLabel": {
-    "message": "更多選項"
-  },
-  "permissionRequiredTitle": {
-    "message": "需要權限"
-  },
-  "grantPermissionLabel": {
-    "message": "授予權限"
-  },
-  "learnMoreLabel": {
-    "message": "了解更多"
-  },
-  "wizardWelcomeTitle": {
-    "message": "歡迎回來"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "您嶄新的 Fluent 工作區已準備就緒。請在下方選擇您的下一步。"
-  },
-  "wizardRestoreTitle": {
-    "message": "還原設定"
-  },
-  "wizardRestoreDesc": {
-    "message": "您有備份檔案嗎？"
-  },
-  "wizardStartTitle": {
-    "message": "開始設定"
-  },
-  "wizardStartDesc": {
-    "message": "只需幾個步驟即可完成設定。"
-  },
-  "wizardSkipTitle": {
-    "message": "略過設定"
-  },
-  "wizardThemeAuto": {
-    "message": "系統預設"
-  },
-  "wizardThemeLight": {
-    "message": "淺色"
-  },
-  "wizardThemeDark": {
-    "message": "深色"
-  },
-  "wizardSkipDesc": {
-    "message": "以純淨狀態開始使用。"
-  },
-  "wizardAppearanceTitle": {
-    "message": "樣式與外觀"
-  },
-  "wizardAppearanceDesc": {
-    "message": "設定您的佈景主題、強調色彩、稱呼及語言。"
-  },
-  "btnBack": {
-    "message": "返回"
-  },
-  "btnNext": {
-    "message": "繼續"
-  },
-  "wizardAccentLabel": {
-    "message": "強調色彩"
-  },
-  "wizardWidgetsTitle": {
-    "message": "小工具與實用程式"
-  },
-  "wizardWidgetsDesc": {
-    "message": "選擇要在頁面上顯示的內容。"
-  },
-  "wizardFinalTitle": {
-    "message": "一切就緒"
-  },
-  "wizardFinalSubtitle": {
-    "message": "感謝您使用 Fluent New Tab！"
-  },
-  "wizardFinalStartTitle": {
-    "message": "開始使用"
-  },
-  "wizardFinalStartDesc": {
-    "message": "開啟您的新分頁。"
-  },
-  "wizardFinalSupportTitle": {
-    "message": "支持這個專案"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "請協助保持專案內容的更新。"
-  },
-  "wizardFinalGithubTitle": {
-    "message": "原始碼"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "在 GitHub 上查看此專案。"
-  },
-  "permissionRequiredMessage": {
-    "message": "若要使用此功能，Fluent New Tab 需要獲取存取「$API_NAME$」的權限。此舉旨在保障您的隱私與安全。",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab 已更新至版本 $VERSION$。",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "查看變更記錄"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "正在載入 $SOURCE$ 圖片...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "我知道了"
-  },
+
   "weekday_0": {
     "message": "星期日"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "星期六"
   },
+
   "greetWeekMorning": {
     "message": "$NAME$，祝您有個美好的$WEEK$！",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "天氣"
+  },
+  "locationLabel": {
+    "message": "地點"
+  },
+  "useFahrenheitLabel": {
+    "message": "使用華氏度"
+  },
+  "weatherAlertsLabel": {
+    "message": "天氣警報"
+  },
   "alertTempDrop": {
     "message": "預計氣溫下降：$VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "搜尋"
+  },
+  "searchStyleFull": {
+    "message": "全寬"
+  },
+  "searchStyleCompact": {
+    "message": "精簡"
+  },
+  "suggestionsOption": {
+    "message": "搜尋建議"
+  },
+  "clearSearchOption": {
+    "message": "簡易搜尋 (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "語音搜尋"
+  },
+  "visualSearchOption": {
+    "message": "視覺搜尋"
+  },
+  "askAiOption": {
+    "message": "詢問 AI"
+  },
+  "searchPlaceholder": {
+    "message": "搜尋網頁"
+  },
+
+  "visualSearchTitle": {
+    "message": "視覺搜尋"
+  },
+  "visualSearchDragText": {
+    "message": "將圖片拖曳至此處，或"
+  },
+  "visualSearchUploadLink": {
+    "message": "上傳檔案"
+  },
+  "visualSearchDivider": {
+    "message": "或"
+  },
+  "visualSearchPasteUrl": {
+    "message": "貼上圖片連結"
+  },
+  "visualSearchSearchBtn": {
+    "message": "搜尋"
+  },
+
+  "shortcutsTitle": {
+    "message": "捷徑"
+  },
+  "enableFoldersLabel": {
+    "message": "啟用資料夾"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "隱藏名稱"
+  },
+  "folderIconHelp": {
+    "message": "在以下位置尋找自訂資料夾圖示："
+  },
+  "shortcutRadiusLabel": {
+    "message": "圓角半徑"
+  },
+  "rows1": {
+    "message": "1 列"
+  },
+  "rows2": {
+    "message": "2 列"
+  },
+  "rows3": {
+    "message": "3 列"
+  },
+  "rows4": {
+    "message": "4 列"
+  },
+
+  "addFolderTitle": {
+    "message": "新增資料夾"
+  },
+  "folderNameLabel": {
+    "message": "名稱"
+  },
+  "editFolderTitle": {
+    "message": "編輯資料夾"
+  },
+  "chooseTypeTitle": {
+    "message": "建立新項目"
+  },
+  "backLabel": {
+    "message": "返回"
+  },
+  "addShortcutTitle": {
+    "message": "新增捷徑"
+  },
+  "editShortcutTitle": {
+    "message": "編輯捷徑"
+  },
+  "shortcutNameLabel": {
+    "message": "名稱"
+  },
+  "shortcutUrlLabel": {
+    "message": "網址"
+  },
+  "addFaviconLabel": {
+    "message": "自訂圖示"
+  },
+  "faviconUrlLabel": {
+    "message": "圖示網址"
+  },
+  "btnCancel": {
+    "message": "取消"
+  },
+  "btnSave": {
+    "message": "儲存"
+  },
+  "namePlaceholder": {
+    "message": "您的稱呼（選填）"
+  },
+  "cityPlaceholder": {
+    "message": "您的城市"
+  },
+  "addShortcutLabel": {
+    "message": "新增"
+  },
+  "editLabel": {
+    "message": "編輯"
+  },
+  "removeLabel": {
+    "message": "移除"
+  },
+  "moreOptionsLabel": {
+    "message": "更多選項"
+  },
+
+  "styleNone": {
+    "message": "無"
+  },
+  "learnMoreLabel": {
+    "message": "了解更多"
+  },
+  "warningUnderstood": {
+    "message": "我知道了"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "需要權限"
+  },
+  "grantPermissionLabel": {
+    "message": "授予權限"
+  },
+  "permissionRequiredMessage": {
+    "message": "若要使用此功能，Fluent New Tab 需要獲取存取「$API_NAME$」的權限。此舉旨在保障您的隱私與安全。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab 已更新至版本 $VERSION$。",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "查看變更記錄"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "歡迎回來"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "您嶄新的 Fluent 工作區已準備就緒。請在下方選擇您的下一步。"
+  },
+  "wizardRestoreTitle": {
+    "message": "還原設定"
+  },
+  "wizardRestoreDesc": {
+    "message": "您有備份檔案嗎？"
+  },
+  "wizardStartTitle": {
+    "message": "開始設定"
+  },
+  "wizardStartDesc": {
+    "message": "只需幾個步驟即可完成設定。"
+  },
+  "wizardSkipTitle": {
+    "message": "略過設定"
+  },
+  "wizardSkipDesc": {
+    "message": "以純淨狀態開始使用。"
+  },
+  "wizardThemeAuto": {
+    "message": "系統預設"
+  },
+  "wizardThemeLight": {
+    "message": "淺色"
+  },
+  "wizardThemeDark": {
+    "message": "深色"
+  },
+  "wizardAppearanceTitle": {
+    "message": "樣式與外觀"
+  },
+  "wizardAppearanceDesc": {
+    "message": "設定您的佈景主題、強調色彩、稱呼及語言。"
+  },
+  "btnBack": {
+    "message": "返回"
+  },
+  "btnNext": {
+    "message": "繼續"
+  },
+  "wizardWidgetsTitle": {
+    "message": "小工具與實用程式"
+  },
+  "wizardWidgetsDesc": {
+    "message": "選擇要在頁面上顯示的內容。"
+  },
+  "wizardFinalTitle": {
+    "message": "一切就緒"
+  },
+  "wizardFinalSubtitle": {
+    "message": "感謝您使用 Fluent New Tab！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "開始使用"
+  },
+  "wizardFinalStartDesc": {
+    "message": "開啟您的新分頁。"
+  },
+  "wizardFinalSupportTitle": {
+    "message": "支持這個專案"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "請協助保持專案內容的更新。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "原始碼"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "在 GitHub 上查看此專案。"
   }
 }

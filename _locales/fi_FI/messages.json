@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Lisää sovelluksia"
   },
+  "appLauncherTitle": {
+    "message": "Sovelluskäynnistin"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Välilehden nimi"
+  },
+  "tabFaviconLabel": {
+    "message": "Välilehtikuvake"
+  },
+
   "settingsTitle": {
     "message": "Asetukset"
   },
+  "appearanceTitle": {
+    "message": "Ulkonäkö"
+  },
+  "mainUiScaleLabel": {
+    "message": "Käyttöliittymän skaalaus"
+  },
+  "displayTitle": {
+    "message": "Näyttö"
+  },
+  "displayScaleLabel": {
+    "message": "Näytön skaalaus"
+  },
+  "AccessibilityTitle": {
+    "message": "Esteettömyys"
+  },
+  "reduceMotionTitle": {
+    "message": "Vähennä liikettä"
+  },
+  "languageTitle": {
+    "message": "Kieli"
+  },
+  "backupTitle": {
+    "message": "Tietojen varmuuskopiointi"
+  },
+  "exportOption": {
+    "message": "Vie"
+  },
+  "importOption": {
+    "message": "Tuo"
+  },
+
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Pintasävy"
   },
-  "appearanceTitle": {
-    "message": "Ulkonäkö"
+  "fetchingImagePlaceholder": {
+    "message": "Haetaan kuvaa osoitteesta $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Käyttöliittymän skaalaus"
-  },
-  "tabNameLabel": {
-    "message": "Välilehden nimi"
-  },
-  "tabFaviconLabel": {
-    "message": "Välilehtikuvake"
-  },
+
   "customColorTitle": {
     "message": "Mukautettu väri"
   },
-  "visualSearchTitle": {
-    "message": "Visuaalinen haku"
+  "wizardAccentLabel": {
+    "message": "Korostusväri"
   },
-  "visualSearchDragText": {
-    "message": "Vedä kuva tähän tai"
-  },
-  "visualSearchUploadLink": {
-    "message": "lataa tiedosto"
-  },
-  "visualSearchDivider": {
-    "message": "tai"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Liitä kuvan linkki"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Haku"
-  },
-  "styleNone": {
-    "message": "Ei mitään"
-  },
-  "displayTitle": {
-    "message": "Näyttö"
-  },
+
   "displayGreeting": {
     "message": "Tervehdys"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Aika ja päivämäärä"
-  },
-  "displayScaleLabel": {
-    "message": "Näytön skaalaus"
   },
   "emojiTypeLabel": {
     "message": "Emoji-tyyppi"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Viikonpäivä"
   },
-  "weatherTitle": {
-    "message": "Sää"
-  },
-  "locationLabel": {
-    "message": "Sijainti"
-  },
-  "useFahrenheitLabel": {
-    "message": "Käytä Fahrenheiteja"
-  },
-  "weatherAlertsLabel": {
-    "message": "Säähälytykset"
-  },
-  "shortcutsTitle": {
-    "message": "Pikakuvakkeet"
-  },
-  "enableFoldersLabel": {
-    "message": "Ota kansiot käyttöön"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Piilota nimet"
-  },
-  "folderIconHelp": {
-    "message": "Hae mukautettuja kansiokuvakkeita:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Kulmien pyöristys"
-  },
-  "rows1": {
-    "message": "1 rivi"
-  },
-  "rows2": {
-    "message": "2 riviä"
-  },
-  "rows3": {
-    "message": "3 riviä"
-  },
-  "rows4": {
-    "message": "4 riviä"
-  },
-  "appLauncherTitle": {
-    "message": "Sovelluskäynnistin"
-  },
-  "searchTitle": {
-    "message": "Haku"
-  },
-  "searchStyleFull": {
-    "message": "Koko leveys"
-  },
-  "searchStyleCompact": {
-    "message": "Kompakti"
-  },
-  "suggestionsOption": {
-    "message": "Hakuehdotukset"
-  },
-  "clearSearchOption": {
-    "message": "Puhdas haku (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Äänihaku"
-  },
-  "visualSearchOption": {
-    "message": "Visuaalinen haku"
-  },
-  "askAiOption": {
-    "message": "Kysy tekoälyltä"
-  },
-  "AccessibilityTitle": {
-    "message": "Esteettömyys"
-  },
-  "reduceMotionTitle": {
-    "message": "Vähennä liikettä"
-  },
-  "languageTitle": {
-    "message": "Kieli"
-  },
-  "backupTitle": {
-    "message": "Tietojen varmuuskopiointi"
-  },
-  "exportOption": {
-    "message": "Vie"
-  },
-  "importOption": {
-    "message": "Tuo"
-  },
-  "addFolderTitle": {
-    "message": "Lisää kansio"
-  },
-  "folderNameLabel": {
-    "message": "Kansion nimi"
-  },
-  "editFolderTitle": {
-    "message": "Muokkaa kansiota"
-  },
-  "chooseTypeTitle": {
-    "message": "Luo uusi"
-  },
-  "backLabel": {
-    "message": "Takaisin"
-  },
-  "addShortcutTitle": {
-    "message": "Lisää pikakuvake"
-  },
-  "editShortcutTitle": {
-    "message": "Muokkaa pikakuvaketta"
-  },
-  "shortcutNameLabel": {
-    "message": "Kansion nimi"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL-osoite"
-  },
-  "addFaviconLabel": {
-    "message": "Mukautettu kuvake"
-  },
-  "faviconUrlLabel": {
-    "message": "Kuvakkeen URL-osoite"
-  },
-  "btnCancel": {
-    "message": "Peruuta"
-  },
-  "btnSave": {
-    "message": "Tallenna"
-  },
-  "searchPlaceholder": {
-    "message": "Hae verkosta"
-  },
-  "namePlaceholder": {
-    "message": "Nimesi (valinnainen)"
-  },
-  "cityPlaceholder": {
-    "message": "Kaupunkisi"
-  },
-  "addShortcutLabel": {
-    "message": "Lisää"
-  },
-  "editLabel": {
-    "message": "Muokkaa"
-  },
-  "removeLabel": {
-    "message": "Poista"
-  },
-  "moreOptionsLabel": {
-    "message": "Lisää vaihtoehtoja"
-  },
-  "permissionRequiredTitle": {
-    "message": "Lupa vaaditaan"
-  },
-  "grantPermissionLabel": {
-    "message": "Myönnä lupa"
-  },
-  "learnMoreLabel": {
-    "message": "Lisätietoja"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Tervetuloa"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Uusi Fluent-työtilasi on valmis. Valitse seuraava askel alta."
-  },
-  "wizardRestoreTitle": {
-    "message": "Palauta asetukset"
-  },
-  "wizardRestoreDesc": {
-    "message": "Onko sinulla varmuuskopiotiedosto?"
-  },
-  "wizardStartTitle": {
-    "message": "Aloita asennus"
-  },
-  "wizardStartDesc": {
-    "message": "Aloita muutamalla vaiheella."
-  },
-  "wizardSkipTitle": {
-    "message": "Ohita asennus"
-  },
-  "wizardThemeAuto": {
-    "message": "Järjestelmä"
-  },
-  "wizardThemeLight": {
-    "message": "Vaalea"
-  },
-  "wizardThemeDark": {
-    "message": "Tumma"
-  },
-  "wizardSkipDesc": {
-    "message": "Aloita puhtaalta pöydältä."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Tyyli ja ulkonäkö"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Aseta teema, korostusväri, nimi ja kieli."
-  },
-  "btnBack": {
-    "message": "Takaisin"
-  },
-  "btnNext": {
-    "message": "Jatka"
-  },
-  "wizardAccentLabel": {
-    "message": "Korostusväri"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Pienoisohjelmat ja työkalut"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Valitse, mitä sivullasi näkyy."
-  },
-  "wizardFinalTitle": {
-    "message": "Kaikki valmiina"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Kiitos, että käytät Fluent New Tabia!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Aloita käyttö"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Avaa uusi välilehti."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Tue hanketta"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Auta pitämään projekti ajan tasalla."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Lähdekoodi"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Katso projekti GitHubissa."
-  },
-  "permissionRequiredMessage": {
-    "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Katso muutosloki"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Haetaan kuvaa osoitteesta $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Selvä"
-  },
+
   "weekday_0": {
     "message": "Sunnuntai"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Lauantai"
   },
+
   "greetWeekMorning": {
     "message": "Tänään on $WEEK$. Mukavaa päivää, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Sää"
+  },
+  "locationLabel": {
+    "message": "Sijainti"
+  },
+  "useFahrenheitLabel": {
+    "message": "Käytä Fahrenheiteja"
+  },
+  "weatherAlertsLabel": {
+    "message": "Säähälytykset"
+  },
   "alertTempDrop": {
     "message": "Lämpötilan odotetaan laskevan: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Haku"
+  },
+  "searchStyleFull": {
+    "message": "Koko leveys"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakti"
+  },
+  "suggestionsOption": {
+    "message": "Hakuehdotukset"
+  },
+  "clearSearchOption": {
+    "message": "Puhdas haku (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Äänihaku"
+  },
+  "visualSearchOption": {
+    "message": "Visuaalinen haku"
+  },
+  "askAiOption": {
+    "message": "Kysy tekoälyltä"
+  },
+  "searchPlaceholder": {
+    "message": "Hae verkosta"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visuaalinen haku"
+  },
+  "visualSearchDragText": {
+    "message": "Vedä kuva tähän tai"
+  },
+  "visualSearchUploadLink": {
+    "message": "lataa tiedosto"
+  },
+  "visualSearchDivider": {
+    "message": "tai"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Liitä kuvan linkki"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Haku"
+  },
+
+  "shortcutsTitle": {
+    "message": "Pikakuvakkeet"
+  },
+  "enableFoldersLabel": {
+    "message": "Ota kansiot käyttöön"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Piilota nimet"
+  },
+  "folderIconHelp": {
+    "message": "Hae mukautettuja kansiokuvakkeita:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Kulmien pyöristys"
+  },
+  "rows1": {
+    "message": "1 rivi"
+  },
+  "rows2": {
+    "message": "2 riviä"
+  },
+  "rows3": {
+    "message": "3 riviä"
+  },
+  "rows4": {
+    "message": "4 riviä"
+  },
+
+  "addFolderTitle": {
+    "message": "Lisää kansio"
+  },
+  "folderNameLabel": {
+    "message": "Kansion nimi"
+  },
+  "editFolderTitle": {
+    "message": "Muokkaa kansiota"
+  },
+  "chooseTypeTitle": {
+    "message": "Luo uusi"
+  },
+  "backLabel": {
+    "message": "Takaisin"
+  },
+  "addShortcutTitle": {
+    "message": "Lisää pikakuvake"
+  },
+  "editShortcutTitle": {
+    "message": "Muokkaa pikakuvaketta"
+  },
+  "shortcutNameLabel": {
+    "message": "Kansion nimi"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL-osoite"
+  },
+  "addFaviconLabel": {
+    "message": "Mukautettu kuvake"
+  },
+  "faviconUrlLabel": {
+    "message": "Kuvakkeen URL-osoite"
+  },
+  "btnCancel": {
+    "message": "Peruuta"
+  },
+  "btnSave": {
+    "message": "Tallenna"
+  },
+  "namePlaceholder": {
+    "message": "Nimesi (valinnainen)"
+  },
+  "cityPlaceholder": {
+    "message": "Kaupunkisi"
+  },
+  "addShortcutLabel": {
+    "message": "Lisää"
+  },
+  "editLabel": {
+    "message": "Muokkaa"
+  },
+  "removeLabel": {
+    "message": "Poista"
+  },
+  "moreOptionsLabel": {
+    "message": "Lisää vaihtoehtoja"
+  },
+
+  "styleNone": {
+    "message": "Ei mitään"
+  },
+  "learnMoreLabel": {
+    "message": "Lisätietoja"
+  },
+  "warningUnderstood": {
+    "message": "Selvä"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Lupa vaaditaan"
+  },
+  "grantPermissionLabel": {
+    "message": "Myönnä lupa"
+  },
+  "permissionRequiredMessage": {
+    "message": "Jotta tätä ominaisuutta voi käyttää, Fluent New Tab -sovellukselle on annettava käyttöoikeus osoitteeseen \"$API_NAME$\". Tämä varmistaa yksityisyytesi ja tietoturvasi.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Katso muutosloki"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Tervetuloa"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Uusi Fluent-työtilasi on valmis. Valitse seuraava askel alta."
+  },
+  "wizardRestoreTitle": {
+    "message": "Palauta asetukset"
+  },
+  "wizardRestoreDesc": {
+    "message": "Onko sinulla varmuuskopiotiedosto?"
+  },
+  "wizardStartTitle": {
+    "message": "Aloita asennus"
+  },
+  "wizardStartDesc": {
+    "message": "Aloita muutamalla vaiheella."
+  },
+  "wizardSkipTitle": {
+    "message": "Ohita asennus"
+  },
+  "wizardSkipDesc": {
+    "message": "Aloita puhtaalta pöydältä."
+  },
+  "wizardThemeAuto": {
+    "message": "Järjestelmä"
+  },
+  "wizardThemeLight": {
+    "message": "Vaalea"
+  },
+  "wizardThemeDark": {
+    "message": "Tumma"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Tyyli ja ulkonäkö"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Aseta teema, korostusväri, nimi ja kieli."
+  },
+  "btnBack": {
+    "message": "Takaisin"
+  },
+  "btnNext": {
+    "message": "Jatka"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Pienoisohjelmat ja työkalut"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Valitse, mitä sivullasi näkyy."
+  },
+  "wizardFinalTitle": {
+    "message": "Kaikki valmiina"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Kiitos, että käytät Fluent New Tabia!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Aloita käyttö"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Avaa uusi välilehti."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Tue hanketta"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Auta pitämään projekti ajan tasalla."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Lähdekoodi"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Katso projekti GitHubissa."
   }
 }

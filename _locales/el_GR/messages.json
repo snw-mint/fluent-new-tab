@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Περισσότερες εφαρμογές"
   },
+  "appLauncherTitle": {
+    "message": "Εκκινητής εφαρμογών"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Όνομα καρτέλας"
+  },
+  "tabFaviconLabel": {
+    "message": "Εικονίδιο καρτέλας"
+  },
+
   "settingsTitle": {
     "message": "Ρυθμίσεις"
   },
+  "appearanceTitle": {
+    "message": "Εμφάνιση"
+  },
+  "mainUiScaleLabel": {
+    "message": "Κλίμακα κύριας διεπαφής"
+  },
+  "displayTitle": {
+    "message": "Οθόνη"
+  },
+  "displayScaleLabel": {
+    "message": "Αλλαγή μεγέθους οθόνης"
+  },
+  "AccessibilityTitle": {
+    "message": "Προσβασιμότητα"
+  },
+  "reduceMotionTitle": {
+    "message": "Μείωση κίνησης"
+  },
+  "languageTitle": {
+    "message": "Γλώσσα"
+  },
+  "backupTitle": {
+    "message": "Δημιουργία αντιγράφων ασφαλείας"
+  },
+  "exportOption": {
+    "message": "Εξαγωγή"
+  },
+  "importOption": {
+    "message": "Εισαγωγή"
+  },
+
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Απόχρωση επιφάνειας"
   },
-  "appearanceTitle": {
-    "message": "Εμφάνιση"
+  "fetchingImagePlaceholder": {
+    "message": "Λήψη εικόνας από τη διεύθυνση $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Κλίμακα κύριας διεπαφής"
-  },
-  "tabNameLabel": {
-    "message": "Όνομα καρτέλας"
-  },
-  "tabFaviconLabel": {
-    "message": "Εικονίδιο καρτέλας"
-  },
+
   "customColorTitle": {
     "message": "Προσαρμοσμένο χρώμα"
   },
-  "visualSearchTitle": {
-    "message": "Οπτική αναζήτηση"
+  "wizardAccentLabel": {
+    "message": "Χρώμα έμφασης"
   },
-  "visualSearchDragText": {
-    "message": "Σύρε μια εικόνα εδώ ή"
-  },
-  "visualSearchUploadLink": {
-    "message": "ανέβασε ένα αρχείο"
-  },
-  "visualSearchDivider": {
-    "message": "ή"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Επικόλληση συνδέσμου εικόνας"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Αναζήτηση"
-  },
-  "styleNone": {
-    "message": "Κανένα"
-  },
-  "displayTitle": {
-    "message": "Οθόνη"
-  },
+
   "displayGreeting": {
     "message": "Χαιρετισμός"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Ώρα & Ημερομηνία"
-  },
-  "displayScaleLabel": {
-    "message": "Αλλαγή μεγέθους οθόνης"
   },
   "emojiTypeLabel": {
     "message": "Τύπος emoji"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Καθημερινή"
   },
-  "weatherTitle": {
-    "message": "Καιρός"
-  },
-  "locationLabel": {
-    "message": "Τοποθεσία"
-  },
-  "useFahrenheitLabel": {
-    "message": "Χρήση Φαρενάιτ"
-  },
-  "weatherAlertsLabel": {
-    "message": "Ειδοποιήσεις καιρού"
-  },
-  "shortcutsTitle": {
-    "message": "Συντομεύσεις"
-  },
-  "enableFoldersLabel": {
-    "message": "Ενεργοποίηση φακέλων"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Απόκρυψη ονομάτων"
-  },
-  "folderIconHelp": {
-    "message": "Βρείτε προσαρμοσμένα εικονίδια φακέλων στη διεύθυνση"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Ακτίνα γωνίας"
-  },
-  "rows1": {
-    "message": "1 σειρά"
-  },
-  "rows2": {
-    "message": "2 σειρές"
-  },
-  "rows3": {
-    "message": "3 σειρές"
-  },
-  "rows4": {
-    "message": "4 σειρές"
-  },
-  "appLauncherTitle": {
-    "message": "Εκκινητής εφαρμογών"
-  },
-  "searchTitle": {
-    "message": "Αναζήτηση"
-  },
-  "searchStyleFull": {
-    "message": "Πλήρες πλάτος"
-  },
-  "searchStyleCompact": {
-    "message": "Συμπαγής"
-  },
-  "suggestionsOption": {
-    "message": "Προτάσεις"
-  },
-  "clearSearchOption": {
-    "message": "Απλή αναζήτηση (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Φωνητική αναζήτηση"
-  },
-  "visualSearchOption": {
-    "message": "Οπτική αναζήτηση"
-  },
-  "askAiOption": {
-    "message": "Ρώτα την AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Προσβασιμότητα"
-  },
-  "reduceMotionTitle": {
-    "message": "Μείωση κίνησης"
-  },
-  "languageTitle": {
-    "message": "Γλώσσα"
-  },
-  "backupTitle": {
-    "message": "Δημιουργία αντιγράφων ασφαλείας"
-  },
-  "exportOption": {
-    "message": "Εξαγωγή"
-  },
-  "importOption": {
-    "message": "Εισαγωγή"
-  },
-  "addFolderTitle": {
-    "message": "Προσθήκη φακέλου"
-  },
-  "folderNameLabel": {
-    "message": "Όνομα"
-  },
-  "editFolderTitle": {
-    "message": "Επεξεργασία φακέλου"
-  },
-  "chooseTypeTitle": {
-    "message": "Δημιουργία νέου"
-  },
-  "backLabel": {
-    "message": "Πίσω"
-  },
-  "addShortcutTitle": {
-    "message": "Προσθήκη συντόμευσης"
-  },
-  "editShortcutTitle": {
-    "message": "Επεξεργασία συντόμευσης"
-  },
-  "shortcutNameLabel": {
-    "message": "Όνομα"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Προσαρμοσμένο εικονίδιο"
-  },
-  "faviconUrlLabel": {
-    "message": "Διεύθυνση URL εικονιδίου"
-  },
-  "btnCancel": {
-    "message": "Ακύρωση"
-  },
-  "btnSave": {
-    "message": "Αποθήκευση"
-  },
-  "searchPlaceholder": {
-    "message": "Αναζήτηση στο διαδίκτυο"
-  },
-  "namePlaceholder": {
-    "message": "Το όνομά σας (προαιρετικό)"
-  },
-  "cityPlaceholder": {
-    "message": "Η πόλη σας"
-  },
-  "addShortcutLabel": {
-    "message": "Προσθήκη"
-  },
-  "editLabel": {
-    "message": "Επεξεργασία"
-  },
-  "removeLabel": {
-    "message": "Κατάργηση"
-  },
-  "moreOptionsLabel": {
-    "message": "Περισσότερες επιλογές"
-  },
-  "permissionRequiredTitle": {
-    "message": "Απαιτείται άδεια"
-  },
-  "grantPermissionLabel": {
-    "message": "Χορήγηση άδειας"
-  },
-  "learnMoreLabel": {
-    "message": "Μάθετε περισσότερα"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Καλώς ήρθατε"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Ο νέος σας χώρος εργασίας Fluent είναι έτοιμος. Επιλέξτε το επόμενο βήμα παρακάτω."
-  },
-  "wizardRestoreTitle": {
-    "message": "Επαναφορά ρυθμίσεων"
-  },
-  "wizardRestoreDesc": {
-    "message": "Έχετε κάποιο αρχείο αντιγράφου ασφαλείας;"
-  },
-  "wizardStartTitle": {
-    "message": "Έναρξη ρύθμισης"
-  },
-  "wizardStartDesc": {
-    "message": "Ξεκινήστε με μερικά απλά βήματα."
-  },
-  "wizardSkipTitle": {
-    "message": "Παράλειψη ρύθμισης"
-  },
-  "wizardThemeAuto": {
-    "message": "Σύστημα"
-  },
-  "wizardThemeLight": {
-    "message": "Ανοιχτό"
-  },
-  "wizardThemeDark": {
-    "message": "Σκούρο"
-  },
-  "wizardSkipDesc": {
-    "message": "Ξεκινήστε με μια καθαρή εγκατάσταση."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Στυλ & Εμφάνιση"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Ορίστε το θέμα, το χρώμα έμφασης, το όνομα και τη γλώσσα σας."
-  },
-  "btnBack": {
-    "message": "Πίσω"
-  },
-  "btnNext": {
-    "message": "Συνέχεια"
-  },
-  "wizardAccentLabel": {
-    "message": "Χρώμα έμφασης"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Γραφικά στοιχεία & Εργαλεία"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Επιλέξτε τι θα εμφανίζεται στη σελίδα σας."
-  },
-  "wizardFinalTitle": {
-    "message": "Όλα είναι έτοιμα"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Σας ευχαριστούμε που χρησιμοποιείτε το Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Ξεκινήστε"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Ανοίξτε τη σελίδα νέας καρτέλας."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Υποστηρίξτε το έργο"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Βοηθήστε μας να διατηρούμε το έργο ενημερωμένο."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Πηγαίος κώδικας"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Δείτε το έργο στο GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Προβολή αρχείου αλλαγών"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Λήψη εικόνας από τη διεύθυνση $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Κατανοητό"
-  },
+
   "weekday_0": {
     "message": "Κυριακή"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Σάββατο"
   },
+
   "greetWeekMorning": {
     "message": "Υπέροχη $WEEK$ να έχεις, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Καιρός"
+  },
+  "locationLabel": {
+    "message": "Τοποθεσία"
+  },
+  "useFahrenheitLabel": {
+    "message": "Χρήση Φαρενάιτ"
+  },
+  "weatherAlertsLabel": {
+    "message": "Ειδοποιήσεις καιρού"
+  },
   "alertTempDrop": {
     "message": "Αναμενόμενη πτώση θερμοκρασίας: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Αναζήτηση"
+  },
+  "searchStyleFull": {
+    "message": "Πλήρες πλάτος"
+  },
+  "searchStyleCompact": {
+    "message": "Συμπαγής"
+  },
+  "suggestionsOption": {
+    "message": "Προτάσεις"
+  },
+  "clearSearchOption": {
+    "message": "Απλή αναζήτηση (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Φωνητική αναζήτηση"
+  },
+  "visualSearchOption": {
+    "message": "Οπτική αναζήτηση"
+  },
+  "askAiOption": {
+    "message": "Ρώτα την AI"
+  },
+  "searchPlaceholder": {
+    "message": "Αναζήτηση στο διαδίκτυο"
+  },
+
+  "visualSearchTitle": {
+    "message": "Οπτική αναζήτηση"
+  },
+  "visualSearchDragText": {
+    "message": "Σύρε μια εικόνα εδώ ή"
+  },
+  "visualSearchUploadLink": {
+    "message": "ανέβασε ένα αρχείο"
+  },
+  "visualSearchDivider": {
+    "message": "ή"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Επικόλληση συνδέσμου εικόνας"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Αναζήτηση"
+  },
+
+  "shortcutsTitle": {
+    "message": "Συντομεύσεις"
+  },
+  "enableFoldersLabel": {
+    "message": "Ενεργοποίηση φακέλων"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Απόκρυψη ονομάτων"
+  },
+  "folderIconHelp": {
+    "message": "Βρείτε προσαρμοσμένα εικονίδια φακέλων στη διεύθυνση"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Ακτίνα γωνίας"
+  },
+  "rows1": {
+    "message": "1 σειρά"
+  },
+  "rows2": {
+    "message": "2 σειρές"
+  },
+  "rows3": {
+    "message": "3 σειρές"
+  },
+  "rows4": {
+    "message": "4 σειρές"
+  },
+
+  "addFolderTitle": {
+    "message": "Προσθήκη φακέλου"
+  },
+  "folderNameLabel": {
+    "message": "Όνομα"
+  },
+  "editFolderTitle": {
+    "message": "Επεξεργασία φακέλου"
+  },
+  "chooseTypeTitle": {
+    "message": "Δημιουργία νέου"
+  },
+  "backLabel": {
+    "message": "Πίσω"
+  },
+  "addShortcutTitle": {
+    "message": "Προσθήκη συντόμευσης"
+  },
+  "editShortcutTitle": {
+    "message": "Επεξεργασία συντόμευσης"
+  },
+  "shortcutNameLabel": {
+    "message": "Όνομα"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Προσαρμοσμένο εικονίδιο"
+  },
+  "faviconUrlLabel": {
+    "message": "Διεύθυνση URL εικονιδίου"
+  },
+  "btnCancel": {
+    "message": "Ακύρωση"
+  },
+  "btnSave": {
+    "message": "Αποθήκευση"
+  },
+  "namePlaceholder": {
+    "message": "Το όνομά σας (προαιρετικό)"
+  },
+  "cityPlaceholder": {
+    "message": "Η πόλη σας"
+  },
+  "addShortcutLabel": {
+    "message": "Προσθήκη"
+  },
+  "editLabel": {
+    "message": "Επεξεργασία"
+  },
+  "removeLabel": {
+    "message": "Κατάργηση"
+  },
+  "moreOptionsLabel": {
+    "message": "Περισσότερες επιλογές"
+  },
+
+  "styleNone": {
+    "message": "Κανένα"
+  },
+  "learnMoreLabel": {
+    "message": "Μάθετε περισσότερα"
+  },
+  "warningUnderstood": {
+    "message": "Κατανοητό"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Απαιτείται άδεια"
+  },
+  "grantPermissionLabel": {
+    "message": "Χορήγηση άδειας"
+  },
+  "permissionRequiredMessage": {
+    "message": "Για να χρησιμοποιήσετε αυτή τη λειτουργία, το Fluent New Tab χρειάζεται άδεια πρόσβασης στο \"$API_NAME$\". Αυτό διασφαλίζει την προστασία του απορρήτου και την ασφάλειά σας.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Προβολή αρχείου αλλαγών"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Καλώς ήρθατε"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Ο νέος σας χώρος εργασίας Fluent είναι έτοιμος. Επιλέξτε το επόμενο βήμα παρακάτω."
+  },
+  "wizardRestoreTitle": {
+    "message": "Επαναφορά ρυθμίσεων"
+  },
+  "wizardRestoreDesc": {
+    "message": "Έχετε κάποιο αρχείο αντιγράφου ασφαλείας;"
+  },
+  "wizardStartTitle": {
+    "message": "Έναρξη ρύθμισης"
+  },
+  "wizardStartDesc": {
+    "message": "Ξεκινήστε με μερικά απλά βήματα."
+  },
+  "wizardSkipTitle": {
+    "message": "Παράλειψη ρύθμισης"
+  },
+  "wizardSkipDesc": {
+    "message": "Ξεκινήστε με μια καθαρή εγκατάσταση."
+  },
+  "wizardThemeAuto": {
+    "message": "Σύστημα"
+  },
+  "wizardThemeLight": {
+    "message": "Ανοιχτό"
+  },
+  "wizardThemeDark": {
+    "message": "Σκούρο"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Στυλ & Εμφάνιση"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Ορίστε το θέμα, το χρώμα έμφασης, το όνομα και τη γλώσσα σας."
+  },
+  "btnBack": {
+    "message": "Πίσω"
+  },
+  "btnNext": {
+    "message": "Συνέχεια"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Γραφικά στοιχεία & Εργαλεία"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Επιλέξτε τι θα εμφανίζεται στη σελίδα σας."
+  },
+  "wizardFinalTitle": {
+    "message": "Όλα είναι έτοιμα"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Σας ευχαριστούμε που χρησιμοποιείτε το Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Ξεκινήστε"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Ανοίξτε τη σελίδα νέας καρτέλας."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Υποστηρίξτε το έργο"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Βοηθήστε μας να διατηρούμε το έργο ενημερωμένο."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Πηγαίος κώδικας"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Δείτε το έργο στο GitHub."
   }
 }

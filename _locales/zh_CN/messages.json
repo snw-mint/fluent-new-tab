@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "更多应用"
   },
+  "appLauncherTitle": {
+    "message": "应用启动器"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "标签页名称"
+  },
+  "tabFaviconLabel": {
+    "message": "标签页图标"
+  },
+
   "settingsTitle": {
     "message": "设置"
   },
+  "appearanceTitle": {
+    "message": "外观"
+  },
+  "mainUiScaleLabel": {
+    "message": "主界面缩放"
+  },
+  "displayTitle": {
+    "message": "显示"
+  },
+  "displayScaleLabel": {
+    "message": "显示缩放"
+  },
+  "AccessibilityTitle": {
+    "message": "无障碍"
+  },
+  "reduceMotionTitle": {
+    "message": "减弱动态效果"
+  },
+  "languageTitle": {
+    "message": "语言"
+  },
+  "backupTitle": {
+    "message": "数据备份"
+  },
+  "exportOption": {
+    "message": "导出"
+  },
+  "importOption": {
+    "message": "导入"
+  },
+
   "wallpaperTitle": {
     "message": "壁纸"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "表面色调"
   },
-  "appearanceTitle": {
-    "message": "外观"
+  "fetchingImagePlaceholder": {
+    "message": "正在加载 $SOURCE$ 图片...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "主界面缩放"
-  },
-  "tabNameLabel": {
-    "message": "标签页名称"
-  },
-  "tabFaviconLabel": {
-    "message": "标签页图标"
-  },
+
   "customColorTitle": {
     "message": "自定义颜色"
   },
-  "visualSearchTitle": {
-    "message": "视觉搜索"
+  "wizardAccentLabel": {
+    "message": "主题色"
   },
-  "visualSearchDragText": {
-    "message": "将图片拖放到此处或"
-  },
-  "visualSearchUploadLink": {
-    "message": "上传文件"
-  },
-  "visualSearchDivider": {
-    "message": "或"
-  },
-  "visualSearchPasteUrl": {
-    "message": "粘贴图片链接"
-  },
-  "visualSearchSearchBtn": {
-    "message": "搜索"
-  },
-  "styleNone": {
-    "message": "无"
-  },
-  "displayTitle": {
-    "message": "显示"
-  },
+
   "displayGreeting": {
     "message": "问候语"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "时间和日期"
-  },
-  "displayScaleLabel": {
-    "message": "显示缩放"
   },
   "emojiTypeLabel": {
     "message": "表情符号类型"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "星期"
   },
-  "weatherTitle": {
-    "message": "天气"
-  },
-  "locationLabel": {
-    "message": "位置"
-  },
-  "useFahrenheitLabel": {
-    "message": "使用华氏度"
-  },
-  "weatherAlertsLabel": {
-    "message": "天气预警"
-  },
-  "shortcutsTitle": {
-    "message": "快捷方式"
-  },
-  "enableFoldersLabel": {
-    "message": "启用文件夹"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "隐藏名称"
-  },
-  "folderIconHelp": {
-    "message": "在以下位置查找自定义文件夹图标："
-  },
-  "shortcutRadiusLabel": {
-    "message": "圆角半径"
-  },
-  "rows1": {
-    "message": "1 行"
-  },
-  "rows2": {
-    "message": "2 行"
-  },
-  "rows3": {
-    "message": "3 行"
-  },
-  "rows4": {
-    "message": "4 行"
-  },
-  "appLauncherTitle": {
-    "message": "应用启动器"
-  },
-  "searchTitle": {
-    "message": "搜索"
-  },
-  "searchStyleFull": {
-    "message": "全宽"
-  },
-  "searchStyleCompact": {
-    "message": "紧凑"
-  },
-  "suggestionsOption": {
-    "message": "搜索建议"
-  },
-  "clearSearchOption": {
-    "message": "纯净搜索 (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "语音搜索"
-  },
-  "visualSearchOption": {
-    "message": "视觉搜索"
-  },
-  "askAiOption": {
-    "message": "问 AI"
-  },
-  "AccessibilityTitle": {
-    "message": "无障碍"
-  },
-  "reduceMotionTitle": {
-    "message": "减弱动态效果"
-  },
-  "languageTitle": {
-    "message": "语言"
-  },
-  "backupTitle": {
-    "message": "数据备份"
-  },
-  "exportOption": {
-    "message": "导出"
-  },
-  "importOption": {
-    "message": "导入"
-  },
-  "addFolderTitle": {
-    "message": "添加文件夹"
-  },
-  "folderNameLabel": {
-    "message": "文件夹名称"
-  },
-  "editFolderTitle": {
-    "message": "编辑文件夹"
-  },
-  "chooseTypeTitle": {
-    "message": "新建"
-  },
-  "backLabel": {
-    "message": "返回"
-  },
-  "addShortcutTitle": {
-    "message": "添加快捷方式"
-  },
-  "editShortcutTitle": {
-    "message": "编辑快捷方式"
-  },
-  "shortcutNameLabel": {
-    "message": "文件夹名称"
-  },
-  "shortcutUrlLabel": {
-    "message": "网址"
-  },
-  "addFaviconLabel": {
-    "message": "自定义图标"
-  },
-  "faviconUrlLabel": {
-    "message": "图标网址"
-  },
-  "btnCancel": {
-    "message": "取消"
-  },
-  "btnSave": {
-    "message": "保存"
-  },
-  "searchPlaceholder": {
-    "message": "搜索网页"
-  },
-  "namePlaceholder": {
-    "message": "您的称呼（可选）"
-  },
-  "cityPlaceholder": {
-    "message": "您的城市"
-  },
-  "addShortcutLabel": {
-    "message": "添加"
-  },
-  "editLabel": {
-    "message": "编辑"
-  },
-  "removeLabel": {
-    "message": "删除"
-  },
-  "moreOptionsLabel": {
-    "message": "更多选项"
-  },
-  "permissionRequiredTitle": {
-    "message": "需要权限"
-  },
-  "grantPermissionLabel": {
-    "message": "授予权限"
-  },
-  "learnMoreLabel": {
-    "message": "了解更多"
-  },
-  "wizardWelcomeTitle": {
-    "message": "欢迎回来"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "您的全新 Fluent 工作空间已准备就绪。请在下方选择下一步操作。"
-  },
-  "wizardRestoreTitle": {
-    "message": "恢复设置"
-  },
-  "wizardRestoreDesc": {
-    "message": "您有备份文件吗？"
-  },
-  "wizardStartTitle": {
-    "message": "开始设置"
-  },
-  "wizardStartDesc": {
-    "message": "只需几步即可完成设置。"
-  },
-  "wizardSkipTitle": {
-    "message": "跳过设置"
-  },
-  "wizardThemeAuto": {
-    "message": "跟随系统"
-  },
-  "wizardThemeLight": {
-    "message": "浅色"
-  },
-  "wizardThemeDark": {
-    "message": "深色"
-  },
-  "wizardSkipDesc": {
-    "message": "以纯净状态开始使用。"
-  },
-  "wizardAppearanceTitle": {
-    "message": "样式与外观"
-  },
-  "wizardAppearanceDesc": {
-    "message": "设置您的主题、主题色、称呼和语言。"
-  },
-  "btnBack": {
-    "message": "返回"
-  },
-  "btnNext": {
-    "message": "继续"
-  },
-  "wizardAccentLabel": {
-    "message": "主题色"
-  },
-  "wizardWidgetsTitle": {
-    "message": "小组件与实用工具"
-  },
-  "wizardWidgetsDesc": {
-    "message": "选择要在页面上显示的内容。"
-  },
-  "wizardFinalTitle": {
-    "message": "一切就绪"
-  },
-  "wizardFinalSubtitle": {
-    "message": "感谢您使用 Fluent New Tab！"
-  },
-  "wizardFinalStartTitle": {
-    "message": "开始使用"
-  },
-  "wizardFinalStartDesc": {
-    "message": "打开您的新标签页。"
-  },
-  "wizardFinalSupportTitle": {
-    "message": "支持该项目"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "请协助保持项目内容的更新。"
-  },
-  "wizardFinalGithubTitle": {
-    "message": "源代码"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "在 GitHub 上查看该项目。"
-  },
-  "permissionRequiredMessage": {
-    "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab 已更新至版本 $VERSION$。",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "查看变更日志"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "正在加载 $SOURCE$ 图片...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "我知道了"
-  },
+
   "weekday_0": {
     "message": "周日"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "周六"
   },
+
   "greetWeekMorning": {
     "message": "$NAME$，祝你$WEEK$元气满满！",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "天气"
+  },
+  "locationLabel": {
+    "message": "位置"
+  },
+  "useFahrenheitLabel": {
+    "message": "使用华氏度"
+  },
+  "weatherAlertsLabel": {
+    "message": "天气预警"
+  },
   "alertTempDrop": {
     "message": "预计降温：$VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "搜索"
+  },
+  "searchStyleFull": {
+    "message": "全宽"
+  },
+  "searchStyleCompact": {
+    "message": "紧凑"
+  },
+  "suggestionsOption": {
+    "message": "搜索建议"
+  },
+  "clearSearchOption": {
+    "message": "纯净搜索 (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "语音搜索"
+  },
+  "visualSearchOption": {
+    "message": "视觉搜索"
+  },
+  "askAiOption": {
+    "message": "问 AI"
+  },
+  "searchPlaceholder": {
+    "message": "搜索网页"
+  },
+
+  "visualSearchTitle": {
+    "message": "视觉搜索"
+  },
+  "visualSearchDragText": {
+    "message": "将图片拖放到此处或"
+  },
+  "visualSearchUploadLink": {
+    "message": "上传文件"
+  },
+  "visualSearchDivider": {
+    "message": "或"
+  },
+  "visualSearchPasteUrl": {
+    "message": "粘贴图片链接"
+  },
+  "visualSearchSearchBtn": {
+    "message": "搜索"
+  },
+
+  "shortcutsTitle": {
+    "message": "快捷方式"
+  },
+  "enableFoldersLabel": {
+    "message": "启用文件夹"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "隐藏名称"
+  },
+  "folderIconHelp": {
+    "message": "在以下位置查找自定义文件夹图标："
+  },
+  "shortcutRadiusLabel": {
+    "message": "圆角半径"
+  },
+  "rows1": {
+    "message": "1 行"
+  },
+  "rows2": {
+    "message": "2 行"
+  },
+  "rows3": {
+    "message": "3 行"
+  },
+  "rows4": {
+    "message": "4 行"
+  },
+
+  "addFolderTitle": {
+    "message": "添加文件夹"
+  },
+  "folderNameLabel": {
+    "message": "文件夹名称"
+  },
+  "editFolderTitle": {
+    "message": "编辑文件夹"
+  },
+  "chooseTypeTitle": {
+    "message": "新建"
+  },
+  "backLabel": {
+    "message": "返回"
+  },
+  "addShortcutTitle": {
+    "message": "添加快捷方式"
+  },
+  "editShortcutTitle": {
+    "message": "编辑快捷方式"
+  },
+  "shortcutNameLabel": {
+    "message": "文件夹名称"
+  },
+  "shortcutUrlLabel": {
+    "message": "网址"
+  },
+  "addFaviconLabel": {
+    "message": "自定义图标"
+  },
+  "faviconUrlLabel": {
+    "message": "图标网址"
+  },
+  "btnCancel": {
+    "message": "取消"
+  },
+  "btnSave": {
+    "message": "保存"
+  },
+  "namePlaceholder": {
+    "message": "您的称呼（可选）"
+  },
+  "cityPlaceholder": {
+    "message": "您的城市"
+  },
+  "addShortcutLabel": {
+    "message": "添加"
+  },
+  "editLabel": {
+    "message": "编辑"
+  },
+  "removeLabel": {
+    "message": "删除"
+  },
+  "moreOptionsLabel": {
+    "message": "更多选项"
+  },
+
+  "styleNone": {
+    "message": "无"
+  },
+  "learnMoreLabel": {
+    "message": "了解更多"
+  },
+  "warningUnderstood": {
+    "message": "我知道了"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "需要权限"
+  },
+  "grantPermissionLabel": {
+    "message": "授予权限"
+  },
+  "permissionRequiredMessage": {
+    "message": "要使用此功能，Fluent New Tab 需要访问“$API_NAME$”的权限。这能确保您的隐私和安全。",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab 已更新至版本 $VERSION$。",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "查看变更日志"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "欢迎回来"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "您的全新 Fluent 工作空间已准备就绪。请在下方选择下一步操作。"
+  },
+  "wizardRestoreTitle": {
+    "message": "恢复设置"
+  },
+  "wizardRestoreDesc": {
+    "message": "您有备份文件吗？"
+  },
+  "wizardStartTitle": {
+    "message": "开始设置"
+  },
+  "wizardStartDesc": {
+    "message": "只需几步即可完成设置。"
+  },
+  "wizardSkipTitle": {
+    "message": "跳过设置"
+  },
+  "wizardSkipDesc": {
+    "message": "以纯净状态开始使用。"
+  },
+  "wizardThemeAuto": {
+    "message": "跟随系统"
+  },
+  "wizardThemeLight": {
+    "message": "浅色"
+  },
+  "wizardThemeDark": {
+    "message": "深色"
+  },
+  "wizardAppearanceTitle": {
+    "message": "样式与外观"
+  },
+  "wizardAppearanceDesc": {
+    "message": "设置您的主题、主题色、称呼和语言。"
+  },
+  "btnBack": {
+    "message": "返回"
+  },
+  "btnNext": {
+    "message": "继续"
+  },
+  "wizardWidgetsTitle": {
+    "message": "小组件与实用工具"
+  },
+  "wizardWidgetsDesc": {
+    "message": "选择要在页面上显示的内容。"
+  },
+  "wizardFinalTitle": {
+    "message": "一切就绪"
+  },
+  "wizardFinalSubtitle": {
+    "message": "感谢您使用 Fluent New Tab！"
+  },
+  "wizardFinalStartTitle": {
+    "message": "开始使用"
+  },
+  "wizardFinalStartDesc": {
+    "message": "打开您的新标签页。"
+  },
+  "wizardFinalSupportTitle": {
+    "message": "支持该项目"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "请协助保持项目内容的更新。"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "源代码"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "在 GitHub 上查看该项目。"
   }
 }

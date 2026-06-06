@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Fler appar"
   },
+  "appLauncherTitle": {
+    "message": "Launcher för appar"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Fliknamn"
+  },
+  "tabFaviconLabel": {
+    "message": "Flikikon"
+  },
+
   "settingsTitle": {
     "message": "Inställningar"
   },
+  "appearanceTitle": {
+    "message": "Utseende"
+  },
+  "mainUiScaleLabel": {
+    "message": "Skala för gränssnitt"
+  },
+  "displayTitle": {
+    "message": "Visning"
+  },
+  "displayScaleLabel": {
+    "message": "Skärmskalning"
+  },
+  "AccessibilityTitle": {
+    "message": "Tillgänglighet"
+  },
+  "reduceMotionTitle": {
+    "message": "Minska rörelser"
+  },
+  "languageTitle": {
+    "message": "Språk"
+  },
+  "backupTitle": {
+    "message": "Säkerhetskopiering av data"
+  },
+  "exportOption": {
+    "message": "Exportera"
+  },
+  "importOption": {
+    "message": "Importera"
+  },
+
   "wallpaperTitle": {
     "message": "Bakgrundsbild"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Ytfärg"
   },
-  "appearanceTitle": {
-    "message": "Utseende"
+  "fetchingImagePlaceholder": {
+    "message": "Hämtar bilden från $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Skala för gränssnitt"
-  },
-  "tabNameLabel": {
-    "message": "Fliknamn"
-  },
-  "tabFaviconLabel": {
-    "message": "Flikikon"
-  },
+
   "customColorTitle": {
     "message": "Anpassad färg"
   },
-  "visualSearchTitle": {
-    "message": "Visuell sökning"
+  "wizardAccentLabel": {
+    "message": "Accentfärg"
   },
-  "visualSearchDragText": {
-    "message": "Dra en bild hit eller"
-  },
-  "visualSearchUploadLink": {
-    "message": "ladda upp en fil"
-  },
-  "visualSearchDivider": {
-    "message": "eller"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Klistra in bildlänken"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Sök"
-  },
-  "styleNone": {
-    "message": "Inget"
-  },
-  "displayTitle": {
-    "message": "Visning"
-  },
+
   "displayGreeting": {
     "message": "Hälsning"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Tid och datum"
-  },
-  "displayScaleLabel": {
-    "message": "Skärmskalning"
   },
   "emojiTypeLabel": {
     "message": "Emoji-typ"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Vardag"
   },
-  "weatherTitle": {
-    "message": "Väder"
-  },
-  "locationLabel": {
-    "message": "Plats"
-  },
-  "useFahrenheitLabel": {
-    "message": "Använd Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Vädervarningar"
-  },
-  "shortcutsTitle": {
-    "message": "Genvägar"
-  },
-  "enableFoldersLabel": {
-    "message": "Aktivera mappar"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Dölj namn"
-  },
-  "folderIconHelp": {
-    "message": "Hitta anpassade mappikoner på"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Hörnradie"
-  },
-  "rows1": {
-    "message": "1 rad"
-  },
-  "rows2": {
-    "message": "2 rader"
-  },
-  "rows3": {
-    "message": "3 rader"
-  },
-  "rows4": {
-    "message": "4 rader"
-  },
-  "appLauncherTitle": {
-    "message": "Launcher för appar"
-  },
-  "searchTitle": {
-    "message": "Sök"
-  },
-  "searchStyleFull": {
-    "message": "Full bredd"
-  },
-  "searchStyleCompact": {
-    "message": "Kompakt"
-  },
-  "suggestionsOption": {
-    "message": "Förslag"
-  },
-  "clearSearchOption": {
-    "message": "Enkel sökning (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Röstsökning"
-  },
-  "visualSearchOption": {
-    "message": "Visuell sökning"
-  },
-  "askAiOption": {
-    "message": "Fråga AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Tillgänglighet"
-  },
-  "reduceMotionTitle": {
-    "message": "Minska rörelser"
-  },
-  "languageTitle": {
-    "message": "Språk"
-  },
-  "backupTitle": {
-    "message": "Säkerhetskopiering av data"
-  },
-  "exportOption": {
-    "message": "Exportera"
-  },
-  "importOption": {
-    "message": "Importera"
-  },
-  "addFolderTitle": {
-    "message": "Lägg till mapp"
-  },
-  "folderNameLabel": {
-    "message": "Namn"
-  },
-  "editFolderTitle": {
-    "message": "Redigera mapp"
-  },
-  "chooseTypeTitle": {
-    "message": "Skapa ny"
-  },
-  "backLabel": {
-    "message": "Tillbaka"
-  },
-  "addShortcutTitle": {
-    "message": "Lägg till genväg"
-  },
-  "editShortcutTitle": {
-    "message": "Redigera genväg"
-  },
-  "shortcutNameLabel": {
-    "message": "Namn"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Anpassad ikon"
-  },
-  "faviconUrlLabel": {
-    "message": "Ikon-URL"
-  },
-  "btnCancel": {
-    "message": "Avbryt"
-  },
-  "btnSave": {
-    "message": "Spara"
-  },
-  "searchPlaceholder": {
-    "message": "Sök på webben"
-  },
-  "namePlaceholder": {
-    "message": "Ditt namn (valfritt)"
-  },
-  "cityPlaceholder": {
-    "message": "Din stad"
-  },
-  "addShortcutLabel": {
-    "message": "Lägg till"
-  },
-  "editLabel": {
-    "message": "Redigera"
-  },
-  "removeLabel": {
-    "message": "Ta bort"
-  },
-  "moreOptionsLabel": {
-    "message": "Fler alternativ"
-  },
-  "permissionRequiredTitle": {
-    "message": "Tillstånd krävs"
-  },
-  "grantPermissionLabel": {
-    "message": "Bevilja behörighet"
-  },
-  "learnMoreLabel": {
-    "message": "Läs mer"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Välkommen"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Din nya Fluent-arbetsyta är redo. Välj nästa steg nedan."
-  },
-  "wizardRestoreTitle": {
-    "message": "Återställ inställningar"
-  },
-  "wizardRestoreDesc": {
-    "message": "Har du en säkerhetskopia?"
-  },
-  "wizardStartTitle": {
-    "message": "Starta installationen"
-  },
-  "wizardStartDesc": {
-    "message": "Kom igång med några få steg."
-  },
-  "wizardSkipTitle": {
-    "message": "Hoppa över"
-  },
-  "wizardThemeAuto": {
-    "message": "System"
-  },
-  "wizardThemeLight": {
-    "message": "Ljust"
-  },
-  "wizardThemeDark": {
-    "message": "Mörkt"
-  },
-  "wizardSkipDesc": {
-    "message": "Börja med en ren installation."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stil & Utseende"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Ställ in ditt tema, accentfärg, namn och språk."
-  },
-  "btnBack": {
-    "message": "Tillbaka"
-  },
-  "btnNext": {
-    "message": "Fortsätt"
-  },
-  "wizardAccentLabel": {
-    "message": "Accentfärg"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets & Verktyg"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Välj vad som ska visas på din sida."
-  },
-  "wizardFinalTitle": {
-    "message": "Allt är klart"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Tack för att du använder Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Kom igång"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Öppna din nya fliksida."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Stöd projektet"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Hjälp till att hålla projektet uppdaterat."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Källkod"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Visa projektet på GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab har uppdaterats till version $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Visa ändringsloggen"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Hämtar bilden från $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Förstått"
-  },
+
   "weekday_0": {
     "message": "Söndag"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Lördag"
   },
+
   "greetWeekMorning": {
     "message": "Ha en grym $WEEK$, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Väder"
+  },
+  "locationLabel": {
+    "message": "Plats"
+  },
+  "useFahrenheitLabel": {
+    "message": "Använd Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Vädervarningar"
+  },
   "alertTempDrop": {
     "message": "Förväntat temperaturfall: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Sök"
+  },
+  "searchStyleFull": {
+    "message": "Full bredd"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Förslag"
+  },
+  "clearSearchOption": {
+    "message": "Enkel sökning (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Röstsökning"
+  },
+  "visualSearchOption": {
+    "message": "Visuell sökning"
+  },
+  "askAiOption": {
+    "message": "Fråga AI"
+  },
+  "searchPlaceholder": {
+    "message": "Sök på webben"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visuell sökning"
+  },
+  "visualSearchDragText": {
+    "message": "Dra en bild hit eller"
+  },
+  "visualSearchUploadLink": {
+    "message": "ladda upp en fil"
+  },
+  "visualSearchDivider": {
+    "message": "eller"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Klistra in bildlänken"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Sök"
+  },
+
+  "shortcutsTitle": {
+    "message": "Genvägar"
+  },
+  "enableFoldersLabel": {
+    "message": "Aktivera mappar"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Dölj namn"
+  },
+  "folderIconHelp": {
+    "message": "Hitta anpassade mappikoner på"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Hörnradie"
+  },
+  "rows1": {
+    "message": "1 rad"
+  },
+  "rows2": {
+    "message": "2 rader"
+  },
+  "rows3": {
+    "message": "3 rader"
+  },
+  "rows4": {
+    "message": "4 rader"
+  },
+
+  "addFolderTitle": {
+    "message": "Lägg till mapp"
+  },
+  "folderNameLabel": {
+    "message": "Namn"
+  },
+  "editFolderTitle": {
+    "message": "Redigera mapp"
+  },
+  "chooseTypeTitle": {
+    "message": "Skapa ny"
+  },
+  "backLabel": {
+    "message": "Tillbaka"
+  },
+  "addShortcutTitle": {
+    "message": "Lägg till genväg"
+  },
+  "editShortcutTitle": {
+    "message": "Redigera genväg"
+  },
+  "shortcutNameLabel": {
+    "message": "Namn"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Anpassad ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon-URL"
+  },
+  "btnCancel": {
+    "message": "Avbryt"
+  },
+  "btnSave": {
+    "message": "Spara"
+  },
+  "namePlaceholder": {
+    "message": "Ditt namn (valfritt)"
+  },
+  "cityPlaceholder": {
+    "message": "Din stad"
+  },
+  "addShortcutLabel": {
+    "message": "Lägg till"
+  },
+  "editLabel": {
+    "message": "Redigera"
+  },
+  "removeLabel": {
+    "message": "Ta bort"
+  },
+  "moreOptionsLabel": {
+    "message": "Fler alternativ"
+  },
+
+  "styleNone": {
+    "message": "Inget"
+  },
+  "learnMoreLabel": {
+    "message": "Läs mer"
+  },
+  "warningUnderstood": {
+    "message": "Förstått"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Tillstånd krävs"
+  },
+  "grantPermissionLabel": {
+    "message": "Bevilja behörighet"
+  },
+  "permissionRequiredMessage": {
+    "message": "För att kunna använda den här funktionen behöver Fluent New Tab behörighet att komma åt \"$API_NAME$\". Detta säkerställer din integritet och säkerhet.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab har uppdaterats till version $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Visa ändringsloggen"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Välkommen"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Din nya Fluent-arbetsyta är redo. Välj nästa steg nedan."
+  },
+  "wizardRestoreTitle": {
+    "message": "Återställ inställningar"
+  },
+  "wizardRestoreDesc": {
+    "message": "Har du en säkerhetskopia?"
+  },
+  "wizardStartTitle": {
+    "message": "Starta installationen"
+  },
+  "wizardStartDesc": {
+    "message": "Kom igång med några få steg."
+  },
+  "wizardSkipTitle": {
+    "message": "Hoppa över"
+  },
+  "wizardSkipDesc": {
+    "message": "Börja med en ren installation."
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Ljust"
+  },
+  "wizardThemeDark": {
+    "message": "Mörkt"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stil & Utseende"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Ställ in ditt tema, accentfärg, namn och språk."
+  },
+  "btnBack": {
+    "message": "Tillbaka"
+  },
+  "btnNext": {
+    "message": "Fortsätt"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Verktyg"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Välj vad som ska visas på din sida."
+  },
+  "wizardFinalTitle": {
+    "message": "Allt är klart"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Tack för att du använder Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Kom igång"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Öppna din nya fliksida."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Stöd projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Hjälp till att hålla projektet uppdaterat."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Källkod"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Visa projektet på GitHub."
   }
 }

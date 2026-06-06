@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Iba pang Apps"
   },
+  "appLauncherTitle": {
+    "message": "App Launcher"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Tab Name"
+  },
+  "tabFaviconLabel": {
+    "message": "Tab Icon"
+  },
+
   "settingsTitle": {
     "message": "Settings"
   },
+  "appearanceTitle": {
+    "message": "Appearance"
+  },
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
+  },
+  "displayTitle": {
+    "message": "Display"
+  },
+  "displayScaleLabel": {
+    "message": "Display Scale"
+  },
+  "AccessibilityTitle": {
+    "message": "Accessibility"
+  },
+  "reduceMotionTitle": {
+    "message": "Bawasan ang motion"
+  },
+  "languageTitle": {
+    "message": "Language"
+  },
+  "backupTitle": {
+    "message": "Data Backup"
+  },
+  "exportOption": {
+    "message": "I-export"
+  },
+  "importOption": {
+    "message": "I-import"
+  },
+
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Surface Tint"
   },
-  "appearanceTitle": {
-    "message": "Appearance"
+  "fetchingImagePlaceholder": {
+    "message": "Fini-fetch ang $SOURCE$ na image...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Main UI Scale"
-  },
-  "tabNameLabel": {
-    "message": "Tab Name"
-  },
-  "tabFaviconLabel": {
-    "message": "Tab Icon"
-  },
+
   "customColorTitle": {
     "message": "Custom Color"
   },
-  "visualSearchTitle": {
-    "message": "Visual Search"
+  "wizardAccentLabel": {
+    "message": "Accent Color"
   },
-  "visualSearchDragText": {
-    "message": "I-drag ang image dito o"
-  },
-  "visualSearchUploadLink": {
-    "message": "mag-upload ng file"
-  },
-  "visualSearchDivider": {
-    "message": "o"
-  },
-  "visualSearchPasteUrl": {
-    "message": "I-paste ang image link"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Search"
-  },
-  "styleNone": {
-    "message": "Wala"
-  },
-  "displayTitle": {
-    "message": "Display"
-  },
+
   "displayGreeting": {
     "message": "Greeting"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Time & Date"
-  },
-  "displayScaleLabel": {
-    "message": "Display Scale"
   },
   "emojiTypeLabel": {
     "message": "Type ng emoji"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Weekday"
   },
-  "weatherTitle": {
-    "message": "Weather"
-  },
-  "locationLabel": {
-    "message": "Location"
-  },
-  "useFahrenheitLabel": {
-    "message": "Gamitin ang Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Weather alerts"
-  },
-  "shortcutsTitle": {
-    "message": "Mga Shortcut"
-  },
-  "enableFoldersLabel": {
-    "message": "I-enable ang Folders"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "I-hide ang Names"
-  },
-  "folderIconHelp": {
-    "message": "Maghanap ng custom folder icons sa:"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Corner Radius"
-  },
-  "rows1": {
-    "message": "1 Row"
-  },
-  "rows2": {
-    "message": "2 Rows"
-  },
-  "rows3": {
-    "message": "3 Rows"
-  },
-  "rows4": {
-    "message": "4 Rows"
-  },
-  "appLauncherTitle": {
-    "message": "App Launcher"
-  },
-  "searchTitle": {
-    "message": "Search"
-  },
-  "searchStyleFull": {
-    "message": "Full width"
-  },
-  "searchStyleCompact": {
-    "message": "Compact"
-  },
-  "suggestionsOption": {
-    "message": "Mga Suggestions"
-  },
-  "clearSearchOption": {
-    "message": "Clear search (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Voice search"
-  },
-  "visualSearchOption": {
-    "message": "Visual Search"
-  },
-  "askAiOption": {
-    "message": "Mag-ask sa AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Accessibility"
-  },
-  "reduceMotionTitle": {
-    "message": "Bawasan ang motion"
-  },
-  "languageTitle": {
-    "message": "Language"
-  },
-  "backupTitle": {
-    "message": "Data Backup"
-  },
-  "exportOption": {
-    "message": "I-export"
-  },
-  "importOption": {
-    "message": "I-import"
-  },
-  "addFolderTitle": {
-    "message": "I-add ang Folder"
-  },
-  "folderNameLabel": {
-    "message": "Pangalan"
-  },
-  "editFolderTitle": {
-    "message": "I-edit ang Folder"
-  },
-  "chooseTypeTitle": {
-    "message": "Gumawa ng bago"
-  },
-  "backLabel": {
-    "message": "Bumalik"
-  },
-  "addShortcutTitle": {
-    "message": "Mag-add ng Shortcut"
-  },
-  "editShortcutTitle": {
-    "message": "I-edit ang Shortcut"
-  },
-  "shortcutNameLabel": {
-    "message": "Pangalan"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Custom na Icon"
-  },
-  "faviconUrlLabel": {
-    "message": "URL ng Icon"
-  },
-  "btnCancel": {
-    "message": "Cancel"
-  },
-  "btnSave": {
-    "message": "Save"
-  },
-  "searchPlaceholder": {
-    "message": "Mag-search sa web"
-  },
-  "namePlaceholder": {
-    "message": "Pangalan mo (optional)"
-  },
-  "cityPlaceholder": {
-    "message": "City mo"
-  },
-  "addShortcutLabel": {
-    "message": "I-add"
-  },
-  "editLabel": {
-    "message": "I-edit"
-  },
-  "removeLabel": {
-    "message": "I-remove"
-  },
-  "moreOptionsLabel": {
-    "message": "Iba pang options"
-  },
-  "permissionRequiredTitle": {
-    "message": "Kailangan ng Permission"
-  },
-  "grantPermissionLabel": {
-    "message": "I-grant ang Permission"
-  },
-  "learnMoreLabel": {
-    "message": "Learn more"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Welcome home"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Handa na ang bagong fluent workspace mo. Choose your next step sa ibaba."
-  },
-  "wizardRestoreTitle": {
-    "message": "I-restore ang settings"
-  },
-  "wizardRestoreDesc": {
-    "message": "May backup file ka ba?"
-  },
-  "wizardStartTitle": {
-    "message": "Simulan ang setup"
-  },
-  "wizardStartDesc": {
-    "message": "Magsimula sa ilang steps."
-  },
-  "wizardSkipTitle": {
-    "message": "I-skip ang setup"
-  },
-  "wizardThemeAuto": {
-    "message": "System"
-  },
-  "wizardThemeLight": {
-    "message": "Light"
-  },
-  "wizardThemeDark": {
-    "message": "Dark"
-  },
-  "wizardSkipDesc": {
-    "message": "Mag-start gamit ang clean setup."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
-  },
-  "wizardAppearanceDesc": {
-    "message": "I-set ang iyong theme, accent color, name, at language."
-  },
-  "btnBack": {
-    "message": "Bumalik"
-  },
-  "btnNext": {
-    "message": "Continue"
-  },
-  "wizardAccentLabel": {
-    "message": "Accent Color"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Piliin kung ano ang lalabas sa page mo."
-  },
-  "wizardFinalTitle": {
-    "message": "All set na!"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Thank you sa paggamit ng Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Get started"
-  },
-  "wizardFinalStartDesc": {
-    "message": "I-open ang iyong new tab page."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Support the project"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Help keep the project updated."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Source code"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "View project on GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-access ang \"$API_NAME$\". Mae-ensure nito ang privacy at security mo.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "i-check ang changelog"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Fini-fetch ang $SOURCE$ na image...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Naintindihan"
-  },
+
   "weekday_0": {
     "message": "Sunday"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Saturday"
   },
+
   "greetWeekMorning": {
     "message": "Magandang morning ngayong $WEEK$, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Weather"
+  },
+  "locationLabel": {
+    "message": "Location"
+  },
+  "useFahrenheitLabel": {
+    "message": "Gamitin ang Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
+  },
   "alertTempDrop": {
     "message": "Expected na bababa ang temp: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Search"
+  },
+  "searchStyleFull": {
+    "message": "Full width"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
+  "suggestionsOption": {
+    "message": "Mga Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "Clear search (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Voice search"
+  },
+  "visualSearchOption": {
+    "message": "Visual Search"
+  },
+  "askAiOption": {
+    "message": "Mag-ask sa AI"
+  },
+  "searchPlaceholder": {
+    "message": "Mag-search sa web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visual Search"
+  },
+  "visualSearchDragText": {
+    "message": "I-drag ang image dito o"
+  },
+  "visualSearchUploadLink": {
+    "message": "mag-upload ng file"
+  },
+  "visualSearchDivider": {
+    "message": "o"
+  },
+  "visualSearchPasteUrl": {
+    "message": "I-paste ang image link"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Search"
+  },
+
+  "shortcutsTitle": {
+    "message": "Mga Shortcut"
+  },
+  "enableFoldersLabel": {
+    "message": "I-enable ang Folders"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "I-hide ang Names"
+  },
+  "folderIconHelp": {
+    "message": "Maghanap ng custom folder icons sa:"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Corner Radius"
+  },
+  "rows1": {
+    "message": "1 Row"
+  },
+  "rows2": {
+    "message": "2 Rows"
+  },
+  "rows3": {
+    "message": "3 Rows"
+  },
+  "rows4": {
+    "message": "4 Rows"
+  },
+
+  "addFolderTitle": {
+    "message": "I-add ang Folder"
+  },
+  "folderNameLabel": {
+    "message": "Pangalan"
+  },
+  "editFolderTitle": {
+    "message": "I-edit ang Folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Gumawa ng bago"
+  },
+  "backLabel": {
+    "message": "Bumalik"
+  },
+  "addShortcutTitle": {
+    "message": "Mag-add ng Shortcut"
+  },
+  "editShortcutTitle": {
+    "message": "I-edit ang Shortcut"
+  },
+  "shortcutNameLabel": {
+    "message": "Pangalan"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Custom na Icon"
+  },
+  "faviconUrlLabel": {
+    "message": "URL ng Icon"
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "namePlaceholder": {
+    "message": "Pangalan mo (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "City mo"
+  },
+  "addShortcutLabel": {
+    "message": "I-add"
+  },
+  "editLabel": {
+    "message": "I-edit"
+  },
+  "removeLabel": {
+    "message": "I-remove"
+  },
+  "moreOptionsLabel": {
+    "message": "Iba pang options"
+  },
+
+  "styleNone": {
+    "message": "Wala"
+  },
+  "learnMoreLabel": {
+    "message": "Learn more"
+  },
+  "warningUnderstood": {
+    "message": "Naintindihan"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Kailangan ng Permission"
+  },
+  "grantPermissionLabel": {
+    "message": "I-grant ang Permission"
+  },
+  "permissionRequiredMessage": {
+    "message": "Para magamit ang feature na 'to, kailangan ng Fluent New Tab ang permission para ma-access ang \"$API_NAME$\". Mae-ensure nito ang privacy at security mo.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Ang Fluent New Tab ay na-update na sa version $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "i-check ang changelog"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Welcome home"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Handa na ang bagong fluent workspace mo. Choose your next step sa ibaba."
+  },
+  "wizardRestoreTitle": {
+    "message": "I-restore ang settings"
+  },
+  "wizardRestoreDesc": {
+    "message": "May backup file ka ba?"
+  },
+  "wizardStartTitle": {
+    "message": "Simulan ang setup"
+  },
+  "wizardStartDesc": {
+    "message": "Magsimula sa ilang steps."
+  },
+  "wizardSkipTitle": {
+    "message": "I-skip ang setup"
+  },
+  "wizardSkipDesc": {
+    "message": "Mag-start gamit ang clean setup."
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Light"
+  },
+  "wizardThemeDark": {
+    "message": "Dark"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Style & Appearance"
+  },
+  "wizardAppearanceDesc": {
+    "message": "I-set ang iyong theme, accent color, name, at language."
+  },
+  "btnBack": {
+    "message": "Bumalik"
+  },
+  "btnNext": {
+    "message": "Continue"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Utilities"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Piliin kung ano ang lalabas sa page mo."
+  },
+  "wizardFinalTitle": {
+    "message": "All set na!"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Thank you sa paggamit ng Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Get started"
+  },
+  "wizardFinalStartDesc": {
+    "message": "I-open ang iyong new tab page."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Support the project"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Help keep the project updated."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Source code"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "View project on GitHub."
   }
 }

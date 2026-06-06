@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "More Apps"
   },
+  "appLauncherTitle": {
+    "message": "App Launcher"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Tab Name"
+  },
+  "tabFaviconLabel": {
+    "message": "Tab Icon"
+  },
+
   "settingsTitle": {
     "message": "Settings"
   },
+  "appearanceTitle": {
+    "message": "Appearance"
+  },
+  "mainUiScaleLabel": {
+    "message": "Main UI Scale"
+  },
+  "displayTitle": {
+    "message": "Display"
+  },
+  "displayScaleLabel": {
+    "message": "Display Scale"
+  },
+  "AccessibilityTitle": {
+    "message": "Accessibility"
+  },
+  "reduceMotionTitle": {
+    "message": "Reduce motion"
+  },
+  "languageTitle": {
+    "message": "Language"
+  },
+  "backupTitle": {
+    "message": "Data Backup"
+  },
+  "exportOption": {
+    "message": "Export"
+  },
+  "importOption": {
+    "message": "Import"
+  },
+
   "wallpaperTitle": {
     "message": "Wallpaper"
   },
@@ -23,48 +68,22 @@
   "surfaceTintLabel": {
     "message": "Surface Tint"
   },
-  "appearanceTitle": {
-    "message": "Appearance"
+  "fetchingImagePlaceholder": {
+    "message": "Fetching $SOURCE$ image...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Main UI Scale"
-  },
-  "newTabTitle": {
-    "message": "New Tab"
-  },
-  "tabNameLabel": {
-    "message": "Tab Name"
-  },
-  "tabFaviconLabel": {
-    "message": "Tab Icon"
-  },
+
   "customColorTitle": {
     "message": "Custom Color"
   },
-  "visualSearchTitle": {
-    "message": "Visual Search"
+  "wizardAccentLabel": {
+    "message": "Accent Color"
   },
-  "visualSearchDragText": {
-    "message": "Drag an image here or"
-  },
-  "visualSearchUploadLink": {
-    "message": "upload a file"
-  },
-  "visualSearchDivider": {
-    "message": "or"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Paste image link"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Search"
-  },
-  "styleNone": {
-    "message": "None"
-  },
-  "displayTitle": {
-    "message": "Display"
-  },
+
   "displayGreeting": {
     "message": "Greeting"
   },
@@ -79,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Time & Date"
-  },
-  "displayScaleLabel": {
-    "message": "Display Scale"
   },
   "emojiTypeLabel": {
     "message": "Emoji Type"
@@ -110,269 +126,7 @@
   "dateWeekday": {
     "message": "Weekday"
   },
-  "weatherTitle": {
-    "message": "Weather"
-  },
-  "locationLabel": {
-    "message": "Location"
-  },
-  "useFahrenheitLabel": {
-    "message": "Use Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Weather alerts"
-  },
-  "shortcutsTitle": {
-    "message": "Shortcuts"
-  },
-  "enableFoldersLabel": {
-    "message": "Enable Folders"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Hide Names"
-  },
-  "folderIconHelp": {
-    "message": "Find custom folder icons at"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Corner Radius"
-  },
-  "rows1": {
-    "message": "1 Row"
-  },
-  "rows2": {
-    "message": "2 Rows"
-  },
-  "rows3": {
-    "message": "3 Rows"
-  },
-  "rows4": {
-    "message": "4 Rows"
-  },
-  "appLauncherTitle": {
-    "message": "App Launcher"
-  },
-  "searchTitle": {
-    "message": "Search"
-  },
-  "searchStyleFull": {
-    "message": "Full width"
-  },
-  "searchStyleCompact": {
-    "message": "Compact"
-  },
-  "suggestionsOption": {
-    "message": "Suggestions"
-  },
-  "clearSearchOption": {
-    "message": "Clean search (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Voice search"
-  },
-  "visualSearchOption": {
-    "message": "Visual search"
-  },
-  "askAiOption": {
-    "message": "Ask to AI"
-  },
-  "AccessibilityTitle": {
-    "message": "Accessibility"
-  },
-  "reduceMotionTitle": {
-    "message": "Reduce motion"
-  },
-  "languageTitle": {
-    "message": "Language"
-  },
-  "backupTitle": {
-    "message": "Data Backup"
-  },
-  "exportOption": {
-    "message": "Export"
-  },
-  "importOption": {
-    "message": "Import"
-  },
-  "addFolderTitle": {
-    "message": "Add Folder"
-  },
-  "folderNameLabel": {
-    "message": "Name"
-  },
-  "editFolderTitle": {
-    "message": "Edit Folder"
-  },
-  "chooseTypeTitle": {
-    "message": "Create New"
-  },
-  "backLabel": {
-    "message": "Back"
-  },
-  "addShortcutTitle": {
-    "message": "Add Shortcut"
-  },
-  "editShortcutTitle": {
-    "message": "Edit Shortcut"
-  },
-  "shortcutNameLabel": {
-    "message": "Name"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Custom Icon"
-  },
-  "faviconUrlLabel": {
-    "message": "Icon URL"
-  },
-  "btnCancel": {
-    "message": "Cancel"
-  },
-  "btnSave": {
-    "message": "Save"
-  },
-  "searchPlaceholder": {
-    "message": "Search the web"
-  },
-  "namePlaceholder": {
-    "message": "e.g., John (optional)"
-  },
-  "cityPlaceholder": {
-    "message": "e.g., New York"
-  },
-  "addShortcutLabel": {
-    "message": "Add"
-  },
-  "editLabel": {
-    "message": "Edit"
-  },
-  "removeLabel": {
-    "message": "Remove"
-  },
-  "moreOptionsLabel": {
-    "message": "More options"
-  },
-  "permissionRequiredTitle": {
-    "message": "Permission Required"
-  },
-  "grantPermissionLabel": {
-    "message": "Grant Permission"
-  },
-  "learnMoreLabel": {
-    "message": "Learn more"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Welcome home"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
-  },
-  "wizardRestoreTitle": {
-    "message": "Restore settings"
-  },
-  "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
-  },
-  "wizardStartTitle": {
-    "message": "Start the setup"
-  },
-  "wizardStartDesc": {
-    "message": "Start with a few steps."
-  },
-  "wizardSkipTitle": {
-    "message": "Skip setup"
-  },
-  "wizardThemeAuto": {
-    "message": "System"
-  },
-  "wizardThemeLight": {
-    "message": "Light"
-  },
-  "wizardThemeDark": {
-    "message": "Dark"
-  },
-  "wizardSkipDesc": {
-    "message": "Start with a clean setup."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
-  },
-  "btnBack": {
-    "message": "Back"
-  },
-  "btnNext": {
-    "message": "Continue"
-  },
-  "wizardAccentLabel": {
-    "message": "Accent Color"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
-  },
-  "wizardFinalTitle": {
-    "message": "You're all set"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Get started"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Support the project"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Help keep the project updated."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Source code"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "View project on GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "Fluent New Tab has been updated to version $VERSION$, ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "see changelog"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Fetching $SOURCE$ image...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Understood"
-  },
+
   "weekday_0": {
     "message": "Sunday"
   },
@@ -394,6 +148,7 @@
   "weekday_6": {
     "message": "Saturday"
   },
+
   "greetWeekMorning": {
     "message": "Have a great $WEEK$, $NAME$!",
     "placeholders": {
@@ -613,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Weather"
+  },
+  "locationLabel": {
+    "message": "Location"
+  },
+  "useFahrenheitLabel": {
+    "message": "Use Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Weather alerts"
+  },
   "alertTempDrop": {
     "message": "Expected temperature drop: $VALUE$°",
     "placeholders": {
@@ -660,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Search"
+  },
+  "searchStyleFull": {
+    "message": "Full width"
+  },
+  "searchStyleCompact": {
+    "message": "Compact"
+  },
+  "suggestionsOption": {
+    "message": "Suggestions"
+  },
+  "clearSearchOption": {
+    "message": "Clean search (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Voice search"
+  },
+  "visualSearchOption": {
+    "message": "Visual search"
+  },
+  "askAiOption": {
+    "message": "Ask to AI"
+  },
+  "searchPlaceholder": {
+    "message": "Search the web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Visual Search"
+  },
+  "visualSearchDragText": {
+    "message": "Drag an image here or"
+  },
+  "visualSearchUploadLink": {
+    "message": "upload a file"
+  },
+  "visualSearchDivider": {
+    "message": "or"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Paste image link"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Search"
+  },
+
+  "shortcutsTitle": {
+    "message": "Shortcuts"
+  },
+  "enableFoldersLabel": {
+    "message": "Enable Folders"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Hide Names"
+  },
+  "folderIconHelp": {
+    "message": "Find custom folder icons at"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Corner Radius"
+  },
+  "rows1": {
+    "message": "1 Row"
+  },
+  "rows2": {
+    "message": "2 Rows"
+  },
+  "rows3": {
+    "message": "3 Rows"
+  },
+  "rows4": {
+    "message": "4 Rows"
+  },
+
+  "addFolderTitle": {
+    "message": "Add Folder"
+  },
+  "folderNameLabel": {
+    "message": "Name"
+  },
+  "editFolderTitle": {
+    "message": "Edit Folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Create New"
+  },
+  "backLabel": {
+    "message": "Back"
+  },
+  "addShortcutTitle": {
+    "message": "Add Shortcut"
+  },
+  "editShortcutTitle": {
+    "message": "Edit Shortcut"
+  },
+  "shortcutNameLabel": {
+    "message": "Name"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Custom Icon"
+  },
+  "faviconUrlLabel": {
+    "message": "Icon URL"
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "namePlaceholder": {
+    "message": "e.g., John (optional)"
+  },
+  "cityPlaceholder": {
+    "message": "e.g., New York"
+  },
+  "addShortcutLabel": {
+    "message": "Add"
+  },
+  "editLabel": {
+    "message": "Edit"
+  },
+  "removeLabel": {
+    "message": "Remove"
+  },
+  "moreOptionsLabel": {
+    "message": "More options"
+  },
+
+  "styleNone": {
+    "message": "None"
+  },
+  "learnMoreLabel": {
+    "message": "Learn more"
+  },
+  "warningUnderstood": {
+    "message": "Understood"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Permission Required"
+  },
+  "grantPermissionLabel": {
+    "message": "Grant Permission"
+  },
+  "permissionRequiredMessage": {
+    "message": "To use this feature, Fluent New Tab needs permission to access \"$API_NAME$\". This ensures your privacy and security.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab has been updated to version $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "see changelog"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Welcome home"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Your new fluent workspace is ready. Choose your next step below."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restore settings"
+  },
+  "wizardRestoreDesc": {
+    "message": "Do you have a backup file? "
+  },
+  "wizardStartTitle": {
+    "message": "Start the setup"
+  },
+  "wizardStartDesc": {
+    "message": "Start with a few steps."
+  },
+  "wizardSkipTitle": {
+    "message": "Skip setup"
+  },
+  "wizardSkipDesc": {
+    "message": "Start with a clean setup."
+  },
+  "wizardThemeAuto": {
+    "message": "System"
+  },
+  "wizardThemeLight": {
+    "message": "Light"
+  },
+  "wizardThemeDark": {
+    "message": "Dark"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Style & Appearance"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Set your theme, accent color, name, and language."
+  },
+  "btnBack": {
+    "message": "Back"
+  },
+  "btnNext": {
+    "message": "Continue"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Utilities"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Choose what shows up on your page."
+  },
+  "wizardFinalTitle": {
+    "message": "You're all set"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Thank you for using Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Get started"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Open your new tab page."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Support the project"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Help keep the project updated."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Source code"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "View project on GitHub."
   }
 }

@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "Mais aplicativos"
   },
+  "appLauncherTitle": {
+    "message": "Launcher de apps"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Nome da guia"
+  },
+  "tabFaviconLabel": {
+    "message": "Ícone da guia"
+  },
+
   "settingsTitle": {
     "message": "Configurações"
   },
+  "appearanceTitle": {
+    "message": "Aparência"
+  },
+  "mainUiScaleLabel": {
+    "message": "Escala da IU Principal"
+  },
+  "displayTitle": {
+    "message": "Display"
+  },
+  "displayScaleLabel": {
+    "message": "Escala do Display"
+  },
+  "AccessibilityTitle": {
+    "message": "Acessibilidade"
+  },
+  "reduceMotionTitle": {
+    "message": "Reduzir movimento"
+  },
+  "languageTitle": {
+    "message": "Idioma"
+  },
+  "backupTitle": {
+    "message": "Backup de dados"
+  },
+  "exportOption": {
+    "message": "Exportar"
+  },
+  "importOption": {
+    "message": "Importar"
+  },
+
   "wallpaperTitle": {
     "message": "Papel de parede"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Tom da Superfície"
   },
-  "appearanceTitle": {
-    "message": "Aparência"
+  "fetchingImagePlaceholder": {
+    "message": "Carregando a imagem da $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "Escala da IU Principal"
-  },
-  "tabNameLabel": {
-    "message": "Nome da guia"
-  },
-  "tabFaviconLabel": {
-    "message": "Ícone da guia"
-  },
+
   "customColorTitle": {
     "message": "Cor Customizada"
   },
-  "visualSearchTitle": {
-    "message": "Pesquisa visual"
+  "wizardAccentLabel": {
+    "message": "Cor de Destaque"
   },
-  "visualSearchDragText": {
-    "message": "Arraste uma imagem aqui ou"
-  },
-  "visualSearchUploadLink": {
-    "message": "carregue um arquivo"
-  },
-  "visualSearchDivider": {
-    "message": "ou"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Cole um link de imagem"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Pesquisar"
-  },
-  "styleNone": {
-    "message": "Nenhum"
-  },
-  "displayTitle": {
-    "message": "Display"
-  },
+
   "displayGreeting": {
     "message": "Saudações"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Hora e data"
-  },
-  "displayScaleLabel": {
-    "message": "Escala do Display"
   },
   "emojiTypeLabel": {
     "message": "Tipo de emoji"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Dia da semana"
   },
-  "weatherTitle": {
-    "message": "Clima"
-  },
-  "locationLabel": {
-    "message": "Localização"
-  },
-  "useFahrenheitLabel": {
-    "message": "Usar Fahrenheit"
-  },
-  "weatherAlertsLabel": {
-    "message": "Alertas de clima"
-  },
-  "shortcutsTitle": {
-    "message": "Atalhos"
-  },
-  "enableFoldersLabel": {
-    "message": "Ativar pastas"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Ocultar nomes"
-  },
-  "folderIconHelp": {
-    "message": "Encontre ícones personalizados para pastas em"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Raio do canto"
-  },
-  "rows1": {
-    "message": "1 linha"
-  },
-  "rows2": {
-    "message": "2 linhas"
-  },
-  "rows3": {
-    "message": "3 linhas"
-  },
-  "rows4": {
-    "message": "4 linhas"
-  },
-  "appLauncherTitle": {
-    "message": "Launcher de apps"
-  },
-  "searchTitle": {
-    "message": "Pesquisar"
-  },
-  "searchStyleFull": {
-    "message": "Largura total"
-  },
-  "searchStyleCompact": {
-    "message": "Compacto"
-  },
-  "suggestionsOption": {
-    "message": "Sugestões"
-  },
-  "clearSearchOption": {
-    "message": "Pesquisa limpa (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Pesquisa por voz"
-  },
-  "visualSearchOption": {
-    "message": "Busca Visual"
-  },
-  "askAiOption": {
-    "message": "Pergunte à IA"
-  },
-  "AccessibilityTitle": {
-    "message": "Acessibilidade"
-  },
-  "reduceMotionTitle": {
-    "message": "Reduzir movimento"
-  },
-  "languageTitle": {
-    "message": "Idioma"
-  },
-  "backupTitle": {
-    "message": "Backup de dados"
-  },
-  "exportOption": {
-    "message": "Exportar"
-  },
-  "importOption": {
-    "message": "Importar"
-  },
-  "addFolderTitle": {
-    "message": "Adicionar pasta"
-  },
-  "folderNameLabel": {
-    "message": "Nome"
-  },
-  "editFolderTitle": {
-    "message": "Editar pasta"
-  },
-  "chooseTypeTitle": {
-    "message": "Criar novo"
-  },
-  "backLabel": {
-    "message": "Voltar"
-  },
-  "addShortcutTitle": {
-    "message": "Adicionar atalho"
-  },
-  "editShortcutTitle": {
-    "message": "Editar atalho"
-  },
-  "shortcutNameLabel": {
-    "message": "Nome"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Ícone personalizado"
-  },
-  "faviconUrlLabel": {
-    "message": "URL do ícone"
-  },
-  "btnCancel": {
-    "message": "Cancelar"
-  },
-  "btnSave": {
-    "message": "Salvar"
-  },
-  "searchPlaceholder": {
-    "message": "Pesquisar na web"
-  },
-  "namePlaceholder": {
-    "message": "ex: John (opcional)"
-  },
-  "cityPlaceholder": {
-    "message": "Sua cidade"
-  },
-  "addShortcutLabel": {
-    "message": "Adicionar"
-  },
-  "editLabel": {
-    "message": "Editar"
-  },
-  "removeLabel": {
-    "message": "Remover"
-  },
-  "moreOptionsLabel": {
-    "message": "Mais opções"
-  },
-  "permissionRequiredTitle": {
-    "message": "É necessária autorização"
-  },
-  "grantPermissionLabel": {
-    "message": "Conceder permissão"
-  },
-  "learnMoreLabel": {
-    "message": "Saiba mais"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Bem-vindo à casa"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Seu novo espaço de trabalho fluente está pronto. Escolha seu próximo passo abaixo."
-  },
-  "wizardRestoreTitle": {
-    "message": "Restaurar configurações"
-  },
-  "wizardRestoreDesc": {
-    "message": "Você tem um arquivo de backup? "
-  },
-  "wizardStartTitle": {
-    "message": "Iniciar a configuração"
-  },
-  "wizardStartDesc": {
-    "message": "Comece com alguns passos."
-  },
-  "wizardSkipTitle": {
-    "message": "Pular configuração"
-  },
-  "wizardThemeAuto": {
-    "message": "Sistema"
-  },
-  "wizardThemeLight": {
-    "message": "Claro"
-  },
-  "wizardThemeDark": {
-    "message": "Escuro"
-  },
-  "wizardSkipDesc": {
-    "message": "Comece com uma configuração limpa."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Estilo & Aparência"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Defina o seu tema, a cor de destaque, nome e idioma."
-  },
-  "btnBack": {
-    "message": "Voltar"
-  },
-  "btnNext": {
-    "message": "Continuar"
-  },
-  "wizardAccentLabel": {
-    "message": "Cor de Destaque"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Widgets & Utilidades"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Escolha o que aparece na sua página."
-  },
-  "wizardFinalTitle": {
-    "message": "Está tudo pronto"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Obrigado por usar o Fluent New Tab"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Comece agora"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Abrir sua nova página."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Apoie o projeto"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Ajude a manter o projeto atualizado."
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Código-fonte"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Veja o projeto no GitHub."
-  },
-  "permissionRequiredMessage": {
-    "message": "Para usar esse recurso, o Fluent New Tab precisa de permissão para acessar \"$API_NAME$\". Isso garante sua privacidade e segurança.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "O Fluent New Tab foi atualizado para a versão $VERSION$. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Veja as notas de alterações"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "Carregando a imagem da $SOURCE$...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Entendido"
-  },
+
   "weekday_0": {
     "message": "Domingo"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Sábado"
   },
+
   "greetWeekMorning": {
     "message": "Tenha uma ótima $WEEK$, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Clima"
+  },
+  "locationLabel": {
+    "message": "Localização"
+  },
+  "useFahrenheitLabel": {
+    "message": "Usar Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Alertas de clima"
+  },
   "alertTempDrop": {
     "message": "Queda de temperatura esperada: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Pesquisar"
+  },
+  "searchStyleFull": {
+    "message": "Largura total"
+  },
+  "searchStyleCompact": {
+    "message": "Compacto"
+  },
+  "suggestionsOption": {
+    "message": "Sugestões"
+  },
+  "clearSearchOption": {
+    "message": "Pesquisa limpa (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Pesquisa por voz"
+  },
+  "visualSearchOption": {
+    "message": "Busca Visual"
+  },
+  "askAiOption": {
+    "message": "Pergunte à IA"
+  },
+  "searchPlaceholder": {
+    "message": "Pesquisar na web"
+  },
+
+  "visualSearchTitle": {
+    "message": "Pesquisa visual"
+  },
+  "visualSearchDragText": {
+    "message": "Arraste uma imagem aqui ou"
+  },
+  "visualSearchUploadLink": {
+    "message": "carregue um arquivo"
+  },
+  "visualSearchDivider": {
+    "message": "ou"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Cole um link de imagem"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Pesquisar"
+  },
+
+  "shortcutsTitle": {
+    "message": "Atalhos"
+  },
+  "enableFoldersLabel": {
+    "message": "Ativar pastas"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Ocultar nomes"
+  },
+  "folderIconHelp": {
+    "message": "Encontre ícones personalizados para pastas em"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Raio do canto"
+  },
+  "rows1": {
+    "message": "1 linha"
+  },
+  "rows2": {
+    "message": "2 linhas"
+  },
+  "rows3": {
+    "message": "3 linhas"
+  },
+  "rows4": {
+    "message": "4 linhas"
+  },
+
+  "addFolderTitle": {
+    "message": "Adicionar pasta"
+  },
+  "folderNameLabel": {
+    "message": "Nome"
+  },
+  "editFolderTitle": {
+    "message": "Editar pasta"
+  },
+  "chooseTypeTitle": {
+    "message": "Criar novo"
+  },
+  "backLabel": {
+    "message": "Voltar"
+  },
+  "addShortcutTitle": {
+    "message": "Adicionar atalho"
+  },
+  "editShortcutTitle": {
+    "message": "Editar atalho"
+  },
+  "shortcutNameLabel": {
+    "message": "Nome"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Ícone personalizado"
+  },
+  "faviconUrlLabel": {
+    "message": "URL do ícone"
+  },
+  "btnCancel": {
+    "message": "Cancelar"
+  },
+  "btnSave": {
+    "message": "Salvar"
+  },
+  "namePlaceholder": {
+    "message": "ex: John (opcional)"
+  },
+  "cityPlaceholder": {
+    "message": "Sua cidade"
+  },
+  "addShortcutLabel": {
+    "message": "Adicionar"
+  },
+  "editLabel": {
+    "message": "Editar"
+  },
+  "removeLabel": {
+    "message": "Remover"
+  },
+  "moreOptionsLabel": {
+    "message": "Mais opções"
+  },
+
+  "styleNone": {
+    "message": "Nenhum"
+  },
+  "learnMoreLabel": {
+    "message": "Saiba mais"
+  },
+  "warningUnderstood": {
+    "message": "Entendido"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "É necessária autorização"
+  },
+  "grantPermissionLabel": {
+    "message": "Conceder permissão"
+  },
+  "permissionRequiredMessage": {
+    "message": "Para usar esse recurso, o Fluent New Tab precisa de permissão para acessar \"$API_NAME$\". Isso garante sua privacidade e segurança.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "O Fluent New Tab foi atualizado para a versão $VERSION$. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Veja as notas de alterações"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Bem-vindo à casa"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Seu novo espaço de trabalho fluente está pronto. Escolha seu próximo passo abaixo."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restaurar configurações"
+  },
+  "wizardRestoreDesc": {
+    "message": "Você tem um arquivo de backup? "
+  },
+  "wizardStartTitle": {
+    "message": "Iniciar a configuração"
+  },
+  "wizardStartDesc": {
+    "message": "Comece com alguns passos."
+  },
+  "wizardSkipTitle": {
+    "message": "Pular configuração"
+  },
+  "wizardSkipDesc": {
+    "message": "Comece com uma configuração limpa."
+  },
+  "wizardThemeAuto": {
+    "message": "Sistema"
+  },
+  "wizardThemeLight": {
+    "message": "Claro"
+  },
+  "wizardThemeDark": {
+    "message": "Escuro"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Estilo & Aparência"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Defina o seu tema, a cor de destaque, nome e idioma."
+  },
+  "btnBack": {
+    "message": "Voltar"
+  },
+  "btnNext": {
+    "message": "Continuar"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets & Utilidades"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Escolha o que aparece na sua página."
+  },
+  "wizardFinalTitle": {
+    "message": "Está tudo pronto"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Obrigado por usar o Fluent New Tab"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Comece agora"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Abrir sua nova página."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Apoie o projeto"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Ajude a manter o projeto atualizado."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Código-fonte"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Veja o projeto no GitHub."
   }
 }

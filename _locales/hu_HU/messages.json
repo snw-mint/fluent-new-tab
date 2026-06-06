@@ -5,9 +5,54 @@
   "moreApps": {
     "message": "További alkalmazások"
   },
+  "appLauncherTitle": {
+    "message": "Alkalmazásindító"
+  },
+
+  "newTabTitle": {
+    "message": "New Tab"
+  },
+  "tabNameLabel": {
+    "message": "Fül neve"
+  },
+  "tabFaviconLabel": {
+    "message": "Fül ikon"
+  },
+
   "settingsTitle": {
     "message": "Beállítások"
   },
+  "appearanceTitle": {
+    "message": "Megjelenés"
+  },
+  "mainUiScaleLabel": {
+    "message": "A fő felület méretezése"
+  },
+  "displayTitle": {
+    "message": "Kijelző"
+  },
+  "displayScaleLabel": {
+    "message": "A kijelző méretének módosítása"
+  },
+  "AccessibilityTitle": {
+    "message": "Kisegítő lehetőségek"
+  },
+  "reduceMotionTitle": {
+    "message": "Mozgás csökkentése"
+  },
+  "languageTitle": {
+    "message": "Nyelv"
+  },
+  "backupTitle": {
+    "message": "Adatmentés"
+  },
+  "exportOption": {
+    "message": "Exportálás"
+  },
+  "importOption": {
+    "message": "Importálás"
+  },
+
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
@@ -23,45 +68,22 @@
   "surfaceTintLabel": {
     "message": "Felület színezése"
   },
-  "appearanceTitle": {
-    "message": "Megjelenés"
+  "fetchingImagePlaceholder": {
+    "message": "A $SOURCE$ kép betöltése...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
   },
-  "mainUiScaleLabel": {
-    "message": "A fő felület méretezése"
-  },
-  "tabNameLabel": {
-    "message": "Fül neve"
-  },
-  "tabFaviconLabel": {
-    "message": "Fül ikon"
-  },
+
   "customColorTitle": {
     "message": "Egyedi szín"
   },
-  "visualSearchTitle": {
-    "message": "Képalapú keresés"
+  "wizardAccentLabel": {
+    "message": "Kiemelő szín"
   },
-  "visualSearchDragText": {
-    "message": "Húzz ide egy képet, vagy"
-  },
-  "visualSearchUploadLink": {
-    "message": "fájl feltöltése"
-  },
-  "visualSearchDivider": {
-    "message": "vagy"
-  },
-  "visualSearchPasteUrl": {
-    "message": "Kép linkjének beillesztése"
-  },
-  "visualSearchSearchBtn": {
-    "message": "Keresés"
-  },
-  "styleNone": {
-    "message": "Nincs"
-  },
-  "displayTitle": {
-    "message": "Kijelző"
-  },
+
   "displayGreeting": {
     "message": "Üdvözlet"
   },
@@ -76,9 +98,6 @@
   },
   "displayAdvanced": {
     "message": "Idő és dátum"
-  },
-  "displayScaleLabel": {
-    "message": "A kijelző méretének módosítása"
   },
   "emojiTypeLabel": {
     "message": "Emoji típus"
@@ -107,269 +126,7 @@
   "dateWeekday": {
     "message": "Hétköznap"
   },
-  "weatherTitle": {
-    "message": "Időjárás"
-  },
-  "locationLabel": {
-    "message": "Helyszín"
-  },
-  "useFahrenheitLabel": {
-    "message": "Fahrenheit-skálát használjon"
-  },
-  "weatherAlertsLabel": {
-    "message": "Időjárási riasztások"
-  },
-  "shortcutsTitle": {
-    "message": "Gyorsbillentyűk"
-  },
-  "enableFoldersLabel": {
-    "message": "Mappák engedélyezése"
-  },
-  "hideShortcutNamesLabel": {
-    "message": "Nevek elrejtése"
-  },
-  "folderIconHelp": {
-    "message": "Egyedi mappaikonokat találsz a"
-  },
-  "shortcutRadiusLabel": {
-    "message": "Sarkok sugara"
-  },
-  "rows1": {
-    "message": "1 sor"
-  },
-  "rows2": {
-    "message": "2 sor"
-  },
-  "rows3": {
-    "message": "3 sor"
-  },
-  "rows4": {
-    "message": "4 sor"
-  },
-  "appLauncherTitle": {
-    "message": "Alkalmazásindító"
-  },
-  "searchTitle": {
-    "message": "Keresés"
-  },
-  "searchStyleFull": {
-    "message": "Teljes szélesség"
-  },
-  "searchStyleCompact": {
-    "message": "Kompakt"
-  },
-  "suggestionsOption": {
-    "message": "Javaslatok"
-  },
-  "clearSearchOption": {
-    "message": "Egyszerű keresés (Google)"
-  },
-  "voiceSearchOption": {
-    "message": "Hangalapú keresés"
-  },
-  "visualSearchOption": {
-    "message": "Vizuális keresés"
-  },
-  "askAiOption": {
-    "message": "Kérdezd meg az AI-t"
-  },
-  "AccessibilityTitle": {
-    "message": "Kisegítő lehetőségek"
-  },
-  "reduceMotionTitle": {
-    "message": "Mozgás csökkentése"
-  },
-  "languageTitle": {
-    "message": "Nyelv"
-  },
-  "backupTitle": {
-    "message": "Adatmentés"
-  },
-  "exportOption": {
-    "message": "Exportálás"
-  },
-  "importOption": {
-    "message": "Importálás"
-  },
-  "addFolderTitle": {
-    "message": "Mappa hozzáadása"
-  },
-  "folderNameLabel": {
-    "message": "Név"
-  },
-  "editFolderTitle": {
-    "message": "Mappa szerkesztése"
-  },
-  "chooseTypeTitle": {
-    "message": "Új létrehozása"
-  },
-  "backLabel": {
-    "message": "Vissza"
-  },
-  "addShortcutTitle": {
-    "message": "Parancsikon hozzáadása"
-  },
-  "editShortcutTitle": {
-    "message": "Parancsikon szerkesztése"
-  },
-  "shortcutNameLabel": {
-    "message": "Név"
-  },
-  "shortcutUrlLabel": {
-    "message": "URL"
-  },
-  "addFaviconLabel": {
-    "message": "Egyéni ikon"
-  },
-  "faviconUrlLabel": {
-    "message": "Ikon URL"
-  },
-  "btnCancel": {
-    "message": "Mégse"
-  },
-  "btnSave": {
-    "message": "Mentés"
-  },
-  "searchPlaceholder": {
-    "message": "Keresés az interneten"
-  },
-  "namePlaceholder": {
-    "message": "Neved (opcionális)"
-  },
-  "cityPlaceholder": {
-    "message": "Városod"
-  },
-  "addShortcutLabel": {
-    "message": "Hozzáadás"
-  },
-  "editLabel": {
-    "message": "Szerkesztés"
-  },
-  "removeLabel": {
-    "message": "Eltávolítás"
-  },
-  "moreOptionsLabel": {
-    "message": "További lehetőségek"
-  },
-  "permissionRequiredTitle": {
-    "message": "Engedély szükséges"
-  },
-  "grantPermissionLabel": {
-    "message": "Engedély megadása"
-  },
-  "learnMoreLabel": {
-    "message": "További információk"
-  },
-  "wizardWelcomeTitle": {
-    "message": "Üdvözlünk"
-  },
-  "wizardWelcomeSubtitle": {
-    "message": "Az új Fluent munkaterületed készen áll. Válaszd ki a következő lépést."
-  },
-  "wizardRestoreTitle": {
-    "message": "Beállítások visszaállítása"
-  },
-  "wizardRestoreDesc": {
-    "message": "Van biztonsági mentésed?"
-  },
-  "wizardStartTitle": {
-    "message": "Beállítás indítása"
-  },
-  "wizardStartDesc": {
-    "message": "Kezdd néhány egyszerű lépéssel."
-  },
-  "wizardSkipTitle": {
-    "message": "Beállítás kihagyása"
-  },
-  "wizardThemeAuto": {
-    "message": "Rendszer"
-  },
-  "wizardThemeLight": {
-    "message": "Világos"
-  },
-  "wizardThemeDark": {
-    "message": "Sötét"
-  },
-  "wizardSkipDesc": {
-    "message": "Kezdés tiszta lappal."
-  },
-  "wizardAppearanceTitle": {
-    "message": "Stílus és Megjelenés"
-  },
-  "wizardAppearanceDesc": {
-    "message": "Állítsd be a témát, a kiemelő színt, a nevedet és a nyelvet."
-  },
-  "btnBack": {
-    "message": "Vissza"
-  },
-  "btnNext": {
-    "message": "Folytatás"
-  },
-  "wizardAccentLabel": {
-    "message": "Kiemelő szín"
-  },
-  "wizardWidgetsTitle": {
-    "message": "Modulok és Eszközök"
-  },
-  "wizardWidgetsDesc": {
-    "message": "Válaszd ki, mi jelenjen meg az oldalon."
-  },
-  "wizardFinalTitle": {
-    "message": "Minden készen áll"
-  },
-  "wizardFinalSubtitle": {
-    "message": "Köszönjük, hogy a Fluent New Tab-ot használod!"
-  },
-  "wizardFinalStartTitle": {
-    "message": "Kezdés"
-  },
-  "wizardFinalStartDesc": {
-    "message": "Nyisd meg az új lapot."
-  },
-  "wizardFinalSupportTitle": {
-    "message": "Támogassa a projektet"
-  },
-  "wizardFinalSupportDesc": {
-    "message": "Segíts a projekt frissítésében!"
-  },
-  "wizardFinalGithubTitle": {
-    "message": "Forráskód"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "A projekt megtekintése a GitHubon."
-  },
-  "permissionRequiredMessage": {
-    "message": "A funkció használatához a Fluent New Tab alkalmazásnak engedélyre van szüksége a „$API_NAME$” webhely eléréséhez. Ez biztosítja az Ön adatainak védelmét és biztonságát.",
-    "placeholders": {
-      "api_name": {
-        "content": "$1",
-        "example": "Open-Meteo API"
-      }
-    }
-  },
-  "updateNoticePrefix": {
-    "message": "A Fluent New Tab frissült a $VERSION$ verzióra. ",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "v3.1"
-      }
-    }
-  },
-  "updateNoticeChangelog": {
-    "message": "Változásnapló megtekintése"
-  },
-  "fetchingImagePlaceholder": {
-    "message": "A $SOURCE$ kép betöltése...",
-    "placeholders": {
-      "source": {
-        "content": "$1"
-      }
-    }
-  },
-  "warningUnderstood": {
-    "message": "Értettem"
-  },
+
   "weekday_0": {
     "message": "Vasárnap"
   },
@@ -391,6 +148,7 @@
   "weekday_6": {
     "message": "Szombat"
   },
+
   "greetWeekMorning": {
     "message": "Legyen szuper $WEEK$od, $NAME$!",
     "placeholders": {
@@ -610,6 +368,19 @@
       }
     }
   },
+
+  "weatherTitle": {
+    "message": "Időjárás"
+  },
+  "locationLabel": {
+    "message": "Helyszín"
+  },
+  "useFahrenheitLabel": {
+    "message": "Fahrenheit-skálát használjon"
+  },
+  "weatherAlertsLabel": {
+    "message": "Időjárási riasztások"
+  },
   "alertTempDrop": {
     "message": "Várható lehűlés: $VALUE$°",
     "placeholders": {
@@ -657,5 +428,253 @@
         "example": "grass"
       }
     }
+  },
+
+  "searchTitle": {
+    "message": "Keresés"
+  },
+  "searchStyleFull": {
+    "message": "Teljes szélesség"
+  },
+  "searchStyleCompact": {
+    "message": "Kompakt"
+  },
+  "suggestionsOption": {
+    "message": "Javaslatok"
+  },
+  "clearSearchOption": {
+    "message": "Egyszerű keresés (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Hangalapú keresés"
+  },
+  "visualSearchOption": {
+    "message": "Vizuális keresés"
+  },
+  "askAiOption": {
+    "message": "Kérdezd meg az AI-t"
+  },
+  "searchPlaceholder": {
+    "message": "Keresés az interneten"
+  },
+
+  "visualSearchTitle": {
+    "message": "Képalapú keresés"
+  },
+  "visualSearchDragText": {
+    "message": "Húzz ide egy képet, vagy"
+  },
+  "visualSearchUploadLink": {
+    "message": "fájl feltöltése"
+  },
+  "visualSearchDivider": {
+    "message": "vagy"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Kép linkjének beillesztése"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Keresés"
+  },
+
+  "shortcutsTitle": {
+    "message": "Gyorsbillentyűk"
+  },
+  "enableFoldersLabel": {
+    "message": "Mappák engedélyezése"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Nevek elrejtése"
+  },
+  "folderIconHelp": {
+    "message": "Egyedi mappaikonokat találsz a"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Sarkok sugara"
+  },
+  "rows1": {
+    "message": "1 sor"
+  },
+  "rows2": {
+    "message": "2 sor"
+  },
+  "rows3": {
+    "message": "3 sor"
+  },
+  "rows4": {
+    "message": "4 sor"
+  },
+
+  "addFolderTitle": {
+    "message": "Mappa hozzáadása"
+  },
+  "folderNameLabel": {
+    "message": "Név"
+  },
+  "editFolderTitle": {
+    "message": "Mappa szerkesztése"
+  },
+  "chooseTypeTitle": {
+    "message": "Új létrehozása"
+  },
+  "backLabel": {
+    "message": "Vissza"
+  },
+  "addShortcutTitle": {
+    "message": "Parancsikon hozzáadása"
+  },
+  "editShortcutTitle": {
+    "message": "Parancsikon szerkesztése"
+  },
+  "shortcutNameLabel": {
+    "message": "Név"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Egyéni ikon"
+  },
+  "faviconUrlLabel": {
+    "message": "Ikon URL"
+  },
+  "btnCancel": {
+    "message": "Mégse"
+  },
+  "btnSave": {
+    "message": "Mentés"
+  },
+  "namePlaceholder": {
+    "message": "Neved (opcionális)"
+  },
+  "cityPlaceholder": {
+    "message": "Városod"
+  },
+  "addShortcutLabel": {
+    "message": "Hozzáadás"
+  },
+  "editLabel": {
+    "message": "Szerkesztés"
+  },
+  "removeLabel": {
+    "message": "Eltávolítás"
+  },
+  "moreOptionsLabel": {
+    "message": "További lehetőségek"
+  },
+
+  "styleNone": {
+    "message": "Nincs"
+  },
+  "learnMoreLabel": {
+    "message": "További információk"
+  },
+  "warningUnderstood": {
+    "message": "Értettem"
+  },
+
+  "permissionRequiredTitle": {
+    "message": "Engedély szükséges"
+  },
+  "grantPermissionLabel": {
+    "message": "Engedély megadása"
+  },
+  "permissionRequiredMessage": {
+    "message": "A funkció használatához a Fluent New Tab alkalmazásnak engedélyre van szüksége a „$API_NAME$” webhely eléréséhez. Ez biztosítja az Ön adatainak védelmét és biztonságát.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+
+  "updateNoticePrefix": {
+    "message": "A Fluent New Tab frissült a $VERSION$ verzióra. ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "Változásnapló megtekintése"
+  },
+
+  "wizardWelcomeTitle": {
+    "message": "Üdvözlünk"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Az új Fluent munkaterületed készen áll. Válaszd ki a következő lépést."
+  },
+  "wizardRestoreTitle": {
+    "message": "Beállítások visszaállítása"
+  },
+  "wizardRestoreDesc": {
+    "message": "Van biztonsági mentésed?"
+  },
+  "wizardStartTitle": {
+    "message": "Beállítás indítása"
+  },
+  "wizardStartDesc": {
+    "message": "Kezdd néhány egyszerű lépéssel."
+  },
+  "wizardSkipTitle": {
+    "message": "Beállítás kihagyása"
+  },
+  "wizardSkipDesc": {
+    "message": "Kezdés tiszta lappal."
+  },
+  "wizardThemeAuto": {
+    "message": "Rendszer"
+  },
+  "wizardThemeLight": {
+    "message": "Világos"
+  },
+  "wizardThemeDark": {
+    "message": "Sötét"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Stílus és Megjelenés"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Állítsd be a témát, a kiemelő színt, a nevedet és a nyelvet."
+  },
+  "btnBack": {
+    "message": "Vissza"
+  },
+  "btnNext": {
+    "message": "Folytatás"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Modulok és Eszközök"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Válaszd ki, mi jelenjen meg az oldalon."
+  },
+  "wizardFinalTitle": {
+    "message": "Minden készen áll"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Köszönjük, hogy a Fluent New Tab-ot használod!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Kezdés"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Nyisd meg az új lapot."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Támogassa a projektet"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Segíts a projekt frissítésében!"
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Forráskód"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "A projekt megtekintése a GitHubon."
   }
 }
