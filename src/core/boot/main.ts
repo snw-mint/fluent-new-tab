@@ -814,6 +814,9 @@ if (document.readyState === 'loading') {
 document.addEventListener('i18nReady', () => {
   applyBrandInterval();
   triggerShortcutsRender();
+  import('@/core/lazy/providers/weather-api').then((m) =>
+    m.renderWeatherAlertWidget(),
+  );
 });
 
 document.body.addEventListener('dragover', (e) => {

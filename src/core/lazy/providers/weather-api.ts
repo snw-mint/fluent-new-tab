@@ -180,7 +180,8 @@ export function renderWeatherAlertWidget(): void {
         break;
     }
 
-    text.setAttribute('data-i18n', i18nKey);
+    // Remove data-i18n so it doesn't get incorrectly overwritten by applyToDOM
+    // text.setAttribute('data-i18n', i18nKey);
     const win = window as any;
     if (typeof win.getTranslation === 'function') {
       let translated = win.getTranslation(i18nKey) || message;

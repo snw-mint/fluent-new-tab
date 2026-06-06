@@ -12,10 +12,14 @@ export function initTabCustomization(): void {
   };
 
   const savedTabName = localStorage.getItem('tabName');
-  if (savedTabName) {
-    document.title = savedTabName;
-    if (refs.tabNameInput) {
-      refs.tabNameInput.value = savedTabName;
+  if (savedTabName !== null) {
+    if (savedTabName.trim() === '') {
+      localStorage.removeItem('tabName');
+    } else {
+      document.title = savedTabName;
+      if (refs.tabNameInput) {
+        refs.tabNameInput.value = savedTabName;
+      }
     }
   }
 
@@ -32,11 +36,15 @@ export function initTabCustomization(): void {
     refs.tabNameInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (!target) return;
-      localStorage.setItem('tabName', target.value);
+      const val = target.value.trim();
+      if (val === '') {
+        localStorage.removeItem('tabName');
+      } else {
+        localStorage.setItem('tabName', target.value);
+      }
       const defaultTitle =
         (window as any).getTranslation?.('newTabTitle') || 'New Tab';
-      document.title =
-        target.value.trim() === '' ? defaultTitle : target.value;
+      document.title = val === '' ? defaultTitle : target.value;
     });
   }
 
