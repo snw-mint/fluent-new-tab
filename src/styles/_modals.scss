@@ -126,7 +126,14 @@
         color: var(--text-color);
 
         &:hover {
-          background: rgba(128, 128, 128, 0.25);
+          background: color-mix(in srgb, rgba(128, 128, 128, 0.15), #000 10%);
+          border-color: transparent;
+        }
+
+        html[data-theme='dark'] & {
+          &:hover {
+            background: color-mix(in srgb, rgba(128, 128, 128, 0.15), #fff 10%);
+          }
         }
       }
 
@@ -136,6 +143,13 @@
 
         &:hover {
           background: color-mix(in srgb, var(--accent-color), #000 10%);
+          border-color: transparent;
+        }
+
+        html[data-theme='dark'] & {
+          &:hover {
+            background: color-mix(in srgb, var(--accent-color), #fff 10%);
+          }
         }
       }
     }
@@ -166,9 +180,9 @@
   align-items: center;
   gap: 0.45rem;
   padding: 1.35rem 0.9rem;
-  border-radius: var(--radius-md);
   border: 1px solid var(--border-base);
-  background: var(--surface-dim);
+  background: var(--hover-overlay);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--text-color);
@@ -189,9 +203,8 @@
   }
 
   &:hover {
-    background: #ededed;
-    border-color: rgba(0, 0, 0, 0.24);
-    transform: translateY(-0.1125rem);
+    background: var(--hover-overlay-strong);
+    border-color: transparent;
   }
 
   &:active {
@@ -232,6 +245,17 @@
 
     .btn-cancel {
       background: var(--surface-muted);
+
+      &:hover {
+        background: color-mix(in srgb, var(--surface-muted), #000 5%);
+        border-color: transparent;
+      }
+
+      html[data-theme='dark'] & {
+        &:hover {
+          background: color-mix(in srgb, var(--surface-muted), #fff 5%);
+        }
+      }
     }
   }
 }
@@ -249,7 +273,14 @@
   transition: background-color 0.2s ease;
 
   &:hover {
-    background: color.adjust(#9f213a, $lightness: -8%);
+    background: color-mix(in srgb, var(--color-danger-dark), #000 10%);
+    border-color: transparent;
+  }
+
+  html[data-theme='dark'] & {
+    &:hover {
+      background: color-mix(in srgb, var(--color-danger-dark), #fff 10%);
+    }
   }
 }
 
@@ -287,6 +318,17 @@
 
     .btn-cancel {
       background: var(--surface-muted);
+
+      &:hover {
+        background: color-mix(in srgb, var(--surface-muted), #000 5%);
+        border-color: transparent;
+      }
+
+      html[data-theme='dark'] & {
+        &:hover {
+          background: color-mix(in srgb, var(--surface-muted), #fff 5%);
+        }
+      }
     }
   }
 }

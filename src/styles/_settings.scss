@@ -738,8 +738,8 @@
     }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
-      border-color: rgba(0, 0, 0, 0.2);
+      background: var(--hover-overlay-strong);
+      border-color: transparent;
     }
 
     &:active {
