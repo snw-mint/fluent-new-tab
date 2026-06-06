@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Main UI Scale"
   },
+  "newTabTitle": {
+    "message": "Новая вкладка"
+  },
   "tabNameLabel": {
     "message": "Название вкладки"
   },

@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Main UI Scale"
   },
+  "newTabTitle": {
+    "message": "Bagong Tab"
+  },
   "tabNameLabel": {
     "message": "Tab Name"
   },

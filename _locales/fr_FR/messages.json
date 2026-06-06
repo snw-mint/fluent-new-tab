@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Échelle de l'interface principale"
   },
+  "newTabTitle": {
+    "message": "Nouvel onglet"
+  },
   "tabNameLabel": {
     "message": "Nom de l'onglet"
   },

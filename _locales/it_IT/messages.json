@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Scala dell'interfaccia utente principale"
   },
+  "newTabTitle": {
+    "message": "Nuova scheda"
+  },
   "tabNameLabel": {
     "message": "Nome scheda"
   },

@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Skalering af brugerflade"
   },
+  "newTabTitle": {
+    "message": "Ny fane"
+  },
   "tabNameLabel": {
     "message": "Fanens navn"
   },

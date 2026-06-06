@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Escala da IU Principal"
   },
+  "newTabTitle": {
+    "message": "Nova guia"
+  },
   "tabNameLabel": {
     "message": "Nome da guia"
   },

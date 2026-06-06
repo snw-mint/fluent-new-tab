@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "メインUIのスケール"
   },
+  "newTabTitle": {
+    "message": "新しいタブ"
+  },
   "tabNameLabel": {
     "message": "タブ名"
   },

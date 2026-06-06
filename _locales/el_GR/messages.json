@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Κλίμακα κύριας διεπαφής"
   },
+  "newTabTitle": {
+    "message": "Νέα καρτέλα"
+  },
   "tabNameLabel": {
     "message": "Όνομα καρτέλας"
   },

@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Kích thước giao diện chính"
   },
+  "newTabTitle": {
+    "message": "Thẻ mới"
+  },
   "tabNameLabel": {
     "message": "Tên tab"
   },

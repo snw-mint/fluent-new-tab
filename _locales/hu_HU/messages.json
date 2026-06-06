@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "A fő felület méretezése"
   },
+  "newTabTitle": {
+    "message": "Új lap"
+  },
   "tabNameLabel": {
     "message": "Fül neve"
   },

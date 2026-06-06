@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "UI-Skalierung"
   },
+  "newTabTitle": {
+    "message": "Neuer Tab"
+  },
   "tabNameLabel": {
     "message": "Registerkartenbezeichnung"
   },

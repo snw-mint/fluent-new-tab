@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "기본 UI 배율"
   },
+  "newTabTitle": {
+    "message": "새 탭"
+  },
   "tabNameLabel": {
     "message": "탭 이름"
   },

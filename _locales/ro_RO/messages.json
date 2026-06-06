@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Scara interfeței principale"
   },
+  "newTabTitle": {
+    "message": "Filă nouă"
+  },
   "tabNameLabel": {
     "message": "Numele filei"
   },

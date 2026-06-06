@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Skala głównego interfejsu"
   },
+  "newTabTitle": {
+    "message": "Nowa karta"
+  },
   "tabNameLabel": {
     "message": "Nazwa zakładki"
   },

@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Skala för gränssnitt"
   },
+  "newTabTitle": {
+    "message": "Ny flik"
+  },
   "tabNameLabel": {
     "message": "Fliknamn"
   },

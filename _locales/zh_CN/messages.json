@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "主界面缩放"
   },
+  "newTabTitle": {
+    "message": "新标签页"
+  },
   "tabNameLabel": {
     "message": "标签页名称"
   },

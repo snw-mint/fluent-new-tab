@@ -396,5 +396,8 @@
   },
   "weekday_6": {
     "message": "Sábado"
+  },
+  "newTabTitle": {
+    "message": "Nueva pestaña"
   }
 }

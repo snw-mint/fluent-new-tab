@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Měřítko hlavního rozhraní"
   },
+  "newTabTitle": {
+    "message": "Nová karta"
+  },
   "tabNameLabel": {
     "message": "Název karty"
   },

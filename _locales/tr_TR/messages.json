@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Ana Arayüz Ölçeği"
   },
+  "newTabTitle": {
+    "message": "Yeni Sekme"
+  },
   "tabNameLabel": {
     "message": "Sekme Adı"
   },

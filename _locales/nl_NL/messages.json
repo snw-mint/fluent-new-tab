@@ -29,6 +29,9 @@
   "mainUiScaleLabel": {
     "message": "Schaal hoofdinterface"
   },
+  "newTabTitle": {
+    "message": "Nieuw tabblad"
+  },
   "tabNameLabel": {
     "message": "Tabbladnaam"
   },
