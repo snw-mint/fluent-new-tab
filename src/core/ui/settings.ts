@@ -46,6 +46,7 @@ export function bindWeatherFeature(options: any): void {
                 target.checked = false;
                 options.setWeatherEnabled(false);
                 options.updateWeatherVisibility(false);
+                document.getElementById('weather-alerts-widget')?.remove();
               },
             );
           },
@@ -54,6 +55,7 @@ export function bindWeatherFeature(options: any): void {
         options.setWeatherEnabled(false);
         localStorage.setItem('weatherEnabled', 'false');
         options.updateWeatherVisibility(false);
+        document.getElementById('weather-alerts-widget')?.remove();
       }
     });
   }

@@ -115,7 +115,8 @@ export function renderWeatherAlertWidget(): void {
   let widget = document.getElementById(containerId);
 
   const isAlertsEnabled =
-    localStorage.getItem('weatherAlertsEnabled') === 'true';
+    localStorage.getItem('weatherAlertsEnabled') === 'true' &&
+    localStorage.getItem('weatherEnabled') === 'true';
   if (!isAlertsEnabled) {
     if (widget) widget.remove();
     return;
