@@ -170,10 +170,11 @@ const minifyPostBuild = () => ({
       }
     }
 
-    // 6. Remove README.md from build (both root dist/README.md and dist/src/README.md if it exists)
+    // 6. Remove README.md from build (root, src/, and _locales/)
     const readmePaths = [
       path.join(outDir, 'README.md'),
       path.join(outDir, 'src/README.md'),
+      path.join(outDir, '_locales/README.md'),
     ];
     for (const readmePath of readmePaths) {
       if (fs.existsSync(readmePath)) {
