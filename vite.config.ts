@@ -67,8 +67,8 @@ const minifyPostBuild = () => ({
       }
     }
 
-    // 3. Minify JS files in scripts and setup directories
-    const jsDirs = [path.join(outDir, 'scripts'), path.join(outDir, 'setup')];
+    // 3. Minify JS files in setup directory (Vite handles and minifies src files automatically)
+    const jsDirs = [path.join(outDir, 'setup')];
     for (const dir of jsDirs) {
       if (fs.existsSync(dir)) {
         const files = fs.readdirSync(dir);

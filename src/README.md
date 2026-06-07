@@ -6,7 +6,7 @@ This document explains our folder structure, how files interact, and how the fin
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 Here is a high-level view of how our code is organized:
 
@@ -73,7 +73,7 @@ Here is a high-level view of how our code is organized:
 
 ---
 
-## 🧩 What Does Each File/Folder Do?
+## What Does Each File/Folder Do?
 
 ### 1. `styles/` & `style.scss`
 
@@ -138,7 +138,7 @@ With our new ESM structure, everything is strictly scoped.
 
 ---
 
-## 🚀 Production Build (`dist/` Output)
+## Production Build (`dist/` Output)
 
 When you run `npm run build`, Vite takes everything in `src/` and optimizes it into the `dist/` folder:
 

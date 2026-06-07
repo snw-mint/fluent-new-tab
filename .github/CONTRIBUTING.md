@@ -45,13 +45,13 @@ For the best development experience, we recommend using:
 
 We've recently updated our architecture to utilize **ES Modules** and **Lazy Loading**. This ensures we only load what is needed, when it's needed.
 
-For a detailed breakdown of how our modules are organized, please refer to our **[Source Architecture Guide (`src/README.md`)](src/README.md)**.
+For a detailed breakdown of how our modules are organized, please refer to our **[Source Architecture Guide (`src/README.md`)](../src/README.md)**.
 
 ---
 
 ## Coding Guidelines
 
-We have a detailed set of rules in our `.gemini/styleguide.md`, but here are the core principles to keep in mind:
+We have a detailed set of rules in our [styleguide.md](../.gemini/styleguide.md), but here are the core principles to keep in mind:
 
 ### TypeScript & Logic
 

@@ -1,6 +1,6 @@
 # Translate Fluent New Tab
 
-Help make Fluent New Tab accessible globally! Translations are maintained directly in this repository, inside the [`_locales/`](_locales/) folder. No external platform is required.
+Help make Fluent New Tab accessible globally! Translations are maintained directly in this repository, inside the [`_locales/`](../_locales/) folder. No external platform is required.
 
 ---
 
@@ -84,7 +84,7 @@ To keep translations consistent and functional:
 
 ## String Reference
 
-Not sure what a key does? The [`_locales/README.md`](_locales/README.md) contains a full map of every string key, its English value, and a description of where it appears in the UI.
+Not sure what a key does? The [`_locales/README.md`](../_locales/README.md) contains a full map of every string key, its English value, and a description of where it appears in the UI.
 
 ---
 

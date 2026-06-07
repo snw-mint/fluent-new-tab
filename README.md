@@ -10,8 +10,8 @@
   <a href="https://github.com/snw-mint/fluent-new-tab#installation">Add to Browser</a> •
   <a href="https://github.com/snw-mint/fluent-new-tab/releases">Installation</a> •
   <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy</a> •
-  <a href="CONTRIBUTING.md">Contributing</a> •
-  <a href="TRANSLATING.md">Help translate</a>
+  <a href=".github/CONTRIBUTING.md">Contributing</a> •
+  <a href=".github/TRANSLATING.md">Help translate</a>
 </p>
 
 ## Why choose Fluent New Tab?
@@ -77,7 +77,7 @@ Contributions, feedback, and bug reports are highly appreciated!
 
 - **Bug Reports & Feature Requests:** Please open a GitHub Issue if you found a bug or have a concrete feature request.
 - **Questions & Ideas:** Use GitHub Discussions for general questions, showing off your setup, or sharing open-ended ideas.
-- **Developers:** Want to run the project locally or submit a Pull Request? Check out our Developer Guide for local development instructions.
+- **Developers:** Want to run the project locally or submit a Pull Request? Check out our [Contributing Guide](.github/CONTRIBUTING.md) for local development instructions.
 
 ## Translations
 
@@ -86,7 +86,7 @@ Fluent New Tab is available in multiple languages thanks to our community!
 If you spot a typo, an incorrect translation, or want to help translate the extension into a new language, **please do not open a Pull Request modifying code**.
 Instead, join our Crowdin Project to easily suggest corrections or add new translations.
 
-See the Translation Guide for more details.
+See the [Translation Guide](.github/TRANSLATING.md) for more details.
 
 ## License and legal notice
 
@@ -96,5 +96,7 @@ See the Translation Guide for more details.
 This project is licensed under the [GPL-3.0 License](https://github.com/snw-mint/fluent-new-tab/blob/main/LICENSE). By using or modifying this extension, you agree to our [Terms of Use](https://snw-mint.github.io/fluent-new-tab/terms.html).
 
 Forks and distributions must use a different name and logo, and be clearly marked as forks.
+
+Third-party dependencies and assets credits can be found in [CREDITS.md](.github/CREDITS.md). To report security vulnerabilities, please refer to our [Security Policy](.github/SECURITY.md).
 
 All trademarks belong to their respective owners. There is no affiliation or endorsement by Microsoft, Google, or Proton AG.

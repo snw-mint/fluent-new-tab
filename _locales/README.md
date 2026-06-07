@@ -4,7 +4,7 @@ This document maps every key in `messages.json` to a plain-English description o
 
 Keys are grouped by feature area. Any key that contains a placeholder (e.g. `$NAME$`) is marked with a **⚠ placeholder** note — those tokens must be kept **exactly as-is** in your translation.
 
-> For full translation guidelines, see [TRANSLATING.md](../TRANSLATING.md).
+> For full translation guidelines, see [TRANSLATING.md](../.github/TRANSLATING.md).
 
 ---
 

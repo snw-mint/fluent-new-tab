@@ -17,7 +17,7 @@
     "default_icon": "assets/icon-48.png"
   },
   "background": {
-    "service_worker": "scripts/background.js"
+    "service_worker": "src/background.ts"
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: blob: https:;"

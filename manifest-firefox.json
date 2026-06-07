@@ -17,7 +17,7 @@
     "newtab": "index.html"
   },
   "background": {
-    "scripts": ["scripts/background.js"]
+    "scripts": ["src/background.ts"]
   },
   "action": {
     "default_icon": "assets/icon-48.png"
