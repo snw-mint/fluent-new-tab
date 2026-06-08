@@ -32,8 +32,17 @@ export function sanitizeUrl(url: string | null | undefined): string {
 
   try {
     const parsed = new URL(url, window.location.href);
+    const protocol = parsed.protocol.toLowerCase();
+
+    if (protocol === 'data:') {
+      if (!parsed.pathname.toLowerCase().startsWith('image/')) {
+        return '#';
+      }
+      return url;
+    }
+
     const allowedProtocols = ['http:', 'https:', 'ftp:', 'mailto:'];
-    if (!allowedProtocols.includes(parsed.protocol.toLowerCase())) {
+    if (!allowedProtocols.includes(protocol)) {
       return '#';
     }
     return url;

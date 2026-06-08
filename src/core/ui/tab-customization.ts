@@ -1,3 +1,4 @@
+import { sanitizeUrl } from '@/core/shared/dom-utils';
 import * as refs from '@/core/shared/dom-refs';
 
 export function initTabCustomization(): void {
@@ -8,7 +9,7 @@ export function initTabCustomization(): void {
       link.rel = 'icon';
       document.head.appendChild(link);
     }
-    link.href = val;
+    link.href = sanitizeUrl(val);
   };
 
   const savedTabName = localStorage.getItem('tabName');

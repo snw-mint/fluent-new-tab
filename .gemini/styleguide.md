@@ -17,6 +17,8 @@ When reviewing code and generating comments, strictly assign severity based on t
 
 - Code organization, structural cleanup, and refactoring that do not alter existing business logic.
 - Typo fixes, comment updates, and dead code removal.
+- Usage of `innerHTML`/`outerHTML` strictly to inject completely static, hardcoded SVG strings (which has no XSS risk but still deserves attention to ensure no external input is interpolated).
+
 
 ### MEDIUM
 
@@ -33,6 +35,8 @@ When reviewing code and generating comments, strictly assign severity based on t
 - Any modification to `manifest.json`, `manifest-firefox.json`, or the Vite build configuration (`vite.config.ts`, `package.json`).
 - Changes involving extension permissions, host permissions, or early boot scripts (`public/scripts/`).
 - Introduction of completely new files that bypass the lazy loading architecture or introduce global variables.
+- Direct assignment to `innerHTML` or `outerHTML` with dynamic or unsanitized content (any usage of `innerHTML` must be treated as CRITICAL unless it is a completely static, hardcoded SVG).
+
 
 ## 3. Feedback Tone
 
@@ -43,7 +47,7 @@ Provide direct, highly technical feedback. Point out exactly where the code viol
 - **State Management:** Reject any use of global variables (e.g., `window.state`). All shared state MUST be imported from `src/core/shared/state.ts`.
 - **Lazy Loading:** Ensure heavy operations or secondary UI features are placed in `src/core/lazy/` and loaded dynamically via `import()`.
 - **Content Security Policy (CSP):** The extension runs in an isolated environment. Flag any usage of `eval()`, `new Function()`, or inline scripts as CRITICAL.
-- **DOM Sanitization:** Strongly prohibit direct assignment to `innerHTML` or `outerHTML` without strict sanitization. Force the use of `textContent`, `setAttribute`, or safe DOM manipulation methods.
+- **DOM Sanitization:** Strongly prohibit direct assignment to `innerHTML` or `outerHTML` without strict sanitization, treating such instances as **CRITICAL**. An exception is made only for completely static, hardcoded SVG strings, which is treated as **LOW** (no XSS risk but still deserves review to ensure it is static). Force the use of `textContent`, `setAttribute`, or safe DOM manipulation methods.
 
 ## 5. Performance & DOM Optimization
 
