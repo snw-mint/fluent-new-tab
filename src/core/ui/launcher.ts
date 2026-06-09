@@ -9,7 +9,6 @@
 import * as refs from '@/core/shared/dom-refs';
 import { foldersEnabled } from '@/core/shared/state';
 import { LauncherProviderData } from '@/core/shared/types';
-import { launcherData } from '@/core/ui/launcher-data';
 
 interface LauncherVisibilityRefs {
   appLauncherWrapper: HTMLElement | null;
