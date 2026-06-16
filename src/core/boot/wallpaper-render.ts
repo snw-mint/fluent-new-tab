@@ -108,7 +108,8 @@ function showCreditsBoot(sourceType: string): void {
         a.href = url;
         a.target = '_blank';
         a.className = 'wallpaper-credit-link';
-        a.style.cssText = 'color: inherit; text-decoration: none; pointer-events: auto;';
+        a.style.cssText =
+          'color: inherit; text-decoration: none; pointer-events: auto;';
         a.textContent = text;
         creditTextSpan.appendChild(a);
       } else {
@@ -165,7 +166,7 @@ export async function bootWallpaper(
     } else {
       hideCreditsBoot();
     }
-  } else {
+  } else if (source !== 'api') {
     clearWallpaper();
   }
 }

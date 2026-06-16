@@ -423,7 +423,8 @@ async function bootInteractive(): Promise<void> {
     initWeather: initWeatherLogic,
     setWeatherUnit: state.setWeatherUnit,
     fetchCityOptions: async (query: string) => {
-      const { fetchCityOptions } = await import('@/core/lazy/providers/weather-api');
+      const { fetchCityOptions } =
+        await import('@/core/lazy/providers/weather-api');
       return fetchCityOptions(query);
     },
     selectCity: (cityData: any) => {
@@ -746,6 +747,34 @@ async function bootInteractive(): Promise<void> {
 
   if (state.wallpaperEnabled || refs.toggleWallpaper) {
     initWallpaperEngine();
+  }
+
+  if (state.wallpaperEnabled && state.currentWallpaperSource === 'api') {
+    const _today = new Date().toISOString().slice(0, 10);
+    const _cacheKey = `wallpaper_cache_${state.currentWallpaperType}`;
+    let _hasValidCache = false;
+    try {
+      const _cached = JSON.parse(localStorage.getItem(_cacheKey) || 'null');
+      if (
+        _cached &&
+        _cached.url &&
+        _cached.date === _today &&
+        'creditUrl' in _cached
+      ) {
+        _hasValidCache = true;
+      }
+    } catch {}
+
+    if (!_hasValidCache) {
+      import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
+        WallpaperEngine.render({
+          enabled: state.wallpaperEnabled,
+          source: state.currentWallpaperSource,
+          type: state.currentWallpaperType,
+          overlay: parseFloat(state.wallpaperOverlay),
+        });
+      });
+    }
   }
 
   initGlobalUiSystem(saveAndRenderShortcuts, () => {
