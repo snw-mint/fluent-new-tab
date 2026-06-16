@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Launcher applicazioni"
   },
-
   "newTabTitle": {
     "message": "Nuova scheda"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Icona della scheda"
   },
-
   "settingsTitle": {
     "message": "Impostazioni"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importa"
   },
-
   "wallpaperTitle": {
     "message": "Sfondo"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Colore personalizzato"
   },
   "wizardAccentLabel": {
     "message": "Colore di accento"
   },
-
   "displayGreeting": {
     "message": "Saluto"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Giorno feriale"
   },
-
   "weekday_0": {
     "message": "Domenica"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Sabato"
   },
-
   "greetWeekMorning": {
     "message": "Ti auguro un ottimo $WEEK$, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Meteo"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Cerca"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Cerca nel web"
   },
-
   "visualSearchTitle": {
     "message": "Ricerca visiva"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Cerca"
   },
-
   "shortcutsTitle": {
     "message": "Scorciatoie"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 righe"
   },
-
   "addFolderTitle": {
     "message": "Aggiungi cartella"
   },
@@ -548,7 +536,7 @@
     "message": "Il tuo nome (facoltativo)"
   },
   "cityPlaceholder": {
-    "message": "La tua città"
+    "message": "es. Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Aggiungi"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Altre opzioni"
   },
-
   "styleNone": {
     "message": "Nessuno"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Capito"
   },
-
   "permissionRequiredTitle": {
     "message": "È richiesta l'autorizzazione"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab è stato aggiornato alla versione $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Vedi changelog"
   },
-
   "wizardWelcomeTitle": {
     "message": "Benvenuti a casa"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Visualizza il progetto su GitHub."
   },
-
   "gridFullTitle": {
     "message": "La griglia è piena"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Ricerca in corso..."
+  },
+  "noResultsFound": {
+    "message": "Nessun risultato trovato"
   }
 }

@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Trình khởi chạy ứng dụng"
   },
-
   "newTabTitle": {
     "message": "Thẻ mới"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Biểu tượng tab"
   },
-
   "settingsTitle": {
     "message": "Cài đặt"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Nhập"
   },
-
   "wallpaperTitle": {
     "message": "Hình nền"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Màu tùy chỉnh"
   },
   "wizardAccentLabel": {
     "message": "Màu nhấn"
   },
-
   "displayGreeting": {
     "message": "Lời chào"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Ngày trong tuần"
   },
-
   "weekday_0": {
     "message": "Chủ nhật"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Thứ Bảy"
   },
-
   "greetWeekMorning": {
     "message": "Chúc một ngày $WEEK$ tuyệt vời nhé, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Thời tiết"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Tìm kiếm"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Tìm kiếm trên web"
   },
-
   "visualSearchTitle": {
     "message": "Tìm kiếm bằng hình ảnh"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Tìm kiếm"
   },
-
   "shortcutsTitle": {
     "message": "Lối tắt"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 hàng"
   },
-
   "addFolderTitle": {
     "message": "Thêm thư mục"
   },
@@ -548,7 +536,7 @@
     "message": "Tên của bạn (tùy chọn)"
   },
   "cityPlaceholder": {
-    "message": "Thành phố của bạn"
+    "message": "vd., Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Thêm"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Thêm tùy chọn"
   },
-
   "styleNone": {
     "message": "Không có"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Đã hiểu"
   },
-
   "permissionRequiredTitle": {
     "message": "Yêu cầu quyền truy cập"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab đã được cập nhật lên phiên bản $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Xem nhật ký thay đổi"
   },
-
   "wizardWelcomeTitle": {
     "message": "Chào mừng bạn trở lại"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Xem dự án trên GitHub."
   },
-
   "gridFullTitle": {
     "message": "Lưới đã đầy"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Đang tìm..."
+  },
+  "noResultsFound": {
+    "message": "Không tìm thấy kết quả nào"
   }
 }

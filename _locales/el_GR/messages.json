@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Εκκινητής εφαρμογών"
   },
-
   "newTabTitle": {
     "message": "Νέα καρτέλα"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Εικονίδιο καρτέλας"
   },
-
   "settingsTitle": {
     "message": "Ρυθμίσεις"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Εισαγωγή"
   },
-
   "wallpaperTitle": {
     "message": "Ταπετσαρία"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Προσαρμοσμένο χρώμα"
   },
   "wizardAccentLabel": {
     "message": "Χρώμα έμφασης"
   },
-
   "displayGreeting": {
     "message": "Χαιρετισμός"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Καθημερινή"
   },
-
   "weekday_0": {
     "message": "Κυριακή"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Σάββατο"
   },
-
   "greetWeekMorning": {
     "message": "Υπέροχη $WEEK$ να έχεις, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Καιρός"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Αναζήτηση"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Αναζήτηση στο διαδίκτυο"
   },
-
   "visualSearchTitle": {
     "message": "Οπτική αναζήτηση"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Αναζήτηση"
   },
-
   "shortcutsTitle": {
     "message": "Συντομεύσεις"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 σειρές"
   },
-
   "addFolderTitle": {
     "message": "Προσθήκη φακέλου"
   },
@@ -548,7 +536,7 @@
     "message": "Το όνομά σας (προαιρετικό)"
   },
   "cityPlaceholder": {
-    "message": "Η πόλη σας"
+    "message": "π.χ., Λος Άντζελες, Καλιφόρνια"
   },
   "addShortcutLabel": {
     "message": "Προσθήκη"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Περισσότερες επιλογές"
   },
-
   "styleNone": {
     "message": "Κανένα"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Κατανοητό"
   },
-
   "permissionRequiredTitle": {
     "message": "Απαιτείται άδεια"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Το Fluent New Tab έχει ενημερωθεί στην έκδοση $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Προβολή αρχείου αλλαγών"
   },
-
   "wizardWelcomeTitle": {
     "message": "Καλώς ήρθατε"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Δείτε το έργο στο GitHub."
   },
-
   "gridFullTitle": {
     "message": "Το πλέγμα είναι γεμάτο"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Αναζήτηση..."
+  },
+  "noResultsFound": {
+    "message": "Δεν βρέθηκαν αποτελέσματα"
   }
 }

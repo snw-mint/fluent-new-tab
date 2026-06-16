@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Lanzador de aplicaciones"
   },
-
   "newTabTitle": {
     "message": "Nueva pestaña"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Icono de pestaña"
   },
-
   "settingsTitle": {
     "message": "Configuración"
   },
@@ -49,7 +47,6 @@
   "importOption": {
     "message": "Importar"
   },
-
   "wallpaperTitle": {
     "message": "Fondo de pantalla"
   },
@@ -73,7 +70,6 @@
       }
     }
   },
-
   "displayGreeting": {
     "message": "Saludo"
   },
@@ -104,7 +100,6 @@
   "dateWeekday": {
     "message": "Día laborable"
   },
-
   "weekday_0": {
     "message": "Domingo"
   },
@@ -126,14 +121,12 @@
   "weekday_6": {
     "message": "Sábado"
   },
-
   "weatherTitle": {
     "message": "Clima"
   },
   "useFahrenheitLabel": {
     "message": "Utiliza grados Fahrenheit"
   },
-
   "searchTitle": {
     "message": "Buscar"
   },
@@ -161,7 +154,6 @@
   "searchPlaceholder": {
     "message": "Buscar en la web"
   },
-
   "shortcutsTitle": {
     "message": "Atajos"
   },
@@ -189,7 +181,6 @@
   "rows4": {
     "message": "4 filas"
   },
-
   "addFolderTitle": {
     "message": "Añadir carpeta"
   },
@@ -233,7 +224,7 @@
     "message": "Tu nombre (opcional)"
   },
   "cityPlaceholder": {
-    "message": "Tu ciudad"
+    "message": "ej., Los Ángeles, California"
   },
   "addShortcutLabel": {
     "message": "Añadir"
@@ -247,7 +238,6 @@
   "moreOptionsLabel": {
     "message": "Más opciones"
   },
-
   "styleNone": {
     "message": "Ninguno"
   },
@@ -257,7 +247,6 @@
   "warningUnderstood": {
     "message": "Entendido"
   },
-
   "permissionRequiredTitle": {
     "message": "Se requiere permiso"
   },
@@ -276,7 +265,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab se ha actualizado a la versión $VERSION$. ",
     "placeholders": {
@@ -289,7 +277,6 @@
   "updateNoticeChangelog": {
     "message": "Ver registro de cambios"
   },
-
   "wallpaperSourceLabel": {
     "message": "Fuente de la imagen"
   },
@@ -413,7 +400,6 @@
   "warningClose": {
     "message": "Cerrar"
   },
-
   "gridFullTitle": {
     "message": "La red está llena"
   },
@@ -437,5 +423,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Buscando..."
+  },
+  "noResultsFound": {
+    "message": "No se encontraron resultados"
   }
 }

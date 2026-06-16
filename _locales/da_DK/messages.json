@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "App-starter"
   },
-
   "newTabTitle": {
     "message": "Ny fane"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Faneikon"
   },
-
   "settingsTitle": {
     "message": "Indstillinger"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importér"
   },
-
   "wallpaperTitle": {
     "message": "Baggrund"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Brugerdefineret farve"
   },
   "wizardAccentLabel": {
     "message": "Accentfarve"
   },
-
   "displayGreeting": {
     "message": "Hilsen"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Ugedag"
   },
-
   "weekday_0": {
     "message": "Søndag"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Lørdag"
   },
-
   "greetWeekMorning": {
     "message": "Godmorgen her på $WEEK$en, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Vejr"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Søgning"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Søg på nettet"
   },
-
   "visualSearchTitle": {
     "message": "Visuel søgning"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Søgning"
   },
-
   "shortcutsTitle": {
     "message": "Genveje"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 rækker"
   },
-
   "addFolderTitle": {
     "message": "Tilføj mappe"
   },
@@ -548,7 +536,7 @@
     "message": "Dit navn (valgfrit)"
   },
   "cityPlaceholder": {
-    "message": "Din by"
+    "message": "f.eks. Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Tilføj"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Flere indstillinger"
   },
-
   "styleNone": {
     "message": "Ingen"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Forstået"
   },
-
   "permissionRequiredTitle": {
     "message": "Der kræves tilladelse"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab er blevet opdateret til version $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Se ændringsloggen"
   },
-
   "wizardWelcomeTitle": {
     "message": "Velkommen"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Se projektet på GitHub."
   },
-
   "gridFullTitle": {
     "message": "Gitteret er fuldt"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Søger..."
+  },
+  "noResultsFound": {
+    "message": "Ingen resultater fundet"
   }
 }

@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "アプリランチャー"
   },
-
   "newTabTitle": {
     "message": "新しいタブ"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "タブアイコン"
   },
-
   "settingsTitle": {
     "message": "設定"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "インポート"
   },
-
   "wallpaperTitle": {
     "message": "壁紙"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "カスタムカラー"
   },
   "wizardAccentLabel": {
     "message": "アクセントカラー"
   },
-
   "displayGreeting": {
     "message": "ご挨拶"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "平日"
   },
-
   "weekday_0": {
     "message": "日曜日"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "土曜日"
   },
-
   "greetWeekMorning": {
     "message": "$NAME$さん、素晴らしい$WEEK$になりますように！",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "天気"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "検索"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "ウェブを検索する"
   },
-
   "visualSearchTitle": {
     "message": "ビジュアル検索"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "検索"
   },
-
   "shortcutsTitle": {
     "message": "ショートカット"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4行"
   },
-
   "addFolderTitle": {
     "message": "フォルダを追加"
   },
@@ -548,7 +536,7 @@
     "message": "お名前（任意）"
   },
   "cityPlaceholder": {
-    "message": "あなたの街"
+    "message": "例：ロサンゼルス、カリフォルニア"
   },
   "addShortcutLabel": {
     "message": "追加"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "その他のオプション"
   },
-
   "styleNone": {
     "message": "なし"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "承知しました"
   },
-
   "permissionRequiredTitle": {
     "message": "許可が必要です"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab はバージョン $VERSION$ に更新されました。",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "変更履歴を参照"
   },
-
   "wizardWelcomeTitle": {
     "message": "おかえりなさい"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "GitHubでプロジェクトを表示する。"
   },
-
   "gridFullTitle": {
     "message": "グリッドがいっぱいです"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "検索中..."
+  },
+  "noResultsFound": {
+    "message": "結果が見つかりません"
   }
 }

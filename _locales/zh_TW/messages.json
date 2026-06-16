@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "應用程式啟動器"
   },
-
   "newTabTitle": {
     "message": "新分頁"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "標籤圖示"
   },
-
   "settingsTitle": {
     "message": "設定"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "匯入"
   },
-
   "wallpaperTitle": {
     "message": "桌布"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "自訂顏色"
   },
   "wizardAccentLabel": {
     "message": "強調色彩"
   },
-
   "displayGreeting": {
     "message": "問候語"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "星期"
   },
-
   "weekday_0": {
     "message": "星期日"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "星期六"
   },
-
   "greetWeekMorning": {
     "message": "$NAME$，祝您有個美好的$WEEK$！",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "天氣"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "搜尋"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "搜尋網頁"
   },
-
   "visualSearchTitle": {
     "message": "視覺搜尋"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "搜尋"
   },
-
   "shortcutsTitle": {
     "message": "捷徑"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 列"
   },
-
   "addFolderTitle": {
     "message": "新增資料夾"
   },
@@ -548,7 +536,7 @@
     "message": "您的稱呼（選填）"
   },
   "cityPlaceholder": {
-    "message": "您的城市"
+    "message": "例如：洛杉磯，加利福尼亞"
   },
   "addShortcutLabel": {
     "message": "新增"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "更多選項"
   },
-
   "styleNone": {
     "message": "無"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "我知道了"
   },
-
   "permissionRequiredTitle": {
     "message": "需要權限"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab 已更新至版本 $VERSION$。",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "查看變更記錄"
   },
-
   "wizardWelcomeTitle": {
     "message": "歡迎回來"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "在 GitHub 上查看此專案。"
   },
-
   "gridFullTitle": {
     "message": "網格已滿"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "搜尋中..."
+  },
+  "noResultsFound": {
+    "message": "未找到結果"
   }
 }

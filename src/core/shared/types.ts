@@ -99,6 +99,8 @@ export interface CityData {
   lat: number;
   lon: number;
   country?: string;
+  country_code?: string;
+  admin1?: string;
 }
 
 interface WeatherCurrent {

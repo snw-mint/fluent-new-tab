@@ -422,15 +422,13 @@ async function bootInteractive(): Promise<void> {
     updateWeatherVisibility,
     initWeather: initWeatherLogic,
     setWeatherUnit: state.setWeatherUnit,
-    searchCity: () => {
-      if (refs.cityInput && refs.cityInput.value.trim()) {
-        state.setCurrentCityData({
-          name: refs.cityInput.value.trim(),
-          lat: 0,
-          lon: 0,
-        });
-        fetchWeatherLogic(true);
-      }
+    fetchCityOptions: async (query: string) => {
+      const { fetchCityOptions } = await import('@/core/lazy/providers/weather-api');
+      return fetchCityOptions(query);
+    },
+    selectCity: (cityData: any) => {
+      state.setCurrentCityData(cityData);
+      fetchWeatherLogic(true);
     },
     getWeatherUnit: () => state.weatherUnit,
     getWeatherAlertsEnabled: () => state.weatherAlertsEnabled,

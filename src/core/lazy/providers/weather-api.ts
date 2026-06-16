@@ -14,6 +14,47 @@ import {
   WeatherApiResponse,
 } from '@/core/shared/types';
 
+export async function fetchCityOptions(query: string): Promise<CityData[]> {
+  const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
+  if (!hasPerm) return [];
+
+  const parts = query.split(',');
+  const cityName = parts[0].trim();
+  const filterText = parts.length > 1 ? parts.slice(1).join(',').trim().toLowerCase() : '';
+
+  const language = 'en_US';
+  const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=20&language=${encodeURIComponent(language)}&format=json`;
+
+  try {
+    const response = await fetch(url);
+    const data = (await response.json()) as GeocodingResponse;
+
+    if (data.results && data.results.length > 0) {
+      let results = data.results;
+
+      if (filterText) {
+        results = results.filter((r) => {
+          const searchSpace = [r.admin1, r.country, r.country_code].filter(Boolean).join(' ').toLowerCase();
+          return filterText.split(' ').every(token => searchSpace.includes(token));
+        });
+      }
+
+      return results.slice(0, 5).map((result) => ({
+        name: result.name,
+        lat: result.latitude,
+        lon: result.longitude,
+        country: result.country,
+        country_code: result.country_code,
+        admin1: result.admin1,
+      }));
+    }
+  } catch (error) {
+    console.error('Geocoding fetch error:', error);
+  }
+
+  return [];
+}
+
 export async function fetchCityData(query: string): Promise<CityData | null> {
   const hasPerm = await checkPermission(HOST_PERMISSIONS.weather);
   if (!hasPerm) return null;

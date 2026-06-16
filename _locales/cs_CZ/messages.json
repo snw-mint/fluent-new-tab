@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Spouštěč aplikací"
   },
-
   "newTabTitle": {
     "message": "Nová karta"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Ikona karty"
   },
-
   "settingsTitle": {
     "message": "Nastavení"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importovat"
   },
-
   "wallpaperTitle": {
     "message": "Tapeta"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Vlastní barva"
   },
   "wizardAccentLabel": {
     "message": "Barva zvýraznění"
   },
-
   "displayGreeting": {
     "message": "Pozdrav"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Den v týdnu"
   },
-
   "weekday_0": {
     "message": "Neděle"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Sobota"
   },
-
   "greetWeekMorning": {
     "message": "Krásný $WEEK$, $NAME$! Ať se ti dnes daří!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Počasí"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Vyhledávání"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Prohledat web"
   },
-
   "visualSearchTitle": {
     "message": "Vizuální vyhledávání"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Vyhledávání"
   },
-
   "shortcutsTitle": {
     "message": "Zkratky"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 řádky"
   },
-
   "addFolderTitle": {
     "message": "Přidat složku"
   },
@@ -548,7 +536,7 @@
     "message": "Vaše jméno (volitelné)"
   },
   "cityPlaceholder": {
-    "message": "Vaše město"
+    "message": "např. Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Přidat"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Další možnosti"
   },
-
   "styleNone": {
     "message": "Žádný"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Rozumím"
   },
-
   "permissionRequiredTitle": {
     "message": "Vyžadováno oprávnění"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab byl aktualizován na verzi $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Zobrazit seznam změn"
   },
-
   "wizardWelcomeTitle": {
     "message": "Vítejte doma"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Zobrazit projekt na GitHubu."
   },
-
   "gridFullTitle": {
     "message": "Mřížka je plná"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Hledání..."
+  },
+  "noResultsFound": {
+    "message": "Nenalezeny žádné výsledky"
   }
 }

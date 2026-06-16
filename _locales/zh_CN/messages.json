@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "应用启动器"
   },
-
   "newTabTitle": {
     "message": "新标签页"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "标签页图标"
   },
-
   "settingsTitle": {
     "message": "设置"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "导入"
   },
-
   "wallpaperTitle": {
     "message": "壁纸"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "自定义颜色"
   },
   "wizardAccentLabel": {
     "message": "主题色"
   },
-
   "displayGreeting": {
     "message": "问候语"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "星期"
   },
-
   "weekday_0": {
     "message": "周日"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "周六"
   },
-
   "greetWeekMorning": {
     "message": "$NAME$，祝你$WEEK$元气满满！",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "天气"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "搜索"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "搜索网页"
   },
-
   "visualSearchTitle": {
     "message": "视觉搜索"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "搜索"
   },
-
   "shortcutsTitle": {
     "message": "快捷方式"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 行"
   },
-
   "addFolderTitle": {
     "message": "添加文件夹"
   },
@@ -548,7 +536,7 @@
     "message": "您的称呼（可选）"
   },
   "cityPlaceholder": {
-    "message": "您的城市"
+    "message": "例如：洛杉矶，加利福尼亚"
   },
   "addShortcutLabel": {
     "message": "添加"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "更多选项"
   },
-
   "styleNone": {
     "message": "无"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "我知道了"
   },
-
   "permissionRequiredTitle": {
     "message": "需要权限"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab 已更新至版本 $VERSION$。",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "查看变更日志"
   },
-
   "wizardWelcomeTitle": {
     "message": "欢迎回来"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "在 GitHub 上查看该项目。"
   },
-
   "gridFullTitle": {
     "message": "网格已满"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "搜索中..."
+  },
+  "noResultsFound": {
+    "message": "未找到结果"
   }
 }

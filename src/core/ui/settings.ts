@@ -70,13 +70,87 @@ export function bindWeatherFeature(options: any): void {
     });
   }
 
-  if (refs.saveCityBtn)
-    refs.saveCityBtn.addEventListener('click', options.searchCity);
-  if (refs.cityInput) {
-    refs.cityInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') options.searchCity();
+  const closeCityDropdown = () => {
+    if (refs.citySuggestionsDropdown) {
+      refs.citySuggestionsDropdown.classList.remove('active');
+      const parentGroup = refs.cityInputGroup?.closest('.setting-group') as HTMLElement;
+      if (parentGroup) parentGroup.style.zIndex = '';
+      if (refs.cityInputGroup) refs.cityInputGroup.style.zIndex = '';
+    }
+  };
+
+  const handleCitySearch = async () => {
+    if (!refs.cityInput || !refs.cityInput.value.trim() || !refs.citySuggestionsList || !refs.citySuggestionsDropdown) return;
+    const query = refs.cityInput.value.trim();
+    
+    const optionsList = refs.citySuggestionsList;
+    optionsList.innerHTML = '';
+    
+    const loadingLi = document.createElement('li');
+    loadingLi.className = 'fluent-select-option';
+    loadingLi.style.opacity = '0.7';
+    loadingLi.textContent = chrome.i18n?.getMessage('searchingCity') || 'Searching...';
+    optionsList.appendChild(loadingLi);
+    
+    refs.citySuggestionsDropdown.classList.add('active');
+    const parentGroup = refs.cityInputGroup?.closest('.setting-group') as HTMLElement;
+    if (parentGroup) parentGroup.style.zIndex = '100';
+    if (refs.cityInputGroup) refs.cityInputGroup.style.zIndex = '100';
+
+    const results = await options.fetchCityOptions(query);
+    optionsList.innerHTML = '';
+
+    if (!results || results.length === 0) {
+      const emptyLi = document.createElement('li');
+      emptyLi.className = 'fluent-select-option';
+      emptyLi.style.opacity = '0.7';
+      emptyLi.textContent = chrome.i18n?.getMessage('noResultsFound') || 'No results found';
+      optionsList.appendChild(emptyLi);
+      return;
+    }
+
+    results.forEach((city: any) => {
+      const li = document.createElement('li');
+      li.className = 'fluent-select-option';
+      
+      const formatLocation = [city.name, city.admin1].filter(Boolean).join(', ');
+      li.textContent = formatLocation;
+      li.style.marginBottom = '0.25rem';
+      li.style.padding = '0.4rem 0.675rem';
+      
+      li.addEventListener('click', () => {
+        if (refs.cityInput) refs.cityInput.value = formatLocation;
+        options.selectCity(city);
+        closeCityDropdown();
+      });
+      optionsList.appendChild(li);
+    });
+  };
+
+  if (refs.saveCityBtn) {
+    refs.saveCityBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleCitySearch();
     });
   }
+  
+  if (refs.cityInput) {
+    refs.cityInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        handleCitySearch();
+      }
+    });
+  }
+
+  document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (refs.citySuggestionsDropdown && refs.citySuggestionsDropdown.classList.contains('active')) {
+      if (!refs.cityInputGroup?.contains(target)) {
+        closeCityDropdown();
+      }
+    }
+  });
 
   if (refs.weatherMoreBtn && refs.weatherMoreContainer) {
     refs.weatherMoreBtn.addEventListener('click', () => {

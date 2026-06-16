@@ -378,15 +378,16 @@
             </label>
           </div>
 
-          <div id="cityInputGroup" class="display-sub-setting">
+          <div id="cityInputGroup" class="display-sub-setting" style="position: relative;">
             <label for="cityInput" class="setting-label-small" data-i18n="locationLabel">Location</label>
             <div class="input-row">
-              <input type="text" id="cityInput" placeholder="e.g., New York" data-i18n="cityPlaceholder" />
+              <input type="text" id="cityInput" placeholder="e.g., Los Angeles, California" data-i18n="cityPlaceholder" autocomplete="off" />
               <button id="saveCityBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2.75a7.25 7.25 0 0 1 5.63 11.819l4.9 4.9a.75.75 0 0 1-.976 1.134l-.084-.073-4.901-4.9A7.25 7.25 0 1 1 10 2.75m0 1.5a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5" fill="currentColor"/></svg>
               </button>
+            </div>
+            <div id="citySuggestionsDropdown" class="fluent-select-popup" style="width: 100%; top: 100%;">
+              <ul class="fluent-select-options-list" id="citySuggestionsList"></ul>
             </div>
           </div>
 
@@ -835,7 +836,7 @@
         </button>
 
         <button type="button" id="visualSearchBtn" class="visual-search-btn" title="Visual search" aria-label="Visual search" style="display: none">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.75 3A3.25 3.25 0 0 1 21 6.25v3a.75.75 0 0 1-1.5 0v-3a1.75 1.75 0 0 0-1.75-1.75h-3a.75.75 0 0 1 0-1.5zM6.25 3A3.25 3.25 0 0 0 3 6.25v3a.75.75 0 0 0 1.5 0v-3c0-.966.784-1.75 1.75-1.75h3a.75.75 0 0 0 0-1.5zm11.5 18A3.25 3.25 0 0 0 21 17.75v-3a.75.75 0 0 0-1.5 0v3a1.75 1.75 0 0 1-1.75 1.75h-3a.75.75 0 0 0 0 1.5zM3 17.75A3.25 3.25 0 0 0 6.25 21h3a.75.75 0 0 0 0-1.5h-3a1.75 1.75 0 0 1-1.75-1.75v-3a.75.75 0 0 0-1.5 0zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6m0-1.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m-4.5-5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" fill="currentColor"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.75 3A3.25 3.25 0 0 1 21 6.25v3a.75.75 0 0 1-1.5 0v-3a1.75 1.75 0 0 0-1.75-1.75h-3a.75.75 0 0 1 0-1.5zM6.25 3A3.25 3.25 0 0 0 3 6.25v3a.75.75 0 0 0 1.5 0v-3c0-.966.784-1.75 1.75-1.75h3a.75.75 0 0 0 0-1.5zm11.5 18A3.25 3.25 0 0 0 21 17.75v-3a.75.75 0 0 0-1.5 0v3a1.75 1.75 0 0 1-1.75 1.75h-3a.75.75 0 0 0 0 1.5zM3 17.75A3.25 3.25 0 0 0 6.25 21h3a.75.75 0 0 0 0-1.5h-3a1.75 1.75 0 0 1-1.75-1.75v-3a.75.75 0 0 0-1.5 0zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6m0-1.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m-4.5-5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" fill="currentColor" /></svg>
         </button>
 
         <button type="button" id="voiceSearchBtn" class="voice-search-btn" title="Voice search" aria-label="Voice search">
@@ -856,7 +857,7 @@
         <div id="shortcutsGrid" class="shortcuts-grid"></div>
         <div id="folderBackWrapper" class="folder-back-wrapper">
           <button class="folder-back-btn" id="folderBackBtn">
-            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.733 19.79a.75.75 0 0 0 1.034-1.086L5.516 12.75H20.25a.75.75 0 0 0 0-1.5H5.516l6.251-5.955a.75.75 0 0 0-1.034-1.086l-7.42 7.067a1 1 0 0 0-.3.58.8.8 0 0 0 .001.289 1 1 0 0 0 .3.579l7.419 7.067Z" fill="currentColor"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.733 19.79a.75.75 0 0 0 1.034-1.086L5.516 12.75H20.25a.75.75 0 0 0 0-1.5H5.516l6.251-5.955a.75.75 0 0 0-1.034-1.086l-7.42 7.067a1 1 0 0 0-.3.58.8.8 0 0 0 .001.289 1 1 0 0 0 .3.579l7.419 7.067Z" fill="currentColor" /></svg>
             <span class="folder-back-label" data-i18n="backLabel">Back</span>
           </button>
         </div>

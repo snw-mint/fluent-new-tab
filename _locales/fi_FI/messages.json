@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Sovelluskäynnistin"
   },
-
   "newTabTitle": {
     "message": "Uusi välilehti"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Välilehtikuvake"
   },
-
   "settingsTitle": {
     "message": "Asetukset"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Tuo"
   },
-
   "wallpaperTitle": {
     "message": "Taustakuva"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Mukautettu väri"
   },
   "wizardAccentLabel": {
     "message": "Korostusväri"
   },
-
   "displayGreeting": {
     "message": "Tervehdys"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Viikonpäivä"
   },
-
   "weekday_0": {
     "message": "Sunnuntai"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Lauantai"
   },
-
   "greetWeekMorning": {
     "message": "Tänään on $WEEK$. Mukavaa päivää, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Sää"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Haku"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Hae verkosta"
   },
-
   "visualSearchTitle": {
     "message": "Visuaalinen haku"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Haku"
   },
-
   "shortcutsTitle": {
     "message": "Pikakuvakkeet"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 riviä"
   },
-
   "addFolderTitle": {
     "message": "Lisää kansio"
   },
@@ -548,7 +536,7 @@
     "message": "Nimesi (valinnainen)"
   },
   "cityPlaceholder": {
-    "message": "Kaupunkisi"
+    "message": "esim. Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Lisää"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Lisää vaihtoehtoja"
   },
-
   "styleNone": {
     "message": "Ei mitään"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Selvä"
   },
-
   "permissionRequiredTitle": {
     "message": "Lupa vaaditaan"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab on päivitetty versioon $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Katso muutosloki"
   },
-
   "wizardWelcomeTitle": {
     "message": "Tervetuloa"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Katso projekti GitHubissa."
   },
-
   "gridFullTitle": {
     "message": "Ruudukko on täynnä"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Haetaan..."
+  },
+  "noResultsFound": {
+    "message": "Ei tuloksia"
   }
 }

@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Лаунчер додатків"
   },
-
   "newTabTitle": {
     "message": "Нова вкладка"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Значок вкладки"
   },
-
   "settingsTitle": {
     "message": "Налаштування"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Імпортувати"
   },
-
   "wallpaperTitle": {
     "message": "Шпалери"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Індивідуальний колір"
   },
   "wizardAccentLabel": {
     "message": "Колір акценту"
   },
-
   "displayGreeting": {
     "message": "Привітання"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Будні"
   },
-
   "weekday_0": {
     "message": "Неділя"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Субота"
   },
-
   "greetWeekMorning": {
     "message": "Класного $WEEK$, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Погода"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Пошук"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Пошук в Інтернеті"
   },
-
   "visualSearchTitle": {
     "message": "Візуальний пошук"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Пошук"
   },
-
   "shortcutsTitle": {
     "message": "Ярлики"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 рядки"
   },
-
   "addFolderTitle": {
     "message": "Додати папку"
   },
@@ -548,7 +536,7 @@
     "message": "Ваше ім'я (необов'язково)"
   },
   "cityPlaceholder": {
-    "message": "Ваше місто"
+    "message": "напр., Лос-Анджелес, Каліфорнія"
   },
   "addShortcutLabel": {
     "message": "Додати"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Більше опцій"
   },
-
   "styleNone": {
     "message": "Немає"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Зрозуміло"
   },
-
   "permissionRequiredTitle": {
     "message": "Потрібен дозвіл"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab оновлено до версії $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Переглянути журнал змін"
   },
-
   "wizardWelcomeTitle": {
     "message": "Ласкаво просимо"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Переглянути проєкт на GitHub."
   },
-
   "gridFullTitle": {
     "message": "Сітка заповнена"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Пошук..."
+  },
+  "noResultsFound": {
+    "message": "Нічого не знайдено"
   }
 }

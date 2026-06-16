@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "앱 실행기"
   },
-
   "newTabTitle": {
     "message": "새 탭"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "탭 아이콘"
   },
-
   "settingsTitle": {
     "message": "설정"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "가져오기"
   },
-
   "wallpaperTitle": {
     "message": "배경화면"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "사용자 지정 색상"
   },
   "wizardAccentLabel": {
     "message": "강조 색상"
   },
-
   "displayGreeting": {
     "message": "인사말"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "요일"
   },
-
   "weekday_0": {
     "message": "일요일"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "토요일"
   },
-
   "greetWeekMorning": {
     "message": "기분 좋은 $WEEK$ 아침이에요, $NAME$님! 화이팅!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "날씨"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "검색"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "웹 검색"
   },
-
   "visualSearchTitle": {
     "message": "이미지 검색"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "검색"
   },
-
   "shortcutsTitle": {
     "message": "바로가기"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4줄"
   },
-
   "addFolderTitle": {
     "message": "폴더 추가"
   },
@@ -548,7 +536,7 @@
     "message": "이름 (선택 사항)"
   },
   "cityPlaceholder": {
-    "message": "도시"
+    "message": "예: 로스앤젤레스, 캘리포니아"
   },
   "addShortcutLabel": {
     "message": "추가"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "추가 옵션"
   },
-
   "styleNone": {
     "message": "없음"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "알겠습니다"
   },
-
   "permissionRequiredTitle": {
     "message": "권한 필요"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab이 $VERSION$ 버전으로 업데이트되었습니다. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "변경 내역 보기"
   },
-
   "wizardWelcomeTitle": {
     "message": "환영합니다"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "GitHub에서 프로젝트 보기."
   },
-
   "gridFullTitle": {
     "message": "그리드가 가득 찼습니다"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "검색 중..."
+  },
+  "noResultsFound": {
+    "message": "결과를 찾을 수 없습니다"
   }
 }

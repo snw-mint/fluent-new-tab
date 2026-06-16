@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "Alkalmazásindító"
   },
-
   "newTabTitle": {
     "message": "Új lap"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Fül ikon"
   },
-
   "settingsTitle": {
     "message": "Beállítások"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importálás"
   },
-
   "wallpaperTitle": {
     "message": "Háttérkép"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Egyedi szín"
   },
   "wizardAccentLabel": {
     "message": "Kiemelő szín"
   },
-
   "displayGreeting": {
     "message": "Üdvözlet"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Hétköznap"
   },
-
   "weekday_0": {
     "message": "Vasárnap"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Szombat"
   },
-
   "greetWeekMorning": {
     "message": "Legyen szuper $WEEK$od, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Időjárás"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Keresés"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Keresés az interneten"
   },
-
   "visualSearchTitle": {
     "message": "Képalapú keresés"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Keresés"
   },
-
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 sor"
   },
-
   "addFolderTitle": {
     "message": "Mappa hozzáadása"
   },
@@ -548,7 +536,7 @@
     "message": "Neved (opcionális)"
   },
   "cityPlaceholder": {
-    "message": "Városod"
+    "message": "pl. Los Angeles, Kalifornia"
   },
   "addShortcutLabel": {
     "message": "Hozzáadás"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "További lehetőségek"
   },
-
   "styleNone": {
     "message": "Nincs"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Értettem"
   },
-
   "permissionRequiredTitle": {
     "message": "Engedély szükséges"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "A Fluent New Tab frissült a $VERSION$ verzióra. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Változásnapló megtekintése"
   },
-
   "wizardWelcomeTitle": {
     "message": "Üdvözlünk"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "A projekt megtekintése a GitHubon."
   },
-
   "gridFullTitle": {
     "message": "A rács megtelt"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Keresés..."
+  },
+  "noResultsFound": {
+    "message": "Nincs találat"
   }
 }

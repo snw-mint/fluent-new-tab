@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "App-starter"
   },
-
   "newTabTitle": {
     "message": "Nieuw tabblad"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Tabbladpictogram"
   },
-
   "settingsTitle": {
     "message": "Instellingen"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importeren"
   },
-
   "wallpaperTitle": {
     "message": "Achtergrond"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Aangepaste kleur"
   },
   "wizardAccentLabel": {
     "message": "Accentkleur"
   },
-
   "displayGreeting": {
     "message": "Groet"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Weekdag"
   },
-
   "weekday_0": {
     "message": "Zondag"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Zaterdag"
   },
-
   "greetWeekMorning": {
     "message": "Fijne $WEEK$ochtend, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Weer"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Zoeken"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Zoek op het web"
   },
-
   "visualSearchTitle": {
     "message": "Visuele zoekfunctie"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Zoeken"
   },
-
   "shortcutsTitle": {
     "message": "Snelkoppelingen"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 rijen"
   },
-
   "addFolderTitle": {
     "message": "Map toevoegen"
   },
@@ -548,7 +536,7 @@
     "message": "Je naam (optioneel)"
   },
   "cityPlaceholder": {
-    "message": "Je stad"
+    "message": "bijv. Los Angeles, Californië"
   },
   "addShortcutLabel": {
     "message": "Toevoegen"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Meer opties"
   },
-
   "styleNone": {
     "message": "Geen"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Begrepen"
   },
-
   "permissionRequiredTitle": {
     "message": "Toestemming vereist"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab is bijgewerkt naar versie $VERSION$. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Bekijk de changelog"
   },
-
   "wizardWelcomeTitle": {
     "message": "Welkom terug"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Bekijk het project op GitHub."
   },
-
   "gridFullTitle": {
     "message": "Raster is vol"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Zoeken..."
+  },
+  "noResultsFound": {
+    "message": "Geen resultaten gevonden"
   }
 }

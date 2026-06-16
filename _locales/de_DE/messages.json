@@ -8,7 +8,6 @@
   "appLauncherTitle": {
     "message": "App-Launcher"
   },
-
   "newTabTitle": {
     "message": "Neuer Tab"
   },
@@ -18,7 +17,6 @@
   "tabFaviconLabel": {
     "message": "Registerkartensymbol"
   },
-
   "settingsTitle": {
     "message": "Einstellungen"
   },
@@ -52,7 +50,6 @@
   "importOption": {
     "message": "Importieren"
   },
-
   "wallpaperTitle": {
     "message": "Hintergrundbild"
   },
@@ -76,14 +73,12 @@
       }
     }
   },
-
   "customColorTitle": {
     "message": "Individuelle Farbe"
   },
   "wizardAccentLabel": {
     "message": "Akzentfarbe"
   },
-
   "displayGreeting": {
     "message": "Begrüßung"
   },
@@ -126,7 +121,6 @@
   "dateWeekday": {
     "message": "Wochentag"
   },
-
   "weekday_0": {
     "message": "Sonntag"
   },
@@ -148,7 +142,6 @@
   "weekday_6": {
     "message": "Samstag"
   },
-
   "greetWeekMorning": {
     "message": "Guten Morgen an diesem $WEEK$, $NAME$!",
     "placeholders": {
@@ -368,7 +361,6 @@
       }
     }
   },
-
   "weatherTitle": {
     "message": "Wetter"
   },
@@ -429,7 +421,6 @@
       }
     }
   },
-
   "searchTitle": {
     "message": "Suche"
   },
@@ -457,7 +448,6 @@
   "searchPlaceholder": {
     "message": "Im Internet suchen"
   },
-
   "visualSearchTitle": {
     "message": "Visuelle Suche"
   },
@@ -476,7 +466,6 @@
   "visualSearchSearchBtn": {
     "message": "Suche"
   },
-
   "shortcutsTitle": {
     "message": "Verknüpfungen"
   },
@@ -504,7 +493,6 @@
   "rows4": {
     "message": "4 Zeilen"
   },
-
   "addFolderTitle": {
     "message": "Ordner hinzufügen"
   },
@@ -548,7 +536,7 @@
     "message": "Dein Name (optional)"
   },
   "cityPlaceholder": {
-    "message": "Deine Stadt"
+    "message": "z.B. Los Angeles, California"
   },
   "addShortcutLabel": {
     "message": "Hinzufügen"
@@ -562,7 +550,6 @@
   "moreOptionsLabel": {
     "message": "Weitere Optionen"
   },
-
   "styleNone": {
     "message": "Keiner"
   },
@@ -572,7 +559,6 @@
   "warningUnderstood": {
     "message": "Verstanden"
   },
-
   "permissionRequiredTitle": {
     "message": "Genehmigung erforderlich"
   },
@@ -588,7 +574,6 @@
       }
     }
   },
-
   "updateNoticePrefix": {
     "message": "Fluent New Tab wurde auf Version $VERSION$ aktualisiert. ",
     "placeholders": {
@@ -601,7 +586,6 @@
   "updateNoticeChangelog": {
     "message": "Änderungsprotokoll ansehen"
   },
-
   "wizardWelcomeTitle": {
     "message": "Willkommen zu Hause"
   },
@@ -677,7 +661,6 @@
   "wizardFinalGithubDesc": {
     "message": "Projekt auf GitHub anzeigen."
   },
-
   "gridFullTitle": {
     "message": "Raster ist voll"
   },
@@ -701,5 +684,11 @@
         "example": "39"
       }
     }
+  },
+  "searchingCity": {
+    "message": "Suchen..."
+  },
+  "noResultsFound": {
+    "message": "Keine Ergebnisse gefunden"
   }
 }
