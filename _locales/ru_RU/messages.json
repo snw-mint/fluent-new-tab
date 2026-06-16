@@ -608,7 +608,7 @@
     "message": "Skip setup"
   },
   "wizardSkipDesc": {
-    "message": "Start with a clean setup."
+    "message": "Начать с настройками по умолчанию."
   },
   "wizardThemeAuto": {
     "message": "System"

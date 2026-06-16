@@ -608,7 +608,7 @@
     "message": "Setup überspringen"
   },
   "wizardSkipDesc": {
-    "message": "Starte mit einem sauberen Setup."
+    "message": "Starten Sie mit der Standardkonfiguration."
   },
   "wizardThemeAuto": {
     "message": "System"

@@ -608,7 +608,7 @@
     "message": "Pular configuração"
   },
   "wizardSkipDesc": {
-    "message": "Comece com uma configuração limpa."
+    "message": "Comece com a configuração padrão."
   },
   "wizardThemeAuto": {
     "message": "Sistema"

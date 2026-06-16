@@ -608,7 +608,7 @@
     "message": "Beállítás kihagyása"
   },
   "wizardSkipDesc": {
-    "message": "Kezdés tiszta lappal."
+    "message": "Indítás az alapértelmezett beállításokkal."
   },
   "wizardThemeAuto": {
     "message": "Rendszer"

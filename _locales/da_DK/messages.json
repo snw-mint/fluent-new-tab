@@ -608,7 +608,7 @@
     "message": "Spring opsætning over"
   },
   "wizardSkipDesc": {
-    "message": "Start med en ren opsætning."
+    "message": "Start med standardopsætningen."
   },
   "wizardThemeAuto": {
     "message": "System"

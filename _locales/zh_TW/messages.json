@@ -608,7 +608,7 @@
     "message": "略過設定"
   },
   "wizardSkipDesc": {
-    "message": "以純淨狀態開始使用。"
+    "message": "使用預設設定開始。"
   },
   "wizardThemeAuto": {
     "message": "系統預設"

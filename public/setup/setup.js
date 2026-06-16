@@ -117,23 +117,9 @@ function applyTranslations() {
   });
 }
 
-function saveBlankSheet() {
-  localStorage.setItem('theme', 'auto');
-  localStorage.setItem('accentColorEnabled', 'false');
-  localStorage.setItem('displayEnabled', 'false');
-  localStorage.setItem('searchBarVisible', 'false');
-  localStorage.setItem('shortcutsVisible', 'false');
-  localStorage.setItem('launcherEnabled', 'false');
-  localStorage.setItem('wallpaperEnabled', 'false');
-  localStorage.setItem('weatherEnabled', 'false');
-  localStorage.setItem('reducedEffectsEnabled', 'false');
-  localStorage.setItem('showGreeting', 'false');
-}
-
 const btnSkip = document.getElementById('btn-skip');
 if (btnSkip) {
   btnSkip.addEventListener('click', () => {
-    saveBlankSheet();
     showStep('final');
   });
 }
@@ -622,7 +608,6 @@ function init() {
   const btnSkip = document.getElementById('btn-skip');
   if (btnSkip) {
     btnSkip.addEventListener('click', () => {
-      saveBlankSheet();
       showStep('final');
     });
   }

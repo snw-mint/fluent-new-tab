@@ -608,7 +608,7 @@
     "message": "セットアップをスキップ"
   },
   "wizardSkipDesc": {
-    "message": "クリーンな状態で使い始める。"
+    "message": "デフォルトの設定で開始します。"
   },
   "wizardThemeAuto": {
     "message": "システム"

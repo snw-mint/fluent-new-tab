@@ -608,7 +608,7 @@
     "message": "Salta la configurazione"
   },
   "wizardSkipDesc": {
-    "message": "Inizia con una configurazione pulita."
+    "message": "Inizia con l'impostazione predefinita."
   },
   "wizardThemeAuto": {
     "message": "Sistema"

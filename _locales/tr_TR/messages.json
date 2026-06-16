@@ -608,7 +608,7 @@
     "message": "Kurulumu atla"
   },
   "wizardSkipDesc": {
-    "message": "Temiz bir kurulumla başla."
+    "message": "Varsayılan kurulumla başla."
   },
   "wizardThemeAuto": {
     "message": "Sistem"

@@ -608,7 +608,7 @@
     "message": "Skip setup"
   },
   "wizardSkipDesc": {
-    "message": "Start with a clean setup."
+    "message": "Start with the default setup."
   },
   "wizardThemeAuto": {
     "message": "System"

@@ -608,7 +608,7 @@
     "message": "I-skip ang setup"
   },
   "wizardSkipDesc": {
-    "message": "Mag-start gamit ang clean setup."
+    "message": "Magsimula sa default na setup."
   },
   "wizardThemeAuto": {
     "message": "System"

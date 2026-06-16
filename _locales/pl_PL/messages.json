@@ -608,7 +608,7 @@
     "message": "Pomiń konfigurację"
   },
   "wizardSkipDesc": {
-    "message": "Zacznij od czystej konfiguracji."
+    "message": "Rozpocznij z domyślną konfiguracją."
   },
   "wizardThemeAuto": {
     "message": "Systemowy"

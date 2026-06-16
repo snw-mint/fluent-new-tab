@@ -608,7 +608,7 @@
     "message": "Ignorer la configuration"
   },
   "wizardSkipDesc": {
-    "message": "Commencer avec une configuration vierge."
+    "message": "Commencer avec la configuration par défaut."
   },
   "wizardThemeAuto": {
     "message": "Système"

@@ -608,7 +608,7 @@
     "message": "Hoppa över"
   },
   "wizardSkipDesc": {
-    "message": "Börja med en ren installation."
+    "message": "Börja med standardinställningen."
   },
   "wizardThemeAuto": {
     "message": "System"

@@ -608,7 +608,7 @@
     "message": "跳过设置"
   },
   "wizardSkipDesc": {
-    "message": "以纯净状态开始使用。"
+    "message": "使用默认设置开始。"
   },
   "wizardThemeAuto": {
     "message": "跟随系统"
