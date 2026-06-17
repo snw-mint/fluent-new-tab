@@ -8,6 +8,7 @@
 
 import * as refs from '@/core/shared/dom-refs';
 import { requestFeaturePermissionUI } from '@/core/ui/ui-components';
+import { performSearch } from '@/core/boot/search';
 import {
   handleAskAiRedirect,
   updateAskAiUiState,
@@ -33,7 +34,9 @@ export function bindSearchFeature(options: any): void {
       const isCollapsed =
         refs.searchMoreContainer.classList.contains('collapsed');
       if (isCollapsed) {
-        import('@/core/ui/settings').then((m) => m.resetSettingsAccordions(refs.searchMoreContainer));
+        import('@/core/ui/settings').then((m) =>
+          m.resetSettingsAccordions(refs.searchMoreContainer),
+        );
         refs.searchMoreContainer.classList.remove('collapsed');
         refs.searchMoreBtn.classList.add('expanded');
         refs.searchMoreContainer.style.maxHeight = '500px';
@@ -50,7 +53,9 @@ export function bindSearchFeature(options: any): void {
       ? 'compact'
       : 'full';
     // Dispatch change so fluent-select updates its UI
-    refs.searchBarStyleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    refs.searchBarStyleSelect.dispatchEvent(
+      new Event('change', { bubbles: true }),
+    );
     refs.searchBarStyleSelect.addEventListener('change', (event) => {
       const target = event.target as HTMLSelectElement | null;
       if (!target) return;
@@ -225,6 +230,8 @@ export function bindSearchFeature(options: any): void {
 
   if (refs.searchForm) {
     refs.searchForm.addEventListener('submit', (event) => {
+      const currentEngine = localStorage.getItem('searchEngine') || 'bing';
+
       if (askAiActiveMode) {
         event.preventDefault();
         handleAskAiRedirect(refs.searchInput?.value || '');
@@ -236,6 +243,11 @@ export function bindSearchFeature(options: any): void {
           askAiBtn: refs.askAiBtn,
         });
         options.clearSuggestions();
+      } else if (currentEngine === 'system') {
+        event.preventDefault();
+        const query = refs.searchInput?.value || '';
+        options.clearSuggestions();
+        performSearch(query, 'system');
       } else {
         options.clearSuggestions();
       }
@@ -264,10 +276,13 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.toggleVisualSearch) {
-    const isVisualSearchEnabled = localStorage.getItem('visualSearchEnabled') === 'true';
+    const isVisualSearchEnabled =
+      localStorage.getItem('visualSearchEnabled') === 'true';
     refs.toggleVisualSearch.checked = isVisualSearchEnabled;
     if (refs.visualSearchBtn) {
-      refs.visualSearchBtn.style.display = isVisualSearchEnabled ? 'flex' : 'none';
+      refs.visualSearchBtn.style.display = isVisualSearchEnabled
+        ? 'flex'
+        : 'none';
     }
     refs.toggleVisualSearch.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
@@ -279,11 +294,12 @@ export function bindSearchFeature(options: any): void {
           'https://lens.google.com',
           () => {
             localStorage.setItem('visualSearchEnabled', 'true');
-            if (refs.visualSearchBtn) refs.visualSearchBtn.style.display = 'flex';
+            if (refs.visualSearchBtn)
+              refs.visualSearchBtn.style.display = 'flex';
           },
           () => {
             target.checked = false;
-          }
+          },
         );
       } else {
         localStorage.setItem('visualSearchEnabled', 'false');
@@ -293,16 +309,20 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.visualSearchBtn) {
-    refs.visualSearchBtn.addEventListener('pointerenter', () => {
-      import('@/core/lazy/visual-search').catch(() => {});
-    }, { once: true });
+    refs.visualSearchBtn.addEventListener(
+      'pointerenter',
+      () => {
+        import('@/core/lazy/visual-search').catch(() => {});
+      },
+      { once: true },
+    );
 
     refs.visualSearchBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       import('@/core/lazy/visual-search')
         .then((m) => m.openVisualSearchInterface())
-        .catch(err => console.error('Error opening Visual Search:', err));
+        .catch((err) => console.error('Error opening Visual Search:', err));
     });
   }
 
@@ -324,11 +344,11 @@ export function bindSearchFeature(options: any): void {
 
     refs.searchWrapper.addEventListener('drop', async (e) => {
       refs.searchWrapper?.classList.remove('image-drag-over');
-      
+
       const file = Array.from(e.dataTransfer?.files || []).find((f) =>
-        f.type.startsWith('image/')
+        f.type.startsWith('image/'),
       );
-      
+
       if (file) {
         e.preventDefault();
         import('@/core/lazy/visual-search').then((m) => {
@@ -336,12 +356,12 @@ export function bindSearchFeature(options: any): void {
         });
         return;
       }
-      
+
       const url =
         e.dataTransfer?.getData('text/uri-list') ||
         e.dataTransfer?.getData('text/plain') ||
         '';
-        
+
       if (url && /^https?:\/\//i.test(url)) {
         e.preventDefault();
         import('@/core/lazy/visual-search').then((m) => {
