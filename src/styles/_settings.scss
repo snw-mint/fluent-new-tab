@@ -225,21 +225,21 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--border-base);
     border-radius: 1.125rem;
     border: 0.1125rem solid transparent;
     background-clip: content-box;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: var(--border-strong);
     }
 
     @supports (-moz-appearance: none) {
       scrollbar-width: thin;
-      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      scrollbar-color: var(--border-base) transparent;
 
       &:hover {
-        scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+        scrollbar-color: var(--border-strong) transparent;
       }
     }
   }
