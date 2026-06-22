@@ -88,6 +88,17 @@ Instead, join our Crowdin Project to easily suggest corrections or add new trans
 
 See the [Translation Guide](.github/TRANSLATING.md) for more details.
 
+## Prefer a different design?
+
+This extension is also available in **[MD3: Expressive New Tab](https://github.com/snw-mint/md3-new-tab)** — the same powerful new tab experience, but inspired by **Google's Material Design 3** with a vibrant, expressive aesthetic.
+
+Both projects share the **same codebase** and **identical features**. The only difference is the visual design language. Choose based on your personal preference:
+
+- **Fluent New Tab** (current) — Minimal, clean design inspired by Microsoft's Fluent Design System
+- **MD3: Expressive New Tab** — Bold, colorful design inspired by Google's Material Design 3
+
+[Try MD3: Expressive New Tab →](https://github.com/snw-mint/md3-new-tab)
+
 ## License and legal notice
 
 > [!IMPORTANT]  
