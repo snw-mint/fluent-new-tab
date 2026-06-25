@@ -204,9 +204,9 @@ export async function fetchDailyWallpaper(
       if (data && data.photos && data.photos.length > 0) {
         const photo = data.photos[0];
         imageUrl =
-          photo.src?.large2x || photo.src?.original || photo.src?.large || '';
-        creditText = `Pexels: ${photo.photographer || 'Photographer'}`;
-        creditUrl = photo.url || 'https://pexels.com/';
+          photo?.src?.large2x || photo?.src?.original || photo?.src?.large || '';
+        creditText = `Pexels: ${photo?.photographer || 'Photographer'}`;
+        creditUrl = photo?.url || 'https://pexels.com/';
       }
     }
 
