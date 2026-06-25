@@ -690,5 +690,8 @@
   },
   "noResultsFound": {
     "message": "Inga resultat hittades"
+  },
+  "privacyPolicyLabel": {
+    "message": "Läs integritetspolicyn"
   }
 }

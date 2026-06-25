@@ -148,4 +148,4 @@ export interface WallpaperCacheEntry {
 export type ThemeMode = 'light' | 'dark' | 'auto';
 export type WeatherUnit = 'c' | 'f';
 export type WallpaperSource = 'local' | 'api';
-export type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia';
+export type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia' | 'unsplash' | 'pexels';

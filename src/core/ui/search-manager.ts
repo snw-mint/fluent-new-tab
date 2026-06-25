@@ -199,7 +199,6 @@ export function bindSearchFeature(options: any): void {
         requestFeaturePermissionUI(
           'suggestions',
           'DuckDuckGo Search Suggestions',
-          'https://duckduckgo.com',
           () => {
             options.setSuggestionsActive(true);
             localStorage.setItem('suggestionsEnabled', 'true');
@@ -291,7 +290,6 @@ export function bindSearchFeature(options: any): void {
         requestFeaturePermissionUI(
           'visualSearch',
           'Google Lens',
-          'https://lens.google.com',
           () => {
             localStorage.setItem('visualSearchEnabled', 'true');
             if (refs.visualSearchBtn)
