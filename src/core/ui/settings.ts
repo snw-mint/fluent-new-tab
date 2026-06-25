@@ -1049,7 +1049,11 @@ export function bindWallpaperFeature(
             ? 'Bing Wallpaper'
             : type === 'nasa'
               ? 'NASA APOD'
-              : 'Wikimedia';
+              : type === 'unsplash'
+                ? 'Unsplash API'
+                : type === 'pexels'
+                  ? 'Pexels API'
+                  : 'Wikimedia';
         import('@/core/ui/ui-components').then(
           ({ requestFeaturePermissionUI }) => {
             requestFeaturePermissionUI(
