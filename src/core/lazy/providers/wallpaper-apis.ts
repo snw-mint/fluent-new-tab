@@ -82,8 +82,12 @@ export async function fetchDailyWallpaper(
         return await response.json();
       };
 
-      const applyApodData = (data: NasaApodResponse, date?: string): boolean => {
-        if (data.media_type !== 'image' && data.media_type !== 'video') return false;
+      const applyApodData = (
+        data: NasaApodResponse,
+        date?: string,
+      ): boolean => {
+        if (data.media_type !== 'image' && data.media_type !== 'video')
+          return false;
         imageUrl =
           data.media_type === 'video'
             ? (data.thumbnail_url || data.url || '').replace(
@@ -106,17 +110,22 @@ export async function fetchDailyWallpaper(
         todayData = await fetchNasaApod();
       } catch (todayError) {
         // Server-side error (5xx / rate-limit): fall back to yesterday silently
-        const msg = todayError instanceof Error ? todayError.message : String(todayError);
+        const msg =
+          todayError instanceof Error ? todayError.message : String(todayError);
         const isServerErr =
-          msg.includes('503') || msg.includes('502') ||
-          msg.includes('504') || msg.includes('API limit');
+          msg.includes('503') ||
+          msg.includes('502') ||
+          msg.includes('504') ||
+          msg.includes('API limit');
         if (isServerErr) {
-          console.warn(`NASA API unavailable (${msg}), trying yesterday's APOD…`);
+          console.warn(
+            `NASA API unavailable (${msg}), trying yesterday's APOD…`,
+          );
           try {
             const fallbackData = await fetchNasaApod(yesterday);
             if (!applyApodData(fallbackData, yesterday)) return null;
           } catch {
-            throw todayError; // re-throw original so outer catch logs it
+            throw todayError;
           }
         } else {
           throw todayError;
@@ -125,7 +134,6 @@ export async function fetchDailyWallpaper(
 
       if (todayData !== null) {
         if (!applyApodData(todayData)) {
-          // Today's APOD is not an image/video — try yesterday
           notifyWallpaperApiWarning('unavailable');
           try {
             const yesterdayData = await fetchNasaApod(yesterday);
@@ -171,6 +179,34 @@ export async function fetchDailyWallpaper(
             break;
           }
         }
+      }
+    } else if (source === 'unsplash') {
+      const url =
+        'https://unsplash.snw-mint.workers.dev/photos/random?query=abstract+wallpaper&orientation=landscape';
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Unsplash Worker Error: ${res.status}`);
+      }
+      const data = await res.json();
+      if (data && data.urls && data.urls.regular) {
+        imageUrl = data.urls.regular;
+        creditText = `Unsplash: ${data.user?.name || 'Photographer'}`;
+        creditUrl = data.links?.html || 'https://unsplash.com/';
+      }
+    } else if (source === 'pexels') {
+      const randomPage = Math.floor(Math.random() * 100) + 1;
+      const url = `https://pexels.snw-mint.workers.dev/curated?per_page=1&page=${randomPage}`;
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Pexels Worker Error: ${res.status}`);
+      }
+      const data = await res.json();
+      if (data && data.photos && data.photos.length > 0) {
+        const photo = data.photos[0];
+        imageUrl =
+          photo.src?.large2x || photo.src?.original || photo.src?.large || '';
+        creditText = `Pexels: ${photo.photographer || 'Photographer'}`;
+        creditUrl = photo.url || 'https://pexels.com/';
       }
     }
 

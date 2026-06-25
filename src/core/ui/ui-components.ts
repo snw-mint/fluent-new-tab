@@ -43,21 +43,20 @@ export class WarningModalManager {
     this.messageEl.textContent = '';
     this.messageEl.textContent = options.message;
 
-    if (options.learnMoreUrl) {
-      const link = document.createElement('a');
-      link.href = options.learnMoreUrl;
-      link.target = '_blank';
-      link.textContent = getLocalizedWarningText(
-        'learnMoreLabel',
-        'Learn more',
-      );
-      link.style.display = 'inline-block';
-      link.style.marginTop = '8px';
-      link.style.color = 'var(--text-color)';
-      link.style.textDecoration = 'underline';
-      this.messageEl.appendChild(document.createElement('br'));
-      this.messageEl.appendChild(link);
-    }
+    const privacyUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
+    const link = document.createElement('a');
+    link.href = privacyUrl;
+    link.target = '_blank';
+    link.textContent = getLocalizedWarningText(
+      'privacyPolicyLabel',
+      'Read privacy policy',
+    );
+    link.style.display = 'inline-block';
+    link.style.marginTop = '8px';
+    link.style.color = 'var(--text-color)';
+    link.style.textDecoration = 'underline';
+    this.messageEl.appendChild(document.createElement('br'));
+    this.messageEl.appendChild(link);
 
     this.btnConfirm.textContent = options.confirmText || 'Confirm';
     this.btnCancel.textContent = options.cancelText || 'Cancel';
@@ -359,7 +358,6 @@ export function syncShortcutDropdownState(): void {
 export async function requestFeaturePermissionUI(
   feature: string,
   apiName: string,
-  learnMoreUrl: string,
   onGranted: () => void,
   onDenied: () => void,
 ): Promise<void> {
@@ -387,7 +385,6 @@ export async function requestFeaturePermissionUI(
       'To use this feature, Fluent New Tab needs permission to access "$API_NAME$". This ensures your privacy and security.',
       { API_NAME: apiName },
     ),
-    learnMoreUrl: learnMoreUrl,
     confirmText: getLocalizedWarningText(
       'grantPermissionLabel',
       'Grant Permission',

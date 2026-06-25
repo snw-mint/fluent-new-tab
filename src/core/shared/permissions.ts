@@ -23,6 +23,8 @@ export const HOST_PERMISSIONS: Record<string, string[]> = {
     'https://air-quality-api.open-meteo.com/*',
   ],
   visualSearch: ['https://*.google.com/*'],
+  unsplash: ['https://unsplash.snw-mint.workers.dev/photos/random'],
+  pexels: ['https://pexels.snw-mint.workers.dev/curated'],
 };
 
 export async function checkPermission(origins: string[]): Promise<boolean> {

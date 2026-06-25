@@ -34,7 +34,6 @@ export function bindWeatherFeature(options: any): void {
             requestFeaturePermissionUI(
               'weather',
               'Open-Meteo API',
-              'https://open-meteo.com/',
               () => {
                 localStorage.setItem('weatherEnabled', 'true');
                 setTimeout(() => {
@@ -179,7 +178,6 @@ export function bindWeatherFeature(options: any): void {
             requestFeaturePermissionUI(
               'weatherAlerts',
               'Air Quality API',
-              'https://open-meteo.com/en/docs/air-quality-api',
               () => {
                 options.setWeatherAlertsEnabled(true);
                 localStorage.setItem('weatherAlertsEnabled', 'true');
@@ -1052,19 +1050,11 @@ export function bindWallpaperFeature(
             : type === 'nasa'
               ? 'NASA APOD'
               : 'Wikimedia';
-        const learnMore =
-          type === 'bing'
-            ? 'https://peapix.com/'
-            : type === 'nasa'
-              ? 'https://apod.nasa.gov/'
-              : 'https://commons.wikimedia.org/';
-
         import('@/core/ui/ui-components').then(
           ({ requestFeaturePermissionUI }) => {
             requestFeaturePermissionUI(
               type as any,
               apiName,
-              learnMore,
               async () => {
                 const engine = await getWallpaperEngine();
                 await engine.render({
