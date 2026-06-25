@@ -104,8 +104,12 @@ Not sure what a key does? The [`_locales/README.md`](../_locales/README.md) cont
 
 **When adding a new string to the codebase**, you must:
 
-1. Add the key to `_locales/en_US/messages.json` (English source).
-2. Add the same key to every other locale file in `_locales/`, using the English string as a temporary fallback (`// TODO: translate`).
-3. Open an Issue with the `feedback` label to notify translators, or include translations in your PR if you have them.
+1. Add the new string key and English message directly using the provided translation script:
+   ```bash
+   node scripts/translate.mjs <keyName> "Your English String"
+   ```
+   *(Example: `node scripts/translate.mjs privacyPolicyLabel "Read privacy policy"`)*
+2. This script will automatically use the Google Translate API to inject the new key and its translation into all 24 `messages.json` files. It gracefully skips any locale that already contains the key.
+3. Because machine translations often lack context or natural phrasing, we rely on our community (as described in the "How to Contribute" section) to submit Pull Requests correcting these initial automatic translations over time.
 
-The i18n system falls back to `en_US` at runtime if a key is missing, but keeping all files in sync avoids silent gaps.
+The i18n system falls back to `en_US` at runtime if a key is missing, but ensuring the script runs avoids broken layouts and missing text for international users.

@@ -690,5 +690,8 @@
   },
   "noResultsFound": {
     "message": "Nincs találat"
+  },
+  "privacyPolicyLabel": {
+    "message": "Olvassa el az adatvédelmi szabályzatot"
   }
 }

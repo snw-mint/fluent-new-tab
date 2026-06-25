@@ -429,5 +429,8 @@
   },
   "noResultsFound": {
     "message": "No se encontraron resultados"
+  },
+  "privacyPolicyLabel": {
+    "message": "Leer política de privacidad"
   }
 }

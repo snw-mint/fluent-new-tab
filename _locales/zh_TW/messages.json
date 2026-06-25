@@ -690,5 +690,8 @@
   },
   "noResultsFound": {
     "message": "未找到結果"
+  },
+  "privacyPolicyLabel": {
+    "message": "閱讀隱私權政策"
   }
 }

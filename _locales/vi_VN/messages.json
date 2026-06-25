@@ -690,5 +690,8 @@
   },
   "noResultsFound": {
     "message": "Không tìm thấy kết quả nào"
+  },
+  "privacyPolicyLabel": {
+    "message": "Đọc chính sách bảo mật"
   }
 }

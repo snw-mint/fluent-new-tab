@@ -690,5 +690,8 @@
   },
   "noResultsFound": {
     "message": "Brak wyników"
+  },
+  "privacyPolicyLabel": {
+    "message": "Przeczytaj politykę prywatności"
   }
 }
