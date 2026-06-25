@@ -46,7 +46,6 @@
     "https://geocoding-api.open-meteo.com/*",
     "https://api.open-meteo.com/*",
     "https://air-quality-api.open-meteo.com/*",
-    "https://www.google.com/*",
-    "https://lens.google.com/*"
+    "https://*.google.com/*"
   ]
 }
