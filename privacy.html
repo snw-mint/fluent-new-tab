@@ -1,294 +1,426 @@
-<!DOCTYPE html>
-<!--
- - Fluent New Tab
- - Copyright (c) 2025-2026 SnowMint
- - Licensed under the GNU General Public License v3.0 (GPL-3.0)
- - You should have received a copy of the GNU General Public License along with this program.
- - If not, see <https://www.gnu.org/licenses/>.
- -->
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Privacy Policy for Fluent New Tab, including local data storage, third-party APIs, and user controls.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/privacy.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Privacy Policy - Fluent New Tab">
-    <meta property="og:description"
-        content="How Fluent New Tab handles local data, third-party APIs, and privacy protections.">
-    <meta property="og:url" content="https://snw-mint.github.io/fluent-new-tab/privacy.html">
-    <meta property="og:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Privacy Policy - Fluent New Tab">
-    <meta property="twitter:description"
-        content="How Fluent New Tab handles local data, third-party APIs, and privacy protections.">
-    <meta property="twitter:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Privacy Policy for Fluent New Tab, including local data storage, third-party APIs, and user controls."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Privacy Policy - Fluent New Tab" />
+    <meta
+      property="og:description"
+      content="How Fluent New Tab handles local data, third-party APIs, and privacy protections."
+    />
+    <meta
+      property="og:url"
+      content="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+    />
+    <meta
+      property="og:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Privacy Policy - Fluent New Tab" />
+    <meta
+      property="twitter:description"
+      content="How Fluent New Tab handles local data, third-party APIs, and privacy protections."
+    />
+    <meta
+      property="twitter:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <title>Privacy Policy - Fluent New Tab</title>
     <style>
-        :root {
-            --color-bg: #faf9f8;
-            --color-surface: #ffffff;
-            --color-primary: #0f6cbd;
-            --color-primary-hover: #115ea3;
-            --color-text-main: #242424;
-            --color-text-muted: #616161;
-            --color-border: #e0e0e0;
-            --font-stack: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+      :root {
+        --color-bg: #faf9f8;
+        --color-surface: #ffffff;
+        --color-primary: #0f6cbd;
+        --color-primary-hover: #115ea3;
+        --color-text-main: #242424;
+        --color-text-muted: #616161;
+        --color-border: #e0e0e0;
+        --font-stack:
+          "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+      }
 
-        html {
-            font-size: 100%;
-        }
+      html {
+        font-size: 100%;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: var(--font-stack);
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .container {
+        max-width: 50rem;
+        margin: 0 auto;
+        background-color: var(--color-surface);
+        padding: 3rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+      }
+
+      .header {
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .last-updated {
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+      }
+
+      .content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0 1rem;
+        color: var(--color-text-main);
+      }
+
+      .content p {
+        margin-bottom: 1rem;
+        color: var(--color-text-muted);
+        font-size: 1.05rem;
+      }
+
+      .content ul,
+      .content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: var(--color-text-muted);
+        font-size: 1.05rem;
+      }
+
+      .content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .content a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      .content a:hover {
+        text-decoration: underline;
+      }
+
+      .nav-back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .nav-back:hover {
+        text-decoration: underline;
+      }
+
+      .manifest-container {
+        background-color: #f8f8f8;
+        border: 1px solid var(--color-border);
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        max-height: 25rem;
+      }
+
+      .manifest-container code {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.9rem;
+        color: var(--color-text-main);
+        white-space: pre;
+      }
+
+      @media (max-width: 37.5rem) {
         body {
-            font-family: var(--font-stack);
-            background-color: var(--color-bg);
-            color: var(--color-text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            padding: 2.5rem 1.5rem;
+          padding: 1rem;
         }
 
         .container {
-            max-width: 50rem;
-            margin: 0 auto;
-            background-color: var(--color-surface);
-            padding: 3rem;
-            border-radius: 0.75rem;
-            border: 1px solid var(--color-border);
-            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-        }
-
-        .header {
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 1.5rem;
+          padding: 1.5rem;
         }
 
         h1 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+          font-size: 1.75rem;
         }
-
-        .last-updated {
-            color: var(--color-text-muted);
-            font-size: 0.95rem;
-        }
-
-        .content h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: var(--color-text-main);
-        }
-
-        .content p {
-            margin-bottom: 1rem;
-            color: var(--color-text-muted);
-            font-size: 1.05rem;
-        }
-
-        .content ul,
-        .content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            color: var(--color-text-muted);
-            font-size: 1.05rem;
-        }
-
-        .content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .content a {
-            color: var(--color-primary);
-            text-decoration: none;
-        }
-
-        .content a:hover {
-            text-decoration: underline;
-        }
-
-        .nav-back {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-back:hover {
-            text-decoration: underline;
-        }
-
-        .gist {
-            border: 1px solid var(--color-border);
-            border-radius: 0.5rem;
-            margin: 1.5rem 0 !important;
-            font-size: 0.95rem;
-        }
-
-        .gist table,
-        .gist tr,
-        .gist td,
-        .gist .blob-num,
-        .gist .blob-code {
-            line-height: 1.6 !important;
-            font-size: 1em !important;
-        }
-
-        .gist .gist-file {
-            border: none !important;
-            margin: 0 !important;
-        }
-
-        .gist .gist-data {
-            border-bottom: none !important;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-
-        .gist .gist-meta {
-            display: none !important;
-        }
-
-        @media (max-width: 37.5rem) {
-            body {
-                padding: 1rem;
-            }
-
-            .container {
-                padding: 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+      <a href="index.html" class="nav-back">&larr; Back to Home</a>
 
-        <header class="header">
-            <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: May 11, 2026</p>
-        </header>
+      <header class="header">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: June 2026</p>
+      </header>
 
-        <div class="content">
-            <p>Thank you for using Fluent New Tab. Your privacy is and always will be critically important. This policy
-                explains what data the extension handles and why, ensuring you have full transparency and control.</p>
+      <div class="content">
+        <p>
+          Thank you for using Fluent New Tab. Your privacy is and always will be
+          critically important. This policy explains what data the extension
+          handles and why, ensuring you have full transparency and control.
+        </p>
 
-            <h2 id="1-the-golden-rule-no-personal-data-collection">1. The Golden Rule: No Personal Data Collection</h2>
-            <p><strong>Fluent New Tab does not collect, store, transmit, or sell your personal data. Period.</strong>
-            </p>
-            <p>We do not use any tracking scripts, analytics, or telemetry. We have no way of knowing who you are, how
-                you use the extension, or what you search for.</p>
-            <h2 id="2-your-data-stays-on-your-device">2. Your Data Stays On Your Device</h2>
-            <p>All your settings—including preferences, custom shortcuts, and uploaded wallpapers—are stored locally on
-                your computer using the browser&#39;s built-in storage (<code>localStorage</code> and
-                <code>IndexedDB</code>). This data is yours and yours alone; we have no access to it.
-            </p>
-            <h2 id="3-third-party-services-how-features-work">3. Third-Party Services: How Features Work</h2>
-            <p>To provide features like weather and dynamic content, the extension needs to request information from
-                external services. This communication happens directly between your browser and the service provider.
-                <strong>No data ever passes through our servers.</strong>
-            </p>
-            <p>Below is a list of all third-party services used and why:</p>
+        <h2 id="1-the-golden-rule-no-personal-data-collection">
+          1. The Golden Rule: No Personal Data Collection
+        </h2>
+        <p>
+          <strong
+            >Fluent New Tab does not collect, store, transmit, or sell your
+            personal data. Period.</strong
+          >
+        </p>
+        <p>
+          We do not use any tracking scripts, analytics, or telemetry. We have
+          no way of knowing who you are, how you use the extension, or what you
+          search for.
+        </p>
+
+        <h2 id="2-your-data-stays-on-your-device">
+          2. Your Data Stays On Your Device
+        </h2>
+        <p>
+          All your settings—including preferences, custom shortcuts, and
+          uploaded wallpapers—are stored locally on your computer using the
+          browser&#39;s built-in storage (<code>localStorage</code> and
+          <code>IndexedDB</code>). This data is yours and yours alone; we have
+          no access to it.
+        </p>
+
+        <h2 id="3-third-party-services-how-features-work">
+          3. Third-Party Services & Proxy Infrastructure
+        </h2>
+        <p>
+          To provide features like weather forecasts and daily wallpapers, the
+          extension communicates with external services. Most requests happen
+          directly between your browser and the provider. However, certain
+          wallpaper APIs require authentication keys; to protect these keys and
+          prevent rate-limit exhaustion, those specific requests are routed
+          through a secure proxy infrastructure managed by us.
+        </p>
+        <p>
+          <strong
+            >No personal data, IP addresses, or tracking identifiers are ever
+            logged or stored on our proxy servers.</strong
+          >
+        </p>
+        <p>Below is a breakdown of all external services and endpoints used:</p>
+        <ul>
+          <li>
+            <strong>Search Suggestions:</strong> When you type in the search
+            bar, queries are sent directly to your chosen search engine (e.g.,
+            Google) to provide auto-completion suggestions.
+          </li>
+          <li>
+            <strong>Weather Information:</strong> If you enable the weather
+            widget, your location coordinates are sent directly to
+            <code>Open-Meteo</code> to fetch weather forecasts.
+          </li>
+          <li>
+            <strong>Direct Dynamic Wallpapers:</strong> Fetched directly from
+            public providers:
             <ul>
-                <li><strong>Search Suggestions:</strong> When you type in the search bar, queries are sent to your
-                    chosen search engine (e.g., Google) to provide auto-completion suggestions.</li>
-                <li><strong>Weather Information:</strong> If you enable the weather widget, the location you provide is
-                    sent to <code>Open-Meteo</code> to fetch current weather data and forecasts.</li>
-                <li><strong>Dynamic Wallpapers:</strong> If you enable a dynamic wallpaper, the extension fetches a new
-                    image daily from one of the following sources:<ul>
-                        <li><strong>Bing Wallpaper:</strong> <code>peapix.com</code></li>
-                        <li><strong>NASA Picture of the Day:</strong> <code>api.nasa.gov</code></li>
-                        <li><strong>Wikimedia Picture of the Day:</strong> <code>commons.wikimedia.org</code></li>
-                    </ul>
-                </li>
+              <li><strong>Bing Wallpaper:</strong> <code>peapix.com</code></li>
+              <li>
+                <strong>NASA Picture of the Day:</strong>
+                <code>api.nasa.gov</code>
+              </li>
+              <li>
+                <strong>Wikimedia Picture of the Day:</strong>
+                <code>commons.wikimedia.org</code>
+              </li>
             </ul>
-            <h2 id="4-permissions-explained">4. Permissions Explained</h2>
-            <p>To ensure full transparency, below is the full `manifest.json` file, which declares all permissions the
-                extension requires. Following the file, you'll find a detailed explanation of each permission requested.
-            </p>
-            <script src="https://gist.github.com/snw-mint/c9d8f1959b8377ab1b2b046deca70224.js"></script>
-
-            <h3>General Permissions</h3>
+          </li>
+          <li>
+            <strong>Proxied Wallpapers (Cloudflare Workers):</strong> To
+            securely authenticate requests without exposing developer keys, the
+            following sources are routed through our intermediate server
+            endpoints (<code>snw-mint.workers.dev</code>):
             <ul>
-                <li><code>storage</code>: This permission is essential for saving your personal settings, such as your
-                    preferred theme, custom shortcuts, and widget configurations, directly on your local device.</li>
-                <li><code>unlimitedStorage</code>: This permission allows the extension to store larger files locally,
-                    such as high-resolution custom wallpapers that you upload from your computer. It prevents the
-                    browser from deleting your wallpapers if it runs low on storage space.</li>
-                <li><code>search</code>: This permission enables the "System default" search engine option. It allows
-                    the
-                    extension to utilize the browser's native search API to use your system's default search provider,
-                    fulfilling the Chrome Web Store's Single Purpose Policy.</li>
-                <li><code>alarms</code>: An optional permission that is only requested when the "Weather Alerts" feature
-                    is
-                    active. It is used to schedule API calls and trigger the alerts for this feature.</li>
+              <li>
+                <strong>Unsplash (Abstract Wallpapers):</strong> Serves a
+                globally cached daily background.
+              </li>
+              <li>
+                <strong>Pexels (Aesthetic Wallpapers):</strong> Serves a
+                globally cached curated background.
+              </li>
             </ul>
+          </li>
+        </ul>
 
-            <h3>Optional Host Permissions</h3>
-            <p>To give you maximum control, <strong>all external host permissions are optional by default</strong>. You
-                are
-                no longer required to pre-approve these hosts when installing the extension. Instead, you will be
-                prompted
-                to grant permission individually only when you activate a feature that requires it.</p>
-            <p>These optional permissions allow the extension to communicate with specific external services to fetch
-                dynamic content. No data is ever sent to our servers.</p>
-            <ul>
-                <li><strong>Search Suggestions</strong> (e.g., <code>google.com</code>): Used to provide auto-completion
-                    suggestions in the search bar.</li>
-                <li><strong>Dynamic Wallpapers</strong> (e.g., <code>peapix.com</code>, <code>nasa.gov</code>,
-                    <code>wikimedia.org</code>): Used to fetch daily background images from your selected source.
-                </li>
-                <li><strong>Weather Widget</strong> (e.g., <code>open-meteo.com</code>): Used to fetch geographic
-                    coordinates and current weather forecast data.</li>
-            </ul>
-            <h2 id="5-you-are-in-control">5. You Are in Control</h2>
-            <p>Because all data is stored on your device, you have complete control. You can delete all your data at any
-                time by:</p>
-            <ol>
-                <li>Using the &quot;Reset to Defaults&quot; option in the extension&#39;s settings.</li>
-                <li>Clearing your browser&#39;s local storage for the extension.</li>
-                <li>Uninstalling the extension, which automatically removes all its associated data.</li>
-            </ol>
-            <h2 id="6-open-source-and-verifiable">6. Open Source and Verifiable</h2>
-            <p>Fluent New Tab is 100% open-source. We invite you to review the <a
-                    href="https://github.com/snw-mint">source code on GitHub</a> to verify that the extension operates
-                exactly as described in this policy.</p>
-            <h2 id="7-changes-to-this-policy">7. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy to reflect new features or clarify our practices. Any changes will be
-                posted on this page with a revised &quot;Last Updated&quot; date.</p>
+        <h2 id="4-permissions-explained">4. Permissions Explained</h2>
+        <p>
+          To ensure full transparency, below is the exact
+          <code>manifest.json</code> file currently running in production,
+          loaded dynamically in real-time from our official GitHub repository:
+        </p>
 
-            <h2>8. Contact Me</h2>
-            <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please open
-                an issue on our <a href="mailto:snw-mint@outlook.com" target="_blank"
-                    rel="noopener noreferrer">snw-mint@outlook.com</a>.</p>
+        <div class="manifest-container">
+          <code id="manifest-viewer"
+            >Loading official manifest.json directly from repository...</code
+          >
         </div>
+
+        <h3>General Permissions</h3>
+        <ul>
+          <li>
+            <code>storage</code>: Essential for saving your personal settings,
+            theme preferences, custom shortcuts, and widget configurations
+            locally on your device.
+          </li>
+          <li>
+            <code>unlimitedStorage</code>: Allows the extension to store larger
+            files locally, such as high-resolution wallpapers uploaded from your
+            computer, preventing the browser from evicting them.
+          </li>
+          <li>
+            <code>search</code>: Enables the "System default" search engine
+            option by utilizing the browser's native search API, complying with
+            Chrome Web Store policies.
+          </li>
+          <li>
+            <code>alarms</code>: Optional permission requested strictly when
+            "Weather Alerts" are enabled, used to schedule background background
+            updates.
+          </li>
+        </ul>
+
+        <h3>Optional Host Permissions</h3>
+        <p>
+          To give you maximum control,
+          <strong>all external host permissions are optional by default</strong
+          >. You are not required to approve these hosts during installation.
+          Instead, the browser will prompt you individually only when you
+          activate a specific feature.
+        </p>
+        <ul>
+          <li>
+            <strong>Search Suggestions</strong> (e.g., <code>google.com</code>):
+            Used for search auto-completion.
+          </li>
+          <li>
+            <strong>Direct Wallpapers</strong> (<code>peapix.com</code>,
+            <code>nasa.gov</code>, <code>wikimedia.org</code>): Used to fetch
+            daily backgrounds.
+          </li>
+          <li>
+            <strong>Proxied Wallpapers</strong>
+            (<code>snw-mint.workers.dev</code>): Used to securely fetch Unsplash
+            and Pexels daily images via our Cloudflare Worker cache.
+          </li>
+          <li>
+            <strong>Weather Widget</strong> (<code>open-meteo.com</code>): Used
+            to fetch forecast data.
+          </li>
+        </ul>
+
+        <h2 id="5-you-are-in-control">5. You Are in Control</h2>
+        <p>
+          Because all data is stored locally, you maintain complete ownership.
+          You can delete your data at any time by:
+        </p>
+        <ol>
+          <li>
+            Using the &quot;Reset to Defaults&quot; option in the extension
+            settings.
+          </li>
+          <li>
+            Clearing your browser&#39;s local storage and cache for the
+            extension.
+          </li>
+          <li>
+            Uninstalling the extension, which instantly purges all associated
+            local data.
+          </li>
+        </ol>
+
+        <h2 id="6-open-source-and-verifiable">6. Open Source and Verifiable</h2>
+        <p>
+          Fluent New Tab is 100% open-source. We invite you to inspect our
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab"
+            target="_blank"
+            rel="noopener noreferrer"
+            >source code on GitHub</a
+          >
+          to verify that the extension operates exactly as outlined in this
+          document.
+        </p>
+
+        <h2 id="7-changes-to-this-policy">7. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy to reflect feature additions or
+          infrastructure improvements. Any modifications will be reflected here
+          with an updated &quot;Last Updated&quot; date.
+        </p>
+
+        <h2>8. Contact</h2>
+        <p>
+          If you have any questions or concerns regarding this policy or data
+          handling practices, please reach out via email at
+          <a href="mailto:snw-mint@outlook.com">snw-mint@outlook.com</a>.
+        </p>
+      </div>
     </div>
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const manifestUrl =
+          "https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/manifest.json";
+        const viewer = document.getElementById("manifest-viewer");
 
+        if (!viewer) return;
+
+        try {
+          const response = await fetch(manifestUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
+          }
+          const data = await response.json();
+          viewer.textContent = JSON.stringify(data, null, 4);
+        } catch (error) {
+          viewer.textContent =
+            "Failed to load the real-time manifest. Please inspect the manifest.json file directly in the official GitHub repository.";
+        }
+      });
+    </script>
+  </body>
 </html>
