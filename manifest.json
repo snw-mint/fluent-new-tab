@@ -34,7 +34,8 @@
     "https://geocoding-api.open-meteo.com/*",
     "https://api.open-meteo.com/*",
     "https://air-quality-api.open-meteo.com/*",
-    "https://*.google.com/*",
+    "https://www.google.com/*",
+    "https://lens.google.com/*",
     "https://unsplash.snw-mint.workers.dev/photos/random",
     "https://pexels.snw-mint.workers.dev/curated"
   ]
