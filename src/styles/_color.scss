@@ -12,7 +12,6 @@
 
 html[data-theme='dark'] {
   --bg-color: #202020;
-  --search-bg: #333333;
   color-scheme: dark;
   --surface-base: #2b2b2b;
   --surface-muted: #333333;
@@ -42,14 +41,7 @@ html[data-theme='dark'] {
   --shadow-input: inset 0 -1px 0 rgba(255, 255, 255, 0.42);
   --shadow-input-hover: inset 0 -1px 0 rgba(255, 255, 255, 0.62);
 
-  /* Legacy variables mappings */
   --border-color: var(--border-subtle);
-  --shadow-soft: var(--shadow-md);
-  --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.5);
-  --surface-solid-primary: #373737;
-  --surface-solid-secondary: #3b3b3b;
-  --surface-blur-base: rgba(32, 32, 32, 0.8);
-  --surface-blur-tint: rgba(0, 0, 0, 0);
   --switch-thumb-disabled-color: #adadad;
 
   .greeting-icon.outline {

@@ -15,7 +15,7 @@ import {
   applyAccentColor,
   updateTabFavicon,
 } from '@/core/boot/theme';
-import { bootWallpaper } from '@/core/boot/wallpaper-render';
+import { bootWallpaper, isWallpaperCacheValid } from '@/core/boot/wallpaper-render';
 import { initDisplayWidget } from '@/core/boot/display';
 import { renderShortcutsGrid } from '@/core/boot/shortcuts-render';
 import { engines } from '@/core/boot/search-engines';
@@ -748,22 +748,7 @@ async function bootInteractive(): Promise<void> {
   }
 
   if (state.wallpaperEnabled && state.currentWallpaperSource === 'api') {
-    const _today = new Date().toISOString().slice(0, 10);
-    const _cacheKey = `wallpaper_cache_${state.currentWallpaperType}`;
-    let _hasValidCache = false;
-    try {
-      const _cached = JSON.parse(localStorage.getItem(_cacheKey) || 'null');
-      if (
-        _cached &&
-        _cached.url &&
-        _cached.date === _today &&
-        'creditUrl' in _cached
-      ) {
-        _hasValidCache = true;
-      }
-    } catch {}
-
-    if (!_hasValidCache) {
+    if (!isWallpaperCacheValid(state.currentWallpaperType)) {
       import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
         WallpaperEngine.render({
           enabled: state.wallpaperEnabled,

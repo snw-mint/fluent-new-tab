@@ -110,25 +110,6 @@
   }
 }
 
-.fluent-pure-fade-out {
-  opacity: 0 !important;
-  transition: opacity 0.15s ease-out !important;
-  pointer-events: none;
-}
-
-.fluent-pure-fade-in {
-  animation: fluentPureFadeIn 0.2s ease-out forwards;
-}
-
-@keyframes fluentPureFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
 @keyframes wallpaperFadeIn {
   from {
     background-color: var(--bg-color);

@@ -80,23 +80,6 @@
   margin: 0 0.45rem;
 }
 
-.translate-link {
-  display: block;
-  margin: 0.28125rem 0 0.1125rem;
-  font-size: var(--font-size-xs);
-  color: var(--text-color);
-  opacity: 0.7;
-  text-decoration: none;
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
-
-  &:hover {
-    text-decoration: underline;
-    opacity: 1;
-    color: var(--link-color, var(--text-color));
-  }
-}
 
 .wallpaper-overlay {
   position: fixed;

@@ -110,8 +110,6 @@ export let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
   'local') as WallpaperSource;
 export let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
   'upload') as WallpaperType;
-export let currentWallpaperValue =
-  localStorage.getItem('wallpaperValue') || 'upload';
 export let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
 export let accentColorEnabled =
@@ -122,8 +120,6 @@ export let accentColorValue =
 
 export let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
 export let askAiMode = false;
-export let sfxMicInstance: HTMLAudioElement | null = null;
-export let sfxAskAiInstance: HTMLAudioElement | null = null;
 
 export let mainUiScale = parseFloat(localStorage.getItem('mainUiScale') || '1');
 if (mainUiScale !== 1) {
@@ -133,7 +129,7 @@ if (mainUiScale !== 1) {
   );
 }
 
-export const savedDisplayScale = localStorage.getItem('displayScale');
+const savedDisplayScale = localStorage.getItem('displayScale');
 export let displayScale = parseInt(savedDisplayScale || '100', 10);
 
 if (!savedDisplayScale) {
@@ -228,9 +224,6 @@ export function setCurrentWallpaperSource(val: any) {
 export function setCurrentWallpaperType(val: any) {
   currentWallpaperType = val;
 }
-export function setCurrentWallpaperValue(val: any) {
-  currentWallpaperValue = val;
-}
 export function setWallpaperOverlay(val: any) {
   wallpaperOverlay = val;
 }
@@ -248,12 +241,6 @@ export function setAskAiEnabled(val: any) {
 }
 export function setAskAiMode(val: any) {
   askAiMode = val;
-}
-export function setSfxMicInstance(val: any) {
-  sfxMicInstance = val;
-}
-export function setSfxAskAiInstance(val: any) {
-  sfxAskAiInstance = val;
 }
 export function setMainUiScale(val: any) {
   mainUiScale = val;

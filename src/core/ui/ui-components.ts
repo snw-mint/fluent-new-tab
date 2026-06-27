@@ -396,24 +396,10 @@ export async function requestFeaturePermissionUI(
     confirmVariant: 'accent',
     showPrivacyPolicy: true,
     onConfirm: () => {
-      const chromeApi = (window as any).chrome;
-      if (chromeApi?.permissions?.request) {
-        chromeApi.permissions.request({ origins }, (granted: boolean) => {
-          if (chromeApi.runtime?.lastError) {
-            console.error(chromeApi.runtime.lastError);
-            onDenied();
-          } else if (granted) {
-            onGranted();
-          } else {
-            onDenied();
-          }
-        });
-      } else {
-        requestPermission(origins).then((granted) => {
-          if (granted) onGranted();
-          else onDenied();
-        });
-      }
+      requestPermission(origins).then((granted) => {
+        if (granted) onGranted();
+        else onDenied();
+      });
     },
     onCancel: onDenied,
   });

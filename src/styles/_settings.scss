@@ -48,11 +48,6 @@
   flex-direction: column;
   width: 100%;
   gap: 0.2rem;
-
-  &-spaced {
-    @extend .setting-content;
-    gap: 0.2rem;
-  }
 }
 .switch-row,
 .unit-toggle-row {

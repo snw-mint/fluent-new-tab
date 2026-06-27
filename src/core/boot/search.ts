@@ -7,7 +7,6 @@
  */
 
 export const SEARCH_URLS: Record<string, string> = {
-  engine1: 'https://www.google.com/search?q=',
   google: 'https://www.google.com/search?q=',
   bing: 'https://www.bing.com/search?q=',
   brave: 'https://search.brave.com/search?q=',
@@ -65,9 +64,9 @@ export function performSearch(query: string, engine: string): void {
     }
   }
 
-  let url = SEARCH_URLS[engine] || SEARCH_URLS.engine1;
+  let url = SEARCH_URLS[engine] || SEARCH_URLS.google;
 
-  if (engine === 'engine1' || engine === 'google') {
+  if (engine === 'google') {
     const clearSearch = localStorage.getItem('clearSearchEnabled') === 'true';
     if (clearSearch) url += `${encodeURIComponent(query)}&udm=14`;
     else url += encodeURIComponent(query);

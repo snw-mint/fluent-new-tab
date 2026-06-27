@@ -59,13 +59,10 @@
   --color-danger: #ff4d4f;
   --color-danger-dark: #9f213a;
 
-  /* Legacy variables from original */
+  /* Legacy variable aliases (still in use) */
   --border-color: var(--border-subtle);
   --border-radius: var(--radius-md);
-  --surface-solid-primary: #ffffff;
-  --surface-solid-secondary: #fbfbfb;
-  --surface-blur-base: rgba(255, 255, 255, 0.9);
-  --surface-blur-tint: rgba(255, 255, 255, 0);
+  /* Switch thumb */
   --switch-thumb-disabled-color: #616161;
 
   /* ---------- Shadows ---------- */
@@ -75,10 +72,6 @@
   --shadow-xl: 0 1.125rem 3.375rem rgba(0, 0, 0, 0.2);
   --shadow-input: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
   --shadow-input-hover: inset 0 -1px 0 rgba(0, 0, 0, 0.55);
-
-  /* Legacy shadow aliases */
-  --shadow-soft: var(--shadow-md);
-  --shadow-hover: 0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
 
   /* ---------- Scale ---------- */
   --display-scale: 1;

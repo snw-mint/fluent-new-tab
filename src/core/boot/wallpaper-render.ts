@@ -83,14 +83,14 @@ export function updateOverlay(opacityValue: number, isEnabled: boolean): void {
   document.documentElement.style.setProperty('--overlay-opacity', finalOpacity);
 }
 
-function hideCreditsBoot(): void {
+export function hideCreditsBoot(): void {
   const creditsDiv = document.getElementById('wallpaperCredits');
   if (creditsDiv) {
     creditsDiv.classList.add('hidden');
   }
 }
 
-function showCreditsBoot(sourceType: string): void {
+export function showCreditsBoot(sourceType: string): void {
   const creditsDiv = document.getElementById('wallpaperCredits');
   const creditTextSpan = document.getElementById('wallpaperCreditText');
   if (!creditsDiv || !creditTextSpan) return;
@@ -121,6 +121,17 @@ function showCreditsBoot(sourceType: string): void {
     }
   } catch (e) {
     creditsDiv.classList.add('hidden');
+  }
+}
+
+export function isWallpaperCacheValid(type: string): boolean {
+  const cacheKey = `wallpaper_cache_${type}`;
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    return !!(cached && cached.url && cached.date === today && 'creditUrl' in cached);
+  } catch {
+    return false;
   }
 }
 

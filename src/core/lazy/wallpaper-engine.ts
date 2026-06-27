@@ -10,6 +10,9 @@ import {
   updateOverlay,
   getWallpaperFromDB,
   clearWallpaper,
+  showCreditsBoot,
+  hideCreditsBoot,
+  isWallpaperCacheValid,
 } from '@/core/boot/wallpaper-render';
 import { fetchDailyWallpaper } from '@/core/lazy/providers/wallpaper-apis';
 import { showToast, hideToast } from '@/core/ui/ui-components';
@@ -29,7 +32,7 @@ export class WallpaperEngine {
   public static async render(config: WallpaperConfig): Promise<void> {
     if (!config.enabled) {
       clearWallpaper();
-      this.hideCredits();
+      hideCreditsBoot();
       return;
     }
 
@@ -40,23 +43,7 @@ export class WallpaperEngine {
         const blob = await getWallpaperFromDB();
         if (blob) targetUrl = URL.createObjectURL(blob);
       } else if (config.source === 'api') {
-        const today = new Date().toISOString().slice(0, 10);
-        const cacheKey = `wallpaper_cache_${config.type}`;
-        let hasValidCache = false;
-
-        try {
-          const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
-          if (
-            cached &&
-            cached.url &&
-            cached.date === today &&
-            'creditUrl' in cached
-          ) {
-            hasValidCache = true;
-          }
-        } catch {}
-
-        if (!hasValidCache) {
+        if (!isWallpaperCacheValid(config.type)) {
           const sourceName =
             config.type.charAt(0).toUpperCase() + config.type.slice(1);
           let msg = (window as any).getTranslation?.(
@@ -129,9 +116,9 @@ export class WallpaperEngine {
           document.body.style.transition = oldTransition;
 
           if (config.source === 'api') {
-            this.showCredits(config.type);
+            showCreditsBoot(config.type);
           } else {
-            this.hideCredits();
+            hideCreditsBoot();
           }
 
           curtain.style.opacity = '0';
@@ -146,48 +133,7 @@ export class WallpaperEngine {
     img.onerror = () => {
       hideToast();
       clearWallpaper();
-      this.hideCredits();
+      hideCreditsBoot();
     };
-  }
-
-  private static hideCredits(): void {
-    const creditsDiv = document.getElementById('wallpaperCredits');
-    if (creditsDiv) {
-      creditsDiv.classList.add('hidden');
-    }
-  }
-
-  private static showCredits(sourceType: string): void {
-    const creditsDiv = document.getElementById('wallpaperCredits');
-    const creditTextSpan = document.getElementById('wallpaperCreditText');
-    if (!creditsDiv || !creditTextSpan) return;
-
-    const cacheKey = `wallpaper_cache_${sourceType}`;
-    try {
-      const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
-      if (cached && (cached.credit || cached.creditUrl)) {
-        const text = cached.credit || 'Daily Wallpaper';
-        const url = cached.creditUrl || '';
-
-        if (url) {
-          creditTextSpan.textContent = '';
-          const a = document.createElement('a');
-          a.href = url;
-          a.target = '_blank';
-          a.className = 'wallpaper-credit-link';
-          a.style.cssText =
-            'color: inherit; text-decoration: none; pointer-events: auto;';
-          a.textContent = text;
-          creditTextSpan.appendChild(a);
-        } else {
-          creditTextSpan.textContent = text;
-        }
-        creditsDiv.classList.remove('hidden');
-      } else {
-        creditsDiv.classList.add('hidden');
-      }
-    } catch (e) {
-      creditsDiv.classList.add('hidden');
-    }
   }
 }
