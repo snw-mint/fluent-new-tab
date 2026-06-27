@@ -13,6 +13,8 @@ export const HOST_PERMISSIONS: Record<string, string[]> = {
     'https://commons.wikimedia.org/*',
     'https://upload.wikimedia.org/',
   ],
+  unsplash: ['https://unsplash.snw-mint.workers.dev/*'],
+  pexels: ['https://pexels.snw-mint.workers.dev/*'],
   suggestions: ['https://duckduckgo.com/*'],
   weather: [
     'https://geocoding-api.open-meteo.com/*',

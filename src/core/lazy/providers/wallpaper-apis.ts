@@ -195,7 +195,7 @@ export async function fetchDailyWallpaper(
       }
     } else if (source === 'pexels') {
       const randomPage = Math.floor(Math.random() * 100) + 1;
-      const url = `https://pexels.snw-mint.workers.dev/curated?per_page=1&page=${randomPage}`;
+      const url = `https://pexels.snw-mint.workers.dev/curated?per_page=1&page=${randomPage}&orientation=landscape`;
       const res = await fetch(url);
       if (!res.ok) {
         throw new Error(`Pexels Worker Error: ${res.status}`);
@@ -204,7 +204,12 @@ export async function fetchDailyWallpaper(
       if (data && data.photos && data.photos.length > 0) {
         const photo = data.photos[0];
         imageUrl =
-          photo?.src?.large2x || photo?.src?.original || photo?.src?.large || '';
+          photo?.src?.landscape ||
+          photo?.src?.large2x ||
+          photo?.src?.original ||
+          photo?.src?.large ||
+          '';
+
         creditText = `Pexels: ${photo?.photographer || 'Photographer'}`;
         creditUrl = photo?.url || 'https://pexels.com/';
       }
