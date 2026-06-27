@@ -8,6 +8,7 @@ export interface WarningModalOptions {
   confirmText?: string;
   cancelText?: string;
   confirmVariant?: 'accent' | 'danger';
+  showPrivacyPolicy?: boolean;
   onConfirm: () => void;
   onCancel?: () => void;
 }
@@ -43,20 +44,22 @@ export class WarningModalManager {
     this.messageEl.textContent = '';
     this.messageEl.textContent = options.message;
 
-    const privacyUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
-    const link = document.createElement('a');
-    link.href = privacyUrl;
-    link.target = '_blank';
-    link.textContent = getLocalizedWarningText(
-      'privacyPolicyLabel',
-      'Read privacy policy',
-    );
-    link.style.display = 'inline-block';
-    link.style.marginTop = '8px';
-    link.style.color = 'var(--text-color)';
-    link.style.textDecoration = 'underline';
-    this.messageEl.appendChild(document.createElement('br'));
-    this.messageEl.appendChild(link);
+    if (options.showPrivacyPolicy) {
+      const privacyUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
+      const link = document.createElement('a');
+      link.href = privacyUrl;
+      link.target = '_blank';
+      link.textContent = getLocalizedWarningText(
+        'privacyPolicyLabel',
+        'Read privacy policy',
+      );
+      link.style.display = 'inline-block';
+      link.style.marginTop = '8px';
+      link.style.color = 'var(--text-color)';
+      link.style.textDecoration = 'underline';
+      this.messageEl.appendChild(document.createElement('br'));
+      this.messageEl.appendChild(link);
+    }
 
     this.btnConfirm.textContent = options.confirmText || 'Confirm';
     this.btnCancel.textContent = options.cancelText || 'Cancel';
@@ -391,6 +394,7 @@ export async function requestFeaturePermissionUI(
     ),
     cancelText: getLocalizedWarningText('btnCancel', 'Cancel'),
     confirmVariant: 'accent',
+    showPrivacyPolicy: true,
     onConfirm: () => {
       const chromeApi = (window as any).chrome;
       if (chromeApi?.permissions?.request) {

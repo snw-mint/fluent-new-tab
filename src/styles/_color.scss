@@ -18,7 +18,7 @@ html[data-theme='dark'] {
   --surface-muted: #333333;
   --surface-dim: #202020;
   --surface-input: transparent;
-  
+
   --searchbar-bg: #3b3b3b;
   --searchbar-border: #333333;
   --shortcut-bg: #373737;
@@ -67,6 +67,7 @@ body[data-wallpaper-active='true'] {
   .weather-widget,
   .launcher-btn svg path,
   .shortcut-title,
+  .menu-btn svg path,
   .wallpaper-credits {
     color: #ffffff !important;
     fill: #ffffff !important;
