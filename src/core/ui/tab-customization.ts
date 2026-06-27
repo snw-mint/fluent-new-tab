@@ -1,5 +1,6 @@
 import { sanitizeUrl } from '@/core/shared/dom-utils';
 import * as refs from '@/core/shared/dom-refs';
+import { updateTabFavicon } from '@/core/boot/theme';
 
 export function initTabCustomization(): void {
   const updateFavicon = (val: string) => {
@@ -53,15 +54,27 @@ export function initTabCustomization(): void {
     refs.tabFaviconInput.addEventListener('input', (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (!target) return;
-      localStorage.setItem('tabFavicon', target.value);
-      updateFavicon(target.value);
+      const val = target.value.trim();
+      if (val === '') {
+        localStorage.removeItem('tabFavicon');
+        updateTabFavicon();
+      } else {
+        localStorage.setItem('tabFavicon', target.value);
+        updateFavicon(target.value);
+      }
     });
 
     refs.tabFaviconInput.addEventListener('change', (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (!target) return;
-      localStorage.setItem('tabFavicon', target.value);
-      updateFavicon(target.value);
+      const val = target.value.trim();
+      if (val === '') {
+        localStorage.removeItem('tabFavicon');
+        updateTabFavicon();
+      } else {
+        localStorage.setItem('tabFavicon', target.value);
+        updateFavicon(target.value);
+      }
     });
   }
 

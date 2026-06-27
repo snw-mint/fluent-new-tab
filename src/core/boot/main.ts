@@ -13,6 +13,7 @@ import {
   applyInitialAccentColorState,
   applyTheme,
   applyAccentColor,
+  updateTabFavicon,
 } from '@/core/boot/theme';
 import { bootWallpaper } from '@/core/boot/wallpaper-render';
 import { initDisplayWidget } from '@/core/boot/display';
@@ -488,10 +489,7 @@ async function bootInteractive(): Promise<void> {
       document.title =
         (window as any).getTranslation?.('newTabTitle') || 'New Tab';
 
-      const link = document.querySelector(
-        "link[rel~='icon']",
-      ) as HTMLLinkElement;
-      if (link) link.href = 'assets/icon-32.png';
+      updateTabFavicon();
       if (refs.tabNameInput) refs.tabNameInput.value = '';
       if (refs.tabFaviconInput) refs.tabFaviconInput.value = '';
 
