@@ -98,22 +98,26 @@ export function showCreditsBoot(sourceType: string): void {
   const cacheKey = `wallpaper_cache_${sourceType}`;
   try {
     const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
-    if (cached && (cached.credit || cached.creditUrl)) {
-      const text = cached.credit || 'Daily Wallpaper';
-      const url = cached.creditUrl || '';
-
-      if (url) {
-        creditTextSpan.textContent = '';
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        a.className = 'wallpaper-credit-link';
-        a.style.cssText =
-          'color: inherit; text-decoration: none; pointer-events: auto;';
-        a.textContent = text;
-        creditTextSpan.appendChild(a);
+    if (cached && (cached.creditHtml || cached.credit || cached.creditUrl)) {
+      if (cached.creditHtml) {
+        creditTextSpan.innerHTML = cached.creditHtml;
       } else {
-        creditTextSpan.textContent = text;
+        const text = cached.credit || 'Daily Wallpaper';
+        const url = cached.creditUrl || '';
+
+        if (url) {
+          creditTextSpan.textContent = '';
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.className = 'wallpaper-credit-link';
+          a.style.cssText =
+            'color: inherit; text-decoration: none; pointer-events: auto;';
+          a.textContent = text;
+          creditTextSpan.appendChild(a);
+        } else {
+          creditTextSpan.textContent = text;
+        }
       }
       creditsDiv.classList.remove('hidden');
     } else {

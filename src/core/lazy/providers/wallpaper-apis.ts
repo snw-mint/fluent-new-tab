@@ -44,6 +44,7 @@ export async function fetchDailyWallpaper(
   let imageUrl = '';
   let creditText = '';
   let creditUrl = '';
+  let creditHtml = '';
 
   const notifyWallpaperApiWarning = (reason: string): void => {
     window.dispatchEvent(
@@ -190,8 +191,13 @@ export async function fetchDailyWallpaper(
       const data = await res.json();
       if (data && data.urls && data.urls.regular) {
         imageUrl = data.urls.regular;
-        creditText = `Unsplash: ${data.user?.name || 'Photographer'}`;
-        creditUrl = data.links?.html || 'https://unsplash.com/';
+        const photographerName = data.user?.name || 'Photographer';
+        const photographerUrl = data.user?.links?.html ? `${data.user.links.html}?utm_source=fluent_new_tab&utm_medium=referral` : 'https://unsplash.com/?utm_source=fluent_new_tab&utm_medium=referral';
+        const unsplashUrl = `https://unsplash.com/?utm_source=fluent_new_tab&utm_medium=referral`;
+        
+        creditHtml = `Photo by <a href="${photographerUrl}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">${photographerName}</a> on <a href="${unsplashUrl}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">Unsplash</a>`;
+        creditText = `Photo by ${photographerName} on Unsplash`;
+        creditUrl = photographerUrl;
       }
     } else if (source === 'pexels') {
       const randomPage = Math.floor(Math.random() * 100) + 1;
@@ -223,6 +229,7 @@ export async function fetchDailyWallpaper(
           date: today,
           credit: creditText,
           creditUrl: creditUrl,
+          ...(creditHtml ? { creditHtml } : {}),
         }),
       );
       return imageUrl;

@@ -143,6 +143,7 @@ export interface WallpaperCacheEntry {
   date?: string;
   credit?: string;
   creditUrl?: string;
+  creditHtml?: string;
 }
 
 export type ThemeMode = 'light' | 'dark' | 'auto';
