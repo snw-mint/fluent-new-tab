@@ -76,6 +76,8 @@
     overflow-x: hidden;
     flex-shrink: 0;
     padding-right: 0.225rem;
+    will-change: transform;
+    transform: translateZ(0);
 
     max-height: 14.5rem;
 
