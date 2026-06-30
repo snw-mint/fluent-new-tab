@@ -26,8 +26,14 @@
   --radius-xl: 0.7875rem;
   --radius-xxl: 1.2375rem;
   --font-body:
-    'Segoe UI', 'Segoe UI Web (West European)', -apple-system,
-    BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+    "Segoe UI Variable Text", 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI Roboto", 
+    "Segoe UI", 
+    Helvetica, 
+    Arial, 
+    sans-serif;
 }
 
 html[data-theme='dark'] {
@@ -63,6 +69,7 @@ body {
   min-height: 100vh;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
 }

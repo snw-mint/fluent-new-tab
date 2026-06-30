@@ -157,14 +157,7 @@
 }
 
 #chooseTypeForm {
-  font-family:
-    'Segoe UI',
-    'Segoe UI Web (West European)',
-    -apple-system,
-    BlinkMacSystemFont,
-    Roboto,
-    'Helvetica Neue',
-    sans-serif;
+  font-family: inherit;
 }
 
 .choose-type-grid {
@@ -187,14 +180,7 @@
   transition: all 0.2s ease;
   color: var(--text-color);
   font-weight: 600;
-  font-family:
-    'Segoe UI',
-    'Segoe UI Web (West European)',
-    -apple-system,
-    BlinkMacSystemFont,
-    Roboto,
-    'Helvetica Neue',
-    sans-serif;
+  font-family: inherit;
 
   svg {
     width: 1.6875rem;

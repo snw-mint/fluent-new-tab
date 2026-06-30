@@ -18,14 +18,16 @@ html {
 
 body {
   font-family:
-    'Segoe UI',
-    'Segoe UI Web (West European)',
+    'Segoe UI Variable Text',
     -apple-system,
     BlinkMacSystemFont,
-    Roboto,
-    'Helvetica Neue',
+    'Segoe UI Roboto',
+    'Segoe UI',
+    Helvetica,
+    Arial,
     sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
