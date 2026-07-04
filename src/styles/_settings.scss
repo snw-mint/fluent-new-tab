@@ -85,7 +85,7 @@
   border: none;
 
   label {
-    font-size: 0.675rem;
+    font-size: 0.75rem;
     color: var(--text-color);
     opacity: 0.75;
     font-weight: 500;
@@ -110,7 +110,7 @@
 
 .setting-label-small {
   display: block;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--text-color);
   opacity: 0.75;

@@ -248,45 +248,7 @@ export function bindAccentColorFeature(options: any): void {
     }
   }
 
-  if (refs.toggleAppearance) {
-    const isEnabled = localStorage.getItem('accentColorEnabled') !== 'false';
-    refs.toggleAppearance.checked = isEnabled;
 
-    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
-      setCollapsible(refs.accentColorOptions, isEnabled, false);
-    });
-
-    refs.toggleAppearance.addEventListener('change', (event) => {
-      const target = event.target as HTMLInputElement | null;
-      if (!target) return;
-      const isEnabled = target.checked;
-      localStorage.setItem('accentColorEnabled', String(isEnabled));
-      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
-        setCollapsible(refs.accentColorOptions, isEnabled, true);
-      });
-
-      if (!isEnabled) {
-        const toggleAuto = document.getElementById(
-          'toggleAccentWallpaper',
-        ) as HTMLInputElement | null;
-        if (toggleAuto && toggleAuto.checked) {
-          toggleAuto.checked = false;
-          localStorage.setItem('accentColorMode', 'manual');
-          clearPresetSelection();
-          refs.accentPresetsRow
-            ?.querySelector(
-              `[data-color="${localStorage.getItem('accentColorValue') || '#0078D4'}"]`,
-            )
-            ?.classList.add('selected');
-        }
-      }
-      applyAccentColor(
-        isEnabled
-          ? localStorage.getItem('accentColorValue') || '#0078D4'
-          : '#0078D4',
-      );
-    });
-  }
 
   const toggleAuto = document.getElementById(
     'toggleAccentWallpaper',

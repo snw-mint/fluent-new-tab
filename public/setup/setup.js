@@ -595,9 +595,7 @@ function init() {
   }
 
   const savedAccent = getCurrentAccent();
-  if (localStorage.getItem('accentColorEnabled') === 'true') {
-    applyAccentColor(savedAccent);
-  }
+  applyAccentColor(savedAccent);
 
   initThemePicker();
   initAccentPicker();

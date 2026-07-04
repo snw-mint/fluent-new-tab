@@ -465,9 +465,8 @@ async function bootInteractive(): Promise<void> {
 
   bindAccentColorFeature({
     applyInitialAccentState: () => {
-      const isEnabled = localStorage.getItem('accentColorEnabled') !== 'false';
       if (refs.accentColorOptions) {
-        refs.accentColorOptions.style.display = isEnabled ? '' : 'none';
+        refs.accentColorOptions.style.display = '';
       }
     },
     applyAccentColor: applyAccentColor,
