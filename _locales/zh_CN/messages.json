@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "您的称呼"
   },
+  "highlightNameLabel": {
+    "message": "高亮姓名"
+  },
   "displayTime": {
     "message": "时间"
   },

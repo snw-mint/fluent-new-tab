@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Your Name"
   },
+  "highlightNameLabel": {
+    "message": "Highlight Name"
+  },
   "displayTime": {
     "message": "Time"
   },

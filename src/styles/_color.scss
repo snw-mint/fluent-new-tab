@@ -91,3 +91,14 @@ body[data-wallpaper-active='true'] {
     }
   }
 }
+
+.highlighted-name {
+  color: var(--accent-color);
+}
+
+body[data-wallpaper-active='true'] {
+  .greeting-text .highlighted-name {
+    color: color-mix(in srgb, var(--accent-color) 60%, #ffffff) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}

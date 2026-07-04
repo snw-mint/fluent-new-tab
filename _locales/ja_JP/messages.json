@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "あなたのお名前"
   },
+  "highlightNameLabel": {
+    "message": "名前を強調表示"
+  },
   "displayTime": {
     "message": "時間"
   },

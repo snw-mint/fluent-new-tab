@@ -432,5 +432,8 @@
   },
   "privacyPolicyLabel": {
     "message": "Leer política de privacidad"
+  },
+  "highlightNameLabel": {
+    "message": "Resaltar nombre"
   }
 }

@@ -439,6 +439,24 @@ export function bindDisplayFeature(options: any): void {
     refs.greetingNameInput.value = localStorage.getItem('greetingName') || '';
   }
 
+  if (refs.toggleHighlightName) {
+    refs.toggleHighlightName.checked = localStorage.getItem('highlightName') === 'true';
+  }
+
+  const updateHighlightNameState = () => {
+    if (!refs.greetingNameInput || !refs.toggleHighlightName) return;
+    const name = refs.greetingNameInput.value.trim();
+    if (!name) {
+      refs.toggleHighlightName.checked = false;
+      refs.toggleHighlightName.disabled = true;
+      localStorage.setItem('highlightName', 'false');
+    } else {
+      refs.toggleHighlightName.disabled = false;
+    }
+  };
+
+  updateHighlightNameState();
+
   if (refs.greetingTypeSelect) {
     refs.greetingTypeSelect.value =
       localStorage.getItem('greetingType') || 'static';
@@ -563,6 +581,19 @@ export function bindDisplayFeature(options: any): void {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('greetingName', target.value);
+      updateHighlightNameState();
+      if (refs.greetingWrapper) {
+        refs.greetingWrapper.dataset.lastCache = '';
+        options.initDisplayWidget(refs.greetingWrapper);
+      }
+    });
+  }
+
+  if (refs.toggleHighlightName) {
+    refs.toggleHighlightName.addEventListener('change', (e: Event) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      localStorage.setItem('highlightName', String(target.checked));
       if (refs.greetingWrapper) {
         refs.greetingWrapper.dataset.lastCache = '';
         options.initDisplayWidget(refs.greetingWrapper);

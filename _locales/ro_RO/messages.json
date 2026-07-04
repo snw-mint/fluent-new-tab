@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Numele tău"
   },
+  "highlightNameLabel": {
+    "message": "Evidențiere nume"
+  },
   "displayTime": {
     "message": "Ora"
   },

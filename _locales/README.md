@@ -82,6 +82,7 @@ Keys are grouped by feature area. Any key that contains a placeholder (e.g. `$NA
 |-----|---------------|-------------|
 | `displayGreeting` | Greeting | Toggle label for the greeting widget |
 | `greetingNameLabel` | Your Name | Input label for the user's display name |
+| `highlightNameLabel` | Highlight Name | Checkbox to highlight the user's name |
 | `displayTime` | Time | Toggle label for the clock widget |
 | `displayDate` | Date | Toggle label for the date widget |
 | `displayAdvanced` | Time & Date | Heading for advanced time/date options |

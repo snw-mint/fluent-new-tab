@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Vaše jméno"
   },
+  "highlightNameLabel": {
+    "message": "Zvýraznit jméno"
+  },
   "displayTime": {
     "message": "Čas"
   },

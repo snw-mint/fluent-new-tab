@@ -22,6 +22,7 @@ export const APP_KEYS: string[] = [
   'launcherProvider',
   'showGreeting',
   'greetingName',
+  'highlightName',
   'greetingType',
   'userLanguage',
   'searchEngine',

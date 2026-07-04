@@ -92,6 +92,18 @@
   }
 }
 
+.switch-row:has(input:disabled),
+.child-setting:has(input:disabled) {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(1);
+  cursor: not-allowed;
+
+  input {
+    pointer-events: none;
+  }
+}
+
 .group-title {
   @include flex-center(0.5625rem);
   color: var(--text-color);
