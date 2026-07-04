@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Adın"
   },
+  "highlightNameLabel": {
+    "message": "Adı vurgula"
+  },
   "displayTime": {
     "message": "Zaman"
   },

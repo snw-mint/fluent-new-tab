@@ -112,8 +112,7 @@ export let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
   'upload') as WallpaperType;
 export let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
 
-export let accentColorEnabled =
-  localStorage.getItem('accentColorEnabled') === 'true';
+export let accentColorEnabled = true;
 export let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
 export let accentColorValue =
   localStorage.getItem('accentColorValue') || '#0078d4';

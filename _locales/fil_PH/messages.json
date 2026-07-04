@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Pangalan mo"
   },
+  "highlightNameLabel": {
+    "message": "I-highlight ang pangalan"
+  },
   "displayTime": {
     "message": "Oras"
   },

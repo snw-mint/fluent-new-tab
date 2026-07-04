@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Dit navn"
   },
+  "highlightNameLabel": {
+    "message": "Fremhæv navn"
+  },
   "displayTime": {
     "message": "Tid"
   },

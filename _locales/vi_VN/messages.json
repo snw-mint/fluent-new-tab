@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Tên của bạn"
   },
+  "highlightNameLabel": {
+    "message": "Tô sáng tên"
+  },
   "displayTime": {
     "message": "Thời gian"
   },

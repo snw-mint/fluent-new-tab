@@ -36,6 +36,7 @@ html[data-theme='dark'] {
   --hover-overlay-active: rgba(255, 255, 255, 0.04);
 
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.075);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 0.5625rem 1.6875rem rgba(0, 0, 0, 0.5);
   --shadow-input: inset 0 -1px 0 rgba(255, 255, 255, 0.42);
@@ -88,5 +89,16 @@ body[data-wallpaper-active='true'] {
         fill: #1f1f1f !important;
       }
     }
+  }
+}
+
+.highlighted-name {
+  color: var(--accent-color);
+}
+
+body[data-wallpaper-active='true'] {
+  .greeting-text .highlighted-name {
+    color: color-mix(in srgb, var(--accent-color) 60%, #ffffff) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 }

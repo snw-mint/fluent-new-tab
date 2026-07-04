@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Nimesi"
   },
+  "highlightNameLabel": {
+    "message": "Korosta nimi"
+  },
   "displayTime": {
     "message": "Aika"
   },

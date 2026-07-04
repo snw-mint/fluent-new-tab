@@ -21,11 +21,6 @@ export async function extractAndApplyAutoColor(
   wallpaperId: string,
 ): Promise<void> {
   return new Promise((resolve) => {
-    const isEnabled = localStorage.getItem('accentColorEnabled') === 'true';
-    if (!isEnabled) {
-      resolve();
-      return;
-    }
 
     const mode = localStorage.getItem('accentColorMode') || 'auto';
     if (mode !== 'auto') {

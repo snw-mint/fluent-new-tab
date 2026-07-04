@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Ditt namn"
   },
+  "highlightNameLabel": {
+    "message": "Markera namn"
+  },
   "displayTime": {
     "message": "Tid"
   },

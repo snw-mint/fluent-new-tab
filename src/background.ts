@@ -27,7 +27,7 @@ const DEFAULT_INSTALL_PREFERENCES = {
   searchEngine: 'system',
   searchBarVisible: 'true',
   compactBarEnabled: 'false',
-  accentColorEnabled: 'false',
+  accentColorEnabled: 'true',
   accentColorMode: 'manual',
   accentColorValue: '#107C41',
   displayType: 'greeting',

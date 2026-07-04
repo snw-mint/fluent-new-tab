@@ -85,6 +85,9 @@
   "greetingNameLabel": {
     "message": "Το όνομά σας"
   },
+  "highlightNameLabel": {
+    "message": "Επισήμανση ονόματος"
+  },
   "displayTime": {
     "message": "Ώρα"
   },

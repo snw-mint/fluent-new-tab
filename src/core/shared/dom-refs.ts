@@ -106,6 +106,7 @@ export const toggleSeconds = getById<HTMLInputElement>('toggleSeconds');
 export const toggle12Hour = getById<HTMLInputElement>('toggle12Hour');
 export const dateFormatSelect = getById<HTMLSelectElement>('dateFormatSelect');
 export const greetingNameInput = getById<HTMLInputElement>('greetingNameInput');
+export const toggleHighlightName = getById<HTMLInputElement>('toggleHighlightName');
 export const greetingTypeSelect =
   getById<HTMLSelectElement>('greetingTypeSelect');
 

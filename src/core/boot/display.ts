@@ -302,7 +302,26 @@ export function renderGreeting(wrapper: HTMLElement): void {
   heading.className = 'greeting-text';
   heading.style.fontSize = fontSize;
   heading.style.whiteSpace = 'nowrap';
-  heading.textContent = finalGreetingText;
+  const highlightEnabled = localStorage.getItem('highlightName') === 'true';
+  if (highlightEnabled && userName) {
+    const escapedName = userName.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    const regex = new RegExp(`(${escapedName})`, 'gi');
+    const parts = finalGreetingText.split(regex);
+
+    heading.textContent = '';
+    parts.forEach((part) => {
+      if (part.toLowerCase() === userName.toLowerCase()) {
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'highlighted-name';
+        nameSpan.textContent = part;
+        heading.appendChild(nameSpan);
+      } else if (part) {
+        heading.appendChild(document.createTextNode(part));
+      }
+    });
+  } else {
+    heading.textContent = finalGreetingText;
+  }
 
   if (greetingType === 'none') {
     wrapper.replaceChildren(heading);
