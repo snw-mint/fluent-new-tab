@@ -430,6 +430,7 @@ async function bootInteractive(): Promise<void> {
     },
     selectCity: (cityData: any) => {
       state.setCurrentCityData(cityData);
+      localStorage.setItem(state.CITY_KEY, JSON.stringify(cityData));
       fetchWeatherLogic(true);
     },
     getWeatherUnit: () => state.weatherUnit,
