@@ -1177,15 +1177,33 @@ export function bindWallpaperFeature(
   }
 
   if (refs.uploadInput) {
-    refs.uploadWallpaperBtn?.addEventListener('click', (e) => {
+    refs.uploadWallpaperBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      refs.uploadInput.click();
+
+      if (!localStorage.getItem('hasSeenWallpaperUploadWarning')) {
+        const { warningModal } = await import('@/core/ui/ui-components');
+        warningModal.show({
+          title: (window as any).getTranslation?.('wallpaperUploadWarningTitle') || 'Note',
+          message: (window as any).getTranslation?.('wallpaperUploadWarningDesc') || 'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
+          confirmText: (window as any).getTranslation?.('warningUnderstood') || 'Understood',
+          cancelText: (window as any).getTranslation?.('btnCancel') || 'Cancel',
+          onConfirm: () => {
+            localStorage.setItem('hasSeenWallpaperUploadWarning', 'true');
+            refs.uploadInput?.click();
+          },
+          onCancel: () => {}
+        });
+      } else {
+        refs.uploadInput.click();
+      }
     });
+
     refs.uploadInput.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement | null;
       const file = target?.files?.[0];
       if (!file) return;
+
       try {
         const { processWallpaperImage, saveWallpaperToDB } =
           await import('@/core/lazy/wallpaper-storage');
@@ -1210,7 +1228,7 @@ export function bindWallpaperFeature(
         console.error('Failed to process image', error);
         alert('Error saving image. It might be too large.');
       }
-      refs.uploadInput.value = '';
+      if (refs.uploadInput) refs.uploadInput.value = '';
     });
   }
 

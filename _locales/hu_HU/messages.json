@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Feltöltés"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Jegyzet"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Eszköztől függően a kivételesen nagy képarányú vagy nagyon nagy fájlméretű háttérképek lassabb kiterjesztési betöltési időt eredményezhetnek."
   }
 }

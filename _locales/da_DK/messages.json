@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Upload"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Note"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Afhængigt af enheden kan tapeter med usædvanligt høje billedformater eller meget store filstørrelser resultere i langsommere indlæsningstider for udvidelsen."
   }
 }

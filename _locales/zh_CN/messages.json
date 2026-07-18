@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "上传"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "笔记"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "根据设备的不同，具有极高宽高比或非常大文件大小的壁纸可能会导致扩展加载时间变慢。"
   }
 }

@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "上傳"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "筆記"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "根據裝置的不同，具有極高寬高比或非常大檔案大小的桌布可能會導致擴充載入時間變慢。"
   }
 }

@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Téléverser"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Note"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Selon l'appareil, les fonds d'écran avec des formats d'image exceptionnellement élevés ou des fichiers de très grande taille peuvent entraîner des temps de chargement d'extension plus lents."
   }
 }

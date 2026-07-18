@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Nahrát"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Poznámka"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "V závislosti na zařízení mohou tapety s výjimečně vysokým poměrem stran nebo velmi velkými soubory způsobit pomalejší načítání rozšíření."
   }
 }

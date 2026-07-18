@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Enviar"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Observação"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Dependendo do dispositivo, papéis de parede com proporções excepcionalmente altas ou tamanhos de arquivo muito grandes podem resultar em tempos de carregamento de extensão mais lentos."
   }
 }

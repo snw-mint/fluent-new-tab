@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Ladda upp"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Notera"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Beroende på enhet kan bakgrundsbilder med exceptionellt höga bildförhållanden eller mycket stora filstorlekar resultera i långsammare laddningstider för tillägg."
   }
 }

@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Upload"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Note"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times."
   }
 }

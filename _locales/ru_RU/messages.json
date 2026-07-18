@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Загрузить"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Примечание"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "В зависимости от устройства обои с исключительно высоким соотношением сторон или файлами очень большого размера могут привести к замедлению загрузки расширений."
   }
 }

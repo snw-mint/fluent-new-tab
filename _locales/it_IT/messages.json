@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Carica"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Nota"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "A seconda del dispositivo, gli sfondi con proporzioni eccezionalmente elevate o dimensioni di file molto grandi potrebbero comportare tempi di caricamento delle estensioni più lenti."
   }
 }

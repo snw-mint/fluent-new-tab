@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "アップロード"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "注記"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "デバイスによっては、アスペクト比が非常に高い壁紙やファイル サイズが非常に大きい壁紙を使用すると、拡張機能の読み込み時間が遅くなる場合があります。"
   }
 }

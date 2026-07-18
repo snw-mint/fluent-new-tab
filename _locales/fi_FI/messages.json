@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "Lataa"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Huom"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Laitteesta riippuen taustakuvat, joissa on poikkeuksellisen suuri kuvasuhde tai erittäin suuri tiedostokoko, voivat hidastaa laajennusten latausaikoja."
   }
 }

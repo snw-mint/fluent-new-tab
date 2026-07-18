@@ -711,5 +711,11 @@
   },
   "uploadWallpaperBtnText": {
     "message": "I-upload"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Tandaan"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Depende sa device, ang mga wallpaper na may napakataas na aspect ratio o napakalaking laki ng file ay maaaring magresulta sa mas mabagal na paglo-load ng extension."
   }
 }
