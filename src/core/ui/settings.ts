@@ -446,12 +446,13 @@ export function bindDisplayFeature(options: any): void {
   const updateHighlightNameState = () => {
     if (!refs.greetingNameInput || !refs.toggleHighlightName) return;
     const name = refs.greetingNameInput.value.trim();
+    const row = document.getElementById('highlightNameRow');
     if (!name) {
       refs.toggleHighlightName.checked = false;
-      refs.toggleHighlightName.disabled = true;
       localStorage.setItem('highlightName', 'false');
+      if (row) row.classList.add('is-hidden');
     } else {
-      refs.toggleHighlightName.disabled = false;
+      if (row) row.classList.remove('is-hidden');
     }
   };
 

@@ -3,6 +3,14 @@ import * as refs from '@/core/shared/dom-refs';
 import { updateTabFavicon } from '@/core/boot/theme';
 
 export function initTabCustomization(): void {
+  const isEdge = /Edg\//.test(navigator.userAgent);
+  if (isEdge) {
+    const container = document.getElementById('tabFaviconContainer');
+    if (container) {
+      container.style.display = 'none';
+    }
+  }
+
   const updateFavicon = (val: string) => {
     let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (!link) {

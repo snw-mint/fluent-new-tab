@@ -643,6 +643,20 @@ async function bootInteractive(): Promise<void> {
   refs.voiceSearchBtn?.addEventListener('click', initSearchManagerLazy, {
     once: true,
   });
+
+  const searchEngineTip = document.getElementById('searchEngineTip');
+  if (searchEngineTip && !localStorage.getItem('hasSeenSearchEngineTip')) {
+    setTimeout(() => searchEngineTip.classList.remove('is-hidden'), 1500);
+    
+    const dismissTip = () => {
+      searchEngineTip.classList.add('is-hidden');
+      localStorage.setItem('hasSeenSearchEngineTip', 'true');
+    };
+    
+    setTimeout(dismissTip, 11500);
+    
+    refs.engineBtn?.addEventListener('click', dismissTip, { once: true });
+  }
   refs.askAiBtn?.addEventListener('pointerover', initSearchManagerLazy, {
     once: true,
   });

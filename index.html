@@ -175,7 +175,7 @@
                   </label>
                 </div>
 
-                <div class="child-setting">
+                <div class="child-setting" id="tabFaviconContainer">
                   <label class="setting-label-small" style="margin-bottom: 0.5rem; margin-top: 0.5rem" data-i18n="tabFaviconLabel">Tab Icon</label>
                   <div class="input-row">
                     <input type="text" id="tabFaviconInput" placeholder="https://..." data-i18n="tabFaviconPlaceholder" />
@@ -316,7 +316,7 @@
                     </div>
                   </div>
 
-                  <div class="switch-row child-setting" style="margin-top: 0.3rem">
+                  <div class="switch-row child-setting is-hidden" id="highlightNameRow">
                     <label for="toggleHighlightName" data-i18n="highlightNameLabel">Highlight Name</label>
                     <label class="fluent-checkbox">
                       <input type="checkbox" id="toggleHighlightName" />
@@ -790,6 +790,10 @@
           <button type="button" id="engineBtn" class="current-engine-btn">
             <img id="currentEngineIcon" src="assets/search-engines/system.svg" alt="Search Engine" />
           </button>
+          <div id="searchEngineTip" class="search-engine-tip is-hidden">
+            <img src="assets/icons/tip.svg" alt="Tip" class="tip-icon" />
+            <span>You can change the search engine here</span>
+          </div>
           <div id="engineDropdown" class="dropdown-menu">
             <div class="dropdown-item" data-engine="system">
               <img src="assets/search-engines/system.svg" alt="System Default" />
