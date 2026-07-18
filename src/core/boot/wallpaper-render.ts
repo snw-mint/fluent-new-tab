@@ -78,9 +78,10 @@ export async function getWallpaperFromDB(
   }
 }
 
-export function updateOverlay(opacityValue: number, isEnabled: boolean): void {
-  const finalOpacity = isEnabled ? String(opacityValue) : '0';
-  document.documentElement.style.setProperty('--overlay-opacity', finalOpacity);
+export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
+  let opacity = 1 - (sliderValue / 100) * 0.9;
+  const finalOpacity = isEnabled ? String(opacity) : '0';
+  document.documentElement.style.setProperty('--wallpaper-opacity', finalOpacity);
 }
 
 export function hideCreditsBoot(): void {
@@ -140,8 +141,12 @@ export function isWallpaperCacheValid(type: string): boolean {
 }
 
 export function clearWallpaper(): void {
-  document.body.style.backgroundImage = 'none';
+  document.documentElement.style.setProperty('--wallpaper-image', 'none');
   document.body.removeAttribute('data-wallpaper-active');
+  const earlyBg = document.getElementById('early-bg-black');
+  if (earlyBg) earlyBg.remove();
+  const earlyFade = document.getElementById('wallpaper-fade-overlay');
+  if (earlyFade) earlyFade.remove();
   updateOverlay(0, false);
   hideCreditsBoot();
 }
@@ -173,14 +178,23 @@ export async function bootWallpaper(
   }
 
   if (url) {
-    document.body.style.backgroundImage = `url('${url}')`;
-    document.body.setAttribute('data-wallpaper-active', 'true');
-    updateOverlay(overlay, true);
-    if (source === 'api') {
-      showCreditsBoot(type);
-    } else {
-      hideCreditsBoot();
-    }
+    const img = new Image();
+    img.src = url;
+    
+    img.onload = () => {
+      document.documentElement.style.setProperty('--wallpaper-opacity', '0');
+      document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+      document.body.setAttribute('data-wallpaper-active', 'true');
+      
+      setTimeout(() => {
+        updateOverlay(overlay, true);
+        if (source === 'api') {
+          showCreditsBoot(type);
+        } else {
+          hideCreditsBoot();
+        }
+      }, 50);
+    };
   } else if (source !== 'api') {
     clearWallpaper();
   }

@@ -110,7 +110,12 @@ export let currentWallpaperSource = (localStorage.getItem('wallpaperSource') ||
   'local') as WallpaperSource;
 export let currentWallpaperType = (localStorage.getItem('wallpaperType') ||
   'upload') as WallpaperType;
-export let wallpaperOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
+let savedOverlay = localStorage.getItem('wallpaperOverlay') || '10';
+if (parseFloat(savedOverlay) < 1 && parseFloat(savedOverlay) > 0) {
+  savedOverlay = String(Math.round(parseFloat(savedOverlay) * 100));
+  localStorage.setItem('wallpaperOverlay', savedOverlay);
+}
+export let wallpaperOverlay = savedOverlay;
 
 export let accentColorEnabled = true;
 export let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';

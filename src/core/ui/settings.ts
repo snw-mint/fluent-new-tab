@@ -72,27 +72,38 @@ export function bindWeatherFeature(options: any): void {
   const closeCityDropdown = () => {
     if (refs.citySuggestionsDropdown) {
       refs.citySuggestionsDropdown.classList.remove('active');
-      const parentGroup = refs.cityInputGroup?.closest('.setting-group') as HTMLElement;
+      const parentGroup = refs.cityInputGroup?.closest(
+        '.setting-group',
+      ) as HTMLElement;
       if (parentGroup) parentGroup.style.zIndex = '';
       if (refs.cityInputGroup) refs.cityInputGroup.style.zIndex = '';
     }
   };
 
   const handleCitySearch = async () => {
-    if (!refs.cityInput || !refs.cityInput.value.trim() || !refs.citySuggestionsList || !refs.citySuggestionsDropdown) return;
+    if (
+      !refs.cityInput ||
+      !refs.cityInput.value.trim() ||
+      !refs.citySuggestionsList ||
+      !refs.citySuggestionsDropdown
+    )
+      return;
     const query = refs.cityInput.value.trim();
-    
+
     const optionsList = refs.citySuggestionsList;
     optionsList.innerHTML = '';
-    
+
     const loadingLi = document.createElement('li');
     loadingLi.className = 'fluent-select-option';
     loadingLi.style.opacity = '0.7';
-    loadingLi.textContent = chrome.i18n?.getMessage('searchingCity') || 'Searching...';
+    loadingLi.textContent =
+      chrome.i18n?.getMessage('searchingCity') || 'Searching...';
     optionsList.appendChild(loadingLi);
-    
+
     refs.citySuggestionsDropdown.classList.add('active');
-    const parentGroup = refs.cityInputGroup?.closest('.setting-group') as HTMLElement;
+    const parentGroup = refs.cityInputGroup?.closest(
+      '.setting-group',
+    ) as HTMLElement;
     if (parentGroup) parentGroup.style.zIndex = '100';
     if (refs.cityInputGroup) refs.cityInputGroup.style.zIndex = '100';
 
@@ -103,7 +114,8 @@ export function bindWeatherFeature(options: any): void {
       const emptyLi = document.createElement('li');
       emptyLi.className = 'fluent-select-option';
       emptyLi.style.opacity = '0.7';
-      emptyLi.textContent = chrome.i18n?.getMessage('noResultsFound') || 'No results found';
+      emptyLi.textContent =
+        chrome.i18n?.getMessage('noResultsFound') || 'No results found';
       optionsList.appendChild(emptyLi);
       return;
     }
@@ -111,12 +123,14 @@ export function bindWeatherFeature(options: any): void {
     results.forEach((city: any) => {
       const li = document.createElement('li');
       li.className = 'fluent-select-option';
-      
-      const formatLocation = [city.name, city.admin1].filter(Boolean).join(', ');
+
+      const formatLocation = [city.name, city.admin1]
+        .filter(Boolean)
+        .join(', ');
       li.textContent = formatLocation;
       li.style.marginBottom = '0.25rem';
       li.style.padding = '0.4rem 0.675rem';
-      
+
       li.addEventListener('click', () => {
         if (refs.cityInput) refs.cityInput.value = formatLocation;
         options.selectCity(city);
@@ -132,7 +146,7 @@ export function bindWeatherFeature(options: any): void {
       handleCitySearch();
     });
   }
-  
+
   if (refs.cityInput) {
     refs.cityInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
@@ -144,7 +158,10 @@ export function bindWeatherFeature(options: any): void {
 
   document.addEventListener('click', (e: MouseEvent) => {
     const target = e.target as HTMLElement;
-    if (refs.citySuggestionsDropdown && refs.citySuggestionsDropdown.classList.contains('active')) {
+    if (
+      refs.citySuggestionsDropdown &&
+      refs.citySuggestionsDropdown.classList.contains('active')
+    ) {
       if (!refs.cityInputGroup?.contains(target)) {
         closeCityDropdown();
       }
@@ -247,8 +264,6 @@ export function bindAccentColorFeature(options: any): void {
       }
     }
   }
-
-
 
   const toggleAuto = document.getElementById(
     'toggleAccentWallpaper',
@@ -440,7 +455,8 @@ export function bindDisplayFeature(options: any): void {
   }
 
   if (refs.toggleHighlightName) {
-    refs.toggleHighlightName.checked = localStorage.getItem('highlightName') === 'true';
+    refs.toggleHighlightName.checked =
+      localStorage.getItem('highlightName') === 'true';
   }
 
   const updateHighlightNameState = () => {
@@ -733,7 +749,8 @@ export function bindShortcutRadiusFeature(options: any): void {
 
   if (refs.importBookmarksBtn) {
     refs.importBookmarksBtn.addEventListener('click', async () => {
-      const { requestApiPermission } = await import('@/core/shared/permissions');
+      const { requestApiPermission } =
+        await import('@/core/shared/permissions');
       const granted = await requestApiPermission(['bookmarks']);
       if (!granted) return;
 
@@ -750,19 +767,23 @@ export function bindShortcutRadiusFeature(options: any): void {
               });
             } else if (node.children) {
               if (depth <= 1) {
-                for (const child of node.children) processNode(child, currentList, depth + 1);
+                for (const child of node.children)
+                  processNode(child, currentList, depth + 1);
               } else {
                 if (depth > 2) {
-                  for (const child of node.children) processNode(child, currentList, depth + 1);
+                  for (const child of node.children)
+                    processNode(child, currentList, depth + 1);
                 } else {
                   const folder = {
                     id: 'folder_' + node.id + '_' + Date.now(),
                     type: 'folder',
                     name: node.title ? node.title.substring(0, 40) : 'Folder',
-                    children: [] as any[]
+                    children: [] as any[],
                   };
-                  for (const child of node.children) processNode(child, folder.children, depth + 1);
-                  if (folder.children.length > 40) folder.children = folder.children.slice(0, 40);
+                  for (const child of node.children)
+                    processNode(child, folder.children, depth + 1);
+                  if (folder.children.length > 40)
+                    folder.children = folder.children.slice(0, 40);
                   if (folder.children.length > 0) currentList.push(folder);
                 }
               }
@@ -779,13 +800,17 @@ export function bindShortcutRadiusFeature(options: any): void {
               id: 'folder_others_' + Date.now(),
               type: 'folder',
               name: 'Others',
-              children: [] as any[]
+              children: [] as any[],
             };
             for (const item of overflowItems) {
               if (item.type !== 'folder') othersFolder.children.push(item);
-              else if (item.children) othersFolder.children.push(...item.children.filter((c: any) => c.type !== 'folder'));
+              else if (item.children)
+                othersFolder.children.push(
+                  ...item.children.filter((c: any) => c.type !== 'folder'),
+                );
             }
-            if (othersFolder.children.length > 40) othersFolder.children = othersFolder.children.slice(0, 40);
+            if (othersFolder.children.length > 40)
+              othersFolder.children = othersFolder.children.slice(0, 40);
             if (othersFolder.children.length > 0) mainItems.push(othersFolder);
             finalResult = mainItems;
           }
@@ -806,10 +831,16 @@ export function bindShortcutRadiusFeature(options: any): void {
       if (existing.length > 0) {
         import('@/core/ui/ui-components').then(({ warningModal }) => {
           warningModal.show({
-            title: (window as any).getTranslation?.('importBookmarksWarningTitle') || 'Import Bookmarks?',
-            message: (window as any).getTranslation?.('importBookmarksWarningDesc') || 'Importing bookmarks will erase your current shortcuts. Do you want to continue?',
-            confirmText: (window as any).getTranslation?.('importOption') || 'Import',
-            cancelText: (window as any).getTranslation?.('cancelOption') || 'Cancel',
+            title:
+              (window as any).getTranslation?.('importBookmarksWarningTitle') ||
+              'Import Bookmarks?',
+            message:
+              (window as any).getTranslation?.('importBookmarksWarningDesc') ||
+              'Importing bookmarks will erase your current shortcuts. Do you want to continue?',
+            confirmText:
+              (window as any).getTranslation?.('importOption') || 'Import',
+            cancelText:
+              (window as any).getTranslation?.('cancelOption') || 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => runImport(),
             onCancel: () => {},
@@ -1184,15 +1215,21 @@ export function bindWallpaperFeature(
       if (!localStorage.getItem('hasSeenWallpaperUploadWarning')) {
         const { warningModal } = await import('@/core/ui/ui-components');
         warningModal.show({
-          title: (window as any).getTranslation?.('wallpaperUploadWarningTitle') || 'Note',
-          message: (window as any).getTranslation?.('wallpaperUploadWarningDesc') || 'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
-          confirmText: (window as any).getTranslation?.('warningUnderstood') || 'Understood',
+          title:
+            (window as any).getTranslation?.('wallpaperUploadWarningTitle') ||
+            'Note',
+          message:
+            (window as any).getTranslation?.('wallpaperUploadWarningDesc') ||
+            'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
+          confirmText:
+            (window as any).getTranslation?.('warningUnderstood') ||
+            'Understood',
           cancelText: (window as any).getTranslation?.('btnCancel') || 'Cancel',
           onConfirm: () => {
             localStorage.setItem('hasSeenWallpaperUploadWarning', 'true');
             refs.uploadInput?.click();
           },
-          onCancel: () => {}
+          onCancel: () => {},
         });
       } else {
         refs.uploadInput.click();
@@ -1250,20 +1287,20 @@ export function bindWallpaperFeature(
   }
 
   if (refs.overlaySlider) {
-    const savedOverlay = localStorage.getItem('wallpaperOverlay') || '0.2';
+    let savedOverlay = localStorage.getItem('wallpaperOverlay') || '10';
+    if (parseFloat(savedOverlay) < 1 && parseFloat(savedOverlay) > 0) {
+      savedOverlay = String(Math.round(parseFloat(savedOverlay) * 100));
+      localStorage.setItem('wallpaperOverlay', savedOverlay);
+    }
     refs.overlaySlider.value = savedOverlay;
 
     const updateSliderProg = (slider: HTMLInputElement) => {
       const min = parseFloat(slider.min) || 0;
-      const max = parseFloat(slider.max) || 0.7;
+      const max = parseFloat(slider.max) || 100;
       const val = parseFloat(slider.value) || 0;
       slider.style.setProperty(
         '--slider-progress',
         String((val - min) / (max - min)),
-      );
-      document.documentElement.style.setProperty(
-        '--overlay-opacity',
-        String(val),
       );
     };
 
@@ -1272,6 +1309,12 @@ export function bindWallpaperFeature(
     refs.overlaySlider.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
+
+      document.documentElement.style.setProperty(
+        '--wallpaper-fade-duration',
+        '0s',
+      );
+
       updateSliderProg(target);
       getWallpaperEngine().then((engine) => {
         engine.updateOverlay(
@@ -1284,11 +1327,16 @@ export function bindWallpaperFeature(
     refs.overlaySlider.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
-      const opacity = parseFloat(target.value);
+
+      document.documentElement.style.removeProperty(
+        '--wallpaper-fade-duration',
+      );
+
+      const val = parseFloat(target.value);
       getWallpaperEngine().then((engine) => {
-        engine.updateOverlay(opacity, options.getWallpaperEnabled());
+        engine.updateOverlay(val, options.getWallpaperEnabled());
       });
-      localStorage.setItem('wallpaperOverlay', String(opacity));
+      localStorage.setItem('wallpaperOverlay', String(val));
     });
   }
 }
@@ -1415,8 +1463,6 @@ export function initGlobalUiSystem(
       }
     });
   }
-
-
 
   if (refs.exportBtn) {
     refs.exportBtn.addEventListener(

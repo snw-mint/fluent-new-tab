@@ -189,12 +189,21 @@ export async function fetchDailyWallpaper(
         throw new Error(`Unsplash Worker Error: ${res.status}`);
       }
       const data = await res.json();
-      if (data && data.urls && data.urls.regular) {
-        imageUrl = data.urls.regular;
+      if (data && data.urls && data.urls.raw) {
+        let screenWidth = window.screen.width * (window.devicePixelRatio || 1);
+        screenWidth = Math.max(screenWidth, 1920);
+        screenWidth = Math.min(screenWidth, 3840);
+        screenWidth = Math.ceil(screenWidth / 240) * 240;
+
+        const joiner = data.urls.raw.includes('?') ? '&' : '?';
+        imageUrl = `${data.urls.raw}${joiner}w=${screenWidth}&q=80&fm=webp`;
+
         const photographerName = data.user?.name || 'Photographer';
-        const photographerUrl = data.user?.links?.html ? `${data.user.links.html}?utm_source=fluent_new_tab&utm_medium=referral` : 'https://unsplash.com/?utm_source=fluent_new_tab&utm_medium=referral';
+        const photographerUrl = data.user?.links?.html
+          ? `${data.user.links.html}?utm_source=fluent_new_tab&utm_medium=referral`
+          : 'https://unsplash.com/?utm_source=fluent_new_tab&utm_medium=referral';
         const unsplashUrl = `https://unsplash.com/?utm_source=fluent_new_tab&utm_medium=referral`;
-        
+
         creditHtml = `Photo by <a href="${photographerUrl}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">${photographerName}</a> on <a href="${unsplashUrl}" target="_blank" class="wallpaper-credit-link" style="color: inherit; text-decoration: none; pointer-events: auto;">Unsplash</a>`;
         creditText = `Photo by ${photographerName} on Unsplash`;
         creditUrl = photographerUrl;
@@ -209,12 +218,20 @@ export async function fetchDailyWallpaper(
       const data = await res.json();
       if (data && data.photos && data.photos.length > 0) {
         const photo = data.photos[0];
-        imageUrl =
-          photo?.src?.landscape ||
-          photo?.src?.large2x ||
-          photo?.src?.original ||
-          photo?.src?.large ||
-          '';
+        let pexelsUrl = photo?.src?.original || photo?.src?.landscape || '';
+
+        if (pexelsUrl && photo?.src?.original) {
+          let screenWidth =
+            window.screen.width * (window.devicePixelRatio || 1);
+          screenWidth = Math.max(screenWidth, 1920);
+          screenWidth = Math.min(screenWidth, 3840);
+          screenWidth = Math.ceil(screenWidth / 240) * 240;
+
+          const joiner = pexelsUrl.includes('?') ? '&' : '?';
+          imageUrl = `${pexelsUrl}${joiner}auto=compress&cs=tinysrgb&w=${screenWidth}&q=80`;
+        } else {
+          imageUrl = pexelsUrl;
+        }
 
         creditText = `Pexels: ${photo?.photographer || 'Photographer'}`;
         creditUrl = photo?.url || 'https://pexels.com/';

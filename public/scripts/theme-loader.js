@@ -25,13 +25,13 @@
   const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 
   if (!wallpaperEnabled) {
-    const hideOverlayStyle = document.createElement('style');
-    hideOverlayStyle.id = 'anti-flicker-overlay';
-    hideOverlayStyle.textContent =
-      '.wallpaper-overlay { display: none !important; }';
-    document.head.appendChild(hideOverlayStyle);
     return;
   }
+
+  const baseBgStyle = document.createElement('style');
+  baseBgStyle.id = 'early-bg-black';
+  baseBgStyle.textContent = 'body { background-color: #000 !important; }';
+  document.head.appendChild(baseBgStyle);
 
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
   const wallpaperType = localStorage.getItem('wallpaperType') || 'upload';
@@ -91,7 +91,10 @@
 
   const style = document.createElement('style');
   style.id = 'early-wallpaper-style';
-  style.textContent = `body { background-image: url('${initialWallpaperUrl}'); background-size: cover; background-position: center; background-attachment: fixed; }`;
+  style.textContent = `:root { --wallpaper-image: url('${initialWallpaperUrl}'); }`;
   document.head.appendChild(style);
   document.documentElement.setAttribute('data-early-wallpaper', 'true');
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.setAttribute('data-wallpaper-active', 'true');
+  });
 })();

@@ -46,7 +46,22 @@ body {
     background-image 0.35s ease-in-out;
 
   &[data-wallpaper-active='true'] {
-    animation: wallpaperFadeIn 0.4s ease forwards;
+    background-color: #000 !important;
+    background-image: none !important;
+    
+    &::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--wallpaper-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+      pointer-events: none;
+      opacity: var(--wallpaper-opacity, 0.9);
+      transition: opacity var(--wallpaper-fade-duration, 0.35s) ease-in-out;
+    }
   }
 
   &.loaded {
@@ -58,20 +73,6 @@ body {
   &.animations-disabled *::after {
     animation: none !important;
     transition: none !important;
-  }
-
-  &[data-wallpaper-active='true']::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    z-index: -1;
-    pointer-events: none;
-    animation: fadeInOverlay 0.8s ease;
   }
 }
 

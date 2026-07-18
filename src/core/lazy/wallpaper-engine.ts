@@ -79,55 +79,32 @@ export class WallpaperEngine {
     img.src = url;
 
     img.onload = () => {
-      const curtain = document.createElement('div');
-      Object.assign(curtain.style, {
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: '#000',
-        opacity: '0',
-        zIndex: '-2',
-        pointerEvents: 'none',
-        transition: 'opacity 0.35s ease-in-out',
-      });
-      document.body.appendChild(curtain);
+      const isActive = document.body.getAttribute('data-wallpaper-active') === 'true';
+      
+      const applyWallpaper = () => {
+        document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+        document.body.setAttribute('data-wallpaper-active', 'true');
+        
+        const currentOverlay = parseFloat(
+          localStorage.getItem('wallpaperOverlay') || String(config.overlay),
+        );
+        updateOverlay(currentOverlay, config.enabled);
 
-      curtain.getBoundingClientRect();
-      curtain.style.opacity = '1';
+        hideToast();
 
-      curtain.addEventListener(
-        'transitionend',
-        () => {
-          const oldTransition = document.body.style.transition;
-          document.body.style.transition = 'none';
+        if (config.source === 'api') {
+          showCreditsBoot(config.type);
+        } else {
+          hideCreditsBoot();
+        }
+      };
 
-          document.body.style.backgroundImage = `url('${url}')`;
-          document.body.setAttribute('data-wallpaper-active', 'true');
-          const currentOverlay = parseFloat(
-            localStorage.getItem('wallpaperOverlay') || String(config.overlay),
-          );
-          updateOverlay(currentOverlay, config.enabled);
-
-          hideToast();
-
-          document.body.getBoundingClientRect();
-          document.body.style.transition = oldTransition;
-
-          if (config.source === 'api') {
-            showCreditsBoot(config.type);
-          } else {
-            hideCreditsBoot();
-          }
-
-          curtain.style.opacity = '0';
-          curtain.addEventListener('transitionend', () => curtain.remove(), {
-            once: true,
-          });
-        },
-        { once: true },
-      );
+      if (isActive) {
+        document.documentElement.style.setProperty('--wallpaper-opacity', '0');
+        setTimeout(applyWallpaper, 350);
+      } else {
+        applyWallpaper();
+      }
     };
 
     img.onerror = () => {

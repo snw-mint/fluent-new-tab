@@ -80,20 +80,6 @@
   margin: 0 0.45rem;
 }
 
-
-.wallpaper-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  opacity: var(--overlay-opacity, 0.2);
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.1s ease;
-}
-
 .container,
 .greeting-container {
   position: relative;
