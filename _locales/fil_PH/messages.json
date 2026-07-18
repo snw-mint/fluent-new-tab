@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Ang pag-import ng mga bookmark ay buburahin ang iyong kasalukuyang mga shortcut. Gusto mo bang magpatuloy?"
+  },
+  "editWallpaperLabel": {
+    "message": "I-edit ang wallpaper"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "I-upload"
   }
 }

@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Het importeren van bladwijzers wist uw huidige snelkoppelingen. Wilt u doorgaan?"
+  },
+  "editWallpaperLabel": {
+    "message": "Achtergrond bewerken"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Uploaden"
   }
 }

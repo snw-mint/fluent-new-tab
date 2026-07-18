@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Das Importieren von Lesezeichen löscht Ihre aktuellen Verknüpfungen. Möchten Sie fortfahren?"
+  },
+  "editWallpaperLabel": {
+    "message": "Hintergrund bearbeiten"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Hochladen"
   }
 }

@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Importul marcajelor va șterge comenzile rapide curente. Doriți să continuați?"
+  },
+  "editWallpaperLabel": {
+    "message": "Editați tapetul"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Încărcare"
   }
 }

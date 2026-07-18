@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Yer imlerini içe aktarmak mevcut kısayollarınızı siler. Devam etmek istiyor musunuz?"
+  },
+  "editWallpaperLabel": {
+    "message": "Duvar kağıdını düzenle"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Yükle"
   }
 }

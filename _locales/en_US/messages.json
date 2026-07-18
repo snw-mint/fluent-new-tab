@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Importing bookmarks will erase your current shortcuts. Do you want to continue?"
+  },
+  "editWallpaperLabel": {
+    "message": "Edit wallpaper"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Upload"
   }
 }

@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Импорт закладок удалит ваши текущие ярлыки. Хотите продолжить?"
+  },
+  "editWallpaperLabel": {
+    "message": "Изменить обои"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Загрузить"
   }
 }

@@ -356,3 +356,74 @@
   z-index: 9999;
   cursor: grabbing;
 }
+
+.add-card-wrapper {
+  position: relative;
+  
+  .add-dropdown {
+    position: absolute;
+    top: 3.2rem;
+    left: 50%;
+    transform: translate(-50%, -0.3375rem) scale(0.96);
+    min-width: 9.5rem;
+    padding: 0.2rem;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.18s ease;
+    background-color: var(--surface-base);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    @include card-radius(var(--radius-md));
+    
+    &.active {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+      pointer-events: auto;
+    }
+    
+    .menu-option {
+      @include flex-center(0.5625rem);
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.5625rem 0.7875rem;
+      font-size: var(--font-size-sm);
+      color: var(--text-color);
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+      @include card-radius(var(--radius-sm));
+
+      &:hover {
+        background-color: var(--hover-overlay);
+      }
+
+      &:active {
+        background-color: color-mix(
+          in srgb,
+          var(--hover-overlay) 80%,
+          transparent
+        );
+      }
+      
+      svg {
+        width: 1.125rem;
+        height: 1.125rem;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &:active .shortcut-card {
+    transform: none !important;
+  }
+}
+
+.add-card-wrapper:has(.add-dropdown.active) .shortcut-card {
+  background: var(--shortcut-bg-hover);
+  box-shadow: var(--shadow-sm);
+}

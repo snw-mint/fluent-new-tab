@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "L'importazione dei segnalibri cancellerà i tuoi collegamenti attuali. Vuoi continuare?"
+  },
+  "editWallpaperLabel": {
+    "message": "Modifica sfondo"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Carica"
   }
 }

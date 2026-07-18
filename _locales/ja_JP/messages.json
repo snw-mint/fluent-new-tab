@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "ブックマークをインポートすると、現在のショートカットが消去されます。続行しますか？"
+  },
+  "editWallpaperLabel": {
+    "message": "壁紙を編集"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "アップロード"
   }
 }

@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Import av bokmärken raderar dina nuvarande genvägar. Vill du fortsätta?"
+  },
+  "editWallpaperLabel": {
+    "message": "Redigera bakgrundsbild"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Ladda upp"
   }
 }

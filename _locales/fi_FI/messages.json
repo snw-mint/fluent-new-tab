@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Kirjanmerkkien tuonti poistaa nykyiset pikakuvakkeesi. Haluatko jatkaa?"
+  },
+  "editWallpaperLabel": {
+    "message": "Muokkaa taustakuvaa"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Lataa"
   }
 }

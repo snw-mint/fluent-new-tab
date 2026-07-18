@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Nhập dấu trang sẽ xóa các phím tắt hiện tại của bạn. Bạn có muốn tiếp tục không?"
+  },
+  "editWallpaperLabel": {
+    "message": "Chỉnh sửa hình nền"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Tải lên"
   }
 }

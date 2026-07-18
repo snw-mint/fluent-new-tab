@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Import af bogmærker vil slette dine nuværende genveje. Vil du fortsætte?"
+  },
+  "editWallpaperLabel": {
+    "message": "Rediger baggrund"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Upload"
   }
 }

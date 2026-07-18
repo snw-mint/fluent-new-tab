@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Import záložek vymaže vaše současné zástupce. Chcete pokračovat?"
+  },
+  "editWallpaperLabel": {
+    "message": "Upravit tapetu"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Nahrát"
   }
 }

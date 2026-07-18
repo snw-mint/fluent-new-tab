@@ -58,7 +58,10 @@ export function getLocalizedWarningText(
 ): string {
   const windowObj = window as any;
   if (typeof windowObj.getTranslation === 'function') {
-    let text = windowObj.getTranslation(key) || fallback;
+    let text = windowObj.getTranslation(key);
+    if (!text || text === key) {
+      text = fallback;
+    }
     if (replacements) {
       for (const [k, v] of Object.entries(replacements)) {
         text = text.replace(new RegExp(`\\$${k}\\$`, 'g'), v);

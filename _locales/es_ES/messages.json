@@ -444,5 +444,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "La importación de marcadores borrará sus atajos actuales. ¿Desea continuar?"
+  },
+  "editWallpaperLabel": {
+    "message": "Editar fondo de pantalla"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Subir"
   }
 }

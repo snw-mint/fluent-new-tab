@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "导入书签将清除您当前的快捷方式。是否继续？"
+  },
+  "editWallpaperLabel": {
+    "message": "编辑壁纸"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "上传"
   }
 }

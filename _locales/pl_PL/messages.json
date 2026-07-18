@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Import zakładek usunie Twoje obecne skróty. Czy chcesz kontynuować?"
+  },
+  "editWallpaperLabel": {
+    "message": "Edytuj tapetę"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Prześlij"
   }
 }

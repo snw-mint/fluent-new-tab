@@ -108,6 +108,20 @@ function triggerShortcutsRender(): void {
         syncShortcutDropdownState(),
       );
     },
+    onAddShortcut: () => {
+      initShortcutsFormSystemLazy().then(() => {
+        import('@/core/ui/shortcuts-manager').then(({ openShortcutModal }) =>
+          openShortcutModal(null),
+        );
+      });
+    },
+    onAddFolder: () => {
+      initShortcutsFormSystemLazy().then(() => {
+        import('@/core/ui/shortcuts-manager').then(({ openFolderModal }) =>
+          openFolderModal('', false),
+        );
+      });
+    },
   });
 }
 
@@ -245,7 +259,9 @@ async function bootInteractive(): Promise<void> {
       chromeApi.storage.local.get(
         ['update_notice_pending', 'update_notice_version'],
         (data: any) => {
+          let updateNoticeShown = false;
           if (data.update_notice_pending) {
+            updateNoticeShown = true;
             Promise.all([
               import('@/core/ui/ui-components'),
               import('@/core/shared/dom-utils'),
@@ -271,6 +287,55 @@ async function bootInteractive(): Promise<void> {
               'update_notice_pending',
               'update_notice_version',
             ]);
+          }
+
+          const FIRST_USE_KEY = 'firstUseDate';
+          const RATING_TOAST_KEY = 'hasSeenRatingToast';
+          const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+          
+          const FORCE_TEST_RATING = true; // TODO: remover depois dos testes
+          
+          if (!localStorage.getItem(FIRST_USE_KEY) && !FORCE_TEST_RATING) {
+            localStorage.setItem(FIRST_USE_KEY, Date.now().toString());
+          } else if (!localStorage.getItem(RATING_TOAST_KEY) || FORCE_TEST_RATING) {
+            const firstUse = parseInt(localStorage.getItem(FIRST_USE_KEY) || '0', 10);
+            if (Date.now() - firstUse > THREE_DAYS_MS || FORCE_TEST_RATING) {
+              const delay = FORCE_TEST_RATING ? 1500 : (updateNoticeShown ? 120000 : 3000);
+              setTimeout(() => {
+                if (localStorage.getItem(RATING_TOAST_KEY) && !FORCE_TEST_RATING) return;
+                if (!FORCE_TEST_RATING) localStorage.setItem(RATING_TOAST_KEY, 'true');
+
+                Promise.all([
+                  import('@/core/ui/ui-components'),
+                  import('@/core/shared/dom-utils'),
+                ]).then(([{ showToast }, { getLocalizedWarningText }]) => {
+                  const prefix = getLocalizedWarningText(
+                    'ratingToastPrefix',
+                    'Are you enjoying Fluent New Tab? ',
+                  );
+                  const linkText = getLocalizedWarningText(
+                    'ratingToastLink',
+                    'Rate us!',
+                  );
+                  const link = document.createElement('a');
+                  
+                  const ua = navigator.userAgent.toLowerCase();
+                  let storeLink = 'https://chromewebstore.google.com/detail/fluent-new-tab/pbbiecccbghiolgifmlichmgpoclijfa/reviews?hl=en-US&#:~:text=write%20a%20review';
+                  if (ua.includes('edg/')) {
+                    storeLink = 'https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc?#:~:text=add%20a%20review';
+                  } else if (ua.includes('firefox')) {
+                    storeLink = 'https://addons.mozilla.org/pt-BR/firefox/addon/fluent-new-tab/reviews/';
+                  }
+                  
+                  link.href = storeLink;
+                  link.target = '_blank';
+                  link.className = 'update-release-notice-link';
+                  link.textContent = linkText;
+                  
+                  showToast([prefix, link], 'assets/icons/star.svg', 10000);
+                });
+              }, delay);
+            }
           }
         },
       );
@@ -646,11 +711,13 @@ async function bootInteractive(): Promise<void> {
 
   const searchEngineTip = document.getElementById('searchEngineTip');
   if (searchEngineTip && !localStorage.getItem('hasSeenSearchEngineTip')) {
+    // Marcar imediatamente para não repetir em outras abas abertas simultaneamente
+    localStorage.setItem('hasSeenSearchEngineTip', 'true');
+    
     setTimeout(() => searchEngineTip.classList.remove('is-hidden'), 1500);
     
     const dismissTip = () => {
       searchEngineTip.classList.add('is-hidden');
-      localStorage.setItem('hasSeenSearchEngineTip', 'true');
     };
     
     setTimeout(dismissTip, 11500);

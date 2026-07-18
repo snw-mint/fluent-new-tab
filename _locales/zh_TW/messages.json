@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "匯入書籤將清除您目前的捷徑。是否繼續？"
+  },
+  "editWallpaperLabel": {
+    "message": "編輯壁紙"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "上傳"
   }
 }

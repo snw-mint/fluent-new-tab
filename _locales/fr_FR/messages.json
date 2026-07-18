@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "L'importation de favoris effacera vos raccourcis actuels. Voulez-vous continuer ?"
+  },
+  "editWallpaperLabel": {
+    "message": "Modifier le fond d'écran"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Téléverser"
   }
 }

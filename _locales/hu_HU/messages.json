@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "A könyvjelzők importálása törli a jelenlegi parancsikonokat. Szeretné folytatni?"
+  },
+  "editWallpaperLabel": {
+    "message": "Háttérkép szerkesztése"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Feltöltés"
   }
 }

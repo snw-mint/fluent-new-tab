@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "북마크를 가져오면 현재 바로가기가 지워집니다. 계속하시겠습니까?"
+  },
+  "editWallpaperLabel": {
+    "message": "배경화면 편집"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "업로드"
   }
 }

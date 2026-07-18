@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "Η εισαγωγή σελιδοδεικτών θα διαγράψει τις τρέχουσες συντομεύσεις σας. Θέλετε να συνεχίσετε;"
+  },
+  "editWallpaperLabel": {
+    "message": "Επεξεργασία ταπετσαρίας"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Μεταφόρτωση"
   }
 }

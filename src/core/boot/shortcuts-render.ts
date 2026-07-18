@@ -27,6 +27,8 @@ interface ShortcutsRenderOptions {
   onOpenFolder: (id: string) => void;
   onGoBack: () => void;
   syncShortcutDropdownState: () => void;
+  onAddShortcut: () => void;
+  onAddFolder: () => void;
 }
 
 export const FOLDER_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z" fill="currentColor"/></svg>`;
@@ -120,6 +122,8 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     onOpenFolder,
     onGoBack,
     syncShortcutDropdownState,
+    onAddShortcut,
+    onAddFolder,
   } = options;
   if (!shortcutsGrid) return;
 
@@ -255,22 +259,59 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   if (visibleShortcuts.length < availableSlots) {
     const addBtn = document.createElement('div');
     addBtn.className = 'shortcut-item add-card-wrapper';
-    addBtn.dataset.action = 'add-shortcut';
 
     const addCard = document.createElement('div');
-    addCard.className = 'shortcut-card';
+    addCard.className = 'shortcut-card add-menu-btn';
     addCard.insertAdjacentHTML(
       'beforeend',
       typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+',
     );
-
+    
     const addTitle = document.createElement('span');
     addTitle.className = 'shortcut-title';
     addTitle.textContent =
       (window as any).getTranslation?.('addShortcutLabel') || '';
-
+    
+    const dropdown = document.createElement('div');
+    dropdown.className = 'shortcut-dropdown add-dropdown';
+    
+    const linkOption = document.createElement('div');
+    linkOption.className = 'menu-option add-link-option';
+    linkOption.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.25 7a.75.75 0 0 1 .11 1.492l-.11.008H7a3.5 3.5 0 0 0-.206 6.994L7 15.5h2.25a.75.75 0 0 1 .11 1.492L9.25 17H7a5 5 0 0 1-.25-9.994L7 7zM17 7a5 5 0 0 1 .25 9.994L17 17h-2.25a.75.75 0 0 1-.11-1.492l.11-.008H17a3.5 3.5 0 0 0 .206-6.994L17 8.5h-2.25a.75.75 0 0 1-.11-1.492L14.75 7zM7 11.25h10a.75.75 0 0 1 .102 1.493L17 12.75H7a.75.75 0 0 1-.102-1.493zh10z" fill="currentColor" />
+      </svg>
+      <span data-i18n="addShortcutTitle">Add Shortcut</span>
+    `;
+    
+    const folderOption = document.createElement('div');
+    folderOption.className = 'menu-option add-folder-option';
+    folderOption.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z" fill="currentColor" />
+      </svg>
+      <span data-i18n="addFolderTitle">Add Folder</span>
+    `;
+    
+    dropdown.appendChild(linkOption);
+    dropdown.appendChild(folderOption);
+    
     addBtn.appendChild(addCard);
     addBtn.appendChild(addTitle);
+    addBtn.appendChild(dropdown);
+    
+    const getTrans = (window as any).getTranslation;
+    if (getTrans) {
+      const texts = dropdown.querySelectorAll('[data-i18n]');
+      texts.forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (key) {
+          const trans = getTrans(key);
+          if (trans) el.textContent = trans;
+        }
+      });
+    }
+
     fragment.appendChild(addBtn);
   }
 
@@ -307,10 +348,21 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   const handleGridClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
-    const addBtn = target.closest('.add-card-wrapper');
-    if (addBtn) {
+    const addLinkOpt = target.closest('.add-link-option') as HTMLElement | null;
+    if (addLinkOpt) {
       event.preventDefault();
-      onOpenModal(null);
+      event.stopPropagation();
+      onClosePopups();
+      onAddShortcut();
+      return;
+    }
+    
+    const addFolderOpt = target.closest('.add-folder-option') as HTMLElement | null;
+    if (addFolderOpt) {
+      event.preventDefault();
+      event.stopPropagation();
+      onClosePopups();
+      onAddFolder();
       return;
     }
 
@@ -351,6 +403,19 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     if (dropdownContent) {
       event.preventDefault();
       event.stopPropagation();
+      return;
+    }
+
+    const addMenuBtn = target.closest('.add-card-wrapper');
+    if (addMenuBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropNode = addMenuBtn
+        .closest('.add-card-wrapper')
+        ?.querySelector('.shortcut-dropdown');
+      onClosePopups(dropNode);
+      dropNode?.classList.toggle('active');
+      syncShortcutDropdownState();
       return;
     }
 

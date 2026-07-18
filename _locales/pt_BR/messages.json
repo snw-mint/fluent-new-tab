@@ -705,5 +705,11 @@
   },
   "importBookmarksWarningDesc": {
     "message": "A importação de favoritos apagará seus atalhos atuais. Deseja continuar?"
+  },
+  "editWallpaperLabel": {
+    "message": "Editar papel de parede"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Enviar"
   }
 }
