@@ -70,8 +70,6 @@ export async function saveWallpaperToDB(
 
 export function convertImageToWebp(
   imageSource: string,
-  maxWidth = 1920,
-  quality = 0.82,
 ): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -81,13 +79,8 @@ export function convertImageToWebp(
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
 
-      let width = img.width;
-      let height = img.height;
-
-      if (width > maxWidth) {
-        height *= maxWidth / width;
-        width = maxWidth;
-      }
+      const width = img.width;
+      const height = img.height;
 
       canvas.width = width;
       canvas.height = height;
@@ -99,7 +92,7 @@ export function convertImageToWebp(
           else reject(new Error('Error converting to WebP'));
         },
         'image/webp',
-        quality,
+        1,
       );
     };
 
@@ -113,17 +106,8 @@ export function processWallpaperImage(file: File): Promise<Blob> {
     reader.readAsDataURL(file);
 
     reader.onload = (event) => {
-      const screenMax =
-        Math.max(window.screen.width, window.screen.height) *
-        (window.devicePixelRatio || 1);
-      const targetWidth =
-        screenMax >= 3840 ? 3840 : screenMax >= 2560 ? 2560 : 1920;
-      const targetQuality = screenMax >= 3840 ? 0.88 : 0.8;
-
       convertImageToWebp(
         String((event.target as FileReader).result || ''),
-        targetWidth,
-        targetQuality,
       )
         .then(resolve)
         .catch(reject);
