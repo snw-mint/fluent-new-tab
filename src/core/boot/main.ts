@@ -293,17 +293,15 @@ async function bootInteractive(): Promise<void> {
           const RATING_TOAST_KEY = 'hasSeenRatingToast';
           const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
           
-          const FORCE_TEST_RATING = true; // TODO: remover depois dos testes
-          
-          if (!localStorage.getItem(FIRST_USE_KEY) && !FORCE_TEST_RATING) {
+          if (!localStorage.getItem(FIRST_USE_KEY)) {
             localStorage.setItem(FIRST_USE_KEY, Date.now().toString());
-          } else if (!localStorage.getItem(RATING_TOAST_KEY) || FORCE_TEST_RATING) {
+          } else if (!localStorage.getItem(RATING_TOAST_KEY)) {
             const firstUse = parseInt(localStorage.getItem(FIRST_USE_KEY) || '0', 10);
-            if (Date.now() - firstUse > THREE_DAYS_MS || FORCE_TEST_RATING) {
-              const delay = FORCE_TEST_RATING ? 1500 : (updateNoticeShown ? 120000 : 3000);
+            if (Date.now() - firstUse > THREE_DAYS_MS) {
+              const delay = updateNoticeShown ? 120000 : 3000;
               setTimeout(() => {
-                if (localStorage.getItem(RATING_TOAST_KEY) && !FORCE_TEST_RATING) return;
-                if (!FORCE_TEST_RATING) localStorage.setItem(RATING_TOAST_KEY, 'true');
+                if (localStorage.getItem(RATING_TOAST_KEY)) return;
+                localStorage.setItem(RATING_TOAST_KEY, 'true');
 
                 Promise.all([
                   import('@/core/ui/ui-components'),
