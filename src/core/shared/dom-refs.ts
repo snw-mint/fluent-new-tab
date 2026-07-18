@@ -75,10 +75,10 @@ export const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
 export const shortcutRadiusSlider = getById<HTMLInputElement>(
   'shortcutRadiusSlider',
 );
-export const toggleFolders = getById<HTMLInputElement>('toggleFolders');
 export const toggleHideShortcutNames = getById<HTMLInputElement>(
   'toggleHideShortcutNames',
 );
+export const importBookmarksBtn = getById<HTMLButtonElement>('importBookmarksBtn');
 export const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
 export const addFolderModal = getById<HTMLDivElement>('addFolderModal');
 export const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');

@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Zkratky"
   },
-  "enableFoldersLabel": {
-    "message": "Povolit složky"
-  },
   "hideShortcutNamesLabel": {
     "message": "Skrýt názvy"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Přečtěte si zásady ochrany osobních údajů"
+  },
+  "bookmarksLabel": {
+    "message": "Záložky"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importovat záložky"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importovat záložky?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Import záložek vymaže vaše současné zástupce. Chcete pokračovat?"
   }
 }

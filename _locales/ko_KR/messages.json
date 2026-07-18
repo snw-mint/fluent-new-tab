@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "바로가기"
   },
-  "enableFoldersLabel": {
-    "message": "폴더 활성화"
-  },
   "hideShortcutNamesLabel": {
     "message": "이름 숨기기"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "개인 정보 보호 정책 읽기"
+  },
+  "bookmarksLabel": {
+    "message": "북마크"
+  },
+  "importBookmarksBtnText": {
+    "message": "북마크 가져오기"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "북마크 가져오기?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "북마크를 가져오면 현재 바로가기가 지워집니다. 계속하시겠습니까?"
   }
 }

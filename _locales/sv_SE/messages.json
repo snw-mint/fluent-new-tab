@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Genvägar"
   },
-  "enableFoldersLabel": {
-    "message": "Aktivera mappar"
-  },
   "hideShortcutNamesLabel": {
     "message": "Dölj namn"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Läs integritetspolicyn"
+  },
+  "bookmarksLabel": {
+    "message": "Bokmärken"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importera bokmärken"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importera bokmärken?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Import av bokmärken raderar dina nuvarande genvägar. Vill du fortsätta?"
   }
 }

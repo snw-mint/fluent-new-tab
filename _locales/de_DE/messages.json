@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Verknüpfungen"
   },
-  "enableFoldersLabel": {
-    "message": "Ordner aktivieren"
-  },
   "hideShortcutNamesLabel": {
     "message": "Namen ausblenden"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Lesen Sie die Datenschutzbestimmungen"
+  },
+  "bookmarksLabel": {
+    "message": "Lesezeichen"
+  },
+  "importBookmarksBtnText": {
+    "message": "Lesezeichen importieren"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Lesezeichen importieren?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Das Importieren von Lesezeichen löscht Ihre aktuellen Verknüpfungen. Möchten Sie fortfahren?"
   }
 }

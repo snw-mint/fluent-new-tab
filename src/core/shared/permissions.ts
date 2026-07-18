@@ -74,3 +74,51 @@ export async function requestPermission(origins: string[]): Promise<boolean> {
     }
   });
 }
+
+export async function checkApiPermission(permissions: string[]): Promise<boolean> {
+  return new Promise((resolve) => {
+    const chromeApi = (window as any).chrome;
+    if (!chromeApi?.permissions?.contains) {
+      console.warn('chrome.permissions API not available. Returning false.');
+      return resolve(false);
+    }
+
+    try {
+      chromeApi.permissions.contains({ permissions }, (result: boolean) => {
+        if (chromeApi.runtime?.lastError) {
+          console.error(chromeApi.runtime.lastError);
+          resolve(false);
+        } else {
+          resolve(Boolean(result));
+        }
+      });
+    } catch (e) {
+      console.error('Error checking API permission:', e);
+      resolve(false);
+    }
+  });
+}
+
+export async function requestApiPermission(permissions: string[]): Promise<boolean> {
+  return new Promise((resolve) => {
+    const chromeApi = (window as any).chrome;
+    if (!chromeApi?.permissions?.request) {
+      console.warn('chrome.permissions API not available. Returning false.');
+      return resolve(false);
+    }
+
+    try {
+      chromeApi.permissions.request({ permissions }, (granted: boolean) => {
+        if (chromeApi.runtime?.lastError) {
+          console.error(chromeApi.runtime.lastError);
+          resolve(false);
+        } else {
+          resolve(Boolean(granted));
+        }
+      });
+    } catch (e) {
+      console.error('Error requesting API permission:', e);
+      resolve(false);
+    }
+  });
+}

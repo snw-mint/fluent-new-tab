@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Scorciatoie"
   },
-  "enableFoldersLabel": {
-    "message": "Abilita cartelle"
-  },
   "hideShortcutNamesLabel": {
     "message": "Nascondi nomi"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Leggi l'informativa sulla privacy"
+  },
+  "bookmarksLabel": {
+    "message": "Segnalibri"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importa segnalibri"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importa segnalibri?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "L'importazione dei segnalibri cancellerà i tuoi collegamenti attuali. Vuoi continuare?"
   }
 }

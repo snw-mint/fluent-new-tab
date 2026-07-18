@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Raccourcis"
   },
-  "enableFoldersLabel": {
-    "message": "Activer les dossiers"
-  },
   "hideShortcutNamesLabel": {
     "message": "Masquer les noms"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Lire la politique de confidentialité"
+  },
+  "bookmarksLabel": {
+    "message": "Favoris"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importer des favoris"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importer des favoris ?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "L'importation de favoris effacera vos raccourcis actuels. Voulez-vous continuer ?"
   }
 }

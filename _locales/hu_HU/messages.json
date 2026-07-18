@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Gyorsbillentyűk"
   },
-  "enableFoldersLabel": {
-    "message": "Mappák engedélyezése"
-  },
   "hideShortcutNamesLabel": {
     "message": "Nevek elrejtése"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Olvassa el az adatvédelmi szabályzatot"
+  },
+  "bookmarksLabel": {
+    "message": "Könyvjelzők"
+  },
+  "importBookmarksBtnText": {
+    "message": "Könyvjelzők importálása"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Könyvjelzők importálása?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "A könyvjelzők importálása törli a jelenlegi parancsikonokat. Szeretné folytatni?"
   }
 }

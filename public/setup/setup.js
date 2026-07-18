@@ -673,6 +673,91 @@ function init() {
       if (e.target === popupOverlay) hidePopup();
     });
   }
+
+  const importBookmarksBtn = document.getElementById('importBookmarksBtn');
+  if (importBookmarksBtn) {
+    importBookmarksBtn.addEventListener('click', () => {
+      chrome.permissions.request({ permissions: ['bookmarks'] }, (granted) => {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError);
+        }
+        if (!granted) return;
+
+        const runImport = () => {
+          chrome.bookmarks.getTree((nodes) => {
+            const result = [];
+            function processNode(node, currentList, depth) {
+              if (node.url) {
+                currentList.push({
+                  id: 'bm_' + node.id + '_' + Date.now(),
+                  name: node.title ? node.title.substring(0, 40) : 'Bookmark',
+                  url: node.url,
+                });
+              } else if (node.children) {
+                if (depth <= 1) {
+                  for (const child of node.children) processNode(child, currentList, depth + 1);
+                } else {
+                  if (depth > 2) {
+                    for (const child of node.children) processNode(child, currentList, depth + 1);
+                  } else {
+                    const folder = {
+                      id: 'folder_' + node.id + '_' + Date.now(),
+                      type: 'folder',
+                      name: node.title ? node.title.substring(0, 40) : 'Folder',
+                      children: []
+                    };
+                    for (const child of node.children) processNode(child, folder.children, depth + 1);
+                    if (folder.children.length > 40) folder.children = folder.children.slice(0, 40);
+                    if (folder.children.length > 0) currentList.push(folder);
+                  }
+                }
+              }
+            }
+
+            for (const node of nodes) processNode(node, result, 0);
+
+            let finalResult = result;
+            if (result.length > 40) {
+              const mainItems = result.slice(0, 39);
+              const overflowItems = result.slice(39);
+              const othersFolder = {
+                id: 'folder_others_' + Date.now(),
+                type: 'folder',
+                name: 'Others',
+                children: []
+              };
+              for (const item of overflowItems) {
+                if (item.type !== 'folder') othersFolder.children.push(item);
+                else if (item.children) othersFolder.children.push(...item.children.filter((c) => c.type !== 'folder'));
+              }
+              if (othersFolder.children.length > 40) othersFolder.children = othersFolder.children.slice(0, 40);
+              if (othersFolder.children.length > 0) mainItems.push(othersFolder);
+              finalResult = mainItems;
+            }
+
+            let rows = 1;
+            if (finalResult.length > 30) rows = 4;
+            else if (finalResult.length > 20) rows = 3;
+            else if (finalResult.length > 10) rows = 2;
+
+            localStorage.setItem('shortcuts', JSON.stringify(finalResult));
+            localStorage.setItem('shortcutsRows', String(rows));
+            
+            const shortcutsSelect = document.getElementById('select-shortcuts');
+            if (shortcutsSelect) shortcutsSelect.value = String(rows);
+
+            const originalText = importBookmarksBtn.textContent;
+            importBookmarksBtn.textContent = 'Imported!';
+            setTimeout(() => {
+              importBookmarksBtn.textContent = originalText;
+            }, 2000);
+          });
+        };
+
+        runImport();
+      });
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "ショートカット"
   },
-  "enableFoldersLabel": {
-    "message": "フォルダを有効にする"
-  },
   "hideShortcutNamesLabel": {
     "message": "名前を非表示にする"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "プライバシーポリシーを読む"
+  },
+  "bookmarksLabel": {
+    "message": "ブックマーク"
+  },
+  "importBookmarksBtnText": {
+    "message": "ブックマークをインポート"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "ブックマークをインポートしますか？"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "ブックマークをインポートすると、現在のショートカットが消去されます。続行しますか？"
   }
 }

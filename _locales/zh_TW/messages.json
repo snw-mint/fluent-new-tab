@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "捷徑"
   },
-  "enableFoldersLabel": {
-    "message": "啟用資料夾"
-  },
   "hideShortcutNamesLabel": {
     "message": "隱藏名稱"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "閱讀隱私權政策"
+  },
+  "bookmarksLabel": {
+    "message": "書籤"
+  },
+  "importBookmarksBtnText": {
+    "message": "匯入書籤"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "匯入書籤？"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "匯入書籤將清除您目前的捷徑。是否繼續？"
   }
 }

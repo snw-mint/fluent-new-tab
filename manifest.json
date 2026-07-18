@@ -23,6 +23,7 @@
     "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: blob: https:;"
   },
   "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
+  "optional_permissions": ["bookmarks"],
   "optional_host_permissions": [
     "https://duckduckgo.com/*",
     "https://peapix.com/*",

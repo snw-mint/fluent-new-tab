@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "快捷方式"
   },
-  "enableFoldersLabel": {
-    "message": "启用文件夹"
-  },
   "hideShortcutNamesLabel": {
     "message": "隐藏名称"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "阅读隐私政策"
+  },
+  "bookmarksLabel": {
+    "message": "书签"
+  },
+  "importBookmarksBtnText": {
+    "message": "导入书签"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "导入书签？"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "导入书签将清除您当前的快捷方式。是否继续？"
   }
 }

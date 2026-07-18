@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Skróty"
   },
-  "enableFoldersLabel": {
-    "message": "Włącz foldery"
-  },
   "hideShortcutNamesLabel": {
     "message": "Ukryj nazwy"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Przeczytaj politykę prywatności"
+  },
+  "bookmarksLabel": {
+    "message": "Zakładki"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importuj zakładki"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importuj zakładki?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Import zakładek usunie Twoje obecne skróty. Czy chcesz kontynuować?"
   }
 }

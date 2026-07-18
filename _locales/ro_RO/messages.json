@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Căi rapide"
   },
-  "enableFoldersLabel": {
-    "message": "Activează folderele"
-  },
   "hideShortcutNamesLabel": {
     "message": "Ascunde numele"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Citiți politica de confidențialitate"
+  },
+  "bookmarksLabel": {
+    "message": "Marcaje"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importați marcajele"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importați marcajele?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Importul marcajelor va șterge comenzile rapide curente. Doriți să continuați?"
   }
 }

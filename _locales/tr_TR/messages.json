@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Kısayollar"
   },
-  "enableFoldersLabel": {
-    "message": "Klasörleri Etkinleştir"
-  },
   "hideShortcutNamesLabel": {
     "message": "İsimleri Gizle"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Gizlilik politikasını okuyun"
+  },
+  "bookmarksLabel": {
+    "message": "Yer İmleri"
+  },
+  "importBookmarksBtnText": {
+    "message": "Yer İmlerini İçe Aktar"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Yer İmlerini İçe Aktar?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Yer imlerini içe aktarmak mevcut kısayollarınızı siler. Devam etmek istiyor musunuz?"
   }
 }

@@ -730,6 +730,96 @@ export function bindShortcutRadiusFeature(options: any): void {
     });
   }
 
+  if (refs.importBookmarksBtn) {
+    refs.importBookmarksBtn.addEventListener('click', async () => {
+      const { requestApiPermission } = await import('@/core/shared/permissions');
+      const granted = await requestApiPermission(['bookmarks']);
+      if (!granted) return;
+
+      const runImport = () => {
+        const chromeApi = (window as any).chrome;
+        chromeApi.bookmarks.getTree((nodes: any[]) => {
+          const result: any[] = [];
+          function processNode(node: any, currentList: any[], depth: number) {
+            if (node.url) {
+              currentList.push({
+                id: 'bm_' + node.id + '_' + Date.now(),
+                name: node.title ? node.title.substring(0, 40) : 'Bookmark',
+                url: node.url,
+              });
+            } else if (node.children) {
+              if (depth <= 1) {
+                for (const child of node.children) processNode(child, currentList, depth + 1);
+              } else {
+                if (depth > 2) {
+                  for (const child of node.children) processNode(child, currentList, depth + 1);
+                } else {
+                  const folder = {
+                    id: 'folder_' + node.id + '_' + Date.now(),
+                    type: 'folder',
+                    name: node.title ? node.title.substring(0, 40) : 'Folder',
+                    children: [] as any[]
+                  };
+                  for (const child of node.children) processNode(child, folder.children, depth + 1);
+                  if (folder.children.length > 40) folder.children = folder.children.slice(0, 40);
+                  if (folder.children.length > 0) currentList.push(folder);
+                }
+              }
+            }
+          }
+
+          for (const node of nodes) processNode(node, result, 0);
+
+          let finalResult = result;
+          if (result.length > 40) {
+            const mainItems = result.slice(0, 39);
+            const overflowItems = result.slice(39);
+            const othersFolder = {
+              id: 'folder_others_' + Date.now(),
+              type: 'folder',
+              name: 'Others',
+              children: [] as any[]
+            };
+            for (const item of overflowItems) {
+              if (item.type !== 'folder') othersFolder.children.push(item);
+              else if (item.children) othersFolder.children.push(...item.children.filter((c: any) => c.type !== 'folder'));
+            }
+            if (othersFolder.children.length > 40) othersFolder.children = othersFolder.children.slice(0, 40);
+            if (othersFolder.children.length > 0) mainItems.push(othersFolder);
+            finalResult = mainItems;
+          }
+
+          let rows = 1;
+          if (finalResult.length > 30) rows = 4;
+          else if (finalResult.length > 20) rows = 3;
+          else if (finalResult.length > 10) rows = 2;
+
+          localStorage.setItem('shortcuts', JSON.stringify(finalResult));
+          localStorage.setItem('shortcutsRows', String(rows));
+          window.location.reload();
+        });
+      };
+
+      const existingStr = localStorage.getItem('shortcuts');
+      const existing = existingStr ? JSON.parse(existingStr) : [];
+      if (existing.length > 0) {
+        import('@/core/ui/ui-components').then(({ warningModal }) => {
+          warningModal.show({
+            title: (window as any).getTranslation?.('importBookmarksWarningTitle') || 'Import Bookmarks?',
+            message: (window as any).getTranslation?.('importBookmarksWarningDesc') || 'Importing bookmarks will erase your current shortcuts. Do you want to continue?',
+            confirmText: (window as any).getTranslation?.('importOption') || 'Import',
+            cancelText: (window as any).getTranslation?.('cancelOption') || 'Cancel',
+            confirmVariant: 'danger',
+            onConfirm: () => runImport(),
+            onCancel: () => {},
+          });
+        });
+      } else {
+        runImport();
+      }
+    });
+  }
+
   if (refs.shortcutsMoreBtn && refs.shortcutsMoreContainer) {
     refs.shortcutsMoreBtn.addEventListener('click', () => {
       const isCollapsed =
@@ -1307,50 +1397,7 @@ export function initGlobalUiSystem(
     });
   }
 
-  if (refs.toggleFolders) {
-    refs.toggleFolders.checked = foldersEnabled;
-    refs.toggleFolders.addEventListener('change', (e) => {
-      const target = e.target as HTMLInputElement;
-      if (!target.checked) {
-        const hasFolders = shortcuts.some(
-          (s: any) =>
-            s.type === 'folder' ||
-            (Array.isArray(s.children) && s.children.length > 0),
-        );
-        if (hasFolders) {
-          import('@/core/ui/ui-components').then(({ warningModal }) => {
-            warningModal.show({
-              title: 'Disable Folders?',
-              message:
-                'All folders and their shortcuts will be deleted. This cannot be undone unless you have a backup.',
-              confirmText: 'Delete Folders',
-              cancelText: 'Keep Enabled',
-              confirmVariant: 'danger',
-              onConfirm: () => {
-                const pruned = shortcuts.filter(
-                  (item: any) =>
-                    item.type !== 'folder' && !Array.isArray(item.children),
-                );
-                shortcuts.length = 0;
-                shortcuts.push(...pruned);
-                setFoldersEnabled(false);
-                localStorage.setItem('foldersEnabled', 'false');
-                updateLauncherFooter();
-                saveAndRender();
-              },
-              onCancel: () => {
-                target.checked = true;
-              },
-            });
-          });
-          return;
-        }
-      }
-      setFoldersEnabled(target.checked);
-      localStorage.setItem('foldersEnabled', String(target.checked));
-      updateLauncherFooter();
-    });
-  }
+
 
   if (refs.exportBtn) {
     refs.exportBtn.addEventListener(

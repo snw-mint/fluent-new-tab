@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Ярлики"
   },
-  "enableFoldersLabel": {
-    "message": "Увімкнути папки"
-  },
   "hideShortcutNamesLabel": {
     "message": "Приховати імена"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Прочитайте політику конфіденційності"
+  },
+  "bookmarksLabel": {
+    "message": "Закладки"
+  },
+  "importBookmarksBtnText": {
+    "message": "Імпорт закладок"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Імпорт закладок?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Імпорт закладок видалить ваші поточні ярлики. Бажаєте продовжити?"
   }
 }

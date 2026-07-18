@@ -32,7 +32,7 @@ export let allowedRows = parseInt(
 export let shortcutsVisible =
   localStorage.getItem('shortcutsVisible') !== 'false';
 export let currentFolderId: string | null = null;
-export let foldersEnabled = localStorage.getItem('foldersEnabled') === 'true';
+export let foldersEnabled = true;
 export let hideShortcutNames =
   localStorage.getItem('hideShortcutNames') === 'true';
 export let shortcutRadius = localStorage.getItem('shortcutRadius') || '0';

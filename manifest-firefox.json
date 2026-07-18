@@ -35,6 +35,7 @@
     }
   },
   "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
+  "optional_permissions": ["bookmarks"],
   "optional_host_permissions": [
     "https://duckduckgo.com/*",
     "https://peapix.com/*",

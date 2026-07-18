@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Ярлыки"
   },
-  "enableFoldersLabel": {
-    "message": "Включить папки"
-  },
   "hideShortcutNamesLabel": {
     "message": "Скрыть имена"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Прочтите политику конфиденциальности"
+  },
+  "bookmarksLabel": {
+    "message": "Закладки"
+  },
+  "importBookmarksBtnText": {
+    "message": "Импорт закладок"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Импорт закладок?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Импорт закладок удалит ваши текущие ярлыки. Хотите продолжить?"
   }
 }

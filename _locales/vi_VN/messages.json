@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Lối tắt"
   },
-  "enableFoldersLabel": {
-    "message": "Bật thư mục"
-  },
   "hideShortcutNamesLabel": {
     "message": "Ẩn tên"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Đọc chính sách bảo mật"
+  },
+  "bookmarksLabel": {
+    "message": "Dấu trang"
+  },
+  "importBookmarksBtnText": {
+    "message": "Nhập dấu trang"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Nhập dấu trang?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Nhập dấu trang sẽ xóa các phím tắt hiện tại của bạn. Bạn có muốn tiếp tục không?"
   }
 }

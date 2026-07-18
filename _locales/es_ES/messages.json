@@ -157,9 +157,6 @@
   "shortcutsTitle": {
     "message": "Atajos"
   },
-  "enableFoldersLabel": {
-    "message": "Habilitar carpetas"
-  },
   "hideShortcutNamesLabel": {
     "message": "Ocultar nombres"
   },
@@ -435,5 +432,17 @@
   },
   "highlightNameLabel": {
     "message": "Resaltar nombre"
+  },
+  "bookmarksLabel": {
+    "message": "Marcadores"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importar marcadores"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "¿Importar marcadores?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "La importación de marcadores borrará sus atajos actuales. ¿Desea continuar?"
   }
 }

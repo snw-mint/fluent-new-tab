@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Genveje"
   },
-  "enableFoldersLabel": {
-    "message": "Aktivér mapper"
-  },
   "hideShortcutNamesLabel": {
     "message": "Skjul navne"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Læs privatlivspolitik"
+  },
+  "bookmarksLabel": {
+    "message": "Bogmærker"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importer bogmærker"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importer bogmærker?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Import af bogmærker vil slette dine nuværende genveje. Vil du fortsætte?"
   }
 }

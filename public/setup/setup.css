@@ -888,3 +888,44 @@ body.slide-prev .step.active {
   background: var(--text-color);
   opacity: 0.3;
 }
+
+.setup-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.setup-controls-row .fluent-select-container {
+  width: 50%;
+}
+
+.accent-btn {
+  background: var(--accent-color);
+  color: var(--accent-contrast) !important;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  height: 2.75rem;
+  transition: background 0.15s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accent-btn:hover {
+  background: color-mix(in srgb, var(--accent-color), #000 15%);
+}
+
+.accent-btn:active {
+  transform: scale(0.98);
+}
+
+.setting-block.is-disabled .accent-btn {
+  opacity: 0.5;
+  pointer-events: none;
+}

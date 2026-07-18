@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Pikakuvakkeet"
   },
-  "enableFoldersLabel": {
-    "message": "Ota kansiot käyttöön"
-  },
   "hideShortcutNamesLabel": {
     "message": "Piilota nimet"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Lue tietosuojakäytäntö"
+  },
+  "bookmarksLabel": {
+    "message": "Kirjanmerkit"
+  },
+  "importBookmarksBtnText": {
+    "message": "Tuo kirjanmerkit"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Tuo kirjanmerkit?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Kirjanmerkkien tuonti poistaa nykyiset pikakuvakkeesi. Haluatko jatkaa?"
   }
 }

@@ -306,9 +306,7 @@ export function initShortcutsFormSystem(
           children: [],
         });
       }
-      state.setFoldersEnabled(true);
-      if (refs.toggleFolders) refs.toggleFolders.checked = true;
-      localStorage.setItem('foldersEnabled', 'true');
+
       updateLauncherFooter();
       saveAndRender();
       state.setEditingIndex(null);

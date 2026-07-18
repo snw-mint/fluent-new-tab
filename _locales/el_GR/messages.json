@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Συντομεύσεις"
   },
-  "enableFoldersLabel": {
-    "message": "Ενεργοποίηση φακέλων"
-  },
   "hideShortcutNamesLabel": {
     "message": "Απόκρυψη ονομάτων"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Διαβάστε την πολιτική απορρήτου"
+  },
+  "bookmarksLabel": {
+    "message": "Σελιδοδείκτες"
+  },
+  "importBookmarksBtnText": {
+    "message": "Εισαγωγή σελιδοδεικτών"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Εισαγωγή σελιδοδεικτών;"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Η εισαγωγή σελιδοδεικτών θα διαγράψει τις τρέχουσες συντομεύσεις σας. Θέλετε να συνεχίσετε;"
   }
 }

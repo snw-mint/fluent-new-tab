@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Snelkoppelingen"
   },
-  "enableFoldersLabel": {
-    "message": "Mappen inschakelen"
-  },
   "hideShortcutNamesLabel": {
     "message": "Namen verbergen"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Lees privacybeleid"
+  },
+  "bookmarksLabel": {
+    "message": "Bladwijzers"
+  },
+  "importBookmarksBtnText": {
+    "message": "Bladwijzers importeren"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Bladwijzers importeren?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Het importeren van bladwijzers wist uw huidige snelkoppelingen. Wilt u doorgaan?"
   }
 }

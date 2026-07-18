@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Shortcuts"
   },
-  "enableFoldersLabel": {
-    "message": "Enable Folders"
-  },
   "hideShortcutNamesLabel": {
     "message": "Hide Names"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Read privacy policy"
+  },
+  "bookmarksLabel": {
+    "message": "Bookmarks"
+  },
+  "importBookmarksBtnText": {
+    "message": "Import Bookmarks"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Import Bookmarks?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Importing bookmarks will erase your current shortcuts. Do you want to continue?"
   }
 }

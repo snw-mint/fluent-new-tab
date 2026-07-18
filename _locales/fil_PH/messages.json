@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Mga Shortcut"
   },
-  "enableFoldersLabel": {
-    "message": "I-enable ang Folders"
-  },
   "hideShortcutNamesLabel": {
     "message": "I-hide ang Names"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Basahin ang patakaran sa privacy"
+  },
+  "bookmarksLabel": {
+    "message": "Mga Bookmark"
+  },
+  "importBookmarksBtnText": {
+    "message": "I-import ang Mga Bookmark"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "I-import ang Mga Bookmark?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Ang pag-import ng mga bookmark ay buburahin ang iyong kasalukuyang mga shortcut. Gusto mo bang magpatuloy?"
   }
 }

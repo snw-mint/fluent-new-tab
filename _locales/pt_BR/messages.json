@@ -472,9 +472,6 @@
   "shortcutsTitle": {
     "message": "Atalhos"
   },
-  "enableFoldersLabel": {
-    "message": "Ativar pastas"
-  },
   "hideShortcutNamesLabel": {
     "message": "Ocultar nomes"
   },
@@ -696,5 +693,17 @@
   },
   "privacyPolicyLabel": {
     "message": "Leia a política de privacidade"
+  },
+  "bookmarksLabel": {
+    "message": "Favoritos"
+  },
+  "importBookmarksBtnText": {
+    "message": "Importar Favoritos"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Importar Favoritos?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "A importação de favoritos apagará seus atalhos atuais. Deseja continuar?"
   }
 }
