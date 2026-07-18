@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
  - Fluent New Tab
  - Copyright (c) 2025-2026 SnowMint
@@ -7,694 +7,1059 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uninstall Feedback - Fluent New Tab</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <script>
-        (() => {
-            try {
-                const storedTheme = localStorage.getItem('theme-preference');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) { }
-        })();
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme-preference");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme = storedTheme || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
     </script>
 
     <style>
-        .uninstall-hero {
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
+      .uninstall-hero {
+        padding: 4rem 0 2rem;
+        text-align: center;
+      }
 
-        .uninstall-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-main);
-            letter-spacing: -0.02em;
-        }
+      .uninstall-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        letter-spacing: -0.02em;
+      }
 
-        .uninstall-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-            max-width: 40rem;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
+      .uninstall-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        max-width: 40rem;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
 
+      .form-container {
+        max-width: 42rem;
+        margin: 0 auto 4rem;
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--color-text-main);
+      }
+
+      .fluent-radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .fluent-radio-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--color-text-main);
+        padding: 0.5rem;
+        border-radius: var(--radius-button);
+        transition: background-color 0.2s;
+        margin-left: -0.5rem;
+      }
+
+      .fluent-radio-label:hover {
+        background-color: var(--color-bg);
+      }
+
+      .fluent-radio-label input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .radio-mark {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 1px solid var(--color-text-muted);
+        border-radius: 50%;
+        margin-right: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s;
+      }
+
+      .radio-mark::after {
+        content: "";
+        width: 0.625rem;
+        height: 0.625rem;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+      }
+
+      .fluent-radio-label input[type="radio"]:checked ~ .radio-mark {
+        border-color: var(--color-primary);
+      }
+
+      .fluent-radio-label input[type="radio"]:checked ~ .radio-mark::after {
+        transform: scale(1);
+      }
+
+      .branch-group {
+        display: none;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px dashed var(--color-border);
+        animation: fluentSlideUp 0.3s ease-out forwards;
+      }
+
+      .fluent-textarea {
+        width: 100%;
+        min-height: 6rem;
+        padding: 0.75rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-button);
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        font-family: inherit;
+        font-size: 0.95rem;
+        resize: vertical;
+        transition:
+          border-color 0.2s,
+          background-color 0.2s;
+      }
+
+      .fluent-textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        background-color: var(--color-surface);
+      }
+
+      .form-actions {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .form-actions button:disabled {
+        background-color: var(--color-border);
+        color: var(--color-text-muted);
+        cursor: not-allowed;
+        opacity: 0.7;
+        box-shadow: none;
+      }
+
+      /* Success State */
+      #success-view {
+        display: none;
+        text-align: center;
+        animation: fluentSlideUp 0.4s ease-out forwards;
+      }
+
+      .success-icon {
+        color: #107c10;
+        width: 4rem;
+        height: 4rem;
+        margin: 0 auto 1.5rem;
+        background-color: rgba(16, 124, 16, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .success-icon svg {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .success-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+
+      .success-cards .setting-card {
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .success-cards .setting-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-float);
+      }
+
+      @media (max-width: 48rem) {
         .form-container {
-            max-width: 42rem;
-            margin: 0 auto 4rem;
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-card);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-card);
+          padding: 1.5rem;
+          border: none;
+          box-shadow: none;
+          background: transparent;
         }
+      }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
+      a.feature-card {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-        .form-label {
-            display: block;
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-text-main);
-        }
-
-        .fluent-radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .fluent-radio-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            font-size: 1rem;
-            color: var(--color-text-main);
-            padding: 0.5rem;
-            border-radius: var(--radius-button);
-            transition: background-color 0.2s;
-            margin-left: -0.5rem;
-        }
-
-        .fluent-radio-label:hover {
-            background-color: var(--color-bg);
-        }
-
-        .fluent-radio-label input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .radio-mark {
-            width: 1.25rem;
-            height: 1.25rem;
-            border: 1px solid var(--color-text-muted);
-            border-radius: 50%;
-            margin-right: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.2s;
-        }
-
-        .radio-mark::after {
-            content: "";
-            width: 0.625rem;
-            height: 0.625rem;
-            background-color: var(--color-primary);
-            border-radius: 50%;
-            transform: scale(0);
-            transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
-        }
-
-        .fluent-radio-label input[type="radio"]:checked~.radio-mark {
-            border-color: var(--color-primary);
-        }
-
-        .fluent-radio-label input[type="radio"]:checked~.radio-mark::after {
-            transform: scale(1);
-        }
-
-        .branch-group {
-            display: none;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px dashed var(--color-border);
-            animation: fluentSlideUp 0.3s ease-out forwards;
-        }
-
-        .fluent-textarea {
-            width: 100%;
-            min-height: 6rem;
-            padding: 0.75rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-button);
-            background-color: var(--color-bg);
-            color: var(--color-text-main);
-            font-family: inherit;
-            font-size: 0.95rem;
-            resize: vertical;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-
-        .fluent-textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            background-color: var(--color-surface);
-        }
-
-        .form-actions {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .form-actions button:disabled {
-            background-color: var(--color-border);
-            color: var(--color-text-muted);
-            cursor: not-allowed;
-            opacity: 0.7;
-            box-shadow: none;
-        }
-
-        /* Success State */
-        #success-view {
-            display: none;
-            text-align: center;
-            animation: fluentSlideUp 0.4s ease-out forwards;
-        }
-
-        .success-icon {
-            color: #107C10;
-            width: 4rem;
-            height: 4rem;
-            margin: 0 auto 1.5rem;
-            background-color: rgba(16, 124, 16, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .success-icon svg {
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .success-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-
-        .success-cards .setting-card {
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .success-cards .setting-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-float);
-        }
-
-        @media (max-width: 48rem) {
-            .form-container {
-                padding: 1.5rem;
-                border: none;
-                box-shadow: none;
-                background: transparent;
-            }
-        }
-
-        a.feature-card {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-            gap: 1.5rem;
-            justify-content: center;
-        }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 1.5rem;
+        justify-content: center;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <div class="container nav-content" style="justify-content: space-between;">
-            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
-                <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                <span>Fluent New Tab</span>
-            </a>
+      <div class="container nav-content" style="justify-content: space-between">
+        <a
+          href="index.html"
+          class="logo"
+          style="text-decoration: none; color: inherit"
+        >
+          <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+          <span>Fluent New Tab</span>
+        </a>
 
-            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
-                <span class="theme-icon light-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <span class="theme-icon dark-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <div class="theme-thumb"></div>
-            </button>
-        </div>
+        <button
+          id="theme-switcher"
+          class="theme-switch"
+          aria-label="Toggle Dark Mode"
+        >
+          <span class="theme-icon light-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="theme-icon dark-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div class="theme-thumb"></div>
+        </button>
+      </div>
     </nav>
 
     <header class="uninstall-hero" id="header-text">
-        <div class="container">
-            <img src="assets/emojis/tears.png" alt="Face Holding Back Tears" width="70" height="70" />
-            <h1 class="uninstall-title">I'm sorry to see you go.</h1>
-            <p class="uninstall-subtitle">Taking 30 seconds to tell me why you left helps me improve Fluent New Tab for
-                everyone.</p>
-        </div>
+      <div class="container">
+        <img
+          src="assets/emojis/tears.png"
+          alt="Face Holding Back Tears"
+          width="70"
+          height="70"
+        />
+        <h1 class="uninstall-title">I'm sorry to see you go.</h1>
+        <p class="uninstall-subtitle">
+          Taking 30 seconds to tell me why you left helps me improve Fluent New
+          Tab for everyone.
+        </p>
+      </div>
     </header>
 
     <main class="container">
+      <div
+        class="store-alert-card"
+        id="edge-alert-card"
+        style="display: none; margin-bottom: 2rem; max-width: 42rem"
+      >
+        <div class="store-alert-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z"
+              fill="url(#paint0_linear_378174_9756)"
+            />
+            <path
+              d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z"
+              fill="url(#paint1_linear_378174_9756)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_378174_9756"
+                x1="5.12461"
+                y1="-0.392807"
+                x2="16.7187"
+                y2="23.4768"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#FFCD0F" />
+                <stop offset="1" stop-color="#FE8401" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_378174_9756"
+                x1="9.33556"
+                y1="8.5"
+                x2="13.7522"
+                y2="18.4051"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#4A4A4A" />
+                <stop offset="1" stop-color="#212121" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="store-alert-content">
+          <p>
+            <strong>Leaving due to a bug?</strong> Microsoft takes over a week
+            to review fixes! We might have already solved it—try the
+            <strong>Chrome Web Store</strong> version instead.
+          </p>
+        </div>
+        <div class="store-alert-action">
+          <a
+            href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Chrome Web Store</a
+          >
+        </div>
+      </div>
 
-        <div class="store-alert-card" id="edge-alert-card" style="display: none; margin-bottom: 2rem; max-width: 42rem;">
-            <div class="store-alert-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z" fill="url(#paint0_linear_378174_9756)"/>
-                    <path d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z" fill="url(#paint1_linear_378174_9756)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear_378174_9756" x1="5.12461" y1="-0.392807" x2="16.7187" y2="23.4768" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#FFCD0F"/>
-                            <stop offset="1" stop-color="#FE8401"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear_378174_9756" x1="9.33556" y1="8.5" x2="13.7522" y2="18.4051" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#4A4A4A"/>
-                            <stop offset="1" stop-color="#212121"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+      <div class="form-container" id="form-view">
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSe-5O5DArZLp84fMQrnu3Er8Hq9MPNVjr0C5c-83cVex_bauA/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          id="uninstall-form"
+        >
+          <div class="form-group">
+            <label class="form-label"
+              >Why are you uninstalling Fluent New Tab?
+              <span style="color: #d13438">*</span></label
+            >
+            <div class="fluent-radio-group">
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="It's missing features I need"
+                  required
+                />
+                <span class="radio-mark"></span> It's missing features I need
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="It was buggy or slowed down my browser"
+                />
+                <span class="radio-mark"></span> It was buggy or slowed down my
+                browser
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="I was concerned about privacy or permissions"
+                />
+                <span class="radio-mark"></span> I was concerned about privacy
+                or permissions
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="I didn't like the design / layout"
+                />
+                <span class="radio-mark"></span> I didn't like the design /
+                layout
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="It was difficult to set up or use"
+                />
+                <span class="radio-mark"></span> It was difficult to set up or
+                use
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="I was just testing it out"
+                />
+                <span class="radio-mark"></span> I was just testing it out
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="I prefer my previous new tab / another extension"
+                />
+                <span class="radio-mark"></span> I prefer my previous new tab /
+                another extension
+              </label>
+
+              <label class="fluent-radio-label">
+                <input
+                  type="radio"
+                  name="entry.1740313797"
+                  value="__other_option__"
+                />
+                <span class="radio-mark"></span> Other
+              </label>
+
+              <div id="branch-native-other" class="branch-group">
+                <label class="form-label">Please specify:</label>
+                <textarea
+                  class="fluent-textarea"
+                  name="entry.1740313797.other_option_response"
+                  placeholder="Tell me more..."
+                ></textarea>
+              </div>
             </div>
-            <div class="store-alert-content">
-                <p><strong>Leaving due to a bug?</strong> Microsoft takes over a week to review fixes! We might have already solved it—try the <strong>Chrome Web Store</strong> version instead.</p>
-            </div>
-            <div class="store-alert-action">
-                <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/" class="btn-primary" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-            </div>
+          </div>
+
+          <div id="branch-features" class="branch-group">
+            <label class="form-label">What feature were you looking for?</label>
+            <textarea
+              class="fluent-textarea"
+              name="entry.359779339"
+              placeholder="Tell me more... (Optional)"
+            ></textarea>
+          </div>
+
+          <div id="branch-bug" class="branch-group">
+            <label class="form-label"
+              >Could you briefly describe the bug or issue?</label
+            >
+            <textarea
+              class="fluent-textarea"
+              name="entry.74716002"
+              placeholder="Tell me more... (Optional)"
+            ></textarea>
+          </div>
+
+          <div id="branch-privacy" class="branch-group">
+            <label class="form-label"
+              >Which permission or privacy aspect concerned you?</label
+            >
+            <textarea
+              class="fluent-textarea"
+              name="entry.1040472792"
+              placeholder="Tell me more... (Optional)"
+            ></textarea>
+          </div>
+
+          <div id="branch-switch" class="branch-group">
+            <label class="form-label"
+              >Which extension are you switching to?</label
+            >
+            <textarea
+              class="fluent-textarea"
+              name="entry.213254177"
+              placeholder="Tell me more... (Optional)"
+            ></textarea>
+          </div>
+
+          <div id="branch-others" class="branch-group">
+            <label class="form-label"
+              >Any other feedback to help me improve?</label
+            >
+            <textarea
+              class="fluent-textarea"
+              name="entry.472098049"
+              placeholder="Tell me more... (Optional)"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" disabled>
+              Submit Feedback
+            </button>
+          </div>
+        </form>
+
+        <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display: none"
+        ></iframe>
+      </div>
+
+      <div
+        class="form-container"
+        id="success-view"
+        style="
+          padding: 4rem 2rem;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="assets/emojis/hugging.png"
+          alt="Smiling Face with Open Hands"
+          width="70"
+          height="70"
+        />
+        <h2 class="uninstall-title">Thank you for your feedback!</h2>
+        <p class="uninstall-subtitle" style="margin-bottom: 3rem">
+          It means a lot to an independent developer. If you’d like to provide
+          more details about a bug or have any questions, please feel free to
+          reach out.
+        </p>
+
+        <div class="features-grid">
+          <a href="mailto:snowmint.dev@gmail.com" class="feature-card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="#367AF2"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint0_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint1_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint2_linear_378174_9144)"
+                fill-opacity="0.75"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint3_linear_378174_9144)"
+                fill-opacity="0.7"
+              />
+              <path
+                d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
+                fill="url(#paint4_linear_378174_9144)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9144"
+                  x1="14.5391"
+                  y1="9.95028"
+                  x2="20.0046"
+                  y2="20.515"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.19865"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9144"
+                  x1="9.1429"
+                  y1="8.81579"
+                  x2="3.82831"
+                  y2="20.8653"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.191319"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_378174_9144"
+                  x1="17.2735"
+                  y1="14.9574"
+                  x2="18.1428"
+                  y2="21.1514"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2764E7" stop-opacity="0" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_378174_9144"
+                  x1="15.0953"
+                  y1="9.03508"
+                  x2="16.6812"
+                  y2="21.6434"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.53288"
+                    stop-color="#FF6CE8"
+                    stop-opacity="0"
+                  />
+                  <stop offset="1" stop-color="#FF6CE8" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_378174_9144"
+                  x1="7.94161"
+                  y1="1.15063"
+                  x2="13.98"
+                  y2="17.089"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6CE0FF" />
+                  <stop offset="0.461792" stop-color="#29C3FF" />
+                  <stop offset="1" stop-color="#4894FE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Email Me</h3>
+            <p>snowmint.dev@gmail.com</p>
+          </a>
+
+          <a href="index.html" class="feature-card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 13H15V21H9V13Z"
+                fill="url(#paint0_linear_378174_9087)"
+              />
+              <path
+                d="M13.4508 4.53318C12.6128 3.82618 11.3872 3.82618 10.5492 4.53318L3.79916 10.2277C3.29241 10.6552 3 11.2845 3 11.9475V19.2526C3 20.2191 3.7835 21.0026 4.75 21.0026H7.75H9.5V15.25C9.5 14.5707 10.0418 14.018 10.7169 14.0004H13.2831C13.9582 14.018 14.5 14.5707 14.5 15.25V21.0026H16.25H19.25C20.2165 21.0026 21 20.2191 21 19.2526V11.9475C21 11.2845 20.7076 10.6552 20.2008 10.2277L13.4508 4.53318Z"
+                fill="url(#paint1_linear_378174_9087)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.8044 2.2988C12.3455 1.9004 11.6545 1.9004 11.1956 2.2988L2.40744 9.92806C1.90688 10.3626 1.86123 11.1118 2.30548 11.6014C2.74973 12.0911 3.51565 12.1357 4.01621 11.7012L12 4.77023L19.9838 11.7012C20.4844 12.1357 21.2503 12.0911 21.6945 11.6014C22.1388 11.1118 22.0931 10.3626 21.5926 9.92806L12.8044 2.2988Z"
+                fill="url(#paint2_linear_378174_9087)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.1956 2.2988C11.6545 1.9004 12.3455 1.9004 12.8044 2.2988L21.5926 9.92806C22.0931 10.3626 22.1388 11.1118 21.6945 11.6014C21.2503 12.0911 20.4844 12.1357 19.9838 11.7012L12 4.77023L4.01621 11.7012C3.51565 12.1357 2.74973 12.0911 2.30548 11.6014C1.86123 11.1118 1.90688 10.3626 2.40744 9.92806L11.1956 2.2988Z"
+                fill="url(#paint3_linear_378174_9087)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9087"
+                  x1="12"
+                  y1="13"
+                  x2="6.7067"
+                  y2="21.8251"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#944600" />
+                  <stop offset="1" stop-color="#CD8E02" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9087"
+                  x1="4.71799"
+                  y1="3.17161"
+                  x2="21.5682"
+                  y2="17.6733"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFD394" />
+                  <stop offset="1" stop-color="#FFB357" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_378174_9087"
+                  x1="8.76835"
+                  y1="-0.375046"
+                  x2="13.1615"
+                  y2="11.5055"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_378174_9087"
+                  x1="8.76835"
+                  y1="-0.375046"
+                  x2="13.1615"
+                  y2="11.5055"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Back to Home</h3>
+            <p>Return to the main page.</p>
+          </a>
         </div>
 
-        <div class="form-container" id="form-view">
-
-            <form
-                action="https://docs.google.com/forms/d/e/1FAIpQLSe-5O5DArZLp84fMQrnu3Er8Hq9MPNVjr0C5c-83cVex_bauA/formResponse"
-                method="POST" target="hidden_iframe" id="uninstall-form">
-
-                <div class="form-group">
-                    <label class="form-label">Why are you uninstalling Fluent New Tab? <span
-                            style="color: #D13438;">*</span></label>
-                    <div class="fluent-radio-group">
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="It's missing features I need" required>
-                            <span class="radio-mark"></span> It's missing features I need
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="It was buggy or slowed down my browser">
-                            <span class="radio-mark"></span> It was buggy or slowed down my browser
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797"
-                                value="I was concerned about privacy or permissions">
-                            <span class="radio-mark"></span> I was concerned about privacy or permissions
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="I didn't like the design / layout">
-                            <span class="radio-mark"></span> I didn't like the design / layout
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="It was difficult to set up or use">
-                            <span class="radio-mark"></span> It was difficult to set up or use
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="I was just testing it out">
-                            <span class="radio-mark"></span> I was just testing it out
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797"
-                                value="I prefer my previous new tab / another extension">
-                            <span class="radio-mark"></span> I prefer my previous new tab / another extension
-                        </label>
-
-                        <label class="fluent-radio-label">
-                            <input type="radio" name="entry.1740313797" value="__other_option__">
-                            <span class="radio-mark"></span> Other
-                        </label>
-
-                        <div id="branch-native-other" class="branch-group">
-                            <label class="form-label">Please specify:</label>
-                            <textarea class="fluent-textarea" name="entry.1740313797.other_option_response"
-                                placeholder="Tell me more..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="branch-features" class="branch-group">
-                    <label class="form-label">What feature were you looking for?</label>
-                    <textarea class="fluent-textarea" name="entry.359779339"
-                        placeholder="Tell me more... (Optional)"></textarea>
-                </div>
-
-                <div id="branch-bug" class="branch-group">
-                    <label class="form-label">Could you briefly describe the bug or issue?</label>
-                    <textarea class="fluent-textarea" name="entry.74716002"
-                        placeholder="Tell me more... (Optional)"></textarea>
-                </div>
-
-                <div id="branch-privacy" class="branch-group">
-                    <label class="form-label">Which permission or privacy aspect concerned you?</label>
-                    <textarea class="fluent-textarea" name="entry.1040472792"
-                        placeholder="Tell me more... (Optional)"></textarea>
-                </div>
-
-                <div id="branch-switch" class="branch-group">
-                    <label class="form-label">Which extension are you switching to?</label>
-                    <textarea class="fluent-textarea" name="entry.213254177"
-                        placeholder="Tell me more... (Optional)"></textarea>
-                </div>
-
-                <div id="branch-others" class="branch-group">
-                    <label class="form-label">Any other feedback to help me improve?</label>
-                    <textarea class="fluent-textarea" name="entry.472098049"
-                        placeholder="Tell me more... (Optional)"></textarea>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary" disabled>Submit Feedback</button>
-                </div>
-            </form>
-
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <div class="store-alert-card" style="margin-top: 3rem; max-width: 100%">
+          <div class="store-alert-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M15 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0" fill="url(#md3-a)" />
+              <path
+                d="M12 2.004a7.5 7.5 0 0 1 7.5 7.5v3.998l1.418 3.16a.95.95 0 0 1-.866 1.34h-16.1a.95.95 0 0 1-.867-1.339l1.415-3.16V9.49l.005-.25A7.5 7.5 0 0 1 12 2.004"
+                fill="url(#md3-b)"
+              />
+              <path
+                d="M12 2.004a7.5 7.5 0 0 1 7.5 7.5v3.998l1.418 3.16a.95.95 0 0 1-.866 1.34h-16.1a.95.95 0 0 1-.867-1.339l1.415-3.16V9.49l.005-.25A7.5 7.5 0 0 1 12 2.004"
+                fill="url(#md3-c)"
+                fill-opacity=".2"
+              />
+              <path
+                d="M18.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                fill="url(#md3-d)"
+              />
+              <defs>
+                <linearGradient
+                  id="md3-a"
+                  x1="12"
+                  y1="17.5"
+                  x2="12.019"
+                  y2="20.999"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#eb4824" />
+                  <stop offset="1" stop-color="#ffcd0f" stop-opacity=".988" />
+                </linearGradient>
+                <linearGradient
+                  id="md3-b"
+                  x1="21.027"
+                  y1="17.995"
+                  x2="4.945"
+                  y2="4.464"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#ff6f47" />
+                  <stop offset="1" stop-color="#ffcd0f" />
+                </linearGradient>
+                <linearGradient
+                  id="md3-d"
+                  x1="16.179"
+                  y1="3.938"
+                  x2="20.107"
+                  y2="7.063"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#f83f54" />
+                  <stop offset="1" stop-color="#b91d6b" />
+                </linearGradient>
+                <radialGradient
+                  id="md3-c"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="rotate(131.987 7.803 7.37)scale(6.72681 7.33035)"
+                >
+                  <stop offset=".253" stop-color="#ffe994" />
+                  <stop offset=".648" stop-color="#ffe994" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="store-alert-content">
+            <p>
+              Prefer Google's organic aesthetic? Check out our sister project:
+              <strong>MD3: Expressive New Tab</strong>.
+            </p>
+          </div>
+          <div class="store-alert-action">
+            <a
+              href="https://snw-mint.github.io/md3-new-tab/"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Learn More</a
+            >
+          </div>
         </div>
-
-
-        <div class="form-container" id="success-view"
-            style="padding: 4rem 2rem; border: none; box-shadow: none; background: transparent;">
-            <img src="assets/emojis/hugging.png" alt="Smiling Face with Open Hands" width="70" height="70" />
-            <h2 class="uninstall-title">Thank you for your feedback!</h2>
-            <p class="uninstall-subtitle" style="margin-bottom: 3rem;">It means a lot to an independent developer. If
-                you’d like to provide more details about a bug or have any questions, please feel free to reach out.</p>
-
-            <div class="features-grid">
-                <a href="mailto:snw-mint@outlook.com" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="#367AF2" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint0_linear_378174_9144)" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint1_linear_378174_9144)" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint2_linear_378174_9144)" fill-opacity="0.75" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint3_linear_378174_9144)" fill-opacity="0.7" />
-                        <path
-                            d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
-                            fill="url(#paint4_linear_378174_9144)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9144" x1="14.5391" y1="9.95028" x2="20.0046"
-                                y2="20.515" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.19865" stop-color="#0094F0" stop-opacity="0" />
-                                <stop offset="0.430619" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9144" x1="9.1429" y1="8.81579" x2="3.82831"
-                                y2="20.8653" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.191319" stop-color="#0094F0" stop-opacity="0" />
-                                <stop offset="0.430619" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_378174_9144" x1="17.2735" y1="14.9574" x2="18.1428"
-                                y2="21.1514" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2764E7" stop-opacity="0" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_378174_9144" x1="15.0953" y1="9.03508" x2="16.6812"
-                                y2="21.6434" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.53288" stop-color="#FF6CE8" stop-opacity="0" />
-                                <stop offset="1" stop-color="#FF6CE8" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_378174_9144" x1="7.94161" y1="1.15063" x2="13.98"
-                                y2="17.089" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6CE0FF" />
-                                <stop offset="0.461792" stop-color="#29C3FF" />
-                                <stop offset="1" stop-color="#4894FE" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Email Me</h3>
-                    <p>snw-mint@outlook.com</p>
-                </a>
-
-                <a href="index.html" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 13H15V21H9V13Z" fill="url(#paint0_linear_378174_9087)" />
-                        <path
-                            d="M13.4508 4.53318C12.6128 3.82618 11.3872 3.82618 10.5492 4.53318L3.79916 10.2277C3.29241 10.6552 3 11.2845 3 11.9475V19.2526C3 20.2191 3.7835 21.0026 4.75 21.0026H7.75H9.5V15.25C9.5 14.5707 10.0418 14.018 10.7169 14.0004H13.2831C13.9582 14.018 14.5 14.5707 14.5 15.25V21.0026H16.25H19.25C20.2165 21.0026 21 20.2191 21 19.2526V11.9475C21 11.2845 20.7076 10.6552 20.2008 10.2277L13.4508 4.53318Z"
-                            fill="url(#paint1_linear_378174_9087)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M12.8044 2.2988C12.3455 1.9004 11.6545 1.9004 11.1956 2.2988L2.40744 9.92806C1.90688 10.3626 1.86123 11.1118 2.30548 11.6014C2.74973 12.0911 3.51565 12.1357 4.01621 11.7012L12 4.77023L19.9838 11.7012C20.4844 12.1357 21.2503 12.0911 21.6945 11.6014C22.1388 11.1118 22.0931 10.3626 21.5926 9.92806L12.8044 2.2988Z"
-                            fill="url(#paint2_linear_378174_9087)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M11.1956 2.2988C11.6545 1.9004 12.3455 1.9004 12.8044 2.2988L21.5926 9.92806C22.0931 10.3626 22.1388 11.1118 21.6945 11.6014C21.2503 12.0911 20.4844 12.1357 19.9838 11.7012L12 4.77023L4.01621 11.7012C3.51565 12.1357 2.74973 12.0911 2.30548 11.6014C1.86123 11.1118 1.90688 10.3626 2.40744 9.92806L11.1956 2.2988Z"
-                            fill="url(#paint3_linear_378174_9087)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9087" x1="12" y1="13" x2="6.7067" y2="21.8251"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#944600" />
-                                <stop offset="1" stop-color="#CD8E02" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9087" x1="4.71799" y1="3.17161" x2="21.5682"
-                                y2="17.6733" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFD394" />
-                                <stop offset="1" stop-color="#FFB357" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_378174_9087" x1="8.76835" y1="-0.375046" x2="13.1615"
-                                y2="11.5055" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FF921F" />
-                                <stop offset="1" stop-color="#EB4824" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_378174_9087" x1="8.76835" y1="-0.375046" x2="13.1615"
-                                y2="11.5055" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FF921F" />
-                                <stop offset="1" stop-color="#EB4824" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Back to Home</h3>
-                    <p>Return to the main page.</p>
-                </a>
-            </div>
-
-            <div class="store-alert-card" style="margin-top: 3rem; max-width: 100%;">
-                <div class="store-alert-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0" fill="url(#md3-a)"/>
-                        <path d="M12 2.004a7.5 7.5 0 0 1 7.5 7.5v3.998l1.418 3.16a.95.95 0 0 1-.866 1.34h-16.1a.95.95 0 0 1-.867-1.339l1.415-3.16V9.49l.005-.25A7.5 7.5 0 0 1 12 2.004" fill="url(#md3-b)"/>
-                        <path d="M12 2.004a7.5 7.5 0 0 1 7.5 7.5v3.998l1.418 3.16a.95.95 0 0 1-.866 1.34h-16.1a.95.95 0 0 1-.867-1.339l1.415-3.16V9.49l.005-.25A7.5 7.5 0 0 1 12 2.004" fill="url(#md3-c)" fill-opacity=".2"/>
-                        <path d="M18.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" fill="url(#md3-d)"/>
-                        <defs>
-                            <linearGradient id="md3-a" x1="12" y1="17.5" x2="12.019" y2="20.999" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#eb4824"/>
-                                <stop offset="1" stop-color="#ffcd0f" stop-opacity=".988"/>
-                            </linearGradient>
-                            <linearGradient id="md3-b" x1="21.027" y1="17.995" x2="4.945" y2="4.464" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#ff6f47"/>
-                                <stop offset="1" stop-color="#ffcd0f"/>
-                            </linearGradient>
-                            <linearGradient id="md3-d" x1="16.179" y1="3.938" x2="20.107" y2="7.063" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#f83f54"/>
-                                <stop offset="1" stop-color="#b91d6b"/>
-                            </linearGradient>
-                            <radialGradient id="md3-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(131.987 7.803 7.37)scale(6.72681 7.33035)">
-                                <stop offset=".253" stop-color="#ffe994"/>
-                                <stop offset=".648" stop-color="#ffe994" stop-opacity="0"/>
-                            </radialGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="store-alert-content">
-                    <p>Prefer Google's organic aesthetic? Check out our sister project: <strong>MD3: Expressive New Tab</strong>.</p>
-                </div>
-                <div class="store-alert-action">
-                    <a href="https://snw-mint.github.io/md3-new-tab/" class="btn-primary" target="_blank" rel="noopener">Learn More</a>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </main>
 
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo">
-                    <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                    <span>Fluent New Tab</span>
-                </div>
-                <p class="footer-description">Fluent New Tab is an independent open-source project and is not affiliated
-                    with, endorsed by, or sponsored by Microsoft Corporation.</p>
-            </div>
-
-            <div class="footer-nav">
-                <div class="footer-column">
-                    <h4>Overview</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/setup.html">Setup & Configuration</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy Policy</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/terms.html">Terms of Use</a>
-                    <a href="mailto:snw-mint@outlook.com">Contact</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html">Troubleshooting</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml">Report a
-                        Bug</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml">Request
-                        a Feature</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose">Ask a Question</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Community</h4>
-                    <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md">Contributing</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md">Help Translate</a>
-                    <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer">Support the
-                        Project</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Download</h4>
-                    <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
-                        target="_blank" rel="noopener noreferrer">Microsoft Edge</a>
-                    <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/" target="_blank"
-                        rel="noopener noreferrer">Google Chrome</a>
-                    <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
-                        rel="noopener noreferrer">Mozilla Firefox</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank"
-                        rel="noopener noreferrer">Manual Release</a>
-                </div>
-            </div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <p class="footer-description">
+            Fluent New Tab is an independent open-source project and is not
+            affiliated with, endorsed by, or sponsored by Microsoft Corporation.
+          </p>
         </div>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
-                    rel="noopener noreferrer">snow mint</a>.</p>
+        <div class="footer-nav">
+          <div class="footer-column">
+            <h4>Overview</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+            <a href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+              >Setup & Configuration</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+              >Privacy Policy</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/terms.html"
+              >Terms of Use</a
+            >
+            <a href="mailto:snowmint.dev@gmail.com">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/help.html"
+              >Troubleshooting</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              >Report a Bug</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              >Request a Feature</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              >Ask a Question</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Community</h4>
+            <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+              >Contributing</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+              >Help Translate</a
+            >
+            <a
+              href="https://buymeacoffee.com/snw.mint"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Support the Project</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Download</h4>
+            <a
+              href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Microsoft Edge</a
+            >
+            <a
+              href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Chrome</a
+            >
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mozilla Firefox</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Manual Release</a
+            >
+          </div>
         </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>
+          &copy; 2026 Fluent New Tab. Created by
+          <a
+            href="https://github.com/snw-mint"
+            target="_blank"
+            rel="noopener noreferrer"
+            >snow mint</a
+          >.
+        </p>
+      </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const isEdge = navigator.userAgent.includes("Edg/");
-            if (isEdge) {
-                const edgeAlert = document.getElementById('edge-alert-card');
-                if (edgeAlert) {
-                    edgeAlert.style.display = 'flex';
-                }
+      document.addEventListener("DOMContentLoaded", () => {
+        const isEdge = navigator.userAgent.includes("Edg/");
+        if (isEdge) {
+          const edgeAlert = document.getElementById("edge-alert-card");
+          if (edgeAlert) {
+            edgeAlert.style.display = "flex";
+          }
+        }
+
+        const form = document.getElementById("uninstall-form");
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const radios = document.querySelectorAll('input[type="radio"]');
+        const branches = {
+          "It's missing features I need":
+            document.getElementById("branch-features"),
+          "It was buggy or slowed down my browser":
+            document.getElementById("branch-bug"),
+          "I was concerned about privacy or permissions":
+            document.getElementById("branch-privacy"),
+          "I prefer my previous new tab / another extension":
+            document.getElementById("branch-switch"),
+          "I didn't like the design / layout":
+            document.getElementById("branch-others"),
+          "It was difficult to set up or use":
+            document.getElementById("branch-others"),
+          "I was just testing it out": document.getElementById("branch-others"),
+          __other_option__: document.getElementById("branch-native-other"),
+        };
+
+        function hideAllBranches() {
+          Object.values(branches).forEach((branch) => {
+            if (branch) {
+              branch.style.display = "none";
+              const textarea = branch.querySelector("textarea");
+              if (textarea) {
+                textarea.value = "";
+                textarea.required = false;
+              }
             }
+          });
+        }
 
-            const form = document.getElementById('uninstall-form');
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const radios = document.querySelectorAll('input[type="radio"]');
-            const branches = {
-                "It's missing features I need": document.getElementById('branch-features'),
-                "It was buggy or slowed down my browser": document.getElementById('branch-bug'),
-                "I was concerned about privacy or permissions": document.getElementById('branch-privacy'),
-                "I prefer my previous new tab / another extension": document.getElementById('branch-switch'),
-                "I didn't like the design / layout": document.getElementById('branch-others'),
-                "It was difficult to set up or use": document.getElementById('branch-others'),
-                "I was just testing it out": document.getElementById('branch-others'),
-                "__other_option__": document.getElementById('branch-native-other')
-            };
+        radios.forEach((radio) => {
+          radio.addEventListener("change", (e) => {
+            submitBtn.disabled = false;
+            hideAllBranches();
+            const selectedValue = e.target.value;
 
-            function hideAllBranches() {
-                Object.values(branches).forEach(branch => {
-                    if (branch) {
-                        branch.style.display = 'none';
-                        const textarea = branch.querySelector('textarea');
-                        if (textarea) {
-                            textarea.value = '';
-                            textarea.required = false;
-                        }
-                    }
-                });
-            }
-
-            radios.forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    submitBtn.disabled = false;
-                    hideAllBranches();
-                    const selectedValue = e.target.value;
-
-                    if (branches[selectedValue]) {
-                        branches[selectedValue].style.display = 'block';
-                        const textarea = branches[selectedValue].querySelector('textarea');
-                        if (textarea) {
-                            if (selectedValue === '__other_option__') {
-                                textarea.required = true;
-                            }
-                            setTimeout(() => {
-                                textarea.focus();
-                            }, 50);
-                        }
-                    }
-                });
-            });
-
-            const checkedRadio = document.querySelector('input[type="radio"]:checked');
-            if (checkedRadio) {
-                submitBtn.disabled = false;
-                if (checkedRadio.value === '__other_option__') {
-                    const otherTextarea = document.querySelector('textarea[name="entry.1740313797.other_option_response"]');
-                    if (otherTextarea) otherTextarea.required = true;
+            if (branches[selectedValue]) {
+              branches[selectedValue].style.display = "block";
+              const textarea =
+                branches[selectedValue].querySelector("textarea");
+              if (textarea) {
+                if (selectedValue === "__other_option__") {
+                  textarea.required = true;
                 }
+                setTimeout(() => {
+                  textarea.focus();
+                }, 50);
+              }
             }
-
-            let submitted = false;
-            form.addEventListener('submit', () => {
-                submitted = true;
-                const btn = form.querySelector('button[type="submit"]');
-                btn.textContent = 'Sending...';
-                btn.style.opacity = '0.7';
-                btn.disabled = true;
-            });
-
-            const iframe = document.getElementById('hidden_iframe');
-            iframe.onload = function () {
-                if (submitted) {
-                    document.getElementById('form-view').style.display = 'none';
-                    document.getElementById('header-text').style.display = 'none';
-                    document.getElementById('success-view').style.display = 'block';
-                    window.scrollTo(0, 0);
-                }
-            };
+          });
         });
+
+        const checkedRadio = document.querySelector(
+          'input[type="radio"]:checked',
+        );
+        if (checkedRadio) {
+          submitBtn.disabled = false;
+          if (checkedRadio.value === "__other_option__") {
+            const otherTextarea = document.querySelector(
+              'textarea[name="entry.1740313797.other_option_response"]',
+            );
+            if (otherTextarea) otherTextarea.required = true;
+          }
+        }
+
+        let submitted = false;
+        form.addEventListener("submit", () => {
+          submitted = true;
+          const btn = form.querySelector('button[type="submit"]');
+          btn.textContent = "Sending...";
+          btn.style.opacity = "0.7";
+          btn.disabled = true;
+        });
+
+        const iframe = document.getElementById("hidden_iframe");
+        iframe.onload = function () {
+          if (submitted) {
+            document.getElementById("form-view").style.display = "none";
+            document.getElementById("header-text").style.display = "none";
+            document.getElementById("success-view").style.display = "block";
+            window.scrollTo(0, 0);
+          }
+        };
+      });
     </script>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

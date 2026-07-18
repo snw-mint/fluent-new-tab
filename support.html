@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
  - Fluent New Tab
  - Copyright (c) 2025-2026 SnowMint
@@ -7,408 +7,705 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Support Hub - Fluent New Tab</title>
-    <meta name="description"
-        content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs, request features and contact our community.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/support.html">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Support & FAQ - Fluent New Tab">
-    <meta property="og:description"
-        content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs and request features.">
-    <meta property="og:url" content="https://snw-mint.github.io/fluent-new-tab/support.html">
-    <meta property="og:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Support & FAQ - Fluent New Tab">
-    <meta property="twitter:description"
-        content="Technical support for Fluent New Tab extension. Report bugs and request features.">
-    <meta property="twitter:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta name="theme-color" content="#0f6cbd">
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <meta
+      name="description"
+      content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs, request features and contact our community."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://snw-mint.github.io/fluent-new-tab/support.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Support & FAQ - Fluent New Tab" />
+    <meta
+      property="og:description"
+      content="Technical support and FAQ for Fluent New Tab extension. Find answers, report bugs and request features."
+    />
+    <meta
+      property="og:url"
+      content="https://snw-mint.github.io/fluent-new-tab/support.html"
+    />
+    <meta
+      property="og:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Support & FAQ - Fluent New Tab" />
+    <meta
+      property="twitter:description"
+      content="Technical support for Fluent New Tab extension. Report bugs and request features."
+    />
+    <meta
+      property="twitter:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta name="theme-color" content="#0f6cbd" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <script>
-        (() => {
-            try {
-                const storedTheme = localStorage.getItem('theme-preference');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) { }
-        })();
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme-preference");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme = storedTheme || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
     </script>
 
     <style>
-        .support-hero {
-            padding: 4rem 0 3rem;
-            border-bottom: 1px solid var(--color-border);
-            background-color: var(--color-surface);
-            text-align: center;
-        }
+      .support-hero {
+        padding: 4rem 0 3rem;
+        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-surface);
+        text-align: center;
+      }
 
-        .support-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-main);
-            letter-spacing: -0.02em;
-        }
+      .support-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        letter-spacing: -0.02em;
+      }
 
-        .supporthub-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-            max-width: 45rem;
-            margin: 0 auto;
-        }
+      .supporthub-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        max-width: 45rem;
+        margin: 0 auto;
+      }
 
-        .support-content {
-            padding: 4rem 0 6rem;
-            min-height: calc(100vh - 25rem);
-        }
+      .support-content {
+        padding: 4rem 0 6rem;
+        min-height: calc(100vh - 25rem);
+      }
 
-        a.feature-card {
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            align-items: center;
-            text-align: center;
-        }
+      a.feature-card {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        align-items: center;
+        text-align: center;
+      }
 
-        a.feature-card p {
-            margin-bottom: 0;
-        }
+      a.feature-card p {
+        margin-bottom: 0;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar">
-        <div class="container nav-content" style="justify-content: space-between;">
-            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
-                <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                <span>Fluent New Tab</span>
-            </a>
+      <div class="container nav-content" style="justify-content: space-between">
+        <a
+          href="index.html"
+          class="logo"
+          style="text-decoration: none; color: inherit"
+        >
+          <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+          <span>Fluent New Tab</span>
+        </a>
 
-            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
-                <span class="theme-icon light-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <span class="theme-icon dark-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <div class="theme-thumb"></div>
-            </button>
-        </div>
+        <button
+          id="theme-switcher"
+          class="theme-switch"
+          aria-label="Toggle Dark Mode"
+        >
+          <span class="theme-icon light-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="theme-icon dark-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div class="theme-thumb"></div>
+        </button>
+      </div>
     </nav>
 
     <div class="site-wrapper">
-        <header class="support-hero">
-            <div class="container">
-                <h1 class="support-title">Support Hub</h1>
-                <p class="support-subtitle">Whether you're looking for help, reporting a bug, requesting a feature,
-                    asking a question, or sending me an email, you'll need a GitHub account.</p>
+      <header class="support-hero">
+        <div class="container">
+          <h1 class="support-title">Support Hub</h1>
+          <p class="support-subtitle">
+            Whether you're looking for help, reporting a bug, requesting a
+            feature, asking a question, or sending me an email, you'll need a
+            GitHub account.
+          </p>
+        </div>
+      </header>
+
+      <main class="support-content container">
+        <div class="features-grid">
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="feature-card"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z"
+                fill="url(#paint0_linear_378174_9756)"
+              />
+              <path
+                d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z"
+                fill="url(#paint1_linear_378174_9756)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9756"
+                  x1="5.12461"
+                  y1="-0.392807"
+                  x2="16.7187"
+                  y2="23.4768"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFCD0F" />
+                  <stop offset="1" stop-color="#FE8401" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9756"
+                  x1="9.33556"
+                  y1="8.5"
+                  x2="13.7522"
+                  y2="18.4051"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#4A4A4A" />
+                  <stop offset="1" stop-color="#212121" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Report a Bug</h3>
+            <p>
+              Something not working as expected? Open a detailed issue on our
+              GitHub repository so we can investigate and fix it.
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="feature-card"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.0019 13.244L17.0011 21.2451C17.0011 21.8528 16.3163 22.2082 15.8194 21.8584L12.001 19.1706L8.18456 21.8583C7.68767 22.2082 7.00271 21.8529 7.00271 21.2451L7.00098 13.2459C8.37047 14.3434 10.1087 14.9999 12.0003 14.9999C13.8929 14.9999 15.632 14.3427 17.0019 13.244Z"
+                fill="url(#paint0_radial_72095_8354)"
+              />
+              <path
+                d="M12 2C15.866 2 19 5.13401 19 9C19 12.866 15.866 16 12 16C8.13401 16 5 12.866 5 9C5 5.13401 8.13401 2 12 2Z"
+                fill="url(#paint1_radial_72095_8354)"
+              />
+              <defs>
+                <radialGradient
+                  id="paint0_radial_72095_8354"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(12.0014 11.879) rotate(90) scale(13.7943 22.0759)"
+                >
+                  <stop stop-color="#163697" />
+                  <stop offset="1" stop-color="#29C3FF" />
+                </radialGradient>
+                <radialGradient
+                  id="paint1_radial_72095_8354"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-25.25 -47) rotate(56.615) scale(78.1445 66.9271)"
+                >
+                  <stop offset="0.771547" stop-color="#FFCD0F" />
+                  <stop offset="0.990707" stop-color="#E67505" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <h3>Request a Feature</h3>
+            <p>
+              Have a brilliant idea to improve Fluent New Tab? Share your
+              suggestions and use cases with the community on GitHub.
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="feature-card"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
+                fill="url(#paint0_linear_72095_8648)"
+              />
+              <path
+                d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
+                fill="url(#paint1_linear_72095_8648)"
+              />
+              <path
+                d="M8 13.5C6.07 13.5 4.5 11.93 4.5 10C4.5 8.07 6.07 6.5 8 6.5C9.93 6.5 11.5 8.07 11.5 10C11.5 11.93 9.93 13.5 8 13.5Z"
+                fill="url(#paint2_linear_72095_8648)"
+              />
+              <path
+                d="M14.77 12.4C14.92 12.47 15.09 12.5 15.25 12.5C15.58 12.5 15.89 12.37 16.13 12.14L18.31 10H19.25C20.77 10 22 8.77 22 7.25V4.75C22 3.23 20.77 2 19.25 2H14.75C13.23 2 12 3.23 12 4.75V7.25C12 8.51 12.85 9.57 14 9.9V11.25C14 11.75 14.31 12.2 14.77 12.4Z"
+                fill="url(#paint3_radial_72095_8648)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8648"
+                  x1="4.85406"
+                  y1="15.9305"
+                  x2="7.40985"
+                  y2="22.9276"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.125321" stop-color="#9C6CFE" />
+                  <stop offset="1" stop-color="#7A41DC" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8648"
+                  x1="8.00086"
+                  y1="14.1667"
+                  x2="11.6078"
+                  y2="25.7215"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#885EDB" stop-opacity="0" />
+                  <stop offset="1" stop-color="#E362F8" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_8648"
+                  x1="6.16463"
+                  y1="7.43055"
+                  x2="9.73209"
+                  y2="13.127"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.125321" stop-color="#9C6CFE" />
+                  <stop offset="1" stop-color="#7A41DC" />
+                </linearGradient>
+                <radialGradient
+                  id="paint3_radial_72095_8648"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(9.69231 -1.23077) rotate(50.9393) scale(19.0356 33.9859)"
+                >
+                  <stop stop-color="#FAB500" />
+                  <stop offset="0.535356" stop-color="#FE8401" />
+                  <stop offset="1" stop-color="#FB5937" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <h3>Ask a Question</h3>
+            <p>
+              Need help configuring a specific feature or have a general doubt?
+              Join our GitHub Discussions to get help.
+            </p>
+          </a>
+
+          <a href="mailto:snowmint.dev@gmail.com" class="feature-card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="#367AF2"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint0_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint1_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint2_linear_378174_9144)"
+                fill-opacity="0.75"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint3_linear_378174_9144)"
+                fill-opacity="0.7"
+              />
+              <path
+                d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
+                fill="url(#paint4_linear_378174_9144)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9144"
+                  x1="14.5391"
+                  y1="9.95028"
+                  x2="20.0046"
+                  y2="20.515"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.19865"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9144"
+                  x1="9.1429"
+                  y1="8.81579"
+                  x2="3.82831"
+                  y2="20.8653"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.191319"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_378174_9144"
+                  x1="17.2735"
+                  y1="14.9574"
+                  x2="18.1428"
+                  y2="21.1514"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2764E7" stop-opacity="0" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_378174_9144"
+                  x1="15.0953"
+                  y1="9.03508"
+                  x2="16.6812"
+                  y2="21.6434"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.53288"
+                    stop-color="#FF6CE8"
+                    stop-opacity="0"
+                  />
+                  <stop offset="1" stop-color="#FF6CE8" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_378174_9144"
+                  x1="7.94161"
+                  y1="1.15063"
+                  x2="13.98"
+                  y2="17.089"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6CE0FF" />
+                  <stop offset="0.461792" stop-color="#29C3FF" />
+                  <stop offset="1" stop-color="#4894FE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Direct Contact</h3>
+            <p>
+              Need personalized technical support or want to discuss private
+              matters? Send me a direct email and I'll get back to you.
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="feature-card"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 6.25C3 4.45508 4.45507 3 6.25 3H17.75C19.5449 3 21 4.45507 21 6.25V17.75C21 19.5449 19.5449 21 17.75 21H6.25C4.45508 21 3 19.5449 3 17.75V6.25Z"
+                fill="url(#paint0_linear_378174_10311)"
+              />
+              <path
+                d="M10.5303 9.28033L7.81066 12L10.5303 14.7197C10.8232 15.0126 10.8232 15.4874 10.5303 15.7803C10.2374 16.0732 9.76256 16.0732 9.46967 15.7803L6.21967 12.5303C5.92678 12.2374 5.92678 11.7626 6.21967 11.4697L9.46967 8.21967C9.76256 7.92678 10.2374 7.92678 10.5303 8.21967C10.8232 8.51256 10.8232 8.98744 10.5303 9.28033ZM14.5303 8.21967L17.7803 11.4697C18.0732 11.7626 18.0732 12.2374 17.7803 12.5303L14.5303 15.7803C14.2374 16.0732 13.7626 16.0732 13.4697 15.7803C13.1768 15.4874 13.1768 15.0126 13.4697 14.7197L16.1893 12L13.4697 9.28033C13.1768 8.98744 13.1768 8.51256 13.4697 8.21967C13.7626 7.92678 14.2374 7.92678 14.5303 8.21967Z"
+                fill="url(#paint1_linear_378174_10311)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_10311"
+                  x1="7.38879"
+                  y1="3"
+                  x2="17.2602"
+                  y2="21"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0281195" stop-color="#E67EEA" />
+                  <stop offset="0.43755" stop-color="#AD64D7" />
+                  <stop offset="1" stop-color="#794DC5" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_10311"
+                  x1="8.84518"
+                  y1="8.30774"
+                  x2="13.5444"
+                  y2="20.4717"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FDFDFD" />
+                  <stop offset="1" stop-color="#F9DCFA" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Contributing</h3>
+            <p>
+              Want to write code? Join our open-source project on GitHub. Check
+              out the issues and help build the future of the extension.
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="feature-card"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 22C17.5229 22 22 17.5228 22 12C22 6.47715 17.5229 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                fill="url(#paint0_linear_71274_9659)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.11536 2.42239C8.79436 2.9207 8.51137 3.49638 8.26573 4.12602C7.78572 5.35643 7.42673 6.84886 7.21597 8.5H2.62977C2.44914 8.98338 2.30484 9.48449 2.2002 10H7.06886C7.02353 10.6505 7.00016 11.319 7.00016 12C7.00016 13.0354 7.05419 14.0418 7.15722 15H2.45796C2.62114 15.5196 2.82559 16.0208 3.06745 16.5H7.36498C7.57989 17.7553 7.88468 18.8972 8.26573 19.874C8.51137 20.5036 8.79436 21.0793 9.11536 21.5776C10.0288 21.8524 10.9972 22 12.0002 22C13.0031 22 13.9715 21.8524 14.885 21.5776C15.206 21.0793 15.4889 20.5036 15.7346 19.874C16.1156 18.8972 16.4204 17.7553 16.6353 16.5H20.9329C21.1747 16.0208 21.3792 15.5196 21.5424 15H16.8431C16.9461 14.0418 17.0002 13.0354 17.0002 12C17.0002 11.319 16.9768 10.6505 16.9315 10H21.8001C21.6955 9.48449 21.5512 8.98338 21.3706 8.5H16.7843C16.5736 6.84886 16.2146 5.35643 15.7346 4.12602C15.4889 3.49638 15.206 2.9207 14.885 2.42239C13.9715 2.14765 13.0031 2 12.0002 2C10.9972 2 10.0288 2.14765 9.11536 2.42239ZM8.72894 8.5C8.92888 7.03063 9.25148 5.72645 9.66316 4.67118C10.0221 3.75104 10.4339 3.05889 10.8575 2.60897C11.2776 2.16296 11.6622 2 12.0002 2C12.3381 2 12.7228 2.16296 13.1428 2.60897C13.5665 3.05889 13.9782 3.75104 14.3372 4.67118C14.7488 5.72645 15.0714 7.03063 15.2714 8.5H8.72894ZM12.0002 22C12.3381 22 12.7228 21.837 13.1428 21.391C13.5665 20.9411 13.9782 20.249 14.3372 19.3288C14.6528 18.5197 14.9161 17.5641 15.1119 16.5H8.88841C9.08419 17.5641 9.34749 18.5197 9.66316 19.3288C10.0221 20.249 10.4339 20.9411 10.8575 21.391C11.2776 21.837 11.6622 22 12.0002 22ZM8.50016 12C8.50016 13.0476 8.55834 14.0545 8.6664 15H15.3339C15.442 14.0545 15.5002 13.0476 15.5002 12C15.5002 11.3139 15.4752 10.6453 15.4276 10H8.57268C8.52511 10.6453 8.50016 11.3139 8.50016 12Z"
+                fill="url(#paint1_radial_71274_9659)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_71274_9659"
+                  x1="6.44444"
+                  y1="5.33333"
+                  x2="20.8889"
+                  y2="18.6667"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#29C3FF" />
+                  <stop offset="1" stop-color="#2052CB" />
+                </linearGradient>
+                <radialGradient
+                  id="paint1_radial_71274_9659"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(18.3245 17.003) rotate(-135.338) scale(16.0089 16.0078)"
+                >
+                  <stop stop-color="#25A2F0" />
+                  <stop offset="0.97403" stop-color="#3BD5FF" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <h3>Translations</h3>
+            <p>
+              Help us translate the extension into your native language! Join
+              our community-driven localization project on Crowdin.
+            </p>
+          </a>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <div class="logo">
+              <img
+                class="logo-mark"
+                src="logo.webp"
+                alt="Fluent New Tab logo"
+              />
+              <span>Fluent New Tab</span>
             </div>
-        </header>
+            <p class="footer-description">
+              Fluent New Tab is an independent open-source project and is not
+              affiliated with, endorsed by, or sponsored by Microsoft
+              Corporation.
+            </p>
+          </div>
 
-        <main class="support-content container">
-            <div class="features-grid">
-
-                <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank"
-                    rel="noopener noreferrer" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z"
-                            fill="url(#paint0_linear_378174_9756)" />
-                        <path
-                            d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z"
-                            fill="url(#paint1_linear_378174_9756)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9756" x1="5.12461" y1="-0.392807" x2="16.7187"
-                                y2="23.4768" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFCD0F" />
-                                <stop offset="1" stop-color="#FE8401" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9756" x1="9.33556" y1="8.5" x2="13.7522"
-                                y2="18.4051" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#4A4A4A" />
-                                <stop offset="1" stop-color="#212121" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Report a Bug</h3>
-                    <p>Something not working as expected? Open a detailed issue on our GitHub repository so we can
-                        investigate and fix it.</p>
-                </a>
-
-                <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
-                    target="_blank" rel="noopener noreferrer" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.0019 13.244L17.0011 21.2451C17.0011 21.8528 16.3163 22.2082 15.8194 21.8584L12.001 19.1706L8.18456 21.8583C7.68767 22.2082 7.00271 21.8529 7.00271 21.2451L7.00098 13.2459C8.37047 14.3434 10.1087 14.9999 12.0003 14.9999C13.8929 14.9999 15.632 14.3427 17.0019 13.244Z"
-                            fill="url(#paint0_radial_72095_8354)" />
-                        <path
-                            d="M12 2C15.866 2 19 5.13401 19 9C19 12.866 15.866 16 12 16C8.13401 16 5 12.866 5 9C5 5.13401 8.13401 2 12 2Z"
-                            fill="url(#paint1_radial_72095_8354)" />
-                        <defs>
-                            <radialGradient id="paint0_radial_72095_8354" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(12.0014 11.879) rotate(90) scale(13.7943 22.0759)">
-                                <stop stop-color="#163697" />
-                                <stop offset="1" stop-color="#29C3FF" />
-                            </radialGradient>
-                            <radialGradient id="paint1_radial_72095_8354" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(-25.25 -47) rotate(56.615) scale(78.1445 66.9271)">
-                                <stop offset="0.771547" stop-color="#FFCD0F" />
-                                <stop offset="0.990707" stop-color="#E67505" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-
-
-                    <h3>Request a Feature</h3>
-                    <p>Have a brilliant idea to improve Fluent New Tab? Share your suggestions and use cases with the
-                        community on GitHub.</p>
-                </a>
-
-                <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank"
-                    rel="noopener noreferrer" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
-                            fill="url(#paint0_linear_72095_8648)" />
-                        <path
-                            d="M8.00086 22C5.94086 22 4.36086 21.44 3.30086 20.33C1.96434 18.9257 1.99727 17.1555 2.00067 16.9727L2.00086 16.96C2.00086 15.89 2.90086 15 4.00086 15H12.0009C13.1009 15 14.0009 15.9 14.0009 17L14.001 17.0064C14.004 17.1325 14.0461 18.9165 12.7009 20.33C11.6409 21.44 10.0609 22 8.00086 22Z"
-                            fill="url(#paint1_linear_72095_8648)" />
-                        <path
-                            d="M8 13.5C6.07 13.5 4.5 11.93 4.5 10C4.5 8.07 6.07 6.5 8 6.5C9.93 6.5 11.5 8.07 11.5 10C11.5 11.93 9.93 13.5 8 13.5Z"
-                            fill="url(#paint2_linear_72095_8648)" />
-                        <path
-                            d="M14.77 12.4C14.92 12.47 15.09 12.5 15.25 12.5C15.58 12.5 15.89 12.37 16.13 12.14L18.31 10H19.25C20.77 10 22 8.77 22 7.25V4.75C22 3.23 20.77 2 19.25 2H14.75C13.23 2 12 3.23 12 4.75V7.25C12 8.51 12.85 9.57 14 9.9V11.25C14 11.75 14.31 12.2 14.77 12.4Z"
-                            fill="url(#paint3_radial_72095_8648)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8648" x1="4.85406" y1="15.9305" x2="7.40985"
-                                y2="22.9276" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.125321" stop-color="#9C6CFE" />
-                                <stop offset="1" stop-color="#7A41DC" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8648" x1="8.00086" y1="14.1667" x2="11.6078"
-                                y2="25.7215" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#885EDB" stop-opacity="0" />
-                                <stop offset="1" stop-color="#E362F8" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_8648" x1="6.16463" y1="7.43055" x2="9.73209"
-                                y2="13.127" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.125321" stop-color="#9C6CFE" />
-                                <stop offset="1" stop-color="#7A41DC" />
-                            </linearGradient>
-                            <radialGradient id="paint3_radial_72095_8648" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(9.69231 -1.23077) rotate(50.9393) scale(19.0356 33.9859)">
-                                <stop stop-color="#FAB500" />
-                                <stop offset="0.535356" stop-color="#FE8401" />
-                                <stop offset="1" stop-color="#FB5937" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Ask a Question</h3>
-                    <p>Need help configuring a specific feature or have a general doubt? Join our GitHub Discussions to
-                        get help.</p>
-                </a>
-
-                <a href="mailto:snw-mint@outlook.com" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="#367AF2" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint0_linear_378174_9144)" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint1_linear_378174_9144)" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint2_linear_378174_9144)" fill-opacity="0.75" />
-                        <path
-                            d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
-                            fill="url(#paint3_linear_378174_9144)" fill-opacity="0.7" />
-                        <path
-                            d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
-                            fill="url(#paint4_linear_378174_9144)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9144" x1="14.5391" y1="9.95028" x2="20.0046"
-                                y2="20.515" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.19865" stop-color="#0094F0" stop-opacity="0" />
-                                <stop offset="0.430619" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9144" x1="9.1429" y1="8.81579" x2="3.82831"
-                                y2="20.8653" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.191319" stop-color="#0094F0" stop-opacity="0" />
-                                <stop offset="0.430619" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_378174_9144" x1="17.2735" y1="14.9574" x2="18.1428"
-                                y2="21.1514" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2764E7" stop-opacity="0" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_378174_9144" x1="15.0953" y1="9.03508" x2="16.6812"
-                                y2="21.6434" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.53288" stop-color="#FF6CE8" stop-opacity="0" />
-                                <stop offset="1" stop-color="#FF6CE8" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_378174_9144" x1="7.94161" y1="1.15063" x2="13.98"
-                                y2="17.089" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6CE0FF" />
-                                <stop offset="0.461792" stop-color="#29C3FF" />
-                                <stop offset="1" stop-color="#4894FE" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Direct Contact</h3>
-                    <p>Need personalized technical support or want to discuss private matters? Send me a direct email
-                        and I'll get back to you.</p>
-                </a>
-
-                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md" target="_blank"
-                    rel="noopener noreferrer" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M3 6.25C3 4.45508 4.45507 3 6.25 3H17.75C19.5449 3 21 4.45507 21 6.25V17.75C21 19.5449 19.5449 21 17.75 21H6.25C4.45508 21 3 19.5449 3 17.75V6.25Z"
-                            fill="url(#paint0_linear_378174_10311)" />
-                        <path
-                            d="M10.5303 9.28033L7.81066 12L10.5303 14.7197C10.8232 15.0126 10.8232 15.4874 10.5303 15.7803C10.2374 16.0732 9.76256 16.0732 9.46967 15.7803L6.21967 12.5303C5.92678 12.2374 5.92678 11.7626 6.21967 11.4697L9.46967 8.21967C9.76256 7.92678 10.2374 7.92678 10.5303 8.21967C10.8232 8.51256 10.8232 8.98744 10.5303 9.28033ZM14.5303 8.21967L17.7803 11.4697C18.0732 11.7626 18.0732 12.2374 17.7803 12.5303L14.5303 15.7803C14.2374 16.0732 13.7626 16.0732 13.4697 15.7803C13.1768 15.4874 13.1768 15.0126 13.4697 14.7197L16.1893 12L13.4697 9.28033C13.1768 8.98744 13.1768 8.51256 13.4697 8.21967C13.7626 7.92678 14.2374 7.92678 14.5303 8.21967Z"
-                            fill="url(#paint1_linear_378174_10311)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_10311" x1="7.38879" y1="3" x2="17.2602" y2="21"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0281195" stop-color="#E67EEA" />
-                                <stop offset="0.43755" stop-color="#AD64D7" />
-                                <stop offset="1" stop-color="#794DC5" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_10311" x1="8.84518" y1="8.30774" x2="13.5444"
-                                y2="20.4717" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FDFDFD" />
-                                <stop offset="1" stop-color="#F9DCFA" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Contributing</h3>
-                    <p>Want to write code? Join our open-source project on GitHub. Check out the issues and help build
-                        the future of the extension.</p>
-                </a>
-
-                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md" target="_blank"
-                    rel="noopener noreferrer" class="feature-card">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 22C17.5229 22 22 17.5228 22 12C22 6.47715 17.5229 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            fill="url(#paint0_linear_71274_9659)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M9.11536 2.42239C8.79436 2.9207 8.51137 3.49638 8.26573 4.12602C7.78572 5.35643 7.42673 6.84886 7.21597 8.5H2.62977C2.44914 8.98338 2.30484 9.48449 2.2002 10H7.06886C7.02353 10.6505 7.00016 11.319 7.00016 12C7.00016 13.0354 7.05419 14.0418 7.15722 15H2.45796C2.62114 15.5196 2.82559 16.0208 3.06745 16.5H7.36498C7.57989 17.7553 7.88468 18.8972 8.26573 19.874C8.51137 20.5036 8.79436 21.0793 9.11536 21.5776C10.0288 21.8524 10.9972 22 12.0002 22C13.0031 22 13.9715 21.8524 14.885 21.5776C15.206 21.0793 15.4889 20.5036 15.7346 19.874C16.1156 18.8972 16.4204 17.7553 16.6353 16.5H20.9329C21.1747 16.0208 21.3792 15.5196 21.5424 15H16.8431C16.9461 14.0418 17.0002 13.0354 17.0002 12C17.0002 11.319 16.9768 10.6505 16.9315 10H21.8001C21.6955 9.48449 21.5512 8.98338 21.3706 8.5H16.7843C16.5736 6.84886 16.2146 5.35643 15.7346 4.12602C15.4889 3.49638 15.206 2.9207 14.885 2.42239C13.9715 2.14765 13.0031 2 12.0002 2C10.9972 2 10.0288 2.14765 9.11536 2.42239ZM8.72894 8.5C8.92888 7.03063 9.25148 5.72645 9.66316 4.67118C10.0221 3.75104 10.4339 3.05889 10.8575 2.60897C11.2776 2.16296 11.6622 2 12.0002 2C12.3381 2 12.7228 2.16296 13.1428 2.60897C13.5665 3.05889 13.9782 3.75104 14.3372 4.67118C14.7488 5.72645 15.0714 7.03063 15.2714 8.5H8.72894ZM12.0002 22C12.3381 22 12.7228 21.837 13.1428 21.391C13.5665 20.9411 13.9782 20.249 14.3372 19.3288C14.6528 18.5197 14.9161 17.5641 15.1119 16.5H8.88841C9.08419 17.5641 9.34749 18.5197 9.66316 19.3288C10.0221 20.249 10.4339 20.9411 10.8575 21.391C11.2776 21.837 11.6622 22 12.0002 22ZM8.50016 12C8.50016 13.0476 8.55834 14.0545 8.6664 15H15.3339C15.442 14.0545 15.5002 13.0476 15.5002 12C15.5002 11.3139 15.4752 10.6453 15.4276 10H8.57268C8.52511 10.6453 8.50016 11.3139 8.50016 12Z"
-                            fill="url(#paint1_radial_71274_9659)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_71274_9659" x1="6.44444" y1="5.33333" x2="20.8889"
-                                y2="18.6667" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#29C3FF" />
-                                <stop offset="1" stop-color="#2052CB" />
-                            </linearGradient>
-                            <radialGradient id="paint1_radial_71274_9659" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(18.3245 17.003) rotate(-135.338) scale(16.0089 16.0078)">
-                                <stop stop-color="#25A2F0" />
-                                <stop offset="0.97403" stop-color="#3BD5FF" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-
-                    <h3>Translations</h3>
-                    <p>Help us translate the extension into your native language! Join our community-driven localization
-                        project on Crowdin.</p>
-                </a>
-            </div>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                        <span>Fluent New Tab</span>
-                    </div>
-                    <p class="footer-description">Fluent New Tab is an independent open-source project and is not
-                        affiliated with, endorsed by, or sponsored by Microsoft Corporation.</p>
-                </div>
-
-                <div class="footer-nav">
-                    <div class="footer-column">
-                        <h4>Overview</h4>
-                        <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
-                        <a href="https://snw-mint.github.io/fluent-new-tab/setup.html">Setup & Configuration</a>
-                        <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy Policy</a>
-                        <a href="https://snw-mint.github.io/fluent-new-tab/terms.html">Terms of Use</a>
-                        <a href="mailto:snw-mint@outlook.com">Contact</a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Support</h4>
-                        <a href="https://snw-mint.github.io/fluent-new-tab/help.html">Troubleshooting</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml">Report a
-                            Bug</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml">Request
-                            a Feature</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose">Ask a Question</a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Community</h4>
-                        <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md">Contributing</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md">Help Translate</a>
-                        <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer">Support
-                            the Project</a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Download</h4>
-                        <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
-                            target="_blank" rel="noopener noreferrer">Microsoft Edge</a>
-                        <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
-                            target="_blank" rel="noopener noreferrer">Google Chrome</a>
-                        <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
-                            rel="noopener noreferrer">Mozilla Firefox</a>
-                        <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank"
-                            rel="noopener noreferrer">Manual Release</a>
-                    </div>
-                </div>
+          <div class="footer-nav">
+            <div class="footer-column">
+              <h4>Overview</h4>
+              <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+              <a href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+                >Setup & Configuration</a
+              >
+              <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+                >Privacy Policy</a
+              >
+              <a href="https://snw-mint.github.io/fluent-new-tab/terms.html"
+                >Terms of Use</a
+              >
+              <a href="mailto:snowmint.dev@gmail.com">Contact</a>
             </div>
 
-            <div class="container footer-bottom">
-                <p>&copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
-                        rel="noopener noreferrer">snow mint</a>.</p>
+            <div class="footer-column">
+              <h4>Support</h4>
+              <a href="https://snw-mint.github.io/fluent-new-tab/help.html"
+                >Troubleshooting</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+                >Report a Bug</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+                >Request a Feature</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+                >Ask a Question</a
+              >
             </div>
-        </footer>
 
+            <div class="footer-column">
+              <h4>Community</h4>
+              <a href="https://github.com/snw-mint/fluent-new-tab"
+                >Source Code</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+                >Contributing</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+                >Help Translate</a
+              >
+              <a
+                href="https://buymeacoffee.com/snw.mint"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Support the Project</a
+              >
+            </div>
+
+            <div class="footer-column">
+              <h4>Download</h4>
+              <a
+                href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Microsoft Edge</a
+              >
+              <a
+                href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google Chrome</a
+              >
+              <a
+                href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Mozilla Firefox</a
+              >
+              <a
+                href="https://github.com/snw-mint/fluent-new-tab/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Manual Release</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container footer-bottom">
+          <p>
+            &copy; 2026 Fluent New Tab. Created by
+            <a
+              href="https://github.com/snw-mint"
+              target="_blank"
+              rel="noopener noreferrer"
+              >snow mint</a
+            >.
+          </p>
+        </div>
+      </footer>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

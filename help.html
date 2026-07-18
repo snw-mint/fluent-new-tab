@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
  - Fluent New Tab
  - Copyright (c) 2025-2026 SnowMint
@@ -7,915 +7,1453 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help & FAQ - Fluent New Tab</title>
-    <meta name="description"
-        content="Help and FAQ for Fluent New Tab with setup steps, troubleshooting tips, and quick fixes.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/help.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Help & FAQ - Fluent New Tab">
-    <meta property="og:description"
-        content="Find setup instructions, quick fixes, and troubleshooting guidance for Fluent New Tab.">
-    <meta property="og:url" content="https://snw-mint.github.io/fluent-new-tab/help.html">
-    <meta property="og:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Help & FAQ - Fluent New Tab">
-    <meta property="twitter:description"
-        content="Find setup instructions, quick fixes, and troubleshooting guidance for Fluent New Tab.">
-    <meta property="twitter:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta name="theme-color" content="#0f6cbd">
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <meta
+      name="description"
+      content="Help and FAQ for Fluent New Tab with setup steps, troubleshooting tips, and quick fixes."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://snw-mint.github.io/fluent-new-tab/help.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Help & FAQ - Fluent New Tab" />
+    <meta
+      property="og:description"
+      content="Find setup instructions, quick fixes, and troubleshooting guidance for Fluent New Tab."
+    />
+    <meta
+      property="og:url"
+      content="https://snw-mint.github.io/fluent-new-tab/help.html"
+    />
+    <meta
+      property="og:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Help & FAQ - Fluent New Tab" />
+    <meta
+      property="twitter:description"
+      content="Find setup instructions, quick fixes, and troubleshooting guidance for Fluent New Tab."
+    />
+    <meta
+      property="twitter:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta name="theme-color" content="#0f6cbd" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <script>
-        (() => {
-            try {
-                const storedTheme = localStorage.getItem('theme-preference');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) { }
-        })();
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme-preference");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme = storedTheme || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
     </script>
     <style>
-        html {
-            font-size: 100%;
-        }
+      html {
+        font-size: 100%;
+      }
 
-        .setup-hero {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--color-border);
-            background-color: var(--color-surface);
-        }
+      .setup-hero {
+        padding: 3rem 0 2rem;
+        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-surface);
+      }
 
-        .setup-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-main);
-            letter-spacing: -0.02em;
-        }
+      .setup-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        letter-spacing: -0.02em;
+      }
 
-        .setup-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-        }
+      .setup-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+      }
 
+      .docs-layout {
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+        gap: 4rem;
+        padding: 3rem 1.5rem 5rem;
+        max-width: 75rem;
+        margin: 0 auto;
+        align-items: start;
+      }
+
+      .docs-sidebar {
+        position: sticky;
+        top: 6.25rem;
+      }
+
+      .docs-sidebar h4 {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-muted);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .docs-sidebar ul {
+        list-style: none;
+        border-left: 2px solid var(--color-border);
+      }
+
+      .docs-sidebar a {
+        text-decoration: none;
+        color: var(--color-text-muted);
+        display: block;
+        padding: 0.5rem 0 0.5rem 1.25rem;
+        font-size: 0.95rem;
+        transition:
+          color 0.2s,
+          border-left-color 0.2s;
+        margin-left: -2px;
+        border-left: 2px solid transparent;
+      }
+
+      .docs-sidebar a:hover {
+        color: var(--color-primary);
+        border-left-color: var(--color-primary);
+      }
+
+      .docs-content {
+        max-width: 50rem;
+      }
+
+      .docs-section {
+        margin-bottom: 3.5rem;
+        scroll-margin-top: 6.25rem;
+      }
+
+      .docs-section h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-main);
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .docs-section > p {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+      }
+
+      .faq-item,
+      .setting-card {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .faq-item h3,
+      .setting-card h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5em;
+      }
+
+      .faq-item h3::before {
+        content: "Q:";
+        color: var(--color-primary);
+        font-weight: 700;
+      }
+
+      .faq-item p,
+      .setting-card p {
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+      }
+
+      .faq-item p:last-child,
+      .setting-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .faq-item a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .faq-item a:hover {
+        text-decoration: underline;
+      }
+
+      code {
+        background-color: var(--color-bg);
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        font-family: monospace;
+        font-size: 0.9em;
+        color: var(--color-text-main);
+        border: 1px solid var(--color-border);
+      }
+
+      .docs-section h2 svg,
+      .faq-item h3 svg,
+      .setting-card h3 svg {
+        width: 1.2em !important;
+        height: 1.2em !important;
+        margin: 0 !important;
+        flex-shrink: 0;
+      }
+
+      #help-links .setting-card h3 {
+        font-size: 1.25rem;
+      }
+
+      @media (max-width: 48rem) {
         .docs-layout {
-            display: grid;
-            grid-template-columns: 15rem 1fr;
-            gap: 4rem;
-            padding: 3rem 1.5rem 5rem;
-            max-width: 75rem;
-            margin: 0 auto;
-            align-items: start;
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
         .docs-sidebar {
-            position: sticky;
-            top: 6.25rem;
+          display: none;
         }
-
-        .docs-sidebar h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-text-muted);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .docs-sidebar ul {
-            list-style: none;
-            border-left: 2px solid var(--color-border);
-        }
-
-        .docs-sidebar a {
-            text-decoration: none;
-            color: var(--color-text-muted);
-            display: block;
-            padding: 0.5rem 0 0.5rem 1.25rem;
-            font-size: 0.95rem;
-            transition: color 0.2s, border-left-color 0.2s;
-            margin-left: -2px;
-            border-left: 2px solid transparent;
-        }
-
-        .docs-sidebar a:hover {
-            color: var(--color-primary);
-            border-left-color: var(--color-primary);
-        }
-
-
-        .docs-content {
-            max-width: 50rem;
-        }
-
-        .docs-section {
-            margin-bottom: 3.5rem;
-            scroll-margin-top: 6.25rem;
-        }
-
-        .docs-section h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--color-text-main);
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .docs-section>p {
-            color: var(--color-text-muted);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .faq-item,
-        .setting-card {
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-card);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow-card);
-        }
-
-        .faq-item h3,
-        .setting-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-main);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5em;
-        }
-
-        .faq-item h3::before {
-            content: 'Q:';
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        .faq-item p,
-        .setting-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .faq-item p:last-child,
-        .setting-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-item a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .faq-item a:hover {
-            text-decoration: underline;
-        }
-
-        code {
-            background-color: var(--color-bg);
-            padding: 0.125rem 0.375rem;
-            border-radius: 0.25rem;
-            font-family: monospace;
-            font-size: 0.9em;
-            color: var(--color-text-main);
-            border: 1px solid var(--color-border);
-        }
-
-        .docs-section h2 svg,
-        .faq-item h3 svg,
-        .setting-card h3 svg {
-            width: 1.2em !important;
-            height: 1.2em !important;
-            margin: 0 !important;
-            flex-shrink: 0;
-        }
-
-        #help-links .setting-card h3 {
-            font-size: 1.25rem;
-        }
-
-        @media (max-width: 48rem) {
-            .docs-layout {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .docs-sidebar {
-                display: none;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <div class="container nav-content" style="justify-content: space-between;">
-            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
-                <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                <span>Fluent New Tab</span>
-            </a>
+      <div class="container nav-content" style="justify-content: space-between">
+        <a
+          href="index.html"
+          class="logo"
+          style="text-decoration: none; color: inherit"
+        >
+          <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+          <span>Fluent New Tab</span>
+        </a>
 
-            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
-                <span class="theme-icon light-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <span class="theme-icon dark-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <div class="theme-thumb"></div>
-            </button>
-        </div>
+        <button
+          id="theme-switcher"
+          class="theme-switch"
+          aria-label="Toggle Dark Mode"
+        >
+          <span class="theme-icon light-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="theme-icon dark-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div class="theme-thumb"></div>
+        </button>
+      </div>
     </nav>
 
     <header class="setup-hero">
-        <div class="container">
-            <h1 class="setup-title">Quick Help & Troubleshooting</h1>
-            <p class="setup-subtitle">Find solutions to common problems, learn how to fix display issues, and request
-                support.</p>
-        </div>
+      <div class="container">
+        <h1 class="setup-title">Quick Help & Troubleshooting</h1>
+        <p class="setup-subtitle">
+          Find solutions to common problems, learn how to fix display issues,
+          and request support.
+        </p>
+      </div>
     </header>
 
     <div class="docs-layout">
-        <aside class="docs-sidebar">
-            <h4>Contents</h4>
-            <ul>
-                <li><a href="#installation">Installation & Edge</a></li>
-                <li><a href="#performance">Performance & UI</a></li>
-                <li><a href="#weather-api">Weather Widget</a></li>
-                <li><a href="#languages">Languages & Translation</a></li>
-                <li><a href="#backup">Backup Issues</a></li>
-                <li><a href="#troubleshooting">General Fixes</a></li>
-                <li><a href="#help-links">Need More Help?</a></li>
-            </ul>
-            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
-                class="fluent-bmc-sidebar">
-                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
-                    alt="Hot Beverage" width="28" height="28" />
-                <div class="fluent-bmc-text">
-                    <span class="fluent-bmc-title">Buy me a coffee</span>
-                    <span class="fluent-bmc-subtitle">Support the developer</span>
-                </div>
+      <aside class="docs-sidebar">
+        <h4>Contents</h4>
+        <ul>
+          <li><a href="#installation">Installation & Edge</a></li>
+          <li><a href="#performance">Performance & UI</a></li>
+          <li><a href="#weather-api">Weather Widget</a></li>
+          <li><a href="#languages">Languages & Translation</a></li>
+          <li><a href="#backup">Backup Issues</a></li>
+          <li><a href="#troubleshooting">General Fixes</a></li>
+          <li><a href="#help-links">Need More Help?</a></li>
+        </ul>
+        <a
+          href="https://buymeacoffee.com/snw.mint"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fluent-bmc-sidebar"
+        >
+          <img
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
+            alt="Hot Beverage"
+            width="28"
+            height="28"
+          />
+          <div class="fluent-bmc-text">
+            <span class="fluent-bmc-title">Buy me a coffee</span>
+            <span class="fluent-bmc-subtitle">Support the developer</span>
+          </div>
+        </a>
+      </aside>
+
+      <main class="docs-content">
+        <section id="installation" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 2C14.364 2 15.4697 3.10572 15.4697 4.4697L15.469 5H19C19.5523 5 20 5.44772 20 6L19.999 9.499L18.4697 9.5C17.1603 9.5 16.0889 10.519 16.0053 11.8073L16 11.9697V12.0303C16 13.3397 17.019 14.4111 18.3073 14.4947L18.4697 14.5L19.999 14.499L20 18.0029C20 18.5552 19.5523 19.0029 19 19.0029L15.469 19.002L15.4697 19.5303C15.4697 20.8943 14.364 22 13 22C11.636 22 10.5303 20.8943 10.5303 19.5303L10.53 19.002L7 19.0029C6.44772 19.0029 6 18.5552 6 18.0029L5.999 14.471L5.4697 14.4712C4.10572 14.4712 3 13.3654 3 12.0015C3 10.6375 4.10572 9.53177 5.4697 9.53177L5.999 9.531L6 6C6 5.44772 6.44772 5 7 5H10.53L10.5303 4.4697C10.5303 3.10572 11.636 2 13 2Z"
+                fill="url(#paint0_linear_72095_8560)"
+              />
+              <path
+                d="M13 2C14.364 2 15.4697 3.10572 15.4697 4.4697L15.469 5H19C19.5523 5 20 5.44772 20 6L19.999 9.499L18.4697 9.5C17.1603 9.5 16.0889 10.519 16.0053 11.8073L16 11.9697V12.0303C16 13.3397 17.019 14.4111 18.3073 14.4947L18.4697 14.5L19.999 14.499L20 18.0029C20 18.5552 19.5523 19.0029 19 19.0029L15.469 19.002L15.4697 19.5303C15.4697 20.8943 14.364 22 13 22C11.636 22 10.5303 20.8943 10.5303 19.5303L10.53 19.002L7 19.0029C6.44772 19.0029 6 18.5552 6 18.0029L5.999 14.471L5.4697 14.4712C4.10572 14.4712 3 13.3654 3 12.0015C3 10.6375 4.10572 9.53177 5.4697 9.53177L5.999 9.531L6 6C6 5.44772 6.44772 5 7 5H10.53L10.5303 4.4697C10.5303 3.10572 11.636 2 13 2Z"
+                fill="url(#paint1_linear_72095_8560)"
+                fill-opacity="0.7"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8560"
+                  x1="5.83333"
+                  y1="0.888889"
+                  x2="16.8833"
+                  y2="21.7611"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#1EC8B0" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8560"
+                  x1="14.131"
+                  y1="4.45614"
+                  x2="18.7254"
+                  y2="23.8609"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.53288"
+                    stop-color="#FF6CE8"
+                    stop-opacity="0"
+                  />
+                  <stop offset="1" stop-color="#FF6CE8" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Installation
+          </h2>
+
+          <div class="faq-item">
+            <h3>
+              The extension is disabled after installing on Microsoft Edge. What
+              do I do?
+            </h3>
+            <p>
+              Microsoft Edge disables third-party "New Tab" extensions by
+              default for security reasons. To fix this:
+            </p>
+            <p>
+              1. Type <code translate="no">edge://extensions/</code> in your
+              address bar and hit Enter.<br />
+              2. Find "Fluent New Tab" and toggle the switch to turn it on.<br />
+              3. Open a new tab. Edge will show a warning asking if you expected
+              this change.<br />
+              4. Click the <strong>"Keep it anyway"</strong> button.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>My extension disables itself or shows a security popup.</h3>
+            <p>
+              Browsers like <strong>Edge</strong> and
+              <strong>Chrome</strong> can show security prompts in some
+              situations, especially when using
+              <strong>Developer Mode</strong> or loading the extension as
+              <strong>unpacked</strong>. This behavior is controlled by the
+              browser, not only by the extension.
+            </p>
+            <p>
+              In rare cases, the browser can also disable an extension
+              automatically after an update if new permissions are added to the
+              manifest. When that happens, you need to re-enable the extension
+              and accept the new permissions prompt.
+            </p>
+            <p>
+              It is always a good idea to check the changelog after updates. If
+              new permissions are ever required for new features, it will be
+              documented there. Permission changes are uncommon, and we always
+              try to ship new features without requesting new permissions to
+              avoid mass deactivation.
+            </p>
+          </div>
+        </section>
+
+        <section id="performance" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
+                fill="url(#paint0_linear_72095_8784)"
+              />
+              <path
+                d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
+                fill="url(#paint1_radial_72095_8784)"
+              />
+              <path
+                d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
+                fill="url(#paint2_radial_72095_8784)"
+              />
+              <path
+                d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
+                fill="url(#paint3_linear_72095_8784)"
+              />
+              <path
+                d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
+                fill="url(#paint4_radial_72095_8784)"
+              />
+              <path
+                d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
+                fill="url(#paint5_radial_72095_8784)"
+              />
+              <path
+                d="M12 16.75C12 18.5449 10.545 20 8.75004 20C6.95512 20 5.50004 18.5449 5.50004 16.75C5.50004 14.9551 6.95512 13.5 8.75004 13.5C10.545 13.5 12 14.9551 12 16.75Z"
+                fill="url(#paint6_linear_72095_8784)"
+              />
+              <path
+                d="M18.5 7.25C18.5 9.04493 17.0449 10.5 15.25 10.5C13.4551 10.5 12 9.04493 12 7.25C12 5.45507 13.4551 4 15.25 4C17.0449 4 18.5 5.45507 18.5 7.25Z"
+                fill="url(#paint7_linear_72095_8784)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8784"
+                  x1="23.25"
+                  y1="18.6"
+                  x2="14.3126"
+                  y2="-1.89248"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#8C959B" />
+                  <stop offset="1" stop-color="#A3ACB5" />
+                </linearGradient>
+                <radialGradient
+                  id="paint1_radial_72095_8784"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(15.3333 7.1875) rotate(-2.30081) scale(4.67043 2.99591)"
+                >
+                  <stop offset="0.548597" stop-color="#70777D" />
+                  <stop offset="1" stop-color="#70777D" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient
+                  id="paint2_radial_72095_8784"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(8.66667 16.8125) rotate(-3.69903) scale(4.84342 3.10688)"
+                >
+                  <stop offset="0.548597" stop-color="#70777D" />
+                  <stop offset="1" stop-color="#70777D" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient
+                  id="paint3_linear_72095_8784"
+                  x1="23.25"
+                  y1="18.6"
+                  x2="14.3126"
+                  y2="-1.89248"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#8C959B" />
+                  <stop offset="1" stop-color="#A3ACB5" />
+                </linearGradient>
+                <radialGradient
+                  id="paint4_radial_72095_8784"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(15.3333 7.1875) rotate(-2.30081) scale(4.67043 2.99591)"
+                >
+                  <stop offset="0.548597" stop-color="#70777D" />
+                  <stop offset="1" stop-color="#70777D" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient
+                  id="paint5_radial_72095_8784"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(8.66667 16.8125) rotate(-3.69903) scale(4.84342 3.10688)"
+                >
+                  <stop offset="0.548597" stop-color="#70777D" />
+                  <stop offset="1" stop-color="#70777D" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient
+                  id="paint6_linear_72095_8784"
+                  x1="6.15"
+                  y1="13.5"
+                  x2="11.35"
+                  y2="20"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#29B4FB" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint7_linear_72095_8784"
+                  x1="12.65"
+                  y1="4"
+                  x2="17.85"
+                  y2="10.5"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#29B4FB" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Performance & UI Size
+          </h2>
+
+          <div class="faq-item">
+            <h3>The wallpaper images take a long time to load.</h3>
+            <p>
+              This is completely normal, especially when using the
+              <strong>NASA APOD</strong> source. These images are often
+              downloaded in 4K resolution.
+            </p>
+            <p>
+              To ensure your browser doesn't slow down, the extension downloads
+              the image, converts it into a compressed WebP format, and caches
+              it locally. Depending on your computer's speed and internet
+              connection, this conversion might cause a slight delay. This
+              process only happens once a day when a new image is fetched.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>The extension feels very heavy or slow on my computer.</h3>
+            <p>
+              Fluent New Tab uses advanced CSS techniques like backdrop filters
+              (Mica/Acrylic blur effects) and animations, which can be demanding
+              on older hardware.
+            </p>
+            <p>
+              To improve performance, go to the settings menu and enable the
+              <strong>Reduce visual effects</strong> option. This will turn off
+              heavy animations and disable the background blur, making the
+              extension significantly lighter and faster.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>The interface is too small or too big for my monitor.</h3>
+            <p>
+              The extension scales automatically, but if you want to adjust the
+              size of the elements, you can use your browser's native zoom
+              feature.
+            </p>
+            <p>
+              Press <code>Ctrl +</code> (or <code>Cmd +</code> on Mac) to zoom
+              in and make things bigger, or <code>Ctrl -</code> (or
+              <code>Cmd -</code>) to zoom out. The browser will remember this
+              zoom level specifically for the new tab page.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Why are custom wallpapers resized to 4K resolution?</h3>
+            <p>
+              To ensure your browser remains fast and responsive. Images larger
+              than 4K (like 8K photos) consume a massive amount of RAM when
+              decoded by the browser, which can cause significant lag every time
+              you open a new tab.
+            </p>
+            <p>
+              When you upload an oversized image, our system automatically
+              resizes it to a maximum width of <strong>3840px (4K)</strong> and
+              converts it to a highly optimized WebP format. This provides the
+              "sweet spot" between crystal-clear visual quality and instant
+              loading times.
+            </p>
+            <p>
+              <strong>Tip:</strong> For the absolute best performance, we
+              recommend uploading images that match your monitor's native
+              resolution.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              I got a "Storage Full" or "Quota Exceeded" error when uploading a
+              wallpaper.
+            </h3>
+            <p>
+              The extension saves your custom wallpapers directly inside your
+              browser's local database (IndexedDB) so they load instantly
+              without needing an internet connection. Browsers strictly limit
+              how much space extensions can use.
+            </p>
+            <p>
+              If you see this error, your browser's storage quota for your
+              current profile is full. To fix this:
+            </p>
+            <p>
+              1. Try uploading an image with a smaller file size or lower
+              resolution.<br />
+              2. Clear your browser's cache and temporary site data to free up
+              local storage space.<br />
+              3. Ensure your hard drive (C: drive) isn't completely full, as
+              browsers dynamically adjust storage limits based on available disk
+              space.
+            </p>
+          </div>
+        </section>
+
+        <section id="weather-api" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.1251 14C17.3671 13.3801 17.5 12.7056 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 12.7056 6.63286 13.3801 6.87494 14H17.1251Z"
+                fill="url(#paint0_linear_72095_8018)"
+              />
+              <path
+                d="M2 14C2 13.4477 2.44772 13 3 13H21C21.5523 13 22 13.4477 22 14C22 14.5523 21.5523 15 21 15H3C2.44772 15 2 14.5523 2 14Z"
+                fill="url(#paint1_linear_72095_8018)"
+              />
+              <path
+                d="M6 17C6 16.4477 6.44772 16 7 16H17C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18H7C6.44772 18 6 17.5523 6 17Z"
+                fill="url(#paint2_linear_72095_8018)"
+              />
+              <path
+                d="M10 20C10 19.4477 10.4477 19 11 19H13C13.5523 19 14 19.4477 14 20C14 20.5523 13.5523 21 13 21H11C10.4477 21 10 20.5523 10 20Z"
+                fill="url(#paint3_linear_72095_8018)"
+              />
+              <path
+                d="M12 2C12.5523 2 13 2.44772 13 3V4.25C13 4.80228 12.5523 5.25 12 5.25C11.4477 5.25 11 4.80228 11 4.25V3C11 2.44772 11.4477 2 12 2Z"
+                fill="url(#paint4_linear_72095_8018)"
+              />
+              <path
+                d="M4.79289 4.79289C5.18342 4.40237 5.81658 4.40237 6.20711 4.79289L7.20711 5.79289C7.59763 6.18342 7.59763 6.81658 7.20711 7.20711C6.81658 7.59763 6.18342 7.59763 5.79289 7.20711L4.79289 6.20711C4.40237 5.81658 4.40237 5.18342 4.79289 4.79289Z"
+                fill="url(#paint5_linear_72095_8018)"
+              />
+              <path
+                d="M19.2071 4.79289C19.5976 5.18342 19.5976 5.81658 19.2071 6.20711L18.2071 7.20711C17.8166 7.59763 17.1834 7.59763 16.7929 7.20711C16.4024 6.81658 16.4024 6.18342 16.7929 5.79289L17.7929 4.79289C18.1834 4.40237 18.8166 4.40237 19.2071 4.79289Z"
+                fill="url(#paint6_linear_72095_8018)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8018"
+                  x1="10.3101"
+                  y1="6.08939"
+                  x2="14.5098"
+                  y2="14.5848"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.96" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint5_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint6_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Weather Widget
+          </h2>
+
+          <div class="faq-item">
+            <h3>My city doesn't load or says "not found".</h3>
+            <p>
+              The weather widget uses an external geocoding API to find the
+              exact latitude and longitude of your city. If your city shares the
+              same name with other places in the world, the system might get
+              confused.
+            </p>
+            <p>
+              If it fails to load, try being more specific by adding your state
+              or country code. For example, instead of typing "San Jose", try
+              typing <code>San Jose, CA</code> or
+              <code>San Jose, Costa Rica</code>.
+            </p>
+          </div>
+        </section>
+
+        <section id="languages" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 22C17.5229 22 22 17.5228 22 12C22 6.47715 17.5229 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                fill="url(#paint0_linear_71274_9659)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.11536 2.42239C8.79436 2.9207 8.51137 3.49638 8.26573 4.12602C7.78572 5.35643 7.42673 6.84886 7.21597 8.5H2.62977C2.44914 8.98338 2.30484 9.48449 2.2002 10H7.06886C7.02353 10.6505 7.00016 11.319 7.00016 12C7.00016 13.0354 7.05419 14.0418 7.15722 15H2.45796C2.62114 15.5196 2.82559 16.0208 3.06745 16.5H7.36498C7.57989 17.7553 7.88468 18.8972 8.26573 19.874C8.51137 20.5036 8.79436 21.0793 9.11536 21.5776C10.0288 21.8524 10.9972 22 12.0002 22C13.0031 22 13.9715 21.8524 14.885 21.5776C15.206 21.0793 15.4889 20.5036 15.7346 19.874C16.1156 18.8972 16.4204 17.7553 16.6353 16.5H20.9329C21.1747 16.0208 21.3792 15.5196 21.5424 15H16.8431C16.9461 14.0418 17.0002 13.0354 17.0002 12C17.0002 11.319 16.9768 10.6505 16.9315 10H21.8001C21.6955 9.48449 21.5512 8.98338 21.3706 8.5H16.7843C16.5736 6.84886 16.2146 5.35643 15.7346 4.12602C15.4889 3.49638 15.206 2.9207 14.885 2.42239C13.9715 2.14765 13.0031 2 12.0002 2C10.9972 2 10.0288 2.14765 9.11536 2.42239ZM8.72894 8.5C8.92888 7.03063 9.25148 5.72645 9.66316 4.67118C10.0221 3.75104 10.4339 3.05889 10.8575 2.60897C11.2776 2.16296 11.6622 2 12.0002 2C12.3381 2 12.7228 2.16296 13.1428 2.60897C13.5665 3.05889 13.9782 3.75104 14.3372 4.67118C14.7488 5.72645 15.0714 7.03063 15.2714 8.5H8.72894ZM12.0002 22C12.3381 22 12.7228 21.837 13.1428 21.391C13.5665 20.9411 13.9782 20.249 14.3372 19.3288C14.6528 18.5197 14.9161 17.5641 15.1119 16.5H8.88841C9.08419 17.5641 9.34749 18.5197 9.66316 19.3288C10.0221 20.249 10.4339 20.9411 10.8575 21.391C11.2776 21.837 11.6622 22 12.0002 22ZM8.50016 12C8.50016 13.0476 8.55834 14.0545 8.6664 15H15.3339C15.442 14.0545 15.5002 13.0476 15.5002 12C15.5002 11.3139 15.4752 10.6453 15.4276 10H8.57268C8.52511 10.6453 8.50016 11.3139 8.50016 12Z"
+                fill="url(#paint1_radial_71274_9659)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_71274_9659"
+                  x1="6.44444"
+                  y1="5.33333"
+                  x2="20.8889"
+                  y2="18.6667"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#29C3FF" />
+                  <stop offset="1" stop-color="#2052CB" />
+                </linearGradient>
+                <radialGradient
+                  id="paint1_radial_71274_9659"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(18.3245 17.003) rotate(-135.338) scale(16.0089 16.0078)"
+                >
+                  <stop stop-color="#25A2F0" />
+                  <stop offset="0.97403" stop-color="#3BD5FF" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            Languages & Translation
+          </h2>
+
+          <div class="faq-item">
+            <h3>
+              My language isn't supported, or the translation is wrong/makes no
+              sense.
+            </h3>
+            <p>
+              The translations for Fluent New Tab are partially generated using
+              the DeepL API. Because it's an AI translation, some words might be
+              out of context, and some languages aren't supported by the API at
+              all.
+            </p>
+            <p>
+              If you spot a mistake or want to add your language, you can either
+              open an issue on GitHub or go to our
+              <a
+                href="https://crowdin.com/project/fluent-new-tab"
+                target="_blank"
+                rel="noopener"
+                >Crowdin Project</a
+              >
+              and request a new language.
+            </p>
+            <p>
+              <strong>We need your help!</strong> You can join Crowdin as a
+              contributor to fix wrong translations or translate the interface
+              into your native language. Community help is the best way to make
+              the extension accessible to everyone.
+            </p>
+          </div>
+        </section>
+
+        <section id="backup" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 22H18C19.1046 22 20 21.1046 20 20V9L15 7L13 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z"
+                fill="url(#paint0_linear_378174_8719)"
+              />
+              <path
+                d="M6 22H18C19.1046 22 20 21.1046 20 20V9L15 7L13 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z"
+                fill="url(#paint1_radial_378174_8719)"
+                fill-opacity="0.5"
+              />
+              <path
+                d="M13 7.5V2L20 9H14.5C13.6716 9 13 8.32843 13 7.5Z"
+                fill="url(#paint2_linear_378174_8719)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_8719"
+                  x1="15.2"
+                  y1="2"
+                  x2="16.8215"
+                  y2="18.8699"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6CE0FF" />
+                  <stop offset="1" stop-color="#4894FE" />
+                </linearGradient>
+                <radialGradient
+                  id="paint1_radial_378174_8719"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(20.6667 2.625) rotate(133.623) scale(12.562 7.41695)"
+                >
+                  <stop offset="0.362364" stop-color="#4A43CB" />
+                  <stop offset="1" stop-color="#4A43CB" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient
+                  id="paint2_linear_378174_8719"
+                  x1="16.4883"
+                  y1="4.91667"
+                  x2="14.7383"
+                  y2="7.83333"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#9FF0F9" />
+                  <stop offset="1" stop-color="#B3E0FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Backup Issues
+          </h2>
+
+          <div class="faq-item">
+            <h3>My backup file is failing to import.</h3>
+            <p>
+              Ensure that the file you are trying to import is strictly in
+              <code>.json</code> format. If you manually edited the file, make
+              sure the syntax is valid and the keys match the original structure
+              of the extension.
+            </p>
+            <p>
+              If the file is corrupted, the extension will reject it to prevent
+              breaking your current setup.
+            </p>
+          </div>
+        </section>
+
+        <section id="troubleshooting" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.75 2C16.4659 2 16.2062 2.1605 16.0792 2.41459L15.0792 4.41459C14.967 4.63888 14.9744 4.90438 15.0988 5.1221L16 6.69917V12.5H19V6.69917L19.9012 5.1221C20.0256 4.90438 20.033 4.63888 19.9208 4.41459L18.9208 2.41459C18.7938 2.1605 18.5341 2 18.25 2H16.75Z"
+                fill="url(#paint0_linear_72095_7961)"
+              />
+              <path
+                d="M14 14.5V18.5C14 20.433 15.567 22 17.5 22C19.433 22 21 20.433 21 18.5V14.5H14Z"
+                fill="url(#paint1_linear_72095_7961)"
+              />
+              <path
+                d="M20.25 12C20.6642 12 21 12.3358 21 12.75V15H14V12.75C14 12.3358 14.3358 12 14.75 12H20.25Z"
+                fill="url(#paint2_linear_72095_7961)"
+              />
+              <path
+                d="M8.82848 2.21211C9.03402 2.0725 9.29535 2.04375 9.52632 2.13532C11.5598 2.94157 13 4.9266 13 7.24981C13 9.37387 11.7961 11.2152 10.0357 12.1315V19.4639C10.0357 20.8643 8.90043 21.9996 7.5 21.9996C6.09956 21.9996 4.96429 20.8643 4.96429 19.4639V12.1315C3.20387 11.2152 2 9.37387 2 7.24981C2 4.92669 3.44005 2.94173 5.47344 2.13542C5.70441 2.04383 5.96575 2.07258 6.1713 2.21218C6.37684 2.35179 6.4999 2.58413 6.4999 2.83261V6.49969C6.4999 7.05197 6.94761 7.49969 7.4999 7.49969C8.05218 7.49969 8.4999 7.05197 8.4999 6.49969V2.83252C8.4999 2.58406 8.62295 2.35172 8.82848 2.21211Z"
+                fill="url(#paint3_linear_72095_7961)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_7961"
+                  x1="19.1667"
+                  y1="-0.00103998"
+                  x2="15.4736"
+                  y2="20.5021"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2BDABE" />
+                  <stop offset="0.853157" stop-color="#0067BF" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_7961"
+                  x1="20.9991"
+                  y1="22.1672"
+                  x2="13.0468"
+                  y2="15.4635"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF6F47" />
+                  <stop offset="1" stop-color="#FFCD0F" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_7961"
+                  x1="15.9269"
+                  y1="12.7262"
+                  x2="16.9762"
+                  y2="15.1772"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFA43D" />
+                  <stop offset="1" stop-color="#FB5937" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_7961"
+                  x1="11.1667"
+                  y1="-1.71318"
+                  x2="4.55687"
+                  y2="22.5325"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2BDABE" />
+                  <stop offset="1" stop-color="#0067BF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            General Fixes
+          </h2>
+
+          <div class="faq-item">
+            <h3>Something is failing or completely broken.</h3>
+            <p>
+              If a specific feature isn't working, the fastest way to fix it is
+              to clear your browser's cache for the extension.
+            </p>
+            <p>
+              If that doesn't work, go to your extensions page (<code
+                translate="no"
+                >edge://extensions/</code
+              >
+              or <code translate="no">chrome://extensions/</code>), locate
+              Fluent New Tab, and click the <strong>Reload</strong> button. This
+              will restart the extension's background scripts.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Drag &amp; Drop from Favorites Bar is not working.</h3>
+            <p>
+              Make sure the browser favorites/bookmarks bar is visible and that
+              you are dragging from that bar directly. Some browser policies or
+              privacy extensions may block drag events on extension pages.
+            </p>
+            <p>
+              If it still fails, try disabling conflicting extensions
+              temporarily and reload Fluent New Tab.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>I cannot find folder options in Shortcuts.</h3>
+            <p>
+              The folder actions only appear after enabling
+              <strong>Folders</strong> in Shortcuts settings. Once enabled, the
+              Add flow will include folder creation and drag-to-folder behavior.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Convert App to Folder is missing in App Launcher.</h3>
+            <p>
+              This action depends on the Shortcuts folder system. Enable
+              <strong>Folders</strong> first, then use the
+              <strong>+</strong> icon on the app card to convert it into a
+              folder shortcut.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Overlay Opacity does not seem to change anything.</h3>
+            <p>
+              Overlay Opacity only affects active wallpapers. If wallpaper is
+              turned off, or if you are using a plain background color, the
+              slider will have no visible effect.
+            </p>
+          </div>
+          <a
+            href="https://buymeacoffee.com/snw.mint"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="setting-card"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: 16px;
+              transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+              margin-top: 2rem;
+            "
+            onmouseover="
+              this.style.transform = 'translateY(-2px)';
+              this.style.boxShadow = 'var(--shadow-float)';
+            "
+            onmouseout="
+              this.style.transform = 'none';
+              this.style.boxShadow = 'var(--shadow-card)';
+            "
+          >
+            <img
+              src="assets/emojis/nerd.png"
+              alt="Hot Beverage"
+              width="40"
+              height="40"
+              style="flex-shrink: 0"
+            />
+            <div>
+              <h3 style="margin-bottom: 4px">Did this help you?</h3>
+              <p style="margin-bottom: 0">
+                Fluent New Tab is free and open-source. If this guide saved you
+                time, consider buying me a coffee to support future updates!
+              </p>
+            </div>
+          </a>
+        </section>
+
+        <section
+          id="help-links"
+          class="docs-section"
+          style="
+            margin-top: 64px;
+            border-top: 1px solid var(--color-border);
+            padding-top: 64px;
+          "
+        >
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C17.523 2 22 6.478 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12C2 6.478 6.477 2 12 2Z"
+                fill="url(#paint0_linear_378174_9443)"
+              />
+              <path
+                d="M12 15.5C11.4477 15.5 11 15.9477 11 16.5C11 17.0523 11.4477 17.5 12 17.5C12.5523 17.5 13 17.0523 13 16.5C13 15.9477 12.5523 15.5 12 15.5ZM12 6.75C10.4812 6.75 9.25 7.98122 9.25 9.5C9.25 9.91421 9.58579 10.25 10 10.25C10.3797 10.25 10.6935 9.96785 10.7432 9.60177L10.75 9.5C10.75 8.80964 11.3096 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.0388 13.115 10.3053 12.6051 10.8322L12.4697 10.9697C11.5916 11.8478 11.25 12.4171 11.25 13.5C11.25 13.9142 11.5858 14.25 12 14.25C12.4142 14.25 12.75 13.9142 12.75 13.5C12.75 12.9612 12.885 12.6947 13.3949 12.1678L13.5303 12.0303C14.4084 11.1522 14.75 10.5829 14.75 9.5C14.75 7.98122 13.5188 6.75 12 6.75Z"
+                fill="url(#paint1_linear_378174_9443)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9443"
+                  x1="2"
+                  y1="2"
+                  x2="22"
+                  y2="22"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9443"
+                  x1="9.73109"
+                  y1="6.93875"
+                  x2="13.0074"
+                  y2="17.7443"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FDFDFD" />
+                  <stop offset="1" stop-color="#CCEAFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Need More Help?
+          </h2>
+          <p>
+            If you found an issue, have a great idea, or just need to ask a
+            question, our GitHub community is the best place to reach out.
+          </p>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+              gap: 16px;
+              margin-top: 24px;
+            "
+          >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: #d13438">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Report a Bug
+              </h3>
+              <p>
+                Something isn't working right? Let us know so we can fix it.
+              </p>
             </a>
-        </aside>
 
-        <main class="docs-content">
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: #107c10">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Request Feature
+              </h3>
+              <p>Have an idea to make Fluent New Tab even better? Share it!</p>
+            </a>
 
-            <section id="installation" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13 2C14.364 2 15.4697 3.10572 15.4697 4.4697L15.469 5H19C19.5523 5 20 5.44772 20 6L19.999 9.499L18.4697 9.5C17.1603 9.5 16.0889 10.519 16.0053 11.8073L16 11.9697V12.0303C16 13.3397 17.019 14.4111 18.3073 14.4947L18.4697 14.5L19.999 14.499L20 18.0029C20 18.5552 19.5523 19.0029 19 19.0029L15.469 19.002L15.4697 19.5303C15.4697 20.8943 14.364 22 13 22C11.636 22 10.5303 20.8943 10.5303 19.5303L10.53 19.002L7 19.0029C6.44772 19.0029 6 18.5552 6 18.0029L5.999 14.471L5.4697 14.4712C4.10572 14.4712 3 13.3654 3 12.0015C3 10.6375 4.10572 9.53177 5.4697 9.53177L5.999 9.531L6 6C6 5.44772 6.44772 5 7 5H10.53L10.5303 4.4697C10.5303 3.10572 11.636 2 13 2Z"
-                            fill="url(#paint0_linear_72095_8560)" />
-                        <path
-                            d="M13 2C14.364 2 15.4697 3.10572 15.4697 4.4697L15.469 5H19C19.5523 5 20 5.44772 20 6L19.999 9.499L18.4697 9.5C17.1603 9.5 16.0889 10.519 16.0053 11.8073L16 11.9697V12.0303C16 13.3397 17.019 14.4111 18.3073 14.4947L18.4697 14.5L19.999 14.499L20 18.0029C20 18.5552 19.5523 19.0029 19 19.0029L15.469 19.002L15.4697 19.5303C15.4697 20.8943 14.364 22 13 22C11.636 22 10.5303 20.8943 10.5303 19.5303L10.53 19.002L7 19.0029C6.44772 19.0029 6 18.5552 6 18.0029L5.999 14.471L5.4697 14.4712C4.10572 14.4712 3 13.3654 3 12.0015C3 10.6375 4.10572 9.53177 5.4697 9.53177L5.999 9.531L6 6C6 5.44772 6.44772 5 7 5H10.53L10.5303 4.4697C10.5303 3.10572 11.636 2 13 2Z"
-                            fill="url(#paint1_linear_72095_8560)" fill-opacity="0.7" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8560" x1="5.83333" y1="0.888889" x2="16.8833"
-                                y2="21.7611" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#1EC8B0" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8560" x1="14.131" y1="4.45614" x2="18.7254"
-                                y2="23.8609" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.53288" stop-color="#FF6CE8" stop-opacity="0" />
-                                <stop offset="1" stop-color="#FF6CE8" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Installation
-                </h2>
-
-                <div class="faq-item">
-                    <h3>The extension is disabled after installing on Microsoft Edge. What do I do?</h3>
-                    <p>Microsoft Edge disables third-party "New Tab" extensions by default for security reasons. To fix
-                        this:</p>
-                    <p>1. Type <code translate="no">edge://extensions/</code> in your address bar and hit Enter.<br>
-                        2. Find "Fluent New Tab" and toggle the switch to turn it on.<br>
-                        3. Open a new tab. Edge will show a warning asking if you expected this change.<br>
-                        4. Click the <strong>"Keep it anyway"</strong> button.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>My extension disables itself or shows a security popup.</h3>
-                    <p>Browsers like <strong>Edge</strong> and <strong>Chrome</strong> can show security prompts in some
-                        situations, especially when using <strong>Developer Mode</strong> or loading the extension as
-                        <strong>unpacked</strong>. This behavior is controlled by the browser, not only by the
-                        extension.
-                    </p>
-                    <p>In rare cases, the browser can also disable an extension automatically after an update if new
-                        permissions are added to the manifest. When that happens, you need to re-enable the extension
-                        and accept the new permissions prompt.</p>
-                    <p>It is always a good idea to check the changelog after updates. If new permissions are ever
-                        required for new features, it will be documented there. Permission changes are uncommon, and we
-                        always try to ship new features without requesting new permissions to avoid mass deactivation.
-                    </p>
-                </div>
-            </section>
-
-            <section id="performance" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
-                            fill="url(#paint0_linear_72095_8784)" />
-                        <path
-                            d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
-                            fill="url(#paint1_radial_72095_8784)" />
-                        <path
-                            d="M22 16.75C22 16.3358 21.6642 16 21.25 16H2.75L2.64823 16.0068C2.28215 16.0565 2 16.3703 2 16.75C2 17.1642 2.33579 17.5 2.75 17.5H21.25L21.3518 17.4932C21.7178 17.4435 22 17.1297 22 16.75Z"
-                            fill="url(#paint2_radial_72095_8784)" />
-                        <path
-                            d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
-                            fill="url(#paint3_linear_72095_8784)" />
-                        <path
-                            d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
-                            fill="url(#paint4_radial_72095_8784)" />
-                        <path
-                            d="M22 7.25C22 6.83579 21.6642 6.5 21.25 6.5H2.75L2.64823 6.50685C2.28215 6.55651 2 6.8703 2 7.25C2 7.66421 2.33579 8 2.75 8H21.25L21.3518 7.99315C21.7178 7.94349 22 7.6297 22 7.25Z"
-                            fill="url(#paint5_radial_72095_8784)" />
-                        <path
-                            d="M12 16.75C12 18.5449 10.545 20 8.75004 20C6.95512 20 5.50004 18.5449 5.50004 16.75C5.50004 14.9551 6.95512 13.5 8.75004 13.5C10.545 13.5 12 14.9551 12 16.75Z"
-                            fill="url(#paint6_linear_72095_8784)" />
-                        <path
-                            d="M18.5 7.25C18.5 9.04493 17.0449 10.5 15.25 10.5C13.4551 10.5 12 9.04493 12 7.25C12 5.45507 13.4551 4 15.25 4C17.0449 4 18.5 5.45507 18.5 7.25Z"
-                            fill="url(#paint7_linear_72095_8784)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8784" x1="23.25" y1="18.6" x2="14.3126"
-                                y2="-1.89248" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#8C959B" />
-                                <stop offset="1" stop-color="#A3ACB5" />
-                            </linearGradient>
-                            <radialGradient id="paint1_radial_72095_8784" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(15.3333 7.1875) rotate(-2.30081) scale(4.67043 2.99591)">
-                                <stop offset="0.548597" stop-color="#70777D" />
-                                <stop offset="1" stop-color="#70777D" stop-opacity="0" />
-                            </radialGradient>
-                            <radialGradient id="paint2_radial_72095_8784" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(8.66667 16.8125) rotate(-3.69903) scale(4.84342 3.10688)">
-                                <stop offset="0.548597" stop-color="#70777D" />
-                                <stop offset="1" stop-color="#70777D" stop-opacity="0" />
-                            </radialGradient>
-                            <linearGradient id="paint3_linear_72095_8784" x1="23.25" y1="18.6" x2="14.3126"
-                                y2="-1.89248" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#8C959B" />
-                                <stop offset="1" stop-color="#A3ACB5" />
-                            </linearGradient>
-                            <radialGradient id="paint4_radial_72095_8784" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(15.3333 7.1875) rotate(-2.30081) scale(4.67043 2.99591)">
-                                <stop offset="0.548597" stop-color="#70777D" />
-                                <stop offset="1" stop-color="#70777D" stop-opacity="0" />
-                            </radialGradient>
-                            <radialGradient id="paint5_radial_72095_8784" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(8.66667 16.8125) rotate(-3.69903) scale(4.84342 3.10688)">
-                                <stop offset="0.548597" stop-color="#70777D" />
-                                <stop offset="1" stop-color="#70777D" stop-opacity="0" />
-                            </radialGradient>
-                            <linearGradient id="paint6_linear_72095_8784" x1="6.15" y1="13.5" x2="11.35" y2="20"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#29B4FB" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint7_linear_72095_8784" x1="12.65" y1="4" x2="17.85" y2="10.5"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#29B4FB" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Performance & UI Size
-                </h2>
-
-                <div class="faq-item">
-                    <h3>The wallpaper images take a long time to load.</h3>
-                    <p>This is completely normal, especially when using the <strong>NASA APOD</strong> source. These
-                        images are often downloaded in 4K resolution.</p>
-                    <p>To ensure your browser doesn't slow down, the extension downloads the image, converts it into a
-                        compressed WebP format, and caches it locally. Depending on your computer's speed and internet
-                        connection, this conversion might cause a slight delay. This process only happens once a day
-                        when a new image is fetched.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>The extension feels very heavy or slow on my computer.</h3>
-                    <p>Fluent New Tab uses advanced CSS techniques like backdrop filters (Mica/Acrylic blur effects) and
-                        animations, which can be demanding on older hardware.</p>
-                    <p>To improve performance, go to the settings menu and enable the <strong>Reduce visual
-                            effects</strong> option. This will turn off heavy animations and disable the background
-                        blur, making the extension significantly lighter and faster.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>The interface is too small or too big for my monitor.</h3>
-                    <p>The extension scales automatically, but if you want to adjust the size of the elements, you can
-                        use your browser's native zoom feature.</p>
-                    <p>Press <code>Ctrl +</code> (or <code>Cmd +</code> on Mac) to zoom in and make things bigger, or
-                        <code>Ctrl -</code> (or <code>Cmd -</code>) to zoom out. The browser will remember this zoom
-                        level specifically for the new tab page.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Why are custom wallpapers resized to 4K resolution?</h3>
-                    <p>To ensure your browser remains fast and responsive. Images larger than 4K (like 8K photos)
-                        consume a massive amount of RAM when decoded by the browser, which can cause significant lag
-                        every time you open a new tab.</p>
-                    <p>When you upload an oversized image, our system automatically resizes it to a maximum width of
-                        <strong>3840px (4K)</strong> and converts it to a highly optimized WebP format. This provides
-                        the "sweet spot" between crystal-clear visual quality and instant loading times.
-                    </p>
-                    <p><strong>Tip:</strong> For the absolute best performance, we recommend uploading images that match
-                        your monitor's native resolution.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>I got a "Storage Full" or "Quota Exceeded" error when uploading a wallpaper.</h3>
-                    <p>The extension saves your custom wallpapers directly inside your browser's local database
-                        (IndexedDB) so they load instantly without needing an internet connection. Browsers strictly
-                        limit how much space extensions can use.</p>
-                    <p>If you see this error, your browser's storage quota for your current profile is full. To fix
-                        this:</p>
-                    <p>1. Try uploading an image with a smaller file size or lower resolution.<br>
-                        2. Clear your browser's cache and temporary site data to free up local storage space.<br>
-                        3. Ensure your hard drive (C: drive) isn't completely full, as browsers dynamically adjust
-                        storage limits based on available disk space.</p>
-                </div>
-
-            </section>
-
-            <section id="weather-api" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.1251 14C17.3671 13.3801 17.5 12.7056 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 12.7056 6.63286 13.3801 6.87494 14H17.1251Z"
-                            fill="url(#paint0_linear_72095_8018)" />
-                        <path
-                            d="M2 14C2 13.4477 2.44772 13 3 13H21C21.5523 13 22 13.4477 22 14C22 14.5523 21.5523 15 21 15H3C2.44772 15 2 14.5523 2 14Z"
-                            fill="url(#paint1_linear_72095_8018)" />
-                        <path
-                            d="M6 17C6 16.4477 6.44772 16 7 16H17C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18H7C6.44772 18 6 17.5523 6 17Z"
-                            fill="url(#paint2_linear_72095_8018)" />
-                        <path
-                            d="M10 20C10 19.4477 10.4477 19 11 19H13C13.5523 19 14 19.4477 14 20C14 20.5523 13.5523 21 13 21H11C10.4477 21 10 20.5523 10 20Z"
-                            fill="url(#paint3_linear_72095_8018)" />
-                        <path
-                            d="M12 2C12.5523 2 13 2.44772 13 3V4.25C13 4.80228 12.5523 5.25 12 5.25C11.4477 5.25 11 4.80228 11 4.25V3C11 2.44772 11.4477 2 12 2Z"
-                            fill="url(#paint4_linear_72095_8018)" />
-                        <path
-                            d="M4.79289 4.79289C5.18342 4.40237 5.81658 4.40237 6.20711 4.79289L7.20711 5.79289C7.59763 6.18342 7.59763 6.81658 7.20711 7.20711C6.81658 7.59763 6.18342 7.59763 5.79289 7.20711L4.79289 6.20711C4.40237 5.81658 4.40237 5.18342 4.79289 4.79289Z"
-                            fill="url(#paint5_linear_72095_8018)" />
-                        <path
-                            d="M19.2071 4.79289C19.5976 5.18342 19.5976 5.81658 19.2071 6.20711L18.2071 7.20711C17.8166 7.59763 17.1834 7.59763 16.7929 7.20711C16.4024 6.81658 16.4024 6.18342 16.7929 5.79289L17.7929 4.79289C18.1834 4.40237 18.8166 4.40237 19.2071 4.79289Z"
-                            fill="url(#paint6_linear_72095_8018)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8018" x1="10.3101" y1="6.08939" x2="14.5098"
-                                y2="14.5848" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.96" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint5_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint6_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Weather Widget
-                </h2>
-
-                <div class="faq-item">
-                    <h3>My city doesn't load or says "not found".</h3>
-                    <p>The weather widget uses an external geocoding API to find the exact latitude and longitude of
-                        your city. If your city shares the same name with other places in the world, the system might
-                        get confused.</p>
-                    <p>If it fails to load, try being more specific by adding your state or country code. For example,
-                        instead of typing "San Jose", try typing <code>San Jose, CA</code> or
-                        <code>San Jose, Costa Rica</code>.
-                    </p>
-                </div>
-            </section>
-
-            <section id="languages" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 22C17.5229 22 22 17.5228 22 12C22 6.47715 17.5229 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            fill="url(#paint0_linear_71274_9659)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M9.11536 2.42239C8.79436 2.9207 8.51137 3.49638 8.26573 4.12602C7.78572 5.35643 7.42673 6.84886 7.21597 8.5H2.62977C2.44914 8.98338 2.30484 9.48449 2.2002 10H7.06886C7.02353 10.6505 7.00016 11.319 7.00016 12C7.00016 13.0354 7.05419 14.0418 7.15722 15H2.45796C2.62114 15.5196 2.82559 16.0208 3.06745 16.5H7.36498C7.57989 17.7553 7.88468 18.8972 8.26573 19.874C8.51137 20.5036 8.79436 21.0793 9.11536 21.5776C10.0288 21.8524 10.9972 22 12.0002 22C13.0031 22 13.9715 21.8524 14.885 21.5776C15.206 21.0793 15.4889 20.5036 15.7346 19.874C16.1156 18.8972 16.4204 17.7553 16.6353 16.5H20.9329C21.1747 16.0208 21.3792 15.5196 21.5424 15H16.8431C16.9461 14.0418 17.0002 13.0354 17.0002 12C17.0002 11.319 16.9768 10.6505 16.9315 10H21.8001C21.6955 9.48449 21.5512 8.98338 21.3706 8.5H16.7843C16.5736 6.84886 16.2146 5.35643 15.7346 4.12602C15.4889 3.49638 15.206 2.9207 14.885 2.42239C13.9715 2.14765 13.0031 2 12.0002 2C10.9972 2 10.0288 2.14765 9.11536 2.42239ZM8.72894 8.5C8.92888 7.03063 9.25148 5.72645 9.66316 4.67118C10.0221 3.75104 10.4339 3.05889 10.8575 2.60897C11.2776 2.16296 11.6622 2 12.0002 2C12.3381 2 12.7228 2.16296 13.1428 2.60897C13.5665 3.05889 13.9782 3.75104 14.3372 4.67118C14.7488 5.72645 15.0714 7.03063 15.2714 8.5H8.72894ZM12.0002 22C12.3381 22 12.7228 21.837 13.1428 21.391C13.5665 20.9411 13.9782 20.249 14.3372 19.3288C14.6528 18.5197 14.9161 17.5641 15.1119 16.5H8.88841C9.08419 17.5641 9.34749 18.5197 9.66316 19.3288C10.0221 20.249 10.4339 20.9411 10.8575 21.391C11.2776 21.837 11.6622 22 12.0002 22ZM8.50016 12C8.50016 13.0476 8.55834 14.0545 8.6664 15H15.3339C15.442 14.0545 15.5002 13.0476 15.5002 12C15.5002 11.3139 15.4752 10.6453 15.4276 10H8.57268C8.52511 10.6453 8.50016 11.3139 8.50016 12Z"
-                            fill="url(#paint1_radial_71274_9659)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_71274_9659" x1="6.44444" y1="5.33333" x2="20.8889"
-                                y2="18.6667" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#29C3FF" />
-                                <stop offset="1" stop-color="#2052CB" />
-                            </linearGradient>
-                            <radialGradient id="paint1_radial_71274_9659" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(18.3245 17.003) rotate(-135.338) scale(16.0089 16.0078)">
-                                <stop stop-color="#25A2F0" />
-                                <stop offset="0.97403" stop-color="#3BD5FF" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-
-                    Languages & Translation
-                </h2>
-
-                <div class="faq-item">
-                    <h3>My language isn't supported, or the translation is wrong/makes no sense.</h3>
-                    <p>The translations for Fluent New Tab are partially generated using the DeepL API. Because it's an
-                        AI translation, some words might be out of context, and some languages aren't supported by the
-                        API at all.</p>
-                    <p>If you spot a mistake or want to add your language, you can either open an issue on GitHub or go
-                        to our <a href="https://crowdin.com/project/fluent-new-tab" target="_blank"
-                            rel="noopener">Crowdin Project</a> and request a new language.</p>
-                    <p><strong>We need your help!</strong> You can join Crowdin as a contributor to fix wrong
-                        translations or translate the interface into your native language. Community help is the best
-                        way to make the extension accessible to everyone.</p>
-                </div>
-            </section>
-
-            <section id="backup" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6 22H18C19.1046 22 20 21.1046 20 20V9L15 7L13 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z"
-                            fill="url(#paint0_linear_378174_8719)" />
-                        <path
-                            d="M6 22H18C19.1046 22 20 21.1046 20 20V9L15 7L13 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z"
-                            fill="url(#paint1_radial_378174_8719)" fill-opacity="0.5" />
-                        <path d="M13 7.5V2L20 9H14.5C13.6716 9 13 8.32843 13 7.5Z"
-                            fill="url(#paint2_linear_378174_8719)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_8719" x1="15.2" y1="2" x2="16.8215" y2="18.8699"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6CE0FF" />
-                                <stop offset="1" stop-color="#4894FE" />
-                            </linearGradient>
-                            <radialGradient id="paint1_radial_378174_8719" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(20.6667 2.625) rotate(133.623) scale(12.562 7.41695)">
-                                <stop offset="0.362364" stop-color="#4A43CB" />
-                                <stop offset="1" stop-color="#4A43CB" stop-opacity="0" />
-                            </radialGradient>
-                            <linearGradient id="paint2_linear_378174_8719" x1="16.4883" y1="4.91667" x2="14.7383"
-                                y2="7.83333" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#9FF0F9" />
-                                <stop offset="1" stop-color="#B3E0FF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Backup Issues
-                </h2>
-
-                <div class="faq-item">
-                    <h3>My backup file is failing to import.</h3>
-                    <p>Ensure that the file you are trying to import is strictly in <code>.json</code> format. If you
-                        manually edited the file, make sure the syntax is valid and the keys match the original
-                        structure of the extension.</p>
-                    <p>If the file is corrupted, the extension will reject it to prevent breaking your current setup.
-                    </p>
-                </div>
-            </section>
-
-            <section id="troubleshooting" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16.75 2C16.4659 2 16.2062 2.1605 16.0792 2.41459L15.0792 4.41459C14.967 4.63888 14.9744 4.90438 15.0988 5.1221L16 6.69917V12.5H19V6.69917L19.9012 5.1221C20.0256 4.90438 20.033 4.63888 19.9208 4.41459L18.9208 2.41459C18.7938 2.1605 18.5341 2 18.25 2H16.75Z"
-                            fill="url(#paint0_linear_72095_7961)" />
-                        <path d="M14 14.5V18.5C14 20.433 15.567 22 17.5 22C19.433 22 21 20.433 21 18.5V14.5H14Z"
-                            fill="url(#paint1_linear_72095_7961)" />
-                        <path
-                            d="M20.25 12C20.6642 12 21 12.3358 21 12.75V15H14V12.75C14 12.3358 14.3358 12 14.75 12H20.25Z"
-                            fill="url(#paint2_linear_72095_7961)" />
-                        <path
-                            d="M8.82848 2.21211C9.03402 2.0725 9.29535 2.04375 9.52632 2.13532C11.5598 2.94157 13 4.9266 13 7.24981C13 9.37387 11.7961 11.2152 10.0357 12.1315V19.4639C10.0357 20.8643 8.90043 21.9996 7.5 21.9996C6.09956 21.9996 4.96429 20.8643 4.96429 19.4639V12.1315C3.20387 11.2152 2 9.37387 2 7.24981C2 4.92669 3.44005 2.94173 5.47344 2.13542C5.70441 2.04383 5.96575 2.07258 6.1713 2.21218C6.37684 2.35179 6.4999 2.58413 6.4999 2.83261V6.49969C6.4999 7.05197 6.94761 7.49969 7.4999 7.49969C8.05218 7.49969 8.4999 7.05197 8.4999 6.49969V2.83252C8.4999 2.58406 8.62295 2.35172 8.82848 2.21211Z"
-                            fill="url(#paint3_linear_72095_7961)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_7961" x1="19.1667" y1="-0.00103998" x2="15.4736"
-                                y2="20.5021" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2BDABE" />
-                                <stop offset="0.853157" stop-color="#0067BF" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_7961" x1="20.9991" y1="22.1672" x2="13.0468"
-                                y2="15.4635" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FF6F47" />
-                                <stop offset="1" stop-color="#FFCD0F" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_7961" x1="15.9269" y1="12.7262" x2="16.9762"
-                                y2="15.1772" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFA43D" />
-                                <stop offset="1" stop-color="#FB5937" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_7961" x1="11.1667" y1="-1.71318" x2="4.55687"
-                                y2="22.5325" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2BDABE" />
-                                <stop offset="1" stop-color="#0067BF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    General Fixes
-                </h2>
-
-                <div class="faq-item">
-                    <h3>Something is failing or completely broken.</h3>
-                    <p>If a specific feature isn't working, the fastest way to fix it is to clear your browser's cache
-                        for the extension.</p>
-                    <p>If that doesn't work, go to your extensions page (<code translate="no">edge://extensions/</code>
-                        or <code translate="no">chrome://extensions/</code>), locate Fluent New Tab, and click the
-                        <strong>Reload</strong> button. This will restart the extension's background scripts.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Drag &amp; Drop from Favorites Bar is not working.</h3>
-                    <p>Make sure the browser favorites/bookmarks bar is visible and that you are dragging from that bar
-                        directly. Some browser policies or privacy extensions may block drag events on extension pages.
-                    </p>
-                    <p>If it still fails, try disabling conflicting extensions temporarily and reload Fluent New Tab.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>I cannot find folder options in Shortcuts.</h3>
-                    <p>The folder actions only appear after enabling <strong>Folders</strong> in Shortcuts settings.
-                        Once enabled, the Add flow will include folder creation and drag-to-folder behavior.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Convert App to Folder is missing in App Launcher.</h3>
-                    <p>This action depends on the Shortcuts folder system. Enable <strong>Folders</strong> first, then
-                        use the <strong>+</strong> icon on the app card to convert it into a folder shortcut.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Overlay Opacity does not seem to change anything.</h3>
-                    <p>Overlay Opacity only affects active wallpapers. If wallpaper is turned off, or if you are using a
-                        plain background color, the slider will have no visible effect.</p>
-                </div>
-                <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
-                    class="setting-card"
-                    style="text-decoration: none; display: flex; align-items: center; gap: 16px; transition: transform 0.2s, box-shadow 0.2s; margin-top: 2rem;"
-                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-float)';"
-                    onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-card)';">
-                    <img src="assets/emojis/nerd.png" alt="Hot Beverage" width="40" height="40"
-                        style="flex-shrink: 0;" />
-                    <div>
-                        <h3 style="margin-bottom: 4px;">Did this help you?</h3>
-                        <p style="margin-bottom: 0;">Fluent New Tab is free and open-source. If this guide saved you
-                            time, consider buying me a coffee to support future updates!</p>
-                    </div>
-                </a>
-            </section>
-
-            <section id="help-links" class="docs-section"
-                style="margin-top: 64px; border-top: 1px solid var(--color-border); padding-top: 64px;">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 2C17.523 2 22 6.478 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12C2 6.478 6.477 2 12 2Z"
-                            fill="url(#paint0_linear_378174_9443)" />
-                        <path
-                            d="M12 15.5C11.4477 15.5 11 15.9477 11 16.5C11 17.0523 11.4477 17.5 12 17.5C12.5523 17.5 13 17.0523 13 16.5C13 15.9477 12.5523 15.5 12 15.5ZM12 6.75C10.4812 6.75 9.25 7.98122 9.25 9.5C9.25 9.91421 9.58579 10.25 10 10.25C10.3797 10.25 10.6935 9.96785 10.7432 9.60177L10.75 9.5C10.75 8.80964 11.3096 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.0388 13.115 10.3053 12.6051 10.8322L12.4697 10.9697C11.5916 11.8478 11.25 12.4171 11.25 13.5C11.25 13.9142 11.5858 14.25 12 14.25C12.4142 14.25 12.75 13.9142 12.75 13.5C12.75 12.9612 12.885 12.6947 13.3949 12.1678L13.5303 12.0303C14.4084 11.1522 14.75 10.5829 14.75 9.5C14.75 7.98122 13.5188 6.75 12 6.75Z"
-                            fill="url(#paint1_linear_378174_9443)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9443" x1="2" y1="2" x2="22" y2="22"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9443" x1="9.73109" y1="6.93875" x2="13.0074"
-                                y2="17.7443" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FDFDFD" />
-                                <stop offset="1" stop-color="#CCEAFF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Need More Help?
-                </h2>
-                <p>If you found an issue, have a great idea, or just need to ask a question, our GitHub community is the
-                    best place to reach out.</p>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px;">
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
-                        target="_blank" rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: #D13438;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z"
-                                    fill="currentColor" />
-                            </svg>
-                            Report a Bug
-                        </h3>
-                        <p>Something isn't working right? Let us know so we can fix it.</p>
-                    </a>
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
-                        target="_blank" rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: #107C10;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z"
-                                    fill="currentColor" />
-                            </svg>
-                            Request Feature
-                        </h3>
-                        <p>Have an idea to make Fluent New Tab even better? Share it!</p>
-                    </a>
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank"
-                        rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: var(--color-primary);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
-                                    fill="currentColor" />
-                                <path
-                                    d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5"
-                                    fill="currentColor" />
-                                <path
-                                    d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21"
-                                    fill="currentColor" />
-                            </svg>
-                            Ask a Question
-                        </h3>
-                        <p>Need help configuring or using a specific feature?</p>
-                    </a>
-
-                </div>
-            </section>
-
-        </main>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: var(--color-primary)">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21"
+                    fill="currentColor"
+                  />
+                </svg>
+                Ask a Question
+              </h3>
+              <p>Need help configuring or using a specific feature?</p>
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
 
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo">
-                    <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                    <span>Fluent New Tab</span>
-                </div>
-                <p class="footer-description">Fluent New Tab is an independent open-source project and is not affiliated
-                    with, endorsed by, or sponsored by Microsoft Corporation.</p>
-            </div>
-
-            <div class="footer-nav">
-                <div class="footer-column">
-                    <h4>Overview</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/setup.html">Setup & Configuration</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy Policy</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/terms.html">Terms of Use</a>
-                    <a href="mailto:snw-mint@outlook.com">Contact</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html">Troubleshooting</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml">Report a
-                        Bug</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml">Request
-                        a Feature</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose">Ask a Question</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Community</h4>
-                    <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md">Contributing</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md">Help Translate</a>
-                    <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer">Support the
-                        Project</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Download</h4>
-                    <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
-                        target="_blank" rel="noopener noreferrer">Microsoft Edge</a>
-                    <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/" target="_blank"
-                        rel="noopener noreferrer">Google Chrome</a>
-                    <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
-                        rel="noopener noreferrer">Mozilla Firefox</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank"
-                        rel="noopener noreferrer">Manual Release</a>
-                </div>
-            </div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <p class="footer-description">
+            Fluent New Tab is an independent open-source project and is not
+            affiliated with, endorsed by, or sponsored by Microsoft Corporation.
+          </p>
         </div>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
-                    rel="noopener noreferrer">snow mint</a>.</p>
+        <div class="footer-nav">
+          <div class="footer-column">
+            <h4>Overview</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+            <a href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+              >Setup & Configuration</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+              >Privacy Policy</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/terms.html"
+              >Terms of Use</a
+            >
+            <a href="mailto:snowmint.dev@gmail.com">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/help.html"
+              >Troubleshooting</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              >Report a Bug</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              >Request a Feature</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              >Ask a Question</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Community</h4>
+            <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+              >Contributing</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+              >Help Translate</a
+            >
+            <a
+              href="https://buymeacoffee.com/snw.mint"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Support the Project</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Download</h4>
+            <a
+              href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Microsoft Edge</a
+            >
+            <a
+              href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Chrome</a
+            >
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mozilla Firefox</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Manual Release</a
+            >
+          </div>
         </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>
+          &copy; 2026 Fluent New Tab. Created by
+          <a
+            href="https://github.com/snw-mint"
+            target="_blank"
+            rel="noopener noreferrer"
+            >snow mint</a
+          >.
+        </p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.docs-section');
-            const navLinks = document.querySelectorAll('.docs-sidebar a');
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".docs-section");
+        const navLinks = document.querySelectorAll(".docs-sidebar a");
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 150) {
+              current = section.getAttribute("id");
+            }
+          });
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-            });
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+              link.classList.add("active");
+            }
+          });
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

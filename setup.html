@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
  - Fluent New Tab
  - Copyright (c) 2025-2026 SnowMint
@@ -7,1067 +7,1702 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Setup Guide - Fluent New Tab</title>
-    <meta name="description"
-        content="Setup guide for Fluent New Tab with themes, wallpaper, weather, shortcuts, search, and advanced options.">
-    <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://snw-mint.github.io/fluent-new-tab/setup.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Setup Guide - Fluent New Tab">
-    <meta property="og:description"
-        content="Configure themes, wallpaper, shortcuts, search, and advanced options in Fluent New Tab.">
-    <meta property="og:url" content="https://snw-mint.github.io/fluent-new-tab/setup.html">
-    <meta property="og:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Setup Guide - Fluent New Tab">
-    <meta property="twitter:description"
-        content="Configure themes, wallpaper, shortcuts, search, and advanced options in Fluent New Tab.">
-    <meta property="twitter:image" content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp">
-    <meta name="theme-color" content="#0f6cbd">
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <meta
+      name="description"
+      content="Setup guide for Fluent New Tab with themes, wallpaper, weather, shortcuts, search, and advanced options."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link
+      rel="canonical"
+      href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Setup Guide - Fluent New Tab" />
+    <meta
+      property="og:description"
+      content="Configure themes, wallpaper, shortcuts, search, and advanced options in Fluent New Tab."
+    />
+    <meta
+      property="og:url"
+      content="https://snw-mint.github.io/fluent-new-tab/setup.html"
+    />
+    <meta
+      property="og:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Setup Guide - Fluent New Tab" />
+    <meta
+      property="twitter:description"
+      content="Configure themes, wallpaper, shortcuts, search, and advanced options in Fluent New Tab."
+    />
+    <meta
+      property="twitter:image"
+      content="https://snw-mint.github.io/fluent-new-tab/assets/mockup.webp"
+    />
+    <meta name="theme-color" content="#0f6cbd" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <script>
-        (() => {
-            try {
-                const storedTheme = localStorage.getItem('theme-preference');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) { }
-        })();
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme-preference");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme = storedTheme || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
     </script>
     <style>
-        html {
-            font-size: 100%;
-        }
+      html {
+        font-size: 100%;
+      }
 
-        .setup-hero {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--color-border);
-            background-color: var(--color-surface);
-        }
+      .setup-hero {
+        padding: 3rem 0 2rem;
+        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-surface);
+      }
 
-        .setup-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-main);
-            letter-spacing: -0.02em;
-        }
+      .setup-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        letter-spacing: -0.02em;
+      }
 
-        .setup-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-        }
+      .setup-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+      }
 
+      .docs-layout {
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+        gap: 4rem;
+        padding: 3rem 1.5rem 5rem;
+        max-width: 75rem;
+        margin: 0 auto;
+        align-items: start;
+      }
+
+      .docs-sidebar {
+        position: sticky;
+        top: 6.25rem;
+      }
+
+      .docs-sidebar h4 {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-muted);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .docs-sidebar ul {
+        list-style: none;
+        border-left: 2px solid var(--color-border);
+      }
+
+      .docs-sidebar a {
+        text-decoration: none;
+        color: var(--color-text-muted);
+        display: block;
+        padding: 0.5rem 0 0.5rem 1.25rem;
+        font-size: 0.95rem;
+        transition:
+          color 0.2s,
+          border-left-color 0.2s;
+        margin-left: -2px;
+        border-left: 2px solid transparent;
+      }
+
+      .docs-sidebar a:hover {
+        color: var(--color-primary);
+        border-left-color: var(--color-primary);
+      }
+
+      .docs-content {
+        max-width: 50rem;
+      }
+
+      .docs-section {
+        margin-bottom: 4rem;
+        scroll-margin-top: 6.25rem;
+      }
+
+      .docs-section h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--color-text-main);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .docs-section h2 svg {
+        color: var(--color-primary);
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .docs-section > p {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+      }
+
+      .setting-card {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .setting-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-text-main);
+        display: flex;
+        align-items: center;
+      }
+
+      .setting-card p {
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+
+      .setting-badge {
+        display: inline-block;
+        background-color: rgba(15, 108, 189, 0.1);
+        color: var(--color-primary);
+        padding: 0.125rem 0.5rem;
+        border-radius: 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.75rem;
+      }
+
+      /* Header Scaling Fixes */
+      .docs-section h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 1.75rem;
+      }
+
+      .setting-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 1.15rem;
+      }
+
+      .docs-section h2 svg,
+      .setting-card h3 svg {
+        width: 1.2em !important;
+        height: 1.2em !important;
+        margin: 0 !important;
+        flex-shrink: 0;
+      }
+
+      #help-links .setting-card h3 {
+        font-size: 1.25rem;
+      }
+
+      @media (max-width: 48rem) {
         .docs-layout {
-            display: grid;
-            grid-template-columns: 15rem 1fr;
-            gap: 4rem;
-            padding: 3rem 1.5rem 5rem;
-            max-width: 75rem;
-            margin: 0 auto;
-            align-items: start;
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
         .docs-sidebar {
-            position: sticky;
-            top: 6.25rem;
+          display: none;
         }
-
-        .docs-sidebar h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-text-muted);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .docs-sidebar ul {
-            list-style: none;
-            border-left: 2px solid var(--color-border);
-        }
-
-        .docs-sidebar a {
-            text-decoration: none;
-            color: var(--color-text-muted);
-            display: block;
-            padding: 0.5rem 0 0.5rem 1.25rem;
-            font-size: 0.95rem;
-            transition: color 0.2s, border-left-color 0.2s;
-            margin-left: -2px;
-            border-left: 2px solid transparent;
-        }
-
-        .docs-sidebar a:hover {
-            color: var(--color-primary);
-            border-left-color: var(--color-primary);
-        }
-
-        .docs-content {
-            max-width: 50rem;
-        }
-
-        .docs-section {
-            margin-bottom: 4rem;
-            scroll-margin-top: 6.25rem;
-        }
-
-        .docs-section h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-text-main);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .docs-section h2 svg {
-            color: var(--color-primary);
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .docs-section>p {
-            color: var(--color-text-muted);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .setting-card {
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-card);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow-card);
-        }
-
-        .setting-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--color-text-main);
-            display: flex;
-            align-items: center;
-        }
-
-        .setting-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            margin-bottom: 0;
-            line-height: 1.5;
-        }
-
-        .setting-badge {
-            display: inline-block;
-            background-color: rgba(15, 108, 189, 0.1);
-            color: var(--color-primary);
-            padding: 0.125rem 0.5rem;
-            border-radius: 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: 0.75rem;
-        }
-
-        /* Header Scaling Fixes */
-        .docs-section h2 {
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            font-size: 1.75rem;
-        }
-
-        .setting-card h3 {
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            font-size: 1.15rem;
-        }
-
-        .docs-section h2 svg,
-        .setting-card h3 svg {
-            width: 1.2em !important;
-            height: 1.2em !important;
-            margin: 0 !important;
-            flex-shrink: 0;
-        }
-
-        #help-links .setting-card h3 {
-            font-size: 1.25rem;
-        }
-
-        @media (max-width: 48rem) {
-            .docs-layout {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .docs-sidebar {
-                display: none;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <div class="container nav-content" style="justify-content: space-between;">
-            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
-                <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                <span>Fluent New Tab</span>
-            </a>
+      <div class="container nav-content" style="justify-content: space-between">
+        <a
+          href="index.html"
+          class="logo"
+          style="text-decoration: none; color: inherit"
+        >
+          <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+          <span>Fluent New Tab</span>
+        </a>
 
-            <button id="theme-switcher" class="theme-switch" aria-label="Toggle Dark Mode">
-                <span class="theme-icon light-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <span class="theme-icon dark-icon">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <div class="theme-thumb"></div>
-            </button>
-        </div>
+        <button
+          id="theme-switcher"
+          class="theme-switch"
+          aria-label="Toggle Dark Mode"
+        >
+          <span class="theme-icon light-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="theme-icon dark-icon">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div class="theme-thumb"></div>
+        </button>
+      </div>
     </nav>
 
     <header class="setup-hero">
-        <div class="container">
-            <h1 class="setup-title">Setup & Configuration</h1>
-            <p class="setup-subtitle">Learn how to customize your workspace and understand every feature in the settings
-                menu.</p>
-        </div>
+      <div class="container">
+        <h1 class="setup-title">Setup & Configuration</h1>
+        <p class="setup-subtitle">
+          Learn how to customize your workspace and understand every feature in
+          the settings menu.
+        </p>
+      </div>
     </header>
 
     <div class="docs-layout">
-        <aside class="docs-sidebar">
-            <h4>Contents</h4>
-            <ul>
-                <li><a href="#appearance">Appearance</a></li>
-                <li><a href="#wallpaper">Wallpaper</a></li>
-                <li><a href="#display">Display</a></li>
-                <li><a href="#weather">Weather</a></li>
-                <li><a href="#shortcuts">Shortcuts</a></li>
-                <li><a href="#launcher">App Launcher</a></li>
-                <li><a href="#search">Search</a></li>
-                <li><a href="#performance">Performance</a></li>
-                <li><a href="#utilities">Utilities</a></li>
-            </ul>
-            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
-                class="fluent-bmc-sidebar">
-                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
-                    alt="Hot Beverage" width="28" height="28" />
-                <div class="fluent-bmc-text">
-                    <span class="fluent-bmc-title">Buy me a coffee</span>
-                    <span class="fluent-bmc-subtitle">Support the developer</span>
-                </div>
+      <aside class="docs-sidebar">
+        <h4>Contents</h4>
+        <ul>
+          <li><a href="#appearance">Appearance</a></li>
+          <li><a href="#wallpaper">Wallpaper</a></li>
+          <li><a href="#display">Display</a></li>
+          <li><a href="#weather">Weather</a></li>
+          <li><a href="#shortcuts">Shortcuts</a></li>
+          <li><a href="#launcher">App Launcher</a></li>
+          <li><a href="#search">Search</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#utilities">Utilities</a></li>
+        </ul>
+        <a
+          href="https://buymeacoffee.com/snw.mint"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fluent-bmc-sidebar"
+        >
+          <img
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png"
+            alt="Hot Beverage"
+            width="28"
+            height="28"
+          />
+          <div class="fluent-bmc-text">
+            <span class="fluent-bmc-title">Buy me a coffee</span>
+            <span class="fluent-bmc-subtitle">Support the developer</span>
+          </div>
+        </a>
+      </aside>
+
+      <main class="docs-content">
+        <section id="appearance" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 2.75C19 2.33579 18.6642 2 18.25 2H5.75C5.33579 2 5 2.33579 5 2.75V12.5H19V2.75Z"
+                fill="url(#paint0_linear_72095_8539)"
+              />
+              <path
+                d="M5 12V14.2521C5 15.4947 6.00736 16.5021 7.25 16.5021H9.99966V20C9.99966 21.1046 10.8951 22 11.9997 22C13.1042 22 13.9997 21.1046 13.9997 20V16.5021H16.75C17.9926 16.5021 19 15.4947 19 14.2521V12H5Z"
+                fill="url(#paint1_linear_72095_8539)"
+              />
+              <path
+                d="M5 12C5 11.4477 5.44772 11 6 11H18C18.5523 11 19 11.4477 19 12V12.5H5V12Z"
+                fill="url(#paint2_linear_72095_8539)"
+              />
+              <path
+                d="M12.5 5.25154V2H14V5.25154C14 5.66576 13.6642 6.00154 13.25 6.00154C12.8358 6.00154 12.5 5.66576 12.5 5.25154Z"
+                fill="url(#paint3_linear_72095_8539)"
+              />
+              <path
+                d="M15 6.25112V2H16.5V6.25112C16.5 6.66534 16.1642 7.00112 15.75 7.00112C15.3358 7.00112 15 6.66534 15 6.25112Z"
+                fill="url(#paint4_linear_72095_8539)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8539"
+                  x1="9.2"
+                  y1="-1.28085"
+                  x2="15.4485"
+                  y2="16.0505"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0853737" stop-color="#FFCD0F" />
+                  <stop offset="0.990707" stop-color="#E67505" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8539"
+                  x1="5"
+                  y1="8.47089"
+                  x2="5.85741"
+                  y2="24.5893"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.125321" stop-color="#AC80FF" />
+                  <stop offset="1" stop-color="#5750E2" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_8539"
+                  x1="8.32925"
+                  y1="11.1994"
+                  x2="8.44277"
+                  y2="12.8912"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.125321" stop-color="#9C6CFE" />
+                  <stop offset="1" stop-color="#5750E2" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_8539"
+                  x1="12.5"
+                  y1="0.610912"
+                  x2="16.5483"
+                  y2="5.92879"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_72095_8539"
+                  x1="12.5"
+                  y1="0.610912"
+                  x2="16.5483"
+                  y2="5.92879"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Theme & Appearance
+          </h2>
+          <p>
+            Located at the very top of the settings menu, you can quickly toggle
+            between three main color schemes for your new tab interface.
+          </p>
+
+          <div class="setting-card">
+            <h3>Accent Color</h3>
+            <p>
+              You can now replace the default blue accent color across the
+              extension. Choose to automatically extract the accent color
+              directly from your active wallpaper for a dynamic, cohesive look,
+              or pick a specific custom color using the new color matrix.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Light Mode</h3>
+            <p>
+              A clean, bright interface using the standard Fluent Design light
+              palette. Ideal for daytime usage and well-lit environments.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Dark Mode</h3>
+            <p>
+              A deep, high-contrast dark palette that reduces eye strain in
+              low-light environments and makes colors pop.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Auto Mode</h3>
+            <p>
+              Automatically syncs the extension's theme with your operating
+              system's current color scheme (Windows/macOS settings).
+            </p>
+          </div>
+        </section>
+
+        <section id="wallpaper" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.75 3C19.5449 3 21 4.45507 21 6.25V17.75C21 19.5449 19.5449 21 17.75 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H17.75Z"
+                fill="url(#paint0_radial_72095_9341)"
+              />
+              <path
+                d="M20.5149 19.4593C19.9419 20.3841 18.918 21 17.7502 21H6.25018C5.08229 21 4.05828 20.384 3.48535 19.4591L10.4239 12.6475L10.5593 12.5248C11.3942 11.8274 12.615 11.8293 13.4478 12.5306L13.5763 12.6475L20.5149 19.4593Z"
+                fill="url(#paint1_linear_72095_9341)"
+              />
+              <path
+                d="M16 6C17.1046 6 18 6.89543 18 8C18 9.10457 17.1046 10 16 10C14.8954 10 14 9.10457 14 8C14 6.89543 14.8954 6 16 6Z"
+                fill="url(#paint2_linear_72095_9341)"
+              />
+              <defs>
+                <radialGradient
+                  id="paint0_radial_72095_9341"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-4.07143 -7.125) rotate(51.6869) scale(49.7729 45.2718)"
+                >
+                  <stop offset="0.337728" stop-color="#0FAFFF" />
+                  <stop offset="0.529425" stop-color="#367AF2" />
+                </radialGradient>
+                <linearGradient
+                  id="paint1_linear_72095_9341"
+                  x1="9.56733"
+                  y1="12.0032"
+                  x2="11.5942"
+                  y2="21.4772"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#B3E0FF" />
+                  <stop offset="1" stop-color="#8CD0FF" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_9341"
+                  x1="15.2"
+                  y1="5.55556"
+                  x2="16.6613"
+                  y2="10.8163"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FDFDFD" />
+                  <stop offset="1" stop-color="#B3E0FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Wallpaper
+          </h2>
+          <p>
+            Customize the background of your new tab. If toggled off, the
+            background will revert to a solid color based on your active theme.
+          </p>
+
+          <div class="setting-card">
+            <h3>Built-in Presets</h3>
+            <p>
+              Choose from three default, high-quality abstract wallpapers
+              carefully designed to match the Fluent Design aesthetic without
+              distracting from your content.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Upload Custom Image</h3>
+            <p>
+              Click the upload icon to set any personal image as your
+              background. Images are automatically optimized, converted to WebP
+              format, and stored securely in your browser's local database.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Dynamic Image Sources</h3>
+            <p>
+              Instead of a static image, you can fetch a new wallpaper
+              automatically every day from external sources:
+              <strong>Bing Daily Image</strong>,
+              <strong>NASA Astronomy Picture of the Day (APOD)</strong>, or
+              <strong>Wikimedia Commons</strong>. Credits are shown in the
+              bottom left corner.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Overlay Opacity</h3>
+            <p>
+              Fine-tune how much the wallpaper blends into the background with a
+              dedicated opacity slider ranging from 0% to 60%. Useful for
+              improving text readability over bright or high-contrast images.
+            </p>
+          </div>
+        </section>
+
+        <section id="display" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.25391 16L12 15.4688L17.7539 16H17.8187C17.9386 16 18.0575 16.0216 18.1698 16.0637L21.2949 17.2356C21.7181 17.3943 21.9988 17.7983 22 18.25H2C2 17.7989 2.27984 17.3951 2.70225 17.2367L5.83021 16.0637C5.94249 16.0216 6.06142 16 6.18133 16H6.25391Z"
+                fill="url(#paint0_linear_72095_9140)"
+              />
+              <path
+                d="M2.75 17.5C2.33579 17.5 2 17.8358 2 18.25C2 18.6642 2.33579 19 2.75 19H21.25C21.6642 19 22 18.6642 22 18.25C22 17.8358 21.6642 17.5 21.25 17.5H2.75Z"
+                fill="url(#paint1_linear_72095_9140)"
+              />
+              <path
+                d="M4 6.25C4 5.00736 5.00736 4 6.25 4H17.75C18.9926 4 20 5.00736 20 6.25V13.75C20 14.9926 18.9926 16 17.75 16H6.25C5.00736 16 4 14.9926 4 13.75V6.25Z"
+                fill="url(#paint2_linear_72095_9140)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_9140"
+                  x1="22"
+                  y1="18.9122"
+                  x2="20.7655"
+                  y2="12.2542"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#63686E" />
+                  <stop offset="1" stop-color="#889096" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_9140"
+                  x1="22"
+                  y1="18.8929"
+                  x2="21.7922"
+                  y2="16.1227"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#889096" />
+                  <stop offset="1" stop-color="#AAB3BD" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_9140"
+                  x1="15.2"
+                  y1="4"
+                  x2="15.9497"
+                  y2="17.7217"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6CE0FF" />
+                  <stop offset="1" stop-color="#4894FE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Display Widget
+          </h2>
+          <p>
+            The former "Greetings" feature has been completely reformulated into
+            a versatile "Display" module, giving you extensive control over your
+            new tab.
+          </p>
+
+          <div class="setting-card">
+            <h3>Widget Layouts</h3>
+            <p>
+              Select exactly what you want to see: greetings, a clock (12h or
+              24h, with or without seconds), a date (numeric or written format),
+              or a combined clock & date view.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Icon/Emoji Visibility</h3>
+            <p>
+              Added a highly requested option to completely remove the
+              icon/emoji from greetings for a cleaner, minimalist aesthetic.
+              Alternatively, you can still use the 3D Fluent emojis or Outline
+              style.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Custom Greetings</h3>
+            <p>
+              Introduced new standard greetings, including custom messages
+              tailored specifically for each day of the week, alongside the
+              dynamic time-of-day greetings.
+            </p>
+          </div>
+        </section>
+
+        <section id="weather" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.1251 14C17.3671 13.3801 17.5 12.7056 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 12.7056 6.63286 13.3801 6.87494 14H17.1251Z"
+                fill="url(#paint0_linear_72095_8018)"
+              />
+              <path
+                d="M2 14C2 13.4477 2.44772 13 3 13H21C21.5523 13 22 13.4477 22 14C22 14.5523 21.5523 15 21 15H3C2.44772 15 2 14.5523 2 14Z"
+                fill="url(#paint1_linear_72095_8018)"
+              />
+              <path
+                d="M6 17C6 16.4477 6.44772 16 7 16H17C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18H7C6.44772 18 6 17.5523 6 17Z"
+                fill="url(#paint2_linear_72095_8018)"
+              />
+              <path
+                d="M10 20C10 19.4477 10.4477 19 11 19H13C13.5523 19 14 19.4477 14 20C14 20.5523 13.5523 21 13 21H11C10.4477 21 10 20.5523 10 20Z"
+                fill="url(#paint3_linear_72095_8018)"
+              />
+              <path
+                d="M12 2C12.5523 2 13 2.44772 13 3V4.25C13 4.80228 12.5523 5.25 12 5.25C11.4477 5.25 11 4.80228 11 4.25V3C11 2.44772 11.4477 2 12 2Z"
+                fill="url(#paint4_linear_72095_8018)"
+              />
+              <path
+                d="M4.79289 4.79289C5.18342 4.40237 5.81658 4.40237 6.20711 4.79289L7.20711 5.79289C7.59763 6.18342 7.59763 6.81658 7.20711 7.20711C6.81658 7.59763 6.18342 7.59763 5.79289 7.20711L4.79289 6.20711C4.40237 5.81658 4.40237 5.18342 4.79289 4.79289Z"
+                fill="url(#paint5_linear_72095_8018)"
+              />
+              <path
+                d="M19.2071 4.79289C19.5976 5.18342 19.5976 5.81658 19.2071 6.20711L18.2071 7.20711C17.8166 7.59763 17.1834 7.59763 16.7929 7.20711C16.4024 6.81658 16.4024 6.18342 16.7929 5.79289L17.7929 4.79289C18.1834 4.40237 18.8166 4.40237 19.2071 4.79289Z"
+                fill="url(#paint6_linear_72095_8018)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8018"
+                  x1="10.3101"
+                  y1="6.08939"
+                  x2="14.5098"
+                  y2="14.5848"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.96" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_8018"
+                  x1="0.531216"
+                  y1="13"
+                  x2="22"
+                  y2="13"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0606792" stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint5_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+                <linearGradient
+                  id="paint6_linear_72095_8018"
+                  x1="9.69559"
+                  y1="1.69888"
+                  x2="12.9307"
+                  y2="13.0839"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFE580" />
+                  <stop offset="0.27282" stop-color="#FFBF70" />
+                  <stop offset="0.57" stop-color="#FFA342" />
+                  <stop offset="0.815371" stop-color="#FA6673" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Weather
+          </h2>
+          <p>
+            A subtle widget displayed in the top-right corner that shows the
+            current temperature and weather conditions for your location,
+            powered by Open-Meteo.
+          </p>
+
+          <div class="setting-card">
+            <h3>Location Setup</h3>
+            <p>
+              Type the name of your city in the input field and click the save
+              icon. The system will geocode the location and fetch the current
+              meteorological data.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Temperature Unit</h3>
+            <p>
+              Toggle seamlessly between Celsius (°C) and Fahrenheit (°F). The
+              conversion is applied instantly without needing to fetch data
+              again.
+            </p>
+          </div>
+        </section>
+
+        <section id="shortcuts" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
+                fill="url(#paint0_radial_72095_9189)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
+                fill="url(#paint1_radial_72095_9189)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
+                fill="url(#paint2_linear_72095_9189)"
+              />
+              <path
+                d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
+                fill="url(#paint3_linear_72095_9189)"
+              />
+              <path
+                d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
+                fill="url(#paint4_radial_72095_9189)"
+              />
+              <path
+                d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
+                fill="url(#paint5_linear_72095_9189)"
+              />
+              <defs>
+                <radialGradient
+                  id="paint0_radial_72095_9189"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(1.77273 5) rotate(37.7491) scale(17.5909 15.7387)"
+                >
+                  <stop stop-color="#0FAFFF" />
+                  <stop offset="0.429447" stop-color="#367AF2" />
+                  <stop offset="0.942067" stop-color="#5750E2" />
+                  <stop offset="1" stop-color="#6F47DF" />
+                </radialGradient>
+                <radialGradient
+                  id="paint1_radial_72095_9189"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(10.5 14.5) rotate(180) scale(7 7.77785)"
+                >
+                  <stop
+                    offset="0.238839"
+                    stop-color="#261D82"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.42402" stop-color="#261D82" />
+                  <stop offset="0.567708" stop-color="#261D82" />
+                  <stop
+                    offset="0.754464"
+                    stop-color="#261D82"
+                    stop-opacity="0"
+                  />
+                </radialGradient>
+                <linearGradient
+                  id="paint2_linear_72095_9189"
+                  x1="17"
+                  y1="15.5"
+                  x2="8.38224"
+                  y2="5.66713"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#5157E4" stop-opacity="0" />
+                  <stop offset="0.066311" stop-color="#5157E4" />
+                  <stop offset="0.318505" stop-color="#5157E4" />
+                  <stop offset="0.6" stop-color="#5157E4" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_9189"
+                  x1="0.535714"
+                  y1="4.1875"
+                  x2="11.1174"
+                  y2="28.7772"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#36DFF1" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <radialGradient
+                  id="paint4_radial_72095_9189"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(13.5 9.5) scale(7 7.77785)"
+                >
+                  <stop
+                    offset="0.245536"
+                    stop-color="#2764E7"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.395833" stop-color="#2764E7" />
+                  <stop offset="0.578125" stop-color="#2764E7" />
+                  <stop
+                    offset="0.747768"
+                    stop-color="#2764E7"
+                    stop-opacity="0"
+                  />
+                </radialGradient>
+                <linearGradient
+                  id="paint5_linear_72095_9189"
+                  x1="8.5"
+                  y1="5"
+                  x2="16.7705"
+                  y2="12.1029"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#31B3EE" stop-opacity="0.243137" />
+                  <stop offset="0.207974" stop-color="#31B3EE" />
+                  <stop offset="0.568966" stop-color="#31B3EE" />
+                  <stop
+                    offset="0.762994"
+                    stop-color="#31B3EE"
+                    stop-opacity="0"
+                  />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Shortcuts
+          </h2>
+          <p>
+            The grid of quick links located right below the search bar. You can
+            add, edit, and drag-and-drop to reorder them directly on the main
+            page.
+          </p>
+
+          <div class="setting-card">
+            <h3>Grid Rows</h3>
+            <p>
+              Control the maximum amount of shortcuts displayed on the screen.
+              You can limit the grid to show anywhere from 1 to 4 rows. If
+              disabled entirely, the grid is hidden to keep the interface
+              completely minimalist.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Folders</h3>
+            <p>
+              Enable folder support to organize your shortcuts grid into groups.
+              When active, the <strong>Add</strong> button lets you choose
+              between adding a shortcut or a new folder. Each folder holds up to
+              39 shortcuts and supports a custom name. Drag shortcuts onto a
+              folder card to move them inside, or drag them back out to the main
+              grid to remove them from the folder.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Drag &amp; Drop from Favorites Bar</h3>
+            <p>
+              Drag bookmarks directly from the browser's favorites bar and drop
+              them into the shortcuts grid or into an open folder. You can also
+              drag a shortcut from the main grid onto a folder card and release
+              to move it inside.
+            </p>
+          </div>
+        </section>
+
+        <section id="launcher" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 5.25C3 4.00736 4.00736 3 5.25 3H10.25C11.4926 3 12.5 4.00736 12.5 5.25V11C12.5 11.5523 12.0523 12 11.5 12H4C3.44772 12 3 11.5523 3 11V5.25Z"
+                fill="url(#paint0_linear_74105_6433)"
+              />
+              <path
+                d="M18.75 11.5C19.9926 11.5 21 12.5074 21 13.75V18.75C21 19.9926 19.9926 21 18.75 21H13C12.4477 21 12 20.5523 12 20L12 12.5C12 11.9477 12.4477 11.5 13 11.5L18.75 11.5Z"
+                fill="url(#paint1_linear_74105_6433)"
+              />
+              <path
+                d="M12.5 20C12.5 20.5523 12.0523 21 11.5 21L5.25 21C4.00736 21 3 19.9926 3 18.75L3 12.5C3 11.9477 3.44772 11.5 4 11.5L11.5 11.5C12.0523 11.5 12.5 11.9477 12.5 12.5L12.5 20Z"
+                fill="url(#paint2_linear_74105_6433)"
+              />
+              <path
+                d="M15.4103 2.15901C16.2889 1.28033 17.7136 1.28033 18.5922 2.15901L21.8435 5.41027C22.7222 6.28895 22.7222 7.71357 21.8435 8.59225L18.5922 11.8435C17.7136 12.7222 16.2889 12.7222 15.4103 11.8435L12.159 8.59225C11.2803 7.71357 11.2803 6.28895 12.159 5.41027L15.4103 2.15901Z"
+                fill="url(#paint3_linear_74105_6433)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_74105_6433"
+                  x1="3"
+                  y1="3"
+                  x2="11.9869"
+                  y2="12.4861"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#B9C0C7" />
+                  <stop offset="1" stop-color="#889096" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_74105_6433"
+                  x1="21"
+                  y1="20.3214"
+                  x2="12.1914"
+                  y2="11.9765"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#63686E" />
+                  <stop offset="1" stop-color="#889096" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_74105_6433"
+                  x1="3"
+                  y1="11.5"
+                  x2="12.5"
+                  y2="17.6071"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#55595E" />
+                  <stop offset="1" stop-color="#383B3D" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_74105_6433"
+                  x1="20.5646"
+                  y1="10.0015"
+                  x2="14.3849"
+                  y2="2.38036"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2764E7" />
+                  <stop offset="1" stop-color="#36DFF1" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            App Launcher
+          </h2>
+          <p>
+            A floating button on the left side of the screen that opens a
+            quick-access drawer to web applications.
+          </p>
+
+          <div class="setting-card">
+            <h3>Ecosystem Provider</h3>
+            <p>
+              Select which suite of tools you use the most. The launcher will
+              automatically populate with shortcuts and icons for
+              <strong>Microsoft 365</strong> (Word, Teams, Copilot),
+              <strong>Google Workspace</strong> (Docs, Drive, Gemini), or
+              <strong>Proton AG</strong> (Mail, Calendar, Pass).
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Convert App to Folder</h3>
+            <p>
+              Turn any App Launcher app into a shortcut folder for even faster
+              access directly from the shortcuts grid. Click the
+              <strong>+</strong> icon on an app card to trigger the conversion.
+              The <strong>Folders</strong> feature must be enabled in the
+              Shortcuts settings for this option to be available.
+            </p>
+          </div>
+        </section>
+
+        <section id="search" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 10C17 13.866 13.866 17 9.99996 17C6.13397 17 2.99996 13.866 2.99996 10C2.99996 6.13401 6.13397 3 9.99996 3C13.866 3 17 6.13401 17 10Z"
+                fill="url(#paint0_linear_75684_7943)"
+              />
+              <path
+                d="M14.8432 16.3679C13.4988 17.392 11.8204 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8768 17.3537 13.6027 16.2715 14.9672L20.6982 19.2841C21.0936 19.6697 21.1015 20.3028 20.7159 20.6982C20.3303 21.0936 19.6972 21.1015 19.3018 20.7159L14.8432 16.3679ZM16 10C16 6.68629 13.3137 4 10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10Z"
+                fill="url(#paint1_linear_75684_7943)"
+              />
+              <path
+                d="M20.7829 10.2132L20.0175 9.9646C19.7848 9.8873 19.5733 9.75683 19.3999 9.58356C19.2265 9.41029 19.0959 9.199 19.0186 8.96646L18.7698 8.20161C18.749 8.14266 18.7104 8.09161 18.6593 8.0555C18.6083 8.01939 18.5473 8 18.4847 8C18.4221 8 18.3611 8.01939 18.31 8.0555C18.259 8.09161 18.2204 8.14266 18.1996 8.20161L17.9508 8.96646C17.875 9.19736 17.7467 9.40761 17.5761 9.58076C17.4055 9.75392 17.1971 9.88529 16.9672 9.9646L16.2018 10.2132C16.1428 10.234 16.0917 10.2725 16.0555 10.3236C16.0194 10.3746 16 10.4356 16 10.4981C16 10.5606 16.0194 10.6216 16.0555 10.6726C16.0917 10.7236 16.1428 10.7622 16.2018 10.783L16.9672 11.0316C17.2003 11.1093 17.412 11.2403 17.5855 11.4143C17.7589 11.5882 17.8893 11.8003 17.9661 12.0335L18.2149 12.7984C18.2357 12.8573 18.2743 12.9084 18.3254 12.9445C18.3764 12.9806 18.4374 13 18.5 13C18.5626 13 18.6236 12.9806 18.6746 12.9445C18.7257 12.9084 18.7643 12.8573 18.7851 12.7984L19.0339 12.0335C19.1113 11.801 19.2418 11.5897 19.4152 11.4164C19.5886 11.2432 19.8001 11.1127 20.0328 11.0354L20.7982 10.7868C20.8572 10.766 20.9083 10.7275 20.9445 10.6764C20.9806 10.6254 21 10.5644 21 10.5019C21 10.4394 20.9806 10.3784 20.9445 10.3274C20.9083 10.2764 20.8572 10.2378 20.7982 10.217L20.7829 10.2132Z"
+                fill="url(#paint2_radial_75684_7943)"
+              />
+              <path
+                d="M13.0883 6.41228C13.016 6.31886 12.9377 6.2298 12.8539 6.14569C12.5417 5.83255 12.1606 5.59666 11.741 5.45683L10.3632 5.00939C10.257 4.97196 10.165 4.90253 10.1 4.81068C10.0349 4.71883 10 4.60908 10 4.49656C10 4.38404 10.0349 4.27429 10.1 4.18244C10.165 4.09058 10.257 4.02116 10.3632 3.98372L11.741 3.53628C12.1547 3.39352 12.5299 3.15705 12.837 2.84537C13.1357 2.54224 13.3623 2.17595 13.5 1.77372L13.5114 1.73963L13.9592 0.362894C13.9967 0.256782 14.0662 0.164895 14.1581 0.0998993C14.25 0.0349035 14.3598 0 14.4724 0C14.5851 0 14.6949 0.0349035 14.7868 0.0998993C14.8787 0.164895 14.9482 0.256782 14.9857 0.362894L15.4335 1.73963C15.5727 2.15819 15.8077 2.53853 16.1198 2.85041C16.432 3.1623 16.8126 3.39715 17.2315 3.53628L18.6093 3.98372L18.6368 3.99061C18.743 4.02804 18.835 4.09747 18.9 4.18932C18.9651 4.28117 19 4.39092 19 4.50344C19 4.61596 18.9651 4.72571 18.9 4.81756C18.835 4.90942 18.743 4.97884 18.6368 5.01628L17.259 5.46372C16.8402 5.60285 16.4595 5.8377 16.1474 6.14959C15.8353 6.46147 15.6003 6.84181 15.461 7.26037L15.0132 8.63711C15.0092 8.64855 15.0048 8.65983 15 8.67093C14.9605 8.76273 14.8964 8.84212 14.8144 8.9001C14.7224 8.9651 14.6126 9 14.5 9C14.3874 9 14.2776 8.9651 14.1856 8.9001C14.0937 8.8351 14.0242 8.74322 13.9868 8.63711L13.539 7.26037C13.4378 6.95331 13.2851 6.66664 13.0883 6.41228Z"
+                fill="url(#paint3_radial_75684_7943)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_75684_7943"
+                  x1="13.5"
+                  y1="5.33333"
+                  x2="3"
+                  y2="17"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FDFDFD" />
+                  <stop offset="1" stop-color="#B3E0FF" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_75684_7943"
+                  x1="3"
+                  y1="19"
+                  x2="19"
+                  y2="6"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#0094F0" />
+                  <stop offset="1" stop-color="#29C3FF" />
+                </linearGradient>
+                <radialGradient
+                  id="paint2_radial_75684_7943"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(7.375 -10.8125) rotate(63.379) scale(28.6137 22.2808)"
+                >
+                  <stop offset="0.718021" stop-color="#FFCD0F" />
+                  <stop offset="0.990707" stop-color="#E67505" />
+                </radialGradient>
+                <radialGradient
+                  id="paint3_radial_75684_7943"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-1.16964 -22.6607) rotate(61.1996) scale(38.6974 30.1328)"
+                >
+                  <stop offset="0.698225" stop-color="#FFCD0F" />
+                  <stop offset="0.990707" stop-color="#E67505" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            Search
+          </h2>
+          <p>
+            Customize the behavior and appearance of the central search bar.
+          </p>
+
+          <div class="setting-card">
+            <h3>Search Engine Provider</h3>
+            <p>
+              Change the default search engine directly on the main page by
+              clicking the engine icon inside the bar to seamlessly switch
+              between Bing, Google, Brave Search, DuckDuckGo, Ecosia Search,
+              Startpage, and Kagi.
+            </p>
+          </div>
+
+          <div class="setting-card">
+            <h3>Suggestions</h3>
+            <p>
+              When enabled, typing in the search bar will fetch live
+              autocomplete suggestions to help you find what you are looking for
+              faster.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Clear Search (Google)</h3>
+            <p>
+              This setting appends the
+              <code translate="no">&udm=14</code> parameter to Google searches.
+              It forces Google to return a clean, classic list of links,
+              stripping away AI overviews, sponsored widgets, and shopping
+              cards.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Compact Bar</h3>
+            <p>
+              Reduces the height and visual footprint of the search bar for a
+              tighter, more refined aesthetic.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Voice Search</h3>
+            <p>
+              Enables the microphone icon inside the search bar, allowing you to
+              search the web using voice recognition (requires browser
+              permission).
+            </p>
+          </div>
+        </section>
+
+        <section id="performance" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.5002 2C13.4627 2 11.0002 4.46243 11.0002 7.5C11.0002 7.94322 11.0528 8.37496 11.1523 8.78899L2.84099 17.1003C1.71967 18.2216 1.71967 20.0396 2.84099 21.1609C3.96231 22.2823 5.78033 22.2823 6.90165 21.1609L15.214 12.8486C15.6272 12.9477 16.058 13 16.5002 13C19.5378 13 22.0002 10.5376 22.0002 7.5C22.0002 6.89137 21.9011 6.30437 21.7175 5.75516C21.6351 5.50875 21.4311 5.32252 21.1782 5.26294C20.9253 5.20336 20.6595 5.27892 20.4758 5.46266L18.0317 7.90697C17.7389 8.19989 17.264 8.19991 16.9711 7.907L16.0934 7.0293C15.8005 6.73642 15.8005 6.26156 16.0933 5.96867L18.5375 3.5243C18.7212 3.34057 18.7967 3.07485 18.7371 2.82197C18.6775 2.56908 18.4913 2.36505 18.2449 2.28268C17.6957 2.09912 17.1088 2 16.5002 2Z"
+                fill="url(#paint0_linear_378174_9773)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9773"
+                  x1="10.1283"
+                  y1="3.24914"
+                  x2="13.694"
+                  y2="22.7068"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2BDABE" />
+                  <stop offset="1" stop-color="#0067BF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Performance
+          </h2>
+          <p>
+            Fine-tune how the extension renders and animates to best match your
+            hardware and personal preference.
+          </p>
+
+          <div class="setting-card">
+            <h3>Reduce Motion</h3>
+            <p>
+              Disables all CSS transitions, interface animations, and hover
+              effects. Highly recommended for older computers or for users who
+              prefer an instant, snappy response.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Reduce Blur</h3>
+            <p>
+              Turns off backdrop blur effects used throughout the interface.
+              Blur filters can be GPU-intensive — disabling them noticeably
+              improves rendering performance on lower-end devices.
+            </p>
+          </div>
+        </section>
+
+        <section id="utilities" class="docs-section">
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 7.5V6.25244C7 5.0098 8.00736 4.00244 9.25 4.00244H14.75C15.9926 4.00244 17 5.0098 17 6.25244V7.5H15.5V6.25244C15.5 5.83823 15.1642 5.50244 14.75 5.50244H9.25C8.83579 5.50244 8.5 5.83823 8.5 6.25244V7.5H7Z"
+                fill="url(#paint0_linear_72095_8116)"
+              />
+              <path
+                d="M4.25 19.9966C3.00736 19.9966 2 18.9893 2 17.7466V11.5H22V17.7466C22 18.9893 20.9926 19.9966 19.75 19.9966H4.25Z"
+                fill="url(#paint1_linear_72095_8116)"
+              />
+              <path
+                d="M2 9.24982C2 8.00717 3.00736 6.99982 4.25 6.99982H19.75C20.9926 6.99982 22 8.00718 22 9.24982V11.9998H2V9.24982Z"
+                fill="url(#paint2_linear_72095_8116)"
+              />
+              <path
+                d="M16.75 9.99982C17.1642 9.99982 17.5 10.3356 17.5 10.7498V13.2498C17.5 13.664 17.1642 13.9998 16.75 13.9998C16.3358 13.9998 16 13.664 16 13.2498V10.7498C16 10.3356 16.3358 9.99982 16.75 9.99982Z"
+                fill="url(#paint3_linear_72095_8116)"
+              />
+              <path
+                d="M7.25 9.99982C7.66421 9.99982 8 10.3356 8 10.7498V13.2498C8 13.664 7.66421 13.9998 7.25 13.9998C6.83579 13.9998 6.5 13.664 6.5 13.2498V10.7498C6.5 10.3356 6.83579 9.99982 7.25 9.99982Z"
+                fill="url(#paint4_linear_72095_8116)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_72095_8116"
+                  x1="3.42857"
+                  y1="4.00244"
+                  x2="3.84021"
+                  y2="7.06872"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#B9C0C7" />
+                  <stop offset="1" stop-color="#70777D" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_72095_8116"
+                  x1="0.749998"
+                  y1="8.31381"
+                  x2="2.57677"
+                  y2="28.3143"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.124704" stop-color="#F97DBD" />
+                  <stop offset="1" stop-color="#D7257D" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_72095_8116"
+                  x1="0.749998"
+                  y1="5.12482"
+                  x2="1.12849"
+                  y2="17.0941"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#F97DBD" />
+                  <stop offset="1" stop-color="#D7257D" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_72095_8116"
+                  x1="2.57143"
+                  y1="9.99982"
+                  x2="3.32698"
+                  y2="14.3305"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#EFEFEF" />
+                  <stop offset="1" stop-color="#DADADA" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_72095_8116"
+                  x1="2.57143"
+                  y1="9.99982"
+                  x2="3.32698"
+                  y2="14.3305"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#EFEFEF" />
+                  <stop offset="1" stop-color="#DADADA" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Utilities
+          </h2>
+          <p>
+            Language settings and data management tools to keep your setup
+            organized and portable.
+          </p>
+
+          <div class="setting-card">
+            <h3>Language</h3>
+            <p>
+              Set the interface language for the extension menu and greetings.
+              It supports over 20 languages. The default language is
+              <strong>English</strong>, which is also used as a fallback
+              whenever a translation is missing or unavailable. Found a
+              translation error or want to request a new language? Contribute on
+              <a
+                href="https://crowdin.com/project/fluent-new-tab"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: var(--color-primary)"
+                >Crowdin</a
+              >.
+            </p>
+          </div>
+          <div class="setting-card">
+            <h3>Data Backup (Export / Import)</h3>
+            <p>
+              Allows you to export all your configured settings, shortcuts, and
+              preferences into a single <code translate="no">.json</code> file.
+              You can import this file later or on another device to restore
+              your entire setup instantly.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="help-links"
+          class="docs-section"
+          style="
+            margin-top: 64px;
+            border-top: 1px solid var(--color-border);
+            padding-top: 64px;
+          "
+        >
+          <h2>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C17.523 2 22 6.478 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12C2 6.478 6.477 2 12 2Z"
+                fill="url(#paint0_linear_378174_9443)"
+              />
+              <path
+                d="M12 15.5C11.4477 15.5 11 15.9477 11 16.5C11 17.0523 11.4477 17.5 12 17.5C12.5523 17.5 13 17.0523 13 16.5C13 15.9477 12.5523 15.5 12 15.5ZM12 6.75C10.4812 6.75 9.25 7.98122 9.25 9.5C9.25 9.91421 9.58579 10.25 10 10.25C10.3797 10.25 10.6935 9.96785 10.7432 9.60177L10.75 9.5C10.75 8.80964 11.3096 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.0388 13.115 10.3053 12.6051 10.8322L12.4697 10.9697C11.5916 11.8478 11.25 12.4171 11.25 13.5C11.25 13.9142 11.5858 14.25 12 14.25C12.4142 14.25 12.75 13.9142 12.75 13.5C12.75 12.9612 12.885 12.6947 13.3949 12.1678L13.5303 12.0303C14.4084 11.1522 14.75 10.5829 14.75 9.5C14.75 7.98122 13.5188 6.75 12 6.75Z"
+                fill="url(#paint1_linear_378174_9443)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9443"
+                  x1="2"
+                  y1="2"
+                  x2="22"
+                  y2="22"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#0FAFFF" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9443"
+                  x1="9.73109"
+                  y1="6.93875"
+                  x2="13.0074"
+                  y2="17.7443"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FDFDFD" />
+                  <stop offset="1" stop-color="#CCEAFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            Need More Help?
+          </h2>
+          <p>
+            If you found an issue, have a great idea, or just need to ask a
+            question, our GitHub community is the best place to reach out.
+          </p>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+              gap: 16px;
+              margin-top: 24px;
+            "
+          >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: #d13438">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Report a Bug
+              </h3>
+              <p>
+                Something isn't working right? Let us know so we can fix it.
+              </p>
             </a>
-        </aside>
 
-        <main class="docs-content">
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: #107c10">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Request Feature
+              </h3>
+              <p>Have an idea to make Fluent New Tab even better? Share it!</p>
+            </a>
 
-            <section id="appearance" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 2.75C19 2.33579 18.6642 2 18.25 2H5.75C5.33579 2 5 2.33579 5 2.75V12.5H19V2.75Z"
-                            fill="url(#paint0_linear_72095_8539)" />
-                        <path
-                            d="M5 12V14.2521C5 15.4947 6.00736 16.5021 7.25 16.5021H9.99966V20C9.99966 21.1046 10.8951 22 11.9997 22C13.1042 22 13.9997 21.1046 13.9997 20V16.5021H16.75C17.9926 16.5021 19 15.4947 19 14.2521V12H5Z"
-                            fill="url(#paint1_linear_72095_8539)" />
-                        <path d="M5 12C5 11.4477 5.44772 11 6 11H18C18.5523 11 19 11.4477 19 12V12.5H5V12Z"
-                            fill="url(#paint2_linear_72095_8539)" />
-                        <path
-                            d="M12.5 5.25154V2H14V5.25154C14 5.66576 13.6642 6.00154 13.25 6.00154C12.8358 6.00154 12.5 5.66576 12.5 5.25154Z"
-                            fill="url(#paint3_linear_72095_8539)" />
-                        <path
-                            d="M15 6.25112V2H16.5V6.25112C16.5 6.66534 16.1642 7.00112 15.75 7.00112C15.3358 7.00112 15 6.66534 15 6.25112Z"
-                            fill="url(#paint4_linear_72095_8539)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8539" x1="9.2" y1="-1.28085" x2="15.4485"
-                                y2="16.0505" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0853737" stop-color="#FFCD0F" />
-                                <stop offset="0.990707" stop-color="#E67505" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8539" x1="5" y1="8.47089" x2="5.85741" y2="24.5893"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.125321" stop-color="#AC80FF" />
-                                <stop offset="1" stop-color="#5750E2" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_8539" x1="8.32925" y1="11.1994" x2="8.44277"
-                                y2="12.8912" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.125321" stop-color="#9C6CFE" />
-                                <stop offset="1" stop-color="#5750E2" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_8539" x1="12.5" y1="0.610912" x2="16.5483"
-                                y2="5.92879" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FF921F" />
-                                <stop offset="1" stop-color="#EB4824" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_72095_8539" x1="12.5" y1="0.610912" x2="16.5483"
-                                y2="5.92879" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FF921F" />
-                                <stop offset="1" stop-color="#EB4824" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Theme & Appearance
-                </h2>
-                <p>Located at the very top of the settings menu, you can quickly toggle between three main color schemes
-                    for your new tab interface.</p>
-
-                <div class="setting-card">
-                    <h3>Accent Color</h3>
-                    <p>You can now replace the default blue accent color across the extension. Choose to automatically
-                        extract the accent color directly from your active wallpaper for a dynamic, cohesive look, or
-                        pick a specific custom color using the new color matrix.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Light Mode</h3>
-                    <p>A clean, bright interface using the standard Fluent Design light palette. Ideal for daytime usage
-                        and well-lit environments.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Dark Mode</h3>
-                    <p>A deep, high-contrast dark palette that reduces eye strain in low-light environments and makes
-                        colors pop.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Auto Mode</h3>
-                    <p>Automatically syncs the extension's theme with your operating system's current color scheme
-                        (Windows/macOS settings).</p>
-                </div>
-            </section>
-
-            <section id="wallpaper" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.75 3C19.5449 3 21 4.45507 21 6.25V17.75C21 19.5449 19.5449 21 17.75 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H17.75Z"
-                            fill="url(#paint0_radial_72095_9341)" />
-                        <path
-                            d="M20.5149 19.4593C19.9419 20.3841 18.918 21 17.7502 21H6.25018C5.08229 21 4.05828 20.384 3.48535 19.4591L10.4239 12.6475L10.5593 12.5248C11.3942 11.8274 12.615 11.8293 13.4478 12.5306L13.5763 12.6475L20.5149 19.4593Z"
-                            fill="url(#paint1_linear_72095_9341)" />
-                        <path
-                            d="M16 6C17.1046 6 18 6.89543 18 8C18 9.10457 17.1046 10 16 10C14.8954 10 14 9.10457 14 8C14 6.89543 14.8954 6 16 6Z"
-                            fill="url(#paint2_linear_72095_9341)" />
-                        <defs>
-                            <radialGradient id="paint0_radial_72095_9341" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(-4.07143 -7.125) rotate(51.6869) scale(49.7729 45.2718)">
-                                <stop offset="0.337728" stop-color="#0FAFFF" />
-                                <stop offset="0.529425" stop-color="#367AF2" />
-                            </radialGradient>
-                            <linearGradient id="paint1_linear_72095_9341" x1="9.56733" y1="12.0032" x2="11.5942"
-                                y2="21.4772" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#B3E0FF" />
-                                <stop offset="1" stop-color="#8CD0FF" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_9341" x1="15.2" y1="5.55556" x2="16.6613"
-                                y2="10.8163" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FDFDFD" />
-                                <stop offset="1" stop-color="#B3E0FF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Wallpaper
-                </h2>
-                <p>Customize the background of your new tab. If toggled off, the background will revert to a solid color
-                    based on your active theme.</p>
-
-                <div class="setting-card">
-                    <h3>Built-in Presets</h3>
-                    <p>Choose from three default, high-quality abstract wallpapers carefully designed to match the
-                        Fluent Design aesthetic without distracting from your content.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Upload Custom Image</h3>
-                    <p>Click the upload icon to set any personal image as your background. Images are automatically
-                        optimized, converted to WebP format, and stored securely in your browser's local database.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Dynamic Image Sources</h3>
-                    <p>Instead of a static image, you can fetch a new wallpaper automatically every day from external
-                        sources: <strong>Bing Daily Image</strong>, <strong>NASA Astronomy Picture of the Day
-                            (APOD)</strong>, or <strong>Wikimedia Commons</strong>. Credits are shown in the bottom left
-                        corner.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Overlay Opacity </h3>
-                    <p>Fine-tune how much the wallpaper blends into the background with a dedicated opacity slider
-                        ranging from 0% to 60%. Useful for improving text readability over bright or high-contrast
-                        images.</p>
-                </div>
-            </section>
-
-            <section id="display" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.25391 16L12 15.4688L17.7539 16H17.8187C17.9386 16 18.0575 16.0216 18.1698 16.0637L21.2949 17.2356C21.7181 17.3943 21.9988 17.7983 22 18.25H2C2 17.7989 2.27984 17.3951 2.70225 17.2367L5.83021 16.0637C5.94249 16.0216 6.06142 16 6.18133 16H6.25391Z"
-                            fill="url(#paint0_linear_72095_9140)" />
-                        <path
-                            d="M2.75 17.5C2.33579 17.5 2 17.8358 2 18.25C2 18.6642 2.33579 19 2.75 19H21.25C21.6642 19 22 18.6642 22 18.25C22 17.8358 21.6642 17.5 21.25 17.5H2.75Z"
-                            fill="url(#paint1_linear_72095_9140)" />
-                        <path
-                            d="M4 6.25C4 5.00736 5.00736 4 6.25 4H17.75C18.9926 4 20 5.00736 20 6.25V13.75C20 14.9926 18.9926 16 17.75 16H6.25C5.00736 16 4 14.9926 4 13.75V6.25Z"
-                            fill="url(#paint2_linear_72095_9140)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_9140" x1="22" y1="18.9122" x2="20.7655" y2="12.2542"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#63686E" />
-                                <stop offset="1" stop-color="#889096" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_9140" x1="22" y1="18.8929" x2="21.7922" y2="16.1227"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#889096" />
-                                <stop offset="1" stop-color="#AAB3BD" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_9140" x1="15.2" y1="4" x2="15.9497" y2="17.7217"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6CE0FF" />
-                                <stop offset="1" stop-color="#4894FE" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Display Widget
-                </h2>
-                <p>The former "Greetings" feature has been completely reformulated into a versatile "Display" module,
-                    giving you extensive control over your new tab.</p>
-
-                <div class="setting-card">
-                    <h3>Widget Layouts </h3>
-                    <p>Select exactly what you want to see: greetings, a clock (12h or 24h, with or without seconds), a
-                        date (numeric or written format), or a combined clock & date view.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Icon/Emoji Visibility </h3>
-                    <p>Added a highly requested option to completely remove the icon/emoji from greetings for a cleaner,
-                        minimalist aesthetic. Alternatively, you can still use the 3D Fluent emojis or Outline style.
-                    </p>
-                </div>
-                <div class="setting-card">
-                    <h3>Custom Greetings </h3>
-                    <p>Introduced new standard greetings, including custom messages tailored specifically for each day
-                        of the week, alongside the dynamic time-of-day greetings.</p>
-                </div>
-            </section>
-
-            <section id="weather" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.1251 14C17.3671 13.3801 17.5 12.7056 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 12.7056 6.63286 13.3801 6.87494 14H17.1251Z"
-                            fill="url(#paint0_linear_72095_8018)" />
-                        <path
-                            d="M2 14C2 13.4477 2.44772 13 3 13H21C21.5523 13 22 13.4477 22 14C22 14.5523 21.5523 15 21 15H3C2.44772 15 2 14.5523 2 14Z"
-                            fill="url(#paint1_linear_72095_8018)" />
-                        <path
-                            d="M6 17C6 16.4477 6.44772 16 7 16H17C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18H7C6.44772 18 6 17.5523 6 17Z"
-                            fill="url(#paint2_linear_72095_8018)" />
-                        <path
-                            d="M10 20C10 19.4477 10.4477 19 11 19H13C13.5523 19 14 19.4477 14 20C14 20.5523 13.5523 21 13 21H11C10.4477 21 10 20.5523 10 20Z"
-                            fill="url(#paint3_linear_72095_8018)" />
-                        <path
-                            d="M12 2C12.5523 2 13 2.44772 13 3V4.25C13 4.80228 12.5523 5.25 12 5.25C11.4477 5.25 11 4.80228 11 4.25V3C11 2.44772 11.4477 2 12 2Z"
-                            fill="url(#paint4_linear_72095_8018)" />
-                        <path
-                            d="M4.79289 4.79289C5.18342 4.40237 5.81658 4.40237 6.20711 4.79289L7.20711 5.79289C7.59763 6.18342 7.59763 6.81658 7.20711 7.20711C6.81658 7.59763 6.18342 7.59763 5.79289 7.20711L4.79289 6.20711C4.40237 5.81658 4.40237 5.18342 4.79289 4.79289Z"
-                            fill="url(#paint5_linear_72095_8018)" />
-                        <path
-                            d="M19.2071 4.79289C19.5976 5.18342 19.5976 5.81658 19.2071 6.20711L18.2071 7.20711C17.8166 7.59763 17.1834 7.59763 16.7929 7.20711C16.4024 6.81658 16.4024 6.18342 16.7929 5.79289L17.7929 4.79289C18.1834 4.40237 18.8166 4.40237 19.2071 4.79289Z"
-                            fill="url(#paint6_linear_72095_8018)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8018" x1="10.3101" y1="6.08939" x2="14.5098"
-                                y2="14.5848" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.96" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_8018" x1="0.531216" y1="13" x2="22" y2="13"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0.0606792" stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#0094F0" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint5_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                            <linearGradient id="paint6_linear_72095_8018" x1="9.69559" y1="1.69888" x2="12.9307"
-                                y2="13.0839" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE580" />
-                                <stop offset="0.27282" stop-color="#FFBF70" />
-                                <stop offset="0.57" stop-color="#FFA342" />
-                                <stop offset="0.815371" stop-color="#FA6673" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Weather
-                </h2>
-                <p>A subtle widget displayed in the top-right corner that shows the current temperature and weather
-                    conditions for your location, powered by Open-Meteo.</p>
-
-                <div class="setting-card">
-                    <h3>Location Setup</h3>
-                    <p>Type the name of your city in the input field and click the save icon. The system will geocode
-                        the location and fetch the current meteorological data.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Temperature Unit</h3>
-                    <p>Toggle seamlessly between Celsius (°C) and Fahrenheit (°F). The conversion is applied instantly
-                        without needing to fetch data again.</p>
-                </div>
-            </section>
-
-            <section id="shortcuts" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
-                            fill="url(#paint0_radial_72095_9189)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
-                            fill="url(#paint1_radial_72095_9189)" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M1 10C1 7.23858 3.23858 5 6 5H13C15.7614 5 18 7.23858 18 10C18 12.7614 15.7614 15 13 15H6C3.23858 15 1 12.7614 1 10ZM6 7C4.34315 7 3 8.34315 3 10C3 11.6569 4.34315 13 6 13H13C14.6569 13 16 11.6569 16 10C16 8.34315 14.6569 7 13 7H6Z"
-                            fill="url(#paint2_linear_72095_9189)" />
-                        <path
-                            d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
-                            fill="url(#paint3_linear_72095_9189)" />
-                        <path
-                            d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
-                            fill="url(#paint4_radial_72095_9189)" />
-                        <path
-                            d="M15.8293 9H11C8.23858 9 6 11.2386 6 14C6 16.7614 8.23858 19 11 19H18C20.7614 19 23 16.7614 23 14C23 11.2386 20.7614 9 18 9H17.9C17.9656 9.32311 18 9.65753 18 10C18 10.3425 17.9656 10.6769 17.9 11H18C19.6569 11 21 12.3431 21 14C21 15.6569 19.6569 17 18 17H11C9.34315 17 8 15.6569 8 14C8 12.3431 9.34315 11 11 11H15.8293C15.9398 10.6872 16 10.3506 16 10C16 9.64936 15.9398 9.31278 15.8293 9Z"
-                            fill="url(#paint5_linear_72095_9189)" />
-                        <defs>
-                            <radialGradient id="paint0_radial_72095_9189" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(1.77273 5) rotate(37.7491) scale(17.5909 15.7387)">
-                                <stop stop-color="#0FAFFF" />
-                                <stop offset="0.429447" stop-color="#367AF2" />
-                                <stop offset="0.942067" stop-color="#5750E2" />
-                                <stop offset="1" stop-color="#6F47DF" />
-                            </radialGradient>
-                            <radialGradient id="paint1_radial_72095_9189" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(10.5 14.5) rotate(180) scale(7 7.77785)">
-                                <stop offset="0.238839" stop-color="#261D82" stop-opacity="0" />
-                                <stop offset="0.42402" stop-color="#261D82" />
-                                <stop offset="0.567708" stop-color="#261D82" />
-                                <stop offset="0.754464" stop-color="#261D82" stop-opacity="0" />
-                            </radialGradient>
-                            <linearGradient id="paint2_linear_72095_9189" x1="17" y1="15.5" x2="8.38224" y2="5.66713"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#5157E4" stop-opacity="0" />
-                                <stop offset="0.066311" stop-color="#5157E4" />
-                                <stop offset="0.318505" stop-color="#5157E4" />
-                                <stop offset="0.6" stop-color="#5157E4" stop-opacity="0" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_9189" x1="0.535714" y1="4.1875" x2="11.1174"
-                                y2="28.7772" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#36DFF1" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <radialGradient id="paint4_radial_72095_9189" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse" gradientTransform="translate(13.5 9.5) scale(7 7.77785)">
-                                <stop offset="0.245536" stop-color="#2764E7" stop-opacity="0" />
-                                <stop offset="0.395833" stop-color="#2764E7" />
-                                <stop offset="0.578125" stop-color="#2764E7" />
-                                <stop offset="0.747768" stop-color="#2764E7" stop-opacity="0" />
-                            </radialGradient>
-                            <linearGradient id="paint5_linear_72095_9189" x1="8.5" y1="5" x2="16.7705" y2="12.1029"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#31B3EE" stop-opacity="0.243137" />
-                                <stop offset="0.207974" stop-color="#31B3EE" />
-                                <stop offset="0.568966" stop-color="#31B3EE" />
-                                <stop offset="0.762994" stop-color="#31B3EE" stop-opacity="0" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Shortcuts
-                </h2>
-                <p>The grid of quick links located right below the search bar. You can add, edit, and drag-and-drop to
-                    reorder them directly on the main page.</p>
-
-                <div class="setting-card">
-                    <h3>Grid Rows</h3>
-                    <p>Control the maximum amount of shortcuts displayed on the screen. You can limit the grid to show
-                        anywhere from 1 to 4 rows. If disabled entirely, the grid is hidden to keep the interface
-                        completely minimalist.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Folders </h3>
-                    <p>Enable folder support to organize your shortcuts grid into groups. When active, the
-                        <strong>Add</strong> button lets you choose between adding a shortcut or a new folder. Each
-                        folder holds up to 39 shortcuts and supports a custom name. Drag shortcuts onto a folder card to
-                        move them inside, or drag them back out to the main grid to remove them from the folder.
-                    </p>
-                </div>
-                <div class="setting-card">
-                    <h3>Drag &amp; Drop from Favorites Bar </h3>
-                    <p>Drag bookmarks directly from the browser's favorites bar and drop them into the shortcuts grid or
-                        into an open folder. You can also drag a shortcut from the main grid onto a folder card and
-                        release to move it inside.</p>
-                </div>
-            </section>
-
-            <section id="launcher" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M3 5.25C3 4.00736 4.00736 3 5.25 3H10.25C11.4926 3 12.5 4.00736 12.5 5.25V11C12.5 11.5523 12.0523 12 11.5 12H4C3.44772 12 3 11.5523 3 11V5.25Z"
-                            fill="url(#paint0_linear_74105_6433)" />
-                        <path
-                            d="M18.75 11.5C19.9926 11.5 21 12.5074 21 13.75V18.75C21 19.9926 19.9926 21 18.75 21H13C12.4477 21 12 20.5523 12 20L12 12.5C12 11.9477 12.4477 11.5 13 11.5L18.75 11.5Z"
-                            fill="url(#paint1_linear_74105_6433)" />
-                        <path
-                            d="M12.5 20C12.5 20.5523 12.0523 21 11.5 21L5.25 21C4.00736 21 3 19.9926 3 18.75L3 12.5C3 11.9477 3.44772 11.5 4 11.5L11.5 11.5C12.0523 11.5 12.5 11.9477 12.5 12.5L12.5 20Z"
-                            fill="url(#paint2_linear_74105_6433)" />
-                        <path
-                            d="M15.4103 2.15901C16.2889 1.28033 17.7136 1.28033 18.5922 2.15901L21.8435 5.41027C22.7222 6.28895 22.7222 7.71357 21.8435 8.59225L18.5922 11.8435C17.7136 12.7222 16.2889 12.7222 15.4103 11.8435L12.159 8.59225C11.2803 7.71357 11.2803 6.28895 12.159 5.41027L15.4103 2.15901Z"
-                            fill="url(#paint3_linear_74105_6433)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_74105_6433" x1="3" y1="3" x2="11.9869" y2="12.4861"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#B9C0C7" />
-                                <stop offset="1" stop-color="#889096" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_74105_6433" x1="21" y1="20.3214" x2="12.1914" y2="11.9765"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#63686E" />
-                                <stop offset="1" stop-color="#889096" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_74105_6433" x1="3" y1="11.5" x2="12.5" y2="17.6071"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#55595E" />
-                                <stop offset="1" stop-color="#383B3D" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_74105_6433" x1="20.5646" y1="10.0015" x2="14.3849"
-                                y2="2.38036" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2764E7" />
-                                <stop offset="1" stop-color="#36DFF1" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    App Launcher
-                </h2>
-                <p>A floating button on the left side of the screen that opens a quick-access drawer to web
-                    applications.</p>
-
-                <div class="setting-card">
-                    <h3>Ecosystem Provider</h3>
-                    <p>Select which suite of tools you use the most. The launcher will automatically populate with
-                        shortcuts and icons for <strong>Microsoft 365</strong> (Word, Teams, Copilot), <strong>Google
-                            Workspace</strong> (Docs, Drive, Gemini), or <strong>Proton AG</strong> (Mail, Calendar,
-                        Pass).</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Convert App to Folder</h3>
-                    <p>Turn any App Launcher app into a shortcut folder for even faster access directly from the
-                        shortcuts grid. Click the <strong>+</strong> icon on an app card to trigger the conversion. The
-                        <strong>Folders</strong> feature must be enabled in the Shortcuts settings for this option to be
-                        available.
-                    </p>
-                </div>
-            </section>
-
-            <section id="search" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17 10C17 13.866 13.866 17 9.99996 17C6.13397 17 2.99996 13.866 2.99996 10C2.99996 6.13401 6.13397 3 9.99996 3C13.866 3 17 6.13401 17 10Z"
-                            fill="url(#paint0_linear_75684_7943)" />
-                        <path
-                            d="M14.8432 16.3679C13.4988 17.392 11.8204 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8768 17.3537 13.6027 16.2715 14.9672L20.6982 19.2841C21.0936 19.6697 21.1015 20.3028 20.7159 20.6982C20.3303 21.0936 19.6972 21.1015 19.3018 20.7159L14.8432 16.3679ZM16 10C16 6.68629 13.3137 4 10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10Z"
-                            fill="url(#paint1_linear_75684_7943)" />
-                        <path
-                            d="M20.7829 10.2132L20.0175 9.9646C19.7848 9.8873 19.5733 9.75683 19.3999 9.58356C19.2265 9.41029 19.0959 9.199 19.0186 8.96646L18.7698 8.20161C18.749 8.14266 18.7104 8.09161 18.6593 8.0555C18.6083 8.01939 18.5473 8 18.4847 8C18.4221 8 18.3611 8.01939 18.31 8.0555C18.259 8.09161 18.2204 8.14266 18.1996 8.20161L17.9508 8.96646C17.875 9.19736 17.7467 9.40761 17.5761 9.58076C17.4055 9.75392 17.1971 9.88529 16.9672 9.9646L16.2018 10.2132C16.1428 10.234 16.0917 10.2725 16.0555 10.3236C16.0194 10.3746 16 10.4356 16 10.4981C16 10.5606 16.0194 10.6216 16.0555 10.6726C16.0917 10.7236 16.1428 10.7622 16.2018 10.783L16.9672 11.0316C17.2003 11.1093 17.412 11.2403 17.5855 11.4143C17.7589 11.5882 17.8893 11.8003 17.9661 12.0335L18.2149 12.7984C18.2357 12.8573 18.2743 12.9084 18.3254 12.9445C18.3764 12.9806 18.4374 13 18.5 13C18.5626 13 18.6236 12.9806 18.6746 12.9445C18.7257 12.9084 18.7643 12.8573 18.7851 12.7984L19.0339 12.0335C19.1113 11.801 19.2418 11.5897 19.4152 11.4164C19.5886 11.2432 19.8001 11.1127 20.0328 11.0354L20.7982 10.7868C20.8572 10.766 20.9083 10.7275 20.9445 10.6764C20.9806 10.6254 21 10.5644 21 10.5019C21 10.4394 20.9806 10.3784 20.9445 10.3274C20.9083 10.2764 20.8572 10.2378 20.7982 10.217L20.7829 10.2132Z"
-                            fill="url(#paint2_radial_75684_7943)" />
-                        <path
-                            d="M13.0883 6.41228C13.016 6.31886 12.9377 6.2298 12.8539 6.14569C12.5417 5.83255 12.1606 5.59666 11.741 5.45683L10.3632 5.00939C10.257 4.97196 10.165 4.90253 10.1 4.81068C10.0349 4.71883 10 4.60908 10 4.49656C10 4.38404 10.0349 4.27429 10.1 4.18244C10.165 4.09058 10.257 4.02116 10.3632 3.98372L11.741 3.53628C12.1547 3.39352 12.5299 3.15705 12.837 2.84537C13.1357 2.54224 13.3623 2.17595 13.5 1.77372L13.5114 1.73963L13.9592 0.362894C13.9967 0.256782 14.0662 0.164895 14.1581 0.0998993C14.25 0.0349035 14.3598 0 14.4724 0C14.5851 0 14.6949 0.0349035 14.7868 0.0998993C14.8787 0.164895 14.9482 0.256782 14.9857 0.362894L15.4335 1.73963C15.5727 2.15819 15.8077 2.53853 16.1198 2.85041C16.432 3.1623 16.8126 3.39715 17.2315 3.53628L18.6093 3.98372L18.6368 3.99061C18.743 4.02804 18.835 4.09747 18.9 4.18932C18.9651 4.28117 19 4.39092 19 4.50344C19 4.61596 18.9651 4.72571 18.9 4.81756C18.835 4.90942 18.743 4.97884 18.6368 5.01628L17.259 5.46372C16.8402 5.60285 16.4595 5.8377 16.1474 6.14959C15.8353 6.46147 15.6003 6.84181 15.461 7.26037L15.0132 8.63711C15.0092 8.64855 15.0048 8.65983 15 8.67093C14.9605 8.76273 14.8964 8.84212 14.8144 8.9001C14.7224 8.9651 14.6126 9 14.5 9C14.3874 9 14.2776 8.9651 14.1856 8.9001C14.0937 8.8351 14.0242 8.74322 13.9868 8.63711L13.539 7.26037C13.4378 6.95331 13.2851 6.66664 13.0883 6.41228Z"
-                            fill="url(#paint3_radial_75684_7943)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_75684_7943" x1="13.5" y1="5.33333" x2="3" y2="17"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FDFDFD" />
-                                <stop offset="1" stop-color="#B3E0FF" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_75684_7943" x1="3" y1="19" x2="19" y2="6"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#0094F0" />
-                                <stop offset="1" stop-color="#29C3FF" />
-                            </linearGradient>
-                            <radialGradient id="paint2_radial_75684_7943" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(7.375 -10.8125) rotate(63.379) scale(28.6137 22.2808)">
-                                <stop offset="0.718021" stop-color="#FFCD0F" />
-                                <stop offset="0.990707" stop-color="#E67505" />
-                            </radialGradient>
-                            <radialGradient id="paint3_radial_75684_7943" cx="0" cy="0" r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(-1.16964 -22.6607) rotate(61.1996) scale(38.6974 30.1328)">
-                                <stop offset="0.698225" stop-color="#FFCD0F" />
-                                <stop offset="0.990707" stop-color="#E67505" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-
-                    Search
-                </h2>
-                <p>Customize the behavior and appearance of the central search bar.</p>
-
-                <div class="setting-card">
-                    <h3>Search Engine Provider </h3>
-                    <p>Change the default search engine directly on the main page by clicking the engine icon inside the
-                        bar to seamlessly switch between Bing, Google, Brave Search, DuckDuckGo, Ecosia Search,
-                        Startpage, and Kagi.</p>
-                </div>
-
-                <div class="setting-card">
-                    <h3>Suggestions</h3>
-                    <p>When enabled, typing in the search bar will fetch live autocomplete suggestions to help you find
-                        what you are looking for faster.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Clear Search (Google)</h3>
-                    <p>This setting appends the <code translate="no">&udm=14</code> parameter to Google searches. It
-                        forces Google to return a clean, classic list of links, stripping away AI overviews, sponsored
-                        widgets, and shopping cards.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Compact Bar</h3>
-                    <p>Reduces the height and visual footprint of the search bar for a tighter, more refined aesthetic.
-                    </p>
-                </div>
-                <div class="setting-card">
-                    <h3>Voice Search</h3>
-                    <p>Enables the microphone icon inside the search bar, allowing you to search the web using voice
-                        recognition (requires browser permission).</p>
-                </div>
-            </section>
-
-            <section id="performance" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16.5002 2C13.4627 2 11.0002 4.46243 11.0002 7.5C11.0002 7.94322 11.0528 8.37496 11.1523 8.78899L2.84099 17.1003C1.71967 18.2216 1.71967 20.0396 2.84099 21.1609C3.96231 22.2823 5.78033 22.2823 6.90165 21.1609L15.214 12.8486C15.6272 12.9477 16.058 13 16.5002 13C19.5378 13 22.0002 10.5376 22.0002 7.5C22.0002 6.89137 21.9011 6.30437 21.7175 5.75516C21.6351 5.50875 21.4311 5.32252 21.1782 5.26294C20.9253 5.20336 20.6595 5.27892 20.4758 5.46266L18.0317 7.90697C17.7389 8.19989 17.264 8.19991 16.9711 7.907L16.0934 7.0293C15.8005 6.73642 15.8005 6.26156 16.0933 5.96867L18.5375 3.5243C18.7212 3.34057 18.7967 3.07485 18.7371 2.82197C18.6775 2.56908 18.4913 2.36505 18.2449 2.28268C17.6957 2.09912 17.1088 2 16.5002 2Z"
-                            fill="url(#paint0_linear_378174_9773)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9773" x1="10.1283" y1="3.24914" x2="13.694"
-                                y2="22.7068" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#2BDABE" />
-                                <stop offset="1" stop-color="#0067BF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Performance
-                </h2>
-                <p>Fine-tune how the extension renders and animates to best match your hardware and personal preference.
-                </p>
-
-                <div class="setting-card">
-                    <h3>Reduce Motion</h3>
-                    <p>Disables all CSS transitions, interface animations, and hover effects. Highly recommended for
-                        older computers or for users who prefer an instant, snappy response.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Reduce Blur</h3>
-                    <p>Turns off backdrop blur effects used throughout the interface. Blur filters can be GPU-intensive
-                        — disabling them noticeably improves rendering performance on lower-end devices.</p>
-                </div>
-            </section>
-
-            <section id="utilities" class="docs-section">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7 7.5V6.25244C7 5.0098 8.00736 4.00244 9.25 4.00244H14.75C15.9926 4.00244 17 5.0098 17 6.25244V7.5H15.5V6.25244C15.5 5.83823 15.1642 5.50244 14.75 5.50244H9.25C8.83579 5.50244 8.5 5.83823 8.5 6.25244V7.5H7Z"
-                            fill="url(#paint0_linear_72095_8116)" />
-                        <path
-                            d="M4.25 19.9966C3.00736 19.9966 2 18.9893 2 17.7466V11.5H22V17.7466C22 18.9893 20.9926 19.9966 19.75 19.9966H4.25Z"
-                            fill="url(#paint1_linear_72095_8116)" />
-                        <path
-                            d="M2 9.24982C2 8.00717 3.00736 6.99982 4.25 6.99982H19.75C20.9926 6.99982 22 8.00718 22 9.24982V11.9998H2V9.24982Z"
-                            fill="url(#paint2_linear_72095_8116)" />
-                        <path
-                            d="M16.75 9.99982C17.1642 9.99982 17.5 10.3356 17.5 10.7498V13.2498C17.5 13.664 17.1642 13.9998 16.75 13.9998C16.3358 13.9998 16 13.664 16 13.2498V10.7498C16 10.3356 16.3358 9.99982 16.75 9.99982Z"
-                            fill="url(#paint3_linear_72095_8116)" />
-                        <path
-                            d="M7.25 9.99982C7.66421 9.99982 8 10.3356 8 10.7498V13.2498C8 13.664 7.66421 13.9998 7.25 13.9998C6.83579 13.9998 6.5 13.664 6.5 13.2498V10.7498C6.5 10.3356 6.83579 9.99982 7.25 9.99982Z"
-                            fill="url(#paint4_linear_72095_8116)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_72095_8116" x1="3.42857" y1="4.00244" x2="3.84021"
-                                y2="7.06872" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#B9C0C7" />
-                                <stop offset="1" stop-color="#70777D" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_72095_8116" x1="0.749998" y1="8.31381" x2="2.57677"
-                                y2="28.3143" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.124704" stop-color="#F97DBD" />
-                                <stop offset="1" stop-color="#D7257D" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_72095_8116" x1="0.749998" y1="5.12482" x2="1.12849"
-                                y2="17.0941" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F97DBD" />
-                                <stop offset="1" stop-color="#D7257D" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_72095_8116" x1="2.57143" y1="9.99982" x2="3.32698"
-                                y2="14.3305" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EFEFEF" />
-                                <stop offset="1" stop-color="#DADADA" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_72095_8116" x1="2.57143" y1="9.99982" x2="3.32698"
-                                y2="14.3305" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EFEFEF" />
-                                <stop offset="1" stop-color="#DADADA" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Utilities
-                </h2>
-                <p>Language settings and data management tools to keep your setup organized and portable.</p>
-
-                <div class="setting-card">
-                    <h3>Language</h3>
-                    <p>Set the interface language for the extension menu and greetings. It supports over 20 languages.
-                        The default language is <strong>English</strong>, which is also used as a fallback whenever a
-                        translation is missing or unavailable. Found a translation error or want to request a new
-                        language? Contribute on <a href="https://crowdin.com/project/fluent-new-tab" target="_blank"
-                            rel="noopener noreferrer" style="color: var(--color-primary);">Crowdin</a>.</p>
-                </div>
-                <div class="setting-card">
-                    <h3>Data Backup (Export / Import)</h3>
-                    <p>Allows you to export all your configured settings, shortcuts, and preferences into a single <code
-                            translate="no">.json</code> file. You can import this file later or on another device to
-                        restore your entire setup instantly.</p>
-                </div>
-            </section>
-
-            <section id="help-links" class="docs-section"
-                style="margin-top: 64px; border-top: 1px solid var(--color-border); padding-top: 64px;">
-                <h2>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 2C17.523 2 22 6.478 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12C2 6.478 6.477 2 12 2Z"
-                            fill="url(#paint0_linear_378174_9443)" />
-                        <path
-                            d="M12 15.5C11.4477 15.5 11 15.9477 11 16.5C11 17.0523 11.4477 17.5 12 17.5C12.5523 17.5 13 17.0523 13 16.5C13 15.9477 12.5523 15.5 12 15.5ZM12 6.75C10.4812 6.75 9.25 7.98122 9.25 9.5C9.25 9.91421 9.58579 10.25 10 10.25C10.3797 10.25 10.6935 9.96785 10.7432 9.60177L10.75 9.5C10.75 8.80964 11.3096 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.0388 13.115 10.3053 12.6051 10.8322L12.4697 10.9697C11.5916 11.8478 11.25 12.4171 11.25 13.5C11.25 13.9142 11.5858 14.25 12 14.25C12.4142 14.25 12.75 13.9142 12.75 13.5C12.75 12.9612 12.885 12.6947 13.3949 12.1678L13.5303 12.0303C14.4084 11.1522 14.75 10.5829 14.75 9.5C14.75 7.98122 13.5188 6.75 12 6.75Z"
-                            fill="url(#paint1_linear_378174_9443)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_378174_9443" x1="2" y1="2" x2="22" y2="22"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#0FAFFF" />
-                                <stop offset="1" stop-color="#2764E7" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_378174_9443" x1="9.73109" y1="6.93875" x2="13.0074"
-                                y2="17.7443" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FDFDFD" />
-                                <stop offset="1" stop-color="#CCEAFF" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    Need More Help?
-                </h2>
-                <p>If you found an issue, have a great idea, or just need to ask a question, our GitHub community is the
-                    best place to reach out.</p>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px;">
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
-                        target="_blank" rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: #D13438;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.75 3.75 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259h.473a5.002 5.002 0 0 0 9.548 0h.473a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.75 3.75 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0z"
-                                    fill="currentColor" />
-                            </svg>
-                            Report a Bug
-                        </h3>
-                        <p>Something isn't working right? Let us know so we can fix it.</p>
-                    </a>
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
-                        target="_blank" rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: #107C10;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738z"
-                                    fill="currentColor" />
-                            </svg>
-                            Request Feature
-                        </h3>
-                        <p>Have an idea to make Fluent New Tab even better? Share it!</p>
-                    </a>
-
-                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose" target="_blank"
-                        rel="noopener noreferrer" class="setting-card"
-                        style="text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;"
-                        onmouseover="this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.transform='none';">
-                        <h3 style="color: var(--color-primary);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-                                <path
-                                    d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
-                                    fill="currentColor" />
-                                <path
-                                    d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5"
-                                    fill="currentColor" />
-                                <path
-                                    d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21"
-                                    fill="currentColor" />
-                            </svg>
-                            Ask a Question
-                        </h3>
-                        <p>Need help configuring or using a specific feature?</p>
-                    </a>
-
-                </div>
-            </section>
-
-        </main>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setting-card"
+              style="
+                text-decoration: none;
+                display: block;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'none'"
+            >
+              <h3 style="color: var(--color-primary)">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="margin-right: 8px"
+                >
+                  <path
+                    d="M8.144 6.307c.434-.232.901-.306 1.356-.306a2.62 2.62 0 0 1 1.632.577c.517.424.868 1.074.868 1.922 0 .975-.689 1.504-1.077 1.802l-.085.066c-.424.333-.588.511-.588.882a.75.75 0 0 1-1.5 0c0-1.134.711-1.708 1.162-2.062.513-.403.588-.493.588-.688 0-.397-.149-.622-.32-.761A1.1 1.1 0 0 0 9.5 7.5c-.295 0-.498.049-.65.13-.143.076-.294.21-.44.48a.75.75 0 1 1-1.32-.715c.264-.486.612-.853 1.054-1.089ZM9.5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M9.5 3a7.5 7.5 0 0 0-6.797 10.673l-.725 2.842a1.25 1.25 0 0 0 1.504 1.524c.75-.18 1.903-.457 2.93-.702A7.5 7.5 0 1 0 9.5 3m-6 7.5a6 6 0 1 1 3.33 5.375l-.243-.121-.265.063-2.788.667c.2-.78.462-1.812.69-2.708l.07-.276-.13-.253A6 6 0 0 1 3.5 10.5"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M14.5 21a7.48 7.48 0 0 1-5.1-2h.1c.718 0 1.415-.089 2.081-.257.864.482 1.86.757 2.92.757.96 0 1.866-.225 2.669-.625l.243-.121.265.063c.921.22 1.965.445 2.74.61a158 158 0 0 0-.642-2.651l-.07-.276.13-.253A6 6 0 0 0 20.5 13.5a6 6 0 0 0-2.747-5.042 8.4 8.4 0 0 0-.8-2.047 7.503 7.503 0 0 1 4.344 10.263c.253 1.008.51 2.1.672 2.803a1.244 1.244 0 0 1-1.468 1.5c-.727-.152-1.87-.396-2.913-.64A7.5 7.5 0 0 1 14.5 21"
+                    fill="currentColor"
+                  />
+                </svg>
+                Ask a Question
+              </h3>
+              <p>Need help configuring or using a specific feature?</p>
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
 
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo">
-                    <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo">
-                    <span>Fluent New Tab</span>
-                </div>
-                <p class="footer-description">Fluent New Tab is an independent open-source project and is not affiliated
-                    with, endorsed by, or sponsored by Microsoft Corporation.</p>
-            </div>
-
-            <div class="footer-nav">
-                <div class="footer-column">
-                    <h4>Overview</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/setup.html">Setup & Configuration</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html">Privacy Policy</a>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/terms.html">Terms of Use</a>
-                    <a href="mailto:snw-mint@outlook.com">Contact</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <a href="https://snw-mint.github.io/fluent-new-tab/help.html">Troubleshooting</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml">Report a
-                        Bug</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml">Request
-                        a Feature</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose">Ask a Question</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Community</h4>
-                    <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md">Contributing</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md">Help Translate</a>
-                    <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer">Support the
-                        Project</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Download</h4>
-                    <a href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
-                        target="_blank" rel="noopener noreferrer">Microsoft Edge</a>
-                    <a href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/" target="_blank"
-                        rel="noopener noreferrer">Google Chrome</a>
-                    <a href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/" target="_blank"
-                        rel="noopener noreferrer">Mozilla Firefox</a>
-                    <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank"
-                        rel="noopener noreferrer">Manual Release</a>
-                </div>
-            </div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <p class="footer-description">
+            Fluent New Tab is an independent open-source project and is not
+            affiliated with, endorsed by, or sponsored by Microsoft Corporation.
+          </p>
         </div>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Fluent New Tab. Created by <a href="https://github.com/snw-mint" target="_blank"
-                    rel="noopener noreferrer">snow mint</a>.</p>
+        <div class="footer-nav">
+          <div class="footer-column">
+            <h4>Overview</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+            <a href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+              >Setup & Configuration</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+              >Privacy Policy</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/terms.html"
+              >Terms of Use</a
+            >
+            <a href="mailto:snowmint.dev@gmail.com">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/help.html"
+              >Troubleshooting</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              >Report a Bug</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              >Request a Feature</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              >Ask a Question</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Community</h4>
+            <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+              >Contributing</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+              >Help Translate</a
+            >
+            <a
+              href="https://buymeacoffee.com/snw.mint"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Support the Project</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Download</h4>
+            <a
+              href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Microsoft Edge</a
+            >
+            <a
+              href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Chrome</a
+            >
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mozilla Firefox</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Manual Release</a
+            >
+          </div>
         </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>
+          &copy; 2026 Fluent New Tab. Created by
+          <a
+            href="https://github.com/snw-mint"
+            target="_blank"
+            rel="noopener noreferrer"
+            >snow mint</a
+          >.
+        </p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.docs-section');
-            const navLinks = document.querySelectorAll('.docs-sidebar a');
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".docs-section");
+        const navLinks = document.querySelectorAll(".docs-sidebar a");
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 150) {
+              current = section.getAttribute("id");
+            }
+          });
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-            });
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+              link.classList.add("active");
+            }
+          });
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
