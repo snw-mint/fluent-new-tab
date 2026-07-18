@@ -18,6 +18,6 @@ Because **Fluent New Tab** uses a local-first, privacy-focused approach, we take
 To report a security vulnerability, please choose one of the following options:
 
 1. **[Recommended] GitHub Private Vulnerability Reporting:** Go to the "Security" tab of this repository, click on "Advisories", and then "Report a vulnerability". This opens a private communication channel directly with the maintainers.
-2. **Email:** Send an email directly to `snw-mint@outlook.com` with the details of the vulnerability, steps to reproduce (Proof of Concept), and the expected impact.
+2. **Email:** Send an email directly to `snowmint.dev@gmail.com` with the details of the vulnerability, steps to reproduce (Proof of Concept), and the expected impact.
 
 You should receive a confirmation of receipt within 48 hours. We will do our best to evaluate the issue, develop a fix, and release an update to the stores as quickly as possible.
