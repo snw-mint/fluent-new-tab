@@ -253,7 +253,8 @@
       background: var(--shortcut-bg);
     }
 
-    &:hover .shortcut-card {
+    &:hover .shortcut-card,
+    &:active .shortcut-card {
       background: var(--surface-dim);
     }
   }
@@ -268,7 +269,6 @@
       visibility 0s linear 0.5s,
       color 0.15s ease;
   }
-
 }
 
 .shortcuts-area {
@@ -311,7 +311,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: color-mix(in srgb, var(--text-color) 6%, var(--surface-base));
+    background-color: color-mix(
+      in srgb,
+      var(--text-color) 6%,
+      var(--surface-base)
+    );
     border-color: transparent;
   }
 
@@ -359,7 +363,7 @@
 
 .add-card-wrapper {
   position: relative;
-  
+
   .add-dropdown {
     position: absolute;
     top: 3.2rem;
@@ -375,13 +379,13 @@
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
     @include card-radius(var(--radius-md));
-    
+
     &.active {
       opacity: 1;
       transform: translate(-50%, 0) scale(1);
       pointer-events: auto;
     }
-    
+
     .menu-option {
       @include flex-center(0.5625rem);
       align-items: center;
@@ -408,7 +412,7 @@
           transparent
         );
       }
-      
+
       svg {
         width: 1.125rem;
         height: 1.125rem;
@@ -421,9 +425,4 @@
   &:active .shortcut-card {
     transform: none !important;
   }
-}
-
-.add-card-wrapper:has(.add-dropdown.active) .shortcut-card {
-  background: var(--shortcut-bg-hover);
-  box-shadow: var(--shadow-sm);
 }
