@@ -840,7 +840,7 @@ export function bindShortcutRadiusFeature(options: any): void {
             confirmText:
               (window as any).getTranslation?.('importOption') || 'Import',
             cancelText:
-              (window as any).getTranslation?.('cancelOption') || 'Cancel',
+              (window as any).getTranslation?.('btnCancel') || 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => runImport(),
             onCancel: () => {},
