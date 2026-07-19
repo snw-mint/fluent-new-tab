@@ -119,7 +119,7 @@ Modules placed here are **NOT** loaded when the extension starts. They are dynam
 
 ---
 
-## 🔄 Imports and Exports (ES Modules)
+## Imports and Exports (ES Modules)
 
 With our new ESM structure, everything is strictly scoped.
 
