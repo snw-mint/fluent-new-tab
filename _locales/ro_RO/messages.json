@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "În funcție de dispozitiv, imaginile de fundal cu rapoarte de aspect excepțional de mari sau cu dimensiuni foarte mari ale fișierelor pot duce la timpi de încărcare a extensiilor mai lenți."
+  },
+  "rateUsTitle": {
+    "message": "Evaluează-ne!"
   }
 }

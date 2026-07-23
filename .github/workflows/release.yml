@@ -32,11 +32,25 @@ jobs:
 
       - name: Run release build (Chrome)
         run: npm run build
+        env:
+          VITE_STORE: chrome
 
       - name: Package Chrome extension
         run: |
           cd dist
-          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip" . \
+          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-chrome.zip" . \
+            --exclude "*.map" \
+            --exclude ".DS_Store"
+
+      - name: Run release build (Edge)
+        run: npm run build
+        env:
+          VITE_STORE: edge
+
+      - name: Package Edge extension
+        run: |
+          cd dist
+          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-edge.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
 
@@ -45,6 +59,9 @@ jobs:
           mv manifest.json manifest-chrome.json
           cp manifest-firefox.json manifest.json
           npm run build
+          mv manifest-chrome.json manifest.json
+        env:
+          VITE_STORE: firefox
 
       - name: Package Firefox extension
         run: |
@@ -57,7 +74,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip
+            fluent-new-tab-v${{ steps.version.outputs.VERSION }}-chrome.zip
+            fluent-new-tab-v${{ steps.version.outputs.VERSION }}-edge.zip
             fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip
           generate_release_notes: true
           draft: true

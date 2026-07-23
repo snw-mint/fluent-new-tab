@@ -1,4 +1,13 @@
 {
+  "rateUsTitle": {
+    "message": "Rate Us!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Enjoying Fluent New Tab? "
+  },
+  "rateUsToastLink": {
+    "message": "Rate us!"
+  },
   "appsTitle": {
     "message": "Apps"
   },

@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Tùy thuộc vào thiết bị, hình nền có tỷ lệ khung hình đặc biệt cao hoặc kích thước tệp rất lớn có thể dẫn đến thời gian tải tiện ích mở rộng chậm hơn."
+  },
+  "rateUsTitle": {
+    "message": "Đánh giá chúng tôi!"
   }
 }

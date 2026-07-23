@@ -456,5 +456,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Dependiendo del dispositivo, los fondos de pantalla con relaciones de aspecto excepcionalmente altas o tamaños de archivo muy grandes pueden provocar tiempos de carga de extensiones más lentos."
+  },
+  "rateUsTitle": {
+    "message": "¡Califícanos!"
   }
 }

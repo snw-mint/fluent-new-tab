@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Laitteesta riippuen taustakuvat, joissa on poikkeuksellisen suuri kuvasuhde tai erittäin suuri tiedostokoko, voivat hidastaa laajennusten latausaikoja."
+  },
+  "rateUsTitle": {
+    "message": "Arvioi meidät!"
   }
 }

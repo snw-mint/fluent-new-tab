@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Afhankelijk van het apparaat kunnen achtergronden met uitzonderlijk hoge beeldverhoudingen of zeer grote bestandsgroottes resulteren in langzamere laadtijden van de extensie."
+  },
+  "rateUsTitle": {
+    "message": "Beoordeel ons!"
   }
 }

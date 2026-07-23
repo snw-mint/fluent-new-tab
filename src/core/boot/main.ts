@@ -25,6 +25,7 @@ import { Shortcut } from '@/core/shared/types';
 import { initTabCustomization } from '@/core/ui/tab-customization';
 import { initLocalization } from '@/core/ui/localization';
 import { initBasicSearchUI } from '@/core/boot/search';
+import { getStoreRateUrl } from '@/core/shared/store-links';
 
 let brandIntervalStarted = false;
 
@@ -254,43 +255,119 @@ async function bootCritical(): Promise<void> {
 
 async function bootInteractive(): Promise<void> {
   try {
-    const chromeApi = (window as any).chrome;
-    if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
-      chromeApi.storage.local.get(
-        ['update_notice_pending', 'update_notice_version'],
-        (data: any) => {
-          if (data.update_notice_pending) {
+    const getStorageKeys = (keys: string[], callback: (data: any) => void) => {
+      const chromeApi = (window as any).chrome;
+      if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
+        chromeApi.storage.local.get(keys, callback);
+      } else {
+        const data: any = {};
+        keys.forEach((k) => {
+          const raw = localStorage.getItem(k);
+          if (raw !== null) {
+            try {
+              data[k] = JSON.parse(raw);
+            } catch {
+              data[k] = raw;
+            }
+          }
+        });
+        callback(data);
+      }
+    };
+
+    const setStorageKeys = (obj: Record<string, any>, callback?: () => void) => {
+      const chromeApi = (window as any).chrome;
+      if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
+        chromeApi.storage.local.set(obj, callback);
+      } else {
+        Object.entries(obj).forEach(([k, v]) => {
+          localStorage.setItem(k, JSON.stringify(v));
+        });
+        if (callback) callback();
+      }
+    };
+
+    const removeStorageKeys = (keys: string[]) => {
+      const chromeApi = (window as any).chrome;
+      if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
+        chromeApi.storage.local.remove(keys);
+      } else {
+        keys.forEach((k) => localStorage.removeItem(k));
+      }
+    };
+
+    getStorageKeys(
+      [
+        'update_notice_pending',
+        'update_notice_version',
+        'rate_us_scheduled_time',
+        'rate_us_pending',
+      ],
+      (data: any) => {
+        let delayMs = 0;
+
+        if (data.update_notice_pending) {
+          delayMs = 6500;
+          Promise.all([
+            import('@/core/ui/ui-components'),
+            import('@/core/shared/dom-utils'),
+          ]).then(([{ showToast }, { getLocalizedWarningText }]) => {
+            const version = data.update_notice_version || '';
+            const prefix = getLocalizedWarningText(
+              'updateNoticePrefix',
+              `Fluent New Tab has been updated to version $VERSION$, `,
+              { VERSION: version },
+            );
+            const suffix = getLocalizedWarningText(
+              'updateNoticeChangelog',
+              'see changelog',
+            );
+            const link = document.createElement('a');
+            link.href = 'https://github.com/snw-mint/fluent-new-tab/releases';
+            link.target = '_blank';
+            link.className = 'update-release-notice-link';
+            link.textContent = suffix;
+            showToast([prefix, link], 'assets/icons/update.svg', 6000);
+          });
+          removeStorageKeys(['update_notice_pending', 'update_notice_version']);
+        }
+
+        const now = Date.now();
+        const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+
+        if (data.rate_us_scheduled_time === undefined || data.rate_us_scheduled_time === null) {
+          setStorageKeys({
+            rate_us_scheduled_time: now + SEVEN_DAYS_MS,
+            rate_us_pending: true,
+          });
+        } else if (data.rate_us_pending && now >= Number(data.rate_us_scheduled_time)) {
+          window.setTimeout(() => {
             Promise.all([
               import('@/core/ui/ui-components'),
               import('@/core/shared/dom-utils'),
             ]).then(([{ showToast }, { getLocalizedWarningText }]) => {
-              const version = data.update_notice_version || '';
               const prefix = getLocalizedWarningText(
-                'updateNoticePrefix',
-                `Fluent New Tab has been updated to version $VERSION$, `,
-                { VERSION: version },
+                'rateUsToastPrefix',
+                'Enjoying Fluent New Tab? ',
               );
-              const suffix = getLocalizedWarningText(
-                'updateNoticeChangelog',
-                'see changelog',
+              const linkText = getLocalizedWarningText(
+                'rateUsToastLink',
+                'Rate us!',
               );
               const link = document.createElement('a');
-              link.href = 'https://github.com/snw-mint/fluent-new-tab/releases';
+              link.href = getStoreRateUrl();
               link.target = '_blank';
               link.className = 'update-release-notice-link';
-              link.textContent = suffix;
-              showToast([prefix, link], 'assets/icons/update.svg', 6000);
+              link.textContent = linkText;
+              showToast([prefix, link], 'assets/icons/star.svg', 7000);
             });
-            chromeApi.storage.local.remove([
-              'update_notice_pending',
-              'update_notice_version',
-            ]);
-          }
-        },
-      );
-    }
+            setStorageKeys({ rate_us_pending: false });
+          }, delayMs);
+        }
+      },
+    );
   } catch (e) {
-    console.error('Error checking for updates:', e);
+    console.error('Error checking for notices:', e);
   }
 
   const [
@@ -397,6 +474,10 @@ async function bootInteractive(): Promise<void> {
     } catch {
       refs.versionDisplay.textContent = 'v1.0';
     }
+  }
+
+  if (refs.rateUsLink) {
+    refs.rateUsLink.href = getStoreRateUrl();
   }
 
   import('@/core/ui/ui-components').then(({ applyMagneticSnap }) => {

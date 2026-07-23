@@ -42,9 +42,14 @@ chrome.runtime.onInstalled.addListener((details) => {
     'https://snw-mint.github.io/fluent-new-tab/uninstall.html',
   );
 
+  const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+  const rateUsScheduledTime = Date.now() + SEVEN_DAYS_MS;
+
   if (details.reason === 'install') {
     chrome.storage.local.set({
       [PERSISTENT_BACKUP_KEY]: DEFAULT_INSTALL_PREFERENCES,
+      rate_us_scheduled_time: rateUsScheduledTime,
+      rate_us_pending: true,
     });
 
     chrome.tabs.create({
@@ -58,6 +63,8 @@ chrome.runtime.onInstalled.addListener((details) => {
     chrome.storage.local.set({
       [UPDATE_NOTICE_PENDING_KEY]: true,
       [UPDATE_NOTICE_VERSION_KEY]: version,
+      rate_us_scheduled_time: rateUsScheduledTime,
+      rate_us_pending: true,
     });
   }
 });

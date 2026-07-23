@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Eszköztől függően a kivételesen nagy képarányú vagy nagyon nagy fájlméretű háttérképek lassabb kiterjesztési betöltési időt eredményezhetnek."
+  },
+  "rateUsTitle": {
+    "message": "Értékeljen minket!"
   }
 }

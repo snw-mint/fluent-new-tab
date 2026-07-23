@@ -12,6 +12,7 @@ export const configBtn = getById<HTMLButtonElement>('settingsBtn');
 export const weatherMoreBtn = getById<HTMLDivElement>('weather-more-btn');
 export const configPopup = getById<HTMLDivElement>('settingsPopup');
 export const versionDisplay = getById<HTMLAnchorElement>('versionDisplay');
+export const rateUsLink = getById<HTMLAnchorElement>('rateUsLink');
 export const exportBtn = getById<HTMLButtonElement>('exportBtn');
 export const importBtn = getById<HTMLButtonElement>('importBtn');
 export const importInput = getById<HTMLInputElement>('importInput');

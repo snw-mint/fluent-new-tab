@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Abhängig vom Gerät können Hintergrundbilder mit außergewöhnlich hohen Seitenverhältnissen oder sehr großen Dateigrößen zu langsameren Ladezeiten der Erweiterung führen."
+  },
+  "rateUsTitle": {
+    "message": "Bewerten Sie uns!"
   }
 }

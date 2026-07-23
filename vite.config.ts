@@ -185,6 +185,9 @@ const minifyPostBuild = () => ({
 });
 
 export default defineConfig({
+  define: {
+    'import.meta.env.VITE_STORE': JSON.stringify(process.env.VITE_STORE || 'chrome'),
+  },
   plugins: [crx({ manifest }), forceScriptToBottom(), minifyPostBuild()],
   resolve: {
     alias: {

@@ -717,5 +717,8 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "기기에 따라 종횡비가 매우 높거나 파일 크기가 매우 큰 배경화면의 경우 확장 프로그램 로딩 시간이 느려질 수 있습니다."
+  },
+  "rateUsTitle": {
+    "message": "우리를 평가해 주세요!"
   }
 }
