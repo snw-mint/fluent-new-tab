@@ -184,9 +184,25 @@ const minifyPostBuild = () => ({
   },
 });
 
+const defaultStoreRateUrls: Record<string, string> = {
+  chrome:
+    'https://chromewebstore.google.com/detail/fluent-new-tab/pbbiecccbghiolgifmlichmgpoclijfa/reviews?hl=en-US#:~:text=write%20a%20review',
+  edge:
+    'https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc#:~:text=add%20a%20review',
+  firefox:
+    'https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/#:~:text=rated',
+};
+
+const storeTarget = process.env.VITE_STORE || 'chrome';
+const storeRateUrl =
+  process.env.VITE_STORE_RATE_URL ||
+  defaultStoreRateUrls[storeTarget] ||
+  defaultStoreRateUrls.chrome;
+
 export default defineConfig({
   define: {
-    'import.meta.env.VITE_STORE': JSON.stringify(process.env.VITE_STORE || 'chrome'),
+    'import.meta.env.VITE_STORE': JSON.stringify(storeTarget),
+    'import.meta.env.VITE_STORE_RATE_URL': JSON.stringify(storeRateUrl),
   },
   plugins: [crx({ manifest }), forceScriptToBottom(), minifyPostBuild()],
   resolve: {

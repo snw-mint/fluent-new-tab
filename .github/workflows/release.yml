@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_STORE: chrome
+          VITE_STORE_RATE_URL: 'https://chromewebstore.google.com/detail/fluent-new-tab/pbbiecccbghiolgifmlichmgpoclijfa/reviews?hl=en-US#:~:text=write%20a%20review'
 
       - name: Package Chrome extension
         run: |
@@ -46,6 +47,7 @@ jobs:
         run: npm run build
         env:
           VITE_STORE: edge
+          VITE_STORE_RATE_URL: 'https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc#:~:text=add%20a%20review'
 
       - name: Package Edge extension
         run: |
@@ -62,6 +64,7 @@ jobs:
           mv manifest-chrome.json manifest.json
         env:
           VITE_STORE: firefox
+          VITE_STORE_RATE_URL: 'https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/#:~:text=rated'
 
       - name: Package Firefox extension
         run: |
