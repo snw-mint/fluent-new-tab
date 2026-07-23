@@ -202,6 +202,8 @@
   width: 16rem;
   max-height: min(75vh, 37.8rem);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-base) transparent;
   padding: 0.675rem;
   flex-direction: column;
   gap: 0.45rem;
@@ -272,15 +274,6 @@
 
     &:hover {
       background-color: var(--border-strong);
-    }
-
-    @supports (-moz-appearance: none) {
-      scrollbar-width: thin;
-      scrollbar-color: var(--border-base) transparent;
-
-      &:hover {
-        scrollbar-color: var(--border-strong) transparent;
-      }
     }
   }
 }
@@ -1114,6 +1107,8 @@ body:not([data-wallpaper-active='true']) {
   padding: 0.4rem;
   max-height: 260px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-base) transparent;
 
   &::-webkit-scrollbar {
     width: 0.3375rem;

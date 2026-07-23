@@ -74,6 +74,8 @@
     gap: 1px;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
     flex-shrink: 0;
     padding-right: 0.225rem;
     will-change: transform;

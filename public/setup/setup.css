@@ -56,6 +56,8 @@ html[data-theme='dark'] {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong, rgba(130, 130, 130, 0.4)) transparent;
 }
 
 html {
@@ -366,6 +368,8 @@ body.slide-prev .step.active {
   justify-content: flex-start;
   background-color: var(--bg-color);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
   position: relative;
 }
 
@@ -846,6 +850,8 @@ body.slide-prev .step.active {
   padding: 0.4rem;
   max-height: 260px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
 }
 
 .fluent-select-option {

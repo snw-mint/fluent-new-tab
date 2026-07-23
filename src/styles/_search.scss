@@ -251,6 +251,8 @@
     width: 10.125rem;
     max-height: 14.0625rem;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(130, 130, 130, 0.4) transparent;
     overscroll-behavior: contain;
     padding: 0.3375rem;
     display: none;
