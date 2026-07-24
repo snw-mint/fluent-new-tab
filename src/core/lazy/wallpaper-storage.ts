@@ -69,50 +69,71 @@ export async function saveWallpaperToDB(
 }
 
 export function convertImageToWebp(
-  imageSource: string,
+  imageSource: File | Blob | string,
+  maxDimension = 3840,
+  quality = 0.85,
 ): Promise<Blob> {
   return new Promise((resolve, reject) => {
+    const isString = typeof imageSource === 'string';
+    const objectUrl = isString ? imageSource : URL.createObjectURL(imageSource);
     const img = new Image();
-    img.src = imageSource;
 
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-
-      const width = img.width;
-      const height = img.height;
-
-      canvas.width = width;
-      canvas.height = height;
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      canvas.toBlob(
-        (blob) => {
-          if (blob) resolve(blob);
-          else reject(new Error('Error converting to WebP'));
-        },
-        'image/webp',
-        1,
-      );
+    const cleanup = () => {
+      if (!isString) {
+        URL.revokeObjectURL(objectUrl);
+      }
     };
 
-    img.onerror = (error) => reject(error);
+    img.onload = () => {
+      try {
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxDimension || height > maxDimension) {
+          if (width > height) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          } else {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, width, height);
+        }
+
+        canvas.toBlob(
+          (blob) => {
+            cleanup();
+            if (blob) resolve(blob);
+            else reject(new Error('Error converting to WebP'));
+          },
+          'image/webp',
+          quality,
+        );
+      } catch (err) {
+        cleanup();
+        reject(err);
+      }
+    };
+
+    img.onerror = (error) => {
+      cleanup();
+      reject(error);
+    };
+
+    img.src = objectUrl;
   });
 }
 
 export function processWallpaperImage(file: File): Promise<Blob> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-
-    reader.onload = (event) => {
-      convertImageToWebp(
-        String((event.target as FileReader).result || ''),
-      )
-        .then(resolve)
-        .catch(reject);
-    };
-
-    reader.onerror = (error) => reject(error);
-  });
+  return Promise.resolve(file);
 }
