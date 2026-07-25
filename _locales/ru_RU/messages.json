@@ -1,4 +1,13 @@
 {
+  "rateUsTitle": {
+    "message": "Оцените нас!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Нравится Fluent New Tab? "
+  },
+  "rateUsToastLink": {
+    "message": "Оцените нас!"
+  },
   "appsTitle": {
     "message": "Приложения"
   },
@@ -717,15 +726,6 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "В зависимости от устройства обои с исключительно высоким соотношением сторон или файлами очень большого размера могут привести к замедлению загрузки расширений."
-  },
-  "rateUsTitle": {
-    "message": "Оцените нас!"
-  },
-  "rateUsToastPrefix": {
-    "message": "Нравится Fluent New Tab? "
-  },
-  "rateUsToastLink": {
-    "message": "Оцените нас!"
   },
   "searchEngineTip": {
     "message": "Здесь можно изменить поисковую систему"
