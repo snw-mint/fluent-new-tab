@@ -726,5 +726,11 @@
   },
   "wallpaperUploadWarningDesc": {
     "message": "Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times."
+  },
+  "searchEngineTip": {
+    "message": "You can change the search engine here"
+  },
+  "systemDefault": {
+    "message": "System Default"
   }
 }

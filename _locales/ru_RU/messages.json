@@ -1,4 +1,13 @@
 {
+  "rateUsTitle": {
+    "message": "Оцените нас!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Нравится Fluent New Tab? "
+  },
+  "rateUsToastLink": {
+    "message": "Оцените нас!"
+  },
   "appsTitle": {
     "message": "Приложения"
   },
@@ -24,7 +33,7 @@
     "message": "Внешний вид"
   },
   "mainUiScaleLabel": {
-    "message": "Main UI Scale"
+    "message": "Масштаб основного интерфейса"
   },
   "displayTitle": {
     "message": "Отображение"
@@ -77,13 +86,13 @@
     "message": "Индивидуальный цвет"
   },
   "wizardAccentLabel": {
-    "message": "Accent Color"
+    "message": "Акцентный цвет"
   },
   "displayGreeting": {
     "message": "Приветствие"
   },
   "greetingNameLabel": {
-    "message": "Your Name"
+    "message": "Ваше имя"
   },
   "highlightNameLabel": {
     "message": "Выделить имя"
@@ -146,7 +155,7 @@
     "message": "Суббота"
   },
   "greetWeekMorning": {
-    "message": "Have a great $WEEK$, $NAME$!",
+    "message": "Отличного дня ($WEEK$), $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -159,7 +168,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "How is your $WEEK$ going, $NAME$?",
+    "message": "Как проходит ваш $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -172,7 +181,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NAME$, how was your $WEEK$?",
+    "message": "$NAME$, как прошёл ваш $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -185,7 +194,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$NAME$, it is a beautiful morning!",
+    "message": "$NAME$, чудесное утро!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -194,7 +203,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Ready to conquer the day, $NAME$?",
+    "message": "Готовы покорять новый день, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -203,7 +212,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Let us make this morning count, $NAME$.",
+    "message": "Сделаем это утро продуктивным, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -212,7 +221,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Good morning! I hope you slept well, $NAME$.",
+    "message": "Доброе утро! Надеюсь, вы хорошо выспались, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -221,7 +230,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Wakey wakey, $NAME$, let's get started!",
+    "message": "Просыпайтесь, $NAME$, пора за дело!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -230,7 +239,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Hope your afternoon is going well, $NAME$.",
+    "message": "Надеюсь, ваш день проходит отлично, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -239,7 +248,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, keep up the great momentum!",
+    "message": "$NAME$, продолжайте в том же духе!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -248,7 +257,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Halfway through the day, $NAME$!",
+    "message": "Экватор дня пройден, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -257,7 +266,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Good afternoon! Staying productive, $NAME$?",
+    "message": "Добрый день! Продуктивно проводите время, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -266,7 +275,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Do not forget to take a quick break, $NAME$.",
+    "message": "Не забудьте сделать небольшой перерыв, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -275,7 +284,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Good evening! Time to start winding down, $NAME$.",
+    "message": "Добрый вечер! Время немного отдохнуть, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -284,7 +293,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, I hope you had a fantastic day.",
+    "message": "$NAME$, надеюсь, ваш день был замечательным!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -293,7 +302,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Enjoy a relaxing evening, $NAME$.",
+    "message": "Приятного и спокойного вечера, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -302,7 +311,7 @@
     }
   },
   "greetEvening4": {
-    "message": "The day is almost over, $NAME$. Great job!",
+    "message": "День почти завершён, $NAME$. Отличная работа!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -311,7 +320,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Grab a comfortable seat and relax, $NAME$.",
+    "message": "Устраивайтесь поудобнее и отдыхайте, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -320,7 +329,7 @@
     }
   },
   "greetNight1": {
-    "message": "It is getting late, $NAME$. Time to rest.",
+    "message": "Уже поздно, $NAME$. Пора отдыхать.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -329,7 +338,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NAME$, the night is quiet and peaceful.",
+    "message": "$NAME$, ночь тиха и спокойна.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -338,7 +347,7 @@
     }
   },
   "greetNight3": {
-    "message": "Burning the midnight oil, $NAME$?",
+    "message": "Заработались допоздна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -347,7 +356,7 @@
     }
   },
   "greetNight4": {
-    "message": "Have a good night of sleep, $NAME$!",
+    "message": "Доброй ночи и спокойного сна, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -356,7 +365,7 @@
     }
   },
   "greetNight5": {
-    "message": "Sweet dreams, $NAME$. See you tomorrow.",
+    "message": "Сладких снов, $NAME$. До завтра!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -374,10 +383,10 @@
     "message": "Используйте градусы по Фаренгейту"
   },
   "weatherAlertsLabel": {
-    "message": "Weather alerts"
+    "message": "Штормовые предупреждения"
   },
   "alertTempDrop": {
-    "message": "Expected temperature drop: $VALUE$°",
+    "message": "Ожидается понижение температуры: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -386,7 +395,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Expected temperature rise: $VALUE$°",
+    "message": "Ожидается повышение температуры: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -395,10 +404,10 @@
     }
   },
   "alertStorm": {
-    "message": "Storms expected in the next few hours."
+    "message": "В ближайшие часы ожидаются грозы."
   },
   "alertWindHigh": {
-    "message": "Strong winds expected: $VALUE$ km/h",
+    "message": "Ожидается сильный ветер: $VALUE$ км/ч",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -407,7 +416,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "UV rays at critical levels: $VALUE$",
+    "message": "Критический уровень УФ-излучения: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -416,7 +425,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "High pollen levels ($POLLEN$) expected.",
+    "message": "Ожидается высокий уровень пыльцы ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
@@ -518,7 +527,7 @@
     "message": "Имя"
   },
   "shortcutUrlLabel": {
-    "message": "URL"
+    "message": "URL-адрес"
   },
   "addFaviconLabel": {
     "message": "Пользовательский значок"
@@ -587,67 +596,67 @@
     "message": "Посмотреть список изменений"
   },
   "wizardWelcomeTitle": {
-    "message": "Welcome home"
+    "message": "Добро пожаловать!"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Your new fluent workspace is ready. Choose your next step below."
+    "message": "Ваше новое рабочее пространство Fluent готово. Выберите следующий шаг ниже."
   },
   "wizardRestoreTitle": {
-    "message": "Restore settings"
+    "message": "Восстановление настроек"
   },
   "wizardRestoreDesc": {
-    "message": "Do you have a backup file? "
+    "message": "У вас есть файл резервной копии?"
   },
   "wizardStartTitle": {
-    "message": "Start the setup"
+    "message": "Начать настройку"
   },
   "wizardStartDesc": {
-    "message": "Start with a few steps."
+    "message": "Настройка в несколько шагов."
   },
   "wizardSkipTitle": {
-    "message": "Skip setup"
+    "message": "Пропустить настройку"
   },
   "wizardSkipDesc": {
     "message": "Начать с настройками по умолчанию."
   },
   "wizardThemeAuto": {
-    "message": "System"
+    "message": "Системная"
   },
   "wizardThemeLight": {
-    "message": "Light"
+    "message": "Светлая"
   },
   "wizardThemeDark": {
-    "message": "Dark"
+    "message": "Тёмная"
   },
   "wizardAppearanceTitle": {
-    "message": "Style & Appearance"
+    "message": "Стиль и внешний вид"
   },
   "wizardAppearanceDesc": {
-    "message": "Set your theme, accent color, name, and language."
+    "message": "Выберите тему, акцентный цвет, имя и язык."
   },
   "btnBack": {
     "message": "Назад"
   },
   "btnNext": {
-    "message": "Continue"
+    "message": "Продолжить"
   },
   "wizardWidgetsTitle": {
-    "message": "Widgets & Utilities"
+    "message": "Виджеты и утилиты"
   },
   "wizardWidgetsDesc": {
-    "message": "Choose what shows up on your page."
+    "message": "Выберите, что будет отображаться на вашей странице."
   },
   "wizardFinalTitle": {
-    "message": "You're all set"
+    "message": "Всё готово!"
   },
   "wizardFinalSubtitle": {
-    "message": "Thank you for using Fluent New Tab!"
+    "message": "Спасибо за использование Fluent New Tab!"
   },
   "wizardFinalStartTitle": {
-    "message": "Get started"
+    "message": "Начать работу"
   },
   "wizardFinalStartDesc": {
-    "message": "Open your new tab page."
+    "message": "Открыть новую вкладку."
   },
   "wizardFinalSupportTitle": {
     "message": "Поддержите проект"
@@ -718,7 +727,10 @@
   "wallpaperUploadWarningDesc": {
     "message": "В зависимости от устройства обои с исключительно высоким соотношением сторон или файлами очень большого размера могут привести к замедлению загрузки расширений."
   },
-  "rateUsTitle": {
-    "message": "Оцените нас!"
+  "searchEngineTip": {
+    "message": "Здесь можно изменить поисковую систему"
+  },
+  "systemDefault": {
+    "message": "По умолчанию"
   }
 }
