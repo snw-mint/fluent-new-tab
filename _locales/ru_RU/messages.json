@@ -155,7 +155,7 @@
     "message": "Суббота"
   },
   "greetWeekMorning": {
-    "message": "Отличного дня ($), $!",
+    "message": "Отличного дня ($WEEK$), $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -168,7 +168,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "Как проходит ваш $, True",
+    "message": "Как проходит ваш $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -181,7 +181,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$, как прошёл ваш True",
+    "message": "$NAME$, как прошёл ваш $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -194,7 +194,7 @@
     }
   },
   "greetMorning1": {
-    "message": "$, чудесное утро!",
+    "message": "$NAME$, чудесное утро!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -203,7 +203,7 @@
     }
   },
   "greetMorning2": {
-    "message": "Готовы покорять новый день, True",
+    "message": "Готовы покорять новый день, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -212,7 +212,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Сделаем это утро продуктивным, $!",
+    "message": "Сделаем это утро продуктивным, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -221,7 +221,7 @@
     }
   },
   "greetMorning4": {
-    "message": "Доброе утро! Надеюсь, вы хорошо выспались, $.",
+    "message": "Доброе утро! Надеюсь, вы хорошо выспались, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -230,7 +230,7 @@
     }
   },
   "greetMorning5": {
-    "message": "Просыпайтесь, $, пора за дело!",
+    "message": "Просыпайтесь, $NAME$, пора за дело!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -239,7 +239,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Надеюсь, ваш день проходит отлично, $.",
+    "message": "Надеюсь, ваш день проходит отлично, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -248,7 +248,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$, продолжайте в том же духе!",
+    "message": "$NAME$, продолжайте в том же духе!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -257,7 +257,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "Экватор дня пройден, $!",
+    "message": "Экватор дня пройден, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -266,7 +266,7 @@
     }
   },
   "greetAfternoon4": {
-    "message": "Добрый день! Продуктивно проводите время, True",
+    "message": "Добрый день! Продуктивно проводите время, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -275,7 +275,7 @@
     }
   },
   "greetAfternoon5": {
-    "message": "Не забудьте сделать небольшой перерыв, $.",
+    "message": "Не забудьте сделать небольшой перерыв, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -284,7 +284,7 @@
     }
   },
   "greetEvening1": {
-    "message": "Добрый вечер! Время немного отдохнуть, $.",
+    "message": "Добрый вечер! Время немного отдохнуть, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -293,7 +293,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$, надеюсь, ваш день был замечательным!",
+    "message": "$NAME$, надеюсь, ваш день был замечательным!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -302,7 +302,7 @@
     }
   },
   "greetEvening3": {
-    "message": "Приятного и спокойного вечера, $.",
+    "message": "Приятного и спокойного вечера, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -311,7 +311,7 @@
     }
   },
   "greetEvening4": {
-    "message": "День почти завершён, $. Отличная работа!",
+    "message": "День почти завершён, $NAME$. Отличная работа!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -320,7 +320,7 @@
     }
   },
   "greetEvening5": {
-    "message": "Устраивайтесь поудобнее и отдыхайте, $.",
+    "message": "Устраивайтесь поудобнее и отдыхайте, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -329,7 +329,7 @@
     }
   },
   "greetNight1": {
-    "message": "Уже поздно, $. Пора отдыхать.",
+    "message": "Уже поздно, $NAME$. Пора отдыхать.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -338,7 +338,7 @@
     }
   },
   "greetNight2": {
-    "message": "$, ночь тиха и спокойна.",
+    "message": "$NAME$, ночь тиха и спокойна.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -347,7 +347,7 @@
     }
   },
   "greetNight3": {
-    "message": "Заработались допоздна, True",
+    "message": "Заработались допоздна, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -356,7 +356,7 @@
     }
   },
   "greetNight4": {
-    "message": "Доброй ночи и спокойного сна, $!",
+    "message": "Доброй ночи и спокойного сна, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -365,7 +365,7 @@
     }
   },
   "greetNight5": {
-    "message": "Сладких снов, $. До завтра!",
+    "message": "Сладких снов, $NAME$. До завтра!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -386,7 +386,7 @@
     "message": "Штормовые предупреждения"
   },
   "alertTempDrop": {
-    "message": "Ожидается понижение температуры: $°",
+    "message": "Ожидается понижение температуры: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -395,7 +395,7 @@
     }
   },
   "alertTempRise": {
-    "message": "Ожидается повышение температуры: $°",
+    "message": "Ожидается повышение температуры: $VALUE$°",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -407,7 +407,7 @@
     "message": "В ближайшие часы ожидаются грозы."
   },
   "alertWindHigh": {
-    "message": "Ожидается сильный ветер: $ км/ч",
+    "message": "Ожидается сильный ветер: $VALUE$ км/ч",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -416,7 +416,7 @@
     }
   },
   "alertUvHigh": {
-    "message": "Критический уровень УФ-излучения: $",
+    "message": "Критический уровень УФ-излучения: $VALUE$",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -425,7 +425,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "Ожидается высокий уровень пыльцы ($).",
+    "message": "Ожидается высокий уровень пыльцы ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
