@@ -459,5 +459,404 @@
   },
   "rateUsTitle": {
     "message": "¡Califícanos!"
+  },
+  "rateUsToastPrefix": {
+    "message": "¿Disfrutas de la nueva pestaña fluida?"
+  },
+  "rateUsToastLink": {
+    "message": "¡Califícanos!"
+  },
+  "mainUiScaleLabel": {
+    "message": "Escala de interfaz de usuario principal"
+  },
+  "customColorTitle": {
+    "message": "Color personalizado"
+  },
+  "wizardAccentLabel": {
+    "message": "Color de acento"
+  },
+  "greetingNameLabel": {
+    "message": "Su nombre"
+  },
+  "emojiTypeLabel": {
+    "message": "Tipo de emoji"
+  },
+  "TypeStatic": {
+    "message": "Estático"
+  },
+  "TypeAnimated": {
+    "message": "Animado"
+  },
+  "greetWeekMorning": {
+    "message": "¡Que tengas una excelente $SEMANA$, $NOMBRE$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "¿Cómo va tu $SEMANA$, $NOMBRE$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NOMBRE$, ¿cómo estuvo tu $SEMANA$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "$NAME$, ¡es una hermosa mañana!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "¿Listo para conquistar el día, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Hagamos que esta mañana cuente, $NOMBRE$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "¡Buen día! Espero que hayas dormido bien, $NOMBRE$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "¡Despierta, despierta, $NAME$, comencemos!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Espero que tu tarde vaya bien, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, ¡sigue con el gran impulso!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "¡A mitad del día, $NOMBRE$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "¡Buenas tardes! ¿Seguir siendo productivo, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "No olvides tomar un breve descanso, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "¡Buenas noches! Es hora de empezar a relajarse, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, espero que hayas tenido un día fantástico.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Disfrute de una velada relajante, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "El día casi ha terminado, $NAME$. ¡Buen trabajo!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Toma un asiento cómodo y relájate, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Se hace tarde, $NAME$. Hora de descansar.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NOMBRE$, la noche es tranquila y pacífica.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "¿Quemando las pestañas hasta medianoche, $NOMBRE$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "¡Que tengas una buena noche de sueño, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Dulces sueños, $NOMBRE$. Nos vemos mañana.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "locationLabel": {
+    "message": "Ubicación"
+  },
+  "weatherAlertsLabel": {
+    "message": "Alertas meteorológicas"
+  },
+  "alertTempDrop": {
+    "message": "Caída de temperatura esperada: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Aumento de temperatura esperado: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Se esperan tormentas en las próximas horas."
+  },
+  "alertWindHigh": {
+    "message": "Se esperan fuertes vientos: $VALUE$ km/h",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Rayos UV en niveles críticos: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Se esperan altos niveles de polen ($POLEN$).",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
+  },
+  "visualSearchTitle": {
+    "message": "Búsqueda Visual"
+  },
+  "visualSearchDragText": {
+    "message": "Arrastre una imagen aquí o"
+  },
+  "visualSearchUploadLink": {
+    "message": "subir un archivo"
+  },
+  "visualSearchDivider": {
+    "message": "o"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Pegar enlace de imagen"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Buscar"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Bienvenido a casa"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Tu nuevo espacio de trabajo fluido está listo. Elija su próximo paso a continuación."
+  },
+  "wizardRestoreTitle": {
+    "message": "Restaurar configuración"
+  },
+  "wizardRestoreDesc": {
+    "message": "¿Tiene un archivo de respaldo?"
+  },
+  "wizardStartTitle": {
+    "message": "Iniciar la configuración"
+  },
+  "wizardStartDesc": {
+    "message": "Comience con unos pocos pasos."
+  },
+  "wizardSkipTitle": {
+    "message": "Saltar configuración"
+  },
+  "wizardSkipDesc": {
+    "message": "Comience con la configuración predeterminada."
+  },
+  "wizardThemeAuto": {
+    "message": "Sistema"
+  },
+  "wizardThemeLight": {
+    "message": "Luz"
+  },
+  "wizardThemeDark": {
+    "message": "Oscuro"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Estilo y apariencia"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Establezca su tema, color de acento, nombre e idioma."
+  },
+  "btnBack": {
+    "message": "Atrás"
+  },
+  "btnNext": {
+    "message": "Continuar"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widgets y utilidades"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Elija lo que aparece en su página."
+  },
+  "wizardFinalTitle": {
+    "message": "Estás todo listo"
+  },
+  "wizardFinalSubtitle": {
+    "message": "¡Gracias por usar Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "empezar"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Abra su página de nueva pestaña."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Apoya el proyecto"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Ayuda a mantener el proyecto actualizado."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "código fuente"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Ver proyecto en GitHub."
+  },
+  "searchEngineTip": {
+    "message": "Puedes cambiar el motor de búsqueda aquí"
+  },
+  "systemDefault": {
+    "message": "Valor predeterminado del sistema"
   }
 }

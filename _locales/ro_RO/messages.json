@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Evaluează-ne!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Vă place Fluent New Tab?"
+  },
+  "rateUsToastLink": {
+    "message": "Evaluează-ne!"
+  },
+  "searchEngineTip": {
+    "message": "Puteți schimba motorul de căutare aici"
+  },
+  "systemDefault": {
+    "message": "Implicit sistem"
   }
 }

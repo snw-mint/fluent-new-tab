@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "評価してください！"
+  },
+  "rateUsToastPrefix": {
+    "message": "Fluent 新しいタブをお楽しみですか?"
+  },
+  "rateUsToastLink": {
+    "message": "評価してください！"
+  },
+  "searchEngineTip": {
+    "message": "ここで検索エンジンを変更できます"
+  },
+  "systemDefault": {
+    "message": "システムのデフォルト"
   }
 }

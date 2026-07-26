@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Bizi Değerlendirin!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Akıcı Yeni Sekmenin tadını çıkarıyor musunuz?"
+  },
+  "rateUsToastLink": {
+    "message": "Bizi değerlendirin!"
+  },
+  "searchEngineTip": {
+    "message": "Arama motorunu buradan değiştirebilirsiniz"
+  },
+  "systemDefault": {
+    "message": "Sistem Varsayılanı"
   }
 }

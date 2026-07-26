@@ -727,7 +727,10 @@
   "wallpaperUploadWarningDesc": {
     "message": "Dependendo do dispositivo, papéis de parede com proporções excepcionalmente altas ou tamanhos de arquivo muito grandes podem resultar em tempos de carregamento de extensão mais lentos."
   },
-  "rateUsTitle": {
-    "message": "Avalie-nos!"
+  "searchEngineTip": {
+    "message": "Você pode alterar o mecanismo de pesquisa aqui"
+  },
+  "systemDefault": {
+    "message": "Padrão do sistema"
   }
 }

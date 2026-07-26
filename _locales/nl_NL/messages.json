@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Beoordeel ons!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Genieten van vloeiend nieuw tabblad?"
+  },
+  "rateUsToastLink": {
+    "message": "Beoordeel ons!"
+  },
+  "searchEngineTip": {
+    "message": "Hier kunt u de zoekmachine wijzigen"
+  },
+  "systemDefault": {
+    "message": "Systeemstandaard"
   }
 }

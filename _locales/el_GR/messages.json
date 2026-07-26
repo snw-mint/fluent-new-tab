@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Βαθμολογήστε μας!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Σας αρέσει η Fluent New Tab;"
+  },
+  "rateUsToastLink": {
+    "message": "Βαθμολογήστε μας!"
+  },
+  "searchEngineTip": {
+    "message": "Μπορείτε να αλλάξετε τη μηχανή αναζήτησης εδώ"
+  },
+  "systemDefault": {
+    "message": "Προεπιλογή συστήματος"
   }
 }

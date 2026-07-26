@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Ohodnoťte nás!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Líbí se vám aplikace Fluent New Tab?"
+  },
+  "rateUsToastLink": {
+    "message": "Ohodnoťte nás!"
+  },
+  "searchEngineTip": {
+    "message": "Zde můžete změnit vyhledávač"
+  },
+  "systemDefault": {
+    "message": "Výchozí nastavení systému"
   }
 }

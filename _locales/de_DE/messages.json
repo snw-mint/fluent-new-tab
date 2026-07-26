@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Bewerten Sie uns!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Genießen Sie fließend New Tab?"
+  },
+  "rateUsToastLink": {
+    "message": "Bewerten Sie uns!"
+  },
+  "searchEngineTip": {
+    "message": "Hier können Sie die Suchmaschine ändern"
+  },
+  "systemDefault": {
+    "message": "Systemstandard"
   }
 }

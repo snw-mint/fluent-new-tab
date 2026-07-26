@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Оцініть нас!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Подобається нова вкладка Fluent?"
+  },
+  "rateUsToastLink": {
+    "message": "Оцініть нас!"
+  },
+  "searchEngineTip": {
+    "message": "Ви можете змінити пошукову систему тут"
+  },
+  "systemDefault": {
+    "message": "Системне за замовчуванням"
   }
 }

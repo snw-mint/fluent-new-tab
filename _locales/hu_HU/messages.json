@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Értékeljen minket!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Tetszik a Fluent New Tab?"
+  },
+  "rateUsToastLink": {
+    "message": "Értékeljen minket!"
+  },
+  "searchEngineTip": {
+    "message": "Itt tudod megváltoztatni a keresőt"
+  },
+  "systemDefault": {
+    "message": "Rendszer alapértelmezett"
   }
 }

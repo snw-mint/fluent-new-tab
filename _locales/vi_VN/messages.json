@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Đánh giá chúng tôi!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Bạn thích Tab mới thông thạo?"
+  },
+  "rateUsToastLink": {
+    "message": "Đánh giá chúng tôi!"
+  },
+  "searchEngineTip": {
+    "message": "Bạn có thể thay đổi công cụ tìm kiếm tại đây"
+  },
+  "systemDefault": {
+    "message": "Mặc định hệ thống"
   }
 }

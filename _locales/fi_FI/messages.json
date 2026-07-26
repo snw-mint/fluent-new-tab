@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Arvioi meidät!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Pidätkö Fluent New Tabista?"
+  },
+  "rateUsToastLink": {
+    "message": "Arvioi meidät!"
+  },
+  "searchEngineTip": {
+    "message": "Voit vaihtaa hakukonetta tästä"
+  },
+  "systemDefault": {
+    "message": "Järjestelmän oletusarvo"
   }
 }

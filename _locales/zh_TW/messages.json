@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "評價我們！"
+  },
+  "rateUsToastPrefix": {
+    "message": "喜歡流暢的新標籤嗎？"
+  },
+  "rateUsToastLink": {
+    "message": "評價我們！"
+  },
+  "searchEngineTip": {
+    "message": "您可以在這裡更改搜尋引擎"
+  },
+  "systemDefault": {
+    "message": "系統預設值"
   }
 }

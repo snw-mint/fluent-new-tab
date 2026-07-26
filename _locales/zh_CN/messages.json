@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "评价我们！"
+  },
+  "rateUsToastPrefix": {
+    "message": "喜欢流畅的新标签吗？"
+  },
+  "rateUsToastLink": {
+    "message": "评价我们！"
+  },
+  "searchEngineTip": {
+    "message": "您可以在这里更改搜索引擎"
+  },
+  "systemDefault": {
+    "message": "系统默认值"
   }
 }

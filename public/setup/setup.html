@@ -158,7 +158,7 @@
           <label class="setting-label-large" for="input-tab-name">
             <span data-i18n="tabNameLabel">Tab Name</span>
           </label>
-          <input type="text" id="input-tab-name" class="text-input-full" maxlength="60" data-i18n="tabNamePlaceholder"
+          <input type="text" id="input-tab-name" class="text-input-full" maxlength="60" data-i18n="newTabTitle"
             placeholder="New Tab" />
         </div>
       </div>
@@ -229,11 +229,11 @@
           </div>
           <div class="fluent-select-container">
             <button type="button" class="fluent-select-trigger" data-target="select-search">
-              <span class="fluent-select-value">System Default</span>
+              <span class="fluent-select-value" data-i18n="systemDefault">System Default</span>
               <span class="fluent-select-arrow"></span>
             </button>
             <select id="select-search" class="settings-select-full hidden-native-select">
-              <option value="system" selected>System Default</option>
+              <option value="system" selected data-i18n="systemDefault">System Default</option>
               <option value="bing">Bing</option>
               <option value="google">Google</option>
               <option value="brave">Brave Search</option>
@@ -282,7 +282,7 @@
             </label>
             <div class="widget-label-group">
               <div class="widget-info">
-                <span class="setting-label-large" data-i18n="launcherTitle">App Launcher</span>
+                <span class="setting-label-large" data-i18n="appLauncherTitle">App Launcher</span>
               </div>
             </div>
           </div>

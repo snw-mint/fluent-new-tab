@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Oceń nas!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Podoba Ci się nowa karta Fluent?"
+  },
+  "rateUsToastLink": {
+    "message": "Oceń nas!"
+  },
+  "searchEngineTip": {
+    "message": "Tutaj możesz zmienić wyszukiwarkę"
+  },
+  "systemDefault": {
+    "message": "Domyślne systemowe"
   }
 }

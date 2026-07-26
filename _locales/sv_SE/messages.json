@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Betygsätt oss!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Tycker du om Fluent New Tab?"
+  },
+  "rateUsToastLink": {
+    "message": "Betygsätt oss!"
+  },
+  "searchEngineTip": {
+    "message": "Du kan ändra sökmotor här"
+  },
+  "systemDefault": {
+    "message": "Systemstandard"
   }
 }

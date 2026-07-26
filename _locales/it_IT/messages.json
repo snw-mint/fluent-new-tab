@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Votaci!"
+  },
+  "rateUsToastPrefix": {
+    "message": "Ti piace la nuova scheda fluida?"
+  },
+  "rateUsToastLink": {
+    "message": "Valutaci!"
+  },
+  "searchEngineTip": {
+    "message": "Puoi cambiare il motore di ricerca qui"
+  },
+  "systemDefault": {
+    "message": "Predefinito del sistema"
   }
 }

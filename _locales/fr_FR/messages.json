@@ -720,5 +720,17 @@
   },
   "rateUsTitle": {
     "message": "Évaluez-nous !"
+  },
+  "rateUsToastPrefix": {
+    "message": "Vous appréciez le nouvel onglet Fluent ?"
+  },
+  "rateUsToastLink": {
+    "message": "Évaluez-nous !"
+  },
+  "searchEngineTip": {
+    "message": "Vous pouvez changer de moteur de recherche ici"
+  },
+  "systemDefault": {
+    "message": "Système par défaut"
   }
 }
