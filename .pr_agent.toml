@@ -1,0 +1,15 @@
+[pr_reviewer]
+enable_review_labels = true
+require_score_review = false
+
+extra_instructions = """
+Please strictly follow the code review guidelines, architecture rules, severity levels, and anti-pattern examples defined below:
+
+{{ file(".github/styleguide.md") }}
+"""
+
+[pr_code_suggestions]
+extra_instructions = """
+Adhere strictly to the design system, Vanilla TS/SCSS constraints, and CSP security rules defined in the project's .github/styleguide.md.
+When suggesting code changes, ensure they align with the GOOD examples provided in the guidelines.
+"""

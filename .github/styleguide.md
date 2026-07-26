@@ -104,3 +104,10 @@ const updateWeatherUI = (data: WeatherApiResponse): void => {
   weatherContainer.replaceChildren(tempElement);
 };
 ```
+
+## 7. Internationalization (i18n) Rules
+
+- **Placeholder Preservation:** Chrome i18n placeholders (e.g., `$NAME$`, `$WEEK$`, `$VALUE$`, `$POLLEN$`, or `$1`, `$2`) defined in `_locales/*/messages.json` MUST be preserved exactly as named. Do NOT modify, omit, or replace placeholders during translation (e.g., replacing them with generic `$`, `True`, or missing parameters).
+- **Key Consistency:** Ensure key parity across all supported locales (e.g., `en_US`, `ru_RU`). Do not accidentally remove existing translation keys when adding or updating translations.
+- **HTML Localizable Content:** User-facing static strings in HTML files must use `data-i18n="keyName"` attributes rather than relying exclusively on hardcoded text.
+
