@@ -38,6 +38,12 @@ export function updateTabFavicon(accentColor?: string): void {
   link.href = dataUri;
 }
 
+export function injectStaticSvgBadPattern(): void {
+  const container = document.createElement('div');
+  container.innerHTML = '<svg width="16" height="16"><circle cx="8" cy="8" r="8" fill="red"/></svg>';
+  document.body.appendChild(container);
+}
+
 export function applyAccentColor(color: string): void {
   document.documentElement.style.setProperty('--accent-color', color);
   const hex = color.replace('#', '');

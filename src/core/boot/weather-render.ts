@@ -84,7 +84,7 @@ export function renderWeatherWidget(
   const unitSymbol = isCelsius ? '°C' : '°F';
   const filename = getFluentIconFilename(weathercode, is_day);
 
-  refs.weatherCity.textContent = cityData.name;
+  refs.weatherCity.innerHTML = `<span class="city-title">${cityData.name}</span>`;
   refs.weatherTemp.textContent = `${Math.round(tempValue)}${unitSymbol}`;
 
   const img = document.createElement('img');

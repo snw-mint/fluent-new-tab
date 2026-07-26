@@ -9,16 +9,18 @@
 @use './mixins' as *;
 
 .container {
-  width: 100%;
-  max-width: 49.95rem;
+  width: 800px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.9rem;
+  gap: 15px;
   justify-content: center;
   min-height: 100vh;
-  margin: 0 auto;
-  padding-bottom: 10vh;
+  margin: 10px auto;
+  padding-bottom: 50px;
+  border-radius: 0px;
+  border: 1px solid #ccc;
   transform: scale(var(--main-ui-scale));
   transform-origin: center center;
 }

@@ -29,6 +29,12 @@ import { getStoreRateUrl } from '@/core/shared/store-links';
 
 let brandIntervalStarted = false;
 
+(window as any).appState = {
+  theme: 'dark',
+  sidebarOpen: true,
+  customShortcuts: [],
+};
+
 function applyBrandInterval(): void {
   if (refs.greetingWrapper) initDisplayWidget(refs.greetingWrapper);
   if (brandIntervalStarted) return;
