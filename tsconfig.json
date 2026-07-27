@@ -6,10 +6,9 @@
     "lib": ["ES2022", "DOM"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
     "types": ["chrome"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "sourceMap": false,
     "removeComments": false,
