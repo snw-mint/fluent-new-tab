@@ -12,9 +12,40 @@ import {
   WeatherUnit,
   CityData,
   WallpaperSource,
-  WallpaperType,
+  WallpaperCacheEntry,
 } from '@/core/shared/types';
 
+const wallpaperMemoryCache = new Map<string, WallpaperCacheEntry | null>();
+
+export function getWallpaperCache(
+  cacheKey: string,
+): WallpaperCacheEntry | null {
+  if (wallpaperMemoryCache.has(cacheKey)) {
+    return wallpaperMemoryCache.get(cacheKey) || null;
+  }
+  try {
+    const cached = JSON.parse(
+      localStorage.getItem(cacheKey) || 'null',
+    ) as WallpaperCacheEntry | null;
+    wallpaperMemoryCache.set(cacheKey, cached);
+    return cached;
+  } catch (e) {
+    console.error('Error reading cache', e);
+    return null;
+  }
+}
+
+export function setWallpaperCache(
+  cacheKey: string,
+  entry: WallpaperCacheEntry,
+): void {
+  wallpaperMemoryCache.set(cacheKey, entry);
+  try {
+    localStorage.setItem(cacheKey, JSON.stringify(entry));
+  } catch (e) {
+    console.error('Error writing cache', e);
+  }
+}
 export let shortcuts: Shortcut[] = [];
 export let editingIndex: number | null = null;
 
@@ -261,5 +292,4 @@ export function setTabFavicon(val: any) {
 export function setActiveSelectTrigger(val: any) {
   activeSelectTrigger = val;
 }
-
 export const activeShortcutDropdowns = new Set<HTMLElement>();
