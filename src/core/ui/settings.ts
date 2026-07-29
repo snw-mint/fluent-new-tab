@@ -2,7 +2,7 @@ import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
 
-import { currentCityData } from '@/core/shared/state';
+import { currentCityData, activeShortcutDropdowns } from '@/core/shared/state';
 import {
   WeatherUnit,
   WallpaperType,
@@ -1367,9 +1367,12 @@ export function closePopups(except: Element | null = null): void {
     refs.launcherPopup.classList.remove('active');
     if (refs.appLauncherBtn) refs.appLauncherBtn.classList.remove('active');
   }
-  document.querySelectorAll('.shortcut-dropdown.active').forEach((menu) => {
-    if (menu !== except) menu.classList.remove('active');
-  });
+  for (const menu of Array.from(activeShortcutDropdowns)) {
+    if (menu !== except) {
+      menu.classList.remove('active');
+      activeShortcutDropdowns.delete(menu);
+    }
+  }
   if (refs.dropdown && refs.dropdown !== except)
     refs.dropdown.classList.remove('active');
 

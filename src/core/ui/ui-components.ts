@@ -1,5 +1,6 @@
 import { getLocalizedWarningText } from '@/core/shared/dom-utils';
 import { shortcutsGrid } from '@/core/shared/dom-refs';
+import { activeShortcutDropdowns } from '@/core/shared/state';
 
 export interface WarningModalOptions {
   title: string;
@@ -45,7 +46,8 @@ export class WarningModalManager {
     this.messageEl.textContent = options.message;
 
     if (options.showPrivacyPolicy) {
-      const privacyUrl = 'https://snw-mint.github.io/fluent-new-tab/privacy.html';
+      const privacyUrl =
+        'https://snw-mint.github.io/fluent-new-tab/privacy.html';
       const link = document.createElement('a');
       link.href = privacyUrl;
       link.target = '_blank';
@@ -346,14 +348,15 @@ export function setCollapsible(
 }
 
 export function syncShortcutDropdownState(): void {
-  const hasActiveDropdown = Boolean(
-    shortcutsGrid?.querySelector('.shortcut-dropdown.active'),
-  );
+  const hasActiveDropdown = activeShortcutDropdowns.size > 0;
   if (shortcutsGrid)
     shortcutsGrid.classList.toggle('dropdown-open', hasActiveDropdown);
 
   document.querySelectorAll('.menu-wrapper').forEach((wrapper) => {
-    const isOpen = Boolean(wrapper.querySelector('.shortcut-dropdown.active'));
+    const dropdown = wrapper.querySelector(
+      '.shortcut-dropdown',
+    ) as HTMLElement | null;
+    const isOpen = dropdown ? activeShortcutDropdowns.has(dropdown) : false;
     wrapper.classList.toggle('dropdown-open', isOpen);
   });
 }
@@ -364,8 +367,9 @@ export async function requestFeaturePermissionUI(
   onGranted: () => void,
   onDenied: () => void,
 ): Promise<void> {
-  const { HOST_PERMISSIONS, checkPermission, requestPermission } = await import('@/core/shared/permissions');
-  
+  const { HOST_PERMISSIONS, checkPermission, requestPermission } =
+    await import('@/core/shared/permissions');
+
   const origins = HOST_PERMISSIONS[feature as keyof typeof HOST_PERMISSIONS];
   if (!origins) {
     onGranted();

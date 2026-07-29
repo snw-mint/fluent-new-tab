@@ -261,3 +261,5 @@ export function setTabFavicon(val: any) {
 export function setActiveSelectTrigger(val: any) {
   activeSelectTrigger = val;
 }
+
+export const activeShortcutDropdowns = new Set<HTMLElement>();
