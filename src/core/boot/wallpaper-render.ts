@@ -6,6 +6,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { getWallpaperCache } from '@/core/shared/state';
+
 export const WALLPAPER_DB_NAME = 'FluentNewTabDB';
 export const WALLPAPER_DB_VERSION = 1;
 export const WALLPAPER_STORE_NAME = 'wallpapers';
@@ -81,7 +83,10 @@ export async function getWallpaperFromDB(
 export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
   let opacity = 1 - (sliderValue / 100) * 0.9;
   const finalOpacity = isEnabled ? String(opacity) : '0';
-  document.documentElement.style.setProperty('--wallpaper-opacity', finalOpacity);
+  document.documentElement.style.setProperty(
+    '--wallpaper-opacity',
+    finalOpacity,
+  );
 }
 
 export function hideCreditsBoot(): void {
@@ -98,7 +103,7 @@ export function showCreditsBoot(sourceType: string): void {
 
   const cacheKey = `wallpaper_cache_${sourceType}`;
   try {
-    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    const cached = getWallpaperCache(cacheKey);
     if (cached && (cached.creditHtml || cached.credit || cached.creditUrl)) {
       if (cached.creditHtml) {
         creditTextSpan.innerHTML = cached.creditHtml;
@@ -133,8 +138,13 @@ export function isWallpaperCacheValid(type: string): boolean {
   const cacheKey = `wallpaper_cache_${type}`;
   const today = new Date().toISOString().slice(0, 10);
   try {
-    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
-    return !!(cached && cached.url && cached.date === today && 'creditUrl' in cached);
+    const cached = getWallpaperCache(cacheKey);
+    return !!(
+      cached &&
+      cached.url &&
+      cached.date === today &&
+      'creditUrl' in cached
+    );
   } catch {
     return false;
   }
@@ -169,7 +179,7 @@ export async function bootWallpaper(
   } else if (source === 'api') {
     const cacheKey = `wallpaper_cache_${type}`;
     try {
-      const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+      const cached = getWallpaperCache(cacheKey);
       const today = new Date().toISOString().slice(0, 10);
       if (cached && cached.url && cached.date === today) {
         url = cached.url;
@@ -180,12 +190,15 @@ export async function bootWallpaper(
   if (url) {
     const img = new Image();
     img.src = url;
-    
+
     img.onload = () => {
       document.documentElement.style.setProperty('--wallpaper-opacity', '0');
-      document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+      document.documentElement.style.setProperty(
+        '--wallpaper-image',
+        `url('${url}')`,
+      );
       document.body.setAttribute('data-wallpaper-active', 'true');
-      
+
       setTimeout(() => {
         updateOverlay(overlay, true);
         if (source === 'api') {

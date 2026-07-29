@@ -12,6 +12,7 @@ import {
   WallpaperCacheEntry,
   NasaApodResponse,
 } from '@/core/shared/types';
+import { getWallpaperCache, setWallpaperCache } from '@/core/shared/state';
 
 export async function fetchDailyWallpaper(
   source: WallpaperType,
@@ -26,9 +27,7 @@ export async function fetchDailyWallpaper(
   const cacheKey = `wallpaper_cache_${source}`;
 
   try {
-    const cached = JSON.parse(
-      localStorage.getItem(cacheKey) || 'null',
-    ) as WallpaperCacheEntry | null;
+    const cached = getWallpaperCache(cacheKey);
     if (
       cached &&
       cached.url &&
@@ -239,16 +238,13 @@ export async function fetchDailyWallpaper(
     }
 
     if (imageUrl) {
-      localStorage.setItem(
-        cacheKey,
-        JSON.stringify({
-          url: imageUrl,
-          date: today,
-          credit: creditText,
-          creditUrl: creditUrl,
-          ...(creditHtml ? { creditHtml } : {}),
-        }),
-      );
+      setWallpaperCache(cacheKey, {
+        url: imageUrl,
+        date: today,
+        credit: creditText,
+        creditUrl: creditUrl,
+        ...(creditHtml ? { creditHtml } : {}),
+      });
       return imageUrl;
     }
 
