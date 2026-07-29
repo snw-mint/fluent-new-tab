@@ -2,12 +2,7 @@ import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
 
-import {
-  currentCityData,
-  foldersEnabled,
-  shortcuts,
-  setFoldersEnabled,
-} from '@/core/shared/state';
+import { currentCityData } from '@/core/shared/state';
 import {
   WeatherUnit,
   WallpaperType,
