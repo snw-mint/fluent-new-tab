@@ -12,6 +12,7 @@ import {
   WeatherUnit,
   CityData,
   WallpaperSource,
+  WallpaperType,
   WallpaperCacheEntry,
 } from '@/core/shared/types';
 
