@@ -47,7 +47,6 @@ export function setWallpaperCache(
     console.error('Error writing cache', e);
   }
 }
-
 export let shortcuts: Shortcut[] = [];
 export let editingIndex: number | null = null;
 
@@ -294,3 +293,4 @@ export function setTabFavicon(val: any) {
 export function setActiveSelectTrigger(val: any) {
   activeSelectTrigger = val;
 }
+export const activeShortcutDropdowns = new Set<HTMLElement>();

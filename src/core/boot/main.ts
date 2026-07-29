@@ -15,7 +15,10 @@ import {
   applyAccentColor,
   updateTabFavicon,
 } from '@/core/boot/theme';
-import { bootWallpaper, isWallpaperCacheValid } from '@/core/boot/wallpaper-render';
+import {
+  bootWallpaper,
+  isWallpaperCacheValid,
+} from '@/core/boot/wallpaper-render';
 import { initDisplayWidget } from '@/core/boot/display';
 import { renderShortcutsGrid } from '@/core/boot/shortcuts-render';
 import { engines } from '@/core/boot/search-engines';
@@ -275,7 +278,10 @@ async function bootInteractive(): Promise<void> {
       }
     };
 
-    const setStorageKeys = (obj: Record<string, any>, callback?: () => void) => {
+    const setStorageKeys = (
+      obj: Record<string, any>,
+      callback?: () => void,
+    ) => {
       const chromeApi = (window as any).chrome;
       if (chromeApi && chromeApi.storage && chromeApi.storage.local) {
         chromeApi.storage.local.set(obj, callback);
@@ -335,12 +341,18 @@ async function bootInteractive(): Promise<void> {
         const now = Date.now();
         const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
-        if (data.rate_us_scheduled_time === undefined || data.rate_us_scheduled_time === null) {
+        if (
+          data.rate_us_scheduled_time === undefined ||
+          data.rate_us_scheduled_time === null
+        ) {
           setStorageKeys({
             rate_us_scheduled_time: now + SEVEN_DAYS_MS,
             rate_us_pending: true,
           });
-        } else if (data.rate_us_pending && now >= Number(data.rate_us_scheduled_time)) {
+        } else if (
+          data.rate_us_pending &&
+          now >= Number(data.rate_us_scheduled_time)
+        ) {
           window.setTimeout(() => {
             Promise.all([
               import('@/core/ui/ui-components'),
@@ -743,15 +755,15 @@ async function bootInteractive(): Promise<void> {
   if (searchEngineTip && !localStorage.getItem('hasSeenSearchEngineTip')) {
     // Marcar imediatamente para não repetir em outras abas abertas simultaneamente
     localStorage.setItem('hasSeenSearchEngineTip', 'true');
-    
+
     setTimeout(() => searchEngineTip.classList.remove('is-hidden'), 1500);
-    
+
     const dismissTip = () => {
       searchEngineTip.classList.add('is-hidden');
     };
-    
+
     setTimeout(dismissTip, 11500);
-    
+
     refs.engineBtn?.addEventListener('click', dismissTip, { once: true });
   }
   refs.askAiBtn?.addEventListener('pointerover', initSearchManagerLazy, {
@@ -911,9 +923,10 @@ async function bootInteractive(): Promise<void> {
   document.addEventListener('click', (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     if (!target.closest('.menu-wrapper')) {
-      document.querySelectorAll('.shortcut-dropdown.active').forEach((menu) => {
+      for (const menu of Array.from(state.activeShortcutDropdowns)) {
         menu.classList.remove('active');
-      });
+        state.activeShortcutDropdowns.delete(menu);
+      }
       import('@/core/ui/ui-components').then(
         ({ syncShortcutDropdownState }) => {
           syncShortcutDropdownState();

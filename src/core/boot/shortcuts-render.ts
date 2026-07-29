@@ -14,6 +14,7 @@ import {
 } from '@/core/shared/icons';
 import { sanitizeUrl } from '@/core/shared/dom-utils';
 import { Shortcut } from '@/core/shared/types';
+import { activeShortcutDropdowns } from '@/core/shared/state';
 
 interface ShortcutsRenderOptions {
   shortcutsGrid: HTMLDivElement | null;
@@ -126,6 +127,8 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     onAddFolder,
   } = options;
   if (!shortcutsGrid) return;
+
+  activeShortcutDropdowns.clear();
 
   const isHideNamesActive =
     localStorage.getItem('hideShortcutNames') === 'true';
@@ -266,15 +269,15 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       'beforeend',
       typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+',
     );
-    
+
     const addTitle = document.createElement('span');
     addTitle.className = 'shortcut-title';
     addTitle.textContent =
       (window as any).getTranslation?.('addShortcutLabel') || '';
-    
+
     const dropdown = document.createElement('div');
     dropdown.className = 'shortcut-dropdown add-dropdown';
-    
+
     const linkOption = document.createElement('div');
     linkOption.className = 'menu-option add-link-option';
     linkOption.innerHTML = `
@@ -283,7 +286,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       </svg>
       <span data-i18n="addShortcutTitle">Add Shortcut</span>
     `;
-    
+
     const folderOption = document.createElement('div');
     folderOption.className = 'menu-option add-folder-option';
     folderOption.innerHTML = `
@@ -292,14 +295,14 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       </svg>
       <span data-i18n="addFolderTitle">Add Folder</span>
     `;
-    
+
     dropdown.appendChild(linkOption);
     dropdown.appendChild(folderOption);
-    
+
     addBtn.appendChild(addCard);
     addBtn.appendChild(addTitle);
     addBtn.appendChild(dropdown);
-    
+
     const getTrans = (window as any).getTranslation;
     if (getTrans) {
       const texts = dropdown.querySelectorAll('[data-i18n]');
@@ -356,8 +359,10 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       onAddShortcut();
       return;
     }
-    
-    const addFolderOpt = target.closest('.add-folder-option') as HTMLElement | null;
+
+    const addFolderOpt = target.closest(
+      '.add-folder-option',
+    ) as HTMLElement | null;
     if (addFolderOpt) {
       event.preventDefault();
       event.stopPropagation();
@@ -392,9 +397,17 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       event.stopPropagation();
       const dropNode = menuBtn
         .closest('.menu-wrapper')
-        ?.querySelector('.shortcut-dropdown');
+        ?.querySelector('.shortcut-dropdown') as HTMLElement | null;
       onClosePopups(dropNode);
-      dropNode?.classList.toggle('active');
+      if (dropNode) {
+        const nextActive = !dropNode.classList.contains('active');
+        dropNode.classList.toggle('active', nextActive);
+        if (nextActive) {
+          activeShortcutDropdowns.add(dropNode);
+        } else {
+          activeShortcutDropdowns.delete(dropNode);
+        }
+      }
       syncShortcutDropdownState();
       return;
     }
@@ -412,9 +425,17 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       event.stopPropagation();
       const dropNode = addMenuBtn
         .closest('.add-card-wrapper')
-        ?.querySelector('.shortcut-dropdown');
+        ?.querySelector('.shortcut-dropdown') as HTMLElement | null;
       onClosePopups(dropNode);
-      dropNode?.classList.toggle('active');
+      if (dropNode) {
+        const nextActive = !dropNode.classList.contains('active');
+        dropNode.classList.toggle('active', nextActive);
+        if (nextActive) {
+          activeShortcutDropdowns.add(dropNode);
+        } else {
+          activeShortcutDropdowns.delete(dropNode);
+        }
+      }
       syncShortcutDropdownState();
       return;
     }
