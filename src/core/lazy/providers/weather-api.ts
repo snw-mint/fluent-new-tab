@@ -20,7 +20,8 @@ export async function fetchCityOptions(query: string): Promise<CityData[]> {
 
   const parts = query.split(',');
   const cityName = parts[0].trim();
-  const filterText = parts.length > 1 ? parts.slice(1).join(',').trim().toLowerCase() : '';
+  const filterText =
+    parts.length > 1 ? parts.slice(1).join(',').trim().toLowerCase() : '';
 
   const language = 'en_US';
   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=20&language=${encodeURIComponent(language)}&format=json`;
@@ -34,8 +35,13 @@ export async function fetchCityOptions(query: string): Promise<CityData[]> {
 
       if (filterText) {
         results = results.filter((r) => {
-          const searchSpace = [r.admin1, r.country, r.country_code].filter(Boolean).join(' ').toLowerCase();
-          return filterText.split(' ').every(token => searchSpace.includes(token));
+          const searchSpace = [r.admin1, r.country, r.country_code]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase();
+          return filterText
+            .split(' ')
+            .every((token) => searchSpace.includes(token));
         });
       }
 
@@ -115,10 +121,18 @@ export async function fetchCityData(query: string): Promise<CityData | null> {
     const data = (await response.json()) as GeocodingResponse;
 
     if (data.results && data.results.length > 0) {
-      const sorted = [...data.results].sort(
-        (a, b) => scoreResult(b) - scoreResult(a),
-      );
-      const result = sorted[0];
+      let maxScore = -1;
+      let result = data.results[0];
+
+      for (let i = 0; i < data.results.length; i++) {
+        const item = data.results[i];
+        const score = scoreResult(item);
+        if (score > maxScore) {
+          maxScore = score;
+          result = item;
+        }
+      }
+
       return {
         name: result.name,
         lat: result.latitude,
