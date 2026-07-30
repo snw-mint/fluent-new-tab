@@ -29,9 +29,6 @@ More details on the [official website.](https://snw-mint.github.io/fluent-new-ta
 
 The easiest option is the official store, with automatic updates.
 
-> [!IMPORTANT]
-> **Regarding Chrome "Not Trusted" warning:** This is a standard Google policy for new developers. It does NOT mean the extension is unsafe. As an open-source project, our code is transparent and can be audited anytime.
-
 [![Chrome](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-chrome.png)](https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/)
 [![Firefox](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/)
 [![Edge](https://raw.githubusercontent.com/snw-mint/fluent-new-tab/refs/heads/main/repo-assets/download-edge.png)](https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc)
@@ -82,9 +79,6 @@ Contributions, feedback, and bug reports are highly appreciated!
 ## Translations
 
 Fluent New Tab is available in multiple languages thanks to our community!
-
-If you spot a typo, an incorrect translation, or want to help translate the extension into a new language, **please do not open a Pull Request modifying code**.
-Instead, join our Crowdin Project to easily suggest corrections or add new translations.
 
 See the [Translation Guide](.github/TRANSLATING.md) for more details.
 
