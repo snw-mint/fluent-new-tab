@@ -17,6 +17,12 @@ export function closeSelectPopup(): void {
   }
 }
 
+interface TriggerCache {
+  trigger: HTMLButtonElement;
+  select: HTMLSelectElement | null;
+  triggerValue: HTMLElement | null;
+}
+
 export function initCustomSelectSystem(): void {
   const popup = document.getElementById('fluent-select-popup');
   const listContainer = popup?.querySelector<HTMLUListElement>(
@@ -29,6 +35,22 @@ export function initCustomSelectSystem(): void {
   if (!popup || !listContainer) return;
 
   _popup = popup;
+
+  // Cache DOM references for triggers, native select elements, and trigger value elements
+  const triggerCaches: TriggerCache[] = Array.from(triggers).map((trigger) => {
+    const targetId = trigger.getAttribute('data-target');
+    const select = targetId
+      ? (document.getElementById(targetId) as HTMLSelectElement | null)
+      : null;
+    const triggerValue = trigger.querySelector<HTMLElement>(
+      '.fluent-select-value',
+    );
+    return {
+      trigger,
+      select,
+      triggerValue,
+    };
+  });
 
   function positionPopup(trigger: HTMLElement): void {
     const rect = trigger.getBoundingClientRect();
@@ -56,12 +78,8 @@ export function initCustomSelectSystem(): void {
     activeSelectTrigger = trigger;
     trigger.classList.add('popup-open');
 
-    const nativeSelectId = trigger.getAttribute('data-target');
-    if (!nativeSelectId) return;
-
-    const nativeSelect = document.getElementById(
-      nativeSelectId,
-    ) as HTMLSelectElement | null;
+    const cache = triggerCaches.find((c) => c.trigger === trigger);
+    const nativeSelect = cache?.select;
     if (!nativeSelect || nativeSelect.disabled) {
       closeSelectPopup();
       return;
@@ -86,7 +104,7 @@ export function initCustomSelectSystem(): void {
         nativeSelect.value = option.value;
         nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
 
-        const triggerValue = trigger.querySelector('.fluent-select-value');
+        const triggerValue = cache?.triggerValue;
         if (triggerValue) {
           triggerValue.textContent = option.textContent;
           const i18nKey = option.getAttribute('data-i18n');
@@ -111,7 +129,7 @@ export function initCustomSelectSystem(): void {
     }
   }
 
-  triggers.forEach((trigger) => {
+  triggerCaches.forEach(({ trigger }) => {
     trigger.addEventListener('click', (e: MouseEvent) => {
       e.stopPropagation();
       openPopup(trigger);
@@ -134,15 +152,8 @@ export function initCustomSelectSystem(): void {
   });
 
   function syncAllTriggersText(): void {
-    triggers.forEach((trigger) => {
-      const targetId = trigger.getAttribute('data-target');
-      if (!targetId) return;
-      const select = document.getElementById(
-        targetId,
-      ) as HTMLSelectElement | null;
-
+    triggerCaches.forEach(({ select, triggerValue }) => {
       if (select) {
-        const triggerValue = trigger.querySelector('.fluent-select-value');
         let selectedOption = select.options[select.selectedIndex];
         if (!selectedOption) {
           selectedOption =
@@ -164,10 +175,7 @@ export function initCustomSelectSystem(): void {
 
   syncAllTriggersText();
 
-  triggers.forEach((trigger) => {
-    const targetId = trigger.getAttribute('data-target');
-    if (!targetId) return;
-    const select = document.getElementById(targetId);
+  triggerCaches.forEach(({ trigger, select }) => {
     if (select) {
       select.addEventListener('change', () => {
         syncAllTriggersText();
