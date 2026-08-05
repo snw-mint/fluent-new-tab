@@ -31,7 +31,6 @@ export const APP_KEYS: string[] = [
   'clearSearchEnabled',
   'compactBarEnabled',
   'voiceSearchEnabled',
-  'visualSearchEnabled',
   'weatherUnit',
   'wallpaperEnabled',
   'wallpaperSource',

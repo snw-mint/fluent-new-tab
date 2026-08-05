@@ -51,8 +51,7 @@
     .search-btn,
     .current-engine-btn,
     .voice-search-btn,
-    .ask-ai-btn,
-    .visual-search-btn {
+    .ask-ai-btn {
       width: 2.25rem;
       height: 2.25rem;
     }
@@ -76,8 +75,7 @@
 
   .search-btn,
   .voice-search-btn,
-  .ask-ai-btn,
-  .visual-search-btn {
+  .ask-ai-btn {
     @include button-reset;
     width: 2.7rem;
     height: 2.7rem;
@@ -102,8 +100,7 @@
   }
 
   .search-btn svg path,
-  .ask-ai-btn svg path,
-  .visual-search-btn svg path {
+  .ask-ai-btn svg path {
     fill: currentColor;
     transition: fill 0.2s ease;
   }

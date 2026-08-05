@@ -98,8 +98,6 @@ export let compactBarEnabled =
   localStorage.getItem('compactBarEnabled') === 'true';
 export let voiceSearchEnabled =
   localStorage.getItem('voiceSearchEnabled') === 'true';
-export let visualSearchEnabled =
-  localStorage.getItem('visualSearchEnabled') === 'true';
 export const savedAnimationsDisabled =
   localStorage.getItem('animationsDisabled');
 export let animationsDisabled =
@@ -222,9 +220,6 @@ export function setCompactBarEnabled(val: any) {
 }
 export function setVoiceSearchEnabled(val: any) {
   voiceSearchEnabled = val;
-}
-export function setVisualSearchEnabled(val: any) {
-  visualSearchEnabled = val;
 }
 export function setAnimationsDisabled(val: any) {
   animationsDisabled = val;
