@@ -38,6 +38,16 @@ export function convertBase64ToBlob(base64: string): Promise<Blob> {
   return fetch(base64).then((res) => res.blob());
 }
 
+export function convertBlobToBase64(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = () =>
+      reject(new Error('Failed to convert Blob to Base64'));
+    reader.readAsDataURL(blob);
+  });
+}
+
 export async function getWallpaperFromDB(
   keyName = 'custom_wallpaper',
 ): Promise<Blob | null> {
@@ -81,11 +91,13 @@ export async function getWallpaperFromDB(
 }
 
 export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
-  let opacity = 1 - (sliderValue / 100) * 0.9;
-  const finalOpacity = isEnabled ? String(opacity) : '0';
+  let val = Number(sliderValue);
+  if (isNaN(val)) val = 10;
+  if (val > 0 && val <= 1) val = val * 100;
+  const overlayOpacity = isEnabled ? (val / 100) * 0.9 : 0;
   document.documentElement.style.setProperty(
-    '--wallpaper-opacity',
-    finalOpacity,
+    '--wallpaper-overlay',
+    String(overlayOpacity),
   );
 }
 
@@ -153,10 +165,16 @@ export function isWallpaperCacheValid(type: string): boolean {
 export function clearWallpaper(): void {
   document.documentElement.style.setProperty('--wallpaper-image', 'none');
   document.body.removeAttribute('data-wallpaper-active');
+  try {
+    localStorage.removeItem('wallpaper_local_cache');
+  } catch {}
   const earlyBg = document.getElementById('early-bg-black');
   if (earlyBg) earlyBg.remove();
   const earlyFade = document.getElementById('wallpaper-fade-overlay');
   if (earlyFade) earlyFade.remove();
+  const earlyStyle = document.getElementById('early-wallpaper-style');
+  if (earlyStyle) earlyStyle.remove();
+  document.documentElement.removeAttribute('data-early-wallpaper');
   updateOverlay(0, false);
   hideCreditsBoot();
 }
@@ -174,8 +192,17 @@ export async function bootWallpaper(
 
   let url = '';
   if (source === 'local' && type === 'upload') {
-    const blob = await getWallpaperFromDB();
-    if (blob) url = URL.createObjectURL(blob);
+    url = localStorage.getItem('wallpaper_local_cache') || '';
+    if (!url) {
+      const blob = await getWallpaperFromDB();
+      if (blob) {
+        url = URL.createObjectURL(blob);
+        try {
+          const base64 = await convertBlobToBase64(blob);
+          localStorage.setItem('wallpaper_local_cache', base64);
+        } catch {}
+      }
+    }
   } else if (source === 'api') {
     const cacheKey = `wallpaper_cache_${type}`;
     try {
@@ -188,26 +215,18 @@ export async function bootWallpaper(
   }
 
   if (url) {
-    const img = new Image();
-    img.src = url;
+    updateOverlay(overlay, true);
+    document.documentElement.style.setProperty(
+      '--wallpaper-image',
+      `url('${url}')`,
+    );
+    document.body.setAttribute('data-wallpaper-active', 'true');
 
-    img.onload = () => {
-      document.documentElement.style.setProperty('--wallpaper-opacity', '0');
-      document.documentElement.style.setProperty(
-        '--wallpaper-image',
-        `url('${url}')`,
-      );
-      document.body.setAttribute('data-wallpaper-active', 'true');
-
-      setTimeout(() => {
-        updateOverlay(overlay, true);
-        if (source === 'api') {
-          showCreditsBoot(type);
-        } else {
-          hideCreditsBoot();
-        }
-      }, 50);
-    };
+    if (source === 'api') {
+      showCreditsBoot(type);
+    } else {
+      hideCreditsBoot();
+    }
   } else if (source !== 'api') {
     clearWallpaper();
   }

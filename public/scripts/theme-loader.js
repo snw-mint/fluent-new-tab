@@ -28,10 +28,16 @@
     return;
   }
 
-  const baseBgStyle = document.createElement('style');
-  baseBgStyle.id = 'early-bg-black';
-  baseBgStyle.textContent = 'body { background-color: #000 !important; }';
-  document.head.appendChild(baseBgStyle);
+  const rawOverlay = localStorage.getItem('wallpaperOverlay') || '10';
+  let overlayVal = parseFloat(rawOverlay);
+  if (isNaN(overlayVal)) overlayVal = 10;
+  if (overlayVal > 0 && overlayVal <= 1) overlayVal = overlayVal * 100;
+  const overlayOpacity = (overlayVal / 100) * 0.9;
+
+  document.documentElement.style.setProperty(
+    '--wallpaper-overlay',
+    String(overlayOpacity),
+  );
 
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
   const wallpaperType = localStorage.getItem('wallpaperType') || 'upload';
@@ -61,31 +67,9 @@
     } catch {
       initialWallpaperUrl = null;
     }
+  } else if (wallpaperSource === 'local') {
+    initialWallpaperUrl = localStorage.getItem('wallpaper_local_cache') || null;
   }
-
-  const fadeOverlay = document.createElement('style');
-  fadeOverlay.id = 'wallpaper-fade-overlay';
-  fadeOverlay.textContent = `
-    #wallpaper-fade {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      z-index: 99999;
-      opacity: 1;
-      transition: opacity 0.45s ease;
-      pointer-events: none;
-    }
-    body.loaded #wallpaper-fade {
-      opacity: 0;
-    }
-  `;
-  document.head.appendChild(fadeOverlay);
-
-  const fadeEl = document.createElement('div');
-  fadeEl.id = 'wallpaper-fade';
-  document.addEventListener('DOMContentLoaded', () => {
-    document.body.prepend(fadeEl);
-  });
 
   if (!initialWallpaperUrl) return;
 

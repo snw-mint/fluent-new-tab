@@ -99,12 +99,7 @@ export class WallpaperEngine {
         }
       };
 
-      if (isActive) {
-        document.documentElement.style.setProperty('--wallpaper-opacity', '0');
-        setTimeout(applyWallpaper, 350);
-      } else {
-        applyWallpaper();
-      }
+      applyWallpaper();
     };
 
     img.onerror = () => {

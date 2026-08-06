@@ -9,23 +9,23 @@
 import {
   WALLPAPER_STORE_NAME,
   openWallpaperDB,
+  convertBlobToBase64,
 } from '@/core/boot/wallpaper-render';
 
-export function convertBlobToBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = () =>
-      reject(new Error('Failed to convert Blob to Base64'));
-    reader.readAsDataURL(blob);
-  });
-}
+export { convertBlobToBase64 };
 
 export async function saveWallpaperToDB(
   blob: Blob,
   keyName = 'custom_wallpaper',
 ): Promise<boolean> {
   try {
+    try {
+      const base64Data = await convertBlobToBase64(blob);
+      localStorage.setItem('wallpaper_local_cache', base64Data);
+    } catch (e) {
+      console.warn('Could not cache wallpaper in localStorage', e);
+    }
+
     const db = await openWallpaperDB();
 
     return await new Promise<boolean>((resolve, reject) => {
@@ -135,5 +135,5 @@ export function convertImageToWebp(
 }
 
 export function processWallpaperImage(file: File): Promise<Blob> {
-  return Promise.resolve(file);
+  return convertImageToWebp(file, 2560, 0.85);
 }
