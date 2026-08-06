@@ -718,9 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Beroende på enhet kan bakgrundsbilder med exceptionellt höga bildförhållanden eller mycket stora filstorlekar resultera i långsammare laddningstider för tillägg."
   },
-  "rateUsTitle": {
-    "message": "Betygsätt oss!"
-  },
   "rateUsToastPrefix": {
     "message": "Tycker du om Fluent New Tab?"
   },

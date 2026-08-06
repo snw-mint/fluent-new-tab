@@ -718,9 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "根据设备的不同，具有极高宽高比或非常大文件大小的壁纸可能会导致扩展加载时间变慢。"
   },
-  "rateUsTitle": {
-    "message": "评价我们！"
-  },
   "rateUsToastPrefix": {
     "message": "喜欢流畅的新标签吗？"
   },

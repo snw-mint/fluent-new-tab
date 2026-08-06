@@ -705,10 +705,10 @@
     width: 100%;
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     white-space: nowrap;
-    overflow: hidden;
+    row-gap: 0.5rem;
 
     .footer-help-link {
       display: inline-flex;

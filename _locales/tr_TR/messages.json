@@ -718,9 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Cihaza bağlı olarak, son derece yüksek en-boy oranlarına veya çok büyük dosya boyutlarına sahip duvar kağıtları, uzantıların yüklenme sürelerinin yavaşlamasına neden olabilir."
   },
-  "rateUsTitle": {
-    "message": "Bizi Değerlendirin!"
-  },
   "rateUsToastPrefix": {
     "message": "Akıcı Yeni Sekmenin tadını çıkarıyor musunuz?"
   },
