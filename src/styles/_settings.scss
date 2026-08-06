@@ -1191,3 +1191,40 @@ body:not([data-wallpaper-active='true']) {
     transform: scale(0.98);
   }
 }
+
+.bookmarks-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.undo-bookmarks-btn {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  opacity: 0.75;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: opacity 160ms ease, transform 160ms ease, color 160ms ease;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: scale(1.08);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+

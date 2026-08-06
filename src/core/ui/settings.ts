@@ -743,6 +743,80 @@ export function bindShortcutRadiusFeature(options: any): void {
   }
 
   if (refs.importBookmarksBtn) {
+    const parentContainer = refs.importBookmarksBtn.parentElement;
+    if (
+      parentContainer &&
+      !parentContainer.classList.contains('bookmarks-actions-group')
+    ) {
+      const group = document.createElement('div');
+      group.className = 'bookmarks-actions-group';
+      parentContainer.insertBefore(group, refs.importBookmarksBtn);
+      group.appendChild(refs.importBookmarksBtn);
+    }
+
+    const actionsGroup = refs.importBookmarksBtn.parentElement;
+    let undoBookmarksBtn = document.getElementById(
+      'undoBookmarksBtn',
+    ) as HTMLButtonElement | null;
+    if (!undoBookmarksBtn && actionsGroup) {
+      undoBookmarksBtn = document.createElement('button');
+      undoBookmarksBtn.type = 'button';
+      undoBookmarksBtn.id = 'undoBookmarksBtn';
+      undoBookmarksBtn.className = 'undo-bookmarks-btn';
+      undoBookmarksBtn.title =
+        (window as any).getTranslation?.('btnUndo') || 'Undo';
+      undoBookmarksBtn.innerHTML = `<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.75 2a.75.75 0 0 1 .743.648l.007.102v5.69l4.574-4.56a6.41 6.41 0 0 1 8.879-.179l.186.18a6.41 6.41 0 0 1 0 9.063l-8.846 8.84a.75.75 0 0 1-1.06-1.062l8.845-8.838a4.91 4.91 0 0 0-6.766-7.112l-.178.17L6.562 9.5h5.688a.75.75 0 0 1 .743.648l.007.102a.75.75 0 0 1-.648.743L12.25 11h-7.5a.75.75 0 0 1-.743-.648L4 10.25v-7.5A.75.75 0 0 1 4.75 2" fill="currentColor"/></svg>`;
+      actionsGroup.insertBefore(undoBookmarksBtn, refs.importBookmarksBtn);
+    }
+
+    const updateUndoBookmarksVisibility = () => {
+      const isImported = localStorage.getItem('bookmarksImported') === 'true';
+      if (undoBookmarksBtn) {
+        undoBookmarksBtn.style.display = isImported ? 'inline-flex' : 'none';
+      }
+    };
+
+    updateUndoBookmarksVisibility();
+
+    if (undoBookmarksBtn) {
+      undoBookmarksBtn.addEventListener('click', () => {
+        const defaultShortcuts = [
+          {
+            name: 'Wikipedia',
+            url: 'https://wikipedia.com',
+            customIcon:
+              'https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg',
+          },
+          { name: 'YouTube', url: 'https://youtube.com', customIcon: null },
+          {
+            name: 'Github',
+            url: 'https://github.com/snw-mint/fluent-new-tab',
+            customIcon:
+              'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg',
+          },
+          { name: 'BMC', url: 'https://buymeacoffee.com/snw.mint' },
+          {
+            name: 'Help',
+            url: 'https://snw-mint.github.io/fluent-new-tab/help',
+            customIcon:
+              'https://github.com/snw-mint/fluent-new-tab/blob/leading/android-chrome-512x512.png?raw=true',
+            type: 'link',
+          },
+          { name: 'Spotify', url: 'https://spotify.com', customIcon: null },
+          {
+            name: 'MD3: New Tab',
+            url: 'https://snw-mint.github.io/md3-new-tab/',
+            customIcon:
+              'https://snw-mint.github.io/md3-new-tab/assets/md3-logo.svg',
+          },
+        ];
+        localStorage.removeItem('bookmarksImported');
+        localStorage.setItem('shortcuts', JSON.stringify(defaultShortcuts));
+        localStorage.setItem('shortcutsRows', '1');
+        window.location.reload();
+      });
+    }
+
     refs.importBookmarksBtn.addEventListener('click', async () => {
       const { requestApiPermission } =
         await import('@/core/shared/permissions');
@@ -817,6 +891,7 @@ export function bindShortcutRadiusFeature(options: any): void {
 
           localStorage.setItem('shortcuts', JSON.stringify(finalResult));
           localStorage.setItem('shortcutsRows', String(rows));
+          localStorage.setItem('bookmarksImported', 'true');
           window.location.reload();
         });
       };
