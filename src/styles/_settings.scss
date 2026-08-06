@@ -120,7 +120,7 @@
     font-size: 0.75rem;
     color: var(--text-color);
     opacity: 0.75;
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 
@@ -155,7 +155,7 @@
 .setting-label-small {
   display: block;
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-color);
   opacity: 0.75;
   margin-bottom: 0.1125rem;
@@ -200,7 +200,7 @@
   top: 3rem;
   right: 0;
   width: 16rem;
-  max-height: min(75vh, 37.8rem);
+  max-height: min(80vh, 37.8rem);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border-base) transparent;
@@ -676,8 +676,8 @@
   padding-top: 1rem;
   border-top: 1px solid var(--border-base);
   color: var(--text-color);
-  font-size: 0.6rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 400;
 
   .footer-link {
     color: var(--text-color);
