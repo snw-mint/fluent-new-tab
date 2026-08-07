@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Systemstandard"
+  },
+  "askAiEngineTip": {
+    "message": "Sie können den KI-Anbieter hier ändern"
   }
 }

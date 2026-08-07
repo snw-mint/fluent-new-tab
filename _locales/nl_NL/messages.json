@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Systeemstandaard"
+  },
+  "askAiEngineTip": {
+    "message": "Je kunt de AI-provider hier wijzigen"
   }
 }

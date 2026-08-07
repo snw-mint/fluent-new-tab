@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Mặc định hệ thống"
+  },
+  "askAiEngineTip": {
+    "message": "Bạn có thể thay đổi nhà cung cấp AI tại đây"
   }
 }

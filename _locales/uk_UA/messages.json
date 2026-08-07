@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Системне за замовчуванням"
+  },
+  "askAiEngineTip": {
+    "message": "Тут можна змінити провайдера ШІ"
   }
 }

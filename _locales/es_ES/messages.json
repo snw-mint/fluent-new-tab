@@ -855,5 +855,8 @@
   },
   "systemDefault": {
     "message": "Valor predeterminado del sistema"
+  },
+  "askAiEngineTip": {
+    "message": "Puedes cambiar el proveedor de IA aquí"
   }
 }

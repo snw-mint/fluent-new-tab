@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Predefinito del sistema"
+  },
+  "askAiEngineTip": {
+    "message": "Puoi cambiare il provider IA qui"
   }
 }

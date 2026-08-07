@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Domyślne systemowe"
+  },
+  "askAiEngineTip": {
+    "message": "Tutaj możesz zmienić dostawcę AI"
   }
 }

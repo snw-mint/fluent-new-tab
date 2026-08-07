@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "System Default"
+  },
+  "askAiEngineTip": {
+    "message": "Change the AI provider here"
   }
 }

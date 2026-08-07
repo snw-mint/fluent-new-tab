@@ -77,9 +77,99 @@ export function updateSuggestionSelectionUI(
   }
 }
 
+import { aiEngines, engines } from '@/core/boot/search-engines';
+
 export function handleAskAiRedirect(query: string): void {
-  if (!query.trim()) return;
-  window.location.href = `https://www.perplexity.ai/search?q=${encodeURIComponent(query.trim())}`;
+  const trimmedQuery = query.trim();
+  if (!trimmedQuery) return;
+  const rawProvider = localStorage.getItem('askAiProvider') || 'google-ai';
+  const provider = aiEngines[rawProvider] ? rawProvider : 'google-ai';
+  const config = aiEngines[provider] || aiEngines['google-ai'];
+  window.location.href = config.url.replace(
+    '%s',
+    encodeURIComponent(trimmedQuery),
+  );
+}
+
+export function renderAiEnginesDropdown(
+  dropdown: HTMLElement | null,
+  currentIcon: HTMLImageElement | null,
+): void {
+  if (!dropdown) return;
+  const rawProvider = localStorage.getItem('askAiProvider') || 'google-ai';
+  const currentProvider = aiEngines[rawProvider] ? rawProvider : 'google-ai';
+
+  const list = [
+    { key: 'google-ai', name: 'Google AI Mode', icon: 'assets/search-ai/google-ai.svg' },
+    { key: 'chatgpt', name: 'ChatGPT', icon: 'assets/search-ai/chatgpt.svg' },
+    { key: 'grok', name: 'Grok', icon: 'assets/search-ai/grok.svg' },
+    { key: 'claude', name: 'Claude', icon: 'assets/search-ai/claude.svg' },
+    { key: 'perplexity', name: 'Perplexity', icon: 'assets/search-ai/perplexity.svg' },
+    { key: 'duckduckgo-ai', name: 'Duck.AI', icon: 'assets/search-ai/duck-ai.svg' },
+  ];
+
+  dropdown.innerHTML = list
+    .map(
+      (item) => `
+    <div class="dropdown-item${item.key === currentProvider ? ' selected' : ''}" data-ai-engine="${item.key}">
+      <img src="${item.icon}" alt="${item.name}" />
+      <span>${item.name}</span>
+    </div>
+  `,
+    )
+    .join('');
+
+  if (currentIcon) {
+    const activeConfig = aiEngines[currentProvider] || aiEngines['google-ai'];
+    currentIcon.src = activeConfig.icon;
+  }
+}
+
+export function restoreStandardEnginesDropdown(
+  dropdown: HTMLElement | null,
+  currentIcon: HTMLImageElement | null,
+): void {
+  if (!dropdown) return;
+  dropdown.innerHTML = `
+    <div class="dropdown-item" data-engine="system">
+      <img src="assets/search-engines/system.svg" alt="System Default" />
+      <span data-i18n="systemDefault">System Default</span>
+    </div>
+    <div class="dropdown-item" data-engine="bing">
+      <img src="assets/search-engines/bing.svg" alt="Bing" />
+      <span>Bing</span>
+    </div>
+    <div class="dropdown-item" data-engine="google">
+      <img src="assets/search-engines/google.svg" alt="Google" />
+      <span>Google</span>
+    </div>
+    <div class="dropdown-item" data-engine="brave">
+      <img src="assets/search-engines/brave.svg" alt="Brave" />
+      <span>Brave Search</span>
+    </div>
+    <div class="dropdown-item" data-engine="duck">
+      <img src="assets/search-engines/ddg.svg" alt="DuckDuckGo" />
+      <span>DuckDuckGo</span>
+    </div>
+    <div class="dropdown-item" data-engine="ecosia">
+      <img src="assets/search-engines/ecosia.svg" alt="Ecosia Search" />
+      <span>Ecosia Search</span>
+    </div>
+    <div class="dropdown-item" data-engine="startpage">
+      <img src="assets/search-engines/startpg.svg" alt="Start Page" />
+      <span>Start Page</span>
+    </div>
+    <div class="dropdown-item" data-engine="kagi">
+      <img src="assets/search-engines/kagi.svg" alt="Kagi" />
+      <span>Kagi</span>
+    </div>
+  `;
+
+  if (currentIcon) {
+    const savedEngineKey = localStorage.getItem('searchEngine') || 'bing';
+    const activeConfig = engines[savedEngineKey] || engines['bing'];
+    currentIcon.src = activeConfig.icon;
+  }
 }
 
 export function updateAskAiUiState(
@@ -97,7 +187,35 @@ export function updateAskAiUiState(
   searchWrapper.classList.toggle('ask-ai-active', active);
   searchWrapper.classList.toggle('ai-active', active);
 
+  const inactiveIcon = askAiBtn.querySelector('.ask-ai-icon-inactive') as HTMLElement | null;
+  const activeIcon = askAiBtn.querySelector('.ask-ai-icon-active') as HTMLElement | null;
+  if (inactiveIcon) inactiveIcon.style.display = active ? 'none' : 'block';
+  if (activeIcon) activeIcon.style.display = active ? 'block' : 'none';
+
+  const dropdown = document.getElementById('engineDropdown');
+  const currentIcon = document.getElementById('currentEngineIcon') as HTMLImageElement | null;
+  const searchEngineTip = document.getElementById('searchEngineTip');
+
   if (active) {
+    renderAiEnginesDropdown(dropdown, currentIcon);
+
+    if (searchEngineTip && !localStorage.getItem('hasSeenAskAiEngineTip')) {
+      localStorage.setItem('hasSeenAskAiEngineTip', 'true');
+      const tipSpan = searchEngineTip.querySelector('span');
+      if (tipSpan) {
+        const translatedTip = (window as any).getTranslation?.('askAiEngineTip');
+        if (translatedTip && translatedTip !== 'askAiEngineTip') {
+          tipSpan.textContent = translatedTip;
+        } else {
+          tipSpan.textContent = 'Change the AI provider here';
+        }
+      }
+      searchEngineTip.classList.remove('is-hidden');
+      setTimeout(() => {
+        searchEngineTip.classList.add('is-hidden');
+      }, 10000);
+    }
+
     try {
       const audio = new Audio(
         (chrome.runtime as any).getURL('assets/sfx/ai-sfx.webm'),
@@ -117,6 +235,12 @@ export function updateAskAiUiState(
 
     searchInput.focus();
   } else {
+    restoreStandardEnginesDropdown(dropdown, currentIcon);
+
+    if (searchEngineTip && !searchEngineTip.classList.contains('is-hidden')) {
+      searchEngineTip.classList.add('is-hidden');
+    }
+
     const translatedSearch = (window as any).getTranslation?.(
       'searchPlaceholder',
     );

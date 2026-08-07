@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Sistem Varsayılanı"
+  },
+  "askAiEngineTip": {
+    "message": "Yapay zeka sağlayıcısını buradan değiştirebilirsiniz"
   }
 }

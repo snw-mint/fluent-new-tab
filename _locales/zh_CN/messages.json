@@ -728,6 +728,9 @@
     "message": "您可以在这里更改搜索引擎"
   },
   "systemDefault": {
-    "message": "系统默认值"
+    "message": "系统默认"
+  },
+  "askAiEngineTip": {
+    "message": "由此更改 AI 提供商"
   }
 }

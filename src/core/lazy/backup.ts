@@ -47,6 +47,7 @@ export const APP_KEYS: string[] = [
   'use12Hour',
   'dateFormat',
   'askAiEnabled',
+  'askAiProvider',
   'displayPreset',
   'shortcutRadius',
   'hideShortcutNames',

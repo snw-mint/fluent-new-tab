@@ -728,6 +728,9 @@
     "message": "Puteți schimba motorul de căutare aici"
   },
   "systemDefault": {
-    "message": "Implicit sistem"
+    "message": "Valoare implicită sistem"
+  },
+  "askAiEngineTip": {
+    "message": "Puteți schimba furnizorul de IA aici"
   }
 }

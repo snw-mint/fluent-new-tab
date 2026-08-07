@@ -13,6 +13,7 @@ import {
   handleAskAiRedirect,
   updateAskAiUiState,
   registerVoiceSearchEngine,
+  renderAiEnginesDropdown,
 } from '@/core/lazy/search-features';
 
 export function bindSearchFeature(options: any): void {
@@ -104,16 +105,24 @@ export function bindSearchFeature(options: any): void {
       refs.dropdown?.classList.toggle('active');
     });
 
-    refs.items.forEach((item) => {
-      item.addEventListener('click', (event) => {
-        const target = event.currentTarget as HTMLElement;
-        const engine = target.dataset.engine || 'bing';
+    refs.dropdown.addEventListener('click', (event) => {
+      const targetNode = event.target as Node | null;
+      if (!targetNode) return;
+      const item = (targetNode as HTMLElement).closest('.dropdown-item') as HTMLElement | null;
+      if (!item) return;
+
+      if (askAiActiveMode) {
+        const aiEngine = item.dataset.aiEngine || 'google-ai';
+        localStorage.setItem('askAiProvider', aiEngine);
+        renderAiEnginesDropdown(refs.dropdown, refs.currentIcon);
+      } else {
+        const engine = item.dataset.engine || 'bing';
         if (options.hasEngine(engine)) {
           localStorage.setItem('searchEngine', engine);
           options.setSearchEngine(engine);
         }
-        refs.dropdown?.classList.remove('active');
-      });
+      }
+      refs.dropdown?.classList.remove('active');
     });
 
     document.addEventListener('click', (event) => {
@@ -264,7 +273,8 @@ export function bindSearchFeature(options: any): void {
   }
 
   if (refs.toggleAskAi) {
-    refs.toggleAskAi.checked = localStorage.getItem('askAiEnabled') !== 'false';
+    const isAskAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
+    refs.toggleAskAi.checked = isAskAiEnabled;
     refs.toggleAskAi.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;

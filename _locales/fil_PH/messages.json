@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "System Default"
+  },
+  "askAiEngineTip": {
+    "message": "Mababago mo ang provider ng AI dito"
   }
 }

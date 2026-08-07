@@ -728,6 +728,9 @@
     "message": "Vous pouvez changer de moteur de recherche ici"
   },
   "systemDefault": {
-    "message": "Système par défaut"
+    "message": "Valeur par défaut du système"
+  },
+  "askAiEngineTip": {
+    "message": "Vous pouvez changer le fournisseur d'IA ici"
   }
 }

@@ -728,6 +728,9 @@
     "message": "ここで検索エンジンを変更できます"
   },
   "systemDefault": {
-    "message": "システムのデフォルト"
+    "message": "システムデフォルト"
+  },
+  "askAiEngineTip": {
+    "message": "ここからAIプロバイダーを変更できます"
   }
 }

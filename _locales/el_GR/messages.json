@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Προεπιλογή συστήματος"
+  },
+  "askAiEngineTip": {
+    "message": "Μπορείτε να αλλάξετε τον πάροχο AI εδώ"
   }
 }

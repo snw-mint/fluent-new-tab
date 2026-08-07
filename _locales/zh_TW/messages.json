@@ -728,6 +728,9 @@
     "message": "您可以在這裡更改搜尋引擎"
   },
   "systemDefault": {
-    "message": "系統預設值"
+    "message": "系統預設"
+  },
+  "askAiEngineTip": {
+    "message": "由此變更 AI 提供者"
   }
 }

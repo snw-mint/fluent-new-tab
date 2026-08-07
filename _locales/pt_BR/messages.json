@@ -728,6 +728,9 @@
     "message": "Você pode alterar o mecanismo de pesquisa aqui"
   },
   "systemDefault": {
-    "message": "Padrão do sistema"
+    "message": "Padrão do Sistema"
+  },
+  "askAiEngineTip": {
+    "message": "Você pode mudar o provedor de IA aqui"
   }
 }

@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Výchozí nastavení systému"
+  },
+  "askAiEngineTip": {
+    "message": "Zde můžete změnit poskytovatele AI"
   }
 }

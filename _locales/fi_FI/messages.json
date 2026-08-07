@@ -728,6 +728,9 @@
     "message": "Voit vaihtaa hakukonetta tästä"
   },
   "systemDefault": {
-    "message": "Järjestelmän oletusarvo"
+    "message": "Järjestelmän oletus"
+  },
+  "askAiEngineTip": {
+    "message": "Voit vaihtaa tekoälyntarjoajaa tästä"
   }
 }

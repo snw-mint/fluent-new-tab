@@ -42,3 +42,36 @@ export const engines: Record<string, EngineConfig> = {
     icon: 'assets/search-engines/kagi.svg',
   },
 };
+
+export const aiEngines: Record<string, { name: string; url: string; icon: string }> = {
+  'google-ai': {
+    name: 'Google AI Mode',
+    url: 'https://www.google.com/search?q=%s&udm=50',
+    icon: 'assets/search-ai/google-ai.svg',
+  },
+  chatgpt: {
+    name: 'ChatGPT',
+    url: 'https://chatgpt.com/?prompt=%s',
+    icon: 'assets/search-ai/chatgpt.svg',
+  },
+  grok: {
+    name: 'Grok',
+    url: 'https://grok.com/?q=%s',
+    icon: 'assets/search-ai/grok.svg',
+  },
+  claude: {
+    name: 'Claude',
+    url: 'https://claude.ai/new?q=%s',
+    icon: 'assets/search-ai/claude.svg',
+  },
+  perplexity: {
+    name: 'Perplexity',
+    url: 'https://www.perplexity.ai/search?q=%s',
+    icon: 'assets/search-ai/perplexity.svg',
+  },
+  'duckduckgo-ai': {
+    name: 'Duck.AI',
+    url: 'https://duckduckgo.com/?q=%s&ia=chat',
+    icon: 'assets/search-ai/duck-ai.svg',
+  },
+};

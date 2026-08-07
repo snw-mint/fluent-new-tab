@@ -729,5 +729,8 @@
   },
   "systemDefault": {
     "message": "Rendszer alapértelmezett"
+  },
+  "askAiEngineTip": {
+    "message": "Itt módosíthatja az AI-szolgáltatót"
   }
 }

@@ -311,6 +311,17 @@
     }
   }
 
+  .current-engine-btn img[src*="chatgpt.svg"],
+  .current-engine-btn img[src*="grok.svg"],
+  .current-engine-btn img[src*="perplexity.svg"],
+  .dropdown-item img[src*="chatgpt.svg"],
+  .dropdown-item img[src*="grok.svg"],
+  .dropdown-item img[src*="perplexity.svg"] {
+    html[data-theme='dark'] & {
+      filter: invert(1);
+    }
+  }
+
   .suggestions-container {
     position: absolute;
     top: 3.4875rem;
