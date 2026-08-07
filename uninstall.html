@@ -247,51 +247,65 @@
 
   <body>
     <nav class="navbar">
-      <div class="container nav-content" style="justify-content: space-between">
-        <a
-          href="index.html"
-          class="logo"
-          style="text-decoration: none; color: inherit"
-        >
-          <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
-          <span>Fluent New Tab</span>
-        </a>
-
-        <button
-          id="theme-switcher"
-          class="theme-switch"
-          aria-label="Toggle Dark Mode"
-        >
-          <span class="theme-icon light-icon">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
-                fill="currentColor"
-              />
+      <div class="container nav-content">
+        <div class="nav-left">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#download">Download</a>
+            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener">Buy Me a Coffee</a>
+            <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="nav-right">
+          <button
+            id="theme-switcher"
+            class="theme-switch"
+            aria-label="Toggle Dark Mode"
+          >
+            <span class="theme-icon light-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="theme-icon dark-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            id="mobile-menu-toggle"
+            class="mobile-menu-toggle"
+            aria-label="Toggle navigation menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-          </span>
-          <span class="theme-icon dark-icon">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <div class="theme-thumb"></div>
-        </button>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -312,70 +326,7 @@
     </header>
 
     <main class="container">
-      <div
-        class="store-alert-card"
-        id="edge-alert-card"
-        style="display: none; margin-bottom: 2rem; max-width: 42rem"
-      >
-        <div class="store-alert-icon">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.0297 3.65893C10.8859 2.1111 13.1111 2.11108 13.9673 3.65888L21.7131 17.6603C22.5427 19.16 21.4581 20.9995 19.7443 20.9995H4.25323C2.53945 20.9995 1.45483 19.16 2.28438 17.6604L10.0297 3.65893Z"
-              fill="url(#paint0_linear_378174_9756)"
-            />
-            <path
-              d="M12.9973 17.0009C12.9973 16.4494 12.5502 16.0022 11.9987 16.0022C11.4471 16.0022 11 16.4494 11 17.0009C11 17.5524 11.4471 17.9996 11.9987 17.9996C12.5502 17.9996 12.9973 17.5524 12.9973 17.0009ZM12.7381 9.14764C12.6882 8.7816 12.3742 8.4997 11.9945 8.5C11.5802 8.50033 11.2447 8.83639 11.2451 9.2506L11.2487 13.7522L11.2556 13.854C11.3055 14.22 11.6196 14.5019 11.9993 14.5016C12.4135 14.5013 12.749 14.1652 12.7487 13.751L12.7451 9.2494L12.7381 9.14764Z"
-              fill="url(#paint1_linear_378174_9756)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_378174_9756"
-                x1="5.12461"
-                y1="-0.392807"
-                x2="16.7187"
-                y2="23.4768"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#FFCD0F" />
-                <stop offset="1" stop-color="#FE8401" />
-              </linearGradient>
-              <linearGradient
-                id="paint1_linear_378174_9756"
-                x1="9.33556"
-                y1="8.5"
-                x2="13.7522"
-                y2="18.4051"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#4A4A4A" />
-                <stop offset="1" stop-color="#212121" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="store-alert-content">
-          <p>
-            <strong>Leaving due to a bug?</strong> Microsoft takes over a week
-            to review fixes! We might have already solved it—try the
-            <strong>Chrome Web Store</strong> version instead.
-          </p>
-        </div>
-        <div class="store-alert-action">
-          <a
-            href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
-            class="btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Chrome Web Store</a
-          >
-        </div>
-      </div>
+
 
       <div class="form-container" id="form-view">
         <form

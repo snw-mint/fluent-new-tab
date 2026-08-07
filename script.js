@@ -31,41 +31,6 @@
     }
   };
 
-  const revealTheme = (targetTheme) => {
-    if (!supportsViewTransitions || prefersReducedMotion.matches) {
-      applyTheme(targetTheme);
-      return;
-    }
-
-    const rect = themeToggle.getBoundingClientRect();
-    const originX = rect.left + rect.width / 2;
-    const originY = rect.top + rect.height / 2;
-    const maxX = Math.max(originX, window.innerWidth - originX);
-    const maxY = Math.max(originY, window.innerHeight - originY);
-    const endRadius = Math.hypot(maxX, maxY);
-
-    const transition = document.startViewTransition(() => {
-      applyTheme(targetTheme);
-    });
-
-    transition.ready
-      .then(() => {
-        document.documentElement.animate(
-          [
-            { clipPath: `circle(0px at ${originX}px ${originY}px)` },
-            { clipPath: `circle(${endRadius}px at ${originX}px ${originY}px)` },
-          ],
-          {
-            duration: 520,
-            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-            fill: "both",
-            pseudoElement: "::view-transition-new(root)",
-          },
-        );
-      })
-      .catch(() => applyTheme(targetTheme));
-  };
-
   const storedTheme = getStoredTheme();
   const initialTheme = storedTheme || (prefersDark.matches ? "dark" : "light");
   applyTheme(initialTheme, Boolean(storedTheme));
@@ -78,7 +43,7 @@
 
   themeToggle.addEventListener("click", () => {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    revealTheme(isDark ? "light" : "dark");
+    applyTheme(isDark ? "light" : "dark");
   });
 })();
 
@@ -245,3 +210,25 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll(".showcase-image-wrapper, .showcase-card").forEach((el) => {
   observer.observe(el);
 });
+
+const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (mobileMenuToggle && navLinks) {
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+}
