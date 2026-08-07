@@ -3,7 +3,7 @@
 ![Fluent New Tab Main](repo-assets/main.png)
 
 <p align="center">
-  <strong>A modern new tab inspired by Microsoft's Fluent Design.</strong>
+  <strong>A modern new tab inspired by Fluent Design 2.</strong>
 </p>
 
 <p align="center">
