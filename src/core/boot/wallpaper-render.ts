@@ -269,6 +269,14 @@ export async function bootWallpaper(
     } else {
       hideCreditsBoot();
     }
+
+    if ((localStorage.getItem('accentColorMode') || 'auto') === 'auto') {
+      import('@/core/lazy/color-extractor').then(
+        ({ extractAndApplyAutoColor }) => {
+          extractAndApplyAutoColor(url, url);
+        },
+      );
+    }
   } else if (source !== 'api') {
     clearWallpaper();
   }

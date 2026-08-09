@@ -579,10 +579,14 @@ async function bootInteractive(): Promise<void> {
     applyWallpaperLogic: async () => {
       const { extractAndApplyAutoColor } =
         await import('@/core/lazy/color-extractor');
-      const bg = document.body.style.backgroundImage;
-      if (bg && bg !== 'none') {
-        const urlMatch = bg.match(/url\(['"]?(.*?)['"]?\)/);
-        if (urlMatch && urlMatch[1]) {
+      const rawBg =
+        document.documentElement.style.getPropertyValue('--wallpaper-image') ||
+        getComputedStyle(document.documentElement).getPropertyValue(
+          '--wallpaper-image',
+        );
+      if (rawBg && rawBg !== 'none') {
+        const urlMatch = rawBg.match(/url\(['"]?(.*?)['"]?\)/);
+        if (urlMatch && urlMatch[1] && urlMatch[1] !== 'none') {
           await extractAndApplyAutoColor(urlMatch[1], urlMatch[1]);
         }
       }

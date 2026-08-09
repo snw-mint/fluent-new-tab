@@ -20,32 +20,52 @@ export async function extractAndApplyAutoColor(
   imageUrl: string,
   wallpaperId: string,
 ): Promise<void> {
+  const mode = localStorage.getItem('accentColorMode') || 'auto';
+  if (mode !== 'auto' || !imageUrl || imageUrl === 'none') {
+    return;
+  }
+
+  const cachedId = localStorage.getItem('autoAccentColorId');
+  const cachedColor = localStorage.getItem('autoAccentColorValue');
+
+  if (cachedId === wallpaperId && cachedColor) {
+    applyAccentColor(cachedColor);
+    return;
+  }
+
+  let blobUrl: string | null = null;
+  let srcToLoad = imageUrl;
+
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    try {
+      const res = await fetch(imageUrl);
+      if (res.ok) {
+        const blob = await res.blob();
+        blobUrl = URL.createObjectURL(blob);
+        srcToLoad = blobUrl;
+      }
+    } catch (e) {}
+  }
+
   return new Promise((resolve) => {
-
-    const mode = localStorage.getItem('accentColorMode') || 'auto';
-    if (mode !== 'auto') {
-      resolve();
-      return;
-    }
-
-    const cachedId = localStorage.getItem('autoAccentColorId');
-    const cachedColor = localStorage.getItem('autoAccentColorValue');
-
-    if (cachedId === wallpaperId && cachedColor) {
-      applyAccentColor(cachedColor);
-      resolve();
-      return;
-    }
-
     const img = new Image();
-    img.crossOrigin = 'Anonymous';
+    if (!blobUrl && !imageUrl.startsWith('data:')) {
+      img.crossOrigin = 'Anonymous';
+    }
+
+    const cleanup = () => {
+      if (blobUrl) {
+        URL.revokeObjectURL(blobUrl);
+      }
+      resolve();
+    };
 
     img.onload = () => {
       try {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         if (!context) {
-          resolve();
+          cleanup();
           return;
         }
 
@@ -68,33 +88,30 @@ export async function extractAndApplyAutoColor(
           count++;
         }
 
-        if (count === 0) {
-          resolve();
-          return;
+        if (count > 0) {
+          r = Math.floor(r / count);
+          g = Math.floor(g / count);
+          b = Math.floor(b / count);
+
+          const hexColor = rgbToHex(r, g, b);
+
+          localStorage.setItem('autoAccentColorId', wallpaperId);
+          localStorage.setItem('autoAccentColorValue', hexColor);
+
+          applyAccentColor(hexColor);
         }
-
-        r = Math.floor(r / count);
-        g = Math.floor(g / count);
-        b = Math.floor(b / count);
-
-        const hexColor = rgbToHex(r, g, b);
-
-        localStorage.setItem('autoAccentColorId', wallpaperId);
-        localStorage.setItem('autoAccentColorValue', hexColor);
-
-        applyAccentColor(hexColor);
-        resolve();
       } catch (error) {
         console.warn('Failed to extract wallpaper color:', error);
-        resolve();
+      } finally {
+        cleanup();
       }
     };
 
     img.onerror = () => {
       console.warn('Error loading image for color extraction.');
-      resolve();
+      cleanup();
     };
 
-    img.src = imageUrl;
+    img.src = srcToLoad;
   });
 }

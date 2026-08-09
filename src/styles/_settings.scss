@@ -579,8 +579,8 @@
 
   .color-preset-btn {
     @include button-reset;
-    width: 1.44rem;
-    height: 1.44rem;
+    width: 1.7rem;
+    height: 1.7rem;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
@@ -589,12 +589,16 @@
     align-items: center;
     justify-content: center;
     color: var(--text-color);
+    box-shadow: none;
+    transition: none;
 
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
-    box-shadow: 0 0.1125rem 0.225rem rgba(0, 0, 0, 0.08);
+    .preset-check-icon {
+      display: none;
+      width: 1rem;
+      height: 1rem;
+      color: #ffffff;
+      pointer-events: none;
+    }
 
     .icon-filled {
       display: none;
@@ -604,18 +608,18 @@
     }
 
     &:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0.225rem 0.45rem rgba(0, 0, 0, 0.15);
+      transform: none;
+      box-shadow: none;
     }
 
     &.selected {
-      border: 0.1125rem solid var(--surface-base);
-      box-shadow:
-        0 0 0 0.1125rem var(--accent-color),
-        0 0.1125rem 0.28125rem rgba(0, 0, 0, 0.2);
-      transform: scale(1.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: none;
+      transform: none;
 
-      color: var(--accent-contrast-color);
+      .preset-check-icon {
+        display: block;
+      }
 
       .icon-filled {
         display: block;

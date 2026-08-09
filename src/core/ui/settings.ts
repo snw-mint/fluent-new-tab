@@ -264,6 +264,7 @@ export function bindAccentColorFeature(options: any): void {
     'toggleAccentWallpaper',
   ) as HTMLInputElement | null;
   if (toggleAuto) {
+    toggleAuto.checked = savedMode === 'auto';
     toggleAuto.addEventListener('change', async (event) => {
       const target = event.target as HTMLInputElement;
       if (target.checked) {

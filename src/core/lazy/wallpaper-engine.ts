@@ -97,6 +97,14 @@ export class WallpaperEngine {
         } else {
           hideCreditsBoot();
         }
+
+        if ((localStorage.getItem('accentColorMode') || 'auto') === 'auto') {
+          import('@/core/lazy/color-extractor').then(
+            ({ extractAndApplyAutoColor }) => {
+              extractAndApplyAutoColor(url, url);
+            },
+          );
+        }
       };
 
       applyWallpaper();

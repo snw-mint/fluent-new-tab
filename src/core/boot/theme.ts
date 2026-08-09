@@ -72,6 +72,14 @@ export function applyInitialTheme(): void {
 }
 
 export function applyInitialAccentColorState(): void {
+  const mode = localStorage.getItem('accentColorMode') || 'auto';
+  if (mode === 'auto') {
+    const cachedColor = localStorage.getItem('autoAccentColorValue');
+    if (cachedColor) {
+      applyAccentColor(cachedColor);
+      return;
+    }
+  }
   const colorToApply = accentColorEnabled
     ? accentColorValue
     : DEFAULT_ACCENT_COLOR;
