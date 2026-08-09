@@ -236,7 +236,7 @@
     }
   },
   "greetAfternoon1": {
-    "message": "Semoga siang Anda menyenangkan, $NAME$.",
+    "message": "Semoga soremu menyenangkan, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -245,7 +245,7 @@
     }
   },
   "greetAfternoon2": {
-    "message": "$NAME$, pertahankan semangat Anda!",
+    "message": "$NAME$, pertahankan semangat mu!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -290,7 +290,7 @@
     }
   },
   "greetEvening2": {
-    "message": "$NAME$, semoga hari Anda menyenangkan.",
+    "message": "$NAME$, semoga hari kamu menyenangkan.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -596,7 +596,7 @@
     "message": "Selamat datang"
   },
   "wizardWelcomeSubtitle": {
-    "message": "Ruang kerja fluent baru Anda telah siap. Pilih langkah selanjutnya di bawah ini."
+    "message": "Ruang kerja fluent baru telah siap. Pilih langkah selanjutnya di bawah ini."
   },
   "wizardRestoreTitle": {
     "message": "Pulihkan pengaturan"
