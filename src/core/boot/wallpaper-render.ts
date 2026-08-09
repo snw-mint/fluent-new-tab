@@ -108,6 +108,48 @@ export function hideCreditsBoot(): void {
   }
 }
 
+function safeRenderCreditHtml(
+  container: HTMLElement,
+  htmlString: string,
+): void {
+  container.textContent = '';
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const nodes = doc.body.childNodes;
+
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      if (node.nodeType === Node.TEXT_NODE) {
+        container.appendChild(document.createTextNode(node.textContent || ''));
+      } else if (
+        node.nodeType === Node.ELEMENT_NODE &&
+        node.nodeName.toLowerCase() === 'a'
+      ) {
+        const anchorNode = node as HTMLAnchorElement;
+        const href = anchorNode.getAttribute('href') || '';
+
+        if (/^https?:\/\//i.test(href)) {
+          const a = document.createElement('a');
+          a.href = href;
+          a.target = '_blank';
+          a.className = 'wallpaper-credit-link';
+          a.style.cssText =
+            'color: inherit; text-decoration: none; pointer-events: auto;';
+          a.textContent = anchorNode.textContent || '';
+          container.appendChild(a);
+        } else {
+          container.appendChild(
+            document.createTextNode(anchorNode.textContent || ''),
+          );
+        }
+      }
+    }
+  } catch (e) {
+    container.textContent = htmlString.replace(/<[^>]*>?/gm, '');
+  }
+}
+
 export function showCreditsBoot(sourceType: string): void {
   const creditsDiv = document.getElementById('wallpaperCredits');
   const creditTextSpan = document.getElementById('wallpaperCreditText');
@@ -118,7 +160,7 @@ export function showCreditsBoot(sourceType: string): void {
     const cached = getWallpaperCache(cacheKey);
     if (cached && (cached.creditHtml || cached.credit || cached.creditUrl)) {
       if (cached.creditHtml) {
-        creditTextSpan.innerHTML = cached.creditHtml;
+        safeRenderCreditHtml(creditTextSpan, cached.creditHtml);
       } else {
         const text = cached.credit || 'Daily Wallpaper';
         const url = cached.creditUrl || '';
