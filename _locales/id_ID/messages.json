@@ -1,0 +1,736 @@
+{
+  "rateUsToastPrefix": {
+    "message": "Nikmati Fluent New Tab? "
+  },
+  "rateUsToastLink": {
+    "message": "Beri ulasan!"
+  },
+  "appsTitle": {
+    "message": "Aplikasi"
+  },
+  "moreApps": {
+    "message": "Aplikasi Lainnya"
+  },
+  "appLauncherTitle": {
+    "message": "Peluncur Aplikasi"
+  },
+  "newTabTitle": {
+    "message": "Tab Baru"
+  },
+  "tabNameLabel": {
+    "message": "Nama Tab"
+  },
+  "tabFaviconLabel": {
+    "message": "Ikon Tab"
+  },
+  "settingsTitle": {
+    "message": "Pengaturan"
+  },
+  "appearanceTitle": {
+    "message": "Tampilan"
+  },
+  "mainUiScaleLabel": {
+    "message": "Skala UI Utama"
+  },
+  "displayTitle": {
+    "message": "Tampilan Layar"
+  },
+  "displayScaleLabel": {
+    "message": "Skala Tampilan"
+  },
+  "AccessibilityTitle": {
+    "message": "Aksesibilitas"
+  },
+  "reduceMotionTitle": {
+    "message": "Kurangi animasi"
+  },
+  "languageTitle": {
+    "message": "Bahasa"
+  },
+  "backupTitle": {
+    "message": "Cadangan Data"
+  },
+  "exportOption": {
+    "message": "Ekspor"
+  },
+  "importOption": {
+    "message": "Impor"
+  },
+  "wallpaperTitle": {
+    "message": "Latar Belakang"
+  },
+  "uploadOption": {
+    "message": "Unggah Gambar"
+  },
+  "uploadBtnText": {
+    "message": "Unggah"
+  },
+  "overlayLabel": {
+    "message": "Lapisan Gambar"
+  },
+  "surfaceTintLabel": {
+    "message": "Warna Permukaan"
+  },
+  "fetchingImagePlaceholder": {
+    "message": "Mengambil gambar $SOURCE$...",
+    "placeholders": {
+      "source": {
+        "content": "$1"
+      }
+    }
+  },
+  "customColorTitle": {
+    "message": "Warna Kustom"
+  },
+  "wizardAccentLabel": {
+    "message": "Warna Aksen"
+  },
+  "displayGreeting": {
+    "message": "Sapaan"
+  },
+  "greetingNameLabel": {
+    "message": "Nama Anda"
+  },
+  "highlightNameLabel": {
+    "message": "Sorot Nama"
+  },
+  "displayTime": {
+    "message": "Jam"
+  },
+  "displayDate": {
+    "message": "Tanggal"
+  },
+  "displayAdvanced": {
+    "message": "Jam & Tanggal"
+  },
+  "emojiTypeLabel": {
+    "message": "Gaya Emoji"
+  },
+  "TypeStatic": {
+    "message": "Statis"
+  },
+  "TypeAnimated": {
+    "message": "Animasi"
+  },
+  "showSecondsLabel": {
+    "message": "Tampilkan detik"
+  },
+  "use12HourLabel": {
+    "message": "Format 12 jam"
+  },
+  "dateFormatLabel": {
+    "message": "Format"
+  },
+  "dateText": {
+    "message": "Teks"
+  },
+  "dateNumeric": {
+    "message": "Angka"
+  },
+  "dateWeekday": {
+    "message": "Nama Hari"
+  },
+  "weekday_0": {
+    "message": "Minggu"
+  },
+  "weekday_1": {
+    "message": "Senin"
+  },
+  "weekday_2": {
+    "message": "Selasa"
+  },
+  "weekday_3": {
+    "message": "Rabu"
+  },
+  "weekday_4": {
+    "message": "Kamis"
+  },
+  "weekday_5": {
+    "message": "Jumat"
+  },
+  "weekday_6": {
+    "message": "Sabtu"
+  },
+  "greetWeekMorning": {
+    "message": "Semoga hari $WEEK$ kamu menyenangkan, $NAME$!",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekAfternoon": {
+    "message": "Bagaimana hari $WEEK$ kamu sejauh ini, $NAME$?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetWeekNight": {
+    "message": "$NAME$, bagaimana hari $WEEK$ kamu?",
+    "placeholders": {
+      "week": {
+        "content": "$1",
+        "example": "Monday"
+      },
+      "name": {
+        "content": "$2",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning1": {
+    "message": "$NAME$, pagi yang indah!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning2": {
+    "message": "Siap menaklukkan hari ini, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning3": {
+    "message": "Mari buat pagi ini penuh semangat, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning4": {
+    "message": "Selamat pagi $NAME$! Semoga tidurnya nyenyak.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetMorning5": {
+    "message": "Wakey wakey, $NAME$, Waktunya beraksi!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon1": {
+    "message": "Semoga soremu menyenangkan, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon2": {
+    "message": "$NAME$, pertahankan semangat mu!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon3": {
+    "message": "Sudah setengah hari berlalu, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon4": {
+    "message": "Selamat siang! Tetap produktif, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetAfternoon5": {
+    "message": "Jangan lupa istirahat sebentar, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening1": {
+    "message": "Selamat malam! Saatnya bersantai, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening2": {
+    "message": "$NAME$, semoga hari kamu menyenangkan.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening3": {
+    "message": "Nikmati sore yang tenang, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening4": {
+    "message": "Hari ini hampir usai, $NAME$. Kerja bagus!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetEvening5": {
+    "message": "Duduklah dengan nyaman dan bersantai, $NAME$.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight1": {
+    "message": "Sudah larut malam, $NAME$. Saatnya istirahat.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight2": {
+    "message": "$NAME$, malam ini begitu tenang dan damai.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight3": {
+    "message": "Masih lembur malam ini, $NAME$?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight4": {
+    "message": "Selamat tidur nyenyak, $NAME$!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "greetNight5": {
+    "message": "Mimpi indah, $NAME$. Sampai jumpa besok.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "User"
+      }
+    }
+  },
+  "weatherTitle": {
+    "message": "Cuaca"
+  },
+  "locationLabel": {
+    "message": "Lokasi"
+  },
+  "useFahrenheitLabel": {
+    "message": "Gunakan Fahrenheit"
+  },
+  "weatherAlertsLabel": {
+    "message": "Peringatan cuaca"
+  },
+  "alertTempDrop": {
+    "message": "Perkiraan penurunan suhu: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertTempRise": {
+    "message": "Perkiraan kenaikan suhu: $VALUE$°",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "7"
+      }
+    }
+  },
+  "alertStorm": {
+    "message": "Potensi badai dalam beberapa jam ke depan."
+  },
+  "alertWindHigh": {
+    "message": "Angin kencang diperkirakan: $VALUE$ km/jam",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "60"
+      }
+    }
+  },
+  "alertUvHigh": {
+    "message": "Indeks sinar UV mencapai tingkat tinggi: $VALUE$",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "8"
+      }
+    }
+  },
+  "alertPollenHigh": {
+    "message": "Tingkat serbuk sari tinggi ($POLLEN$) diperkirakan.",
+    "placeholders": {
+      "pollen": {
+        "content": "$1",
+        "example": "grass"
+      }
+    }
+  },
+  "searchTitle": {
+    "message": "Pencarian"
+  },
+  "searchStyleFull": {
+    "message": "Mode Penuh"
+  },
+  "searchStyleCompact": {
+    "message": "Ringkas"
+  },
+  "suggestionsOption": {
+    "message": "Saran Pencarian"
+  },
+  "clearSearchOption": {
+    "message": "Pencarian Bersih (Google)"
+  },
+  "voiceSearchOption": {
+    "message": "Pencarian Suara"
+  },
+  "visualSearchOption": {
+    "message": "Pencarian Gambar"
+  },
+  "askAiOption": {
+    "message": "Tanya AI"
+  },
+  "searchPlaceholder": {
+    "message": "Cari di web"
+  },
+  "visualSearchTitle": {
+    "message": "Pencarian Gambar"
+  },
+  "visualSearchDragText": {
+    "message": "Tarik gambar ke sini atau"
+  },
+  "visualSearchUploadLink": {
+    "message": "unggah berkas"
+  },
+  "visualSearchDivider": {
+    "message": "atau"
+  },
+  "visualSearchPasteUrl": {
+    "message": "Tempel tautan gambar"
+  },
+  "visualSearchSearchBtn": {
+    "message": "Cari"
+  },
+  "shortcutsTitle": {
+    "message": "Pintasan"
+  },
+  "hideShortcutNamesLabel": {
+    "message": "Sembunyikan Nama"
+  },
+  "folderIconHelp": {
+    "message": "Cari ikon folder kustom di"
+  },
+  "shortcutRadiusLabel": {
+    "message": "Kelengkungan Sudut"
+  },
+  "rows1": {
+    "message": "1 Baris"
+  },
+  "rows2": {
+    "message": "2 Baris"
+  },
+  "rows3": {
+    "message": "3 Baris"
+  },
+  "rows4": {
+    "message": "4 Baris"
+  },
+  "addFolderTitle": {
+    "message": "Tambah Folder"
+  },
+  "folderNameLabel": {
+    "message": "Nama"
+  },
+  "editFolderTitle": {
+    "message": "Edit Folder"
+  },
+  "chooseTypeTitle": {
+    "message": "Buat Baru"
+  },
+  "backLabel": {
+    "message": "Kembali"
+  },
+  "addShortcutTitle": {
+    "message": "Tambah Pintasan"
+  },
+  "editShortcutTitle": {
+    "message": "Edit Pintasan"
+  },
+  "shortcutNameLabel": {
+    "message": "Nama"
+  },
+  "shortcutUrlLabel": {
+    "message": "URL"
+  },
+  "addFaviconLabel": {
+    "message": "Ikon Kustom"
+  },
+  "faviconUrlLabel": {
+    "message": "URL Ikon"
+  },
+  "btnCancel": {
+    "message": "Batal"
+  },
+  "btnSave": {
+    "message": "Simpan"
+  },
+  "namePlaceholder": {
+    "message": "misal: Budi (opsional)"
+  },
+  "cityPlaceholder": {
+    "message": "misal: Jakarta, Indonesia"
+  },
+  "addShortcutLabel": {
+    "message": "Tambah"
+  },
+  "editLabel": {
+    "message": "Edit"
+  },
+  "removeLabel": {
+    "message": "Hapus"
+  },
+  "moreOptionsLabel": {
+    "message": "Opsi lainnya"
+  },
+  "styleNone": {
+    "message": "Tanpa Efek"
+  },
+  "learnMoreLabel": {
+    "message": "Pelajari selengkapnya"
+  },
+  "warningUnderstood": {
+    "message": "Mengerti"
+  },
+  "permissionRequiredTitle": {
+    "message": "Izin Diperlukan"
+  },
+  "grantPermissionLabel": {
+    "message": "Berikan Izin"
+  },
+  "permissionRequiredMessage": {
+    "message": "Untuk menggunakan fitur ini, Fluent New Tab memerlukan izin untuk mengakses \"$API_NAME$\". Demi menjaga privasi dan keamanan Anda.",
+    "placeholders": {
+      "api_name": {
+        "content": "$1",
+        "example": "Open-Meteo API"
+      }
+    }
+  },
+  "updateNoticePrefix": {
+    "message": "Fluent New Tab telah diperbarui ke versi $VERSION$, ",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "v3.1"
+      }
+    }
+  },
+  "updateNoticeChangelog": {
+    "message": "lihat catatan perubahan"
+  },
+  "wizardWelcomeTitle": {
+    "message": "Selamat datang"
+  },
+  "wizardWelcomeSubtitle": {
+    "message": "Ruang kerja fluent baru telah siap. Pilih langkah selanjutnya di bawah ini."
+  },
+  "wizardRestoreTitle": {
+    "message": "Pulihkan pengaturan"
+  },
+  "wizardRestoreDesc": {
+    "message": "Punya berkas cadangan? "
+  },
+  "wizardStartTitle": {
+    "message": "Mulai pengaturan"
+  },
+  "wizardStartDesc": {
+    "message": "Sesuaikan dalam beberapa langkah mudah."
+  },
+  "wizardSkipTitle": {
+    "message": "Lewati pengaturan"
+  },
+  "wizardSkipDesc": {
+    "message": "Gunakan pengaturan bawaan."
+  },
+  "wizardThemeAuto": {
+    "message": "Sistem"
+  },
+  "wizardThemeLight": {
+    "message": "Terang"
+  },
+  "wizardThemeDark": {
+    "message": "Gelap"
+  },
+  "wizardAppearanceTitle": {
+    "message": "Gaya & Tampilan"
+  },
+  "wizardAppearanceDesc": {
+    "message": "Atur tema, warna aksen, nama, dan bahasa pilihan Anda."
+  },
+  "btnBack": {
+    "message": "Kembali"
+  },
+  "btnNext": {
+    "message": "Lanjutkan"
+  },
+  "wizardWidgetsTitle": {
+    "message": "Widget & Utilitas"
+  },
+  "wizardWidgetsDesc": {
+    "message": "Pilih komponen yang ingin ditampilkan di halaman Anda."
+  },
+  "wizardFinalTitle": {
+    "message": "Semua Siap!"
+  },
+  "wizardFinalSubtitle": {
+    "message": "Terima kasih telah menggunakan Fluent New Tab!"
+  },
+  "wizardFinalStartTitle": {
+    "message": "Mulai Gunakan"
+  },
+  "wizardFinalStartDesc": {
+    "message": "Buka halaman tab baru Anda."
+  },
+  "wizardFinalSupportTitle": {
+    "message": "Dukung proyek ini"
+  },
+  "wizardFinalSupportDesc": {
+    "message": "Bantu menjaga proyek ini tetap berkembang."
+  },
+  "wizardFinalGithubTitle": {
+    "message": "Kode sumber"
+  },
+  "wizardFinalGithubDesc": {
+    "message": "Lihat proyek di GitHub."
+  },
+  "gridFullTitle": {
+    "message": "Kisi Sudah Penuh"
+  },
+  "gridFullMessage": {
+    "message": "Anda telah mencapai batas maksimum $LIMIT$ pintasan pada kisi utama. Hapus beberapa pintasan atau folder untuk mengosongkan ruang.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "40"
+      }
+    }
+  },
+  "folderFullTitle": {
+    "message": "Folder Sudah Penuh"
+  },
+  "folderFullMessage": {
+    "message": "Folder ini telah mencapai batas maksimum $LIMIT$ item. Silakan hapus beberapa pintasan terlebih dahulu sebelum menambahkan yang baru.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "39"
+      }
+    }
+  },
+  "searchingCity": {
+    "message": "Mencari..."
+  },
+  "noResultsFound": {
+    "message": "Tidak ada hasil yang ditemukan"
+  },
+  "privacyPolicyLabel": {
+    "message": "Baca kebijakan privasi"
+  },
+  "bookmarksLabel": {
+    "message": "Bookmark"
+  },
+  "importBookmarksBtnText": {
+    "message": "Impor Bookmark"
+  },
+  "importBookmarksWarningTitle": {
+    "message": "Impor Bookmark?"
+  },
+  "importBookmarksWarningDesc": {
+    "message": "Mengimpor bookmark akan mengganti pintasan saat ini. Apakah Anda ingin melanjutkan?"
+  },
+  "editWallpaperLabel": {
+    "message": "Ubah wallpaper"
+  },
+  "uploadWallpaperBtnText": {
+    "message": "Unggah"
+  },
+  "wallpaperUploadWarningTitle": {
+    "message": "Catatan"
+  },
+  "wallpaperUploadWarningDesc": {
+    "message": "Tergantung pada perangkat, wallpaper dengan rasio aspek sangat tinggi atau ukuran berkas yang besar dapat memperlambat waktu pemuatan ekstensi."
+  },
+  "searchEngineTip": {
+    "message": "Anda dapat mengubah mesin pencari di sini"
+  },
+  "systemDefault": {
+    "message": "Default Sistem"
+  },
+  "askAiEngineTip": {
+    "message": "Ubah penyedia AI di sini"
+  }
+}
