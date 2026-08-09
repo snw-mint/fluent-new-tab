@@ -48,19 +48,15 @@ export function getShortcutTemplate(): HTMLDivElement {
     shortcutTemplate.className = 'shortcut-item';
     shortcutTemplate.draggable = true;
 
-    const menuDots =
-      typeof ICON_MENU_DOTS !== 'undefined' ? ICON_MENU_DOTS : '...';
-    const editIcon = typeof ICON_EDIT !== 'undefined' ? ICON_EDIT : 'E';
-    const removeIcon = typeof ICON_REMOVE !== 'undefined' ? ICON_REMOVE : 'R';
+    const getTrans = (window as any).getTranslation;
+    const t = (key: string, fallback: string) => {
+      const v = getTrans?.(key);
+      return v && v !== key ? v : fallback;
+    };
 
-    const rawMore = (window as any).getTranslation?.('moreOptionsLabel');
-    const moreOptionsLabel =
-      rawMore && rawMore !== 'moreOptionsLabel' ? rawMore : 'More options';
-    const rawEdit = (window as any).getTranslation?.('editLabel');
-    const editLabel = rawEdit && rawEdit !== 'editLabel' ? rawEdit : 'Edit';
-    const rawRemove = (window as any).getTranslation?.('removeLabel');
-    const removeLabel =
-      rawRemove && rawRemove !== 'removeLabel' ? rawRemove : 'Remove';
+    const moreOptionsLabel = t('moreOptionsLabel', 'More options');
+    const editLabel = t('editLabel', 'Edit');
+    const removeLabel = t('removeLabel', 'Remove');
 
     const card = document.createElement('a');
     card.className = 'shortcut-card';
@@ -75,21 +71,21 @@ export function getShortcutTemplate(): HTMLDivElement {
     const menuBtn = document.createElement('button');
     menuBtn.className = 'menu-btn';
     menuBtn.title = moreOptionsLabel;
-    menuBtn.insertAdjacentHTML('beforeend', menuDots);
+    menuBtn.insertAdjacentHTML('beforeend', ICON_MENU_DOTS);
 
     const dropdown = document.createElement('div');
     dropdown.className = 'shortcut-dropdown';
 
     const editOption = document.createElement('div');
     editOption.className = 'menu-option edit-option';
-    editOption.insertAdjacentHTML('beforeend', editIcon);
+    editOption.insertAdjacentHTML('beforeend', ICON_EDIT);
     const editSpan = document.createElement('span');
     editSpan.textContent = editLabel;
     editOption.appendChild(editSpan);
 
     const removeOption = document.createElement('div');
     removeOption.className = 'menu-option remove-option';
-    removeOption.insertAdjacentHTML('beforeend', removeIcon);
+    removeOption.insertAdjacentHTML('beforeend', ICON_REMOVE);
     const removeSpan = document.createElement('span');
     removeSpan.textContent = removeLabel;
     removeOption.appendChild(removeSpan);
@@ -265,15 +261,11 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
     const addCard = document.createElement('div');
     addCard.className = 'shortcut-card add-menu-btn';
-    addCard.insertAdjacentHTML(
-      'beforeend',
-      typeof ICON_ADD !== 'undefined' ? ICON_ADD : '+',
-    );
+    addCard.insertAdjacentHTML('beforeend', ICON_ADD);
 
     const addTitle = document.createElement('span');
     addTitle.className = 'shortcut-title';
-    addTitle.textContent =
-      (window as any).getTranslation?.('addShortcutLabel') || '';
+    addTitle.textContent = (window as any).getTranslation?.('addShortcutLabel') ?? '';
 
     const dropdown = document.createElement('div');
     dropdown.className = 'shortcut-dropdown add-dropdown';
@@ -311,13 +303,12 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     addBtn.appendChild(addTitle);
     addBtn.appendChild(dropdown);
 
-    const getTrans = (window as any).getTranslation;
-    if (getTrans) {
-      const texts = dropdown.querySelectorAll('[data-i18n]');
-      texts.forEach((el) => {
+    const getTransAdd = (window as any).getTranslation;
+    if (getTransAdd) {
+      dropdown.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n');
         if (key) {
-          const trans = getTrans(key);
+          const trans = getTransAdd(key);
           if (trans) el.textContent = trans;
         }
       });
@@ -399,13 +390,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       return;
     }
 
-    const menuBtn = target.closest('.menu-btn');
-    if (menuBtn) {
-      event.preventDefault();
-      event.stopPropagation();
-      const dropNode = menuBtn
-        .closest('.menu-wrapper')
-        ?.querySelector('.shortcut-dropdown') as HTMLElement | null;
+    const toggleDropNode = (dropNode: HTMLElement | null) => {
       onClosePopups(dropNode);
       if (dropNode) {
         const nextActive = !dropNode.classList.contains('active');
@@ -417,6 +402,16 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
         }
       }
       syncShortcutDropdownState();
+    };
+
+    const menuBtn = target.closest('.menu-btn');
+    if (menuBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropNode = menuBtn
+        .closest('.menu-wrapper')
+        ?.querySelector('.shortcut-dropdown') as HTMLElement | null;
+      toggleDropNode(dropNode);
       return;
     }
 
@@ -434,17 +429,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       const dropNode = addMenuBtn
         .closest('.add-card-wrapper')
         ?.querySelector('.shortcut-dropdown') as HTMLElement | null;
-      onClosePopups(dropNode);
-      if (dropNode) {
-        const nextActive = !dropNode.classList.contains('active');
-        dropNode.classList.toggle('active', nextActive);
-        if (nextActive) {
-          activeShortcutDropdowns.add(dropNode);
-        } else {
-          activeShortcutDropdowns.delete(dropNode);
-        }
-      }
-      syncShortcutDropdownState();
+      toggleDropNode(dropNode);
       return;
     }
 

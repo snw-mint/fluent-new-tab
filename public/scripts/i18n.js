@@ -64,8 +64,6 @@ function applyToDOM(messages) {
       } else if (element.tagName === 'OPTION') {
         element.textContent = translation;
       } else if (element.tagName === 'TITLE') {
-        // Localize the browser tab title, but never override a user-defined
-        // custom tab name (handled in tab-customization).
         if (!localStorage.getItem('tabName')) {
           document.title = translation;
         }

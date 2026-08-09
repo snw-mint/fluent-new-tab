@@ -200,13 +200,12 @@ export function renderGreeting(wrapper: HTMLElement): void {
 
   const hour = now.getHours();
   const dayOfWeek = now.getDay();
-  let timeKeyPrefix = 'greetMorning';
-
+  let timeKeyPrefix: string;
   if (hour >= 5 && hour < 12) {
     timeKeyPrefix = 'greetMorning';
   } else if (hour >= 12 && hour < 18) {
     timeKeyPrefix = 'greetAfternoon';
-  } else if (hour >= 18 && hour < 24) {
+  } else if (hour >= 18) {
     timeKeyPrefix = 'greetEvening';
   } else {
     timeKeyPrefix = 'greetNight';
@@ -217,13 +216,9 @@ export function renderGreeting(wrapper: HTMLElement): void {
   const seed = now.getHours() * 2 + Math.floor(now.getMinutes() / 30);
 
   if (isWeekday && seed % 3 === 0) {
-    if (hour >= 5 && hour < 12) {
-      translationKey = 'greetWeekMorning';
-    } else if (hour >= 12 && hour < 18) {
-      translationKey = 'greetWeekAfternoon';
-    } else if (hour >= 18 && hour < 24) {
-      translationKey = 'greetWeekNight';
-    }
+    if (hour >= 5 && hour < 12) translationKey = 'greetWeekMorning';
+    else if (hour >= 12 && hour < 18) translationKey = 'greetWeekAfternoon';
+    else if (hour >= 18) translationKey = 'greetWeekNight';
   }
 
   if (!translationKey) {
@@ -348,9 +343,5 @@ export function renderGreeting(wrapper: HTMLElement): void {
     wrapper.replaceChildren(icon, heading);
   }
 
-  if (!usingFallback) {
-    wrapper.dataset.lastCache = cacheKey;
-  } else {
-    wrapper.dataset.lastCache = '';
-  }
+  wrapper.dataset.lastCache = usingFallback ? '' : cacheKey;
 }

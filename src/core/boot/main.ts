@@ -751,7 +751,6 @@ async function bootInteractive(): Promise<void> {
 
   const searchEngineTip = document.getElementById('searchEngineTip');
   if (searchEngineTip && !localStorage.getItem('hasSeenSearchEngineTip')) {
-    // Marcar imediatamente para não repetir em outras abas abertas simultaneamente
     localStorage.setItem('hasSeenSearchEngineTip', 'true');
 
     setTimeout(() => searchEngineTip.classList.remove('is-hidden'), 1500);
@@ -870,7 +869,7 @@ async function bootInteractive(): Promise<void> {
   if (refs.themeBtns) {
     function playThemeAnimation(element: HTMLElement): void {
       element.classList.remove('animate');
-      void element.offsetWidth; // force reflow to restart animation
+      void element.offsetWidth;
       element.classList.add('animate');
       element.addEventListener(
         'animationend',
