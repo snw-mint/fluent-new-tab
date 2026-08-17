@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Afhankelijk van het apparaat kunnen achtergronden met uitzonderlijk hoge beeldverhoudingen of zeer grote bestandsgroottes resulteren in langzamere laadtijden van de extensie."
   },
-  "rateUsToastPrefix": {
-    "message": "Genieten van vloeiend nieuw tabblad?"
-  },
-  "rateUsToastLink": {
-    "message": "Beoordeel ons!"
-  },
   "searchEngineTip": {
     "message": "Hier kunt u de zoekmachine wijzigen"
   },

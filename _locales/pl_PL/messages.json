@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "W zależności od urządzenia tapety o wyjątkowo wysokich proporcjach lub bardzo dużych rozmiarach plików mogą powodować wolniejsze ładowanie rozszerzenia."
   },
-  "rateUsToastPrefix": {
-    "message": "Podoba Ci się nowa karta Fluent?"
-  },
-  "rateUsToastLink": {
-    "message": "Oceń nas!"
-  },
   "searchEngineTip": {
     "message": "Tutaj możesz zmienić wyszukiwarkę"
   },

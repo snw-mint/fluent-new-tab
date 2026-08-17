@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Laitteesta riippuen taustakuvat, joissa on poikkeuksellisen suuri kuvasuhde tai erittäin suuri tiedostokoko, voivat hidastaa laajennusten latausaikoja."
   },
-  "rateUsToastPrefix": {
-    "message": "Pidätkö Fluent New Tabista?"
-  },
-  "rateUsToastLink": {
-    "message": "Arvioi meidät!"
-  },
   "searchEngineTip": {
     "message": "Voit vaihtaa hakukonetta tästä"
   },

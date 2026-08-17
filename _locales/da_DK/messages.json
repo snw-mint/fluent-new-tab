@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Afhængigt af enheden kan tapeter med usædvanligt høje billedformater eller meget store filstørrelser resultere i langsommere indlæsningstider for udvidelsen."
   },
-  "rateUsToastPrefix": {
-    "message": "Nyder du Fluent New Tab?"
-  },
-  "rateUsToastLink": {
-    "message": "Bedøm os!"
-  },
   "searchEngineTip": {
     "message": "Du kan ændre søgemaskinen her"
   },

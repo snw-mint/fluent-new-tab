@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Eszköztől függően a kivételesen nagy képarányú vagy nagyon nagy fájlméretű háttérképek lassabb kiterjesztési betöltési időt eredményezhetnek."
   },
-  "rateUsToastPrefix": {
-    "message": "Tetszik a Fluent New Tab?"
-  },
-  "rateUsToastLink": {
-    "message": "Értékeljen minket!"
-  },
   "searchEngineTip": {
     "message": "Itt tudod megváltoztatni a keresőt"
   },

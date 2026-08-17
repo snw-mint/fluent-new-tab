@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "Abhängig vom Gerät können Hintergrundbilder mit außergewöhnlich hohen Seitenverhältnissen oder sehr großen Dateigrößen zu langsameren Ladezeiten der Erweiterung führen."
   },
-  "rateUsToastPrefix": {
-    "message": "Genießen Sie fließend New Tab?"
-  },
-  "rateUsToastLink": {
-    "message": "Bewerten Sie uns!"
-  },
   "searchEngineTip": {
     "message": "Hier können Sie die Suchmaschine ändern"
   },

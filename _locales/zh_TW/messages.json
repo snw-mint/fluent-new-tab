@@ -718,12 +718,6 @@
   "wallpaperUploadWarningDesc": {
     "message": "根據裝置的不同，具有極高寬高比或非常大檔案大小的桌布可能會導致擴充載入時間變慢。"
   },
-  "rateUsToastPrefix": {
-    "message": "喜歡流暢的新標籤嗎？"
-  },
-  "rateUsToastLink": {
-    "message": "評價我們！"
-  },
   "searchEngineTip": {
     "message": "您可以在這裡更改搜尋引擎"
   },
