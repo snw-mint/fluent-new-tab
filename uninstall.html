@@ -201,21 +201,54 @@
 
       .success-cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 1.25rem;
+        justify-content: center;
+        max-width: 36rem;
+        margin: 0 auto;
       }
 
-      .success-cards .setting-card {
+      .action-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         text-decoration: none;
+        color: inherit;
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 1.75rem 1.5rem;
+        box-shadow: var(--shadow-card);
         transition:
-          transform 0.2s,
-          box-shadow 0.2s;
+          transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1),
+          box-shadow 0.2s,
+          border-color 0.2s;
       }
 
-      .success-cards .setting-card:hover {
+      .action-card:hover {
         transform: translateY(-2px);
         box-shadow: var(--shadow-float);
+        border-color: var(--color-primary);
+      }
+
+      .action-card svg {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .action-card h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+        color: var(--color-text-main);
+      }
+
+      .action-card p {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin: 0;
       }
 
       @media (max-width: 48rem) {
@@ -225,22 +258,6 @@
           box-shadow: none;
           background: transparent;
         }
-      }
-
-      a.feature-card {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-        gap: 1.5rem;
-        justify-content: center;
       }
     </style>
   </head>
@@ -520,8 +537,8 @@
           reach out.
         </p>
 
-        <div class="features-grid">
-          <a href="mailto:snowmint.dev@gmail.com" class="feature-card">
+        <div class="success-cards">
+          <a href="mailto:snowmint.dev@gmail.com" class="action-card">
             <svg
               width="24"
               height="24"
@@ -631,7 +648,7 @@
             <p>snowmint.dev@gmail.com</p>
           </a>
 
-          <a href="index.html" class="feature-card">
+          <a href="index.html" class="action-card">
             <svg
               width="24"
               height="24"

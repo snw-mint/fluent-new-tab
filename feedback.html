@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback - Fluent New Tab</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <script>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme-preference");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme = storedTheme || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      .feedback-hero {
+        padding: 4rem 0 2rem;
+        text-align: center;
+      }
+
+      .feedback-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+        letter-spacing: -0.02em;
+      }
+
+      .feedback-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        max-width: 40rem;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .form-container {
+        max-width: 42rem;
+        margin: 0 auto 4rem;
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .notice-card {
+        display: flex;
+        gap: 0.875rem;
+        background-color: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 1rem 1.25rem;
+        margin-bottom: 2rem;
+        font-size: 0.925rem;
+        line-height: 1.55;
+        color: var(--color-text-muted);
+        align-items: flex-start;
+      }
+
+      .notice-icon {
+        color: var(--color-primary);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-top: 0.125rem;
+      }
+
+      .notice-content strong {
+        color: var(--color-text-main);
+      }
+
+      .notice-content a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .notice-content a:hover {
+        text-decoration: underline;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.875rem;
+        color: var(--color-text-main);
+      }
+
+      .fluent-rating-group {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.75rem;
+      }
+
+      .fluent-rating-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.375rem;
+        cursor: pointer;
+        text-align: center;
+        user-select: none;
+      }
+
+      .fluent-rating-item input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .rating-box {
+        width: 100%;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        font-size: 1.25rem;
+        font-weight: 600;
+        transition: border-color 0.2s, background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+      }
+
+      .fluent-rating-item input[type="radio"]:checked ~ .rating-box {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: #ffffff;
+      }
+
+      .rating-text {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .fluent-rating-item input[type="radio"]:checked ~ .rating-text {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      .fluent-textarea {
+        width: 100%;
+        min-height: 7.5rem;
+        padding: 0.875rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        font-family: inherit;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        resize: vertical;
+        transition: border-color 0.2s, background-color 0.2s;
+      }
+
+      .fluent-textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        background-color: var(--color-surface);
+      }
+
+      .form-actions {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .form-actions button:disabled {
+        background-color: var(--color-border);
+        color: var(--color-text-muted);
+        cursor: not-allowed;
+        opacity: 0.7;
+        box-shadow: none;
+      }
+
+      #success-view {
+        display: none;
+        text-align: center;
+        animation: fluentSlideUp 0.4s ease-out forwards;
+      }
+
+      .success-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 1.25rem;
+        justify-content: center;
+        max-width: 36rem;
+        margin: 0 auto;
+      }
+
+      .action-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        color: inherit;
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        padding: 1.75rem 1.5rem;
+        box-shadow: var(--shadow-card);
+        transition:
+          transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1),
+          box-shadow 0.2s,
+          border-color 0.2s;
+      }
+
+      .action-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-float);
+        border-color: var(--color-primary);
+      }
+
+      .action-card svg {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .action-card h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+        color: var(--color-text-main);
+      }
+
+      .action-card p {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      @media (max-width: 48rem) {
+        .form-container {
+          padding: 1.5rem;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        }
+
+        .rating-box {
+          height: 3rem;
+          font-size: 1.1rem;
+        }
+
+        .rating-text {
+          font-size: 0.725rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="nav-left">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#download">Download</a>
+            <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener">Buy Me a Coffee</a>
+            <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="nav-right">
+          <button
+            id="theme-switcher"
+            class="theme-switch"
+            aria-label="Toggle Dark Mode"
+          >
+            <span class="theme-icon light-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661a9.964 9.964 0 0 1-3.234-2.983.75.75 0 0 1 .365-1.131c3.767-1.348 5.785-2.911 6.956-5.146 1.232-2.353 1.551-4.93.689-8.464a.75.75 0 0 1 .769-.926 9.961 9.961 0 0 1 4.457 1.327C21.149 6.1 22.788 12.217 20.025 17Zm-8.248-4.903c-1.25 2.388-3.31 4.099-6.817 5.499a8.492 8.492 0 0 0 2.152 1.766 8.501 8.501 0 1 0 8.502-14.725 8.485 8.485 0 0 0-2.792-1.016c.647 3.384.23 6.044-1.045 8.476Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="theme-icon dark-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.996 19.01a.75.75 0 0 1 .743.649l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.101v-1.5a.75.75 0 0 1 .75-.75Zm6.022-2.072 1.06 1.06a.75.75 0 1 1-1.06 1.061l-1.06-1.06a.75.75 0 0 1 1.06-1.061Zm-10.983 0a.75.75 0 0 1 0 1.06L5.974 19.06a.75.75 0 0 1-1.06-1.06l1.06-1.061a.75.75 0 0 1 1.06 0ZM12 6.475a5.525 5.525 0 1 1 0 11.05 5.525 5.525 0 0 1 0-11.05Zm0 1.5a4.025 4.025 0 1 0 0 8.05 4.025 4.025 0 0 0 0-8.05Zm9.25 3.293a.75.75 0 0 1 .102 1.493l-.102.007h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm-17-.029a.75.75 0 0 1 .102 1.494l-.102.006h-1.5a.75.75 0 0 1-.102-1.493l.102-.007h1.5Zm1.64-6.37.084.072 1.06 1.06a.75.75 0 0 1-.976 1.134l-.084-.073-1.06-1.06a.75.75 0 0 1 .976-1.134Zm13.188.072a.75.75 0 0 1 .073.977l-.073.084-1.06 1.06a.75.75 0 0 1-1.133-.976l.072-.084 1.06-1.061a.75.75 0 0 1 1.061 0ZM12 1.99a.75.75 0 0 1 .743.648l.007.102v1.5a.75.75 0 0 1-1.493.101l-.007-.102v-1.5a.75.75 0 0 1 .75-.75Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            id="mobile-menu-toggle"
+            class="mobile-menu-toggle"
+            aria-label="Toggle navigation menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="feedback-hero" id="header-text">
+      <div class="container">
+        <img
+          src="assets/emojis/smiling.png"
+          alt="Slightly Smiling Face"
+          width="70"
+          height="70"
+        />
+        <h1 class="feedback-title">Share your feedback</h1>
+        <p class="feedback-subtitle">
+          Your feedback helps us continuously improve Fluent New Tab for everyone.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="form-container" id="form-view">
+        <div class="notice-card">
+          <div class="notice-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div class="notice-content">
+            <strong>Anonymous Feedback:</strong> This form is intended for general feedback. If you would like to request a new feature, please <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener">request a feature</a>. If you ran into a bug or issue, please <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener">report a bug</a> on GitHub.
+          </div>
+        </div>
+
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdJ0yU1P13XWcdpjMyeMRdXySN8c6q4sUpxVmDHdN9UqH9aOw/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          id="feedback-form"
+        >
+          <div class="form-group">
+            <label class="form-label" id="rating-label">
+              Rate your overall experience with Fluent New Tab
+              <span style="color: #d13438">*</span>
+            </label>
+            <div class="fluent-rating-group" role="radiogroup" aria-labelledby="rating-label">
+              <label class="fluent-rating-item">
+                <input
+                  type="radio"
+                  name="entry.2097710165"
+                  value="1"
+                  required
+                />
+                <span class="rating-box">1</span>
+                <span class="rating-text">Poor</span>
+              </label>
+
+              <label class="fluent-rating-item">
+                <input
+                  type="radio"
+                  name="entry.2097710165"
+                  value="2"
+                />
+                <span class="rating-box">2</span>
+                <span class="rating-text">Fair</span>
+              </label>
+
+              <label class="fluent-rating-item">
+                <input
+                  type="radio"
+                  name="entry.2097710165"
+                  value="3"
+                />
+                <span class="rating-box">3</span>
+                <span class="rating-text">Good</span>
+              </label>
+
+              <label class="fluent-rating-item">
+                <input
+                  type="radio"
+                  name="entry.2097710165"
+                  value="4"
+                />
+                <span class="rating-box">4</span>
+                <span class="rating-text">Very Good</span>
+              </label>
+
+              <label class="fluent-rating-item">
+                <input
+                  type="radio"
+                  name="entry.2097710165"
+                  value="5"
+                />
+                <span class="rating-box">5</span>
+                <span class="rating-text">Excellent</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rating-reason">
+              What is the main reason for your rating?
+              <span style="color: #d13438">*</span>
+            </label>
+            <textarea
+              id="rating-reason"
+              class="fluent-textarea"
+              name="entry.648556390"
+              placeholder="Tell us what you like, what is missing, or how we can improve..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" id="submit-btn" disabled>
+              Submit Feedback
+            </button>
+          </div>
+        </form>
+
+        <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display: none"
+        ></iframe>
+      </div>
+
+      <div
+        class="form-container"
+        id="success-view"
+        style="
+          padding: 4rem 2rem;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="assets/emojis/hugging.png"
+          alt="Smiling Face with Open Hands"
+          width="70"
+          height="70"
+        />
+        <h2 class="feedback-title">Thank you for your feedback!</h2>
+        <p class="feedback-subtitle" style="margin-bottom: 3rem">
+          Your feedback has been submitted successfully. It means a lot to an independent developer and helps make Fluent New Tab better for everyone.
+        </p>
+
+        <div class="success-cards">
+          <a href="mailto:snowmint.dev@gmail.com" class="action-card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="#367AF2"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint0_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint1_linear_378174_9144)"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint2_linear_378174_9144)"
+                fill-opacity="0.75"
+              />
+              <path
+                d="M22 7.5L22.0001 16.75C22.0001 18.483 20.6437 19.8992 18.9345 19.9948L18.7501 20H5.25012C3.51709 20 2.10088 18.6435 2.00527 16.9344L2.00012 16.75L2 7.5L11.652 12.5564C11.87 12.6705 12.13 12.6705 12.348 12.5564L22 7.5Z"
+                fill="url(#paint3_linear_378174_9144)"
+                fill-opacity="0.7"
+              />
+              <path
+                d="M2 7.86L11.652 12.9164C11.87 13.0305 12.13 13.0305 12.348 12.9164L22 7.86V7.25002C22 5.4551 20.5449 4.00002 18.75 4.00002L5.25 4C3.45508 4 2 5.45507 2 7.25V7.86Z"
+                fill="url(#paint4_linear_378174_9144)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9144"
+                  x1="14.5391"
+                  y1="9.95028"
+                  x2="20.0046"
+                  y2="20.515"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.19865"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9144"
+                  x1="9.1429"
+                  y1="8.81579"
+                  x2="3.82831"
+                  y2="20.8653"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.191319"
+                    stop-color="#0094F0"
+                    stop-opacity="0"
+                  />
+                  <stop offset="0.430619" stop-color="#0094F0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_378174_9144"
+                  x1="17.2735"
+                  y1="14.9574"
+                  x2="18.1428"
+                  y2="21.1514"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#2764E7" stop-opacity="0" />
+                  <stop offset="1" stop-color="#2764E7" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_378174_9144"
+                  x1="15.0953"
+                  y1="9.03508"
+                  x2="16.6812"
+                  y2="21.6434"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0.53288"
+                    stop-color="#FF6CE8"
+                    stop-opacity="0"
+                  />
+                  <stop offset="1" stop-color="#FF6CE8" />
+                </linearGradient>
+                <linearGradient
+                  id="paint4_linear_378174_9144"
+                  x1="7.94161"
+                  y1="1.15063"
+                  x2="13.98"
+                  y2="17.089"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6CE0FF" />
+                  <stop offset="0.461792" stop-color="#29C3FF" />
+                  <stop offset="1" stop-color="#4894FE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Email Me</h3>
+            <p>snowmint.dev@gmail.com</p>
+          </a>
+
+          <a href="index.html" class="action-card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 13H15V21H9V13Z"
+                fill="url(#paint0_linear_378174_9087)"
+              />
+              <path
+                d="M13.4508 4.53318C12.6128 3.82618 11.3872 3.82618 10.5492 4.53318L3.79916 10.2277C3.29241 10.6552 3 11.2845 3 11.9475V19.2526C3 20.2191 3.7835 21.0026 4.75 21.0026H7.75H9.5V15.25C9.5 14.5707 10.0418 14.018 10.7169 14.0004H13.2831C13.9582 14.018 14.5 14.5707 14.5 15.25V21.0026H16.25H19.25C20.2165 21.0026 21 20.2191 21 19.2526V11.9475C21 11.2845 20.7076 10.6552 20.2008 10.2277L13.4508 4.53318Z"
+                fill="url(#paint1_linear_378174_9087)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.8044 2.2988C12.3455 1.9004 11.6545 1.9004 11.1956 2.2988L2.40744 9.92806C1.90688 10.3626 1.86123 11.1118 2.30548 11.6014C2.74973 12.0911 3.51565 12.1357 4.01621 11.7012L12 4.77023L19.9838 11.7012C20.4844 12.1357 21.2503 12.0911 21.6945 11.6014C22.1388 11.1118 22.0931 10.3626 21.5926 9.92806L12.8044 2.2988Z"
+                fill="url(#paint2_linear_378174_9087)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.1956 2.2988C11.6545 1.9004 12.3455 1.9004 12.8044 2.2988L21.5926 9.92806C22.0931 10.3626 22.1388 11.1118 21.6945 11.6014C21.2503 12.0911 20.4844 12.1357 19.9838 11.7012L12 4.77023L4.01621 11.7012C3.51565 12.1357 2.74973 12.0911 2.30548 11.6014C1.86123 11.1118 1.90688 10.3626 2.40744 9.92806L11.1956 2.2988Z"
+                fill="url(#paint3_linear_378174_9087)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_378174_9087"
+                  x1="12"
+                  y1="13"
+                  x2="6.7067"
+                  y2="21.8251"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#944600" />
+                  <stop offset="1" stop-color="#CD8E02" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_378174_9087"
+                  x1="4.71799"
+                  y1="3.17161"
+                  x2="21.5682"
+                  y2="17.6733"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFD394" />
+                  <stop offset="1" stop-color="#FFB357" />
+                </linearGradient>
+                <linearGradient
+                  id="paint2_linear_378174_9087"
+                  x1="8.76835"
+                  y1="-0.375046"
+                  x2="13.1615"
+                  y2="11.5055"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+                <linearGradient
+                  id="paint3_linear_378174_9087"
+                  x1="8.76835"
+                  y1="-0.375046"
+                  x2="13.1615"
+                  y2="11.5055"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FF921F" />
+                  <stop offset="1" stop-color="#EB4824" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <h3>Back to Home</h3>
+            <p>Return to the main page.</p>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img class="logo-mark" src="logo.webp" alt="Fluent New Tab logo" />
+            <span>Fluent New Tab</span>
+          </div>
+          <p class="footer-description">
+            Fluent New Tab is an independent open-source project and is not
+            affiliated with, endorsed by, or sponsored by Microsoft Corporation.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-column">
+            <h4>Overview</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/">Home</a>
+            <a href="https://snw-mint.github.io/fluent-new-tab/setup.html"
+              >Setup & Configuration</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html"
+              >Privacy Policy</a
+            >
+            <a href="https://snw-mint.github.io/fluent-new-tab/terms.html"
+              >Terms of Use</a
+            >
+            <a href="mailto:snowmint.dev@gmail.com">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="https://snw-mint.github.io/fluent-new-tab/help.html"
+              >Troubleshooting</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml"
+              >Report a Bug</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml"
+              >Request a Feature</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/discussions/new/choose"
+              >Ask a Question</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Community</h4>
+            <a href="https://github.com/snw-mint/fluent-new-tab">Source Code</a>
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/CONTRIBUTING.md"
+              >Contributing</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/blob/main/TRANSLATING.md"
+              >Help Translate</a
+            >
+            <a
+              href="https://buymeacoffee.com/snw.mint"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Support the Project</a
+            >
+          </div>
+
+          <div class="footer-column">
+            <h4>Download</h4>
+            <a
+              href="https://microsoftedge.microsoft.com/addons/detail/fluent-new-tab/hcohjkajcimobdddlnfnfhdfnbapondc"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Microsoft Edge</a
+            >
+            <a
+              href="https://chromewebstore.google.com/detail/pbbiecccbghiolgifmlichmgpoclijfa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Chrome</a
+            >
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/fluent-new-tab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mozilla Firefox</a
+            >
+            <a
+              href="https://github.com/snw-mint/fluent-new-tab/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Manual Release</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>
+          &copy; 2026 Fluent New Tab. Created by
+          <a
+            href="https://github.com/snw-mint"
+            target="_blank"
+            rel="noopener noreferrer"
+            >snow mint</a
+          >.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("feedback-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const ratingRadios = form.querySelectorAll('input[name="entry.2097710165"]');
+        const reasonTextarea = document.getElementById("rating-reason");
+
+        function updateSubmitButtonState() {
+          const hasRating = Array.from(ratingRadios).some((radio) => radio.checked);
+          const hasReason = reasonTextarea.value.trim().length > 0;
+          submitBtn.disabled = !(hasRating && hasReason);
+        }
+
+        ratingRadios.forEach((radio) => {
+          radio.addEventListener("change", updateSubmitButtonState);
+        });
+
+        reasonTextarea.addEventListener("input", updateSubmitButtonState);
+
+        let submitted = false;
+        form.addEventListener("submit", () => {
+          submitted = true;
+          submitBtn.textContent = "Sending...";
+          submitBtn.style.opacity = "0.7";
+          submitBtn.disabled = true;
+        });
+
+        const iframe = document.getElementById("hidden_iframe");
+        iframe.onload = function () {
+          if (submitted) {
+            document.getElementById("form-view").style.display = "none";
+            document.getElementById("header-text").style.display = "none";
+            document.getElementById("success-view").style.display = "block";
+            window.scrollTo(0, 0);
+          }
+        };
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
