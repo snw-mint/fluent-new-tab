@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  publish-edge:
+  publish-stores:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,11 +16,11 @@ jobs:
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
 
-      - name: Download Chromium package from Release
+      - name: Download release assets
         uses: robinraju/release-downloader@v1.11
         with:
           tag: ${{ github.event.release.tag_name }}
-          fileName: "fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip"
+          fileName: '*'
 
       - name: Publish to Microsoft Edge Add-ons
         uses: PlasmoHQ/bpp@v3
@@ -29,4 +29,11 @@ jobs:
           edge-client-id: ${{ secrets.EDGE_CLIENT_ID }}
           edge-client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
           edge-access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
-          edge-zip: "fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip"
+          edge-zip: 'fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip'
+
+      - name: Publish to Firefox Add-ons (AMO)
+        uses: PlasmoHQ/bpp@v3
+        with:
+          firefox-jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          firefox-jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
+          firefox-zip: 'fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip'
