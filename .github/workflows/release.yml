@@ -40,15 +40,6 @@ jobs:
             --exclude "*.map" \
             --exclude ".DS_Store"
 
-      - name: Publish to Microsoft Edge Add-ons
-        uses: PlasmoHQ/bpp@v3
-        with:
-          edge-product-id: ${{ secrets.EDGE_PRODUCT_ID }}
-          edge-client-id: ${{ secrets.EDGE_CLIENT_ID }}
-          edge-client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
-          edge-access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
-          edge-zip: 'fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip'
-
       - name: Run release build (Firefox)
         run: |
           mv manifest.json manifest-chrome.json
