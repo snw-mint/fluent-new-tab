@@ -254,9 +254,7 @@ export function renderGreeting(wrapper: HTMLElement): void {
   const message = (window as any).getTranslation?.(translationKey);
 
   if (message && message !== translationKey) {
-    rawGreeting = message
-      .replace(/\$WEEK\$/g, currentDayName)
-      .replace(/\$NAME\$/g, userName);
+    rawGreeting = message;
   } else {
     usingFallback = true;
     try {
@@ -271,6 +269,23 @@ export function renderGreeting(wrapper: HTMLElement): void {
     } catch (error) {
       rawGreeting = translationKey;
     }
+  }
+
+  if (translationKey.startsWith('greetWeek')) {
+    rawGreeting = rawGreeting
+      .replace(/\$(?:WEEK|SEMANA|DAY|DIA)\$/gi, currentDayName)
+      .replace(/\$(?:NAME|NOMBRE|USER|USUARIO)\$/gi, userName);
+    if (rawGreeting.includes(currentDayName)) {
+      rawGreeting = rawGreeting.replace(/\$[A-Z0-9_]+\$/gi, userName);
+    } else {
+      rawGreeting = rawGreeting
+        .replace(/\$[A-Z0-9_]+\$/i, currentDayName)
+        .replace(/\$[A-Z0-9_]+\$/gi, userName);
+    }
+  } else {
+    rawGreeting = rawGreeting
+      .replace(/\$(?:NAME|NOMBRE|USER|USUARIO)\$/gi, userName)
+      .replace(/\$[A-Z0-9_]+\$/gi, userName);
   }
 
   if (!userName) {
