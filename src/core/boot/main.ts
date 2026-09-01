@@ -304,6 +304,7 @@ async function bootInteractive(): Promise<void> {
       initGlobalUiSystem,
       bindShortcutRadiusFeature,
       bindLauncherFeature,
+      bindFeedFeature,
       bindReduceEffectsFeature,
       bindSurfaceTintFeature,
     },
@@ -477,6 +478,26 @@ async function bootInteractive(): Promise<void> {
   });
 
   updateLauncherVisibility(state.launcherEnabled, false);
+
+  const updateFeedVisibility = (visible: boolean, animate = true) => {
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      if (refs.feedOptionsGroup)
+        setCollapsible(refs.feedOptionsGroup, visible, animate);
+    });
+  };
+
+  bindFeedFeature({
+    applyInitialFeedState: () =>
+      updateFeedVisibility(state.feedEnabled, false),
+    getFeedEnabled: () => state.feedEnabled,
+    setFeedEnabled: state.setFeedEnabled,
+    getFeedMode: () => state.feedMode,
+    setFeedMode: state.setFeedMode,
+    updateFeedVisibility,
+  });
+
+  updateFeedVisibility(state.feedEnabled, false);
+
   bindReduceEffectsFeature();
   bindSurfaceTintFeature();
 
