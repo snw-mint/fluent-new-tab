@@ -213,4 +213,7 @@ export const toggleFeed = getById<HTMLInputElement>('toggleFeed');
 export const feedOptionsGroup = getById<HTMLDivElement>('feedOptionsGroup');
 export const feedModeSelect = getById<HTMLSelectElement>('feedModeSelect');
 export const editFeedRssBtn = getById<HTMLButtonElement>('editFeedRssBtn');
+export const feedDrawer = getById<HTMLDivElement>('feedDrawer');
+export const feedCard = getById<HTMLDivElement>('feedCard');
+
 

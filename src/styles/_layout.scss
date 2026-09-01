@@ -21,6 +21,15 @@
   padding-bottom: 10vh;
   transform: scale(var(--main-ui-scale));
   transform-origin: center center;
+  transition: padding-bottom 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body:has(.feed-drawer.minimal) .container {
+  padding-bottom: calc(10vh + 5rem);
+}
+
+body:has(.feed-drawer.expanded) .container {
+  padding-bottom: calc(10vh + 12rem);
 }
 
 .logo-wrapper {

@@ -1062,6 +1062,9 @@ export function bindFeedFeature(options: any): void {
       const mode = target.value;
       options.setFeedMode(mode);
       localStorage.setItem('feedMode', mode);
+      if (options.updateFeedMode) {
+        options.updateFeedMode(mode);
+      }
     });
   }
 

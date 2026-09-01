@@ -486,6 +486,13 @@ async function bootInteractive(): Promise<void> {
     });
   };
 
+  const updateFeedMode = (mode: string) => {
+    if (refs.feedDrawer) {
+      refs.feedDrawer.classList.toggle('minimal', mode === 'minimal');
+      refs.feedDrawer.classList.toggle('expanded', mode === 'expanded');
+    }
+  };
+
   bindFeedFeature({
     applyInitialFeedState: () =>
       updateFeedVisibility(state.feedEnabled, false),
@@ -494,8 +501,10 @@ async function bootInteractive(): Promise<void> {
     getFeedMode: () => state.feedMode,
     setFeedMode: state.setFeedMode,
     updateFeedVisibility,
+    updateFeedMode,
   });
 
+  updateFeedMode(state.feedMode);
   updateFeedVisibility(state.feedEnabled, false);
 
   bindReduceEffectsFeature();
