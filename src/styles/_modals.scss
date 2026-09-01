@@ -303,6 +303,11 @@
     box-shadow: inset 0 -2px 0 #107c41 !important;
     transition: box-shadow 0.2s ease;
   }
+
+  &.is-invalid {
+    box-shadow: inset 0 -2px 0 #c42b1c !important;
+    transition: box-shadow 0.2s ease;
+  }
 }
 
 .subtle-btn {
