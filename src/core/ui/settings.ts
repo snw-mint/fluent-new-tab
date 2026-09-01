@@ -1064,6 +1064,14 @@ export function bindFeedFeature(options: any): void {
       localStorage.setItem('feedMode', mode);
     });
   }
+
+  if (refs.editFeedRssBtn) {
+    refs.editFeedRssBtn.addEventListener('click', () => {
+      import('@/core/lazy/feed-manager').then(({ openFeedModal }) => {
+        openFeedModal();
+      });
+    });
+  }
 }
 
 export function bindReduceEffectsFeature(): void {

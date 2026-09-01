@@ -48,6 +48,7 @@
     "https://api.open-meteo.com/*",
     "https://air-quality-api.open-meteo.com/*",
     "https://unsplash.snw-mint.workers.dev/*",
-    "https://pexels.snw-mint.workers.dev/*"
+    "https://pexels.snw-mint.workers.dev/*",
+    "https://*/*"
   ]
 }

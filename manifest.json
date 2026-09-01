@@ -43,6 +43,7 @@
     "https://pexels.snw-mint.workers.dev/*",
     "https://geocoding-api.open-meteo.com/*",
     "https://api.open-meteo.com/*",
-    "https://air-quality-api.open-meteo.com/*"
+    "https://air-quality-api.open-meteo.com/*",
+    "https://*/*"
   ]
 }

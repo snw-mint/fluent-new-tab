@@ -982,6 +982,37 @@
       </div>
     </div>
 
+    <div id="feedModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Feed</h3>
+        <form id="feedForm">
+          <div id="feedInputsContainer">
+            <div class="feed-input-row">
+              <div class="input-group">
+                <label>RSS URL</label>
+                <div class="feed-input-wrapper">
+                  <input type="url" class="feed-url-input" placeholder="https://example.com/feed.xml" />
+                  <button type="button" class="feed-add-btn" disabled title="Add Feed">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75" fill="currentColor"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="feedAddFieldBtn" class="subtle-btn feed-add-field-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75" fill="currentColor"/></svg>
+            <span>Add field</span>
+          </button>
+
+          <div class="modal-actions">
+            <button type="button" id="closeFeedModalBtn" class="btn-cancel">Cancel</button>
+            <button type="submit" id="saveFeedModalBtn" class="btn-save" disabled>Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <div id="warningModal" class="modal-overlay">
       <div class="modal-content">
         <h3 id="warning-modal-title"></h3>
