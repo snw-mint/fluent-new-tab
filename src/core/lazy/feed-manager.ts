@@ -154,14 +154,32 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
     });
   }
 
-  if (items.length === 0) {
+  const maxAge = 7 * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  const validItems = items.filter((it) => {
+    if (!it.pubDate) return true;
+    const t = Date.parse(it.pubDate);
+    if (isNaN(t)) return false;
+    const age = now - t;
+    return age >= -3600000 && age <= maxAge;
+  });
+
+  const finalItems = validItems.length > 0 ? validItems : items;
+
+  finalItems.sort((a, b) => {
+    const ta = Date.parse(a.pubDate) || 0;
+    const tb = Date.parse(b.pubDate) || 0;
+    return tb - ta;
+  });
+
+  if (finalItems.length === 0) {
     throw new Error('No items found in feed');
   }
 
   return {
     url: feedUrl,
     title: title || new URL(feedUrl).hostname,
-    items,
+    items: finalItems,
     updatedAt: Date.now(),
   };
 }
