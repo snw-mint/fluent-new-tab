@@ -21,7 +21,8 @@
   opacity: 1;
   transition:
     opacity 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    bottom 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   max-width: 17.5rem;
 
   svg {
@@ -40,6 +41,22 @@
     opacity: 0;
     transform: translateY(0.625rem);
   }
+}
+
+html[data-feed-active='true']:has(.feed-drawer.minimal:not(.open)) .wallpaper-credits,
+body[data-feed-active='true']:has(.feed-drawer.minimal:not(.open)) .wallpaper-credits {
+  bottom: calc(3rem + 0.5rem);
+}
+
+html[data-feed-active='true']:has(.feed-drawer.expanded:not(.open)) .wallpaper-credits,
+body[data-feed-active='true']:has(.feed-drawer.expanded:not(.open)) .wallpaper-credits {
+  bottom: calc(10rem + 0.5rem);
+}
+
+html[data-feed-active='true']:has(.feed-drawer.open) .wallpaper-credits,
+body[data-feed-active='true']:has(.feed-drawer.open) .wallpaper-credits {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .wallpaper-source-options {
