@@ -355,6 +355,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       event.preventDefault();
       event.stopPropagation();
       onClosePopups();
+      syncShortcutDropdownState();
       onAddShortcut();
       return;
     }
@@ -366,6 +367,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       event.preventDefault();
       event.stopPropagation();
       onClosePopups();
+      syncShortcutDropdownState();
       onAddFolder();
       return;
     }
@@ -446,6 +448,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       }
 
       onClosePopups();
+      syncShortcutDropdownState();
       return;
     }
 

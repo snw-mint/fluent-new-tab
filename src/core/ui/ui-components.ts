@@ -379,12 +379,16 @@ export function syncShortcutDropdownState(): void {
   if (shortcutsGrid)
     shortcutsGrid.classList.toggle('dropdown-open', hasActiveDropdown);
 
-  document.querySelectorAll('.menu-wrapper').forEach((wrapper) => {
-    const dropdown = wrapper.querySelector(
-      '.shortcut-dropdown',
-    ) as HTMLElement | null;
-    const isOpen = dropdown ? activeShortcutDropdowns.has(dropdown) : false;
-    wrapper.classList.toggle('dropdown-open', isOpen);
+  document.querySelectorAll('.menu-wrapper').forEach((w) => {
+    const d = w.querySelector('.shortcut-dropdown') as HTMLElement | null;
+    const open = d ? activeShortcutDropdowns.has(d) : false;
+    w.classList.toggle('dropdown-open', open);
+  });
+
+  document.querySelectorAll('.add-card-wrapper').forEach((w) => {
+    const d = w.querySelector('.add-dropdown') as HTMLElement | null;
+    const open = d ? activeShortcutDropdowns.has(d) : false;
+    w.classList.toggle('active', open);
   });
 }
 

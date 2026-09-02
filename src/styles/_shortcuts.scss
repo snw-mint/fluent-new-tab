@@ -247,7 +247,7 @@
     }
   }
 
-  &.add-card-wrapper {
+  .add-card-wrapper {
     .shortcut-card {
       background: var(--shortcut-bg);
     }
@@ -362,6 +362,21 @@
 
 .add-card-wrapper {
   position: relative;
+
+  .shortcut-card svg {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+  }
+
+  &.active .shortcut-card svg,
+  &:has(.add-dropdown.active) .shortcut-card svg {
+    transform: rotate(45deg);
+  }
+
+  &.active .shortcut-card,
+  &:has(.add-dropdown.active) .shortcut-card {
+    background: var(--surface-dim);
+  }
 
   .add-dropdown {
     position: absolute;
