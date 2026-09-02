@@ -51,7 +51,7 @@ export function initFeedScroll(): void {
   window.addEventListener(
     'wheel',
     (e: WheelEvent) => {
-      if (hasActiveModal() || isAnimating) return;
+      if (hasActiveModal() || isAnimating || drawer.style.display === 'none') return;
 
       const target = e.target as HTMLElement | null;
       if (target?.closest('.shortcuts-grid, .launcher-grid, .settings-popup')) {

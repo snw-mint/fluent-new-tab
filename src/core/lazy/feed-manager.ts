@@ -143,7 +143,7 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
   };
 }
 
-async function fetchAndValidateFeed(url: string): Promise<FeedData> {
+export async function fetchAndValidateFeed(url: string): Promise<FeedData> {
   const res = await fetch(url, {
     headers: {
       Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
@@ -344,6 +344,9 @@ export function openFeedModal(): void {
         });
         localStorage.setItem('feedRssUrls', JSON.stringify(urls.slice(0, MAX_FEEDS)));
         closeFeedModal();
+        import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
+          loadAndRenderFeeds();
+        });
       });
     }
   }

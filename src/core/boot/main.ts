@@ -479,11 +479,29 @@ async function bootInteractive(): Promise<void> {
 
   updateLauncherVisibility(state.launcherEnabled, false);
 
+  const applyFeedState = (enabled: boolean) => {
+    if (refs.feedDrawer) {
+      refs.feedDrawer.style.display = enabled ? '' : 'none';
+      if (!enabled) {
+        refs.feedDrawer.classList.remove('open');
+      }
+    }
+    if (enabled) {
+      import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
+        loadAndRenderFeeds();
+      });
+      import('@/core/lazy/feed-scroll').then(({ initFeedScroll }) => {
+        initFeedScroll();
+      });
+    }
+  };
+
   const updateFeedVisibility = (visible: boolean, animate = true) => {
     import('@/core/ui/ui-components').then(({ setCollapsible }) => {
       if (refs.feedOptionsGroup)
         setCollapsible(refs.feedOptionsGroup, visible, animate);
     });
+    applyFeedState(visible);
   };
 
   const updateFeedMode = (mode: string) => {
@@ -506,10 +524,6 @@ async function bootInteractive(): Promise<void> {
 
   updateFeedMode(state.feedMode);
   updateFeedVisibility(state.feedEnabled, false);
-
-  import('@/core/lazy/feed-scroll').then(({ initFeedScroll }) => {
-    initFeedScroll();
-  });
 
   bindReduceEffectsFeature();
   bindSurfaceTintFeature();

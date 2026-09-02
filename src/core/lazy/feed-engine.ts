@@ -1,0 +1,249 @@
+import { getById } from '@/core/shared/dom-utils';
+import { FeedData, FeedItem } from '@/core/shared/types';
+import { fetchAndValidateFeed } from '@/core/lazy/feed-manager';
+
+const CACHE_TTL = 30 * 60 * 1000;
+let loadedFeeds: FeedData[] = [];
+let activeFeedId = 'all';
+
+function formatRelativeTime(dateStr: string): string {
+  if (!dateStr) return '';
+  const time = Date.parse(dateStr);
+  if (isNaN(time)) return '';
+
+  const diffSec = Math.floor((Date.now() - time) / 1000);
+  if (diffSec < 60) return 'Just now';
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m ago`;
+  const diffHours = Math.floor(diffMin / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays < 7) return `${diffDays}d ago`;
+  return `${Math.floor(diffDays / 7)}w ago`;
+}
+
+function getDomain(urlStr: string): string {
+  try {
+    return new URL(urlStr).hostname;
+  } catch {
+    return '';
+  }
+}
+
+function getFaviconUrl(urlStr: string): string {
+  const domain = getDomain(urlStr);
+  return domain ? `https://favicon.vemetric.com/${domain}?size=32` : '';
+}
+
+function renderGridItems(items: FeedItem[]): void {
+  const grid = getById<HTMLDivElement>('feedGrid');
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  if (items.length === 0) {
+    grid.innerHTML = `
+      <div class="feed-empty-state">
+        <svg class="feed-empty-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4h12.5a2.25 2.25 0 0 1 2.245 2.096L19 6.25V7h.75a2.25 2.25 0 0 1 2.245 2.096L22 9.25v7.5a3.25 3.25 0 0 1-3.066 3.245zH5.25zm-13.5-1.5h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143v-7.5a.75.75 0 0 0-.648-.743L19.75 8.5H19v7.75a.75.75 0 0 1-.648.743L18.25 17a.75.75 0 0 1-.743-.648l-.007-.102v-10a.75.75 0 0 0-.648-.743L16.75 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v10.5a1.75 1.75 0 0 0 1.606 1.744zh13.5z" fill="currentColor"/>
+        </svg>
+        <h4 class="feed-empty-title">No feed items available</h4>
+        <p class="feed-empty-desc">Open Settings &gt; Feed &gt; Edit RSS to configure your sources.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const displayItems = items.slice(0, 25);
+
+  displayItems.forEach((it) => {
+    const card = document.createElement('a');
+    card.className = 'feed-post-card';
+    card.href = it.link;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+
+    const thumbWrap = document.createElement('div');
+    thumbWrap.className = 'feed-post-thumb-wrapper';
+
+    if (it.imageUrl) {
+      const img = document.createElement('img');
+      img.className = 'feed-post-thumb';
+      img.src = it.imageUrl;
+      img.alt = it.title;
+      img.loading = 'lazy';
+      img.onerror = () => {
+        img.remove();
+        const placeholder = document.createElement('div');
+        placeholder.className = 'feed-post-thumb placeholder';
+        thumbWrap.appendChild(placeholder);
+      };
+      thumbWrap.appendChild(img);
+    } else {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'feed-post-thumb placeholder';
+      thumbWrap.appendChild(placeholder);
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'feed-post-meta';
+
+    const faviconUrl = getFaviconUrl(it.link);
+    if (faviconUrl) {
+      const fav = document.createElement('img');
+      fav.className = 'feed-post-favicon';
+      fav.src = faviconUrl;
+      fav.alt = '';
+      fav.width = 16;
+      fav.height = 16;
+      fav.loading = 'lazy';
+      fav.onerror = () => fav.remove();
+      meta.appendChild(fav);
+    }
+
+    const source = document.createElement('span');
+    source.className = 'feed-post-source';
+    source.textContent = it.feedTitle || getDomain(it.link);
+    meta.appendChild(source);
+
+    const relTime = formatRelativeTime(it.pubDate);
+    if (relTime) {
+      const dot = document.createElement('span');
+      dot.className = 'feed-post-dot';
+      dot.innerHTML = '&bull;';
+      meta.appendChild(dot);
+
+      const timeSpan = document.createElement('span');
+      timeSpan.className = 'feed-post-time';
+      timeSpan.textContent = relTime;
+      meta.appendChild(timeSpan);
+    }
+
+    const title = document.createElement('h4');
+    title.className = 'feed-post-title';
+    title.textContent = it.title;
+
+    card.appendChild(thumbWrap);
+    card.appendChild(meta);
+    card.appendChild(title);
+
+    grid.appendChild(card);
+  });
+}
+
+function updateGridDisplay(): void {
+  if (activeFeedId === 'all') {
+    const allItems: FeedItem[] = [];
+    loadedFeeds.forEach((f) => {
+      allItems.push(...f.items);
+    });
+
+    allItems.sort((a, b) => {
+      const ta = Date.parse(a.pubDate) || 0;
+      const tb = Date.parse(b.pubDate) || 0;
+      return tb - ta;
+    });
+
+    renderGridItems(allItems);
+  } else {
+    const idx = parseInt(activeFeedId, 10);
+    const targetFeed = loadedFeeds[idx];
+    renderGridItems(targetFeed ? targetFeed.items : []);
+  }
+}
+
+function renderNavTabs(): void {
+  const nav = getById<HTMLElement>('feedNav');
+  if (!nav) return;
+
+  nav.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.type = 'button';
+  allBtn.className = `feed-nav-item ${activeFeedId === 'all' ? 'active' : ''}`;
+  allBtn.setAttribute('data-feed-id', 'all');
+
+  const allSpan = document.createElement('span');
+  allSpan.textContent = 'All';
+  allBtn.appendChild(allSpan);
+
+  allBtn.addEventListener('click', () => {
+    activeFeedId = 'all';
+    nav.querySelectorAll('.feed-nav-item').forEach((b) => b.classList.remove('active'));
+    allBtn.classList.add('active');
+    updateGridDisplay();
+  });
+
+  nav.appendChild(allBtn);
+
+  loadedFeeds.forEach((feed, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `feed-nav-item ${activeFeedId === String(idx) ? 'active' : ''}`;
+    btn.setAttribute('data-feed-id', String(idx));
+
+    const span = document.createElement('span');
+    span.textContent = feed.title;
+    btn.appendChild(span);
+
+    btn.addEventListener('click', () => {
+      activeFeedId = String(idx);
+      nav.querySelectorAll('.feed-nav-item').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateGridDisplay();
+    });
+
+    nav.appendChild(btn);
+  });
+}
+
+export async function loadAndRenderFeeds(): Promise<void> {
+  let urls: string[] = [];
+  try {
+    urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
+  } catch {
+    urls = [];
+  }
+
+  if (!Array.isArray(urls) || urls.length === 0) {
+    loadedFeeds = [];
+    renderNavTabs();
+    renderGridItems([]);
+    return;
+  }
+
+  const results = await Promise.allSettled(
+    urls.map(async (url) => {
+      const cacheKey = `feedCache_${url}`;
+      try {
+        const cachedStr = localStorage.getItem(cacheKey);
+        if (cachedStr) {
+          const cached = JSON.parse(cachedStr) as FeedData;
+          if (cached && Date.now() - cached.updatedAt < CACHE_TTL) {
+            return cached;
+          }
+        }
+      } catch {}
+
+      const fresh = await fetchAndValidateFeed(url);
+      try {
+        localStorage.setItem(cacheKey, JSON.stringify(fresh));
+      } catch {}
+      return fresh;
+    })
+  );
+
+  loadedFeeds = [];
+  results.forEach((r) => {
+    if (r.status === 'fulfilled' && r.value) {
+      loadedFeeds.push(r.value);
+    }
+  });
+
+  if (activeFeedId !== 'all' && parseInt(activeFeedId, 10) >= loadedFeeds.length) {
+    activeFeedId = 'all';
+  }
+
+  renderNavTabs();
+  updateGridDisplay();
+}
