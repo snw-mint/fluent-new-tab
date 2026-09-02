@@ -248,12 +248,46 @@
     }
   }
 
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.225rem 0 0.28125rem;
+  }
+
   &-title {
     text-align: center;
     font-size: var(--font-size-base);
     font-weight: 600;
-    margin: 0.225rem 0 0.28125rem;
+    margin: 0;
     color: var(--text-color);
+  }
+
+  &-help {
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    opacity: 0.6;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
+
+    svg {
+      width: 1.05rem;
+      height: 1.05rem;
+      fill: currentColor;
+    }
+
+    &:hover {
+      opacity: 1;
+      color: var(--accent-color);
+    }
   }
 
   &::-webkit-scrollbar {
@@ -762,12 +796,8 @@
 
   a {
     color: var(--accent-color);
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
