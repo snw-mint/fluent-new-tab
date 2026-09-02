@@ -507,6 +507,10 @@ async function bootInteractive(): Promise<void> {
   updateFeedMode(state.feedMode);
   updateFeedVisibility(state.feedEnabled, false);
 
+  import('@/core/lazy/feed-scroll').then(({ initFeedScroll }) => {
+    initFeedScroll();
+  });
+
   bindReduceEffectsFeature();
   bindSurfaceTintFeature();
 
