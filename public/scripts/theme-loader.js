@@ -22,6 +22,20 @@
     document.documentElement.setAttribute('data-surface-tint', 'true');
   }
 
+  const isFeedEnabled = localStorage.getItem('feedEnabled') === 'true';
+  let hasFeedLinks = false;
+  try {
+    const fl = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
+    hasFeedLinks = Array.isArray(fl) && fl.length > 0;
+  } catch {}
+  if (isFeedEnabled && hasFeedLinks) {
+    document.documentElement.setAttribute('data-feed-active', 'true');
+    const style = document.createElement('style');
+    style.id = 'early-feed-style';
+    style.textContent = '#feedDrawer { display: flex !important; }';
+    document.head.appendChild(style);
+  }
+
   const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';
 
   if (!wallpaperEnabled) {

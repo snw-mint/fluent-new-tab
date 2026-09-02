@@ -223,6 +223,11 @@ export function setCollapsible(
   }
   prepareCollapsible(element);
 
+  const el = element as any;
+  if (el._collapsibleCleanup) {
+    el._collapsibleCleanup();
+  }
+
   const restoreSpacing = () => {
     element.style.marginTop = element.dataset.originalMarginTop || '';
     element.style.marginBottom = element.dataset.originalMarginBottom || '';
@@ -232,7 +237,7 @@ export function setCollapsible(
 
   const transitionValue =
     'height 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease, transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), margin 0.28s ease, padding 0.28s ease';
-  const currentState = element.dataset.state || 'open';
+  const currentState = element.dataset.state;
 
   if (!animate) {
     element.style.transition = 'none';
@@ -264,11 +269,13 @@ export function setCollapsible(
     return;
   }
 
+  if (shouldExpand && currentState === 'open') return;
+  if (!shouldExpand && currentState === 'closed') return;
+
   element.style.transition = transitionValue;
+  element.dataset.state = 'animating';
 
   if (shouldExpand) {
-    if (currentState === 'open') return;
-    element.dataset.state = 'animating';
     element.style.display = element.dataset.originalDisplay || 'block';
     element.style.pointerEvents = 'none';
     element.style.overflow = 'hidden';
@@ -291,11 +298,12 @@ export function setCollapsible(
       restoreSpacing();
     });
 
-    let expandedTriggered = false;
+    let done = false;
     const onExpandEnd = (event?: TransitionEvent) => {
       if (event && event.propertyName !== 'height') return;
-      if (expandedTriggered) return;
-      expandedTriggered = true;
+      if (done) return;
+      done = true;
+      el._collapsibleCleanup = null;
 
       element.style.height = 'auto';
       element.style.overflow = '';
@@ -305,11 +313,15 @@ export function setCollapsible(
       element.removeEventListener('transitionend', onExpandEnd);
     };
 
+    const timer = setTimeout(onExpandEnd, 420);
     element.addEventListener('transitionend', onExpandEnd);
-    setTimeout(onExpandEnd, 450);
+
+    el._collapsibleCleanup = () => {
+      clearTimeout(timer);
+      element.removeEventListener('transitionend', onExpandEnd);
+      el._collapsibleCleanup = null;
+    };
   } else {
-    if (currentState === 'closed') return;
-    element.dataset.state = 'animating';
     element.style.overflow = 'hidden';
     element.style.pointerEvents = 'none';
 
@@ -329,11 +341,12 @@ export function setCollapsible(
       element.style.paddingBottom = '0px';
     });
 
-    let collapsedTriggered = false;
+    let done = false;
     const onCollapseEnd = (event?: TransitionEvent) => {
       if (event && event.propertyName !== 'height') return;
-      if (collapsedTriggered) return;
-      collapsedTriggered = true;
+      if (done) return;
+      done = true;
+      el._collapsibleCleanup = null;
 
       element.style.display = 'none';
       element.dataset.state = 'closed';
@@ -342,8 +355,14 @@ export function setCollapsible(
       element.removeEventListener('transitionend', onCollapseEnd);
     };
 
+    const timer = setTimeout(onCollapseEnd, 420);
     element.addEventListener('transitionend', onCollapseEnd);
-    setTimeout(onCollapseEnd, 450);
+
+    el._collapsibleCleanup = () => {
+      clearTimeout(timer);
+      element.removeEventListener('transitionend', onCollapseEnd);
+      el._collapsibleCleanup = null;
+    };
   }
 }
 

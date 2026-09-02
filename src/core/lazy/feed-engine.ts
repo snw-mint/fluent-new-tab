@@ -66,23 +66,28 @@ function renderGridItems(items: FeedItem[]): void {
     const thumbWrap = document.createElement('div');
     thumbWrap.className = 'feed-post-thumb-wrapper';
 
+    const makePlaceholder = () => {
+      const ph = document.createElement('div');
+      ph.className = 'feed-post-thumb placeholder';
+      ph.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z" fill="currentColor"/></svg>`;
+      return ph;
+    };
+
     if (it.imageUrl) {
       const img = document.createElement('img');
       img.className = 'feed-post-thumb';
       img.src = it.imageUrl;
       img.alt = it.title;
       img.loading = 'lazy';
+      img.decoding = 'async';
+      img.setAttribute('fetchpriority', 'low');
       img.onerror = () => {
         img.remove();
-        const placeholder = document.createElement('div');
-        placeholder.className = 'feed-post-thumb placeholder';
-        thumbWrap.appendChild(placeholder);
+        thumbWrap.appendChild(makePlaceholder());
       };
       thumbWrap.appendChild(img);
     } else {
-      const placeholder = document.createElement('div');
-      placeholder.className = 'feed-post-thumb placeholder';
-      thumbWrap.appendChild(placeholder);
+      thumbWrap.appendChild(makePlaceholder());
     }
 
     const meta = document.createElement('div');
@@ -97,6 +102,8 @@ function renderGridItems(items: FeedItem[]): void {
       fav.width = 16;
       fav.height = 16;
       fav.loading = 'lazy';
+      fav.decoding = 'async';
+      fav.setAttribute('fetchpriority', 'low');
       fav.onerror = () => fav.remove();
       meta.appendChild(fav);
     }
@@ -131,20 +138,47 @@ function renderGridItems(items: FeedItem[]): void {
   });
 }
 
+function interleaveFeeds(feeds: FeedData[]): FeedItem[] {
+  const queues = feeds
+    .filter((f) => Array.isArray(f.items) && f.items.length > 0)
+    .map((f) => {
+      const copy = f.items.map((it) => ({
+        ...it,
+        feedTitle: it.feedTitle || f.title,
+      }));
+      copy.sort((a, b) => {
+        const ta = Date.parse(a.pubDate) || 0;
+        const tb = Date.parse(b.pubDate) || 0;
+        return tb - ta;
+      });
+      return copy;
+    });
+
+  if (queues.length === 0) return [];
+
+  const mixed: FeedItem[] = [];
+  let idx = 0;
+  let remaining = true;
+
+  while (remaining && mixed.length < 50) {
+    remaining = false;
+    for (let i = 0; i < queues.length; i++) {
+      const q = queues[i];
+      if (idx < q.length) {
+        mixed.push(q[idx]);
+        remaining = true;
+      }
+    }
+    idx++;
+  }
+
+  return mixed;
+}
+
 function updateGridDisplay(): void {
   if (activeFeedId === 'all') {
-    const allItems: FeedItem[] = [];
-    loadedFeeds.forEach((f) => {
-      allItems.push(...f.items);
-    });
-
-    allItems.sort((a, b) => {
-      const ta = Date.parse(a.pubDate) || 0;
-      const tb = Date.parse(b.pubDate) || 0;
-      return tb - ta;
-    });
-
-    renderGridItems(allItems);
+    const mixed = interleaveFeeds(loadedFeeds);
+    renderGridItems(mixed);
   } else {
     const idx = parseInt(activeFeedId, 10);
     const targetFeed = loadedFeeds[idx];

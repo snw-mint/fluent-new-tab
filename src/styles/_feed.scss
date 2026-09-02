@@ -188,6 +188,9 @@
   cursor: pointer;
   user-select: none;
 
+  content-visibility: auto;
+  contain-intrinsic-size: 280px 240px;
+
   &:hover {
     background: color-mix(in srgb, var(--surface-base) 80%, #ffffff);
     box-shadow: var(--shadow-card);
@@ -207,10 +210,11 @@
   aspect-ratio: 16 / 9;
   border-radius: 0;
   overflow: hidden;
-  background: var(--hover-overlay-strong);
+  background: var(--surface-muted);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .feed-post-meta,
@@ -223,10 +227,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.25s ease;
+  display: block;
 
   &.placeholder {
-    background: linear-gradient(135deg, var(--hover-overlay-strong), var(--hover-overlay));
+    width: 100%;
+    height: 100%;
+    background: var(--surface-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      opacity: 0.35;
+    }
   }
 }
 

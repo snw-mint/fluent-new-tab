@@ -296,6 +296,18 @@
     opacity: 0.4;
     cursor: not-allowed;
   }
+
+  &.delete-btn {
+    background: var(--surface-muted);
+    color: var(--text-color);
+    border: 1px solid var(--border-subtle);
+
+    &:hover:not(:disabled) {
+      background: var(--color-danger);
+      color: #ffffff;
+      border-color: var(--color-danger);
+    }
+  }
 }
 
 .feed-url-input {

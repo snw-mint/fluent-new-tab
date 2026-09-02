@@ -1045,9 +1045,6 @@ export function bindFeedFeature(options: any): void {
       options.setFeedEnabled(checked);
       localStorage.setItem('feedEnabled', String(checked));
 
-      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
-        setCollapsible(feedOptionsGroup, checked, true);
-      });
       if (options.updateFeedVisibility) {
         options.updateFeedVisibility(checked);
       }

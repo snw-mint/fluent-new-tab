@@ -479,14 +479,27 @@ async function bootInteractive(): Promise<void> {
 
   updateLauncherVisibility(state.launcherEnabled, false);
 
+  const checkHasFeeds = (): boolean => {
+    try {
+      const urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
+      return Array.isArray(urls) && urls.length > 0;
+    } catch {
+      return false;
+    }
+  };
+
   const applyFeedState = (enabled: boolean) => {
+    const active = enabled && checkHasFeeds();
+    document.documentElement.setAttribute('data-feed-active', String(active));
+    document.body.dataset.feedActive = String(active);
     if (refs.feedDrawer) {
-      refs.feedDrawer.style.display = enabled ? '' : 'none';
-      if (!enabled) {
+      refs.feedDrawer.style.display = active ? '' : 'none';
+      if (!active) {
         refs.feedDrawer.classList.remove('open');
+        document.getElementById('early-feed-style')?.remove();
       }
     }
-    if (enabled) {
+    if (active) {
       import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
         loadAndRenderFeeds();
       });

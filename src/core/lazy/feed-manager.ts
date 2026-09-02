@@ -2,6 +2,7 @@ import { getById } from '@/core/shared/dom-utils';
 import { FeedData, FeedItem } from '@/core/shared/types';
 
 const PLUS_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75" fill="currentColor"/></svg>`;
+const DELETE_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 5h4a2 2 0 1 0-4 0M8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM14.25 9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75m-7.516 9.467a2.25 2.25 0 0 0 2.24 2.033h6.052a2.25 2.25 0 0 0 2.24-2.033L18.424 6.5H5.576z" fill="currentColor"/></svg>`;
 const MAX_FEEDS = 5;
 
 let isInitialized = false;
@@ -67,8 +68,8 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
       const itTitle = sanitizeText(n.querySelector('title')?.textContent || '');
       const rawLnk = n.querySelector('link')?.textContent || '';
       const lnk = sanitizeHttpsUrl(rawLnk);
-      const pubDate = n.querySelector('pubDate')?.textContent || '';
-      const rawDesc = n.querySelector('description')?.textContent || n.querySelector('encoded')?.textContent || '';
+      const pubDate = n.querySelector('pubDate, date, dc\\:date')?.textContent || '';
+      const rawDesc = n.querySelector('description, encoded')?.textContent || '';
       const desc = sanitizeText(rawDesc);
 
       let imgUrl: string | undefined;
@@ -82,9 +83,16 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
       }
 
       if (!imgUrl) {
-        const media = n.querySelector('content[url], thumbnail[url]');
+        const media = n.querySelector('content[url], thumbnail[url], media\\:content, media\\:thumbnail');
         if (media) {
           imgUrl = sanitizeHttpsUrl(media.getAttribute('url') || '');
+        }
+      }
+
+      if (!imgUrl && rawDesc) {
+        const match = rawDesc.match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i);
+        if (match && match[1]) {
+          imgUrl = sanitizeHttpsUrl(match[1]);
         }
       }
 
@@ -108,14 +116,21 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
       const lnkNode = n.querySelector('link[rel="alternate"]') || n.querySelector('link:not([rel])') || n.querySelector('link');
       const rawLnk = lnkNode?.getAttribute('href') || lnkNode?.textContent || '';
       const lnk = sanitizeHttpsUrl(rawLnk);
-      const pubDate = n.querySelector('updated, published')?.textContent || '';
+      const pubDate = n.querySelector('updated, published, pubDate, date')?.textContent || '';
       const rawSummary = n.querySelector('summary, content')?.textContent || '';
       const desc = sanitizeText(rawSummary);
 
       let imgUrl: string | undefined;
-      const media = n.querySelector('thumbnail, content[type^="image"]');
+      const media = n.querySelector('thumbnail, content[type^="image"], media\\:content, media\\:thumbnail');
       if (media) {
         imgUrl = sanitizeHttpsUrl(media.getAttribute('url') || '');
+      }
+
+      if (!imgUrl && rawSummary) {
+        const match = rawSummary.match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i);
+        if (match && match[1]) {
+          imgUrl = sanitizeHttpsUrl(match[1]);
+        }
       }
 
       if (itTitle && lnk) {
@@ -160,41 +175,15 @@ export async function fetchAndValidateFeed(url: string): Promise<FeedData> {
 
 async function requestHostPermission(origin: string): Promise<boolean> {
   const { checkPermission, requestPermission } = await import('@/core/shared/permissions');
-  const { warningModal } = await import('@/core/ui/ui-components');
-
   const hasPerm = await checkPermission([origin]);
   if (hasPerm) return true;
-
-  return new Promise((resolve) => {
-    let domain = origin;
-    try {
-      domain = new URL(origin.replace('/*', '')).hostname;
-    } catch {}
-
-    warningModal.show({
-      title: 'Permission Required',
-      message: `Fluent New Tab needs permission to access "${domain}" to load the RSS feed.`,
-      confirmText: 'Grant Permission',
-      cancelText: 'Cancel',
-      confirmVariant: 'accent',
-      showPrivacyPolicy: false,
-      onConfirm: () => {
-        requestPermission([origin]).then((granted) => {
-          resolve(granted);
-        });
-      },
-      onCancel: () => {
-        resolve(false);
-      },
-    });
-  });
+  return requestPermission([origin]);
 }
 
 function updateCompleteButtonState(): void {
   const saveBtn = getById<HTMLButtonElement>('saveFeedModalBtn');
   if (!saveBtn) return;
-  const validInputs = document.querySelectorAll('.feed-url-input[data-validated="true"]');
-  saveBtn.disabled = validInputs.length === 0;
+  saveBtn.disabled = false;
 }
 
 function updateAddFieldButtonState(): void {
@@ -230,20 +219,47 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'feed-add-btn';
-  btn.innerHTML = PLUS_ICON;
-  btn.title = 'Validate & Add';
-  btn.disabled = !isValidHttpsUrl(initialVal);
+
+  const setButtonState = (validated: boolean) => {
+    if (validated) {
+      btn.innerHTML = DELETE_ICON;
+      btn.title = 'Remove';
+      btn.classList.add('delete-btn');
+      btn.disabled = false;
+    } else {
+      btn.innerHTML = PLUS_ICON;
+      btn.title = 'Validate & Add';
+      btn.classList.remove('delete-btn');
+      btn.disabled = !isValidHttpsUrl(inp.value);
+    }
+  };
+
+  setButtonState(isValidated);
 
   inp.addEventListener('input', () => {
     const valid = isValidHttpsUrl(inp.value);
+    inp.removeAttribute('data-validated');
+    setButtonState(false);
     btn.disabled = !valid;
-    if (!valid) {
-      inp.removeAttribute('data-validated');
-      updateCompleteButtonState();
-    }
+    updateCompleteButtonState();
   });
 
   btn.addEventListener('click', async () => {
+    if (inp.hasAttribute('data-validated')) {
+      const container = getById<HTMLDivElement>('feedInputsContainer');
+      const rows = container?.querySelectorAll('.feed-input-row') || [];
+      if (rows.length > 1) {
+        row.remove();
+      } else {
+        inp.value = '';
+        inp.removeAttribute('data-validated');
+        setButtonState(false);
+      }
+      updateAddFieldButtonState();
+      updateCompleteButtonState();
+      return;
+    }
+
     const rawVal = inp.value.trim();
     if (!isValidHttpsUrl(rawVal)) {
       inp.classList.add('is-invalid');
@@ -271,13 +287,16 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
       inp.setAttribute('data-validated', 'true');
       inp.classList.remove('is-invalid');
       inp.classList.add('is-valid');
+      setButtonState(true);
       updateCompleteButtonState();
+      updateAddFieldButtonState();
       setTimeout(() => {
         inp.classList.remove('is-valid');
       }, 3000);
     } catch (err: any) {
       inp.removeAttribute('data-validated');
       inp.classList.add('is-invalid');
+      setButtonState(false);
       updateCompleteButtonState();
       setTimeout(() => inp.classList.remove('is-invalid'), 3000);
 
@@ -290,7 +309,9 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
         onConfirm: () => {},
       });
     } finally {
-      btn.disabled = !isValidHttpsUrl(inp.value);
+      if (!inp.hasAttribute('data-validated')) {
+        btn.disabled = !isValidHttpsUrl(inp.value);
+      }
     }
   });
 
@@ -344,6 +365,22 @@ export function openFeedModal(): void {
         });
         localStorage.setItem('feedRssUrls', JSON.stringify(urls.slice(0, MAX_FEEDS)));
         closeFeedModal();
+
+        const isFeedEnabled = localStorage.getItem('feedEnabled') === 'true';
+        const hasFeeds = urls.length > 0;
+        const active = isFeedEnabled && hasFeeds;
+        document.documentElement.setAttribute('data-feed-active', String(active));
+        document.body.dataset.feedActive = String(active);
+
+        const drawer = document.getElementById('feedDrawer');
+        if (drawer) {
+          drawer.style.display = active ? '' : 'none';
+          if (!active) {
+            drawer.classList.remove('open');
+            document.getElementById('early-feed-style')?.remove();
+          }
+        }
+
         import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
           loadAndRenderFeeds();
         });
