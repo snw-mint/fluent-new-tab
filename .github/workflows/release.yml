@@ -36,7 +36,7 @@ jobs:
       - name: Package Chromium extension
         run: |
           cd dist
-          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip" . \
+          zip -9 -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
 
@@ -49,20 +49,7 @@ jobs:
       - name: Package Firefox extension
         run: |
           cd dist
-          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip" . \
-            --exclude "*.map" \
-            --exclude ".DS_Store"
-
-      - name: Run release build (Firefox)
-        run: |
-          mv manifest.json manifest-chrome.json
-          cp manifest-firefox.json manifest.json
-          npm run build
-
-      - name: Package Firefox extension
-        run: |
-          cd dist
-          zip -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip" . \
+          zip -9 -r "../fluent-new-tab-v${{ steps.version.outputs.VERSION }}-firefox.zip" . \
             --exclude "*.map" \
             --exclude ".DS_Store"
 
