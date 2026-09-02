@@ -150,3 +150,20 @@ export type ThemeMode = 'light' | 'dark' | 'auto';
 export type WeatherUnit = 'c' | 'f';
 export type WallpaperSource = 'local' | 'api';
 export type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia' | 'unsplash' | 'pexels';
+
+export interface FeedItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+  imageUrl?: string;
+  feedTitle?: string;
+}
+
+export interface FeedData {
+  url: string;
+  title: string;
+  items: FeedItem[];
+  updatedAt: number;
+}
+

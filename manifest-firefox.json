@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "4.7.1",
+  "version": "4.8",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en_US",
   "icons": {
@@ -48,6 +48,7 @@
     "https://api.open-meteo.com/*",
     "https://air-quality-api.open-meteo.com/*",
     "https://unsplash.snw-mint.workers.dev/*",
-    "https://pexels.snw-mint.workers.dev/*"
+    "https://pexels.snw-mint.workers.dev/*",
+    "https://*/*"
   ]
 }

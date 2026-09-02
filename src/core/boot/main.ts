@@ -304,6 +304,7 @@ async function bootInteractive(): Promise<void> {
       initGlobalUiSystem,
       bindShortcutRadiusFeature,
       bindLauncherFeature,
+      bindFeedFeature,
       bindReduceEffectsFeature,
       bindSurfaceTintFeature,
     },
@@ -477,6 +478,66 @@ async function bootInteractive(): Promise<void> {
   });
 
   updateLauncherVisibility(state.launcherEnabled, false);
+
+  const checkHasFeeds = (): boolean => {
+    try {
+      const urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
+      return Array.isArray(urls) && urls.length > 0;
+    } catch {
+      return false;
+    }
+  };
+
+  const applyFeedState = (enabled: boolean) => {
+    const active = enabled && checkHasFeeds();
+    document.documentElement.setAttribute('data-feed-active', String(active));
+    document.body.dataset.feedActive = String(active);
+    if (refs.feedDrawer) {
+      refs.feedDrawer.style.display = active ? '' : 'none';
+      if (!active) {
+        refs.feedDrawer.classList.remove('open');
+        document.getElementById('early-feed-style')?.remove();
+      }
+    }
+    if (active) {
+      import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
+        loadAndRenderFeeds();
+      });
+      import('@/core/lazy/feed-scroll').then(({ initFeedScroll }) => {
+        initFeedScroll();
+      });
+    }
+  };
+
+  const updateFeedVisibility = (visible: boolean, animate = true) => {
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      if (refs.feedOptionsGroup)
+        setCollapsible(refs.feedOptionsGroup, visible, animate);
+    });
+    applyFeedState(visible);
+  };
+
+  const updateFeedMode = (mode: string) => {
+    if (refs.feedDrawer) {
+      refs.feedDrawer.classList.toggle('minimal', mode === 'minimal');
+      refs.feedDrawer.classList.toggle('expanded', mode === 'expanded');
+    }
+  };
+
+  bindFeedFeature({
+    applyInitialFeedState: () =>
+      updateFeedVisibility(state.feedEnabled, false),
+    getFeedEnabled: () => state.feedEnabled,
+    setFeedEnabled: state.setFeedEnabled,
+    getFeedMode: () => state.feedMode,
+    setFeedMode: state.setFeedMode,
+    updateFeedVisibility,
+    updateFeedMode,
+  });
+
+  updateFeedMode(state.feedMode);
+  updateFeedVisibility(state.feedEnabled, false);
+
   bindReduceEffectsFeature();
   bindSurfaceTintFeature();
 

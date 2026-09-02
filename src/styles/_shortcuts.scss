@@ -67,7 +67,6 @@
       );
       @include flex-center;
       box-shadow: none;
-      border: 1px solid var(--border-subtle);
       transition:
         transform 0.2s ease,
         background 0.2s ease,

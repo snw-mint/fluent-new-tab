@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2025-2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
@@ -1020,6 +1028,57 @@ export function bindLauncherFeature(options: any): void {
         once: true,
       });
     }
+  }
+}
+
+export function bindFeedFeature(options: any): void {
+  const toggleFeed = document.getElementById(
+    'toggleFeed',
+  ) as HTMLInputElement | null;
+  const feedOptionsGroup = document.getElementById('feedOptionsGroup');
+
+  if (toggleFeed) {
+    const isEnabled = options.getFeedEnabled();
+    toggleFeed.checked = isEnabled;
+
+    import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+      setCollapsible(feedOptionsGroup, isEnabled, false);
+    });
+
+    toggleFeed.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement | null;
+      if (!target) return;
+      const checked = target.checked;
+
+      options.setFeedEnabled(checked);
+      localStorage.setItem('feedEnabled', String(checked));
+
+      if (options.updateFeedVisibility) {
+        options.updateFeedVisibility(checked);
+      }
+    });
+  }
+
+  if (refs.feedModeSelect) {
+    refs.feedModeSelect.value = options.getFeedMode();
+    refs.feedModeSelect.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement | null;
+      if (!target) return;
+      const mode = target.value;
+      options.setFeedMode(mode);
+      localStorage.setItem('feedMode', mode);
+      if (options.updateFeedMode) {
+        options.updateFeedMode(mode);
+      }
+    });
+  }
+
+  if (refs.editFeedRssBtn) {
+    refs.editFeedRssBtn.addEventListener('click', () => {
+      import('@/core/lazy/feed-manager').then(({ openFeedModal }) => {
+        openFeedModal();
+      });
+    });
   }
 }
 

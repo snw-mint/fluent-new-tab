@@ -167,13 +167,19 @@ export async function fetchWeatherData(
 
 export function renderWeatherAlertWidget(): void {
   const containerId = 'weather-alerts-widget';
-  let widget = document.getElementById(containerId);
+  const existingWidgets = document.querySelectorAll<HTMLElement>(`#${containerId}`);
+  if (existingWidgets.length > 1) {
+    existingWidgets.forEach((w, idx) => {
+      if (idx > 0) w.remove();
+    });
+  }
 
   const isAlertsEnabled =
     localStorage.getItem('weatherAlertsEnabled') === 'true' &&
     localStorage.getItem('weatherEnabled') === 'true';
   if (!isAlertsEnabled) {
-    if (widget) widget.remove();
+    const w = document.getElementById(containerId);
+    if (w) w.remove();
     return;
   }
 
@@ -181,18 +187,24 @@ export function renderWeatherAlertWidget(): void {
   if (!chromeApi?.storage?.local) return;
 
   chromeApi.storage.local.get(['currentWeatherAlert'], (result: any) => {
-    const alert = result.currentWeatherAlert;
+    const alert = result?.currentWeatherAlert;
+    let widget = document.getElementById(containerId);
 
     if (!alert || Date.now() - alert.timestamp > 3600000) {
       if (widget) widget.remove();
       return;
     }
 
+    const feedActions = document.getElementById('feedHeaderActions');
+    const targetParent = feedActions || document.body;
+
     if (!widget) {
       widget = document.createElement('div');
       widget.id = containerId;
       widget.className = 'weather-alert-container';
-      document.body.appendChild(widget);
+      targetParent.appendChild(widget);
+    } else if (widget.parentElement !== targetParent) {
+      targetParent.appendChild(widget);
     }
 
     widget.textContent = '';
@@ -236,8 +248,6 @@ export function renderWeatherAlertWidget(): void {
         break;
     }
 
-    // Remove data-i18n so it doesn't get incorrectly overwritten by applyToDOM
-    // text.setAttribute('data-i18n', i18nKey);
     const win = window as any;
     if (typeof win.getTranslation === 'function') {
       let translated = win.getTranslation(i18nKey) || message;
