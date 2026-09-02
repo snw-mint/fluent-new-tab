@@ -211,7 +211,6 @@
   animation: popupIn 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
   @include card-radius(var(--radius-md));
   background-color: var(--surface-base);
-  border: 1px solid var(--border-subtle);
   color: var(--text-color);
   box-shadow: var(--shadow-lg);
 

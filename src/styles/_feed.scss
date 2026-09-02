@@ -27,8 +27,7 @@
   pointer-events: auto;
   width: min(85rem, calc(100vw - 2.5rem));
   height: calc(100vh - 2rem);
-  background: var(--surface-dim);
-  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface-dim) 90%, #000000);
   border-bottom: none;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   box-shadow: 0 -0.25rem 1.5rem rgba(0, 0, 0, 0.12);
@@ -36,13 +35,17 @@
   flex-direction: column;
   overflow: hidden;
   backdrop-filter: blur(20px);
+
+  html[data-theme='dark'] & {
+    background: color-mix(in srgb, var(--surface-dim) 80%, #000000);
+  }
 }
 
 .feed-content {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1.25rem;
+  padding: 0rem 1.25rem 2.5rem 1.25rem;
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
   overscroll-behavior: contain;
@@ -62,7 +65,7 @@
   align-items: center;
   gap: 0.85rem;
   padding: 0.75rem 1.25rem;
-  background: var(--surface-dim);
+  background: transparent;
   flex-shrink: 0;
   user-select: none;
 }
