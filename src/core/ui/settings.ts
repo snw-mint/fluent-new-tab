@@ -1292,13 +1292,11 @@ export function bindWallpaperFeature(
         const apiName =
           type === 'bing'
             ? 'Bing Wallpaper'
-            : type === 'nasa'
-              ? 'NASA APOD'
-              : type === 'unsplash'
-                ? 'Unsplash API'
-                : type === 'pexels'
-                  ? 'Pexels API'
-                  : 'Wikimedia';
+            : type === 'unsplash'
+              ? 'Unsplash API'
+              : type === 'pexels'
+                ? 'Pexels API'
+                : 'Wikimedia';
         import('@/core/ui/ui-components').then(
           ({ requestFeaturePermissionUI }) => {
             requestFeaturePermissionUI(

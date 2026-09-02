@@ -8,7 +8,6 @@
 
 export const HOST_PERMISSIONS: Record<string, string[]> = {
   bing: ['https://peapix.com/*', 'https://img.peapix.com/*'],
-  nasa: ['https://api.nasa.gov/*', 'https://apod.nasa.gov/*'],
   wikimedia: [
     'https://commons.wikimedia.org/*',
     'https://upload.wikimedia.org/',

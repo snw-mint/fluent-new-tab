@@ -128,14 +128,6 @@ export interface GeocodingResponse {
   results?: GeocodingResult[];
 }
 
-export interface NasaApodResponse {
-  media_type?: string;
-  hdurl?: string;
-  url?: string;
-  title?: string;
-  thumbnail_url?: string;
-}
-
 export type SuggestionApiResponse = [string, string[]];
 
 export interface WallpaperCacheEntry {
@@ -149,7 +141,7 @@ export interface WallpaperCacheEntry {
 export type ThemeMode = 'light' | 'dark' | 'auto';
 export type WeatherUnit = 'c' | 'f';
 export type WallpaperSource = 'local' | 'api';
-export type WallpaperType = 'upload' | 'bing' | 'nasa' | 'wikimedia' | 'unsplash' | 'pexels';
+export type WallpaperType = 'upload' | 'bing' | 'wikimedia' | 'unsplash' | 'pexels';
 
 export interface FeedItem {
   title: string;
