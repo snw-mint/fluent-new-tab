@@ -248,7 +248,7 @@ Maintain and migrate your settings across browsers and devices.
 
 ### Language Support
 
-Choose from more than 20 supported languages. English (US) serves as the default fallback. Translations are managed directly by the community through the repository. To report translation corrections or contribute a new language, see [TRANSLATING.md](TRANSLATING.md).
+Choose from more than 20 supported languages. English (US) serves as the default fallback. Translations are managed directly by the community through the repository. To report translation corrections or contribute a new language, see [TRANSLATING.md](../_locales/TRANSLATING.md).
 
 ### Data Backup (Export & Import)
 
