@@ -26,12 +26,12 @@
 
 html[data-feed-active='true']:has(.feed-drawer.minimal) .container,
 body[data-feed-active='true']:has(.feed-drawer.minimal) .container {
-  padding-bottom: calc(10vh + 5rem);
+  padding-bottom: calc(10vh + 2.5rem);
 }
 
 html[data-feed-active='true']:has(.feed-drawer.expanded) .container,
 body[data-feed-active='true']:has(.feed-drawer.expanded) .container {
-  padding-bottom: calc(10vh + 12rem);
+  padding-bottom: calc(10vh + 6rem);
 }
 
 .logo-wrapper {
