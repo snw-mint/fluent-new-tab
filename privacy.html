@@ -188,7 +188,7 @@
 
       <header class="header">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: June 2026</p>
+        <p class="last-updated">Last Updated: September 2026</p>
       </header>
 
       <div class="content">
@@ -228,12 +228,12 @@
           3. Third-Party Services & Proxy Infrastructure
         </h2>
         <p>
-          To provide features like weather forecasts and daily wallpapers, the
-          extension communicates with external services. Most requests happen
-          directly between your browser and the provider. However, certain
-          wallpaper APIs require authentication keys; to protect these keys and
-          prevent rate-limit exhaustion, those specific requests are routed
-          through a secure proxy infrastructure managed by us.
+          To provide features like weather forecasts, daily wallpapers, and RSS
+          news updates, the extension communicates with external services. Most
+          requests happen directly between your browser and the provider.
+          However, certain wallpaper APIs require authentication keys; to protect
+          these keys and prevent rate-limit exhaustion, those specific requests
+          are routed through a secure proxy infrastructure managed by us.
         </p>
         <p>
           <strong
@@ -259,14 +259,16 @@
             <ul>
               <li><strong>Bing Wallpaper:</strong> <code>peapix.com</code></li>
               <li>
-                <strong>NASA Picture of the Day:</strong>
-                <code>api.nasa.gov</code>
-              </li>
-              <li>
                 <strong>Wikimedia Picture of the Day:</strong>
                 <code>commons.wikimedia.org</code>
               </li>
             </ul>
+          </li>
+          <li>
+            <strong>RSS Feed Reader:</strong> When you configure custom RSS or
+            Atom feeds, requests are made directly from your browser to the feed
+            source URLs you specify. Feed source favicons are loaded via
+            <code>favicon.vemetric.com</code>.
           </li>
           <li>
             <strong>Proxied Wallpapers (Cloudflare Workers):</strong> To
@@ -318,7 +320,7 @@
           </li>
           <li>
             <code>alarms</code>: Optional permission requested strictly when
-            "Weather Alerts" are enabled, used to schedule background background
+            "Weather Alerts" are enabled, used to schedule background
             updates.
           </li>
         </ul>
@@ -338,8 +340,12 @@
           </li>
           <li>
             <strong>Direct Wallpapers</strong> (<code>peapix.com</code>,
-            <code>nasa.gov</code>, <code>wikimedia.org</code>): Used to fetch
+            <code>wikimedia.org</code>): Used to fetch
             daily backgrounds.
+          </li>
+          <li>
+            <strong>RSS Feed Sources</strong>: Requested dynamically when you
+            validate and add a new RSS or Atom feed origin.
           </li>
           <li>
             <strong>Proxied Wallpapers</strong>
