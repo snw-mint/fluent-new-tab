@@ -1,0 +1,43 @@
+name: 'Translation'
+description: 'Submit a translation'
+title: '[Translation]: '
+labels: ['translation']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping translate **Fluent New Tab**!
+
+  - type: input
+    id: language
+    attributes:
+      label: 'Translation Name'
+      placeholder: 'e.g., Spanish (es_ES), Portuguese - Brazil (pt_BR)'
+      description: 'What language are you translating?'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 'Type'
+      description: 'Is this a new language or a correction?'
+      options:
+        - 'New Language'
+        - 'Correction'
+    validations:
+      required: true
+
+  - type: textarea
+    id: translation
+    attributes:
+      label: 'Translation'
+      description: 'Paste your complete translated messages.json file'
+      placeholder: |
+        {
+          "key": {
+            "message": "translated text"
+          }
+        }
+    validations:
+      required: true
