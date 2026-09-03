@@ -55,6 +55,9 @@ export const APP_KEYS: string[] = [
   'displayScale',
   'tabName',
   'tabFavicon',
+  'feedEnabled',
+  'feedMode',
+  'feedRssUrls',
 ];
 
 function isValidBackupPayload(data: unknown): boolean {
