@@ -28,6 +28,7 @@ import { Shortcut } from '@/core/shared/types';
 import { initTabCustomization } from '@/core/ui/tab-customization';
 import { initLocalization } from '@/core/ui/localization';
 import { initBasicSearchUI } from '@/core/boot/search';
+import { getFeedUrls } from '@/core/lazy/feed-manager';
 
 let brandIntervalStarted = false;
 
@@ -480,12 +481,7 @@ async function bootInteractive(): Promise<void> {
   updateLauncherVisibility(state.launcherEnabled, false);
 
   const checkHasFeeds = (): boolean => {
-    try {
-      const urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
-      return Array.isArray(urls) && urls.length > 0;
-    } catch {
-      return false;
-    }
+    return getFeedUrls().length > 0;
   };
 
   const applyFeedState = (enabled: boolean) => {

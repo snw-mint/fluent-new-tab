@@ -8,7 +8,7 @@
 
 import { getById } from '@/core/shared/dom-utils';
 import { FeedData, FeedItem } from '@/core/shared/types';
-import { fetchAndValidateFeed } from '@/core/lazy/feed-manager';
+import { fetchAndValidateFeed, getFeedUrls } from '@/core/lazy/feed-manager';
 
 const CACHE_TTL = 30 * 60 * 1000;
 let loadedFeeds: FeedData[] = [];
@@ -63,6 +63,7 @@ function renderGridItems(items: FeedItem[]): void {
   }
 
   const displayItems = items.slice(0, 25);
+  const frag = document.createDocumentFragment();
 
   displayItems.forEach((it) => {
     const card = document.createElement('a');
@@ -142,8 +143,10 @@ function renderGridItems(items: FeedItem[]): void {
     card.appendChild(meta);
     card.appendChild(title);
 
-    grid.appendChild(card);
+    frag.appendChild(card);
   });
+
+  grid.appendChild(frag);
 }
 
 function interleaveFeeds(feeds: FeedData[]): FeedItem[] {
@@ -240,12 +243,7 @@ function renderNavTabs(): void {
 }
 
 export async function loadAndRenderFeeds(): Promise<void> {
-  let urls: string[] = [];
-  try {
-    urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
-  } catch {
-    urls = [];
-  }
+  const urls = getFeedUrls();
 
   if (!Array.isArray(urls) || urls.length === 0) {
     loadedFeeds = [];

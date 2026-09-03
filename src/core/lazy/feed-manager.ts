@@ -13,6 +13,15 @@ const PLUS_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 const DELETE_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 5h4a2 2 0 1 0-4 0M8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM14.25 9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75m-7.516 9.467a2.25 2.25 0 0 0 2.24 2.033h6.052a2.25 2.25 0 0 0 2.24-2.033L18.424 6.5H5.576z" fill="currentColor"/></svg>`;
 const MAX_FEEDS = 5;
 
+export function getFeedUrls(): string[] {
+  try {
+    const urls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
+    return Array.isArray(urls) ? urls : [];
+  } catch {
+    return [];
+  }
+}
+
 let isInitialized = false;
 
 function isValidHttpsUrl(val: string): boolean {
@@ -78,7 +87,6 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
       const lnk = sanitizeHttpsUrl(rawLnk);
       const pubDate = n.querySelector('pubDate, date, dc\\:date')?.textContent || '';
       const rawDesc = n.querySelector('description, encoded')?.textContent || '';
-      const desc = sanitizeText(rawDesc);
 
       let imgUrl: string | undefined;
       const enc = n.querySelector('enclosure');
@@ -109,7 +117,6 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
           title: itTitle,
           link: lnk,
           pubDate,
-          description: desc,
           imageUrl: imgUrl,
           feedTitle: title,
         });
@@ -126,7 +133,6 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
       const lnk = sanitizeHttpsUrl(rawLnk);
       const pubDate = n.querySelector('updated, published, pubDate, date')?.textContent || '';
       const rawSummary = n.querySelector('summary, content')?.textContent || '';
-      const desc = sanitizeText(rawSummary);
 
       let imgUrl: string | undefined;
       const media = n.querySelector('thumbnail, content[type^="image"], media\\:content, media\\:thumbnail');
@@ -146,7 +152,6 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
           title: itTitle,
           link: lnk,
           pubDate,
-          description: desc,
           imageUrl: imgUrl,
           feedTitle: title,
         });
@@ -179,7 +184,7 @@ function parseFeedXml(xmlStr: string, feedUrl: string): FeedData {
   return {
     url: feedUrl,
     title: title || new URL(feedUrl).hostname,
-    items: finalItems,
+    items: finalItems.slice(0, 50),
     updatedAt: Date.now(),
   };
 }
@@ -389,6 +394,11 @@ export function openFeedModal(): void {
           const val = input.value.trim();
           if (val && isValidHttpsUrl(val)) urls.push(val);
         });
+
+        getFeedUrls()
+          .filter((u) => !urls.includes(u))
+          .forEach((u) => localStorage.removeItem(`feedCache_${u}`));
+
         localStorage.setItem('feedRssUrls', JSON.stringify(urls.slice(0, MAX_FEEDS)));
         closeFeedModal();
 
@@ -420,12 +430,7 @@ export function openFeedModal(): void {
   }
 
   container.innerHTML = '';
-  let savedUrls: string[] = [];
-  try {
-    savedUrls = JSON.parse(localStorage.getItem('feedRssUrls') || '[]');
-  } catch {
-    savedUrls = [];
-  }
+  const savedUrls = getFeedUrls();
 
   if (savedUrls.length > 0) {
     savedUrls.slice(0, MAX_FEEDS).forEach((url) => {
