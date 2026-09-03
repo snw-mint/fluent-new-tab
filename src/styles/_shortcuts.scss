@@ -251,11 +251,6 @@
     .shortcut-card {
       background: var(--shortcut-bg);
     }
-
-    &:hover .shortcut-card,
-    &:active .shortcut-card {
-      background: var(--surface-dim);
-    }
   }
 
   .shortcut-item:hover .menu-btn,
@@ -371,11 +366,6 @@
   &.active .shortcut-card svg,
   &:has(.add-dropdown.active) .shortcut-card svg {
     transform: rotate(45deg);
-  }
-
-  &.active .shortcut-card,
-  &:has(.add-dropdown.active) .shortcut-card {
-    background: var(--surface-dim);
   }
 
   .add-dropdown {
