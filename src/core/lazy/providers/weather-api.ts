@@ -195,7 +195,11 @@ export function renderWeatherAlertWidget(): void {
       return;
     }
 
-    const feedActions = document.getElementById('feedHeaderActions');
+    const isFeedActive =
+      document.documentElement.getAttribute('data-feed-active') === 'true';
+    const feedActions = isFeedActive
+      ? document.getElementById('feedHeaderActions')
+      : null;
     const targetParent = feedActions || document.body;
 
     if (!widget) {

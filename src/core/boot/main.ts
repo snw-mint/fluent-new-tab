@@ -501,6 +501,11 @@ async function bootInteractive(): Promise<void> {
         initFeedScroll();
       });
     }
+    import('@/core/lazy/providers/weather-api').then(
+      ({ renderWeatherAlertWidget }) => {
+        renderWeatherAlertWidget();
+      },
+    );
   };
 
   const updateFeedVisibility = (visible: boolean, animate = true) => {

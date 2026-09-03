@@ -425,6 +425,12 @@ export function openFeedModal(): void {
             initFeedScroll();
           });
         }
+
+        import('@/core/lazy/providers/weather-api').then(
+          ({ renderWeatherAlertWidget }) => {
+            renderWeatherAlertWidget();
+          },
+        );
       });
     }
   }
