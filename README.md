@@ -1,4 +1,15 @@
-# <img src="public\assets\icon-128.png" width="50" align="center"> Fluent New Tab &nbsp; [ ![lastest version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsnw-mint%2Ffluent-new-tab%2Frefs%2Fheads%2Fmain%2Fmanifest.json&query=version&style=flat&label=latest%20version&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/releases) [ ![last commit](https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab/activity) [ ![license](https://img.shields.io/badge/GPLv3-message?style=flat&label=license&color=%230078D4) ](https://github.com/snw-mint/fluent-new-tab?tab=GPL-3.0-1-ov-file)
+<p align="center">
+  <img src="public/assets/icon-128.png" width="64" alt="Fluent New Tab Logo" />
+</p>
+
+<h1 align="center">Fluent New Tab</h1>
+
+<p align="center">
+  <a href="https://github.com/snw-mint/fluent-new-tab/releases"><img src="https://img.shields.io/github/v/release/snw-mint/fluent-new-tab?display_name=release&style=plastic&color=%23117DCF" alt="GitHub Release" /></a>
+  <a href="https://github.com/snw-mint/fluent-new-tab/activity"><img src="https://img.shields.io/github/last-commit/snw-mint/fluent-new-tab?style=plastic&color=%230078D4" alt="last commit" /></a>
+  <a href="https://github.com/snw-mint/fluent-new-tab?tab=GPL-3.0-1-ov-file"><img src="https://img.shields.io/badge/GPLv3-message?style=plastic&label=license&color=%230078D4" alt="license" /></a>
+  <img src="https://img.shields.io/badge/yes-label?style=plastic&label=maintained" alt="maintained" />
+</p>
 
 ![Fluent New Tab Main](repo-assets/main.png)
 
@@ -47,16 +58,6 @@ For the latest version:
 4. Enable **Developer Mode**.
 5. Click **Load Unpacked** and select the unzipped folder.
 
-## Support the project
-
-Fluent New Tab is an independent, open-source project maintained solely by me. If you enjoy using the extension and want to help keep it alive, ad-free, and regularly updated, consider supporting my work!
-
-<p align="center">
-  <a href="https://www.buymeacoffee.com/snw.mint" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-</p>
-
-Not able to donate? You can still help immensely by **starring this repository**, leaving a review on the extension store, and sharing it with your friends!
-
 ## Privacy
 
 Fluent New Tab follows a local-first approach.
@@ -80,22 +81,49 @@ Contributions, feedback, and bug reports are highly appreciated!
 
 Fluent New Tab is available in multiple languages thanks to our community!
 
-See the [Translation Guide](.github/TRANSLATING.md) for more details.
+| Code     | Language         | Contributor    |
+| -------- | ---------------- | -------------- |
+| `cs_CZ`  | Čeština          | none           |
+| `da_DK`  | Dansk            | none           |
+| `de_DE`  | Deutsch          | none           |
+| `el_GR`  | Ελληνικά         | none           |
+| `en_US`  | English (US)     | @snw-mint      |
+| `es_ES`  | Español (España) | none           |
+| `fil_PH` | Filipino         | @PhilMinecraft |
+| `fi_FI`  | Suomi            | none           |
+| `fr_FR`  | Français         | none           |
+| `hu_HU`  | Magyar           | none           |
+| `id_ID`  | Bahasa Indonesia | @GID0317       |
+| `it_IT`  | Italiano         | none           |
+| `ja_JP`  | 日本語           | none           |
+| `ko_KR`  | 한국어           | none           |
+| `nl_NL`  | Nederlands       | none           |
+| `pl_PL`  | Polski           | none           |
+| `pt_BR`  | Português        | @snw-mint      |
+| `ro_RO`  | Română           | none           |
+| `ru_RU`  | Русский          | none           |
+| `sv_SE`  | Svenska          | none           |
+| `tr_TR`  | Türkçe           | none           |
+| `uk_UA`  | Українська       | none           |
+| `vi_VN`  | Tiếng Việt       | none           |
+| `zh_CN`  | 中文 (简体)      | none           |
+| `zh_TW`  | 中文 (繁體)      | none           |
 
-## Prefer a different design?
+See the [Translation Guide](_locales/TRANSLATING.md) for more details.
 
-This extension is also available in **[MD3: Expressive New Tab](https://github.com/snw-mint/md3-new-tab)** — the same powerful new tab experience, but inspired by **Google's Material Design 3** with a vibrant, expressive aesthetic.
+## Support the project
 
-Both projects share the **same codebase** and **identical features**. The only difference is the visual design language. Choose based on your personal preference:
+Fluent New Tab is an independent, open-source project maintained solely by me. If you enjoy using the extension and want to help keep it alive, ad-free, and regularly updated, consider supporting my work!
 
-- **Fluent New Tab** (current) — Minimal, clean design inspired by Microsoft's Fluent Design System
-- **MD3: Expressive New Tab** — Bold, colorful design inspired by Google's Material Design 3
+<p align="center">
+  <a href="https://www.buymeacoffee.com/snw.mint" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+</p>
 
-[Try MD3: Expressive New Tab →](https://github.com/snw-mint/md3-new-tab)
+Not able to donate? You can still help immensely by **starring this repository**, leaving a review on the extension store, and sharing it with your friends!
 
 ## License and legal notice
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > "Fluent New Tab" is a strictly non-profit, open-source project. We do not accept paid promotions, data partnerships, or advertising offers. Please do not send unsolicited business inquiries.
 
 This project is licensed under the [GPL-3.0 License](https://github.com/snw-mint/fluent-new-tab/blob/main/LICENSE). By using or modifying this extension, you agree to our [Terms of Use](https://snw-mint.github.io/fluent-new-tab/terms.html).
@@ -105,3 +133,7 @@ Forks and distributions must use a different name and logo, and be clearly marke
 Third-party dependencies and assets credits can be found in [CREDITS.md](.github/CREDITS.md). To report security vulnerabilities, please refer to our [Security Policy](.github/SECURITY.md).
 
 All trademarks belong to their respective owners. There is no affiliation or endorsement by Microsoft, Google, or Proton AG.
+
+---
+
+_Prefer a different design? [Try MD3: Expressive New Tab](https://github.com/snw-mint/md3-new-tab)_
