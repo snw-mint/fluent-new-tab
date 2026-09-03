@@ -57,6 +57,13 @@ const APP_KEYS = [
 const SHORTCUTS_TREE_KEY = 'shortcutsTree';
 let translations = {};
 
+async function fetchLocale(loc) {
+  const u = chrome.runtime.getURL(`_locales/${loc}/messages.json`);
+  const res = await fetch(u);
+  if (!res.ok) throw new Error('File not found');
+  return await res.json();
+}
+
 async function loadTranslations() {
   const lang = localStorage.getItem('userLanguage') || 'en_US';
   const cacheKey = `i18n_cache_${lang}`;
@@ -64,40 +71,37 @@ async function loadTranslations() {
 
   if (cached) {
     try {
-      translations = JSON.parse(cached);
-      applyTranslations();
-      return;
+      const msg = JSON.parse(cached);
+      if (lang === 'en_US' || msg.wizardRestoreBtn) {
+        translations = msg;
+        applyTranslations();
+        return;
+      }
     } catch {
       localStorage.removeItem(cacheKey);
     }
   }
 
-  let messages = null;
-
+  let defMsg = {};
   try {
-    const url = chrome.runtime.getURL(`_locales/${lang}/messages.json`);
-    const res = await fetch(url);
-    if (res.ok) messages = await res.json();
+    defMsg = await fetchLocale('en_US');
   } catch {}
 
-  if (!messages) {
+  let langMsg = {};
+  if (lang !== 'en_US') {
     try {
-      const url = chrome.runtime.getURL('crowdin/messages.json');
-      const res = await fetch(url);
-      if (res.ok) messages = await res.json();
+      langMsg = await fetchLocale(lang);
     } catch {}
   }
 
-  if (messages) {
-    translations = messages;
-    localStorage.setItem(cacheKey, JSON.stringify(translations));
-  }
-
+  translations = Object.assign({}, defMsg, langMsg);
+  localStorage.setItem(cacheKey, JSON.stringify(translations));
   applyTranslations();
 }
 
-function t(key) {
-  return translations[key] ? translations[key].message : key;
+function t(k, fb) {
+  if (translations[k]) return translations[k].message;
+  return fb !== undefined ? fb : k;
 }
 
 function applyTranslations() {

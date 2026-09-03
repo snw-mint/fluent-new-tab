@@ -43,6 +43,11 @@ function getHostOriginPattern(val: string): string | null {
   }
 }
 
+function t(k: string, fb: string): string {
+  const v = (window as any).getTranslation?.(k, fb);
+  return v && v !== k ? v : fb;
+}
+
 function sanitizeText(raw: string): string {
   if (!raw) return '';
   const d = document.createElement('div');
@@ -233,7 +238,7 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
   grp.className = 'input-group';
 
   const lbl = document.createElement('label');
-  lbl.textContent = (window as any).getTranslation?.('feedRssUrlLabel') || 'RSS URL';
+  lbl.textContent = t('feedRssUrlLabel', 'RSS URL');
 
   const wrap = document.createElement('div');
   wrap.className = 'feed-input-wrapper';
@@ -333,8 +338,8 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
 
       const { warningModal } = await import('@/core/ui/ui-components');
       warningModal.show({
-        title: (window as any).getTranslation?.('feedErrorTitle') || 'Feed Error',
-        message: err?.message || (window as any).getTranslation?.('feedErrorDesc') || 'Failed to fetch or parse the RSS feed. Please check the URL.',
+        title: t('feedErrorTitle', 'Feed Error'),
+        message: err?.message || t('feedErrorDesc', 'Failed to fetch or parse the RSS feed. Please check the URL.'),
         confirmText: 'OK',
         confirmVariant: 'accent',
         onConfirm: () => {},

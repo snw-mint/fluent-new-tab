@@ -38,6 +38,11 @@ function getDomain(urlStr: string): string {
   }
 }
 
+function t(k: string, fb: string): string {
+  const v = (window as any).getTranslation?.(k, fb);
+  return v && v !== k ? v : fb;
+}
+
 function getFaviconUrl(urlStr: string): string {
   const domain = getDomain(urlStr);
   return domain ? `https://favicon.vemetric.com/${domain}?size=32` : '';
@@ -55,8 +60,8 @@ function renderGridItems(items: FeedItem[]): void {
         <svg class="feed-empty-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4h12.5a2.25 2.25 0 0 1 2.245 2.096L19 6.25V7h.75a2.25 2.25 0 0 1 2.245 2.096L22 9.25v7.5a3.25 3.25 0 0 1-3.066 3.245zH5.25zm-13.5-1.5h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143v-7.5a.75.75 0 0 0-.648-.743L19.75 8.5H19v7.75a.75.75 0 0 1-.648.743L18.25 17a.75.75 0 0 1-.743-.648l-.007-.102v-10a.75.75 0 0 0-.648-.743L16.75 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v10.5a1.75 1.75 0 0 0 1.606 1.744zh13.5zm6.996-4h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.493zh3.006zm-3.003-3.495a.75.75 0 0 1 .75.75v3.495a.75.75 0 0 1-.75.75H5.748a.75.75 0 0 1-.75-.75v-3.495a.75.75 0 0 1 .75-.75zm-.75 1.5H6.498V14.5h1.995zm3.753-1.5h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.494zh3.006zM5.748 7.502h9.504a.75.75 0 0 1 .102 1.494l-.102.006H5.748a.75.75 0 0 1-.102-1.493zh9.504z" fill="currentColor"/>
         </svg>
-        <h4 class="feed-empty-title">${(window as any).getTranslation?.('feedEmptyTitle') || 'No feed items available'}</h4>
-        <p class="feed-empty-desc">${(window as any).getTranslation?.('feedEmptyDesc') || 'Open Settings &gt; Feed &gt; Edit RSS to configure your sources.'}</p>
+        <h4 class="feed-empty-title">${t('feedEmptyTitle', 'No feed items available')}</h4>
+        <p class="feed-empty-desc">${t('feedEmptyDesc', 'Open Settings &gt; Feed &gt; Edit RSS to configure your sources.')}</p>
       </div>
     `;
     return;
@@ -209,7 +214,7 @@ function renderNavTabs(): void {
   allBtn.setAttribute('data-feed-id', 'all');
 
   const allSpan = document.createElement('span');
-  allSpan.textContent = (window as any).getTranslation?.('feedAll') || 'All';
+  allSpan.textContent = t('feedAll', 'All');
   allBtn.appendChild(allSpan);
 
   allBtn.addEventListener('click', () => {
