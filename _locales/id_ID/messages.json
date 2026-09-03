@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Bantu menjaga proyek ini tetap berkembang."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Kode sumber"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Lihat proyek di GitHub."
-  },
   "gridFullTitle": {
     "message": "Kisi Sudah Penuh"
   },

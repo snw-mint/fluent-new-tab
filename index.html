@@ -540,7 +540,7 @@
           <div class="setting-header-row">
             <div class="group-title">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4h12.5a2.25 2.25 0 0 1 2.245 2.096L19 6.25V7h.75a2.25 2.25 0 0 1 2.245 2.096L22 9.25v7.5a3.25 3.25 0 0 1-3.066 3.245zH5.25zm-13.5-1.5h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143v-7.5a.75.75 0 0 0-.648-.743L19.75 8.5H19v7.75a.75.75 0 0 1-.648.743L18.25 17a.75.75 0 0 1-.743-.648l-.007-.102v-10a.75.75 0 0 0-.648-.743L16.75 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v10.5a1.75 1.75 0 0 0 1.606 1.744zh13.5zm6.996-4h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.493zh3.006zm-3.003-3.495a.75.75 0 0 1 .75.75v3.495a.75.75 0 0 1-.75.75H5.748a.75.75 0 0 1-.75-.75v-3.495a.75.75 0 0 1 .75-.75zm-.75 1.5H6.498V14.5h1.995zm3.753-1.5h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.494zh3.006zM5.748 7.502h9.504a.75.75 0 0 1 .102 1.494l-.102.006H5.748a.75.75 0 0 1-.102-1.493zh9.504z" fill="currentColor"/></svg>
-              <span>Feed</span>
+              <span data-i18n="feedTitle">Feed</span>
             </div>
             <label class="switch">
               <input type="checkbox" id="toggleFeed" />
@@ -552,19 +552,19 @@
             <div id="feedModeGroup" class="display-sub-setting">
               <div class="fluent-select-container">
                 <button type="button" class="fluent-select-trigger" data-target="feedModeSelect">
-                  <span class="fluent-select-value">Minimal</span>
+                  <span class="fluent-select-value" data-i18n="feedModeMinimal">Minimal</span>
                   <span class="fluent-select-arrow"></span>
                 </button>
                 <select id="feedModeSelect" class="settings-select hidden-native-select" aria-label="Feed Mode">
-                  <option value="minimal">Minimal</option>
-                  <option value="expanded">Expanded</option>
+                  <option value="minimal" data-i18n="feedModeMinimal">Minimal</option>
+                  <option value="expanded" data-i18n="feedModeExpanded">Expanded</option>
                 </select>
               </div>
             </div>
 
             <div id="feedRssContainer" class="switch-row child-setting" style="margin-top: 0.4rem">
-              <span class="setting-label-small">Feeds RSS</span>
-              <button type="button" id="editFeedRssBtn" class="accent-btn">Edit</button>
+              <span class="setting-label-small" data-i18n="feedRssTitle">Feeds RSS</span>
+              <button type="button" id="editFeedRssBtn" class="accent-btn" data-i18n="editLabel">Edit</button>
             </div>
           </div>
         </div>
@@ -893,11 +893,11 @@
         <header class="feed-header">
           <div class="feed-brand">
             <svg class="feed-brand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4h12.5a2.25 2.25 0 0 1 2.245 2.096L19 6.25V7h.75a2.25 2.25 0 0 1 2.245 2.096L22 9.25v7.5a3.25 3.25 0 0 1-3.066 3.245zH5.25zm-13.5-1.5h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143v-7.5a.75.75 0 0 0-.648-.743L19.75 8.5H19v7.75a.75.75 0 0 1-.648.743L18.25 17a.75.75 0 0 1-.743-.648l-.007-.102v-10a.75.75 0 0 0-.648-.743L16.75 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v10.5a1.75 1.75 0 0 0 1.606 1.744zh13.5zm6.996-4h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.493zh3.006zm-3.003-3.495a.75.75 0 0 1 .75.75v3.495a.75.75 0 0 1-.75.75H5.748a.75.75 0 0 1-.75-.75v-3.495a.75.75 0 0 1 .75-.75zm-.75 1.5H6.498V14.5h1.995zm3.753-1.5h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.494zh3.006zM5.748 7.502h9.504a.75.75 0 0 1 .102 1.494l-.102.006H5.748a.75.75 0 0 1-.102-1.493zh9.504z" fill="currentColor"/></svg>
-            <span class="feed-brand-title">Feed</span>
+            <span class="feed-brand-title" data-i18n="feedTitle">Feed</span>
           </div>
           <nav class="feed-nav" id="feedNav" aria-label="Feeds Navigation">
             <button type="button" class="feed-nav-item active" data-feed-id="all">
-              <span>All</span>
+              <span data-i18n="feedAll">All</span>
             </button>
           </nav>
           <div class="feed-header-actions" id="feedHeaderActions"></div>
@@ -1009,7 +1009,7 @@
     <div id="feedModal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Feed</h3>
+          <h3 data-i18n="feedTitle">Feed</h3>
           <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#rss-feed-reader" target="_blank" rel="noopener noreferrer" class="modal-help-link" title="Help">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.523 0 10 4.478 10 10s-4.477 10-10 10S2 17.522 2 12 6.477 2 12 2m0 1.667c-4.595 0-8.333 3.738-8.333 8.333S7.405 20.333 12 20.333s8.333-3.738 8.333-8.333S16.595 3.667 12 3.667M12 15.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m0-8.75a2.75 2.75 0 0 1 2.75 2.75c0 1.01-.297 1.574-1.051 2.359l-.169.171c-.622.622-.78.886-.78 1.47a.75.75 0 0 1-1.5 0c0-1.01.297-1.574 1.051-2.359l.169-.171c.622-.622.78-.886.78-1.47a1.25 1.25 0 0 0-2.493-.128l-.007.128a.75.75 0 0 1-1.5 0A2.75 2.75 0 0 1 12 6.75" fill="currentColor"/></svg>
             <span>Help</span>
@@ -1019,7 +1019,7 @@
           <div id="feedInputsContainer">
             <div class="feed-input-row">
               <div class="input-group">
-                <label>RSS URL</label>
+                <label data-i18n="feedRssUrlLabel">RSS URL</label>
                 <div class="feed-input-wrapper">
                   <input type="url" class="feed-url-input" placeholder="https://example.com/feed.xml" />
                   <button type="button" class="feed-add-btn" disabled title="Add Feed">
@@ -1033,13 +1033,13 @@
           <div class="feed-add-field-wrapper">
             <button type="button" id="feedAddFieldBtn" class="feed-add-field-btn">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75" fill="currentColor"/></svg>
-              <span>Add field</span>
+              <span data-i18n="feedAddField">Add field</span>
             </button>
           </div>
 
           <div class="modal-actions">
-            <button type="button" id="closeFeedModalBtn" class="btn-cancel">Cancel</button>
-            <button type="submit" id="saveFeedModalBtn" class="btn-save" disabled>Save</button>
+            <button type="button" id="closeFeedModalBtn" class="btn-cancel" data-i18n="btnCancel">Cancel</button>
+            <button type="submit" id="saveFeedModalBtn" class="btn-save" disabled data-i18n="btnSave">Save</button>
           </div>
         </form>
       </div>

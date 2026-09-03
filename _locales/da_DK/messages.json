@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Hjælp med at holde projektet opdateret."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Kildekode"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Se projektet på GitHub."
-  },
   "gridFullTitle": {
     "message": "Gitteret er fuldt"
   },

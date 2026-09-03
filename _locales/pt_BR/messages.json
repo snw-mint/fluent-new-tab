@@ -655,11 +655,29 @@
   "wizardFinalSupportDesc": {
     "message": "Ajude a manter o projeto atualizado."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Código-fonte"
+  "wizardRestoreBtn": {
+    "message": "Restaurar"
   },
-  "wizardFinalGithubDesc": {
-    "message": "Veja o projeto no GitHub."
+  "wizardStartBtn": {
+    "message": "Iniciar"
+  },
+  "wizardSkipBtn": {
+    "message": "Pular"
+  },
+  "wizardFinalDocsTitle": {
+    "message": "Documentação"
+  },
+  "wizardFinalDocsDesc": {
+    "message": "Saiba como usar o Fluent New Tab."
+  },
+  "wizardFinalDocsBtn": {
+    "message": "Ler"
+  },
+  "wizardFinalStartBtn": {
+    "message": "Abrir"
+  },
+  "wizardFinalSupportBtn": {
+    "message": "Doar"
   },
   "gridFullTitle": {
     "message": "A grade está cheia"
@@ -726,5 +744,38 @@
   },
   "askAiEngineTip": {
     "message": "Você pode mudar o provedor de IA aqui"
+  },
+  "feedTitle": {
+    "message": "Feed"
+  },
+  "feedModeMinimal": {
+    "message": "Mínimo"
+  },
+  "feedModeExpanded": {
+    "message": "Expandido"
+  },
+  "feedRssTitle": {
+    "message": "Feeds RSS"
+  },
+  "feedRssUrlLabel": {
+    "message": "URL do RSS"
+  },
+  "feedAddField": {
+    "message": "Adicionar campo"
+  },
+  "feedEmptyTitle": {
+    "message": "Nenhum item disponível no feed"
+  },
+  "feedEmptyDesc": {
+    "message": "Abra Configurações > Feed > Feeds RSS para configurar suas fontes."
+  },
+  "feedAll": {
+    "message": "Todos"
+  },
+  "feedErrorTitle": {
+    "message": "Erro no Feed"
+  },
+  "feedErrorDesc": {
+    "message": "Falha ao buscar ou processar o feed RSS. Verifique a URL."
   }
 }

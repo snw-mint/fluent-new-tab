@@ -233,7 +233,7 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
   grp.className = 'input-group';
 
   const lbl = document.createElement('label');
-  lbl.textContent = 'RSS URL';
+  lbl.textContent = (window as any).getTranslation?.('feedRssUrlLabel') || 'RSS URL';
 
   const wrap = document.createElement('div');
   wrap.className = 'feed-input-wrapper';
@@ -333,8 +333,8 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
 
       const { warningModal } = await import('@/core/ui/ui-components');
       warningModal.show({
-        title: 'Feed Error',
-        message: err?.message || 'Failed to fetch or parse the RSS feed. Please check the URL.',
+        title: (window as any).getTranslation?.('feedErrorTitle') || 'Feed Error',
+        message: err?.message || (window as any).getTranslation?.('feedErrorDesc') || 'Failed to fetch or parse the RSS feed. Please check the URL.',
         confirmText: 'OK',
         confirmVariant: 'accent',
         onConfirm: () => {},

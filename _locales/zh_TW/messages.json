@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "請協助保持專案內容的更新。"
   },
-  "wizardFinalGithubTitle": {
-    "message": "原始碼"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "在 GitHub 上查看此專案。"
-  },
   "gridFullTitle": {
     "message": "網格已滿"
   },

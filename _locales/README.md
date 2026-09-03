@@ -294,5 +294,3 @@ Used internally to fill the `$WEEK$` placeholder in greeting messages.
 | `wizardFinalStartDesc` | Open your new tab page. | Description under "Get started" |
 | `wizardFinalSupportTitle` | Support the project | Wizard final action: support link |
 | `wizardFinalSupportDesc` | Help keep the project updated. | Description under "Support the project" |
-| `wizardFinalGithubTitle` | Source code | Wizard final action: GitHub link |
-| `wizardFinalGithubDesc` | View project on GitHub. | Description under "Source code" |

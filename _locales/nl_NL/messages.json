@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Help mee om het project up-to-date te houden."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Broncode"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Bekijk het project op GitHub."
-  },
   "gridFullTitle": {
     "message": "Raster is vol"
   },

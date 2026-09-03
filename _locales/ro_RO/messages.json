@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Ajută-ne să menținem proiectul la zi."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Cod sursă"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Vizualizează proiectul pe GitHub."
-  },
   "gridFullTitle": {
     "message": "Grila este plină"
   },

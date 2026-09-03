@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Pomozte nám udržovat projekt aktuální."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Zdrojový kód"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Zobrazit projekt na GitHubu."
-  },
   "gridFullTitle": {
     "message": "Mřížka je plná"
   },

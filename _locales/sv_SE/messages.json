@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Hjälp till att hålla projektet uppdaterat."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Källkod"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Visa projektet på GitHub."
-  },
   "gridFullTitle": {
     "message": "Rutnätet är fullt"
   },

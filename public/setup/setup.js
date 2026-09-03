@@ -116,13 +116,6 @@ function applyTranslations() {
   });
 }
 
-const btnSkip = document.getElementById('btn-skip');
-if (btnSkip) {
-  btnSkip.addEventListener('click', () => {
-    showStep('final');
-  });
-}
-
 function applyTheme(theme) {
   const html = document.documentElement;
   html.removeAttribute('data-theme');

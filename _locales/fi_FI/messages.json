@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Auta pitämään projekti ajan tasalla."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Lähdekoodi"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Katso projekti GitHubissa."
-  },
   "gridFullTitle": {
     "message": "Ruudukko on täynnä"
   },

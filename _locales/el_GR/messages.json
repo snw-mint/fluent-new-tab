@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Βοηθήστε μας να διατηρούμε το έργο ενημερωμένο."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Πηγαίος κώδικας"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Δείτε το έργο στο GitHub."
-  },
   "gridFullTitle": {
     "message": "Το πλέγμα είναι γεμάτο"
   },

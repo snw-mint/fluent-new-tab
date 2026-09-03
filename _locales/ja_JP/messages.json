@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "このプロジェクトの最新情報を維持するためにご協力ください。"
   },
-  "wizardFinalGithubTitle": {
-    "message": "ソースコード"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "GitHubでプロジェクトを表示する。"
-  },
   "gridFullTitle": {
     "message": "グリッドがいっぱいです"
   },

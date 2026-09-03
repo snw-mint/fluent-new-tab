@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Segíts a projekt frissítésében!"
   },
-  "wizardFinalGithubTitle": {
-    "message": "Forráskód"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "A projekt megtekintése a GitHubon."
-  },
   "gridFullTitle": {
     "message": "A rács megtelt"
   },

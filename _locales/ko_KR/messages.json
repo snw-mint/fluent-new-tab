@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
   },
-  "wizardFinalGithubTitle": {
-    "message": "소스 코드"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "GitHub에서 프로젝트 보기."
-  },
   "gridFullTitle": {
     "message": "그리드가 가득 찼습니다"
   },

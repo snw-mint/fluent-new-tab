@@ -655,11 +655,29 @@
   "wizardFinalSupportDesc": {
     "message": "Help keep the project updated."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Source code"
+  "wizardRestoreBtn": {
+    "message": "Restore"
   },
-  "wizardFinalGithubDesc": {
-    "message": "View project on GitHub."
+  "wizardStartBtn": {
+    "message": "Start"
+  },
+  "wizardSkipBtn": {
+    "message": "Skip"
+  },
+  "wizardFinalDocsTitle": {
+    "message": "Documentation"
+  },
+  "wizardFinalDocsDesc": {
+    "message": "Learn how to use Fluent New Tab."
+  },
+  "wizardFinalDocsBtn": {
+    "message": "Read"
+  },
+  "wizardFinalStartBtn": {
+    "message": "Open"
+  },
+  "wizardFinalSupportBtn": {
+    "message": "Donate"
   },
   "gridFullTitle": {
     "message": "Grid is Full"
@@ -726,5 +744,38 @@
   },
   "askAiEngineTip": {
     "message": "Change the AI provider here"
+  },
+  "feedTitle": {
+    "message": "Feed"
+  },
+  "feedModeMinimal": {
+    "message": "Minimal"
+  },
+  "feedModeExpanded": {
+    "message": "Expanded"
+  },
+  "feedRssTitle": {
+    "message": "Feeds RSS"
+  },
+  "feedRssUrlLabel": {
+    "message": "RSS URL"
+  },
+  "feedAddField": {
+    "message": "Add field"
+  },
+  "feedEmptyTitle": {
+    "message": "No feed items available"
+  },
+  "feedEmptyDesc": {
+    "message": "Open Settings > Feed > Edit RSS to configure your sources."
+  },
+  "feedAll": {
+    "message": "All"
+  },
+  "feedErrorTitle": {
+    "message": "Feed Error"
+  },
+  "feedErrorDesc": {
+    "message": "Failed to fetch or parse the RSS feed. Please check the URL."
   }
 }

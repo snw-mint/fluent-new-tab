@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Pomóż nam dbać o aktualność projektu."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Kod źródłowy"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Zobacz projekt na GitHubie."
-  },
   "gridFullTitle": {
     "message": "Siatka jest pełna"
   },

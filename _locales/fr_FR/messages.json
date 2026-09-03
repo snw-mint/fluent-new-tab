@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Aidez-nous à maintenir ce projet à jour."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Code source"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Consultez le projet sur GitHub."
-  },
   "gridFullTitle": {
     "message": "La grille est pleine"
   },

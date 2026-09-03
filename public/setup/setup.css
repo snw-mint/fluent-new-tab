@@ -26,13 +26,13 @@
   --radius-xl: 0.7875rem;
   --radius-xxl: 1.2375rem;
   --font-body:
-    "Segoe UI Variable Text", 
-    -apple-system, 
-    BlinkMacSystemFont, 
-    "Segoe UI Roboto", 
-    "Segoe UI", 
-    Helvetica, 
-    Arial, 
+    "Segoe UI Variable Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI Roboto",
+    "Segoe UI",
+    Helvetica,
+    Arial,
     sans-serif;
 }
 
@@ -185,22 +185,39 @@ body.slide-prev .step.active {
   gap: 1rem;
   padding: 2rem;
   background: var(--surface);
-  border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
-  cursor: pointer;
   color: var(--text-color);
   font-family: var(--font-body);
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
   width: 100%;
   max-width: 20rem;
   text-decoration: none;
 }
 
-.welcome-card:hover {
-  background: var(--overlay-weak);
-  border-color: var(--text-color);
+.welcome-card-btn {
+  background-color: var(--border-strong);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.15s ease;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+.welcome-card-btn:hover {
+  background-color: var(--overlay-strong);
+  text-decoration: none;
+}
+
+.welcome-card-btn:active {
+  transform: scale(0.98);
 }
 
 .card-icon {
@@ -220,6 +237,7 @@ body.slide-prev .step.active {
   opacity: 0.65;
   font-weight: 400;
   line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 .step-split {

@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Помогите поддерживать проект в актуальном состоянии."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Исходный код"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Посмотреть проект на GitHub."
-  },
   "gridFullTitle": {
     "message": "Сетка заполнена"
   },

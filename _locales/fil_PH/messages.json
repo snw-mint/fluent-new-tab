@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Help keep the project updated."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Source code"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "View project on GitHub."
-  },
   "gridFullTitle": {
     "message": "Puno na ang Grid"
   },

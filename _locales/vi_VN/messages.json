@@ -655,12 +655,6 @@
   "wizardFinalSupportDesc": {
     "message": "Hãy giúp dự án luôn được cập nhật."
   },
-  "wizardFinalGithubTitle": {
-    "message": "Mã nguồn"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Xem dự án trên GitHub."
-  },
   "gridFullTitle": {
     "message": "Lưới đã đầy"
   },

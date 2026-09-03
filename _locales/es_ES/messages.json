@@ -838,12 +838,6 @@
   "wizardFinalSupportDesc": {
     "message": "Ayuda a mantener el proyecto actualizado."
   },
-  "wizardFinalGithubTitle": {
-    "message": "código fuente"
-  },
-  "wizardFinalGithubDesc": {
-    "message": "Ver proyecto en GitHub."
-  },
   "searchEngineTip": {
     "message": "Puedes cambiar el motor de búsqueda aquí"
   },
