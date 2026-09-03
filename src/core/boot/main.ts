@@ -29,6 +29,7 @@ import { initTabCustomization } from '@/core/ui/tab-customization';
 import { initLocalization } from '@/core/ui/localization';
 import { initBasicSearchUI } from '@/core/boot/search';
 import { getFeedUrls } from '@/core/lazy/feed-manager';
+import { getLocalizedWarningText } from '@/core/shared/dom-utils';
 
 let brandIntervalStarted = false;
 
@@ -262,10 +263,7 @@ async function bootInteractive(): Promise<void> {
         ['update_notice_pending', 'update_notice_version'],
         (data: any) => {
           if (data.update_notice_pending) {
-            Promise.all([
-              import('@/core/ui/ui-components'),
-              import('@/core/shared/dom-utils'),
-            ]).then(([{ showToast }, { getLocalizedWarningText }]) => {
+            import('@/core/ui/ui-components').then(({ showToast }) => {
               const version = data.update_notice_version || '';
               const prefix = getLocalizedWarningText(
                 'updateNoticePrefix',
