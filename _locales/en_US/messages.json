@@ -758,7 +758,7 @@
     "message": "Feeds RSS"
   },
   "feedRssUrlLabel": {
-    "message": "RSS URL"
+    "message": "RSS or ATOM UR"
   },
   "feedAddField": {
     "message": "Add field"
