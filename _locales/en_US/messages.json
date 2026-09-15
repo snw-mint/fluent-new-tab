@@ -755,10 +755,10 @@
     "message": "Expanded"
   },
   "feedRssTitle": {
-    "message": "Feeds RSS"
+    "message": "Edit Feeds"
   },
   "feedRssUrlLabel": {
-    "message": "RSS or ATOM UR"
+    "message": "RSS or ATOM URL"
   },
   "feedAddField": {
     "message": "Add field"

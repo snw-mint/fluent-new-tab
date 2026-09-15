@@ -755,10 +755,10 @@
     "message": "Expandido"
   },
   "feedRssTitle": {
-    "message": "Feeds RSS"
+    "message": "Editar Feeds"
   },
   "feedRssUrlLabel": {
-    "message": "URL do RSS"
+    "message": "URL do RSS ou ATOM"
   },
   "feedAddField": {
     "message": "Adicionar campo"
@@ -767,7 +767,7 @@
     "message": "Nenhum item disponível no feed"
   },
   "feedEmptyDesc": {
-    "message": "Abra Configurações > Feed > Feeds RSS para configurar suas fontes."
+    "message": "Abra Configurações > Feed > Editar Feed para configurar suas fontes."
   },
   "feedAll": {
     "message": "Todos"
