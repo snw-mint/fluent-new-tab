@@ -8,6 +8,34 @@
 
 import { WeatherApiResponse, WeatherUnit, CityData } from '@/core/shared/types';
 
+const WEATHER_PATHS: Record<string, string> = {
+  cs_CZ: 'cs-cz/pocasi/predpoved',
+  da_DK: 'da-dk/vejr/vejrudsigt',
+  de_DE: 'de-de/wetter/vorhersage',
+  el_GR: 'el-gr/weather/forecast',
+  en_US: 'en-us/weather/forecast',
+  es_ES: 'es-es/eltiempo/prevision',
+  fi_FI: 'fi-fi/saa/ennuste',
+  fil_PH: 'en-ph/weather/forecast',
+  fr_FR: 'fr-fr/meteo/previsions',
+  hu_HU: 'hu-hu/idojaras/elorejelzes',
+  id_ID: 'id-id/cuaca/prakiraan',
+  it_IT: 'it-it/meteo/previsioni',
+  ja_JP: 'ja-jp/weather/forecast',
+  ko_KR: 'ko-kr/weather/forecast',
+  nl_NL: 'nl-nl/weer/voorspelling',
+  pl_PL: 'pl-pl/pogoda/prognoza',
+  pt_BR: 'pt-br/clima/forecast',
+  ro_RO: 'en-us/weather/forecast',
+  ru_RU: 'ru-ru/weather/forecast',
+  sv_SE: 'sv-se/vader/prognos',
+  tr_TR: 'tr-tr/havadurumu/havadurumutahmini',
+  uk_UA: 'uk-ua/weather/forecast',
+  vi_VN: 'vi-vn/weather/forecast',
+  zh_CN: 'zh-cn/weather/forecast',
+  zh_TW: 'zh-tw/weather/forecast',
+};
+
 export function getFluentIconFilename(
   code: number,
   isDay: number | boolean,
@@ -95,6 +123,31 @@ export function renderWeatherWidget(
   refs.weatherIcon.textContent = '';
   refs.weatherIcon.appendChild(img);
 
-  const degreeType = isCelsius ? 'C' : 'F';
-  refs.weatherWidget.href = `https://www.msn.com/en-ph/weather/forecast/?weadegreetype=${degreeType}&uxmode=ruby`;
+  updateWeatherHref(refs.weatherWidget, weatherUnit);
 }
+
+export function updateWeatherHref(
+  el?: HTMLAnchorElement | null,
+  unit?: WeatherUnit,
+): void {
+  const w =
+    el || (document.getElementById('weatherWidget') as HTMLAnchorElement | null);
+  if (!w) return;
+  const u = unit || (localStorage.getItem('weatherUnit') as WeatherUnit) || 'c';
+  const deg = u.toLowerCase() === 'c' ? 'C' : 'F';
+  const lang = localStorage.getItem('userLanguage') || 'en_US';
+  const path = WEATHER_PATHS[lang] || 'en-us/weather/forecast';
+  w.href = `https://www.msn.com/${path}/?weadegreetype=${deg}&uxmode=ruby`;
+}
+
+document.addEventListener('i18nReady', () => {
+  updateWeatherHref();
+});
+
+document.addEventListener('pointerdown', (e) => {
+  const target = (e.target as HTMLElement | null)?.closest(
+    '#weatherWidget',
+  ) as HTMLAnchorElement | null;
+  if (target) updateWeatherHref(target);
+});
+
