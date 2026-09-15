@@ -53,7 +53,7 @@ body {
     &::before {
       content: '';
       position: fixed;
-      inset: 0;
+      inset: -20px;
       background-image: var(--wallpaper-image);
       background-size: cover;
       background-position: center;
@@ -61,6 +61,10 @@ body {
       z-index: -2;
       pointer-events: none;
       opacity: 1;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      filter: var(--wallpaper-blur, none);
+      will-change: transform, filter;
     }
 
     &::after {

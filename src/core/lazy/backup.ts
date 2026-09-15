@@ -52,6 +52,7 @@ export const APP_KEYS: string[] = [
   'shortcutRadius',
   'hideShortcutNames',
   'wallpaperOverlay',
+  'wallpaperBlur',
   'displayScale',
   'tabName',
   'tabFavicon',

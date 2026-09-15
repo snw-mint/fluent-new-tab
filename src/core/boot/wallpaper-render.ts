@@ -101,6 +101,18 @@ export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
   );
 }
 
+export function updateBlur(val: number): void {
+  const v = Math.max(0, Number(val) || 0);
+  if (v > 0) {
+    document.documentElement.style.setProperty(
+      '--wallpaper-blur',
+      `blur(${v}px)`,
+    );
+  } else {
+    document.documentElement.style.removeProperty('--wallpaper-blur');
+  }
+}
+
 export function hideCreditsBoot(): void {
   const creditsDiv = document.getElementById('wallpaperCredits');
   if (creditsDiv) {

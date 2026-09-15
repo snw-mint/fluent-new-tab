@@ -1467,6 +1467,50 @@ export function bindWallpaperFeature(
       localStorage.setItem('wallpaperOverlay', String(val));
     });
   }
+
+  if (refs.wallpaperBlurSlider) {
+    const savedBlur = localStorage.getItem('wallpaperBlur') || '0';
+    refs.wallpaperBlurSlider.value = savedBlur;
+
+    const updateSliderProg = (slider: HTMLInputElement) => {
+      const min = parseFloat(slider.min) || 0;
+      const max = parseFloat(slider.max) || 40;
+      const val = parseFloat(slider.value) || 0;
+      slider.style.setProperty(
+        '--slider-progress',
+        String((val - min) / (max - min)),
+      );
+    };
+
+    updateSliderProg(refs.wallpaperBlurSlider);
+
+    let blurRaf = 0;
+    refs.wallpaperBlurSlider.addEventListener('input', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      updateSliderProg(target);
+      const val = parseFloat(target.value) || 0;
+      if (blurRaf) cancelAnimationFrame(blurRaf);
+      blurRaf = requestAnimationFrame(() => {
+        getWallpaperEngine().then((engine) => {
+          engine.updateBlur(val);
+        });
+      });
+    });
+
+    refs.wallpaperBlurSlider.addEventListener('change', (event) => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      const val = parseFloat(target.value) || 0;
+      getWallpaperEngine().then((engine) => {
+        engine.updateBlur(val);
+      });
+      localStorage.setItem('wallpaperBlur', String(val));
+      if (options.setWallpaperBlur) {
+        options.setWallpaperBlur(String(val));
+      }
+    });
+  }
 }
 
 export function resetSettingsAccordions(

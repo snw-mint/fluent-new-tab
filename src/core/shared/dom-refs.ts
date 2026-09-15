@@ -195,6 +195,9 @@ export const overlaySliderContainer = getById<HTMLDivElement>(
 export const overlaySlider = getById<HTMLInputElement>(
   'wallpaper-overlay-slider',
 );
+export const wallpaperBlurSlider = getById<HTMLInputElement>(
+  'wallpaperBlurSlider',
+);
 
 export const askAiBtn = getById<HTMLButtonElement>('askAiBtn');
 export const toggleAskAi = getById<HTMLInputElement>('toggleAskAi');
