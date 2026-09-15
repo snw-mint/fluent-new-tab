@@ -146,6 +146,17 @@ if (parseFloat(savedOverlay) < 1 && parseFloat(savedOverlay) > 0) {
   localStorage.setItem('wallpaperOverlay', savedOverlay);
 }
 export let wallpaperOverlay = savedOverlay;
+export let wallpaperBlur = localStorage.getItem('wallpaperBlur') || '0';
+if (parseFloat(wallpaperBlur) > 0) {
+  document.documentElement.style.setProperty(
+    '--wallpaper-blur',
+    `blur(${parseFloat(wallpaperBlur)}px)`,
+  );
+  document.documentElement.setAttribute('data-wallpaper-blur', 'true');
+  if (document.body) {
+    document.body.setAttribute('data-wallpaper-blur', 'true');
+  }
+}
 
 export let accentColorEnabled = true;
 export let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
@@ -257,6 +268,9 @@ export function setCurrentWallpaperType(val: any) {
 }
 export function setWallpaperOverlay(val: any) {
   wallpaperOverlay = val;
+}
+export function setWallpaperBlur(val: any) {
+  wallpaperBlur = val;
 }
 export function setAccentColorEnabled(val: any) {
   accentColorEnabled = val;

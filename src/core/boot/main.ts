@@ -405,6 +405,7 @@ async function bootInteractive(): Promise<void> {
     applyMagneticSnap('displayScaleSlider', 100, 5);
     applyMagneticSnap('shortcutRadiusSlider', 0, 5);
     applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
+    applyMagneticSnap('wallpaper-overlay-slider', 10, 5);
   });
 
   const updateWeatherVisibility = (visible: boolean, animate = true) => {
@@ -807,6 +808,8 @@ async function bootInteractive(): Promise<void> {
           localStorage.setItem('wallpaperType', state.currentWallpaperType);
         },
         getCurrentWallpaperType: () => state.currentWallpaperType,
+        getWallpaperBlur: () => state.wallpaperBlur,
+        setWallpaperBlur: state.setWallpaperBlur,
       },
       async () => {
         const { WallpaperEngine } =

@@ -244,13 +244,20 @@
 
           <div class="setting-item collapsible-setting" id="wallpaperOverlaySetting">
             <div class="setting-header" id="overlay-toggle-btn">
-              <span class="setting-label-small" data-i18n="overlayLabel">Image Overlay</span>
+              <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
               <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.22 8.47a.75.75 0 0 1 1.06 0L12 15.19l6.72-6.72a.75.75 0 1 1 1.06 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L4.22 9.53a.75.75 0 0 1 0-1.06" fill="currentColor" />
               </svg>
             </div>
             <div class="setting-content collapsed" id="overlay-slider-container">
-              <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1" value="10" />
+              <div class="slider-row child-setting" id="wallpaperOverlayRow">
+                <label for="wallpaper-overlay-slider" class="setting-label-small" data-i18n="overlayLabel">Image Overlay</label>
+                <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1" value="10" />
+              </div>
+              <div class="slider-row child-setting" id="wallpaperBlurRow" style="margin-top: 0.4rem">
+                <label for="wallpaperBlurSlider" class="setting-label-small" data-i18n="blurLabel">Image Blur</label>
+                <input type="range" id="wallpaperBlurSlider" class="fluent-slider" min="0" max="40" step="1" value="0" />
+              </div>
             </div>
           </div>
         </div>

@@ -101,6 +101,26 @@ export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
   );
 }
 
+export function updateBlur(val: number): void {
+  const v = Math.max(0, Number(val) || 0);
+  if (v > 0) {
+    document.documentElement.style.setProperty(
+      '--wallpaper-blur',
+      `blur(${v}px)`,
+    );
+    document.documentElement.setAttribute('data-wallpaper-blur', 'true');
+    if (document.body) {
+      document.body.setAttribute('data-wallpaper-blur', 'true');
+    }
+  } else {
+    document.documentElement.style.removeProperty('--wallpaper-blur');
+    document.documentElement.removeAttribute('data-wallpaper-blur');
+    if (document.body) {
+      document.body.removeAttribute('data-wallpaper-blur');
+    }
+  }
+}
+
 export function hideCreditsBoot(): void {
   const creditsDiv = document.getElementById('wallpaperCredits');
   if (creditsDiv) {

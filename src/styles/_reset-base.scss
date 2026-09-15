@@ -63,6 +63,15 @@ body {
       opacity: 1;
     }
 
+    &[data-wallpaper-blur='true']::before,
+    html[data-wallpaper-blur='true'] &::before {
+      inset: -20px;
+      filter: var(--wallpaper-blur, none);
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      will-change: transform, filter;
+    }
+
     &::after {
       content: '';
       position: fixed;

@@ -8,6 +8,7 @@
 
 import {
   updateOverlay,
+  updateBlur,
   getWallpaperFromDB,
   clearWallpaper,
   showCreditsBoot,
@@ -27,6 +28,10 @@ export interface WallpaperConfig {
 export class WallpaperEngine {
   public static updateOverlay(opacity: number, enabled: boolean): void {
     updateOverlay(opacity, enabled);
+  }
+
+  public static updateBlur(blur: number): void {
+    updateBlur(blur);
   }
 
   public static async render(config: WallpaperConfig): Promise<void> {
@@ -89,6 +94,11 @@ export class WallpaperEngine {
           localStorage.getItem('wallpaperOverlay') || String(config.overlay),
         );
         updateOverlay(currentOverlay, config.enabled);
+
+        const currentBlur = parseFloat(
+          localStorage.getItem('wallpaperBlur') || '0',
+        );
+        updateBlur(currentBlur);
 
         hideToast();
 

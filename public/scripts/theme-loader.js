@@ -53,6 +53,16 @@
     String(overlayOpacity),
   );
 
+  const rawBlur = localStorage.getItem('wallpaperBlur') || '0';
+  const blurVal = parseFloat(rawBlur) || 0;
+  if (blurVal > 0) {
+    document.documentElement.style.setProperty(
+      '--wallpaper-blur',
+      `blur(${blurVal}px)`,
+    );
+    document.documentElement.setAttribute('data-wallpaper-blur', 'true');
+  }
+
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
   const wallpaperType = localStorage.getItem('wallpaperType') || 'upload';
 
