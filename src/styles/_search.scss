@@ -14,9 +14,7 @@
   background: var(--searchbar-bg);
   border: 0.225rem solid var(--searchbar-border);
   border-radius: var(--radius-xxl);
-  box-shadow:
-    rgba(0, 0, 0, 0.08) 0rem 0rem 0.1125rem,
-    rgb(0 0 0 / 4%) 0rem 0.225rem 0.225rem;
+  box-shadow: 0 2px 4px #0000001a;
   @include flex-center;
   padding: 0 0.9rem 0 0.45rem;
   transition:
@@ -33,13 +31,6 @@
     border-bottom-right-radius: 0 !important;
     border-bottom-color: transparent !important;
     transition: box-shadow 0.2s ease;
-  }
-
-  &:hover,
-  &:focus-within {
-    box-shadow:
-      0 0 0.16875rem rgba(0, 0, 0, 0.1),
-      0 0.3375rem 0.9rem rgba(0, 0, 0, 0.12);
   }
 
   &.compact {
