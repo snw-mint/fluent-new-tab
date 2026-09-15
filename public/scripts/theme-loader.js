@@ -60,6 +60,7 @@
       '--wallpaper-blur',
       `blur(${blurVal}px)`,
     );
+    document.documentElement.setAttribute('data-wallpaper-blur', 'true');
   }
 
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';

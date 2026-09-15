@@ -152,6 +152,10 @@ if (parseFloat(wallpaperBlur) > 0) {
     '--wallpaper-blur',
     `blur(${parseFloat(wallpaperBlur)}px)`,
   );
+  document.documentElement.setAttribute('data-wallpaper-blur', 'true');
+  if (document.body) {
+    document.body.setAttribute('data-wallpaper-blur', 'true');
+  }
 }
 
 export let accentColorEnabled = true;

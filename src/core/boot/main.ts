@@ -406,7 +406,6 @@ async function bootInteractive(): Promise<void> {
     applyMagneticSnap('shortcutRadiusSlider', 0, 5);
     applyMagneticSnap('mainUiScaleSlider', 1, 0.05);
     applyMagneticSnap('wallpaper-overlay-slider', 10, 5);
-    applyMagneticSnap('wallpaperBlurSlider', 0, 3);
   });
 
   const updateWeatherVisibility = (visible: boolean, animate = true) => {

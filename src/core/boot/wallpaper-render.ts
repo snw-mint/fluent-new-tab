@@ -108,8 +108,16 @@ export function updateBlur(val: number): void {
       '--wallpaper-blur',
       `blur(${v}px)`,
     );
+    document.documentElement.setAttribute('data-wallpaper-blur', 'true');
+    if (document.body) {
+      document.body.setAttribute('data-wallpaper-blur', 'true');
+    }
   } else {
     document.documentElement.style.removeProperty('--wallpaper-blur');
+    document.documentElement.removeAttribute('data-wallpaper-blur');
+    if (document.body) {
+      document.body.removeAttribute('data-wallpaper-blur');
+    }
   }
 }
 

@@ -1501,6 +1501,7 @@ export function bindWallpaperFeature(
     refs.wallpaperBlurSlider.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement | null;
       if (!target) return;
+      if (blurRaf) cancelAnimationFrame(blurRaf);
       const val = parseFloat(target.value) || 0;
       getWallpaperEngine().then((engine) => {
         engine.updateBlur(val);
@@ -1508,6 +1509,19 @@ export function bindWallpaperFeature(
       localStorage.setItem('wallpaperBlur', String(val));
       if (options.setWallpaperBlur) {
         options.setWallpaperBlur(String(val));
+      }
+    });
+
+    refs.wallpaperBlurSlider.addEventListener('dblclick', () => {
+      refs.wallpaperBlurSlider.value = '0';
+      updateSliderProg(refs.wallpaperBlurSlider);
+      if (blurRaf) cancelAnimationFrame(blurRaf);
+      getWallpaperEngine().then((engine) => {
+        engine.updateBlur(0);
+      });
+      localStorage.setItem('wallpaperBlur', '0');
+      if (options.setWallpaperBlur) {
+        options.setWallpaperBlur('0');
       }
     });
   }
