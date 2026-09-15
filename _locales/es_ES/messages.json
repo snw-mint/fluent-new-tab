@@ -479,7 +479,7 @@
     "message": "Animado"
   },
   "greetWeekMorning": {
-    "message": "¡Que tengas una excelente $SEMANA$, $NOMBRE$!",
+    "message": "¡Que tengas una excelente $WEEK$, $NAME$!",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -492,7 +492,7 @@
     }
   },
   "greetWeekAfternoon": {
-    "message": "¿Cómo va tu $SEMANA$, $NOMBRE$?",
+    "message": "¿Cómo va tu $WEEK$, $NAME$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -505,7 +505,7 @@
     }
   },
   "greetWeekNight": {
-    "message": "$NOMBRE$, ¿cómo estuvo tu $SEMANA$?",
+    "message": "$NAME$, ¿cómo estuvo tu $WEEK$?",
     "placeholders": {
       "week": {
         "content": "$1",
@@ -536,7 +536,7 @@
     }
   },
   "greetMorning3": {
-    "message": "Hagamos que esta mañana cuente, $NOMBRE$.",
+    "message": "Hagamos que esta mañana cuente, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -545,7 +545,7 @@
     }
   },
   "greetMorning4": {
-    "message": "¡Buen día! Espero que hayas dormido bien, $NOMBRE$.",
+    "message": "¡Buen día! Espero que hayas dormido bien, $NAME$.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -581,7 +581,7 @@
     }
   },
   "greetAfternoon3": {
-    "message": "¡A mitad del día, $NOMBRE$!",
+    "message": "¡A mitad del día, $NAME$!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -662,7 +662,7 @@
     }
   },
   "greetNight2": {
-    "message": "$NOMBRE$, la noche es tranquila y pacífica.",
+    "message": "$NAME$, la noche es tranquila y pacífica.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -671,7 +671,7 @@
     }
   },
   "greetNight3": {
-    "message": "¿Quemando las pestañas hasta medianoche, $NOMBRE$?",
+    "message": "¿Quemando las pestañas hasta medianoche, $NAME$?",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -689,7 +689,7 @@
     }
   },
   "greetNight5": {
-    "message": "Dulces sueños, $NOMBRE$. Nos vemos mañana.",
+    "message": "Dulces sueños, $NAME$. Nos vemos mañana.",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -743,7 +743,7 @@
     }
   },
   "alertPollenHigh": {
-    "message": "Se esperan altos niveles de polen ($POLEN$).",
+    "message": "Se esperan altos niveles de polen ($POLLEN$).",
     "placeholders": {
       "pollen": {
         "content": "$1",
