@@ -66,7 +66,7 @@ chrome.action.onClicked.addListener(() => {
   chrome.tabs.create({});
 });
 
-chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
+chrome.runtime.onMessage.addListener((message) => {
   if (message.action === 'updateWeatherAlertsStatus') {
     if (message.enabled) {
       chrome.storage.local.set({
