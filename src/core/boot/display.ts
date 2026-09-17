@@ -6,12 +6,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-export let displayInterval: number | null = null;
+let displayInterval: number | null = null;
 
-export const CDN_BASE_URL =
+const CDN_BASE_URL =
   'https://cdn.jsdelivr.net/gh/snw-mint/fluent-new-tab@cdn-greeting-assets/assets';
 
-export const emojiMap: Record<string, string> = {
+const emojiMap: Record<string, string> = {
   greetWeekMorning: 'e1',
   greetMorning1: 'e2',
   greetMorning2: 'e3',
@@ -37,7 +37,7 @@ export const emojiMap: Record<string, string> = {
   greetNight5: 'e20',
 };
 
-export function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
+function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches;
@@ -67,7 +67,7 @@ export function initDisplayWidget(wrapper: HTMLElement | null): void {
   }, 1000);
 }
 
-export function updateDisplayContent(wrapper: HTMLElement): void {
+function updateDisplayContent(wrapper: HTMLElement): void {
   let displayType = localStorage.getItem('displayType') || 'greeting';
   if (displayType === 'time-date') {
     displayType = 'timedate';
@@ -84,7 +84,7 @@ export function updateDisplayContent(wrapper: HTMLElement): void {
   }
 }
 
-export function renderTimeDate(wrapper: HTMLElement, type: string): void {
+function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
   const showSeconds = localStorage.getItem('showSeconds') === 'true';
@@ -187,7 +187,7 @@ export function renderTimeDate(wrapper: HTMLElement, type: string): void {
   }
 }
 
-export function renderGreeting(wrapper: HTMLElement): void {
+function renderGreeting(wrapper: HTMLElement): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
   const greetingType = localStorage.getItem('greetingType') || 'static';

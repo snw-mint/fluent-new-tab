@@ -6,7 +6,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-export const SEARCH_URLS: Record<string, string> = {
+const SEARCH_URLS: Record<string, string> = {
   google: 'https://www.google.com/search?q=',
   bing: 'https://www.bing.com/search?q=',
   brave: 'https://search.brave.com/search?q=',

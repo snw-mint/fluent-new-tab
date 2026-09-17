@@ -36,7 +36,7 @@ const WEATHER_PATHS: Record<string, string> = {
   zh_TW: 'zh-tw/weather/forecast',
 };
 
-export function getFluentIconFilename(
+function getFluentIconFilename(
   code: number,
   isDay: number | boolean,
 ): string {
@@ -126,7 +126,7 @@ export function renderWeatherWidget(
   updateWeatherHref(refs.weatherWidget, weatherUnit);
 }
 
-export function updateWeatherHref(
+function updateWeatherHref(
   el?: HTMLAnchorElement | null,
   unit?: WeatherUnit,
 ): void {

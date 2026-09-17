@@ -8,8 +8,8 @@
 
 import { getWallpaperCache } from '@/core/shared/state';
 
-export const WALLPAPER_DB_NAME = 'FluentNewTabDB';
-export const WALLPAPER_DB_VERSION = 1;
+const WALLPAPER_DB_NAME = 'FluentNewTabDB';
+const WALLPAPER_DB_VERSION = 1;
 export const WALLPAPER_STORE_NAME = 'wallpapers';
 
 export function openWallpaperDB(): Promise<IDBDatabase> {
@@ -34,7 +34,7 @@ export function openWallpaperDB(): Promise<IDBDatabase> {
   });
 }
 
-export function convertBase64ToBlob(base64: string): Promise<Blob> {
+function convertBase64ToBlob(base64: string): Promise<Blob> {
   return fetch(base64).then((res) => res.blob());
 }
 

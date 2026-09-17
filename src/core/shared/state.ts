@@ -91,22 +91,12 @@ export let searchBarVisible =
   localStorage.getItem('searchBarVisible') !== 'false';
 export let suggestionsActive =
   localStorage.getItem('suggestionsEnabled') === 'true';
-export const suggestionsCache = new Map<string, string[]>();
 export let clearSearchEnabled =
   localStorage.getItem('clearSearchEnabled') === 'true';
 export let compactBarEnabled =
   localStorage.getItem('compactBarEnabled') === 'true';
 export let voiceSearchEnabled =
   localStorage.getItem('voiceSearchEnabled') === 'true';
-export const savedAnimationsDisabled =
-  localStorage.getItem('animationsDisabled');
-export let animationsDisabled =
-  savedAnimationsDisabled !== null
-    ? savedAnimationsDisabled === 'true'
-    : localStorage.getItem('performanceModeEnabled') === 'true';
-
-export let reducedEffectsEnabled =
-  localStorage.getItem('reducedEffectsEnabled') === 'true';
 
 export const CACHE_KEY = 'fluent_weather_cache';
 export const CITY_KEY = 'fluent_city_data';
@@ -159,12 +149,10 @@ if (parseFloat(wallpaperBlur) > 0) {
 }
 
 export let accentColorEnabled = true;
-export let accentColorMode = localStorage.getItem('accentColorMode') || 'auto';
 export let accentColorValue =
   localStorage.getItem('accentColorValue') || '#0078d4';
 
 export let askAiEnabled = localStorage.getItem('askAiEnabled') !== 'false';
-export let askAiMode = false;
 
 export let mainUiScale = parseFloat(localStorage.getItem('mainUiScale') || '1');
 if (mainUiScale !== 1) {
@@ -189,27 +177,14 @@ if (!savedDisplayScale) {
   );
 }
 
-export let tabName = localStorage.getItem('tabName') || '';
-export let tabFavicon = localStorage.getItem('tabFavicon') || '';
-export let activeSelectTrigger: HTMLButtonElement | null = null;
-
-export function setShortcuts(val: any) {
-  shortcuts = val;
-}
 export function setEditingIndex(val: any) {
   editingIndex = val;
 }
 export function setAllowedRows(val: any) {
   allowedRows = val;
 }
-export function setShortcutsVisible(val: any) {
-  shortcutsVisible = val;
-}
 export function setCurrentFolderId(val: any) {
   currentFolderId = val;
-}
-export function setFoldersEnabled(val: any) {
-  foldersEnabled = val;
 }
 export function setHideShortcutNames(val: any) {
   hideShortcutNames = val;
@@ -231,13 +206,6 @@ export function setCompactBarEnabled(val: any) {
 }
 export function setVoiceSearchEnabled(val: any) {
   voiceSearchEnabled = val;
-}
-export function setAnimationsDisabled(val: any) {
-  animationsDisabled = val;
-}
-
-export function setReducedEffectsEnabled(val: any) {
-  reducedEffectsEnabled = val;
 }
 export function setWeatherEnabled(val: any) {
   weatherEnabled = val;
@@ -266,41 +234,14 @@ export function setCurrentWallpaperSource(val: any) {
 export function setCurrentWallpaperType(val: any) {
   currentWallpaperType = val;
 }
-export function setWallpaperOverlay(val: any) {
-  wallpaperOverlay = val;
-}
 export function setWallpaperBlur(val: any) {
   wallpaperBlur = val;
-}
-export function setAccentColorEnabled(val: any) {
-  accentColorEnabled = val;
-}
-export function setAccentColorMode(val: any) {
-  accentColorMode = val;
-}
-export function setAccentColorValue(val: any) {
-  accentColorValue = val;
-}
-export function setAskAiEnabled(val: any) {
-  askAiEnabled = val;
-}
-export function setAskAiMode(val: any) {
-  askAiMode = val;
 }
 export function setMainUiScale(val: any) {
   mainUiScale = val;
 }
 export function setDisplayScale(val: any) {
   displayScale = val;
-}
-export function setTabName(val: any) {
-  tabName = val;
-}
-export function setTabFavicon(val: any) {
-  tabFavicon = val;
-}
-export function setActiveSelectTrigger(val: any) {
-  activeSelectTrigger = val;
 }
 export const activeShortcutDropdowns = new Set<HTMLElement>();
 

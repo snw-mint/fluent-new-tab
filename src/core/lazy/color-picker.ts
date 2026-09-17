@@ -15,7 +15,7 @@ function getSafeText(key: string, fallback: string): string {
   return text;
 }
 
-export function hsvToHex(h: number, s: number, v: number): string {
+function hsvToHex(h: number, s: number, v: number): string {
   s /= 100;
   v /= 100;
   const k = (n: number) => (n + h / 60) % 6;
@@ -27,7 +27,7 @@ export function hsvToHex(h: number, s: number, v: number): string {
   return `#${toHex(f(5))}${toHex(f(3))}${toHex(f(1))}`.toUpperCase();
 }
 
-export function hexToRgb(hex: string): { r: number; g: number; b: number } {
+function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const cleanHex = hex.replace('#', '');
   return {
     r: parseInt(cleanHex.substring(0, 2), 16) || 0,
@@ -36,7 +36,7 @@ export function hexToRgb(hex: string): { r: number; g: number; b: number } {
   };
 }
 
-export function rgbToHex(r: number, g: number, b: number): string {
+function rgbToHex(r: number, g: number, b: number): string {
   const toHex = (c: number) => {
     const hex = Math.max(0, Math.min(255, Math.round(c))).toString(16);
     return hex.length === 1 ? '0' + hex : hex;
@@ -44,7 +44,7 @@ export function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
 }
 
-export function hexToHsv(hex: string): { h: number; s: number; v: number } {
+function hexToHsv(hex: string): { h: number; s: number; v: number } {
   let r = 0,
     g = 0,
     b = 0;

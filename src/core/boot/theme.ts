@@ -12,7 +12,7 @@ import {
   accentColorValue,
 } from '@/core/shared/state';
 
-export const DEFAULT_ACCENT_COLOR = '#0078D4';
+const DEFAULT_ACCENT_COLOR = '#0078D4';
 
 export function updateTabFavicon(accentColor?: string): void {
   const hasCustomFavicon =

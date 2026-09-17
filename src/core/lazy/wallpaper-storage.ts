@@ -12,8 +12,6 @@ import {
   convertBlobToBase64,
 } from '@/core/boot/wallpaper-render';
 
-export { convertBlobToBase64 };
-
 export async function saveWallpaperToDB(
   blob: Blob,
   keyName = 'custom_wallpaper',
@@ -68,7 +66,7 @@ export async function saveWallpaperToDB(
   }
 }
 
-export function convertImageToWebp(
+function convertImageToWebp(
   imageSource: File | Blob | string,
   maxDimension = 3840,
   quality = 0.85,

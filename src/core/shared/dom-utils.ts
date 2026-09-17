@@ -18,10 +18,6 @@ export function getSelectTarget(event: Event): HTMLSelectElement | null {
   return event.target instanceof HTMLSelectElement ? event.target : null;
 }
 
-export function getInputById(id: string): HTMLInputElement | null {
-  return getById<HTMLInputElement>(id);
-}
-
 export function sanitizeUrl(url: string | null | undefined): string {
   if (!url) return '#';
 
