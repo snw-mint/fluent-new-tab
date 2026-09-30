@@ -122,7 +122,7 @@ export const launcherData: Record<string, LauncherProviderData> = {
         icon: 'assets/apps/microsoft/todo.svg',
       },
     ],
-    allAppsLink: 'https://www.microsoft365.com/apps',
+    allAppsLink: 'https://microsoft.com/microsoft-365/products-apps-services',
   },
   google: {
     apps: [
@@ -187,6 +187,6 @@ export const launcherData: Record<string, LauncherProviderData> = {
         icon: 'assets/apps/google/task.svg',
       },
     ],
-    allAppsLink: 'https://about.google/products/#:~:text=google%20products',
+    allAppsLink: 'https://about.google/products/#google-products',
   },
 };
