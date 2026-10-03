@@ -13,7 +13,7 @@
   height: 3.6rem;
   background: var(--searchbar-bg);
   border: 0.225rem solid var(--searchbar-border);
-  border-radius: var(--radius-xxl);
+  border-radius: 100rem;
   box-shadow: 0 2px 4px #0000001a;
   @include flex-center;
   padding: 0 0.9rem 0 0.45rem;
@@ -23,6 +23,7 @@
   position: relative;
   z-index: 100;
   margin-bottom: 0.5625rem;
+  --ai-glow-scale-y: 0.12;
 
   &.suggestions-open {
     box-shadow: 0 0.675rem 1.8rem rgba(0, 0, 0, 0.15) !important;
@@ -38,6 +39,7 @@
     border-radius: calc(1.2375rem + 1px);
     border: none;
     background-color: var(--searchbar-border);
+    --ai-glow-scale-y: 0.08;
 
     .search-btn,
     .current-engine-btn,
@@ -62,6 +64,8 @@
     font-family: inherit;
     color: var(--text-color);
     padding-left: 0.45rem;
+    position: relative;
+    z-index: 2;
   }
 
   .search-btn,
@@ -72,6 +76,8 @@
     height: 2.7rem;
     @include flex-center;
     border-radius: 50%;
+    position: relative;
+    z-index: 2;
     transition:
       background 0.2s ease,
       color 0.2s ease,
@@ -145,7 +151,7 @@
   }
 
   .search-bar.ask-ai-active .ask-ai-btn {
-    color: #a29bfe;
+    color: #477dff;
     opacity: 1;
   }
 
@@ -458,26 +464,108 @@
   }
 }
 
-@property --ask-ai-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
+@keyframes ambient-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
-@keyframes ask-ai-magic-glow {
+@keyframes ask-ai-glow-fade {
   0% {
-    --ask-ai-angle: 0deg;
     opacity: 0;
+    visibility: visible;
   }
+
   15% {
     opacity: 1;
+    visibility: visible;
   }
-  85% {
+
+  80% {
     opacity: 1;
+    visibility: visible;
   }
+
   100% {
-    --ask-ai-angle: 720deg;
     opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.wrapper-2 {
+  position: absolute;
+  inset: -0.225rem;
+  border-radius: inherit;
+  contain: none;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+
+  .layer-1 {
+    filter: blur(10px);
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    contain: paint;
+  }
+
+  .layer-1::before,
+  .layer-2::before {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    background: conic-gradient(rgba(0, 122, 255, 0) 0deg,
+        rgba(47, 125, 255, 1) 38.9738deg,
+        rgba(96, 185, 255, 1) 62.3678deg,
+        rgba(147, 215, 255, 1) 87.0062deg,
+        rgba(49, 134, 255, 1) 107.428deg,
+        rgba(18, 101, 240, 0.5) 204.48deg,
+        rgba(18, 101, 240, 0) 308.88deg,
+        rgba(0, 122, 255, 0) 360deg) border-box;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 125%;
+    aspect-ratio: 1 / 1;
+    scale: 1 var(--ai-glow-scale-y, 0.12);
+    pointer-events: none;
+    filter: blur(20px);
+    animation: ambient-spin 7s linear infinite;
+    contain: paint;
+    transition: opacity 0.3s;
+  }
+
+  .layer-2 {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    contain: paint;
+    background-color: var(--searchbar-bg);
+  }
+
+  .layer-3 {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid transparent;
+    contain: paint;
+    transition: border-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: calc(var(--radius-xxl) - 2px);
+      background-color: var(--searchbar-bg);
+      contain: paint;
+      transition: filter 0.3s;
+    }
   }
 }
 
@@ -485,42 +573,48 @@
   position: relative;
   z-index: 100;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -0.27rem;
-    border-radius: inherit;
-    padding: 0.18rem;
-    background: conic-gradient(
-      from var(--ask-ai-angle),
-      #ff6b6b 0%,
-      #ff9f43 12%,
-      #ffd32a 24%,
-      #0be881 36%,
-      #00d2d3 48%,
-      #48dbfb 60%,
-      #a29bfe 72%,
-      #fd79a8 84%,
-      #ff6b6b 100%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: -1;
-    animation: ask-ai-magic-glow 2.5s linear forwards;
+  .wrapper-2 {
+    animation: ask-ai-glow-fade 3.5s ease-out forwards;
   }
 
   .ask-ai-btn {
-    color: #a29bfe;
+    color: #477dff;
+    opacity: 1;
   }
 }
 
-.search-bar.compact.ask-ai-active {
-  &::before {
-    inset: -0.135rem;
-    border-radius: calc(1.2375rem + 1px);
+.search-bar.compact {
+  .wrapper-2 {
+    inset: 0;
+
+    .layer-2 {
+      background-color: var(--searchbar-border);
+    }
+
+    .layer-3::after {
+      border-radius: calc(1.2375rem + 1px - 2px);
+      background-color: var(--searchbar-border);
+    }
+  }
+
+  &.suggestions-open .wrapper-2 {
+
+    .layer-2,
+    .layer-3::after {
+      background-color: var(--surface-base);
+    }
+  }
+}
+
+.search-bar.suggestions-open .wrapper-2 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+  .layer-1,
+  .layer-2,
+  .layer-3,
+  .layer-3::after {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 }

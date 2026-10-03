@@ -223,15 +223,11 @@ export function updateAskAiUiState(
         searchEngineTip.classList.add('is-hidden');
       }, 10000);
     }
-
-    try {
-      const audio = new Audio(
-        (chrome.runtime as any).getURL('assets/sfx/ai-sfx.webm'),
-      );
-      audio.volume = 0.4;
-      audio.play().catch((err) => console.log('SFX play blocked:', err));
-    } catch (e) {
-      console.warn('Audio system unavailable:', e);
+    if (!searchWrapper.querySelector('.wrapper-2')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'wrapper-2';
+      wrapper.innerHTML = '<div class="layer-1"></div><div class="layer-2"></div><div class="layer-3"></div>';
+      searchWrapper.prepend(wrapper);
     }
 
     const translated = (window as any).getTranslation?.('askAiOption');

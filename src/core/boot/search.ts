@@ -93,6 +93,12 @@ export function initBasicSearchUI(
     } else {
       searchWrapper.classList.remove('compact');
     }
+    if (!searchWrapper.querySelector('.wrapper-2')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'wrapper-2';
+      wrapper.innerHTML = '<div class="layer-1"></div><div class="layer-2"></div><div class="layer-3"></div>';
+      searchWrapper.prepend(wrapper);
+    }
   }
 
   if (voiceSearchBtn) {
