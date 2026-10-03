@@ -63,7 +63,7 @@ export const launcherData: Record<string, LauncherProviderData> = {
     apps: [
       {
         name: 'Copilot',
-        url: 'https://copilot.microsoft.com',
+        url: 'https://copilot.com/chat',
         icon: 'assets/apps/microsoft/copilot.svg',
       },
       {
