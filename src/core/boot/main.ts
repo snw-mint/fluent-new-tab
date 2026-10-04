@@ -76,6 +76,18 @@ function saveAndRenderShortcuts(): void {
   triggerShortcutsRender();
 }
 
+let folderTransitionTimeout: any;
+function triggerFolderTransition() {
+  if (!refs.shortcutsGrid) return;
+  refs.shortcutsGrid.classList.remove('folder-transition');
+  void refs.shortcutsGrid.offsetWidth;
+  refs.shortcutsGrid.classList.add('folder-transition');
+  clearTimeout(folderTransitionTimeout);
+  folderTransitionTimeout = setTimeout(() => {
+    refs.shortcutsGrid?.classList.remove('folder-transition');
+  }, 250);
+}
+
 function triggerShortcutsRender(): void {
   renderShortcutsGrid({
     shortcutsGrid: refs.shortcutsGrid,
@@ -102,10 +114,12 @@ function triggerShortcutsRender(): void {
     },
     onOpenFolder: (id) => {
       state.setCurrentFolderId(id);
+      triggerFolderTransition();
       triggerShortcutsRender();
     },
     onGoBack: () => {
       state.setCurrentFolderId(null);
+      triggerFolderTransition();
       triggerShortcutsRender();
     },
     syncShortcutDropdownState: () => {
@@ -237,6 +251,7 @@ async function bootCritical(): Promise<void> {
     folderBackBtn.addEventListener('click', (e) => {
       e.preventDefault();
       state.setCurrentFolderId(null);
+      triggerFolderTransition();
       triggerShortcutsRender();
     });
   }

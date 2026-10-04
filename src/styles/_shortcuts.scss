@@ -29,6 +29,10 @@
     }
   }
 
+  &.folder-transition .shortcut-item {
+    animation: folder-enter 0.25s cubic-bezier(0.2, 0, 0, 1);
+  }
+
   &[data-hide-names='true'] {
     .shortcut-item .shortcut-title {
       opacity: 0;
@@ -275,6 +279,9 @@
 
   &.visible {
     display: flex;
+    .folder-back-btn {
+      animation: back-btn-enter 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
   }
 
   &.visible.single-row {
@@ -291,7 +298,7 @@
   gap: 0.35rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
   padding: 0.3rem 0.65rem;
-  background: var(--surface-base);
+  background: var(--shortcut-bg);
   color: var(--text-color);
   ;
   border-radius: var(--radius-sm);
@@ -411,5 +418,27 @@
 
   &:active .shortcut-card {
     transform: none !important;
+  }
+}
+
+@keyframes folder-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes back-btn-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
