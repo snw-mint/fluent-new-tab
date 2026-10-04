@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "4.9",
+  "version": "4.9.1",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en_US",
   "icons": {
@@ -17,7 +17,9 @@
     "newtab": "index.html"
   },
   "background": {
-    "scripts": ["src/background.ts"]
+    "scripts": [
+      "src/background.ts"
+    ]
   },
   "action": {
     "default_icon": "assets/icon-48.png"
@@ -30,12 +32,21 @@
       "id": "fluentnewtab@dreyw",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "required": ["none"]
+        "required": [
+          "none"
+        ]
       }
     }
   },
-  "permissions": ["storage", "unlimitedStorage", "search", "alarms"],
-  "optional_permissions": ["bookmarks"],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "search",
+    "alarms"
+  ],
+  "optional_permissions": [
+    "bookmarks"
+  ],
   "optional_host_permissions": [
     "https://duckduckgo.com/*",
     "https://peapix.com/*",
