@@ -97,7 +97,8 @@
   }
 
   .search-btn svg path,
-  .ask-ai-btn svg path {
+  .ask-ai-btn svg path,
+  .voice-search-btn svg path {
     fill: currentColor;
     transition: fill 0.2s ease;
   }
@@ -109,43 +110,26 @@
     z-index: 1;
     isolation: isolate;
 
-    &::before {
-      content: '';
-      position: absolute;
-      width: 1.9125rem;
-      height: 1.9125rem;
-      border-radius: 50%;
-      background: transparent;
-      box-shadow: 0 0 0 0 rgba(255, 59, 59, 0);
-      opacity: 0;
-      transform: scale(0.7);
-      transition:
-        opacity 200ms ease,
-        transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 0;
-    }
-
     svg {
       position: relative;
       z-index: 1;
       transform: translateY(0.05625rem);
     }
 
+    .voice-search-icon-active {
+      display: none;
+    }
+
     &.recording {
-      color: var(--accent-contrast-color);
+      color: var(--color-danger);
       opacity: 1;
 
-      &::before {
-        opacity: 1;
-        transform: scale(1);
-        background: var(--color-danger);
-        animation: voice-recording-pulse 1.3s ease-out infinite;
+      .voice-search-icon-inactive {
+        display: none !important;
       }
 
-      svg,
-      svg path {
-        fill: none;
-        stroke: currentColor;
+      .voice-search-icon-active {
+        display: block !important;
       }
     }
   }
@@ -429,17 +413,30 @@
   }
 }
 
-@keyframes voice-recording-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.5);
-  }
+.anim-ripple,
+.voice-search-btn.recording {
+  position: relative;
 
-  70% {
-    box-shadow: 0 0 0 0.5625rem rgba(255, 77, 79, 0);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    border: 2px solid currentColor;
+    animation: rippleExpand 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+    transform: scale(1.45);
+    opacity: 0;
   }
 }
 

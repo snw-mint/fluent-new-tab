@@ -290,8 +290,12 @@ export function registerVoiceSearchEngine(options: {
 
         voiceRecognitionInstance.onstart = () => {
           isVoiceListening = true;
-          voiceSearchBtn.classList.add('recording');
+          voiceSearchBtn.classList.add('recording', 'anim-ripple');
           voiceSearchBtn.setAttribute('aria-pressed', 'true');
+          const inactiveIcon = voiceSearchBtn.querySelector('.voice-search-icon-inactive') as HTMLElement | null;
+          const activeIcon = voiceSearchBtn.querySelector('.voice-search-icon-active') as HTMLElement | null;
+          if (inactiveIcon) inactiveIcon.style.display = 'none';
+          if (activeIcon) activeIcon.style.display = 'block';
 
           try {
             const audio = new Audio(
@@ -334,8 +338,12 @@ export function registerVoiceSearchEngine(options: {
   function safelyTerminateVoice() {
     isVoiceListening = false;
     if (voiceSearchBtn) {
-      voiceSearchBtn.classList.remove('recording');
+      voiceSearchBtn.classList.remove('recording', 'anim-ripple');
       voiceSearchBtn.setAttribute('aria-pressed', 'false');
+      const inactiveIcon = voiceSearchBtn.querySelector('.voice-search-icon-inactive') as HTMLElement | null;
+      const activeIcon = voiceSearchBtn.querySelector('.voice-search-icon-active') as HTMLElement | null;
+      if (inactiveIcon) inactiveIcon.style.display = 'block';
+      if (activeIcon) activeIcon.style.display = 'none';
     }
     if (voiceRecognitionInstance) {
       try {
