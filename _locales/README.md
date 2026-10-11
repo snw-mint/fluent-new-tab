@@ -85,7 +85,7 @@ Keys are grouped by feature area. Any key that contains a placeholder (e.g. `$NA
 | `highlightNameLabel` | Highlight Name | Checkbox to highlight the user's name |
 | `displayTime` | Time | Toggle label for the clock widget |
 | `displayDate` | Date | Toggle label for the date widget |
-| `displayAdvanced` | Time & Date | Heading for advanced time/date options |
+| `displayTimeDate` | Time & Date | Heading for advanced time/date options |
 | `showSecondsLabel` | Show seconds | Toggle to show seconds on the clock |
 | `use12HourLabel` | Use 12-hour format | Toggle for 12 h vs 24 h clock |
 | `dateFormatLabel` | Format | Label for the date-format picker |

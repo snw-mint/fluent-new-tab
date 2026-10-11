@@ -45,7 +45,6 @@ const APP_KEYS = [
   'use12Hour',
   'dateFormat',
   'askAiEnabled',
-  'displayPreset',
   'shortcutRadius',
   'hideShortcutNames',
   'wallpaperOverlay',
@@ -192,7 +191,6 @@ function saveWidgets() {
 
   localStorage.setItem('displayEnabled', String(displayEnabled));
   localStorage.setItem('displayType', displayType);
-  localStorage.setItem('displayPreset', displayType);
   localStorage.setItem(
     'showGreeting',
     String(displayEnabled && displayType === 'greeting'),
@@ -366,7 +364,7 @@ function initWidgetToggles() {
     btnWidgetsBack.addEventListener('click', () => showStep('appearance'));
   }
 
-  const savedDisplayType = localStorage.getItem('displayPreset') || 'greeting';
+  const savedDisplayType = localStorage.getItem('displayType') || 'greeting';
   const displaySelect = document.getElementById('select-display');
   if (displaySelect) displaySelect.value = savedDisplayType;
 

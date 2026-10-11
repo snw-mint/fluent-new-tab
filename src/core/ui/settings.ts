@@ -496,7 +496,7 @@ export function bindDisplayFeature(options: any): void {
   }
 
   if (refs.displayTypeSelect) {
-    const savedPreset = localStorage.getItem('displayPreset') || 'greeting';
+    const savedPreset = localStorage.getItem('displayType') || 'greeting';
     refs.displayTypeSelect.value = savedPreset;
 
     const updateAdvancedUI = (preset: string) => {
@@ -504,7 +504,7 @@ export function bindDisplayFeature(options: any): void {
       if (refs.subTime) refs.subTime.style.display = 'none';
       if (refs.subDate) refs.subDate.style.display = 'none';
 
-      const hasAdvanced = ['greeting', 'time', 'date', 'advanced'].includes(
+      const hasAdvanced = ['greeting', 'time', 'date', 'timedate'].includes(
         preset,
       );
       if (refs.displayAdvancedSetting) {
@@ -527,7 +527,7 @@ export function bindDisplayFeature(options: any): void {
         refs.subTime.style.display = 'flex';
       if (preset === 'date' && refs.subDate)
         refs.subDate.style.display = 'flex';
-      if (preset === 'advanced') {
+      if (preset === 'timedate') {
         if (refs.subTime) refs.subTime.style.display = 'flex';
         if (refs.subDate) refs.subDate.style.display = 'flex';
       }
@@ -540,16 +540,7 @@ export function bindDisplayFeature(options: any): void {
       if (!target) return;
 
       const preset = target.value;
-      localStorage.setItem('displayPreset', preset);
-
-      if (preset === 'greeting')
-        localStorage.setItem('displayType', 'greeting');
-      else if (preset === 'time') localStorage.setItem('displayType', 'time');
-      else if (preset === 'date') localStorage.setItem('displayType', 'date');
-      else if (preset === 'weekday')
-        localStorage.setItem('displayType', 'weekday');
-      else if (preset === 'advanced')
-        localStorage.setItem('displayType', 'timedate');
+      localStorage.setItem('displayType', preset);
 
       if (refs.toggleSeconds)
         refs.toggleSeconds.checked =
