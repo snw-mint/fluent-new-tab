@@ -1570,10 +1570,7 @@ export function closePopups(except: Element | null = null): void {
   }
 }
 
-export function initGlobalUiSystem(
-  saveAndRender: () => void,
-  updateLauncherFooter: () => void,
-): void {
+export function initGlobalUiSystem(): void {
   if (refs.configBtn && refs.configPopup) {
     refs.configBtn.addEventListener('click', (e) => {
       e.stopPropagation();

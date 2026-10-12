@@ -851,13 +851,7 @@ async function bootInteractive(): Promise<void> {
     }
   }
 
-  initGlobalUiSystem(saveAndRenderShortcuts, () => {
-    if (refs.launcherPopup)
-      refs.launcherPopup.classList.toggle(
-        'folders-enabled',
-        state.foldersEnabled,
-      );
-  });
+  initGlobalUiSystem();
 
   if (refs.themeBtns) {
     function playThemeAnimation(element: HTMLElement): void {
