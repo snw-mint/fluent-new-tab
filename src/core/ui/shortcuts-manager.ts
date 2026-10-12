@@ -54,6 +54,7 @@ export function openChooseTypeModal(): void {
 }
 
 export function openFolderModal(name = '', isEditing = false): void {
+  if (state.currentFolderId && !isEditing) return;
   isFolderFormLocked = false;
   hideAllModals();
   if (!refs.addFolderModal || !refs.inputFolderName || !refs.inputFolderIcon)
@@ -279,6 +280,7 @@ export function initShortcutsFormSystem(
       e.preventDefault();
       e.stopImmediatePropagation();
       if (isFolderFormLocked) return;
+      if (state.currentFolderId && state.editingIndex === null) return;
       isFolderFormLocked = true;
 
       if (document.activeElement instanceof HTMLElement)
