@@ -80,34 +80,33 @@ Contributions, feedback, and bug reports are highly appreciated!
 ## Translations
 
 Fluent New Tab is available in multiple languages thanks to our community!
-
 | Code     | Language         | Contributor    |
 | -------- | ---------------- | -------------- |
 | `cs_CZ`  | Čeština          | none           |
 | `da_DK`  | Dansk            | none           |
 | `de_DE`  | Deutsch          | none           |
 | `el_GR`  | Ελληνικά         | none           |
-| `en_US`  | English (US)     | @snw-mint      |
+| `en_US`  | English (US)     | [@snw-mint](https://github.com/snw-mint) |
 | `es_ES`  | Español (España) | none           |
-| `fil_PH` | Filipino         | @PhilMinecraft |
+| `fil_PH` | Filipino         | [@PhilMinecraft](https://github.com/PhilMinecraft) |
 | `fi_FI`  | Suomi            | none           |
 | `fr_FR`  | Français         | none           |
 | `hu_HU`  | Magyar           | none           |
-| `id_ID`  | Bahasa Indonesia | @GID0317       |
+| `id_ID`  | Bahasa Indonesia | [@GID0317](https://github.com/GID0317) |
 | `it_IT`  | Italiano         | none           |
-| `ja_JP`  | 日本語           | none           |
-| `ko_KR`  | 한국어           | none           |
+| `ja_JP`  | 日本語            | none           |
+| `ko_KR`  | 한국어             | [@channel101](https://github.com/channel101) |
 | `nl_NL`  | Nederlands       | none           |
 | `pl_PL`  | Polski           | none           |
-| `pt_BR`  | Português        | @snw-mint      |
+| `pt_BR`  | Português        | [@snw-mint](https://github.com/snw-mint) |
 | `ro_RO`  | Română           | none           |
 | `ru_RU`  | Русский          | none           |
 | `sv_SE`  | Svenska          | none           |
 | `tr_TR`  | Türkçe           | none           |
 | `uk_UA`  | Українська       | none           |
 | `vi_VN`  | Tiếng Việt       | none           |
-| `zh_CN`  | 中文 (简体)      | none           |
-| `zh_TW`  | 中文 (繁體)      | none           |
+| `zh_CN`  | 中文 (简体)        | none           |
+| `zh_TW`  | 中文 (繁體)        | none           |
 
 See the [Translation Guide](_locales/TRANSLATING.md) for more details.
 
