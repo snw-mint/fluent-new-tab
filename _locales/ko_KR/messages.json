@@ -655,6 +655,30 @@
   "wizardFinalSupportDesc": {
     "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
   },
+  "wizardRestoreBtn": {
+    "message": "Restore"
+  },
+  "wizardStartBtn": {
+    "message": "Start"
+  },
+  "wizardSkipBtn": {
+    "message": "Skip"
+  },
+  "wizardFinalDocsTitle": {
+    "message": "Documentation"
+  },
+  "wizardFinalDocsDesc": {
+    "message": "Learn how to use Fluent New Tab."
+  },
+  "wizardFinalDocsBtn": {
+    "message": "Read"
+  },
+  "wizardFinalStartBtn": {
+    "message": "Open"
+  },
+  "wizardFinalSupportBtn": {
+    "message": "Donate"
+  },
   "gridFullTitle": {
     "message": "그리드가 가득 찼습니다"
   },
@@ -720,5 +744,38 @@
   },
   "askAiEngineTip": {
     "message": "여기서 AI 제공업체를 변경할 수 있습니다"
+  },
+  "feedTitle": {
+    "message": "Feed"
+  },
+  "feedModeMinimal": {
+    "message": "Minimal"
+  },
+  "feedModeExpanded": {
+    "message": "Expanded"
+  },
+  "feedRssTitle": {
+    "message": "Edit Feeds"
+  },
+  "feedRssUrlLabel": {
+    "message": "RSS or ATOM URL"
+  },
+  "feedAddField": {
+    "message": "Add field"
+  },
+  "feedEmptyTitle": {
+    "message": "No feed items available"
+  },
+  "feedEmptyDesc": {
+    "message": "Open Settings > Feed > Edit RSS to configure your sources."
+  },
+  "feedAll": {
+    "message": "All"
+  },
+  "feedErrorTitle": {
+    "message": "Feed Error"
+  },
+  "feedErrorDesc": {
+    "message": "Failed to fetch or parse the RSS feed. Please check the URL."
   }
 }
