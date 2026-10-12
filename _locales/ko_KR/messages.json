@@ -21,7 +21,7 @@
     "message": "설정"
   },
   "appearanceTitle": {
-    "message": "외관"
+    "message": "테마 모드"
   },
   "mainUiScaleLabel": {
     "message": "기본 UI 배율"
@@ -620,7 +620,7 @@
     "message": "다크"
   },
   "wizardAppearanceTitle": {
-    "message": "스타일 및 외관"
+    "message": "스타일 및 모양"
   },
   "wizardAppearanceDesc": {
     "message": "테마, 강조 색상, 이름 및 언어를 설정하세요."
@@ -656,28 +656,28 @@
     "message": "이 프로젝트가 최신 상태를 유지할 수 있도록 도와주세요."
   },
   "wizardRestoreBtn": {
-    "message": "Restore"
+    "message": "복원하기"
   },
   "wizardStartBtn": {
-    "message": "Start"
+    "message": "시작"
   },
   "wizardSkipBtn": {
-    "message": "Skip"
+    "message": "건너뛰기"
   },
   "wizardFinalDocsTitle": {
-    "message": "Documentation"
+    "message": "문서"
   },
   "wizardFinalDocsDesc": {
-    "message": "Learn how to use Fluent New Tab."
+    "message": "Fluent New Tab 사용법 배우기"
   },
   "wizardFinalDocsBtn": {
-    "message": "Read"
+    "message": "읽기"
   },
   "wizardFinalStartBtn": {
-    "message": "Open"
+    "message": "열기"
   },
   "wizardFinalSupportBtn": {
-    "message": "Donate"
+    "message": "후원하기"
   },
   "gridFullTitle": {
     "message": "그리드가 가득 찼습니다"
@@ -719,7 +719,7 @@
     "message": "북마크 가져오기"
   },
   "importBookmarksWarningTitle": {
-    "message": "북마크 가져오기?"
+    "message": "북마크 가져오기을 가져오시겠습니까?"
   },
   "importBookmarksWarningDesc": {
     "message": "북마크를 가져오면 현재 바로가기가 지워집니다. 계속하시겠습니까?"
@@ -746,36 +746,36 @@
     "message": "여기서 AI 제공업체를 변경할 수 있습니다"
   },
   "feedTitle": {
-    "message": "Feed"
+    "message": "피드"
   },
   "feedModeMinimal": {
-    "message": "Minimal"
+    "message": "간결하게"
   },
   "feedModeExpanded": {
-    "message": "Expanded"
+    "message": "자세하게"
   },
   "feedRssTitle": {
-    "message": "Edit Feeds"
+    "message": "피드 수정하기"
   },
   "feedRssUrlLabel": {
-    "message": "RSS or ATOM URL"
+    "message": "RSS 또는 ATOM 링크"
   },
   "feedAddField": {
-    "message": "Add field"
+    "message": "항목 추가하기"
   },
   "feedEmptyTitle": {
-    "message": "No feed items available"
+    "message": "가능한 피드 항목이 없습니다."
   },
   "feedEmptyDesc": {
-    "message": "Open Settings > Feed > Edit RSS to configure your sources."
+    "message": "설정을 열고 > 피드 > RSS 수정하기를 선택하여 사용자의 소스를 설정하세요."
   },
   "feedAll": {
-    "message": "All"
+    "message": "전체"
   },
   "feedErrorTitle": {
-    "message": "Feed Error"
+    "message": "피드 오류"
   },
   "feedErrorDesc": {
-    "message": "Failed to fetch or parse the RSS feed. Please check the URL."
+    "message": "RSS 피드를 가져오거나 추출하는데 실패 하였습니다. 피드 링크가 정확한지 확인 해주세요."
   }
 }
