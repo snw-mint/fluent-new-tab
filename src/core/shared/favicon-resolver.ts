@@ -22,7 +22,7 @@ let cachePromise: Promise<FaviconCache> | null = null;
 let fallbackHash: Promise<string | null> | null = null;
 const inflight = new Map<string, Promise<string | null>>();
 
-export function isLocalHost(h: string): boolean {
+function isLocalHost(h: string): boolean {
   return (
     h === 'localhost' ||
     h === '[::1]' ||
@@ -83,11 +83,10 @@ async function chromeIcon(pageUrl: string): Promise<string | null> {
       .then((r) => r.blob())
       .then(sha256)
       .catch(() => null);
-    const blob = await (await fetch(chromeFaviconUrl(pageUrl))).blob();
+    const iconUrl = chromeFaviconUrl(pageUrl);
+    const blob = await (await fetch(iconUrl)).blob();
     if (!blob.size) return null;
-    return (await sha256(blob)) !== (await fallbackHash)
-      ? chromeFaviconUrl(pageUrl)
-      : null;
+    return (await sha256(blob)) !== (await fallbackHash) ? iconUrl : null;
   } catch {
     return null;
   }
