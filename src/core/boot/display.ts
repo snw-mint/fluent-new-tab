@@ -8,45 +8,6 @@
 
 let displayInterval: number | null = null;
 
-const CDN_BASE_URL =
-  'https://cdn.jsdelivr.net/gh/snw-mint/fluent-new-tab@cdn-greeting-assets/assets';
-
-const emojiMap: Record<string, string> = {
-  greetWeekMorning: 'e1',
-  greetMorning1: 'e2',
-  greetMorning2: 'e3',
-  greetMorning3: 'e4',
-  greetMorning4: 'e5',
-  greetMorning5: 'e6',
-  greetWeekAfternoon: 'e7',
-  greetAfternoon1: 'e1',
-  greetAfternoon2: 'e8',
-  greetAfternoon3: 'e9',
-  greetAfternoon4: 'e4',
-  greetAfternoon5: 'e10',
-  greetWeekNight: 'e15',
-  greetEvening1: 'e11',
-  greetEvening2: 'e8',
-  greetEvening3: 'e12',
-  greetEvening4: 'e13',
-  greetEvening5: 'e14',
-  greetNight1: 'e16',
-  greetNight2: 'e17',
-  greetNight3: 'e18',
-  greetNight4: 'e19',
-  greetNight5: 'e20',
-};
-
-function getEmojiUrl(emojiId: string, isAnimated: boolean): string {
-  const prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)',
-  ).matches;
-  const finalAnimated = isAnimated && !prefersReducedMotion;
-  const folder = finalAnimated ? 'animated' : 'static';
-  const suffix = finalAnimated ? 'a' : 's';
-  return `${CDN_BASE_URL}/${folder}/${emojiId}${suffix}.webp`;
-}
-
 export function initDisplayWidget(wrapper: HTMLElement | null): void {
   if (!wrapper) return;
   if (displayInterval) {
@@ -190,11 +151,10 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 function renderGreeting(wrapper: HTMLElement): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
-  const greetingType = localStorage.getItem('greetingType') || 'static';
 
   const now = new Date();
   const currentMinute = now.getMinutes().toString();
-  const cacheKey = `${currentMinute}-${rawLang}-${userName}-${greetingType}`;
+  const cacheKey = `${currentMinute}-${rawLang}-${userName}`;
 
   if (wrapper.dataset.lastCache === cacheKey) return;
 
@@ -333,30 +293,7 @@ function renderGreeting(wrapper: HTMLElement): void {
     heading.textContent = finalGreetingText;
   }
 
-  if (greetingType === 'none') {
-    wrapper.replaceChildren(heading);
-  } else {
-    const emojiId = emojiMap[translationKey] || 'e1';
-    const isAnimated = greetingType === 'animated';
-    const iconUrl = getEmojiUrl(emojiId, isAnimated);
-
-    const icon = document.createElement('img');
-    icon.src = iconUrl;
-    icon.alt = 'Greeting Emoji';
-    icon.className = 'greeting-icon';
-    icon.style.opacity = '0';
-    icon.style.transition = 'opacity 0.35s ease-out';
-
-    icon.onload = () => {
-      icon.style.opacity = '1';
-    };
-
-    icon.onerror = () => {
-      icon.style.display = 'none';
-    };
-
-    wrapper.replaceChildren(icon, heading);
-  }
+  wrapper.replaceChildren(heading);
 
   wrapper.dataset.lastCache = usingFallback ? '' : cacheKey;
 }

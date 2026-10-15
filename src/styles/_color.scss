@@ -44,10 +44,6 @@ html[data-theme='dark'] {
 
   --border-color: var(--border-subtle);
   --switch-thumb-disabled-color: #adadad;
-
-  .greeting-icon.outline {
-    filter: invert(1);
-  }
 }
 
 body[data-wallpaper-active='true'] {
@@ -65,10 +61,6 @@ body[data-wallpaper-active='true'] {
     color: #ffffff !important;
     fill: #ffffff !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .greeting-icon.outline {
-    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
   }
 
   .settings-btn:hover,

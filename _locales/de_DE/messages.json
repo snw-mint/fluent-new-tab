@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Uhrzeit und Datum"
   },
-  "emojiTypeLabel": {
-    "message": "Emoji-Typ"
-  },
-  "TypeStatic": {
-    "message": " Statisch"
-  },
-  "TypeAnimated": {
-    "message": "Animiert"
-  },
   "showSecondsLabel": {
     "message": "Sekunden anzeigen"
   },

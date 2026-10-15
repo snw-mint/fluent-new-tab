@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Time & Date"
   },
-  "emojiTypeLabel": {
-    "message": "Type ng emoji"
-  },
-  "TypeStatic": {
-    "message": "Static lang"
-  },
-  "TypeAnimated": {
-    "message": "Animated"
-  },
   "showSecondsLabel": {
     "message": "Ipakita ang seconds"
   },

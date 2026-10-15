@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Saat ve Tarih"
   },
-  "emojiTypeLabel": {
-    "message": "Emoji Türü"
-  },
-  "TypeStatic": {
-    "message": " Statik"
-  },
-  "TypeAnimated": {
-    "message": "Animasyonlu"
-  },
   "showSecondsLabel": {
     "message": "Saniyeleri göster"
   },

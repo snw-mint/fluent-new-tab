@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Час і дата"
   },
-  "emojiTypeLabel": {
-    "message": "Тип емодзі"
-  },
-  "TypeStatic": {
-    "message": " Статичний"
-  },
-  "TypeAnimated": {
-    "message": "Анімований"
-  },
   "showSecondsLabel": {
     "message": "Показати секунди"
   },

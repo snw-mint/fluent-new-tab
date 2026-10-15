@@ -22,7 +22,6 @@ const DEFAULT_INSTALL_PREFERENCES = {
   launcherProvider: 'microsoft',
   showGreeting: 'true',
   greetingName: '',
-  greetingType: 'none',
   userLanguage: 'en_US',
   searchEngine: 'system',
   searchBarVisible: 'true',

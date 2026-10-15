@@ -23,7 +23,6 @@ export const APP_KEYS: string[] = [
   'showGreeting',
   'greetingName',
   'highlightName',
-  'greetingType',
   'userLanguage',
   'searchEngine',
   'searchBarVisible',

@@ -21,7 +21,6 @@ const APP_KEYS = [
   'launcherProvider',
   'showGreeting',
   'greetingName',
-  'greetingType',
   'userLanguage',
   'searchEngine',
   'searchBarVisible',

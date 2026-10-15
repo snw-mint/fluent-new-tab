@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "시간 및 날짜"
   },
-  "emojiTypeLabel": {
-    "message": "이모지 유형"
-  },
-  "TypeStatic": {
-    "message": " 정적"
-  },
-  "TypeAnimated": {
-    "message": "애니메이션"
-  },
   "showSecondsLabel": {
     "message": "초 표시"
   },

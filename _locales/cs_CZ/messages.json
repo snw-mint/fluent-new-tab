@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Čas a datum"
   },
-  "emojiTypeLabel": {
-    "message": "Typ emodži"
-  },
-  "TypeStatic": {
-    "message": " Statický"
-  },
-  "TypeAnimated": {
-    "message": "Animované"
-  },
   "showSecondsLabel": {
     "message": "Zobrazit sekundy"
   },

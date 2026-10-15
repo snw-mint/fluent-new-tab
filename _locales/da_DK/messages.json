@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Tid og dato"
   },
-  "emojiTypeLabel": {
-    "message": "Emoji-type"
-  },
-  "TypeStatic": {
-    "message": " Statisk"
-  },
-  "TypeAnimated": {
-    "message": "Animeret"
-  },
   "showSecondsLabel": {
     "message": "Vis sekunder"
   },

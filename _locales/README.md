@@ -92,9 +92,6 @@ Keys are grouped by feature area. Any key that contains a placeholder (e.g. `$NA
 | `dateText` | Written | Date format option: spelled-out text (e.g. "June 6") |
 | `dateNumeric` | Numeric | Date format option: numeric (e.g. 06/06) |
 | `dateWeekday` | Weekday | Date format option: shows weekday name |
-| `emojiTypeLabel` | Emoji Type | Label for the emoji style picker |
-| `TypeStatic` | Static | Emoji type option: non-animated |
-| `TypeAnimated` | Animated | Emoji type option: animated |
 
 ---
 

@@ -469,15 +469,6 @@
   "greetingNameLabel": {
     "message": "Su nombre"
   },
-  "emojiTypeLabel": {
-    "message": "Tipo de emoji"
-  },
-  "TypeStatic": {
-    "message": "Estático"
-  },
-  "TypeAnimated": {
-    "message": "Animado"
-  },
   "greetWeekMorning": {
     "message": "¡Que tengas una excelente $WEEK$, $NAME$!",
     "placeholders": {

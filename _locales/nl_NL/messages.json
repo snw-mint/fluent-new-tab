@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Tijd en datum"
   },
-  "emojiTypeLabel": {
-    "message": "Type emoji"
-  },
-  "TypeStatic": {
-    "message": " Statisch"
-  },
-  "TypeAnimated": {
-    "message": "Geanimeerd"
-  },
   "showSecondsLabel": {
     "message": "Seconden weergeven"
   },

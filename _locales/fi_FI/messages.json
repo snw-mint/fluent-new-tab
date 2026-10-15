@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Aika ja päivämäärä"
   },
-  "emojiTypeLabel": {
-    "message": "Emoji-tyyppi"
-  },
-  "TypeStatic": {
-    "message": " Staattinen"
-  },
-  "TypeAnimated": {
-    "message": "Animoitu"
-  },
   "showSecondsLabel": {
     "message": "Näytä sekunnit"
   },

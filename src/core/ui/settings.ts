@@ -478,11 +478,6 @@ export function bindDisplayFeature(options: any): void {
 
   updateHighlightNameState();
 
-  if (refs.greetingTypeSelect) {
-    refs.greetingTypeSelect.value =
-      localStorage.getItem('greetingType') || 'static';
-  }
-
   if (refs.toggleSeconds) {
     refs.toggleSeconds.checked = localStorage.getItem('showSeconds') === 'true';
   }
@@ -614,23 +609,8 @@ export function bindDisplayFeature(options: any): void {
     });
   }
 
-  if (refs.greetingTypeSelect) {
-    refs.greetingTypeSelect.addEventListener('change', (e: Event) => {
-      const target = getSelectTarget(e);
-      if (!target) return;
-      localStorage.setItem('greetingType', target.value);
-      if (refs.greetingWrapper) {
-        refs.greetingWrapper.dataset.lastCache = '';
-        options.initDisplayWidget(refs.greetingWrapper);
-      }
-    });
-  }
-
   if (refs.displayTypeSelect) {
     refs.displayTypeSelect.dispatchEvent(new Event('change'));
-  }
-  if (refs.greetingTypeSelect) {
-    refs.greetingTypeSelect.dispatchEvent(new Event('change'));
   }
   if (refs.dateFormatSelect) {
     refs.dateFormatSelect.dispatchEvent(new Event('change'));

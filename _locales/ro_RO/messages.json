@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Ora și data"
   },
-  "emojiTypeLabel": {
-    "message": "Tipul de emoji"
-  },
-  "TypeStatic": {
-    "message": " Static"
-  },
-  "TypeAnimated": {
-    "message": "Animat"
-  },
   "showSecondsLabel": {
     "message": "Afișează secundele"
   },

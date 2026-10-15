@@ -97,15 +97,6 @@
   "displayTimeDate": {
     "message": "Jam & Tanggal"
   },
-  "emojiTypeLabel": {
-    "message": "Gaya Emoji"
-  },
-  "TypeStatic": {
-    "message": "Statis"
-  },
-  "TypeAnimated": {
-    "message": "Animasi"
-  },
   "showSecondsLabel": {
     "message": "Tampilkan detik"
   },
