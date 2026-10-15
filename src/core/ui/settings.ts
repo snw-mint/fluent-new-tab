@@ -705,9 +705,19 @@ export function bindShortcutRadiusFeature(options: any): void {
           : valNum > 0
             ? `calc(0.7875rem + ((50% - 0.7875rem) * (${valNum} / 100)))`
             : `calc(0.7875rem - ((0.7875rem - 0.18rem) * (${-valNum} / 100)))`;
+      const iconRadiusValue =
+        valNum === 0
+          ? '0.441rem'
+          : valNum > 0
+            ? `calc(0.441rem + ((50% - 0.441rem) * (${valNum} / 100)))`
+            : `calc(0.441rem - ((0.441rem - 0.1rem) * (${-valNum} / 100)))`;
       document.documentElement.style.setProperty(
         '--shortcut-radius',
         radiusValue,
+      );
+      document.documentElement.style.setProperty(
+        '--shortcut-icon-radius',
+        iconRadiusValue,
       );
     };
 

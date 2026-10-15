@@ -72,16 +72,24 @@ export let shortcutRadius = localStorage.getItem('shortcutRadius') || '0';
 if (shortcutRadius !== '0') {
   const valNum = parseInt(shortcutRadius, 10);
   let radiusValue = '';
+  let iconRadiusValue = '';
 
   if (valNum === 0) {
     radiusValue = '0.7875rem';
+    iconRadiusValue = '0.441rem';
   } else if (valNum > 0) {
     radiusValue = `calc(0.7875rem + ((50% - 0.7875rem) * (${valNum} / 100)))`;
+    iconRadiusValue = `calc(0.441rem + ((50% - 0.441rem) * (${valNum} / 100)))`;
   } else {
     radiusValue = `calc(0.7875rem - ((0.7875rem - 0.18rem) * (${-valNum} / 100)))`;
+    iconRadiusValue = `calc(0.441rem - ((0.441rem - 0.1rem) * (${-valNum} / 100)))`;
   }
 
   document.documentElement.style.setProperty('--shortcut-radius', radiusValue);
+  document.documentElement.style.setProperty(
+    '--shortcut-icon-radius',
+    iconRadiusValue,
+  );
 }
 
 export const savedTheme = (localStorage.getItem('theme') ||

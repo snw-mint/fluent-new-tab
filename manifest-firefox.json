@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluent New Tab",
-  "version": "4.9.2",
+  "version": "4.10",
   "description": "A minimalist, customizable New Tab page inspired by Fluent Design.",
   "default_locale": "en_US",
   "icons": {
@@ -25,7 +25,7 @@
     "default_icon": "assets/icon-48.png"
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: blob: https:;"
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: blob: https: http:;"
   },
   "browser_specific_settings": {
     "gecko": {
