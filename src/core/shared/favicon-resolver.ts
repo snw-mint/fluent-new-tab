@@ -48,6 +48,30 @@ async function writeEntry(key: string, src: string): Promise<void> {
   } catch {}
 }
 
+function blobToDataUrl(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function fetchHttpIconAsDataUrl(url: string): Promise<string | null> {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), LOAD_TIMEOUT);
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    if (!blob.size) return null;
+    return await blobToDataUrl(blob);
+  } catch {
+    return null;
+  }
+}
+
 function canLoad(src: string): Promise<boolean> {
   return new Promise((resolve) => {
     const img = new Image();
@@ -131,7 +155,13 @@ export function resolveFavicon(
       if (hit && Date.now() - hit.ts < TTL) return hit.src;
     }
     for (const src of await candidates(url)) {
-      if (await canLoad(src)) {
+      if (src.startsWith('http:')) {
+        const dataUrl = await fetchHttpIconAsDataUrl(src);
+        if (dataUrl && (await canLoad(dataUrl))) {
+          await writeEntry(key, dataUrl);
+          return dataUrl;
+        }
+      } else if (await canLoad(src)) {
         await writeEntry(key, src);
         return src;
       }
