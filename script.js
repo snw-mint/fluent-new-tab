@@ -232,3 +232,52 @@ if (mobileMenuToggle && navLinks) {
     });
   });
 }
+
+const tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("hero-player", {
+    host: "https://www.youtube-nocookie.com",
+    videoId: "am0Ij6ZH9q4",
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      playlist: "am0Ij6ZH9q4",
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      playsinline: 1,
+      disablekb: 1
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  if (typeof event.target.setPlaybackQualityRange === "function") {
+    event.target.setPlaybackQualityRange("hd1080", "highres");
+  } else if (typeof event.target.setPlaybackQuality === "function") {
+    event.target.setPlaybackQuality("hd1080");
+  }
+
+  event.target.playVideo();
+}
+
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    const fallback = document.getElementById("hero-fallback");
+    if (fallback) {
+      fallback.style.opacity = "0";
+      fallback.style.pointerEvents = "none";
+    }
+  }
+}

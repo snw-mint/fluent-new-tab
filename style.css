@@ -254,7 +254,7 @@ background-color: #0f6cbd;
   width: 100%;
   max-width: 50rem;
   aspect-ratio: 16 / 10;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-card);
   border: none;
   box-shadow: none;
   overflow: hidden;
@@ -262,6 +262,11 @@ background-color: #0f6cbd;
   position: relative;
 }
 
+.hero .hero-visual-container {
+  aspect-ratio: 16 / 9;
+}
+
+#hero-player,
 .fluent-media {
   width: 100%;
   height: 100%;
@@ -271,6 +276,12 @@ background-color: #0f6cbd;
   top: 0;
   left: 0;
   transition: opacity 0.5s ease-out;
+  background: transparent;
+}
+
+#hero-player,
+iframe.fluent-media {
+  border: none;
 }
 
 .hidden {
