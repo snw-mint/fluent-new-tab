@@ -34,11 +34,11 @@ import { getLocalizedWarningText } from '@/core/shared/dom-utils';
 let brandIntervalStarted = false;
 
 function applyBrandInterval(): void {
-  if (refs.greetingWrapper) initDisplayWidget(refs.greetingWrapper);
+  if (refs.displayWrapper) initDisplayWidget(refs.displayWrapper);
   if (brandIntervalStarted) return;
   brandIntervalStarted = true;
   setInterval(() => {
-    if (refs.greetingWrapper) initDisplayWidget(refs.greetingWrapper);
+    if (refs.displayWrapper) initDisplayWidget(refs.displayWrapper);
   }, 60000);
 }
 
@@ -223,12 +223,12 @@ async function bootCritical(): Promise<void> {
 
   if (
     localStorage.getItem('displayEnabled') !== 'false' &&
-    refs.greetingWrapper
+    refs.displayWrapper
   ) {
-    refs.greetingWrapper.style.display = 'flex';
-    initDisplayWidget(refs.greetingWrapper);
-  } else if (refs.greetingWrapper) {
-    refs.greetingWrapper.style.display = 'none';
+    refs.displayWrapper.style.display = 'flex';
+    initDisplayWidget(refs.displayWrapper);
+  } else if (refs.displayWrapper) {
+    refs.displayWrapper.style.display = 'none';
   }
 
   const engine = engines[state.savedEngine];
@@ -242,6 +242,8 @@ async function bootCritical(): Promise<void> {
     );
   }
 
+  document.body.dataset.shortcutsActive = String(state.shortcutsVisible);
+  document.body.dataset.searchActive = String(state.searchBarVisible);
   if (refs.shortcutsGrid) {
     refs.shortcutsGrid.style.display = state.shortcutsVisible ? 'grid' : 'none';
   }
@@ -620,6 +622,8 @@ async function bootInteractive(): Promise<void> {
     updateSearchSettings: (animate = true) => {
       if (refs.searchWrapper)
         refs.searchWrapper.style.display = state.searchBarVisible ? '' : 'none';
+      document.body.dataset.searchActive = String(state.searchBarVisible);
+      window.dispatchEvent(new CustomEvent('fluent-layout-change'));
       import('@/core/ui/ui-components').then(({ setCollapsible }) => {
         const smo = document.getElementById('searchMainOptions');
         if (smo) setCollapsible(smo, state.searchBarVisible, animate);
@@ -769,10 +773,10 @@ async function bootInteractive(): Promise<void> {
     setDisplayScale: state.setDisplayScale,
     setDisplayVisible: (visible: boolean) => {
       localStorage.setItem('displayEnabled', String(visible));
-      if (refs.greetingWrapper) {
-        refs.greetingWrapper.style.display = visible ? 'flex' : 'none';
+      if (refs.displayWrapper) {
+        refs.displayWrapper.style.display = visible ? 'flex' : 'none';
         if (visible) {
-          initDisplayWidget(refs.greetingWrapper);
+          initDisplayWidget(refs.displayWrapper);
         }
       }
     },

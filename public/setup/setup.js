@@ -48,6 +48,11 @@ const APP_KEYS = [
   'hideShortcutNames',
   'wallpaperOverlay',
   'displayScale',
+  'displayScale_greeting',
+  'displayScale_time',
+  'displayScale_timedate',
+  'displayScale_date',
+  'displayScale_weekday',
   'tabName',
   'tabFavicon',
 ];

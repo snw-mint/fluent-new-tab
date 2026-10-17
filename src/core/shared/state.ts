@@ -170,7 +170,9 @@ if (mainUiScale !== 1) {
   );
 }
 
-const savedDisplayScale = localStorage.getItem('displayScale');
+const currentDisplayType = localStorage.getItem('displayType') || 'greeting';
+const savedTypeScale = localStorage.getItem(`displayScale_${currentDisplayType}`);
+const savedDisplayScale = savedTypeScale || localStorage.getItem('displayScale');
 export let displayScale = parseInt(savedDisplayScale || '100', 10);
 
 if (!savedDisplayScale) {
@@ -178,7 +180,7 @@ if (!savedDisplayScale) {
     '--display-scale',
     `${mainUiScale}`,
   );
-} else if (displayScale !== 100) {
+} else {
   document.documentElement.style.setProperty(
     '--display-scale',
     `${displayScale / 100}`,

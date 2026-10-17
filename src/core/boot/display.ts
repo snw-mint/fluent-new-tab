@@ -8,6 +8,67 @@
 
 let displayInterval: number | null = null;
 
+export function getDisplayScaleBounds(displayType: string): {
+  min: number;
+  max: number;
+} {
+  const hasSearch = localStorage.getItem('searchBarVisible') !== 'false';
+  const hasShortcuts = localStorage.getItem('shortcutsVisible') !== 'false';
+
+  if (displayType === 'greeting') {
+    return { min: 50, max: 140 };
+  }
+  if (displayType === 'date' || displayType === 'weekday') {
+    if (!hasSearch && !hasShortcuts) {
+      return { min: 50, max: 220 };
+    }
+    if (!hasSearch || !hasShortcuts) {
+      return { min: 50, max: 180 };
+    }
+    return { min: 50, max: 150 };
+  }
+  if (displayType === 'timedate') {
+    if (!hasSearch && !hasShortcuts) {
+      return { min: 50, max: 270 };
+    }
+    if (!hasSearch || !hasShortcuts) {
+      return { min: 50, max: 230 };
+    }
+    return { min: 50, max: 190 };
+  }
+  if (!hasSearch && !hasShortcuts) {
+    return { min: 50, max: 300 };
+  }
+  if (!hasSearch || !hasShortcuts) {
+    return { min: 50, max: 250 };
+  }
+  return { min: 50, max: 200 };
+}
+
+export function getDisplayScaleForType(displayType: string): number {
+  const bounds = getDisplayScaleBounds(displayType);
+  const saved =
+    localStorage.getItem(`displayScale_${displayType}`) ||
+    localStorage.getItem('displayScale');
+  const parsed = saved ? parseInt(saved, 10) : 100;
+  return Math.min(bounds.max, Math.max(bounds.min, parsed));
+}
+
+export function applyDisplayScale(
+  displayType: string,
+  customScale?: number,
+): number {
+  const scale =
+    customScale !== undefined
+      ? customScale
+      : getDisplayScaleForType(displayType);
+  document.documentElement.style.setProperty(
+    '--display-scale',
+    `${scale / 100}`,
+  );
+  return scale;
+}
+
 export function initDisplayWidget(wrapper: HTMLElement | null): void {
   if (!wrapper) return;
   if (displayInterval) {
@@ -22,6 +83,8 @@ export function initDisplayWidget(wrapper: HTMLElement | null): void {
   }
 
   wrapper.style.display = 'flex';
+  const currentMode = localStorage.getItem('displayType') || 'greeting';
+  applyDisplayScale(currentMode);
   updateDisplayContent(wrapper);
   displayInterval = window.setInterval(() => {
     updateDisplayContent(wrapper);
@@ -267,11 +330,8 @@ function renderGreeting(wrapper: HTMLElement): void {
     .replace(/,\s*\?$/, '?')
     .trim();
 
-  const fontSize = '2.25rem';
   const heading = document.createElement('h1');
   heading.className = 'greeting-text';
-  heading.style.fontSize = fontSize;
-  heading.style.whiteSpace = 'nowrap';
   const highlightEnabled = localStorage.getItem('highlightName') === 'true';
   if (highlightEnabled && userName) {
     const escapedName = userName.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');

@@ -268,6 +268,11 @@
 .shortcuts-area {
   width: 100%;
   position: relative;
+
+  &:has(#shortcutsGrid[style*="display: none"]),
+  body[data-shortcuts-active='false'] & {
+    display: none !important;
+  }
 }
 
 .folder-back-wrapper {

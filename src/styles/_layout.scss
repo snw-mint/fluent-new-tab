@@ -34,29 +34,43 @@ body[data-feed-active='true']:has(.feed-drawer.expanded) .container {
   padding-bottom: calc(10vh + 6rem);
 }
 
-.logo-wrapper {
-  transform: scale(var(--display-scale));
-  transform-origin: center center;
+body[data-search-active='false'][data-shortcuts-active='false'] .container,
+.container:not(:has(#searchForm:not([style*="display: none"]))):has(#shortcutsGrid[style*="display: none"]) {
+  padding-bottom: 4.5vh;
+
+  .display-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+.display-wrapper {
   @include flex-center(0.675rem);
   margin-bottom: 1.35rem;
+  width: auto;
+  max-width: 90vw;
+  text-align: center;
+  user-select: none;
+  transition: margin-bottom 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .greeting-text {
-  font-size: var(--font-size-xl);
+  font-size: min(calc(var(--font-size-xl) * var(--display-scale)), 15vh, 85vw);
   font-weight: 600;
   color: var(--text-color);
   margin: 0;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .time-date-text {
-  font-size: var(--font-size-xxl);
+  font-size: min(calc(var(--font-size-xxl) * var(--display-scale)), 28vh, 85vw);
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--text-color);
 
   .time-date-sub {
     display: block;
-    font-size: var(--font-size-lg);
+    font-size: min(calc(var(--font-size-lg) * var(--display-scale)), 7vh, 75vw);
     font-weight: 400;
     opacity: 0.7;
     margin-top: 0.45rem;

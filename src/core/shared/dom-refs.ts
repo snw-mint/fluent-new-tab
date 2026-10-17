@@ -62,8 +62,9 @@ export const addFolderModal = getById<HTMLDivElement>('addFolderModal');
 export const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
 export const inputFolderName = getById<HTMLInputElement>('inputFolderName');
 
-export const greetingWrapper =
-  document.querySelector<HTMLElement>('.logo-wrapper');
+export const displayWrapper =
+  document.querySelector<HTMLElement>('.display-wrapper');
+export const greetingWrapper = displayWrapper;
 export const displayTypeSelect =
   getById<HTMLSelectElement>('displayTypeSelect');
 export const displayAdvancedSetting = getById<HTMLDivElement>(

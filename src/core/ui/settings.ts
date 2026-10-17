@@ -9,6 +9,11 @@
 import * as refs from '@/core/shared/dom-refs';
 import { getInputTarget, getSelectTarget } from '@/core/shared/dom-utils';
 import { applyAccentColor } from '@/core/boot/theme';
+import {
+  getDisplayScaleBounds,
+  getDisplayScaleForType,
+  applyDisplayScale,
+} from '@/core/boot/display';
 
 import { currentCityData, activeShortcutDropdowns } from '@/core/shared/state';
 import {
@@ -422,37 +427,64 @@ export function bindDisplayFeature(options: any): void {
     });
   }
 
+  const updateSliderProgress = (sliderInput: HTMLInputElement) => {
+    const min = parseInt(sliderInput.min, 10);
+    const max = parseInt(sliderInput.max, 10);
+    const val = parseInt(sliderInput.value, 10);
+    sliderInput.style.setProperty(
+      '--slider-progress',
+      `${(val - min) / (max - min)}`,
+    );
+  };
+
+  const syncDisplayScaleSlider = (preset?: string) => {
+    if (!refs.displayScaleSlider) return;
+    const currentType =
+      preset ||
+      refs.displayTypeSelect?.value ||
+      localStorage.getItem('displayType') ||
+      'greeting';
+    const bounds = getDisplayScaleBounds(currentType);
+    const currentScale = getDisplayScaleForType(currentType);
+
+    refs.displayScaleSlider.min = String(bounds.min);
+    refs.displayScaleSlider.max = String(bounds.max);
+    refs.displayScaleSlider.value = String(currentScale);
+    updateSliderProgress(refs.displayScaleSlider);
+    applyDisplayScale(currentType, currentScale);
+    options.setDisplayScale(currentScale);
+  };
+
   if (refs.displayScaleSlider) {
     const slider = refs.displayScaleSlider;
-    slider.value = String(options.getDisplayScale());
+    syncDisplayScaleSlider();
 
-    const updateSliderProgress = (sliderInput: HTMLInputElement) => {
-      const min = parseInt(sliderInput.min, 10);
-      const max = parseInt(sliderInput.max, 10);
-      const val = parseInt(sliderInput.value, 10);
-      sliderInput.style.setProperty(
-        '--slider-progress',
-        `${(val - min) / (max - min)}`,
-      );
-    };
-
-    updateSliderProgress(slider);
     slider.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement;
       updateSliderProgress(target);
+      const val = parseInt(target.value, 10);
       document.documentElement.style.setProperty(
         '--display-scale',
-        `${parseInt(target.value, 10) / 100}`,
+        `${val / 100}`,
       );
     });
 
     slider.addEventListener('change', (event) => {
       const target = event.target as HTMLInputElement;
       const value = parseInt(target.value, 10);
+      const currentType =
+        refs.displayTypeSelect?.value ||
+        localStorage.getItem('displayType') ||
+        'greeting';
       options.setDisplayScale(value);
+      localStorage.setItem(`displayScale_${currentType}`, String(value));
       localStorage.setItem('displayScale', String(value));
     });
   }
+
+  window.addEventListener('fluent-layout-change', () => {
+    syncDisplayScaleSlider();
+  });
 
   if (refs.greetingNameInput) {
     refs.greetingNameInput.value = localStorage.getItem('greetingName') || '';
@@ -549,10 +581,11 @@ export function bindDisplayFeature(options: any): void {
           localStorage.getItem('dateFormat') || 'weekday';
 
       updateAdvancedUI(preset);
+      syncDisplayScaleSlider(preset);
 
-      if (refs.greetingWrapper) {
-        refs.greetingWrapper.dataset.lastCache = '';
-        options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) {
+        refs.displayWrapper.dataset.lastCache = '';
+        options.initDisplayWidget(refs.displayWrapper);
       }
     });
   }
@@ -562,7 +595,7 @@ export function bindDisplayFeature(options: any): void {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('showSeconds', String(target.checked));
-      if (refs.greetingWrapper) options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) options.initDisplayWidget(refs.displayWrapper);
     });
   }
 
@@ -571,7 +604,7 @@ export function bindDisplayFeature(options: any): void {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('use12Hour', String(target.checked));
-      if (refs.greetingWrapper) options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) options.initDisplayWidget(refs.displayWrapper);
     });
   }
 
@@ -580,7 +613,7 @@ export function bindDisplayFeature(options: any): void {
       const target = getSelectTarget(e);
       if (!target) return;
       localStorage.setItem('dateFormat', target.value);
-      if (refs.greetingWrapper) options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) options.initDisplayWidget(refs.displayWrapper);
     });
   }
 
@@ -590,9 +623,9 @@ export function bindDisplayFeature(options: any): void {
       if (!target) return;
       localStorage.setItem('greetingName', target.value);
       updateHighlightNameState();
-      if (refs.greetingWrapper) {
-        refs.greetingWrapper.dataset.lastCache = '';
-        options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) {
+        refs.displayWrapper.dataset.lastCache = '';
+        options.initDisplayWidget(refs.displayWrapper);
       }
     });
   }
@@ -602,9 +635,9 @@ export function bindDisplayFeature(options: any): void {
       const target = getInputTarget(e);
       if (!target) return;
       localStorage.setItem('highlightName', String(target.checked));
-      if (refs.greetingWrapper) {
-        refs.greetingWrapper.dataset.lastCache = '';
-        options.initDisplayWidget(refs.greetingWrapper);
+      if (refs.displayWrapper) {
+        refs.displayWrapper.dataset.lastCache = '';
+        options.initDisplayWidget(refs.displayWrapper);
       }
     });
   }
@@ -641,6 +674,8 @@ export function bindShortcutRadiusFeature(options: any): void {
       if (!target) return;
       const checked = target.checked;
       localStorage.setItem('shortcutsVisible', String(checked));
+      document.body.dataset.shortcutsActive = String(checked);
+      window.dispatchEvent(new CustomEvent('fluent-layout-change'));
 
       if (shortcutsGrid)
         shortcutsGrid.style.display = checked ? 'grid' : 'none';
