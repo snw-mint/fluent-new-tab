@@ -539,7 +539,8 @@ async function bootInteractive(): Promise<void> {
     if (refs.feedDrawer) {
       refs.feedDrawer.classList.toggle('minimal', mode === 'minimal');
       refs.feedDrawer.classList.toggle('expanded', mode === 'expanded');
-      refs.feedDrawer.classList.toggle('autohide', mode === 'autohide');
+      refs.feedDrawer.classList.toggle('hidden', mode === 'hidden' || mode === 'autohide');
+      refs.feedDrawer.classList.toggle('autohide', mode === 'hidden' || mode === 'autohide');
     }
   };
 

@@ -179,7 +179,7 @@ Need RSS feed ideas? Check out the curated list of public feeds at [Awesome RSS 
 
 - **Minimal**: Compact list view showing headlines, source tags, and timestamps.
 - **Expanded**: Rich card view showing article thumbnails, full titles, summaries, and publication timestamps.
-- **Auto-hide**: Keeps the feed bar hidden below the screen until you scroll down to reveal the drawer.
+- **Hidden**: Keeps the feed bar hidden below the screen until you scroll down to reveal the drawer.
 
 ### Feed Management & Features
 

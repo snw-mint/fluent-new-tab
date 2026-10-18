@@ -32,7 +32,7 @@
     const feedMode = localStorage.getItem('feedMode') || 'minimal';
     document.documentElement.setAttribute('data-feed-active', 'true');
     document.documentElement.setAttribute('data-feed-mode', feedMode);
-    if (feedMode !== 'autohide') {
+    if (feedMode !== 'hidden' && feedMode !== 'autohide') {
       const style = document.createElement('style');
       style.id = 'early-feed-style';
       style.textContent = '#feedDrawer { display: flex !important; }';

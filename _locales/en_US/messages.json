@@ -745,8 +745,8 @@
   "feedModeExpanded": {
     "message": "Expanded"
   },
-  "feedModeAutoHide": {
-    "message": "Auto-hide"
+  "feedModeHidden": {
+    "message": "Hidden"
   },
   "feedRssTitle": {
     "message": "Edit Feeds"

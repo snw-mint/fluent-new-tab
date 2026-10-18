@@ -20,7 +20,9 @@
     transform: translateY(calc(100vh - 12rem));
   }
 
+  &.hidden,
   &.autohide,
+  html[data-feed-mode='hidden'] &:not(.open),
   html[data-feed-mode='autohide'] &:not(.open) {
     transform: translateY(100vh);
   }
