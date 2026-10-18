@@ -60,7 +60,8 @@ body {
       background-repeat: no-repeat;
       z-index: -2;
       pointer-events: none;
-      opacity: 1;
+      opacity: 0;
+      transition: opacity 0.22s ease-out;
     }
 
     &[data-wallpaper-blur='true']::before,
@@ -70,6 +71,10 @@ body {
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
       will-change: transform, filter;
+    }
+
+    &[data-wallpaper-active='true']::before {
+      opacity: 1;
     }
 
     &::after {
@@ -82,6 +87,11 @@ body {
       opacity: var(--wallpaper-overlay, 0);
       transition: opacity 0.2s ease;
     }
+  }
+
+  html[data-early-wallpaper='true'] body::before {
+    transition: none !important;
+    opacity: 1 !important;
   }
 
   &.loaded {

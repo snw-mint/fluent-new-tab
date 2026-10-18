@@ -83,13 +83,14 @@ export class WallpaperEngine {
     const img = new Image();
     img.src = url;
 
-    img.onload = () => {
-      const isActive = document.body.getAttribute('data-wallpaper-active') === 'true';
-      
+    img.decode().catch(() => { }).finally(() => {
       const applyWallpaper = () => {
-        document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+        document.documentElement.style.setProperty(
+          '--wallpaper-image',
+          `url('${url}')`,
+        );
         document.body.setAttribute('data-wallpaper-active', 'true');
-        
+
         const currentOverlay = parseFloat(
           localStorage.getItem('wallpaperOverlay') || String(config.overlay),
         );
@@ -118,7 +119,7 @@ export class WallpaperEngine {
       };
 
       applyWallpaper();
-    };
+    });
 
     img.onerror = () => {
       hideToast();
