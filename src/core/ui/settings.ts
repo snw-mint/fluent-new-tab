@@ -939,7 +939,7 @@ export function bindShortcutRadiusFeature(options: any): void {
               (window as any).getTranslation?.('btnCancel') || 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => runImport(),
-            onCancel: () => {},
+            onCancel: () => { },
           });
         });
       } else {
@@ -1353,10 +1353,11 @@ export function bindWallpaperFeature(
   }
 
   if (refs.uploadInput) {
+    const LARGE_FILE_WARNING_BYTES = 5 * 1024 * 1024; // 5 MB
+
     refs.uploadWallpaperBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       if (!localStorage.getItem('hasSeenWallpaperUploadWarning')) {
         const { warningModal } = await import('@/core/ui/ui-components');
         warningModal.show({
@@ -1374,29 +1375,26 @@ export function bindWallpaperFeature(
             localStorage.setItem('hasSeenWallpaperUploadWarning', 'true');
             refs.uploadInput?.click();
           },
-          onCancel: () => {},
+          onCancel: () => { },
         });
       } else {
         refs.uploadInput.click();
       }
     });
 
-    refs.uploadInput.addEventListener('change', async (event) => {
-      const target = event.target as HTMLInputElement | null;
-      const file = target?.files?.[0];
-      if (!file) return;
-
+    const saveAndRenderUploadedWallpaper = async (file: File) => {
       try {
-        const { processWallpaperImage, saveWallpaperToDB } =
+        const { saveWallpaperToDB } =
           await import('@/core/lazy/wallpaper-storage');
-        const blob = await processWallpaperImage(file);
-        await saveWallpaperToDB(blob);
+        await saveWallpaperToDB(file);
 
         options.setWallpaperSource('local');
         options.setWallpaperType('upload');
         options.saveWallpaperConfig();
+
         localStorage.setItem('wallpaperSource', 'local');
         localStorage.setItem('wallpaperType', 'upload');
+
         const engine = await getWallpaperEngine();
         await engine.render({
           enabled: options.getWallpaperEnabled(),
@@ -1407,9 +1405,53 @@ export function bindWallpaperFeature(
           ),
         });
       } catch (error) {
-        console.error('Failed to process image', error);
-        alert('Error saving image. It might be too large.');
+        console.error('Failed to save image to IndexedDB:', error);
+        const { warningModal } = await import('@/core/ui/ui-components');
+        warningModal.show({
+          title:
+            (window as any).getTranslation?.('wallpaperDbErrorTitle') ||
+            'Storage Error',
+          message:
+            (window as any).getTranslation?.('wallpaperDbErrorDesc') ||
+            'Failed to save the wallpaper in IndexedDB. Your browser storage might be full or restricted.',
+          confirmText:
+            (window as any).getTranslation?.('warningUnderstood') ||
+            'Understood',
+          confirmVariant: 'danger',
+          onConfirm: () => { },
+        });
       }
+    };
+
+    refs.uploadInput.addEventListener('change', async (event) => {
+      const target = event.target as HTMLInputElement | null;
+      const file = target?.files?.[0];
+      if (!file) return;
+
+      if (file.size > LARGE_FILE_WARNING_BYTES) {
+        const { warningModal } = await import('@/core/ui/ui-components');
+        const sizeInMb = (file.size / (1024 * 1024)).toFixed(1);
+        warningModal.show({
+          title:
+            (window as any).getTranslation?.('wallpaperLargeFileTitle') ||
+            'Large File Size (5MB+)',
+          message:
+            (window as any)
+              .getTranslation?.('wallpaperLargeFileDesc')
+              ?.replace('$SIZE$', `${sizeInMb}MB`) ||
+            `The selected image is ${sizeInMb}MB. Files over 5MB are stored without compression to preserve maximum quality, which may slightly increase loading time on new tabs.`,
+          confirmText:
+            (window as any).getTranslation?.('warningUnderstood') || 'Continue',
+          cancelText: (window as any).getTranslation?.('btnCancel') || 'Cancel',
+          onConfirm: () => {
+            void saveAndRenderUploadedWallpaper(file);
+          },
+          onCancel: () => { },
+        });
+      } else {
+        await saveAndRenderUploadedWallpaper(file);
+      }
+
       if (refs.uploadInput) refs.uploadInput.value = '';
     });
   }
