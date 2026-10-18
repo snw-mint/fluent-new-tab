@@ -24,11 +24,13 @@
   transition: padding-bottom 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+html[data-feed-active='true'][data-feed-mode='minimal'] .container,
 html[data-feed-active='true']:has(.feed-drawer.minimal) .container,
 body[data-feed-active='true']:has(.feed-drawer.minimal) .container {
   padding-bottom: calc(10vh + 2.5rem);
 }
 
+html[data-feed-active='true'][data-feed-mode='expanded'] .container,
 html[data-feed-active='true']:has(.feed-drawer.expanded) .container,
 body[data-feed-active='true']:has(.feed-drawer.expanded) .container {
   padding-bottom: calc(10vh + 6rem);

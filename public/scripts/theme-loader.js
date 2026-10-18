@@ -29,11 +29,15 @@
     hasFeedLinks = Array.isArray(fl) && fl.length > 0;
   } catch {}
   if (isFeedEnabled && hasFeedLinks) {
+    const feedMode = localStorage.getItem('feedMode') || 'minimal';
     document.documentElement.setAttribute('data-feed-active', 'true');
-    const style = document.createElement('style');
-    style.id = 'early-feed-style';
-    style.textContent = '#feedDrawer { display: flex !important; }';
-    document.head.appendChild(style);
+    document.documentElement.setAttribute('data-feed-mode', feedMode);
+    if (feedMode !== 'autohide') {
+      const style = document.createElement('style');
+      style.id = 'early-feed-style';
+      style.textContent = '#feedDrawer { display: flex !important; }';
+      document.head.appendChild(style);
+    }
   }
 
   const wallpaperEnabled = localStorage.getItem('wallpaperEnabled') === 'true';

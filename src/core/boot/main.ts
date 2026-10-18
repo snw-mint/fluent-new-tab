@@ -508,8 +508,8 @@ async function bootInteractive(): Promise<void> {
       refs.feedDrawer.style.display = active ? '' : 'none';
       if (!active) {
         refs.feedDrawer.classList.remove('open');
-        document.getElementById('early-feed-style')?.remove();
       }
+      document.getElementById('early-feed-style')?.remove();
     }
     if (active) {
       import('@/core/lazy/feed-engine').then(({ loadAndRenderFeeds }) => {
@@ -535,9 +535,11 @@ async function bootInteractive(): Promise<void> {
   };
 
   const updateFeedMode = (mode: string) => {
+    document.documentElement.setAttribute('data-feed-mode', mode);
     if (refs.feedDrawer) {
       refs.feedDrawer.classList.toggle('minimal', mode === 'minimal');
       refs.feedDrawer.classList.toggle('expanded', mode === 'expanded');
+      refs.feedDrawer.classList.toggle('autohide', mode === 'autohide');
     }
   };
 

@@ -43,11 +43,13 @@
   }
 }
 
+html[data-feed-active='true'][data-feed-mode='minimal']:not(:has(.feed-drawer.open)) .wallpaper-credits,
 html[data-feed-active='true']:has(.feed-drawer.minimal:not(.open)) .wallpaper-credits,
 body[data-feed-active='true']:has(.feed-drawer.minimal:not(.open)) .wallpaper-credits {
   bottom: calc(3rem + 0.5rem);
 }
 
+html[data-feed-active='true'][data-feed-mode='expanded']:not(:has(.feed-drawer.open)) .wallpaper-credits,
 html[data-feed-active='true']:has(.feed-drawer.expanded:not(.open)) .wallpaper-credits,
 body[data-feed-active='true']:has(.feed-drawer.expanded:not(.open)) .wallpaper-credits {
   bottom: calc(10rem + 0.5rem);

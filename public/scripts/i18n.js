@@ -34,7 +34,7 @@ async function loadTranslations() {
   if (cached) {
     try {
       let msg = JSON.parse(cached);
-      if (lang !== DEFAULT_LOCALE && !msg.feedTitle) {
+      if (!msg.feedModeAutoHide) {
         msg = await getFullLocaleMessages(lang);
         localStorage.setItem(cacheKey, JSON.stringify(msg));
       }

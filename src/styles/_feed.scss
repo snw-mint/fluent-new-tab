@@ -10,12 +10,19 @@
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 
-  &.minimal {
+  &.minimal,
+  html[data-feed-mode='minimal'] &:not(.open) {
     transform: translateY(calc(100vh - 5rem));
   }
 
-  &.expanded {
+  &.expanded,
+  html[data-feed-mode='expanded'] &:not(.open) {
     transform: translateY(calc(100vh - 12rem));
+  }
+
+  &.autohide,
+  html[data-feed-mode='autohide'] &:not(.open) {
+    transform: translateY(100vh);
   }
 
   &.open {
