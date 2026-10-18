@@ -1367,6 +1367,11 @@ export function bindWallpaperFeature(
           message:
             (window as any).getTranslation?.('wallpaperUploadWarningDesc') ||
             'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
+          learnMoreUrl:
+            'https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#wallpaper-recommendations',
+          learnMoreText:
+            (window as any).getTranslation?.('readRecommendations') ||
+            'Read recommendations',
           confirmText:
             (window as any).getTranslation?.('warningUnderstood') ||
             'Understood',

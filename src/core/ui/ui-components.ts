@@ -14,6 +14,7 @@ export interface WarningModalOptions {
   title: string;
   message: string;
   learnMoreUrl?: string;
+  learnMoreText?: string;
   confirmText?: string;
   cancelText?: string;
   confirmVariant?: 'accent' | 'danger';
@@ -63,6 +64,23 @@ export class WarningModalManager {
         'privacyPolicyLabel',
         'Read privacy policy',
       );
+      link.style.display = 'inline-block';
+      link.style.marginTop = '8px';
+      link.style.color = 'var(--text-color)';
+      link.style.textDecoration = 'underline';
+      this.messageEl.appendChild(document.createElement('br'));
+      this.messageEl.appendChild(link);
+    } else if (options.learnMoreUrl) {
+      const link = document.createElement('a');
+      link.href = options.learnMoreUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent =
+        options.learnMoreText ||
+        getLocalizedWarningText(
+          'readRecommendations',
+          'Read recommendations',
+        );
       link.style.display = 'inline-block';
       link.style.marginTop = '8px';
       link.style.color = 'var(--text-color)';
