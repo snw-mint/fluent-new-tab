@@ -214,6 +214,7 @@ export function clearWallpaper(): void {
   if (earlyFade) earlyFade.remove();
   const earlyStyle = document.getElementById('early-wallpaper-style');
   if (earlyStyle) earlyStyle.remove();
+  document.querySelectorAll('.wallpaper-crossfade-layer').forEach((el) => el.remove());
   document.documentElement.removeAttribute('data-early-wallpaper');
   updateOverlay(0, false);
   hideCreditsBoot();
@@ -260,6 +261,13 @@ export async function bootWallpaper(
 
   if (url) {
     updateOverlay(overlay, true);
+
+    if (!document.documentElement.hasAttribute('data-early-wallpaper')) {
+      const img = new Image();
+      img.src = url;
+      await img.decode().catch(() => {});
+    }
+
     document.documentElement.style.setProperty(
       '--wallpaper-image',
       `url('${url}')`,

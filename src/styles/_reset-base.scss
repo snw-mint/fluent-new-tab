@@ -43,6 +43,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  isolation: isolate;
   transition:
     opacity 0.2s ease,
     background-image 0.35s ease-in-out;
@@ -55,10 +56,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s ease-out;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &[data-wallpaper-blur='true']::before,
@@ -139,7 +140,7 @@ html[data-early-wallpaper='true'] body {
   z-index: -2;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.visible {
     opacity: 1;

@@ -84,11 +84,13 @@ export class WallpaperEngine {
     img.src = url;
 
     img.decode().catch(() => { }).finally(() => {
-      const applyWallpaperStyles = () => {
-        document.documentElement.style.setProperty(
-          '--wallpaper-image',
-          `url('${url}')`,
-        );
+      document.documentElement.removeAttribute('data-early-wallpaper');
+
+      document
+        .querySelectorAll('.wallpaper-crossfade-layer')
+        .forEach((el) => el.remove());
+
+      const updateConfigOnly = () => {
         document.body.setAttribute('data-wallpaper-active', 'true');
 
         const currentOverlay = parseFloat(
@@ -118,13 +120,7 @@ export class WallpaperEngine {
         }
       };
 
-      const isAlreadyActive =
-        document.body.getAttribute('data-wallpaper-active') === 'true';
-
-      if (!isAlreadyActive) {
-        applyWallpaperStyles();
-        return;
-      }
+      updateConfigOnly();
 
       const crossfade = document.createElement('div');
       crossfade.className = 'wallpaper-crossfade-layer';
@@ -132,18 +128,30 @@ export class WallpaperEngine {
       document.body.appendChild(crossfade);
 
       void crossfade.offsetWidth;
-      crossfade.classList.add('visible');
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          crossfade.classList.add('visible');
+        });
+      });
 
       let cleanedUp = false;
       const cleanup = () => {
         if (cleanedUp) return;
         cleanedUp = true;
-        applyWallpaperStyles();
+        document.documentElement.style.setProperty(
+          '--wallpaper-image',
+          `url('${url}')`,
+        );
         crossfade.remove();
       };
 
-      crossfade.addEventListener('transitionend', cleanup, { once: true });
-      setTimeout(cleanup, 400);
+      crossfade.addEventListener('transitionend', (e) => {
+        if (e.target === crossfade && e.propertyName === 'opacity') {
+          cleanup();
+        }
+      });
+      setTimeout(cleanup, 500);
     });
 
     img.onerror = () => {
