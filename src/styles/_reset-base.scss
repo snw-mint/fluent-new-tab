@@ -43,7 +43,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  isolation: isolate;
   transition:
     opacity 0.2s ease,
     background-image 0.35s ease-in-out;
@@ -194,4 +193,5 @@ html[data-wallpaper-blur='true'] .wallpaper-crossfade-layer {
 .settings-btn svg {
   width: 1.35rem !important;
   height: 1.35rem !important;
+  shape-rendering: geometricPrecision;
 }
