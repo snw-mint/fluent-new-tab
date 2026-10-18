@@ -1353,8 +1353,6 @@ export function bindWallpaperFeature(
   }
 
   if (refs.uploadInput) {
-    const LARGE_FILE_WARNING_BYTES = 5 * 1024 * 1024; // 5 MB
-
     refs.uploadWallpaperBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -1443,29 +1441,7 @@ export function bindWallpaperFeature(
       const file = target?.files?.[0];
       if (!file) return;
 
-      if (file.size > LARGE_FILE_WARNING_BYTES) {
-        const { warningModal } = await import('@/core/ui/ui-components');
-        const sizeInMb = (file.size / (1024 * 1024)).toFixed(1);
-        warningModal.show({
-          title:
-            (window as any).getTranslation?.('wallpaperLargeFileTitle') ||
-            'Large File Size (5MB+)',
-          message:
-            (window as any)
-              .getTranslation?.('wallpaperLargeFileDesc')
-              ?.replace('$SIZE$', `${sizeInMb}MB`) ||
-            `The selected image is ${sizeInMb}MB. Files over 5MB are stored without compression to preserve maximum quality, which may slightly increase loading time on new tabs.`,
-          confirmText:
-            (window as any).getTranslation?.('warningUnderstood') || 'Continue',
-          cancelText: (window as any).getTranslation?.('btnCancel') || 'Cancel',
-          onConfirm: () => {
-            void saveAndRenderUploadedWallpaper(file);
-          },
-          onCancel: () => { },
-        });
-      } else {
-        await saveAndRenderUploadedWallpaper(file);
-      }
+      await saveAndRenderUploadedWallpaper(file);
 
       if (refs.uploadInput) refs.uploadInput.value = '';
     });
