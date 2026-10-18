@@ -84,7 +84,7 @@ export class WallpaperEngine {
     img.src = url;
 
     img.decode().catch(() => { }).finally(() => {
-      const applyWallpaper = () => {
+      const applyWallpaperStyles = () => {
         document.documentElement.style.setProperty(
           '--wallpaper-image',
           `url('${url}')`,
@@ -118,7 +118,32 @@ export class WallpaperEngine {
         }
       };
 
-      applyWallpaper();
+      const isAlreadyActive =
+        document.body.getAttribute('data-wallpaper-active') === 'true';
+
+      if (!isAlreadyActive) {
+        applyWallpaperStyles();
+        return;
+      }
+
+      const crossfade = document.createElement('div');
+      crossfade.className = 'wallpaper-crossfade-layer';
+      crossfade.style.backgroundImage = `url('${url}')`;
+      document.body.appendChild(crossfade);
+
+      void crossfade.offsetWidth;
+      crossfade.classList.add('visible');
+
+      let cleanedUp = false;
+      const cleanup = () => {
+        if (cleanedUp) return;
+        cleanedUp = true;
+        applyWallpaperStyles();
+        crossfade.remove();
+      };
+
+      crossfade.addEventListener('transitionend', cleanup, { once: true });
+      setTimeout(cleanup, 400);
     });
 
     img.onerror = () => {

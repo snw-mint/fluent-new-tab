@@ -1388,21 +1388,31 @@ export function bindWallpaperFeature(
           await import('@/core/lazy/wallpaper-storage');
         await saveWallpaperToDB(file);
 
+        options.setWallpaperEnabled(true);
         options.setWallpaperSource('local');
         options.setWallpaperType('upload');
         options.saveWallpaperConfig();
 
+        localStorage.setItem('wallpaperEnabled', 'true');
         localStorage.setItem('wallpaperSource', 'local');
         localStorage.setItem('wallpaperType', 'upload');
 
+        if (refs.toggleWallpaper) {
+          refs.toggleWallpaper.checked = true;
+        }
+        if (typeof options.updateWallpaperUIState === 'function') {
+          options.updateWallpaperUIState(true, false);
+        }
+
         const engine = await getWallpaperEngine();
         await engine.render({
-          enabled: options.getWallpaperEnabled(),
+          enabled: true,
           source: 'local',
           type: 'upload',
           overlay: parseFloat(
             localStorage.getItem('wallpaperOverlay') || '0.2',
           ),
+          blur: parseFloat(localStorage.getItem('wallpaperBlur') || '0'),
         });
       } catch (error) {
         console.error('Failed to save image to IndexedDB:', error);

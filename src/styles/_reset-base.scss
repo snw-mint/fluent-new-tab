@@ -47,33 +47,33 @@ body {
     opacity 0.2s ease,
     background-image 0.35s ease-in-out;
 
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: var(--wallpaper-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  &[data-wallpaper-blur='true']::before,
+  html[data-wallpaper-blur='true'] &::before {
+    inset: -20px;
+    filter: var(--wallpaper-blur, none);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, filter;
+  }
+
   &[data-wallpaper-active='true'] {
     background-image: none !important;
 
     &::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: var(--wallpaper-image);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -2;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.22s ease-out;
-    }
-
-    &[data-wallpaper-blur='true']::before,
-    html[data-wallpaper-blur='true'] &::before {
-      inset: -20px;
-      filter: var(--wallpaper-blur, none);
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      will-change: transform, filter;
-    }
-
-    &[data-wallpaper-active='true']::before {
       opacity: 1;
     }
 
@@ -87,11 +87,6 @@ body {
       opacity: var(--wallpaper-overlay, 0);
       transition: opacity 0.2s ease;
     }
-  }
-
-  html[data-early-wallpaper='true'] body::before {
-    transition: none !important;
-    opacity: 1 !important;
   }
 
   &.loaded {
@@ -128,6 +123,36 @@ textarea {
 
 html[data-early-wallpaper='true'] body {
   transition: none !important;
+
+  &::before {
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.wallpaper-crossfade-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+body[data-wallpaper-blur='true'] .wallpaper-crossfade-layer,
+html[data-wallpaper-blur='true'] .wallpaper-crossfade-layer {
+  inset: -20px;
+  filter: var(--wallpaper-blur, none);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform, filter;
 }
 
 .modal-content input,

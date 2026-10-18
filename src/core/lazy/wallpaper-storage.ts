@@ -12,27 +12,38 @@ import {
   convertBlobToBase64,
 } from '@/core/boot/wallpaper-render';
 
-const MAX_LOCALSTORAGE_CACHE_BYTES = 2.5 * 1024 * 1024; // 2.5 MB
+export const MAX_LOCALSTORAGE_CACHE_BYTES = 2.5 * 1024 * 1024;
 
 export async function saveWallpaperToDB(
-  blob: Blob,
+  fileOrBlob: Blob | File,
   keyName = 'custom_wallpaper',
 ): Promise<boolean> {
   const db = await openWallpaperDB();
 
   await new Promise<void>((resolve, reject) => {
+    let resolved = false;
+    const done = () => {
+      if (!resolved) {
+        resolved = true;
+        resolve();
+      }
+    };
+
     const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
     const store = transaction.objectStore(WALLPAPER_STORE_NAME);
-    const request = store.put(blob, keyName);
+    const request = store.put(fileOrBlob, keyName);
 
-    request.onsuccess = () => resolve();
+    request.onsuccess = done;
+    transaction.oncomplete = done;
+    transaction.onerror = () =>
+      reject(transaction.error || new Error('INDEXED_DB_WRITE_ERROR'));
     request.onerror = () =>
-      reject(new Error('INDEXED_DB_WRITE_ERROR'));
+      reject(request.error || new Error('INDEXED_DB_WRITE_ERROR'));
   });
 
-  if (blob.size <= MAX_LOCALSTORAGE_CACHE_BYTES) {
+  if (fileOrBlob.size <= MAX_LOCALSTORAGE_CACHE_BYTES) {
     try {
-      const base64Data = await convertBlobToBase64(blob);
+      const base64Data = await convertBlobToBase64(fileOrBlob);
       localStorage.setItem('wallpaper_local_cache', base64Data);
     } catch {
       localStorage.removeItem('wallpaper_local_cache');

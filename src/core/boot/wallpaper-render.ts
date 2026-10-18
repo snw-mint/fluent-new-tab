@@ -63,30 +63,8 @@ export async function getWallpaperFromDB(
         resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
       request.onerror = () => reject(new Error('Error reading from DB'));
     });
-  } catch (error) {
-    const errorString = String(error);
-
-    if (
-      errorString.includes('InvalidStateError') ||
-      errorString.includes('Error opening database')
-    ) {
-      return await new Promise<Blob | null>((resolve) => {
-        const chromeApi = (window as any).chrome;
-        chromeApi.storage.local.get([keyName], async (result: any) => {
-          if (result[keyName]) {
-            try {
-              const blob = await convertBase64ToBlob(String(result[keyName]));
-              resolve(blob);
-            } catch (e) {
-              resolve(null);
-            }
-          } else {
-            resolve(null);
-          }
-        });
-      });
-    }
-    throw error;
+  } catch {
+    return null;
   }
 }
 
@@ -256,14 +234,18 @@ export async function bootWallpaper(
   if (source === 'local' && type === 'upload') {
     url = localStorage.getItem('wallpaper_local_cache') || '';
     if (!url) {
-      const blob = await getWallpaperFromDB();
-      if (blob) {
-        url = URL.createObjectURL(blob);
-        try {
-          const base64 = await convertBlobToBase64(blob);
-          localStorage.setItem('wallpaper_local_cache', base64);
-        } catch {}
-      }
+      try {
+        const blob = await getWallpaperFromDB();
+        if (blob) {
+          url = URL.createObjectURL(blob);
+          if (blob.size <= 2.5 * 1024 * 1024) {
+            try {
+              const base64 = await convertBlobToBase64(blob);
+              localStorage.setItem('wallpaper_local_cache', base64);
+            } catch {}
+          }
+        }
+      } catch {}
     }
   } else if (source === 'api') {
     const cacheKey = `wallpaper_cache_${type}`;
