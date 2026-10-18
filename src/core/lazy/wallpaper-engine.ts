@@ -83,13 +83,16 @@ export class WallpaperEngine {
     const img = new Image();
     img.src = url;
 
-    img.onload = () => {
-      const isActive = document.body.getAttribute('data-wallpaper-active') === 'true';
-      
-      const applyWallpaper = () => {
-        document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+    img.decode().catch(() => { }).finally(() => {
+      document.documentElement.removeAttribute('data-early-wallpaper');
+
+      document
+        .querySelectorAll('.wallpaper-crossfade-layer')
+        .forEach((el) => el.remove());
+
+      const updateConfigOnly = () => {
         document.body.setAttribute('data-wallpaper-active', 'true');
-        
+
         const currentOverlay = parseFloat(
           localStorage.getItem('wallpaperOverlay') || String(config.overlay),
         );
@@ -117,8 +120,39 @@ export class WallpaperEngine {
         }
       };
 
-      applyWallpaper();
-    };
+      updateConfigOnly();
+
+      const crossfade = document.createElement('div');
+      crossfade.className = 'wallpaper-crossfade-layer';
+      crossfade.style.backgroundImage = `url('${url}')`;
+      document.body.appendChild(crossfade);
+
+      void crossfade.offsetWidth;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          crossfade.classList.add('visible');
+        });
+      });
+
+      let cleanedUp = false;
+      const cleanup = () => {
+        if (cleanedUp) return;
+        cleanedUp = true;
+        document.documentElement.style.setProperty(
+          '--wallpaper-image',
+          `url('${url}')`,
+        );
+        crossfade.remove();
+      };
+
+      crossfade.addEventListener('transitionend', (e) => {
+        if (e.target === crossfade && e.propertyName === 'opacity') {
+          cleanup();
+        }
+      });
+      setTimeout(cleanup, 500);
+    });
 
     img.onerror = () => {
       hideToast();

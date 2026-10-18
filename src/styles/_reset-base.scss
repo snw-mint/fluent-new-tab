@@ -47,29 +47,34 @@ body {
     opacity 0.2s ease,
     background-image 0.35s ease-in-out;
 
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: var(--wallpaper-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &[data-wallpaper-blur='true']::before,
+  html[data-wallpaper-blur='true'] &::before {
+    inset: -20px;
+    filter: var(--wallpaper-blur, none);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, filter;
+  }
+
   &[data-wallpaper-active='true'] {
     background-image: none !important;
 
     &::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: var(--wallpaper-image);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -2;
-      pointer-events: none;
       opacity: 1;
-    }
-
-    &[data-wallpaper-blur='true']::before,
-    html[data-wallpaper-blur='true'] &::before {
-      inset: -20px;
-      filter: var(--wallpaper-blur, none);
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      will-change: transform, filter;
     }
 
     &::after {
@@ -118,6 +123,36 @@ textarea {
 
 html[data-early-wallpaper='true'] body {
   transition: none !important;
+
+  &::before {
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.wallpaper-crossfade-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+body[data-wallpaper-blur='true'] .wallpaper-crossfade-layer,
+html[data-wallpaper-blur='true'] .wallpaper-crossfade-layer {
+  inset: -20px;
+  filter: var(--wallpaper-blur, none);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform, filter;
 }
 
 .modal-content input,
@@ -158,4 +193,5 @@ html[data-early-wallpaper='true'] body {
 .settings-btn svg {
   width: 1.35rem !important;
   height: 1.35rem !important;
+  shape-rendering: geometricPrecision;
 }

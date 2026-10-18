@@ -939,7 +939,7 @@ export function bindShortcutRadiusFeature(options: any): void {
               (window as any).getTranslation?.('btnCancel') || 'Cancel',
             confirmVariant: 'danger',
             onConfirm: () => runImport(),
-            onCancel: () => {},
+            onCancel: () => { },
           });
         });
       } else {
@@ -1356,7 +1356,6 @@ export function bindWallpaperFeature(
     refs.uploadWallpaperBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       if (!localStorage.getItem('hasSeenWallpaperUploadWarning')) {
         const { warningModal } = await import('@/core/ui/ui-components');
         warningModal.show({
@@ -1366,6 +1365,11 @@ export function bindWallpaperFeature(
           message:
             (window as any).getTranslation?.('wallpaperUploadWarningDesc') ||
             'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
+          learnMoreUrl:
+            'https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#wallpaper-recommendations',
+          learnMoreText:
+            (window as any).getTranslation?.('readRecommendations') ||
+            'Read recommendations',
           confirmText:
             (window as any).getTranslation?.('warningUnderstood') ||
             'Understood',
@@ -1374,42 +1378,71 @@ export function bindWallpaperFeature(
             localStorage.setItem('hasSeenWallpaperUploadWarning', 'true');
             refs.uploadInput?.click();
           },
-          onCancel: () => {},
+          onCancel: () => { },
         });
       } else {
         refs.uploadInput.click();
       }
     });
 
-    refs.uploadInput.addEventListener('change', async (event) => {
-      const target = event.target as HTMLInputElement | null;
-      const file = target?.files?.[0];
-      if (!file) return;
-
+    const saveAndRenderUploadedWallpaper = async (file: File) => {
       try {
-        const { processWallpaperImage, saveWallpaperToDB } =
+        const { saveWallpaperToDB } =
           await import('@/core/lazy/wallpaper-storage');
-        const blob = await processWallpaperImage(file);
-        await saveWallpaperToDB(blob);
+        await saveWallpaperToDB(file);
 
+        options.setWallpaperEnabled(true);
         options.setWallpaperSource('local');
         options.setWallpaperType('upload');
         options.saveWallpaperConfig();
+
+        localStorage.setItem('wallpaperEnabled', 'true');
         localStorage.setItem('wallpaperSource', 'local');
         localStorage.setItem('wallpaperType', 'upload');
+
+        if (refs.toggleWallpaper) {
+          refs.toggleWallpaper.checked = true;
+        }
+        if (typeof options.updateWallpaperUIState === 'function') {
+          options.updateWallpaperUIState(true, false);
+        }
+
         const engine = await getWallpaperEngine();
         await engine.render({
-          enabled: options.getWallpaperEnabled(),
+          enabled: true,
           source: 'local',
           type: 'upload',
           overlay: parseFloat(
             localStorage.getItem('wallpaperOverlay') || '0.2',
           ),
+          blur: parseFloat(localStorage.getItem('wallpaperBlur') || '0'),
         });
       } catch (error) {
-        console.error('Failed to process image', error);
-        alert('Error saving image. It might be too large.');
+        console.error('Failed to save image to IndexedDB:', error);
+        const { warningModal } = await import('@/core/ui/ui-components');
+        warningModal.show({
+          title:
+            (window as any).getTranslation?.('wallpaperDbErrorTitle') ||
+            'Storage Error',
+          message:
+            (window as any).getTranslation?.('wallpaperDbErrorDesc') ||
+            'Failed to save the wallpaper in IndexedDB. Your browser storage might be full or restricted.',
+          confirmText:
+            (window as any).getTranslation?.('warningUnderstood') ||
+            'Understood',
+          confirmVariant: 'danger',
+          onConfirm: () => { },
+        });
       }
+    };
+
+    refs.uploadInput.addEventListener('change', async (event) => {
+      const target = event.target as HTMLInputElement | null;
+      const file = target?.files?.[0];
+      if (!file) return;
+
+      await saveAndRenderUploadedWallpaper(file);
+
       if (refs.uploadInput) refs.uploadInput.value = '';
     });
   }

@@ -54,6 +54,14 @@ Control the background appearance of your new tab page. When toggled off, a soli
 
 Upload personal image files (.png, .jpeg, .webp) directly from your device. Images are automatically processed and stored locally in your browser storage.
 
+### Wallpaper Recommendations
+
+To ensure optimal performance and fast tab loading times, follow these recommendations when uploading custom wallpapers:
+
+- **Recommended Formats**: `.webp` or `.jpeg` / `.jpg`. These formats provide efficient compression and hardware-accelerated decoding. Heavy `.png` files take longer to decompress on the CPU.
+- **Recommended Resolution**: `1920×1080` (Full HD) or matching your screen's native resolution and aspect ratio (e.g., `16:9`). Ultra-high resolutions (4K, 8K) or panoramic aspect ratios require substantial GPU raster memory and decoding time.
+- **Recommended File Size**: Up to **2.5 MB** for instant, synchronous loading via local cache. Files between 2.5 MB and 5 MB are stored safely in IndexedDB, but may require a brief moment to decode when opening a new tab.
+
 ### Dynamic Online Sources
 
 Automatically fetch high-resolution daily wallpapers from popular curated repositories:

@@ -214,13 +214,6 @@ async function bootCritical(): Promise<void> {
   applyInitialTheme();
   applyInitialAccentColorState();
 
-  await bootWallpaper(
-    state.wallpaperEnabled,
-    state.currentWallpaperSource,
-    state.currentWallpaperType,
-    parseFloat(state.wallpaperOverlay),
-  );
-
   if (
     localStorage.getItem('displayEnabled') !== 'false' &&
     refs.displayWrapper
@@ -270,6 +263,13 @@ async function bootCritical(): Promise<void> {
 
   triggerShortcutsRender();
   applyBrandInterval();
+
+  void bootWallpaper(
+    state.wallpaperEnabled,
+    state.currentWallpaperSource,
+    state.currentWallpaperType,
+    parseFloat(state.wallpaperOverlay),
+  );
 }
 
 async function bootInteractive(): Promise<void> {
