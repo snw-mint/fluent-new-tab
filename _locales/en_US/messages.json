@@ -136,6 +136,18 @@
   "weekday_6": {
     "message": "Saturday"
   },
+  "dateCustom" : {
+    "message": "Custom Date Format"
+  },
+  "dateCustomTitle" : {
+    "message": "Custom Date Format"
+  },
+  "dateCustomLabel" : {
+    "message": "Set Date Format"
+  },  
+  "dateCustomValidate" : {
+    "message": "Check Custom Date Input"
+  },  
   "greetWeekMorning": {
     "message": "Have a great $WEEK$, $NAME$!",
     "placeholders": {
