@@ -104,6 +104,38 @@ The central display widget supports multiple modes and layout arrangements.
 - **12-Hour Format**: Toggle between standard 12-hour (AM/PM) and 24-hour military format.
 - **Show Seconds**: Display live seconds in the clock widget.
 - **Date Format**: Choose between Written format (e.g., Tuesday, September 2), Numeric format (e.g., 09/02/2026), or Weekday format.
+- **Custom Format**: Set custom time formats using tokens (e.g, %HH:%mm:%ss => 14:35:09)
+
+#### List of Supported tokens
+  - Year:
+    - %YYYY : 4-digit year (e.g., 2026)
+    - %YY : 2-digit year (e.g., 26)
+
+  - Month:
+    - %MM : Month, 2-digit with leading zero (01 to 12)
+    - %M : Month, 1/2-digit without leading zero (1 to 12)
+
+  - Day:
+    - %DD : Day of month, 2-digit (01 to 31)
+    - %D : Day of month (1 to 31)
+
+  - Hour:
+    - %HH : 24-hour format, 2-digit (00 to 23)
+    - %H : 24-hour format, without leading zero (00 to 23)
+    - %hh : 12-hour format, 2-digit (01 to 12)
+    - %h : 12-hour format, without leading zero (01 to 12)
+
+  - Minutes:
+    - %m : Minutes, without leading zero (0 to 59)
+    - %mm : Minutes, 2-digit (00 to 59)
+
+  - Seconds:
+    - %s : Seconds, without leading zero (0 to 59)
+    - %ss : Seconds, 2-digit (00 to 59)
+
+  - AM/PM
+    - %A : AM/PM, upper-case
+    - %a : am/pm, lower-case
 
 ### Display Scale
 
