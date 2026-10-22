@@ -1,6 +1,6 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
@@ -274,7 +274,7 @@ export async function loadAndRenderFeeds(): Promise<void> {
           return;
         }
       }
-    } catch {}
+    } catch { }
     urlsToFetch.push(u);
   });
 
@@ -291,7 +291,7 @@ export async function loadAndRenderFeeds(): Promise<void> {
       const fresh = await fetchAndValidateFeed(u);
       try {
         localStorage.setItem(`feedCache_${u}`, JSON.stringify(fresh));
-      } catch {}
+      } catch { }
       return fresh;
     })
   );

@@ -1,6 +1,6 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
@@ -60,7 +60,7 @@ function sanitizeHttpsUrl(urlStr: string): string | undefined {
   try {
     const u = new URL(urlStr.trim());
     if (u.protocol === 'https:') return u.href;
-  } catch {}
+  } catch { }
   return undefined;
 }
 
@@ -318,7 +318,7 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
       const feedData = await fetchAndValidateFeed(rawVal);
       try {
         localStorage.setItem(`feedCache_${rawVal}`, JSON.stringify(feedData));
-      } catch {}
+      } catch { }
 
       inp.setAttribute('data-validated', 'true');
       inp.classList.remove('is-invalid');
@@ -342,7 +342,7 @@ function createFeedRow(initialVal = '', isValidated = false): HTMLElement {
         message: err?.message || t('feedErrorDesc', 'Failed to fetch or parse the RSS feed. Please check the URL.'),
         confirmText: 'OK',
         confirmVariant: 'accent',
-        onConfirm: () => {},
+        onConfirm: () => { },
       });
     } finally {
       if (!inp.hasAttribute('data-validated')) {

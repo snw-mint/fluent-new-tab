@@ -1,6 +1,6 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
@@ -207,7 +207,7 @@ export function clearWallpaper(): void {
   document.body.removeAttribute('data-wallpaper-active');
   try {
     localStorage.removeItem('wallpaper_local_cache');
-  } catch {}
+  } catch { }
   const earlyBg = document.getElementById('early-bg-black');
   if (earlyBg) earlyBg.remove();
   const earlyFade = document.getElementById('wallpaper-fade-overlay');
@@ -243,10 +243,10 @@ export async function bootWallpaper(
             try {
               const base64 = await convertBlobToBase64(blob);
               localStorage.setItem('wallpaper_local_cache', base64);
-            } catch {}
+            } catch { }
           }
         }
-      } catch {}
+      } catch { }
     }
   } else if (source === 'api') {
     const cacheKey = `wallpaper_cache_${type}`;
@@ -256,7 +256,7 @@ export async function bootWallpaper(
       if (cached && cached.url && cached.date === today) {
         url = cached.url;
       }
-    } catch {}
+    } catch { }
   }
 
   if (url) {
@@ -265,7 +265,7 @@ export async function bootWallpaper(
     if (!document.documentElement.hasAttribute('data-early-wallpaper')) {
       const img = new Image();
       img.src = url;
-      await img.decode().catch(() => {});
+      await img.decode().catch(() => { });
     }
 
     document.documentElement.style.setProperty(

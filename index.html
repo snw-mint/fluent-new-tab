@@ -1,197 +1,164 @@
 <!doctype html>
 <!--
  - Fluent New Tab
- - Copyright (c) 2025-2026 SnowMint
+ - Copyright (c) 2026 SnowMint
  - Licensed under the GNU General Public License v3.0 (GPL-3.0)
  - You should have received a copy of the GNU General Public License along with this program.
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script src="/scripts/theme-loader.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="newTabTitle">New Tab</title>
 
-    <link rel="preconnect" href="https://api.open-meteo.com" />
-    <link rel="preconnect" href="https://geocoding-api.open-meteo.com" />
-    <link rel="preconnect" href="https://peapix.com" />
-    <link rel="preconnect" href="https://duckduckgo.com" crossorigin />
+<head>
+  <meta charset="UTF-8" />
+  <script src="/scripts/theme-loader.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="newTabTitle">New Tab</title>
 
-    <link rel="preload" href="/src/style.scss" as="style" />
-    <style>
-      body {
-        opacity: 0;
-        background-color: #f9f9f9;
-      }
+  <link rel="preconnect" href="https://api.open-meteo.com" />
+  <link rel="preconnect" href="https://geocoding-api.open-meteo.com" />
+  <link rel="preconnect" href="https://peapix.com" />
+  <link rel="preconnect" href="https://duckduckgo.com" crossorigin />
 
-      html[data-theme="dark"] body {
-        background-color: #202020;
-      }
-    </style>
-    <link rel="stylesheet" href="/src/style.scss" />
-  </head>
+  <link rel="preload" href="/src/style.scss" as="style" />
+  <style>
+    body {
+      opacity: 0;
+      background-color: #f9f9f9;
+    }
 
-  <body>
-    <!-- Backgrounds and Animations -->
-    <div class="cursor-blob"></div>
+    html[data-theme="dark"] body {
+      background-color: #202020;
+    }
+  </style>
+  <link rel="stylesheet" href="/src/style.scss" />
+</head>
 
-    <include src="src/icons/symbols.html" />
+<body>
+  <!-- Backgrounds and Animations -->
+  <div class="cursor-blob"></div>
 
-    <include src="src/html/components/app-launcher.html" />
+  <include src="src/icons/symbols.html" />
 
-    <div class="header-controls">
-      <a
-        href="#"
-        id="weatherWidget"
-        class="weather-widget"
-        target="_blank"
-        style="display: none"
-      >
-        <span class="weather-city" id="weatherCity">--</span>
-        <div class="weather-icon" id="weatherIcon"></div>
-        <span class="weather-temp" id="weatherTemp">--</span>
-      </a>
-      <include src="src/html/components/settings-popup.html" />
-    </div>
+  <include src="src/html/components/app-launcher.html" />
 
-    <div class="container">
-      <div class="display-wrapper" style="display: none"></div>
+  <div class="header-controls">
+    <a href="#" id="weatherWidget" class="weather-widget" target="_blank" style="display: none">
+      <span class="weather-city" id="weatherCity">--</span>
+      <div class="weather-icon" id="weatherIcon"></div>
+      <span class="weather-temp" id="weatherTemp">--</span>
+    </a>
+    <include src="src/html/components/settings-popup.html" />
+  </div>
 
-      <form
-        id="searchForm"
-        action="#"
-        method="GET"
-        class="search-bar"
-        style="display: none"
-      >
-        <div class="search-selector">
-          <button type="button" id="engineBtn" class="current-engine-btn">
-            <img
-              id="currentEngineIcon"
-              src="assets/search-engines/system.svg"
-              alt="Search Engine"
-            />
-          </button>
-          <div id="searchEngineTip" class="search-engine-tip is-hidden">
-            <img src="assets/icons/tip.svg" alt="Tip" class="tip-icon" />
-            <span data-i18n="searchEngineTip"
-              >You can change the search engine here</span
-            >
-          </div>
-          <div id="engineDropdown" class="dropdown-menu">
-            <div class="dropdown-item" data-engine="system">
-              <img
-                src="assets/search-engines/system.svg"
-                alt="System Default"
-              />
-              <span data-i18n="systemDefault">System Default</span>
-            </div>
-            <div class="dropdown-item" data-engine="bing">
-              <img src="assets/search-engines/bing.svg" alt="Bing" />
-              <span>Bing</span>
-            </div>
-            <div class="dropdown-item" data-engine="google">
-              <img src="assets/search-engines/google.svg" alt="Google" />
-              <span>Google</span>
-            </div>
-            <div class="dropdown-item" data-engine="brave">
-              <img src="assets/search-engines/brave.svg" alt="Brave" />
-              <span>Brave Search</span>
-            </div>
-            <div class="dropdown-item" data-engine="duck">
-              <img src="assets/search-engines/ddg.svg" alt="DuckDuckGo" />
-              <span>DuckDuckGo</span>
-            </div>
-            <div class="dropdown-item" data-engine="ecosia">
-              <img src="assets/search-engines/ecosia.svg" alt="Ecosia Search" />
-              <span>Ecosia Search</span>
-            </div>
-            <div class="dropdown-item" data-engine="startpage">
-              <img src="assets/search-engines/startpg.svg" alt="Start Page" />
-              <span>Start Page</span>
-            </div>
-            <div class="dropdown-item" data-engine="kagi">
-              <img src="assets/search-engines/kagi.svg" alt="Kagi" />
-              <span>Kagi</span>
-            </div>
-          </div>
+  <div class="container">
+    <div class="display-wrapper" style="display: none"></div>
+
+    <form id="searchForm" action="#" method="GET" class="search-bar" style="display: none">
+      <div class="search-selector">
+        <button type="button" id="engineBtn" class="current-engine-btn">
+          <img id="currentEngineIcon" src="assets/search-engines/system.svg" alt="Search Engine" />
+        </button>
+        <div id="searchEngineTip" class="search-engine-tip is-hidden">
+          <img src="assets/icons/tip.svg" alt="Tip" class="tip-icon" />
+          <span data-i18n="searchEngineTip">You can change the search engine here</span>
         </div>
-
-        <div class="divider"></div>
-
-        <input
-          type="text"
-          name="q"
-          id="searchInput"
-          placeholder="Search the web"
-          autocomplete="off"
-          data-i18n="searchPlaceholder"
-        />
-
-        <button
-          type="button"
-          id="askAiBtn"
-          class="ask-ai-btn"
-          title="Ask AI"
-          aria-label="Ask AI"
-          style="display: none"
-        >
-          <svg class="ask-ai-icon-inactive" viewBox="0 0 24 24"><use href="#icon-sparkle" /></svg>
-          <svg class="ask-ai-icon-active" viewBox="0 0 24 24" style="display: none"><use href="#icon-sparkle-filled" /></svg>
-        </button>
-
-        <button
-          type="button"
-          id="voiceSearchBtn"
-          class="voice-search-btn"
-          title="Voice search"
-          aria-label="Voice search"
-        >
-          <svg class="voice-search-icon-inactive" viewBox="0 0 24 24"><use href="#icon-mic" /></svg>
-          <svg class="voice-search-icon-active" viewBox="0 0 24 24" style="display: none"><use href="#icon-mic-filled" /></svg>
-        </button>
-
-        <button type="submit" class="search-btn">
-          <svg viewBox="0 0 24 24">
-            <use href="#icon-search" />
-          </svg>
-        </button>
-
-        <div id="suggestionsContainer" class="suggestions-container"></div>
-      </form>
-      <div class="shortcuts-area">
-        <div id="shortcutsGrid" class="shortcuts-grid"></div>
-        <div id="folderBackWrapper" class="folder-back-wrapper">
-          <button class="folder-back-btn" id="folderBackBtn">
-            <svg width="12" height="12" viewBox="0 0 24 24">
-              <use href="#icon-arrow-left" />
-            </svg>
-            <span class="folder-back-label" data-i18n="backLabel">Back</span>
-          </button>
+        <div id="engineDropdown" class="dropdown-menu">
+          <div class="dropdown-item" data-engine="system">
+            <img src="assets/search-engines/system.svg" alt="System Default" />
+            <span data-i18n="systemDefault">System Default</span>
+          </div>
+          <div class="dropdown-item" data-engine="bing">
+            <img src="assets/search-engines/bing.svg" alt="Bing" />
+            <span>Bing</span>
+          </div>
+          <div class="dropdown-item" data-engine="google">
+            <img src="assets/search-engines/google.svg" alt="Google" />
+            <span>Google</span>
+          </div>
+          <div class="dropdown-item" data-engine="brave">
+            <img src="assets/search-engines/brave.svg" alt="Brave" />
+            <span>Brave Search</span>
+          </div>
+          <div class="dropdown-item" data-engine="duck">
+            <img src="assets/search-engines/ddg.svg" alt="DuckDuckGo" />
+            <span>DuckDuckGo</span>
+          </div>
+          <div class="dropdown-item" data-engine="ecosia">
+            <img src="assets/search-engines/ecosia.svg" alt="Ecosia Search" />
+            <span>Ecosia Search</span>
+          </div>
+          <div class="dropdown-item" data-engine="startpage">
+            <img src="assets/search-engines/startpg.svg" alt="Start Page" />
+            <span>Start Page</span>
+          </div>
+          <div class="dropdown-item" data-engine="kagi">
+            <img src="assets/search-engines/kagi.svg" alt="Kagi" />
+            <span>Kagi</span>
+          </div>
         </div>
       </div>
+
+      <div class="divider"></div>
+
+      <input type="text" name="q" id="searchInput" placeholder="Search the web" autocomplete="off"
+        data-i18n="searchPlaceholder" />
+
+      <button type="button" id="askAiBtn" class="ask-ai-btn" title="Ask AI" aria-label="Ask AI" style="display: none">
+        <svg class="ask-ai-icon-inactive" viewBox="0 0 24 24">
+          <use href="#icon-sparkle" />
+        </svg>
+        <svg class="ask-ai-icon-active" viewBox="0 0 24 24" style="display: none">
+          <use href="#icon-sparkle-filled" />
+        </svg>
+      </button>
+
+      <button type="button" id="voiceSearchBtn" class="voice-search-btn" title="Voice search" aria-label="Voice search">
+        <svg class="voice-search-icon-inactive" viewBox="0 0 24 24">
+          <use href="#icon-mic" />
+        </svg>
+        <svg class="voice-search-icon-active" viewBox="0 0 24 24" style="display: none">
+          <use href="#icon-mic-filled" />
+        </svg>
+      </button>
+
+      <button type="submit" class="search-btn">
+        <svg viewBox="0 0 24 24">
+          <use href="#icon-search" />
+        </svg>
+      </button>
+
+      <div id="suggestionsContainer" class="suggestions-container"></div>
+    </form>
+    <div class="shortcuts-area">
+      <div id="shortcutsGrid" class="shortcuts-grid"></div>
+      <div id="folderBackWrapper" class="folder-back-wrapper">
+        <button class="folder-back-btn" id="folderBackBtn">
+          <svg width="12" height="12" viewBox="0 0 24 24">
+            <use href="#icon-arrow-left" />
+          </svg>
+          <span class="folder-back-label" data-i18n="backLabel">Back</span>
+        </button>
+      </div>
     </div>
+  </div>
 
-    <include src="src/html/components/feed-drawer.html" />
+  <include src="src/html/components/feed-drawer.html" />
 
-    <include src="src/html/templates/modals.html" />
+  <include src="src/html/templates/modals.html" />
 
-    <div id="wallpaperCredits" class="wallpaper-credits hidden">
-      <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-camera" /></svg>
-      <span id="wallpaperCreditText"></span>
-    </div>
+  <div id="wallpaperCredits" class="wallpaper-credits hidden">
+    <svg width="20" height="20" viewBox="0 0 24 24">
+      <use href="#icon-camera" />
+    </svg>
+    <span id="wallpaperCreditText"></span>
+  </div>
 
-    <div
-      id="fluent-select-popup"
-      class="fluent-select-popup"
-      aria-hidden="true"
-    >
-      <ul class="fluent-select-options-list" role="listbox"></ul>
-    </div>
+  <div id="fluent-select-popup" class="fluent-select-popup" aria-hidden="true">
+    <ul class="fluent-select-options-list" role="listbox"></ul>
+  </div>
 
-    <script type="module" src="/scripts/i18n.js"></script>
-    <script type="module" src="/src/core/boot/main.ts"></script>
-  </body>
+  <script type="module" src="/scripts/i18n.js"></script>
+  <script type="module" src="/src/core/boot/main.ts"></script>
+</body>
+
 </html>
-

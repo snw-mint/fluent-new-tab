@@ -1,3 +1,11 @@
+/*
+ * Fluent New Tab
+ * Copyright (c) 2026 SnowMint
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 html[data-surface-tint='true'] {
   --surface-base: color-mix(in srgb, var(--accent-color) 12%, #ffffff);
   --surface-muted: color-mix(in srgb, var(--accent-color) 15%, #fbfbfb);

@@ -1,6 +1,6 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
@@ -292,7 +292,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
       dropAction = 'folder';
       currentDropTarget = item;
       item.classList.add('folder-drag-hover');
-      
+
       if (folderEdgeTimer) {
         clearTimeout(folderEdgeTimer);
         folderEdgeTimer = null;
@@ -315,7 +315,7 @@ export function handleGlobalDragOver(event: DragEvent): void {
           edgeDelayPassed = true;
         }, 150) as unknown as number;
       }
-      
+
       if (!edgeDelayPassed) {
         return; // Delay the swap to allow entering the folder
       }
@@ -323,14 +323,14 @@ export function handleGlobalDragOver(event: DragEvent): void {
   } else {
     dropAction = 'reorder';
     currentDropTarget = item;
-    
+
     if (folderEdgeTimer) {
       clearTimeout(folderEdgeTimer);
       folderEdgeTimer = null;
     }
     currentEdgeItem = null;
     edgeDelayPassed = false;
-    
+
     document
       .querySelectorAll('.folder-drag-hover')
       .forEach((el) => el.classList.remove('folder-drag-hover'));

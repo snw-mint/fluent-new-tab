@@ -1,6 +1,6 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
@@ -66,6 +66,7 @@ body[data-feed-active='true']:has(.feed-drawer.open) .wallpaper-credits {
   gap: 0.375rem;
   margin-top: 0.5rem;
 }
+
 .wallpaper-credit-link:hover {
   text-decoration: underline !important;
 }

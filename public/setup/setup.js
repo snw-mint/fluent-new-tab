@@ -1,12 +1,14 @@
 /*
  * Fluent New Tab
- * Copyright (c) 2025-2026 SnowMint
+ * Copyright (c) 2026 SnowMint
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
  * You should have received a copy of the GNU General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
 const DEFAULT_LOCALE = 'en_US';
+const SHORTCUTS_TREE_KEY = 'shortcutsTree';
+let translations = {};
 
 const APP_KEYS = [
   'shortcuts',
@@ -57,101 +59,67 @@ const APP_KEYS = [
   'tabFavicon',
 ];
 
-const SHORTCUTS_TREE_KEY = 'shortcutsTree';
-let translations = {};
-
 const SUPPORTED_LOCALES = [
-  'cs_CZ',
-  'da_DK',
-  'de_DE',
-  'el_GR',
-  'en_US',
-  'es_ES',
-  'fil_PH',
-  'fi_FI',
-  'fr_FR',
-  'hu_HU',
-  'id_ID',
-  'it_IT',
-  'ja_JP',
-  'ko_KR',
-  'nl_NL',
-  'pl_PL',
-  'pt_BR',
-  'ro_RO',
-  'ru_RU',
-  'sv_SE',
-  'tr_TR',
-  'uk_UA',
-  'vi_VN',
-  'zh_CN',
-  'zh_TW',
+  'cs_CZ', 'da_DK', 'de_DE', 'el_GR', 'en_US', 'es_ES',
+  'fil_PH', 'fi_FI', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT',
+  'ja_JP', 'ko_KR', 'nl_NL', 'pl_PL', 'pt_BR', 'ro_RO',
+  'ru_RU', 'sv_SE', 'tr_TR', 'uk_UA', 'vi_VN', 'zh_CN', 'zh_TW',
+];
+
+const STEPS_ORDER = ['welcome', 'appearance', 'widgets', 'final'];
+
+const WIDGET_PAIRS = [
+  { toggle: 'toggle-display', select: 'select-display', storage: 'displayEnabled', defaultVal: 'displayType', fallback: 'greeting' },
+  { toggle: 'toggle-search', select: 'select-search', storage: 'searchBarVisible', defaultVal: 'searchEngine', fallback: 'system' },
+  { toggle: 'toggle-shortcuts', select: 'select-shortcuts', storage: 'shortcutsVisible', defaultVal: 'shortcutsRows', fallback: '2' },
+  { toggle: 'toggle-launcher', select: 'select-launcher', storage: 'launcherEnabled', defaultVal: 'launcherProvider', fallback: 'microsoft' },
 ];
 
 function detectUserLanguage() {
   const saved = localStorage.getItem('userLanguage');
-  if (saved && SUPPORTED_LOCALES.includes(saved)) {
-    return saved;
-  }
+  if (saved && SUPPORTED_LOCALES.includes(saved)) return saved;
 
   let browserLang = '';
   try {
-    if (
-      typeof chrome !== 'undefined' &&
-      chrome.i18n &&
-      typeof chrome.i18n.getUILanguage === 'function'
-    ) {
+    if (typeof chrome !== 'undefined' && chrome.i18n && typeof chrome.i18n.getUILanguage === 'function') {
       browserLang = chrome.i18n.getUILanguage();
     }
-  } catch {}
+  } catch { }
 
   if (!browserLang && typeof navigator !== 'undefined') {
-    browserLang =
-      navigator.language || (navigator.languages && navigator.languages[0]) || '';
+    browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || '';
   }
 
   if (!browserLang) return DEFAULT_LOCALE;
 
   const normalized = browserLang.replace('-', '_');
-  const exact = SUPPORTED_LOCALES.find(
-    (loc) => loc.toLowerCase() === normalized.toLowerCase(),
-  );
+  const exact = SUPPORTED_LOCALES.find((loc) => loc.toLowerCase() === normalized.toLowerCase());
   if (exact) {
     localStorage.setItem('userLanguage', exact);
     return exact;
   }
 
   const prefix = browserLang.split(/[-_]/)[0].toLowerCase();
-
   if (prefix === 'zh') {
-    const isTraditional = /tw|hk|mo|hant/i.test(browserLang);
-    const chosen = isTraditional ? 'zh_TW' : 'zh_CN';
+    const chosen = /tw|hk|mo|hant/i.test(browserLang) ? 'zh_TW' : 'zh_CN';
     localStorage.setItem('userLanguage', chosen);
     return chosen;
   }
-
   if (prefix === 'tl' || prefix === 'fil') {
     localStorage.setItem('userLanguage', 'fil_PH');
     return 'fil_PH';
   }
 
-  const prefixMatch = SUPPORTED_LOCALES.find((loc) =>
-    loc.toLowerCase().startsWith(prefix + '_'),
-  );
-  if (prefixMatch) {
-    localStorage.setItem('userLanguage', prefixMatch);
-    return prefixMatch;
-  }
-
-  localStorage.setItem('userLanguage', DEFAULT_LOCALE);
-  return DEFAULT_LOCALE;
+  const prefixMatch = SUPPORTED_LOCALES.find((loc) => loc.toLowerCase().startsWith(prefix + '_'));
+  const match = prefixMatch || DEFAULT_LOCALE;
+  localStorage.setItem('userLanguage', match);
+  return match;
 }
 
 async function fetchLocale(loc) {
-  const u = chrome.runtime.getURL(`_locales/${loc}/messages.json`);
-  const res = await fetch(u);
+  const res = await fetch(chrome.runtime.getURL(`_locales/${loc}/messages.json`));
   if (!res.ok) throw new Error('File not found');
-  return await res.json();
+  return res.json();
 }
 
 async function loadTranslations() {
@@ -175,13 +143,13 @@ async function loadTranslations() {
   let defMsg = {};
   try {
     defMsg = await fetchLocale('en_US');
-  } catch {}
+  } catch { }
 
   let langMsg = {};
   if (lang !== 'en_US') {
     try {
       langMsg = await fetchLocale(lang);
-    } catch {}
+    } catch { }
   }
 
   translations = Object.assign({}, defMsg, langMsg);
@@ -189,9 +157,8 @@ async function loadTranslations() {
   applyTranslations();
 }
 
-function t(k, fb) {
-  if (translations[k]) return translations[k].message;
-  return fb !== undefined ? fb : k;
+function t(key, fallback) {
+  return translations[key]?.message ?? (fallback !== undefined ? fallback : key);
 }
 
 function applyTranslations() {
@@ -223,12 +190,8 @@ function applyTranslations() {
 function applyTheme(theme) {
   const html = document.documentElement;
   html.removeAttribute('data-theme');
-  if (theme === 'dark') {
+  if (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     html.setAttribute('data-theme', 'dark');
-  } else if (theme === 'auto') {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      html.setAttribute('data-theme', 'dark');
-    }
   }
 }
 
@@ -239,10 +202,7 @@ function applyAccentColor(color) {
   const g = parseInt(hex.substring(2, 4), 16);
   const b = parseInt(hex.substring(4, 6), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  document.documentElement.style.setProperty(
-    '--accent-contrast',
-    yiq >= 128 ? '#202020' : '#ffffff',
-  );
+  document.documentElement.style.setProperty('--accent-contrast', yiq >= 128 ? '#202020' : '#ffffff');
 }
 
 function getCurrentTheme() {
@@ -252,66 +212,6 @@ function getCurrentTheme() {
 function getCurrentAccent() {
   return localStorage.getItem('accentColorValue') || '#0078D4';
 }
-
-function saveAppearance() {
-  const theme =
-    document.querySelector('.theme-circle-big.active')?.dataset.theme || 'auto';
-  const accent =
-    document.querySelector('.accent-option.active')?.dataset.color || '#0078D4';
-  const name = document.getElementById('input-name')?.value.trim() || '';
-  const lang = document.getElementById('select-language')?.value || 'en_US';
-
-  const tabName = document.getElementById('input-tab-name')?.value.trim() || '';
-  if (tabName) localStorage.setItem('tabName', tabName);
-
-  localStorage.setItem('theme', theme);
-  localStorage.setItem('accentColorEnabled', 'true');
-  localStorage.setItem('accentColorMode', 'manual');
-  localStorage.setItem('accentColorValue', accent);
-  localStorage.setItem('greetingName', name);
-  localStorage.setItem('userLanguage', lang);
-}
-
-function saveWidgets() {
-  const toggleDisplay = document.getElementById('toggle-display');
-  const selectDisplay = document.getElementById('select-display');
-  const displayEnabled = toggleDisplay ? toggleDisplay.checked : true;
-  const displayType = selectDisplay ? selectDisplay.value : 'greeting';
-  const toggleSearch = document.getElementById('toggle-search');
-  const selectSearch = document.getElementById('select-search');
-  const searchEnabled = toggleSearch ? toggleSearch.checked : true;
-  const searchEngine = selectSearch ? selectSearch.value : 'system';
-  const toggleShortcuts = document.getElementById('toggle-shortcuts');
-  const selectShortcuts = document.getElementById('select-shortcuts');
-  const shortcutsEnabled = toggleShortcuts ? toggleShortcuts.checked : true;
-  const shortcutsRows = selectShortcuts ? selectShortcuts.value : '2';
-  const toggleLauncher = document.getElementById('toggle-launcher');
-  const selectLauncher = document.getElementById('select-launcher');
-  const launcherEnabled = toggleLauncher ? toggleLauncher.checked : true;
-  const launcherProvider = selectLauncher ? selectLauncher.value : 'microsoft';
-
-  localStorage.setItem('displayEnabled', String(displayEnabled));
-  localStorage.setItem('displayType', displayType);
-  localStorage.setItem(
-    'showGreeting',
-    String(displayEnabled && displayType === 'greeting'),
-  );
-
-  localStorage.setItem('searchBarVisible', String(searchEnabled));
-  localStorage.setItem('searchEngine', searchEngine);
-
-  localStorage.setItem('shortcutsVisible', String(shortcutsEnabled));
-  localStorage.setItem('shortcutsRows', shortcutsRows);
-
-  localStorage.setItem('launcherEnabled', String(launcherEnabled));
-  localStorage.setItem('launcherProvider', launcherProvider);
-
-  localStorage.setItem('reducedEffectsEnabled', 'false');
-  localStorage.setItem('wallpaperEnabled', 'false');
-  localStorage.setItem('weatherEnabled', 'false');
-}
-
-const STEPS_ORDER = ['welcome', 'appearance', 'widgets', 'final'];
 
 function showStep(stepId) {
   const current = document.querySelector('.step.active');
@@ -324,9 +224,7 @@ function showStep(stepId) {
     const nextIndex = STEPS_ORDER.indexOf(stepId);
 
     if (currentIndex !== -1 && nextIndex !== -1) {
-      const directionClass =
-        nextIndex > currentIndex ? 'slide-next' : 'slide-prev';
-
+      const directionClass = nextIndex > currentIndex ? 'slide-next' : 'slide-prev';
       document.body.classList.remove('slide-next', 'slide-prev');
       void document.body.offsetWidth;
       document.body.classList.add(directionClass);
@@ -338,6 +236,55 @@ function showStep(stepId) {
 
   next.classList.add('active');
   localStorage.setItem('setup_current_step', stepId);
+}
+
+function saveAppearance() {
+  const theme = document.querySelector('.theme-circle-big.active')?.dataset.theme || 'auto';
+  const accent = document.querySelector('.accent-option.active')?.dataset.color || '#0078D4';
+  const name = document.getElementById('input-name')?.value.trim() || '';
+  const lang = document.getElementById('select-language')?.value || 'en_US';
+  const tabName = document.getElementById('input-tab-name')?.value.trim() || '';
+
+  if (tabName) localStorage.setItem('tabName', tabName);
+  localStorage.setItem('theme', theme);
+  localStorage.setItem('accentColorEnabled', 'true');
+  localStorage.setItem('accentColorMode', 'manual');
+  localStorage.setItem('accentColorValue', accent);
+  localStorage.setItem('greetingName', name);
+  localStorage.setItem('userLanguage', lang);
+}
+
+function saveWidgets() {
+  const getChecked = (id) => {
+    const el = document.getElementById(id);
+    return el ? el.checked : true;
+  };
+  const getValue = (id, fallback) => {
+    const el = document.getElementById(id);
+    return el ? el.value : fallback;
+  };
+
+  const displayEnabled = getChecked('toggle-display');
+  const displayType = getValue('select-display', 'greeting');
+  const searchEnabled = getChecked('toggle-search');
+  const searchEngine = getValue('select-search', 'system');
+  const shortcutsEnabled = getChecked('toggle-shortcuts');
+  const shortcutsRows = getValue('select-shortcuts', '2');
+  const launcherEnabled = getChecked('toggle-launcher');
+  const launcherProvider = getValue('select-launcher', 'microsoft');
+
+  localStorage.setItem('displayEnabled', String(displayEnabled));
+  localStorage.setItem('displayType', displayType);
+  localStorage.setItem('showGreeting', String(displayEnabled && displayType === 'greeting'));
+  localStorage.setItem('searchBarVisible', String(searchEnabled));
+  localStorage.setItem('searchEngine', searchEngine);
+  localStorage.setItem('shortcutsVisible', String(shortcutsEnabled));
+  localStorage.setItem('shortcutsRows', shortcutsRows);
+  localStorage.setItem('launcherEnabled', String(launcherEnabled));
+  localStorage.setItem('launcherProvider', launcherProvider);
+  localStorage.setItem('reducedEffectsEnabled', 'false');
+  localStorage.setItem('wallpaperEnabled', 'false');
+  localStorage.setItem('weatherEnabled', 'false');
 }
 
 function initThemePicker() {
@@ -386,100 +333,35 @@ function initNameInput() {
 function initLanguageSelect() {
   const select = document.getElementById('select-language');
   if (!select) return;
-  const saved = detectUserLanguage();
-  select.value = saved;
-
-  const container = select.closest('.fluent-select-container');
-  if (container) {
-    const triggerValue = container.querySelector('.fluent-select-value');
-    const selectedOption = select.options[select.selectedIndex];
-    if (triggerValue && selectedOption) {
-      triggerValue.textContent = selectedOption.textContent;
-    }
-  }
-
+  select.value = detectUserLanguage();
   select.addEventListener('change', () => {
     localStorage.setItem('userLanguage', select.value);
-    const cacheKey = `i18n_cache_${select.value}`;
-    localStorage.removeItem(cacheKey);
+    localStorage.removeItem(`i18n_cache_${select.value}`);
     loadTranslations();
   });
 }
 
 function initWidgetToggles() {
-  const pairs = [
-    {
-      toggle: 'toggle-display',
-      select: 'select-display',
-      storage: 'displayEnabled',
-    },
-    {
-      toggle: 'toggle-search',
-      select: 'select-search',
-      storage: 'searchBarVisible',
-    },
-    {
-      toggle: 'toggle-shortcuts',
-      select: 'select-shortcuts',
-      storage: 'shortcutsVisible',
-    },
-    {
-      toggle: 'toggle-launcher',
-      select: 'select-launcher',
-      storage: 'launcherEnabled',
-    },
-  ];
-
-  pairs.forEach(({ toggle, select, storage }) => {
+  WIDGET_PAIRS.forEach(({ toggle, select, storage, defaultVal, fallback }) => {
     const toggleEl = document.getElementById(toggle);
     const selectEl = document.getElementById(select);
     if (!toggleEl || !selectEl) return;
 
     const isEnabled = localStorage.getItem(storage) !== 'false';
-
     toggleEl.checked = isEnabled;
     selectEl.disabled = !isEnabled;
 
     const block = toggleEl.closest('.setting-block');
-    if (block) {
-      if (!isEnabled) block.classList.add('is-disabled');
-      else block.classList.remove('is-disabled');
-    }
+    if (block) block.classList.toggle('is-disabled', !isEnabled);
+
+    const savedVal = localStorage.getItem(defaultVal) || fallback;
+    selectEl.value = savedVal;
 
     toggleEl.addEventListener('change', () => {
       selectEl.disabled = !toggleEl.checked;
-      if (block) {
-        if (!toggleEl.checked) block.classList.add('is-disabled');
-        else block.classList.remove('is-disabled');
-      }
+      if (block) block.classList.toggle('is-disabled', !toggleEl.checked);
     });
   });
-
-  const btnAppearanceBack = document.getElementById('btnBack');
-  if (btnAppearanceBack) {
-    btnAppearanceBack.addEventListener('click', () => showStep('welcome'));
-  }
-
-  const btnWidgetsBack = document.getElementById('btn-widgets-back');
-  if (btnWidgetsBack) {
-    btnWidgetsBack.addEventListener('click', () => showStep('appearance'));
-  }
-
-  const savedDisplayType = localStorage.getItem('displayType') || 'greeting';
-  const displaySelect = document.getElementById('select-display');
-  if (displaySelect) displaySelect.value = savedDisplayType;
-
-  const savedEngine = localStorage.getItem('searchEngine') || 'system';
-  const searchSelect = document.getElementById('select-search');
-  if (searchSelect) searchSelect.value = savedEngine;
-
-  const savedRows = localStorage.getItem('shortcutsRows') || '2';
-  const shortcutsSelect = document.getElementById('select-shortcuts');
-  if (shortcutsSelect) shortcutsSelect.value = savedRows;
-
-  const savedLauncher = localStorage.getItem('launcherProvider') || 'microsoft';
-  const launcherSelect = document.getElementById('select-launcher');
-  if (launcherSelect) launcherSelect.value = savedLauncher;
 }
 
 function showPopupError(message) {
@@ -525,82 +407,76 @@ function handleRestoreFile(file) {
   reader.readAsText(file);
 }
 
+function syncSelectTriggers() {
+  document.querySelectorAll('.fluent-select-trigger').forEach((trigger) => {
+    const targetId = trigger.getAttribute('data-target');
+    const select = document.getElementById(targetId);
+    if (!select) return;
+    const triggerValue = trigger.querySelector('.fluent-select-value');
+    const selectedOption = select.options[select.selectedIndex];
+    if (triggerValue && selectedOption) {
+      triggerValue.textContent = selectedOption.textContent;
+      if (selectedOption.hasAttribute('data-i18n')) {
+        triggerValue.setAttribute('data-i18n', selectedOption.getAttribute('data-i18n'));
+      } else {
+        triggerValue.removeAttribute('data-i18n');
+      }
+    }
+  });
+}
+
 function initCustomSelectSystem() {
   const popup = document.getElementById('fluent-select-popup');
   const listContainer = popup?.querySelector('.fluent-select-options-list');
   const triggers = document.querySelectorAll('.fluent-select-trigger');
   if (!popup || !listContainer) return;
+
   let activeTrigger = null;
-  function closePopup() {
+
+  const closePopup = () => {
     popup.classList.remove('active');
     triggers.forEach((t) => t.classList.remove('popup-open'));
     activeTrigger = null;
-  }
+  };
 
-  function positionPopup(trigger) {
+  const positionPopup = (trigger) => {
     const rect = trigger.getBoundingClientRect();
     popup.style.width = `${rect.width}px`;
     popup.style.left = `${rect.left + window.scrollX}px`;
     const popupHeight = Math.min(260, listContainer.scrollHeight);
-    if (
-      rect.bottom + popupHeight > window.innerHeight &&
-      rect.top - popupHeight > 0
-    ) {
-      popup.style.top = `${rect.top + window.scrollY - popupHeight - 2}px`;
-    } else {
-      popup.style.top = `${rect.bottom + window.scrollY + 2}px`;
-    }
-  }
+    const placeAbove = rect.bottom + popupHeight > window.innerHeight && rect.top - popupHeight > 0;
+    popup.style.top = placeAbove
+      ? `${rect.top + window.scrollY - popupHeight - 2}px`
+      : `${rect.bottom + window.scrollY + 2}px`;
+  };
 
-  function openPopup(trigger) {
+  const openPopup = (trigger) => {
     if (activeTrigger === trigger) {
       closePopup();
       return;
     }
 
     closePopup();
+    const nativeSelect = document.getElementById(trigger.getAttribute('data-target'));
+    if (!nativeSelect || nativeSelect.disabled) return;
+
     activeTrigger = trigger;
     trigger.classList.add('popup-open');
-
-    const nativeSelectId = trigger.getAttribute('data-target');
-    const nativeSelect = document.getElementById(nativeSelectId);
-    if (!nativeSelect) return;
-    if (nativeSelect.disabled) {
-      activeTrigger = null;
-      trigger.classList.remove('popup-open');
-      return;
-    }
     listContainer.innerHTML = '';
 
     Array.from(nativeSelect.options).forEach((option) => {
       const li = document.createElement('li');
-      li.className = 'fluent-select-option';
+      li.className = `fluent-select-option${option.selected ? ' selected' : ''}`;
       li.textContent = option.textContent;
       li.setAttribute('role', 'option');
       li.setAttribute('data-value', option.value);
-
-      if (option.selected) {
-        li.classList.add('selected');
-        li.setAttribute('aria-selected', 'true');
-      }
+      if (option.selected) li.setAttribute('aria-selected', 'true');
 
       li.addEventListener('click', (e) => {
         e.stopPropagation();
         nativeSelect.value = option.value;
         nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
-        const triggerValue = trigger.querySelector('.fluent-select-value');
-        if (triggerValue) {
-          triggerValue.textContent = option.textContent;
-          if (option.hasAttribute('data-i18n')) {
-            triggerValue.setAttribute(
-              'data-i18n',
-              option.getAttribute('data-i18n'),
-            );
-          } else {
-            triggerValue.removeAttribute('data-i18n');
-          }
-        }
-
+        syncSelectTriggers();
         closePopup();
       });
 
@@ -609,21 +485,21 @@ function initCustomSelectSystem() {
 
     popup.classList.add('active');
     positionPopup(trigger);
-    const currentSelected = listContainer.querySelector(
-      '.fluent-select-option.selected',
-    );
+
+    const currentSelected = listContainer.querySelector('.fluent-select-option.selected');
     if (currentSelected) {
-      listContainer.scrollTop =
-        currentSelected.offsetTop - listContainer.offsetTop;
+      listContainer.scrollTop = currentSelected.offsetTop - listContainer.offsetTop;
     }
-  }
+  };
+
   triggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       openPopup(trigger);
     });
   });
-  document.addEventListener('click', () => closePopup());
+
+  document.addEventListener('click', closePopup);
   window.addEventListener('resize', () => {
     if (activeTrigger) positionPopup(activeTrigger);
   });
@@ -634,30 +510,83 @@ function initCustomSelectSystem() {
   });
 }
 
-const nativeInit = init;
-init = function () {
-  nativeInit();
-  initCustomSelectSystem();
-  setTimeout(() => {
-    document.querySelectorAll('.fluent-select-trigger').forEach((trigger) => {
-      const targetId = trigger.getAttribute('data-target');
-      const select = document.getElementById(targetId);
-      if (select) {
-        const triggerValue = trigger.querySelector('.fluent-select-value');
-        const selectedOption = select.options[select.selectedIndex];
-        if (triggerValue && selectedOption) {
-          triggerValue.textContent = selectedOption.textContent;
-          if (selectedOption.hasAttribute('data-i18n')) {
-            triggerValue.setAttribute(
-              'data-i18n',
-              selectedOption.getAttribute('data-i18n'),
-            );
+function initBookmarkImport() {
+  const btn = document.getElementById('importBookmarksBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    chrome.permissions.request({ permissions: ['bookmarks'] }, (granted) => {
+      if (chrome.runtime.lastError) console.error(chrome.runtime.lastError);
+      if (!granted) return;
+
+      chrome.bookmarks.getTree((nodes) => {
+        const result = [];
+        const processNode = (node, currentList, depth) => {
+          if (node.url) {
+            currentList.push({
+              id: `bm_${node.id}_${Date.now()}`,
+              name: node.title ? node.title.substring(0, 40) : 'Bookmark',
+              url: node.url,
+            });
+          } else if (node.children) {
+            if (depth === 2) {
+              const folder = {
+                id: `folder_${node.id}_${Date.now()}`,
+                type: 'folder',
+                name: node.title ? node.title.substring(0, 40) : 'Folder',
+                children: [],
+              };
+              node.children.forEach((child) => processNode(child, folder.children, depth + 1));
+              if (folder.children.length > 40) folder.children = folder.children.slice(0, 40);
+              if (folder.children.length > 0) currentList.push(folder);
+            } else {
+              node.children.forEach((child) => processNode(child, currentList, depth + 1));
+            }
           }
+        };
+
+        nodes.forEach((node) => processNode(node, result, 0));
+
+        let finalResult = result;
+        if (result.length > 40) {
+          const mainItems = result.slice(0, 39);
+          const othersFolder = {
+            id: `folder_others_${Date.now()}`,
+            type: 'folder',
+            name: 'Others',
+            children: [],
+          };
+          result.slice(39).forEach((item) => {
+            if (item.type !== 'folder') othersFolder.children.push(item);
+            else if (item.children) othersFolder.children.push(...item.children.filter((c) => c.type !== 'folder'));
+          });
+          if (othersFolder.children.length > 40) othersFolder.children = othersFolder.children.slice(0, 40);
+          if (othersFolder.children.length > 0) mainItems.push(othersFolder);
+          finalResult = mainItems;
         }
-      }
+
+        const count = finalResult.length;
+        const rows = count > 30 ? 4 : count > 20 ? 3 : count > 10 ? 2 : 1;
+
+        localStorage.setItem('shortcuts', JSON.stringify(finalResult));
+        localStorage.setItem('shortcutsRows', String(rows));
+
+        const shortcutsSelect = document.getElementById('select-shortcuts');
+        if (shortcutsSelect) {
+          shortcutsSelect.value = String(rows);
+          shortcutsSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          syncSelectTriggers();
+        }
+
+        const originalText = btn.textContent;
+        btn.textContent = 'Imported!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
     });
-  }, 50);
-};
+  });
+}
 
 function init() {
   loadTranslations();
@@ -670,21 +599,19 @@ function init() {
           localStorage.setItem(key, backup[key]);
         }
       });
-      if (
-        localStorage.getItem(SHORTCUTS_TREE_KEY) === null &&
-        backup[SHORTCUTS_TREE_KEY] !== undefined
-      ) {
+      if (localStorage.getItem(SHORTCUTS_TREE_KEY) === null && backup[SHORTCUTS_TREE_KEY] !== undefined) {
         localStorage.setItem(SHORTCUTS_TREE_KEY, backup[SHORTCUTS_TREE_KEY]);
       }
     }
   });
 
-  const savedTheme = getCurrentTheme();
-  applyTheme(savedTheme);
+  applyTheme(getCurrentTheme());
+  applyAccentColor(getCurrentAccent());
 
   const savedStep = localStorage.getItem('setup_current_step') || 'welcome';
   const splashScreen = document.getElementById('splash-screen');
   const stepWelcome = document.getElementById('step-welcome');
+
   if (splashScreen) {
     if (savedStep !== 'welcome') {
       splashScreen.style.display = 'none';
@@ -701,31 +628,35 @@ function init() {
     stepWelcome.classList.add('ready');
   }
 
-  if (savedStep !== 'final') {
-    showStep(savedStep);
-  } else {
-    showStep('welcome');
-  }
-
-  const savedAccent = getCurrentAccent();
-  applyAccentColor(savedAccent);
+  showStep(savedStep !== 'final' ? savedStep : 'welcome');
 
   initThemePicker();
   initAccentPicker();
   initNameInput();
   initLanguageSelect();
   initWidgetToggles();
+  initBookmarkImport();
+  initCustomSelectSystem();
+  syncSelectTriggers();
 
-  const btnSkip = document.getElementById('btn-skip');
-  if (btnSkip) {
-    btnSkip.addEventListener('click', () => {
-      showStep('final');
-    });
-  }
+  document.getElementById('btn-skip')?.addEventListener('click', () => showStep('final'));
+  document.getElementById('btn-start')?.addEventListener('click', () => showStep('appearance'));
+  document.getElementById('btnBack')?.addEventListener('click', () => showStep('welcome'));
+  document.getElementById('btnNext')?.addEventListener('click', () => {
+    saveAppearance();
+    showStep('widgets');
+  });
+  document.getElementById('btn-widgets-back')?.addEventListener('click', () => showStep('appearance'));
+  document.getElementById('btn-widgets-next')?.addEventListener('click', () => {
+    saveWidgets();
+    showStep('final');
+  });
+  document.getElementById('btn-final-start')?.addEventListener('click', () => {
+    chrome.tabs.update({ url: chrome.runtime.getURL('index.html') });
+  });
 
   const btnRestore = document.getElementById('btn-restore');
   const restoreInput = document.getElementById('restore-file-input');
-
   if (btnRestore && restoreInput) {
     btnRestore.addEventListener('click', () => restoreInput.click());
     restoreInput.addEventListener('change', (e) => {
@@ -735,140 +666,11 @@ function init() {
     });
   }
 
-  const btnStart = document.getElementById('btn-start');
-  if (btnStart) {
-    btnStart.addEventListener('click', () => showStep('appearance'));
-  }
-
-  const btnAppearanceNext = document.getElementById('btnNext');
-  if (btnAppearanceNext) {
-    btnAppearanceNext.addEventListener('click', () => {
-      saveAppearance();
-      showStep('widgets');
-    });
-  }
-
-  const btnWarningCancel = document.getElementById('warning-btn-cancel');
-  if (btnWarningCancel) {
-    btnWarningCancel.addEventListener('click', hidePopup);
-  }
-
+  document.getElementById('warning-btn-cancel')?.addEventListener('click', hidePopup);
   const warningOverlay = document.getElementById('warningModal');
   if (warningOverlay) {
     warningOverlay.addEventListener('click', (e) => {
       if (e.target === warningOverlay) hidePopup();
-    });
-  }
-
-  const btnWidgetsNext = document.getElementById('btn-widgets-next');
-  if (btnWidgetsNext) {
-    btnWidgetsNext.addEventListener('click', () => {
-      saveWidgets();
-      showStep('final');
-    });
-  }
-
-  const btnFinalStart = document.getElementById('btn-final-start');
-  if (btnFinalStart) {
-    btnFinalStart.addEventListener('click', () => {
-      chrome.tabs.update({ url: chrome.runtime.getURL('index.html') });
-    });
-  }
-
-  const btnPopupClose = document.getElementById('btn-popup-close');
-  if (btnPopupClose) {
-    btnPopupClose.addEventListener('click', hidePopup);
-  }
-
-  const popupOverlay = document.getElementById('restore-popup');
-  if (popupOverlay) {
-    popupOverlay.addEventListener('click', (e) => {
-      if (e.target === popupOverlay) hidePopup();
-    });
-  }
-
-  const importBookmarksBtn = document.getElementById('importBookmarksBtn');
-  if (importBookmarksBtn) {
-    importBookmarksBtn.addEventListener('click', () => {
-      chrome.permissions.request({ permissions: ['bookmarks'] }, (granted) => {
-        if (chrome.runtime.lastError) {
-          console.error(chrome.runtime.lastError);
-        }
-        if (!granted) return;
-
-        const runImport = () => {
-          chrome.bookmarks.getTree((nodes) => {
-            const result = [];
-            function processNode(node, currentList, depth) {
-              if (node.url) {
-                currentList.push({
-                  id: 'bm_' + node.id + '_' + Date.now(),
-                  name: node.title ? node.title.substring(0, 40) : 'Bookmark',
-                  url: node.url,
-                });
-              } else if (node.children) {
-                if (depth <= 1) {
-                  for (const child of node.children) processNode(child, currentList, depth + 1);
-                } else {
-                  if (depth > 2) {
-                    for (const child of node.children) processNode(child, currentList, depth + 1);
-                  } else {
-                    const folder = {
-                      id: 'folder_' + node.id + '_' + Date.now(),
-                      type: 'folder',
-                      name: node.title ? node.title.substring(0, 40) : 'Folder',
-                      children: []
-                    };
-                    for (const child of node.children) processNode(child, folder.children, depth + 1);
-                    if (folder.children.length > 40) folder.children = folder.children.slice(0, 40);
-                    if (folder.children.length > 0) currentList.push(folder);
-                  }
-                }
-              }
-            }
-
-            for (const node of nodes) processNode(node, result, 0);
-
-            let finalResult = result;
-            if (result.length > 40) {
-              const mainItems = result.slice(0, 39);
-              const overflowItems = result.slice(39);
-              const othersFolder = {
-                id: 'folder_others_' + Date.now(),
-                type: 'folder',
-                name: 'Others',
-                children: []
-              };
-              for (const item of overflowItems) {
-                if (item.type !== 'folder') othersFolder.children.push(item);
-                else if (item.children) othersFolder.children.push(...item.children.filter((c) => c.type !== 'folder'));
-              }
-              if (othersFolder.children.length > 40) othersFolder.children = othersFolder.children.slice(0, 40);
-              if (othersFolder.children.length > 0) mainItems.push(othersFolder);
-              finalResult = mainItems;
-            }
-
-            let rows = 1;
-            if (finalResult.length > 30) rows = 4;
-            else if (finalResult.length > 20) rows = 3;
-            else if (finalResult.length > 10) rows = 2;
-
-            localStorage.setItem('shortcuts', JSON.stringify(finalResult));
-            localStorage.setItem('shortcutsRows', String(rows));
-            
-            const shortcutsSelect = document.getElementById('select-shortcuts');
-            if (shortcutsSelect) shortcutsSelect.value = String(rows);
-
-            const originalText = importBookmarksBtn.textContent;
-            importBookmarksBtn.textContent = 'Imported!';
-            setTimeout(() => {
-              importBookmarksBtn.textContent = originalText;
-            }, 2000);
-          });
-        };
-
-        runImport();
-      });
     });
   }
 }
