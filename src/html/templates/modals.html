@@ -1,0 +1,353 @@
+<template id="tpl-add-modal">
+<div id="addModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3 data-i18n="addShortcutTitle">Add Shortcut</h3>
+        <form id="shortcutForm">
+          <div class="input-group">
+            <label data-i18n="shortcutNameLabel">Name</label>
+            <input type="text" id="inputName" required />
+          </div>
+
+          <div class="input-group">
+            <label data-i18n="shortcutUrlLabel">URL</label>
+            <input
+              type="text"
+              id="inputUrl"
+              required
+              placeholder="youtube.com"
+            />
+          </div>
+
+          <div class="expandable-section">
+            <button
+              type="button"
+              id="toggleCustomIcon"
+              class="btn-expander"
+              aria-expanded="false"
+            >
+              <svg
+                class="chevron-icon custom-icon-chevron"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.22 8.47a.75.75 0 0 1 1.06 0L12 15.19l6.72-6.72a.75.75 0 1 1 1.06 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L4.22 9.53a.75.75 0 0 1 0-1.06"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="addFaviconLabel">Custom Icon</span>
+            </button>
+
+            <div id="customIconGroup" class="input-group hidden">
+              <label data-i18n="faviconUrlLabel">Icon URL</label>
+              <input type="url" id="inputIcon" placeholder="https://..." />
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeModalBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-save" data-i18n="btnSave">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+</template>
+
+<template id="tpl-choose-type-modal">
+<div id="chooseTypeModal" class="modal-overlay">
+      <div class="modal-content">
+        <form id="chooseTypeForm">
+          <h3 class="choose-type-title" data-i18n="chooseTypeTitle">
+            Create New
+          </h3>
+          <div class="choose-type-grid">
+            <button type="button" class="type-card" id="btnChooseLink">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.25 7a.75.75 0 0 1 .11 1.492l-.11.008H7a3.5 3.5 0 0 0-.206 6.994L7 15.5h2.25a.75.75 0 0 1 .11 1.492L9.25 17H7a5 5 0 0 1-.25-9.994L7 7zM17 7a5 5 0 0 1 .25 9.994L17 17h-2.25a.75.75 0 0 1-.11-1.492l.11-.008H17a3.5 3.5 0 0 0 .206-6.994L17 8.5h-2.25a.75.75 0 0 1-.11-1.492L14.75 7zM7 11.25h10a.75.75 0 0 1 .102 1.493L17 12.75H7a.75.75 0 0 1-.102-1.493zh10z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="addShortcutTitle">Add Shortcut</span>
+            </button>
+            <button type="button" class="type-card" id="btnChooseFolder">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.207 4c.46 0 .908.141 1.284.402l.156.12L12.022 6.5h7.728a2.25 2.25 0 0 1 2.229 1.938l.016.158.005.154v9a2.25 2.25 0 0 1-2.096 2.245L19.75 20H4.25a2.25 2.25 0 0 1-2.245-2.096L2 17.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4zm1.44 5.979a2.25 2.25 0 0 1-1.244.512l-.196.009-4.707-.001v7.251c0 .38.282.694.648.743l.102.007h15.5a.75.75 0 0 0 .743-.648l.007-.102v-9a.75.75 0 0 0-.648-.743L19.75 8h-7.729zM8.207 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v2.749L8.207 9a.75.75 0 0 0 .395-.113l.085-.06 1.891-1.578-1.89-1.575a.75.75 0 0 0-.377-.167z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="addFolderTitle">Add Folder</span>
+            </button>
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeChooseTypeBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+</template>
+
+<template id="tpl-folder-modal">
+<div id="addFolderModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3 id="folderModalTitle" data-i18n="addFolderTitle">Add Folder</h3>
+        <form id="folderForm">
+          <div class="input-group">
+            <label data-i18n="folderNameLabel">Name</label>
+            <input type="text" id="inputFolderName" />
+          </div>
+
+          <div class="expandable-section">
+            <button
+              type="button"
+              id="toggleFolderCustomIcon"
+              class="btn-expander"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="chevron-icon custom-icon-chevron"
+              >
+                <path
+                  d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+              <span data-i18n="addFaviconLabel">Custom Icon</span>
+            </button>
+
+            <div id="folderCustomIconGroup" class="hidden">
+              <div class="input-group">
+                <label data-i18n="faviconUrlLabel">Icon URL</label>
+                <input
+                  type="url"
+                  id="inputFolderIcon"
+                  placeholder="https://..."
+                />
+              </div>
+              <div class="folder-icon-help">
+                <span data-i18n="folderIconHelp"></span>
+                <a
+                  href="https://icon11-community.github.io/icons/"
+                  target="_blank"
+                  >Icon11 Community</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeFolderModalBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-save" data-i18n="btnSave">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+</template>
+
+<template id="tpl-feed-modal">
+<div id="feedModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 data-i18n="feedTitle">Feed</h3>
+          <a
+            href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#rss-feed-reader"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="modal-help-link"
+            title="Help"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2c5.523 0 10 4.478 10 10s-4.477 10-10 10S2 17.522 2 12 6.477 2 12 2m0 1.667c-4.595 0-8.333 3.738-8.333 8.333S7.405 20.333 12 20.333s8.333-3.738 8.333-8.333S16.595 3.667 12 3.667M12 15.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m0-8.75a2.75 2.75 0 0 1 2.75 2.75c0 1.01-.297 1.574-1.051 2.359l-.169.171c-.622.622-.78.886-.78 1.47a.75.75 0 0 1-1.5 0c0-1.01.297-1.574 1.051-2.359l.169-.171c.622-.622.78-.886.78-1.47a1.25 1.25 0 0 0-2.493-.128l-.007.128a.75.75 0 0 1-1.5 0A2.75 2.75 0 0 1 12 6.75"
+                fill="currentColor"
+              />
+            </svg>
+            <span>Help</span>
+          </a>
+        </div>
+        <form id="feedForm">
+          <div id="feedInputsContainer">
+            <div class="feed-input-row">
+              <div class="input-group">
+                <label data-i18n="feedRssUrlLabel">RSS or ATOM URL</label>
+                <div class="feed-input-wrapper">
+                  <input
+                    type="url"
+                    class="feed-url-input"
+                    placeholder="https://example.com/feed.xml"
+                  />
+                  <button
+                    type="button"
+                    class="feed-add-btn"
+                    disabled
+                    title="Add Feed"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feed-add-field-wrapper">
+            <button
+              type="button"
+              id="feedAddFieldBtn"
+              class="feed-add-field-btn"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-i18n="feedAddField">Add field</span>
+            </button>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="closeFeedModalBtn"
+              class="btn-cancel"
+              data-i18n="btnCancel"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              id="saveFeedModalBtn"
+              class="btn-save"
+              disabled
+              data-i18n="btnSave"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+</template>
+
+<template id="tpl-warning-modal">
+<div id="warningModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3 id="warning-modal-title"></h3>
+        <p id="warning-modal-message" class="warning-modal-text"></p>
+
+        <div id="customColorPickerContainer" class="custom-color-picker hidden">
+          <div class="picker-canvas-wrapper" id="matrixWrapper">
+            <canvas id="colorMatrixCanvas" class="matrix-canvas"></canvas>
+            <div id="matrixCursor" class="matrix-cursor"></div>
+          </div>
+
+          <div class="picker-hue-wrapper">
+            <input
+              type="range"
+              id="colorHueSlider"
+              class="fluent-slider fluent-hue-slider"
+              min="0"
+              max="360"
+              step="1"
+              value="0"
+            />
+          </div>
+
+          <div class="picker-inputs-grid">
+            <div class="input-group hex-col">
+              <label>HEX</label>
+              <div class="hex-wrapper">
+                <span>#</span>
+                <input
+                  type="text"
+                  id="customColorHex"
+                  maxlength="6"
+                  placeholder="0078D4"
+                />
+              </div>
+            </div>
+            <div class="input-group rgb-col">
+              <label>R</label>
+              <input type="number" id="customColorR" min="0" max="255" />
+            </div>
+            <div class="input-group rgb-col">
+              <label>G</label>
+              <input type="number" id="customColorG" min="0" max="255" />
+            </div>
+            <div class="input-group rgb-col">
+              <label>B</label>
+              <input type="number" id="customColorB" min="0" max="255" />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="warning-btn-confirm" class="btn-danger"></button>
+          <button id="warning-btn-cancel" class="btn-cancel"></button>
+        </div>
+      </div>
+    </div>
+</template>

@@ -9,7 +9,11 @@
 import * as refs from '@/core/shared/dom-refs';
 import * as state from '@/core/shared/state';
 import { warningModal } from '@/core/ui/ui-components';
-import { deriveShortcutNameFromUrl, getById } from '@/core/shared/dom-utils';
+import {
+  deriveShortcutNameFromUrl,
+  getById,
+  mountTemplate,
+} from '@/core/shared/dom-utils';
 
 export const MAX_MAIN_GRID_ITEMS = 40;
 export const MAX_FOLDER_CAPACITY = 39;
@@ -160,6 +164,11 @@ export function initShortcutsFormSystem(
   saveAndRender: () => void,
   updateLauncherFooter: () => void,
 ): void {
+  mountTemplate('tpl-choose-type-modal');
+  mountTemplate('tpl-add-modal');
+  mountTemplate('tpl-folder-modal');
+  refs.refreshShortcutModalRefs();
+
   if (refs.closeModalBtn)
     refs.closeModalBtn.addEventListener('click', closeModal);
   const closeChooseTypeBtn = document.getElementById('closeChooseTypeBtn');

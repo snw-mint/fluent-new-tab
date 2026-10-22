@@ -14,26 +14,15 @@ Here is a high-level view of how our code is organized:
 └── src/
     ├── README.md
     ├── style.scss
+    ├── icons/
+    │   └── symbols.html
     ├── html/
-    │   ├── icons/
-    │   │   └── symbols.html
     │   ├── components/
     │   │   ├── app-launcher.html
-    │   │   ├── display.html
     │   │   ├── feed-drawer.html
-    │   │   ├── search.html
-    │   │   ├── select-popup.html
-    │   │   ├── shortcuts.html
-    │   │   ├── wallpaper-credits.html
-    │   │   └── weather.html
-    │   ├── settings/
     │   │   └── settings-popup.html
-    │   └── modals/
-    │       ├── add-shortcut-modal.html
-    │       ├── choose-type-modal.html
-    │       ├── feed-modal.html
-    │       ├── folder-modal.html
-    │       └── warning-modal.html
+    │   └── templates/
+    │       └── modals.html
     ├── styles/
     │   ├── _animations.scss
     │   ├── _color.scss
@@ -94,14 +83,13 @@ Here is a high-level view of how our code is organized:
 
 ## What Does Each File/Folder Do?
 
-### 1. `html/` (DOM Partials & Templates)
+### 1. `icons/` & `html/` (DOM Partials & Templates)
 
-Modular HTML chunks extracted from `index.html` to keep DOM structure maintainable and enable lazy loading:
+Modular HTML chunks extracted from `index.html` to keep the DOM structure maintainable and enable lazy loading:
 
 - **`icons/symbols.html`**: Shared SVG `<symbol>` sprite sheet and `<defs>` for repeated icons.
-- **`components/`**: Core UI widgets and layout sections (launcher, search, weather, display, shortcuts, feed drawer).
-- **`settings/settings-popup.html`**: Flyout panel containing all user configuration controls.
-- **`modals/`**: Modal dialogs and overlay templates for on-demand mounting.
+- **`html/components/`**: Core self-contained UI components with significant code volume (`app-launcher.html`, `feed-drawer.html`, `settings-popup.html`).
+- **`html/templates/modals.html`**: All modal dialogs enclosed in `<template>` tags for on-demand lazy mounting.
 
 ### 2. `styles/` & `style.scss`
 

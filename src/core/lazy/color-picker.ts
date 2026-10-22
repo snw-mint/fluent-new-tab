@@ -93,6 +93,7 @@ export function initCustomColorPicker(
   warningModal: any,
   clearPresetSelection: () => void,
 ): void {
+  warningModal?.ensureMounted?.();
   const currentColor = localStorage.getItem('accentColorValue') || '#0078D4';
   let { h, s, v } = hexToHsv(currentColor);
 

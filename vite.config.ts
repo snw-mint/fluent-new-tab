@@ -5,6 +5,41 @@ import manifest from './manifest.json';
 import { transform } from 'esbuild';
 import fs from 'fs';
 
+const htmlPartials = () => ({
+  name: 'html-partials',
+  transformIndexHtml: {
+    order: 'pre' as const,
+    handler(html: string, ctx: any) {
+      const includeRegex = /<include\s+src=["']([^"']+)["']\s*(?:\/>|><\/include>)/gi;
+      let depth = 0;
+      while (includeRegex.test(html) && depth < 10) {
+        html = html.replace(includeRegex, (_match, src) => {
+          const filePath = resolve(__dirname, src);
+          if (fs.existsSync(filePath)) {
+            if (ctx?.server) {
+              ctx.server.watcher.add(filePath);
+            }
+            return fs.readFileSync(filePath, 'utf-8');
+          }
+          console.warn(`[html-partials] File not found: ${filePath}`);
+          return '';
+        });
+        depth++;
+      }
+      return html;
+    },
+  },
+  handleHotUpdate({ file, server }: any) {
+    if (
+      file.endsWith('.html') &&
+      (file.includes(path.normalize('src/html')) ||
+        file.includes(path.normalize('src/icons')))
+    ) {
+      server.ws.send({ type: 'full-reload' });
+    }
+  },
+});
+
 const forceScriptToBottom = () => ({
   name: 'force-script-to-bottom',
   enforce: 'post' as const,
@@ -175,7 +210,12 @@ const minifyPostBuild = () => ({
 });
 
 export default defineConfig({
-  plugins: [crx({ manifest }), forceScriptToBottom(), minifyPostBuild()],
+  plugins: [
+    htmlPartials(),
+    crx({ manifest }),
+    forceScriptToBottom(),
+    minifyPostBuild(),
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

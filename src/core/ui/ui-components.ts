@@ -6,7 +6,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { getLocalizedWarningText } from '@/core/shared/dom-utils';
+import {
+  getLocalizedWarningText,
+  mountTemplate,
+} from '@/core/shared/dom-utils';
 import { shortcutsGrid } from '@/core/shared/dom-refs';
 import { activeShortcutDropdowns } from '@/core/shared/state';
 
@@ -24,31 +27,39 @@ export interface WarningModalOptions {
 }
 
 export class WarningModalManager {
-  private overlay: HTMLElement;
-  private titleEl: HTMLElement;
-  private messageEl: HTMLElement;
-  private btnConfirm: HTMLButtonElement;
-  private btnCancel: HTMLButtonElement;
+  private overlay!: HTMLElement;
+  private titleEl!: HTMLElement;
+  private messageEl!: HTMLElement;
+  private btnConfirm!: HTMLButtonElement;
+  private btnCancel!: HTMLButtonElement;
   private handleKeydownBound: (event: KeyboardEvent) => void;
 
   constructor() {
-    this.overlay = document.getElementById('warningModal') as HTMLElement;
-    this.titleEl = document.getElementById(
-      'warning-modal-title',
-    ) as HTMLElement;
-    this.messageEl = document.getElementById(
-      'warning-modal-message',
-    ) as HTMLElement;
-    this.btnConfirm = document.getElementById(
-      'warning-btn-confirm',
-    ) as HTMLButtonElement;
-    this.btnCancel = document.getElementById(
-      'warning-btn-cancel',
-    ) as HTMLButtonElement;
     this.handleKeydownBound = this.handleKeydown.bind(this);
   }
 
+  public ensureMounted(): void {
+    if (!this.overlay) {
+      mountTemplate('tpl-warning-modal');
+      this.overlay = document.getElementById('warningModal') as HTMLElement;
+      this.titleEl = document.getElementById(
+        'warning-modal-title',
+      ) as HTMLElement;
+      this.messageEl = document.getElementById(
+        'warning-modal-message',
+      ) as HTMLElement;
+      this.btnConfirm = document.getElementById(
+        'warning-btn-confirm',
+      ) as HTMLButtonElement;
+      this.btnCancel = document.getElementById(
+        'warning-btn-cancel',
+      ) as HTMLButtonElement;
+    }
+  }
+
   public show(options: WarningModalOptions): void {
+    this.ensureMounted();
+    if (!this.overlay) return;
     const confirmVariant = options.confirmVariant || 'accent';
     this.titleEl.textContent = options.title;
     this.messageEl.textContent = '';
@@ -110,17 +121,19 @@ export class WarningModalManager {
   }
 
   public close(): void {
-    this.overlay.classList.remove('active');
+    if (this.overlay) {
+      this.overlay.classList.remove('active');
+    }
     document.removeEventListener('keydown', this.handleKeydownBound);
-    this.btnConfirm.onclick = null;
-    this.btnCancel.onclick = null;
+    if (this.btnConfirm) this.btnConfirm.onclick = null;
+    if (this.btnCancel) this.btnCancel.onclick = null;
   }
 
   private handleKeydown(event: KeyboardEvent): void {
-    if (!this.overlay.classList.contains('active')) return;
+    if (!this.overlay || !this.overlay.classList.contains('active')) return;
     if (event.key !== 'Enter') return;
     event.preventDefault();
-    this.btnConfirm.click();
+    if (this.btnConfirm) this.btnConfirm.click();
   }
 }
 

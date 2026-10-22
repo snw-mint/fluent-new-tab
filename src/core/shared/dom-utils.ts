@@ -75,3 +75,17 @@ export function deriveShortcutNameFromUrl(rawUrl: string): string {
     return 'New Shortcut';
   }
 }
+
+export function mountTemplate(templateId: string): HTMLElement | null {
+  const tpl = document.getElementById(templateId) as HTMLTemplateElement | null;
+  if (!tpl) return null;
+  const clone = tpl.content.cloneNode(true) as DocumentFragment;
+  const firstChild = clone.firstElementChild as HTMLElement | null;
+  document.body.appendChild(clone);
+  tpl.remove();
+  const win = window as any;
+  if (typeof win.applyToDOM === 'function' && win.translationsCache) {
+    win.applyToDOM(win.translationsCache);
+  }
+  return firstChild;
+}

@@ -32,23 +32,23 @@ export const mainUiScaleSlider = getById<HTMLInputElement>('mainUiScaleSlider');
 
 export const shortcutsGrid = getById<HTMLDivElement>('shortcutsGrid');
 export const folderBackWrapper = getById<HTMLElement>('folderBackWrapper');
-export const addModal = getById<HTMLDivElement>('addModal');
-export const shortcutForm = getById<HTMLFormElement>('shortcutForm');
-export const closeModalBtn = getById<HTMLButtonElement>('closeModalBtn');
-export const toggleCustomIcon = getById<HTMLButtonElement>('toggleCustomIcon');
-export const customIconGroup = getById<HTMLDivElement>('customIconGroup');
+export let addModal = getById<HTMLDivElement>('addModal');
+export let shortcutForm = getById<HTMLFormElement>('shortcutForm');
+export let closeModalBtn = getById<HTMLButtonElement>('closeModalBtn');
+export let toggleCustomIcon = getById<HTMLButtonElement>('toggleCustomIcon');
+export let customIconGroup = getById<HTMLDivElement>('customIconGroup');
 export const shortcutsMoreBtn = getById<HTMLDivElement>('shortcuts-more-btn');
 export const shortcutsMoreContainer = getById<HTMLDivElement>(
   'shortcuts-more-container',
 );
 export const rowsSelect = getById<HTMLSelectElement>('rowsSelect');
-export const toggleFolderCustomIcon = getById<HTMLButtonElement>(
+export let toggleFolderCustomIcon = getById<HTMLButtonElement>(
   'toggleFolderCustomIcon',
 );
-export const folderCustomIconGroup = getById<HTMLDivElement>(
+export let folderCustomIconGroup = getById<HTMLDivElement>(
   'folderCustomIconGroup',
 );
-export const inputFolderIcon = getById<HTMLInputElement>('inputFolderIcon');
+export let inputFolderIcon = getById<HTMLInputElement>('inputFolderIcon');
 export const shortcutRadiusRow = getById<HTMLDivElement>('shortcutRadiusRow');
 export const shortcutRadiusSlider = getById<HTMLInputElement>(
   'shortcutRadiusSlider',
@@ -57,10 +57,25 @@ export const toggleHideShortcutNames = getById<HTMLInputElement>(
   'toggleHideShortcutNames',
 );
 export const importBookmarksBtn = getById<HTMLButtonElement>('importBookmarksBtn');
-export const chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
-export const addFolderModal = getById<HTMLDivElement>('addFolderModal');
-export const folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
-export const inputFolderName = getById<HTMLInputElement>('inputFolderName');
+export let chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
+export let addFolderModal = getById<HTMLDivElement>('addFolderModal');
+export let folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
+export let inputFolderName = getById<HTMLInputElement>('inputFolderName');
+
+export function refreshShortcutModalRefs(): void {
+  addModal = getById<HTMLDivElement>('addModal');
+  shortcutForm = getById<HTMLFormElement>('shortcutForm');
+  closeModalBtn = getById<HTMLButtonElement>('closeModalBtn');
+  toggleCustomIcon = getById<HTMLButtonElement>('toggleCustomIcon');
+  customIconGroup = getById<HTMLDivElement>('customIconGroup');
+  toggleFolderCustomIcon = getById<HTMLButtonElement>('toggleFolderCustomIcon');
+  folderCustomIconGroup = getById<HTMLDivElement>('folderCustomIconGroup');
+  inputFolderIcon = getById<HTMLInputElement>('inputFolderIcon');
+  chooseTypeModal = getById<HTMLDivElement>('chooseTypeModal');
+  addFolderModal = getById<HTMLDivElement>('addFolderModal');
+  folderModalTitle = getById<HTMLHeadingElement>('folderModalTitle');
+  inputFolderName = getById<HTMLInputElement>('inputFolderName');
+}
 
 export const displayWrapper =
   document.querySelector<HTMLElement>('.display-wrapper');
