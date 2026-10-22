@@ -165,11 +165,6 @@ html[data-wallpaper-blur='true'] .wallpaper-crossfade-layer {
   font-size: var(--font-size-base) !important;
 }
 
-.ask-ai-btn svg {
-  width: 1.8rem !important;
-  height: 1.8rem !important;
-}
-
 .modal-content .input-group label {
   font-size: var(--font-size-sm) !important;
 }
@@ -178,7 +173,6 @@ html[data-wallpaper-blur='true'] .wallpaper-crossfade-layer {
   font-size: var(--font-size-sm) !important;
 }
 
-.search-btn svg,
 .shortcut-item[data-type='folder'] .shortcut-card>svg {
   width: 1.35rem !important;
   height: 1.35rem !important;

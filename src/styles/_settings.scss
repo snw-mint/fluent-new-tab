@@ -374,6 +374,12 @@
     &:active {
       background: var(--border-base);
     }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
   }
 }
 
@@ -635,6 +641,13 @@
       height: 1rem;
       color: #ffffff;
       pointer-events: none;
+    }
+
+    .icon-outline,
+    .icon-filled {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
     }
 
     .icon-filled {
