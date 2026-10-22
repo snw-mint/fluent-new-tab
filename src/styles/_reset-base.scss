@@ -115,8 +115,10 @@ textarea {
 }
 
 .settings-btn {
-  svg path {
-    fill: var(--text-color);
+  color: var(--text-color);
+
+  svg {
+    fill: currentColor;
     transition: fill 0.3s ease;
   }
 }

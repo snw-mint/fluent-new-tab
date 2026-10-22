@@ -50,7 +50,7 @@ export function getDisplayScaleForType(displayType: string): number {
   const saved =
     localStorage.getItem(`displayScale_${displayType}`) ||
     localStorage.getItem('displayScale');
-  const parsed = saved ? parseInt(saved, 10) : 100;
+  const parsed = saved ? parseInt(saved, 10) : 85;
   return Math.min(bounds.max, Math.max(bounds.min, parsed));
 }
 

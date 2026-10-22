@@ -52,12 +52,15 @@ body[data-wallpaper-active='true'] {
   .time-date-text,
   .time-date-sub,
   .translate-link,
-  .settings-btn svg path,
+  .settings-btn,
+  .settings-btn svg,
   .settings-label,
   .weather-widget,
-  .launcher-btn svg path,
+  .launcher-btn,
+  .launcher-btn svg,
   .shortcut-title,
-  .menu-btn svg path,
+  .menu-btn,
+  .menu-btn svg,
   .wallpaper-credits {
     color: #ffffff !important;
     fill: #ffffff !important;
@@ -79,7 +82,9 @@ body[data-wallpaper-active='true'] {
         text-shadow: none !important;
       }
 
-      .settings-btn svg path {
+      .settings-btn,
+      .settings-btn svg {
+        color: #1f1f1f !important;
         fill: #1f1f1f !important;
       }
     }

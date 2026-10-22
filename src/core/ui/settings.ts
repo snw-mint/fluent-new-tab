@@ -1202,7 +1202,7 @@ export function bindMainUiScaleFeature(options: any): void {
       if (!localStorage.getItem('displayScale')) {
         document.documentElement.style.setProperty(
           '--display-scale',
-          target.value,
+          String(parseFloat(target.value) * 0.85),
         );
       }
     });

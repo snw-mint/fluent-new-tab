@@ -22,6 +22,7 @@
     border-radius: var(--radius-lg);
     @include flex-center;
     transition: background 0.1s ease;
+    color: var(--text-color);
 
     &:hover,
     &.active {
@@ -31,11 +32,7 @@
     svg {
       width: 1.35rem;
       height: 1.35rem;
-
-      path {
-        fill: var(--text-color);
-        transition: fill 0.3s ease;
-      }
+      fill: currentColor;
     }
   }
 }
