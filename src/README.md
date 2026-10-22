@@ -14,6 +14,26 @@ Here is a high-level view of how our code is organized:
 └── src/
     ├── README.md
     ├── style.scss
+    ├── html/
+    │   ├── icons/
+    │   │   └── symbols.html
+    │   ├── components/
+    │   │   ├── app-launcher.html
+    │   │   ├── display.html
+    │   │   ├── feed-drawer.html
+    │   │   ├── search.html
+    │   │   ├── select-popup.html
+    │   │   ├── shortcuts.html
+    │   │   ├── wallpaper-credits.html
+    │   │   └── weather.html
+    │   ├── settings/
+    │   │   └── settings-popup.html
+    │   └── modals/
+    │       ├── add-shortcut-modal.html
+    │       ├── choose-type-modal.html
+    │       ├── feed-modal.html
+    │       ├── folder-modal.html
+    │       └── warning-modal.html
     ├── styles/
     │   ├── _animations.scss
     │   ├── _color.scss
@@ -74,12 +94,21 @@ Here is a high-level view of how our code is organized:
 
 ## What Does Each File/Folder Do?
 
-### 1. `styles/` & `style.scss`
+### 1. `html/` (DOM Partials & Templates)
+
+Modular HTML chunks extracted from `index.html` to keep DOM structure maintainable and enable lazy loading:
+
+- **`icons/symbols.html`**: Shared SVG `<symbol>` sprite sheet and `<defs>` for repeated icons.
+- **`components/`**: Core UI widgets and layout sections (launcher, search, weather, display, shortcuts, feed drawer).
+- **`settings/settings-popup.html`**: Flyout panel containing all user configuration controls.
+- **`modals/`**: Modal dialogs and overlay templates for on-demand mounting.
+
+### 2. `styles/` & `style.scss`
 
 - **`style.scss`**: The main entry point for all stylesheets. It imports all the partials.
 - **`styles/_*.scss`**: SCSS partials broken down by component. We use variables extensively for our Fluent Design system and Dark Mode. Everything strictly uses `rem` units for consistency and proper scaling.
 
-### 2. `core/boot/`
+### 3. `core/boot/`
 
 These are the **entry point** scripts. They run immediately when the extension loads.
 
@@ -87,7 +116,7 @@ These are the **entry point** scripts. They run immediately when the extension l
 - **`*_render.ts`** & **`theme.ts`**: Handles the immediate rendering of UI elements (wallpapers, weather, shortcuts, theme) to ensure the New Tab loads instantly without layout shifts.
 - **`search.ts` / `search-engines.ts`**: Initializes core search functionality and engines right away.
 
-### 3. `core/shared/`
+### 4. `core/shared/`
 
 These files contain global constants, types, and utilities shared across the entire app.
 
@@ -97,7 +126,7 @@ These files contain global constants, types, and utilities shared across the ent
 - **`types.ts`**: Global TypeScript interfaces.
 - **`permissions.ts`**: Centralized logic for browser API permissions.
 
-### 4. `core/ui/`
+### 5. `core/ui/`
 
 Handles the interactive user interface and components.
 
@@ -107,7 +136,7 @@ Handles the interactive user interface and components.
 - **`fluent-select.ts`**: Custom styled dropdowns matching the Fluent Design language.
 - **`localization.ts`**: Multi-language support and string replacements.
 
-### 5. `core/lazy/`
+### 6. `core/lazy/`
 
 Modules placed here are **NOT** loaded when the extension starts. They are dynamically imported only when the user interacts with a specific feature.
 
