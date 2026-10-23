@@ -108,11 +108,128 @@ function updateDisplayContent(wrapper: HTMLElement): void {
   }
 }
 
+export function getValidTimezone(tz?: string | null): string | undefined {
+  if (!tz || tz === 'auto') return undefined;
+  try {
+    Intl.DateTimeFormat(undefined, { timeZone: tz });
+    return tz;
+  } catch {
+    return undefined;
+  }
+}
+
+export function formatCustomDateTime(
+  now: Date,
+  pattern: string,
+  timeZone?: string,
+): string {
+  const validTz = getValidTimezone(timeZone);
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: validTz,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(now);
+
+  let year = '';
+  let month = '';
+  let day = '';
+  let hour = '';
+  let minute = '';
+  let second = '';
+
+  for (const part of parts) {
+    if (part.type === 'year') year = part.value;
+    else if (part.type === 'month') month = part.value;
+    else if (part.type === 'day') day = part.value;
+    else if (part.type === 'hour') hour = part.value;
+    else if (part.type === 'minute') minute = part.value;
+    else if (part.type === 'second') second = part.value;
+  }
+
+  const h24 = parseInt(hour, 10) || 0;
+  const h12 = h24 % 12 || 12;
+
+  const tokens: Record<string, string> = {
+    '%YYYY': year,
+    '%YY': year.slice(-2),
+    '%MM': month,
+    '%M': String(parseInt(month, 10) || 0),
+    '%DD': day,
+    '%D': String(parseInt(day, 10) || 0),
+    '%HH': hour.padStart(2, '0'),
+    '%H': String(h24),
+    '%hh': String(h12).padStart(2, '0'),
+    '%h': String(h12),
+    '%mm': minute.padStart(2, '0'),
+    '%m': String(parseInt(minute, 10) || 0),
+    '%ss': second.padStart(2, '0'),
+    '%s': String(parseInt(second, 10) || 0),
+    '%A': h24 >= 12 ? 'PM' : 'AM',
+    '%a': h24 >= 12 ? 'pm' : 'am',
+  };
+
+  return pattern.replace(
+    /%(YYYY|YY|MM|M|DD|D|HH|H|hh|h|mm|m|ss|s|A|a)/g,
+    (match) => tokens[match] ?? match,
+  );
+}
+
+function getZonedDateInfo(
+  now: Date,
+  timeZone?: string,
+): {
+  hour: number;
+  minute: number;
+  dayOfWeek: number;
+} {
+  if (!timeZone) {
+    return {
+      hour: now.getHours(),
+      minute: now.getMinutes(),
+      dayOfWeek: now.getDay(),
+    };
+  }
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    hour: 'numeric',
+    minute: 'numeric',
+    hourCycle: 'h23',
+    weekday: 'short',
+  }).formatToParts(now);
+
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  let dayOfWeek = now.getDay();
+
+  for (const part of parts) {
+    if (part.type === 'hour') {
+      hour = parseInt(part.value, 10) || 0;
+    } else if (part.type === 'minute') {
+      minute = parseInt(part.value, 10) || 0;
+    } else if (part.type === 'weekday') {
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const idx = days.indexOf(part.value);
+      if (idx !== -1) dayOfWeek = idx;
+    }
+  }
+
+  return { hour, minute, dayOfWeek };
+}
+
 function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
   const showSeconds = localStorage.getItem('showSeconds') === 'true';
   const use12Hour = localStorage.getItem('use12Hour') === 'true';
+  const timezone = getValidTimezone(localStorage.getItem('clockTimezone'));
+  const timeFormatMode = localStorage.getItem('timeFormatMode');
+  const customTimeFormat =
+    localStorage.getItem('customTimeFormat') || '%HH:%mm:%ss';
   let dateFormat = localStorage.getItem('dateFormat');
   if (!dateFormat) {
     dateFormat = 'weekday';
@@ -123,49 +240,55 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   let dateString = '';
 
   if (type === 'time' || type === 'timedate') {
-    const parts = new Intl.DateTimeFormat(locale, {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: showSeconds ? '2-digit' : undefined,
-      hour12: use12Hour,
-    }).formatToParts(now);
+    if (timeFormatMode === 'custom') {
+      const formatted = formatCustomDateTime(now, customTimeFormat, timezone);
+      timeNodes.push(document.createTextNode(formatted));
+    } else {
+      const parts = new Intl.DateTimeFormat(locale, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: showSeconds ? '2-digit' : undefined,
+        hour12: use12Hour,
+        timeZone: timezone,
+      }).formatToParts(now);
 
-    parts.forEach((part, index) => {
-      if (part.type === 'second') {
-        const span = document.createElement('span');
-        span.className = 'time-seconds';
-        span.textContent = part.value;
-        timeNodes.push(span);
-      } else if (
-        part.type === 'literal' &&
-        parts[index + 1]?.type === 'second'
-      ) {
-        const span = document.createElement('span');
-        span.className = 'time-seconds';
-        span.textContent = part.value;
-        timeNodes.push(span);
-      } else if (part.type === 'dayPeriod') {
-        const span = document.createElement('span');
-        span.className = 'time-ampm';
-        span.style.position = 'absolute';
-        if (index === 0) {
-          span.style.transform = 'translateX(calc(-100% - 0.5rem))';
+      parts.forEach((part, index) => {
+        if (part.type === 'second') {
+          const span = document.createElement('span');
+          span.className = 'time-seconds';
+          span.textContent = part.value;
+          timeNodes.push(span);
+        } else if (
+          part.type === 'literal' &&
+          parts[index + 1]?.type === 'second'
+        ) {
+          const span = document.createElement('span');
+          span.className = 'time-seconds';
+          span.textContent = part.value;
+          timeNodes.push(span);
+        } else if (part.type === 'dayPeriod') {
+          const span = document.createElement('span');
+          span.className = 'time-ampm';
+          span.style.position = 'absolute';
+          if (index === 0) {
+            span.style.transform = 'translateX(calc(-100% - 0.5rem))';
+          }
+          span.textContent = part.value;
+          timeNodes.push(span);
+        } else if (
+          part.type === 'literal' &&
+          (parts[index + 1]?.type === 'dayPeriod' ||
+            parts[index - 1]?.type === 'dayPeriod')
+        ) {
+          const trimmed = part.value.trim();
+          if (trimmed.length > 0) {
+            timeNodes.push(document.createTextNode(trimmed));
+          }
+        } else {
+          timeNodes.push(document.createTextNode(part.value));
         }
-        span.textContent = part.value;
-        timeNodes.push(span);
-      } else if (
-        part.type === 'literal' &&
-        (parts[index + 1]?.type === 'dayPeriod' ||
-          parts[index - 1]?.type === 'dayPeriod')
-      ) {
-        const trimmed = part.value.trim();
-        if (trimmed.length > 0) {
-          timeNodes.push(document.createTextNode(trimmed));
-        }
-      } else {
-        timeNodes.push(document.createTextNode(part.value));
-      }
-    });
+      });
+    }
   }
 
   if (type === 'date' || type === 'timedate' || type === 'weekday') {
@@ -178,7 +301,10 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
       dateOptions = { dateStyle: 'long' };
     }
 
-    dateString = new Intl.DateTimeFormat(locale, dateOptions).format(now);
+    dateString = new Intl.DateTimeFormat(locale, {
+      ...dateOptions,
+      timeZone: timezone,
+    }).format(now);
     if (
       dateString &&
       (type === 'weekday' || dateFormat === 'weekday' || dateFormat === 'text')
@@ -214,15 +340,15 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
 function renderGreeting(wrapper: HTMLElement): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const userName = (localStorage.getItem('greetingName') || '').trim();
+  const timezone = getValidTimezone(localStorage.getItem('clockTimezone'));
 
   const now = new Date();
-  const currentMinute = now.getMinutes().toString();
-  const cacheKey = `${currentMinute}-${rawLang}-${userName}`;
+  const { hour, minute, dayOfWeek } = getZonedDateInfo(now, timezone);
+  const currentMinute = minute.toString();
+  const cacheKey = `${currentMinute}-${rawLang}-${userName}-${timezone || 'local'}`;
 
   if (wrapper.dataset.lastCache === cacheKey) return;
 
-  const hour = now.getHours();
-  const dayOfWeek = now.getDay();
   let timeKeyPrefix: string;
   if (hour >= 5 && hour < 12) {
     timeKeyPrefix = 'greetMorning';
@@ -236,7 +362,7 @@ function renderGreeting(wrapper: HTMLElement): void {
 
   let translationKey = '';
   const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
-  const seed = now.getHours() * 2 + Math.floor(now.getMinutes() / 30);
+  const seed = hour * 2 + Math.floor(minute / 30);
 
   if (isWeekday && seed % 3 === 0) {
     if (hour >= 5 && hour < 12) translationKey = 'greetWeekMorning';
