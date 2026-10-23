@@ -104,7 +104,7 @@
     "message": "Use o formato de 12 horas"
   },
   "dateFormatLabel": {
-    "message": "Formato"
+    "message": "Formato da data"
   },
   "dateText": {
     "message": "Escrito"
@@ -114,6 +114,36 @@
   },
   "dateWeekday": {
     "message": "Dia da semana"
+  },
+  "timeFormatLabel": {
+    "message": "Formato da hora"
+  },
+  "timeFormat24": {
+    "message": "24 horas"
+  },
+  "timeFormat24Sec": {
+    "message": "24 horas com segundos"
+  },
+  "timeFormat12": {
+    "message": "12 horas"
+  },
+  "timeFormat12Sec": {
+    "message": "12 horas com segundos"
+  },
+  "timeFormatCustom": {
+    "message": "Personalizado"
+  },
+  "customPatternLabel": {
+    "message": "Padrão personalizado"
+  },
+  "customPatternPlaceholder": {
+    "message": "%HH:%mm:%ss"
+  },
+  "timezoneLabel": {
+    "message": "Fuso horário"
+  },
+  "timezonePlaceholder": {
+    "message": "Horário local do PC"
   },
   "weekday_0": {
     "message": "Domingo"

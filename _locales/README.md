@@ -88,10 +88,20 @@ Keys are grouped by feature area. Any key that contains a placeholder (e.g. `$NA
 | `displayTimeDate` | Time & Date | Heading for advanced time/date options |
 | `showSecondsLabel` | Show seconds | Toggle to show seconds on the clock |
 | `use12HourLabel` | Use 12-hour format | Toggle for 12 h vs 24 h clock |
-| `dateFormatLabel` | Format | Label for the date-format picker |
+| `dateFormatLabel` | Date format | Label for the date-format picker |
 | `dateText` | Written | Date format option: spelled-out text (e.g. "June 6") |
 | `dateNumeric` | Numeric | Date format option: numeric (e.g. 06/06) |
 | `dateWeekday` | Weekday | Date format option: shows weekday name |
+| `timeFormatLabel` | Time format | Label for the time format selector |
+| `timeFormat24` | 24 hours | Time format option: 24-hour clock |
+| `timeFormat24Sec` | 24 hours with seconds | Time format option: 24-hour clock with seconds |
+| `timeFormat12` | 12 hours | Time format option: 12-hour clock |
+| `timeFormat12Sec` | 12 hours with seconds | Time format option: 12-hour clock with seconds |
+| `timeFormatCustom` | Custom | Time format option: custom token format |
+| `customPatternLabel` | Custom pattern | Label for custom time pattern input |
+| `customPatternPlaceholder` | %HH:%mm:%ss | Placeholder example pattern for custom time input |
+| `timezoneLabel` | Timezone | Label for timezone input |
+| `timezonePlaceholder` | Local PC time | Placeholder for timezone input |
 
 ---
 
