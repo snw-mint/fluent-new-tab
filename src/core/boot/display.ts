@@ -236,12 +236,8 @@ function getZonedDateInfo(
 function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
-  const showSeconds = localStorage.getItem('showSeconds') === 'true';
-  const use12Hour = localStorage.getItem('use12Hour') === 'true';
   const timezone = getValidTimezone(localStorage.getItem('clockTimezone'));
-  const customTimeFormat = (
-    localStorage.getItem('customTimeFormat') || ''
-  ).trim();
+  const timeFormat = localStorage.getItem('timeFormat') || '24h';
   let dateFormat = localStorage.getItem('dateFormat');
   if (!dateFormat) {
     dateFormat = 'weekday';
@@ -252,10 +248,16 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   let dateString = '';
 
   if (type === 'time' || type === 'timedate') {
-    if (customTimeFormat) {
-      const formatted = formatCustomDateTime(now, customTimeFormat, timezone);
+    if (timeFormat === 'custom') {
+      const pattern =
+        (localStorage.getItem('customTimeFormat') || '').trim() || '%HH:%mm';
+      const formatted = formatCustomDateTime(now, pattern, timezone);
       timeNodes.push(document.createTextNode(formatted));
     } else {
+      const showSeconds =
+        timeFormat === '24h-seconds' || timeFormat === '12h-seconds';
+      const use12Hour = timeFormat === '12h' || timeFormat === '12h-seconds';
+
       const parts = new Intl.DateTimeFormat(locale, {
         hour: '2-digit',
         minute: '2-digit',

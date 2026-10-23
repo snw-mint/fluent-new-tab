@@ -115,24 +115,17 @@
 .setting-field-group {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
-  margin-bottom: 0.45rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  gap: 0.225rem;
+  width: 100%;
 
   label.setting-label-small {
     margin-bottom: 0;
   }
 }
 
-.format-preview-text {
-  font-size: 0.72rem;
-  color: var(--text-color);
-  opacity: 0.75;
-  padding: 0.1rem 0.2rem 0;
-  font-family: monospace;
+#display-slider-container,
+#subTime {
+  gap: 0.45rem;
 }
 
 .child-setting {
@@ -368,8 +361,7 @@
     }
   }
 
-  &:has(button) input,
-  &:has(.input-icon-link) input {
+  &:has(button, .input-icon-link) input {
     padding-right: 2rem;
   }
 
@@ -389,8 +381,8 @@
     justify-content: center;
     color: var(--text-color);
     opacity: 0.6;
-    text-decoration: none;
     transition: all 0.2s ease;
+    text-decoration: none;
 
     &:hover {
       background: var(--hover-overlay-active);
@@ -402,8 +394,8 @@
     }
 
     svg {
-      width: 0.95rem;
-      height: 0.95rem;
+      width: 1rem;
+      height: 1rem;
       flex-shrink: 0;
     }
   }

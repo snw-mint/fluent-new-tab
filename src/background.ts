@@ -30,11 +30,10 @@ const DEFAULT_INSTALL_PREFERENCES = {
   accentColorMode: 'manual',
   accentColorValue: '#107C41',
   displayType: 'greeting',
-  showSeconds: 'false',
-  use12Hour: 'false',
   dateFormat: 'weekday',
-  clockTimezone: 'auto',
+  timeFormat: '24h',
   customTimeFormat: '',
+  clockTimezone: 'auto',
   askAiEnabled: 'false',
 };
 

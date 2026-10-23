@@ -368,7 +368,6 @@
                 <div
                   id="subScale"
                   class="display-sub-setting"
-                  style="margin-bottom: 0.3rem"
                 >
                   <div class="slider-row child-setting">
                     <label
@@ -393,32 +392,34 @@
                   class="display-sub-setting"
                   style="display: none"
                 >
-                  <label class="setting-label-small" data-i18n="dateFormatLabel"
-                    >Format</label
-                  >
-                  <div class="fluent-select-container">
-                    <button
-                      type="button"
-                      class="fluent-select-trigger"
-                      data-target="dateFormatSelect"
+                  <div class="setting-field-group">
+                    <label class="setting-label-small"
+                      >Date format</label
                     >
-                      <span class="fluent-select-value" data-i18n="dateWeekday"
-                        >Weekday</span
+                    <div class="fluent-select-container">
+                      <button
+                        type="button"
+                        class="fluent-select-trigger"
+                        data-target="dateFormatSelect"
                       >
-                      <span class="fluent-select-arrow"></span>
-                    </button>
-                    <select
-                      id="dateFormatSelect"
-                      class="settings-select hidden-native-select"
-                    >
-                      <option value="text" data-i18n="dateText">Written</option>
-                      <option value="numeric" data-i18n="dateNumeric">
-                        Numeric
-                      </option>
-                      <option value="weekday" data-i18n="dateWeekday" selected>
-                        Weekday
-                      </option>
-                    </select>
+                        <span class="fluent-select-value" data-i18n="dateWeekday"
+                          >Weekday</span
+                        >
+                        <span class="fluent-select-arrow"></span>
+                      </button>
+                      <select
+                        id="dateFormatSelect"
+                        class="settings-select hidden-native-select"
+                      >
+                        <option value="text" data-i18n="dateText">Written</option>
+                        <option value="numeric" data-i18n="dateNumeric">
+                          Numeric
+                        </option>
+                        <option value="weekday" data-i18n="dateWeekday" selected>
+                          Weekday
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -465,37 +466,49 @@
                 >
                   <div class="setting-field-group">
                     <label
-                      for="timezoneInput"
+                      for="timeFormatSelect"
                       class="setting-label-small"
-                      data-i18n="timezoneLabel"
-                      >Timezone</label
+                      data-i18n="timeFormatLabel"
+                      >Time format</label
                     >
-                    <div class="input-row">
-                      <input
-                        type="text"
-                        id="timezoneInput"
-                        placeholder="e.g., UTC, America/Sao_Paulo"
-                        autocomplete="off"
-                      />
-                      <a
-                        href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#timezones"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="input-icon-link"
-                        title="Help"
-                        aria-label="Timezone Help"
+                    <div class="fluent-select-container">
+                      <button
+                        type="button"
+                        class="fluent-select-trigger"
+                        data-target="timeFormatSelect"
                       >
-                        <svg><use href="#icon-question-circle" /></svg>
-                      </a>
+                        <span class="fluent-select-value"
+                          >24 hours</span
+                        >
+                        <span class="fluent-select-arrow"></span>
+                      </button>
+                      <select
+                        id="timeFormatSelect"
+                        class="settings-select hidden-native-select"
+                      >
+                        <option value="24h" selected>24 hours</option>
+                        <option value="24h-seconds">
+                          24 hours with seconds
+                        </option>
+                        <option value="12h">12 hours</option>
+                        <option value="12h-seconds">
+                          12 hours with seconds
+                        </option>
+                        <option value="custom">Custom</option>
+                      </select>
                     </div>
                   </div>
 
-                  <div class="setting-field-group">
+                  <div
+                    class="setting-field-group"
+                    id="customTimeFormatGroup"
+                    style="display: none"
+                  >
                     <label
                       for="customTimeFormatInput"
                       class="setting-label-small"
-                      data-i18n="timeFormatLabel"
-                      >Time Format</label
+                      data-i18n="customPatternLabel"
+                      >Custom pattern</label
                     >
                     <div class="input-row">
                       <input
@@ -510,43 +523,38 @@
                         rel="noopener noreferrer"
                         class="input-icon-link"
                         title="Help"
-                        aria-label="Time Format Help"
+                        aria-label="Help"
                       >
                         <svg><use href="#icon-question-circle" /></svg>
                       </a>
                     </div>
-                    <div
-                      id="customTimeFormatPreview"
-                      class="format-preview-text"
-                      style="display: none"
-                    ></div>
                   </div>
 
-                  <div
-                    class="switch-row child-setting"
-                    style="margin-top: 0.3rem"
-                  >
-                    <label for="toggleSeconds" data-i18n="showSecondsLabel"
-                      >Show seconds</label
+                  <div class="setting-field-group">
+                    <label
+                      for="timezoneInput"
+                      class="setting-label-small"
+                      data-i18n="timezoneLabel"
+                      >Timezone</label
                     >
-                    <label class="fluent-checkbox">
-                      <input type="checkbox" id="toggleSeconds" />
-                      <span class="checkbox-box" aria-hidden="true">
-                        <svg><use href="#icon-checkmark" /></svg>
-                      </span>
-                    </label>
-                  </div>
-
-                  <div class="switch-row child-setting">
-                    <label for="toggle12Hour" data-i18n="use12HourLabel"
-                      >12-hour format</label
-                    >
-                    <label class="fluent-checkbox">
-                      <input type="checkbox" id="toggle12Hour" />
-                      <span class="checkbox-box" aria-hidden="true">
-                        <svg><use href="#icon-checkmark" /></svg>
-                      </span>
-                    </label>
+                    <div class="input-row">
+                      <input
+                        type="text"
+                        id="timezoneInput"
+                        placeholder="Local PC time (e.g., UTC, America/Sao_Paulo)"
+                        autocomplete="off"
+                      />
+                      <a
+                        href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#timezones"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="input-icon-link"
+                        title="Help"
+                        aria-label="Help"
+                      >
+                        <svg><use href="#icon-question-circle" /></svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
