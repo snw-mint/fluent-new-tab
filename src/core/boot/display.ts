@@ -110,10 +110,22 @@ function updateDisplayContent(wrapper: HTMLElement): void {
 
 export function getValidTimezone(tz?: string | null): string | undefined {
   if (!tz || tz === 'auto') return undefined;
+  const trimmed = tz.trim();
   try {
-    Intl.DateTimeFormat(undefined, { timeZone: tz });
-    return tz;
+    Intl.DateTimeFormat(undefined, { timeZone: trimmed });
+    return trimmed;
   } catch {
+    const match = trimmed.match(/^(?:UTC|GMT)?\s*([+-]\d{1,2})(?::?(\d{2}))?$/i);
+    if (match) {
+      const hours = parseInt(match[1], 10);
+      const invertedSign =
+        hours <= 0 ? `+${Math.abs(hours)}` : `-${Math.abs(hours)}`;
+      const etcTz = `Etc/GMT${invertedSign}`;
+      try {
+        Intl.DateTimeFormat(undefined, { timeZone: etcTz });
+        return etcTz;
+      } catch {}
+    }
     return undefined;
   }
 }
@@ -227,9 +239,9 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const showSeconds = localStorage.getItem('showSeconds') === 'true';
   const use12Hour = localStorage.getItem('use12Hour') === 'true';
   const timezone = getValidTimezone(localStorage.getItem('clockTimezone'));
-  const timeFormatMode = localStorage.getItem('timeFormatMode');
-  const customTimeFormat =
-    localStorage.getItem('customTimeFormat') || '%HH:%mm:%ss';
+  const customTimeFormat = (
+    localStorage.getItem('customTimeFormat') || ''
+  ).trim();
   let dateFormat = localStorage.getItem('dateFormat');
   if (!dateFormat) {
     dateFormat = 'weekday';
@@ -240,7 +252,7 @@ function renderTimeDate(wrapper: HTMLElement, type: string): void {
   let dateString = '';
 
   if (type === 'time' || type === 'timedate') {
-    if (timeFormatMode === 'custom') {
+    if (customTimeFormat) {
       const formatted = formatCustomDateTime(now, customTimeFormat, timezone);
       timeNodes.push(document.createTextNode(formatted));
     } else {

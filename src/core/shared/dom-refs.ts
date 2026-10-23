@@ -97,6 +97,13 @@ export const subDate = getById<HTMLDivElement>('subDate');
 export const toggleSeconds = getById<HTMLInputElement>('toggleSeconds');
 export const toggle12Hour = getById<HTMLInputElement>('toggle12Hour');
 export const dateFormatSelect = getById<HTMLSelectElement>('dateFormatSelect');
+export const timezoneInput = getById<HTMLInputElement>('timezoneInput');
+export const customTimeFormatInput = getById<HTMLInputElement>(
+  'customTimeFormatInput',
+);
+export const customTimeFormatPreview = getById<HTMLDivElement>(
+  'customTimeFormatPreview',
+);
 export const greetingNameInput = getById<HTMLInputElement>('greetingNameInput');
 export const toggleHighlightName = getById<HTMLInputElement>('toggleHighlightName');
 

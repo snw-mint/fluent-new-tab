@@ -112,6 +112,43 @@
   width: 100%;
 }
 
+.setting-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.setting-help-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  color: var(--text-color);
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.format-preview-text {
+  font-size: 0.72rem;
+  color: var(--text-color);
+  opacity: 0.75;
+  padding: 0.15rem 0.2rem;
+  font-family: monospace;
+}
+
 .child-setting {
   margin: 0;
   padding: 0;

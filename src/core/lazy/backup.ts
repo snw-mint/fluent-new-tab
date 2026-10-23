@@ -45,6 +45,8 @@ export const APP_KEYS: string[] = [
   'showSeconds',
   'use12Hour',
   'dateFormat',
+  'clockTimezone',
+  'customTimeFormat',
   'askAiEnabled',
   'askAiProvider',
   'shortcutRadius',

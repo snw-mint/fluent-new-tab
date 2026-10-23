@@ -104,7 +104,38 @@ The central display widget supports multiple modes and layout arrangements.
 - **12-Hour Format**: Toggle between standard 12-hour (AM/PM) and 24-hour military format.
 - **Show Seconds**: Display live seconds in the clock widget.
 - **Date Format**: Choose between Written format (e.g., Tuesday, September 2), Numeric format (e.g., 09/02/2026), or Weekday format.
-- **Custom Format**: Set custom time formats using tokens (e.g., `%HH:%mm:%ss` => `14:35:09`)
+- **Timezone**: Set a manual timezone using standard IANA identifiers or UTC (e.g., `UTC`, `America/Sao_Paulo`). Leave empty for automatic local PC time.
+- **Custom Format**: Set custom time formats using tokens (e.g., `%HH:%mm:%ss` => `14:35:09`). Leave empty for standard 12/24-hour display.
+
+#### Timezones
+
+You can copy any identifier below and paste it into the **Timezone** input in the settings panel:
+
+| Region / City | Timezone Identifier (Click to copy) | UTC Offset |
+| --- | --- | --- |
+| Coordinated Universal Time | `UTC` | UTC+00:00 |
+| London, Dublin, Lisbon | `Europe/London` | UTC+00:00 / +01:00 |
+| Paris, Berlin, Rome, Madrid | `Europe/Paris` | UTC+01:00 / +02:00 |
+| Athens, Cairo, Helsinki | `Europe/Athens` | UTC+02:00 / +03:00 |
+| Moscow, Istanbul, Riyadh | `Europe/Moscow` | UTC+03:00 |
+| Dubai, Baku | `Asia/Dubai` | UTC+04:00 |
+| Karachi, Tashkent | `Asia/Karachi` | UTC+05:00 |
+| India (New Delhi, Mumbai) | `Asia/Kolkata` | UTC+05:30 |
+| Dhaka, Almaty | `Asia/Dhaka` | UTC+06:00 |
+| Bangkok, Jakarta, Hanoi | `Asia/Bangkok` | UTC+07:00 |
+| Beijing, Shanghai, Singapore | `Asia/Shanghai` | UTC+08:00 |
+| Tokyo, Seoul | `Asia/Tokyo` | UTC+09:00 |
+| Sydney, Melbourne | `Australia/Sydney` | UTC+10:00 / +11:00 |
+| Auckland, Wellington, Fiji | `Pacific/Auckland` | UTC+12:00 / +13:00 |
+| Honolulu, Hawaii | `Pacific/Honolulu` | UTC-10:00 |
+| Anchorage, Alaska | `America/Anchorage` | UTC-09:00 |
+| Los Angeles, Vancouver, PT | `America/Los_Angeles` | UTC-08:00 |
+| Denver, Phoenix, MT | `America/Denver` | UTC-07:00 |
+| Chicago, Mexico City, CT | `America/Chicago` | UTC-06:00 |
+| New York, Toronto, ET | `America/New_York` | UTC-05:00 |
+| Halifax, Atlantic Time | `America/Halifax` | UTC-04:00 |
+| São Paulo, Brasília | `America/Sao_Paulo` | UTC-03:00 |
+| Buenos Aires | `America/Buenos_Aires` | UTC-03:00 |
 
 #### List of Supported Tokens
 

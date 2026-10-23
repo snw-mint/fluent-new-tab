@@ -33,6 +33,8 @@ const DEFAULT_INSTALL_PREFERENCES = {
   showSeconds: 'false',
   use12Hour: 'false',
   dateFormat: 'weekday',
+  clockTimezone: 'auto',
+  customTimeFormat: '',
   askAiEnabled: 'false',
 };
 

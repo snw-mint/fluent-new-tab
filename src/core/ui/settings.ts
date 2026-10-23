@@ -13,6 +13,7 @@ import {
   getDisplayScaleBounds,
   getDisplayScaleForType,
   applyDisplayScale,
+  formatCustomDateTime,
 } from '@/core/boot/display';
 
 import { currentCityData, activeShortcutDropdowns } from '@/core/shared/state';
@@ -523,6 +524,32 @@ export function bindDisplayFeature(options: any): void {
       localStorage.getItem('dateFormat') || 'weekday';
   }
 
+  if (refs.timezoneInput) {
+    const savedTz = localStorage.getItem('clockTimezone') || '';
+    refs.timezoneInput.value = savedTz === 'auto' ? '' : savedTz;
+  }
+
+  if (refs.customTimeFormatInput) {
+    refs.customTimeFormatInput.value =
+      localStorage.getItem('customTimeFormat') || '';
+  }
+
+  const updateCustomTimeFormatPreview = () => {
+    if (!refs.customTimeFormatPreview || !refs.customTimeFormatInput) return;
+    const pattern = refs.customTimeFormatInput.value.trim();
+    if (!pattern) {
+      refs.customTimeFormatPreview.style.display = 'none';
+      refs.customTimeFormatPreview.textContent = '';
+      return;
+    }
+    const tz = localStorage.getItem('clockTimezone') || undefined;
+    const preview = formatCustomDateTime(new Date(), pattern, tz);
+    refs.customTimeFormatPreview.textContent = `Preview: ${preview}`;
+    refs.customTimeFormatPreview.style.display = 'block';
+  };
+
+  updateCustomTimeFormatPreview();
+
   if (refs.displayTypeSelect) {
     const savedPreset = localStorage.getItem('displayType') || 'greeting';
     refs.displayTypeSelect.value = savedPreset;
@@ -579,6 +606,15 @@ export function bindDisplayFeature(options: any): void {
       if (refs.dateFormatSelect)
         refs.dateFormatSelect.value =
           localStorage.getItem('dateFormat') || 'weekday';
+      if (refs.timezoneInput) {
+        const savedTz = localStorage.getItem('clockTimezone') || '';
+        refs.timezoneInput.value = savedTz === 'auto' ? '' : savedTz;
+      }
+      if (refs.customTimeFormatInput) {
+        refs.customTimeFormatInput.value =
+          localStorage.getItem('customTimeFormat') || '';
+      }
+      updateCustomTimeFormatPreview();
 
       updateAdvancedUI(preset);
       syncDisplayScaleSlider(preset);
@@ -614,6 +650,33 @@ export function bindDisplayFeature(options: any): void {
       if (!target) return;
       localStorage.setItem('dateFormat', target.value);
       if (refs.displayWrapper) options.initDisplayWidget(refs.displayWrapper);
+    });
+  }
+
+  if (refs.timezoneInput) {
+    refs.timezoneInput.addEventListener('input', (e: Event) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      const val = target.value.trim();
+      localStorage.setItem('clockTimezone', val || 'auto');
+      updateCustomTimeFormatPreview();
+      if (refs.displayWrapper) {
+        refs.displayWrapper.dataset.lastCache = '';
+        options.initDisplayWidget(refs.displayWrapper);
+      }
+    });
+  }
+
+  if (refs.customTimeFormatInput) {
+    refs.customTimeFormatInput.addEventListener('input', (e: Event) => {
+      const target = getInputTarget(e);
+      if (!target) return;
+      const val = target.value.trim();
+      localStorage.setItem('customTimeFormat', val);
+      updateCustomTimeFormatPreview();
+      if (refs.displayWrapper) {
+        options.initDisplayWidget(refs.displayWrapper);
+      }
     });
   }
 

@@ -463,6 +463,63 @@
                   class="display-sub-setting"
                   style="display: none"
                 >
+                  <div class="setting-label-row">
+                    <label
+                      for="timezoneInput"
+                      class="setting-label-small"
+                      data-i18n="timezoneLabel"
+                      >Timezone</label
+                    >
+                    <a
+                      href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#timezones"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="setting-help-link"
+                      title="Help"
+                    >
+                      <svg><use href="#icon-question-circle" /></svg>
+                    </a>
+                  </div>
+                  <div class="input-row">
+                    <input
+                      type="text"
+                      id="timezoneInput"
+                      placeholder="e.g., UTC, America/Sao_Paulo"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="setting-label-row" style="margin-top: 0.3rem">
+                    <label
+                      for="customTimeFormatInput"
+                      class="setting-label-small"
+                      data-i18n="timeFormatLabel"
+                      >Time Format</label
+                    >
+                    <a
+                      href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#list-of-supported-tokens"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="setting-help-link"
+                      title="Help"
+                    >
+                      <svg><use href="#icon-question-circle" /></svg>
+                    </a>
+                  </div>
+                  <div class="input-row">
+                    <input
+                      type="text"
+                      id="customTimeFormatInput"
+                      placeholder="e.g., %HH:%mm:%ss"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div
+                    id="customTimeFormatPreview"
+                    class="format-preview-text"
+                    style="display: none"
+                  ></div>
+
                   <div
                     class="switch-row child-setting"
                     style="margin-top: 0.3rem"
