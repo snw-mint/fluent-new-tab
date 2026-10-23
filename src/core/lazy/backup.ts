@@ -155,6 +155,19 @@ export function initBackupSystem(): void {
                 const value = data[key];
                 if (typeof value === 'string') localStorage.setItem(key, value);
               });
+              if (!data['timeFormat']) {
+                const legacy12 = data['use12Hour'] === 'true';
+                const legacySec = data['showSeconds'] === 'true';
+                if (legacy12 || legacySec) {
+                  const migrated =
+                    legacy12 && legacySec
+                      ? '12h-seconds'
+                      : legacy12
+                        ? '12h'
+                        : '24h-seconds';
+                  localStorage.setItem('timeFormat', migrated);
+                }
+              }
               const treeBackup = data['shortcuts'];
               if (typeof treeBackup === 'string') {
                 localStorage.setItem('shortcuts', treeBackup);

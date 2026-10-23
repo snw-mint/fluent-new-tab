@@ -233,11 +233,31 @@ function getZonedDateInfo(
   return { hour, minute, dayOfWeek };
 }
 
+export function getTimeFormat(): string {
+  const saved = localStorage.getItem('timeFormat');
+  if (saved) return saved;
+
+  const legacy12 = localStorage.getItem('use12Hour') === 'true';
+  const legacySec = localStorage.getItem('showSeconds') === 'true';
+
+  const migrated =
+    legacy12 && legacySec
+      ? '12h-seconds'
+      : legacy12
+        ? '12h'
+        : legacySec
+          ? '24h-seconds'
+          : '24h';
+
+  localStorage.setItem('timeFormat', migrated);
+  return migrated;
+}
+
 function renderTimeDate(wrapper: HTMLElement, type: string): void {
   const rawLang = localStorage.getItem('userLanguage') || 'en_US';
   const locale = rawLang.replace('_', '-');
   const timezone = getValidTimezone(localStorage.getItem('clockTimezone'));
-  const timeFormat = localStorage.getItem('timeFormat') || '24h';
+  const timeFormat = getTimeFormat();
   let dateFormat = localStorage.getItem('dateFormat');
   if (!dateFormat) {
     dateFormat = 'weekday';

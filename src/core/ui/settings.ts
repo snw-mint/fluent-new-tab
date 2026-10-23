@@ -13,6 +13,7 @@ import {
   getDisplayScaleBounds,
   getDisplayScaleForType,
   applyDisplayScale,
+  getTimeFormat,
 } from '@/core/boot/display';
 
 import { currentCityData, activeShortcutDropdowns } from '@/core/shared/state';
@@ -523,7 +524,7 @@ export function bindDisplayFeature(options: any): void {
   };
 
   if (refs.timeFormatSelect) {
-    const savedTimeFormat = localStorage.getItem('timeFormat') || '24h';
+    const savedTimeFormat = getTimeFormat();
     refs.timeFormatSelect.value = savedTimeFormat;
     updateCustomPatternVisibility(savedTimeFormat);
     const trigger =
@@ -610,7 +611,7 @@ export function bindDisplayFeature(options: any): void {
         refs.dateFormatSelect.value =
           localStorage.getItem('dateFormat') || 'weekday';
       if (refs.timeFormatSelect) {
-        const savedTimeFormat = localStorage.getItem('timeFormat') || '24h';
+        const savedTimeFormat = getTimeFormat();
         refs.timeFormatSelect.value = savedTimeFormat;
         updateCustomPatternVisibility(savedTimeFormat);
         const trigger =
