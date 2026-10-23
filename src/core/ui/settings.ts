@@ -540,6 +540,16 @@ export function bindDisplayFeature(options: any): void {
   }
 
   if (refs.timezoneInput) {
+    try {
+      const offsetMinutes = -new Date().getTimezoneOffset();
+      const sign = offsetMinutes >= 0 ? '+' : '-';
+      const abs = Math.abs(offsetMinutes);
+      const hours = String(Math.floor(abs / 60)).padStart(2, '0');
+      const minutes = String(abs % 60).padStart(2, '0');
+      refs.timezoneInput.placeholder = `UTC${sign}${hours}:${minutes}`;
+    } catch {
+      refs.timezoneInput.placeholder = 'UTC+00:00';
+    }
     const savedTz = localStorage.getItem('clockTimezone') || '';
     refs.timezoneInput.value = savedTz === 'auto' ? '' : savedTz;
   }
