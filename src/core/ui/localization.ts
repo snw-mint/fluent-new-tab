@@ -12,7 +12,7 @@ export function initLocalization(): void {
   if (refs.languageSelect) {
     const savedLang = localStorage.getItem('userLanguage');
     if (savedLang) refs.languageSelect.value = savedLang;
-    else refs.languageSelect.value = refs.languageSelect.options[0]?.value || 'en_US';
+    else refs.languageSelect.value = 'en_US';
 
     refs.languageSelect.dispatchEvent(new Event('change'));
 
