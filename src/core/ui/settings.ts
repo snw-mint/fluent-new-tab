@@ -1246,32 +1246,16 @@ export function bindWallpaperFeature(options: any, getWallpaperEngine: () => Pro
     });
   }
 
-  if (refs.uploadInput) {
-    refs.uploadWallpaperBtn?.addEventListener('click', async (e) => {
+  if (refs.uploadWallpaperBtn) {
+    refs.uploadWallpaperBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      if (!localStorage.getItem('hasSeenWallpaperUploadWarning')) {
-        const { warningModal } = await import('@/core/ui/ui-components');
-        warningModal.show({
-          title: (window as any).getTranslation?.('wallpaperUploadWarningTitle') || 'Note',
-          message:
-            (window as any).getTranslation?.('wallpaperUploadWarningDesc') ||
-            'Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.',
-          learnMoreUrl:
-            'https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#wallpaper-recommendations',
-          learnMoreText: (window as any).getTranslation?.('readRecommendations') || 'Read recommendations',
-          confirmText: (window as any).getTranslation?.('warningUnderstood') || 'Understood',
-          cancelText: (window as any).getTranslation?.('btnCancel') || 'Cancel',
-          onConfirm: () => {
-            localStorage.setItem('hasSeenWallpaperUploadWarning', 'true');
-            refs.uploadInput?.click();
-          },
-          onCancel: () => {},
-        });
-      } else {
-        refs.uploadInput.click();
-      }
+      const { openWallpaperEditModal } = await import('@/core/ui/wallpaper-modal');
+      openWallpaperEditModal();
     });
+  }
+
+  if (refs.uploadInput) {
 
     const saveAndRenderUploadedWallpaper = async (file: File) => {
       try {
