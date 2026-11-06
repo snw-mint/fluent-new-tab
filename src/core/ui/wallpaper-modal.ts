@@ -1,6 +1,5 @@
 import { mountTemplate } from '@/core/shared/dom-utils';
-
-let isInitialized = false;
+import { getWallpaperFromDB } from '@/core/boot/wallpaper-render';
 
 interface DropzoneElements {
   dropzone: HTMLElement | null;
@@ -12,40 +11,20 @@ interface DropzoneElements {
   deleteThumbBtn: HTMLElement | null;
 }
 
-function setupDropzone(elements: DropzoneElements): void {
-  const { dropzone, fileInput, emptyState, previewState, previewThumb, editThumbBtn, deleteThumbBtn } = elements;
+interface Slot {
+  key: string;
+  elements: DropzoneElements;
+  pendingFile: File | null;
+  pendingDelete: boolean;
+  tempUrl: string | null;
+}
+
+let isInitialized = false;
+let slots: Slot[] = [];
+
+function setupDropzoneEvents(slot: Slot): void {
+  const { dropzone, fileInput, editThumbBtn, deleteThumbBtn } = slot.elements;
   if (!dropzone || !fileInput) return;
-
-  let previewUrl: string | null = null;
-
-  const cleanup = () => {
-    if (previewUrl && previewUrl.startsWith('blob:')) {
-      URL.revokeObjectURL(previewUrl);
-      previewUrl = null;
-    }
-  };
-
-  const setPreview = (file: File) => {
-    cleanup();
-    previewUrl = URL.createObjectURL(file);
-    if (previewThumb) {
-      previewThumb.src = previewUrl;
-    }
-    emptyState?.classList.add('hidden');
-    previewState?.classList.remove('hidden');
-    dropzone.classList.add('has-image');
-  };
-
-  const clearPreview = () => {
-    cleanup();
-    if (previewThumb) {
-      previewThumb.src = '';
-    }
-    fileInput.value = '';
-    previewState?.classList.add('hidden');
-    emptyState?.classList.remove('hidden');
-    dropzone.classList.remove('has-image');
-  };
 
   dropzone.addEventListener('click', () => {
     if (dropzone.classList.contains('has-image')) return;
@@ -55,7 +34,7 @@ function setupDropzone(elements: DropzoneElements): void {
   fileInput.addEventListener('change', () => {
     const file = fileInput.files?.[0];
     if (file) {
-      setPreview(file);
+      setSlotFile(slot, file);
     }
   });
 
@@ -66,7 +45,7 @@ function setupDropzone(elements: DropzoneElements): void {
 
   deleteThumbBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    clearPreview();
+    clearSlot(slot);
   });
 
   dropzone.addEventListener('dragover', (e) => {
@@ -87,13 +66,79 @@ function setupDropzone(elements: DropzoneElements): void {
     if (dropzone.classList.contains('has-image')) return;
     const file = e.dataTransfer?.files?.[0];
     if (file && file.type.startsWith('image/')) {
-      setPreview(file);
+      setSlotFile(slot, file);
     }
   });
 }
 
-export function openWallpaperEditModal(): void {
-  mountTemplate('tpl-wallpaper-edit-modal');
+function setSlotFile(slot: Slot, file: File): void {
+  slot.pendingFile = file;
+  slot.pendingDelete = false;
+  if (slot.tempUrl) {
+    URL.revokeObjectURL(slot.tempUrl);
+  }
+  slot.tempUrl = URL.createObjectURL(file);
+  if (slot.elements.previewThumb) {
+    slot.elements.previewThumb.src = slot.tempUrl;
+  }
+  slot.elements.emptyState?.classList.add('hidden');
+  slot.elements.previewState?.classList.remove('hidden');
+  slot.elements.dropzone?.classList.add('has-image');
+}
+
+function clearSlot(slot: Slot): void {
+  slot.pendingFile = null;
+  slot.pendingDelete = true;
+  if (slot.tempUrl) {
+    URL.revokeObjectURL(slot.tempUrl);
+    slot.tempUrl = null;
+  }
+  if (slot.elements.previewThumb) {
+    slot.elements.previewThumb.src = '';
+  }
+  if (slot.elements.fileInput) {
+    slot.elements.fileInput.value = '';
+  }
+  slot.elements.previewState?.classList.add('hidden');
+  slot.elements.emptyState?.classList.remove('hidden');
+  slot.elements.dropzone?.classList.remove('has-image');
+}
+
+async function loadSlot(slot: Slot): Promise<void> {
+  if (slot.tempUrl) {
+    URL.revokeObjectURL(slot.tempUrl);
+    slot.tempUrl = null;
+  }
+  slot.pendingFile = null;
+  slot.pendingDelete = false;
+
+  const blob = await getWallpaperFromDB(slot.key);
+  if (blob) {
+    slot.tempUrl = URL.createObjectURL(blob);
+    if (slot.elements.previewThumb) {
+      slot.elements.previewThumb.src = slot.tempUrl;
+    }
+    slot.elements.emptyState?.classList.add('hidden');
+    slot.elements.previewState?.classList.remove('hidden');
+    slot.elements.dropzone?.classList.add('has-image');
+  } else {
+    if (slot.elements.previewThumb) {
+      slot.elements.previewThumb.src = '';
+    }
+    slot.elements.previewState?.classList.add('hidden');
+    slot.elements.emptyState?.classList.remove('hidden');
+    slot.elements.dropzone?.classList.remove('has-image');
+  }
+  if (slot.elements.fileInput) {
+    slot.elements.fileInput.value = '';
+  }
+}
+
+let handleKeyDown: (e: KeyboardEvent) => void;
+
+function initModal(): void {
+  if (isInitialized) return;
+  isInitialized = true;
 
   const modal = document.getElementById('wallpaperEditModal');
   if (!modal) return;
@@ -107,66 +152,164 @@ export function openWallpaperEditModal(): void {
   const closeModal = () => {
     modal.classList.remove('active');
     document.removeEventListener('keydown', handleKeyDown);
+    for (const slot of slots) {
+      if (slot.tempUrl) {
+        URL.revokeObjectURL(slot.tempUrl);
+        slot.tempUrl = null;
+      }
+      slot.pendingFile = null;
+      slot.pendingDelete = false;
+    }
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       closeModal();
     }
   };
 
-  if (!isInitialized) {
-    isInitialized = true;
+  closeBtn?.addEventListener('click', closeModal);
 
-    closeBtn?.addEventListener('click', closeModal);
-    saveBtn?.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
+  themeToggle?.addEventListener('change', () => {
+    const isDual = themeToggle.checked;
+    if (isDual) {
+      singleWrapper?.classList.add('hidden');
+      dualWrapper?.classList.remove('hidden');
+    } else {
+      dualWrapper?.classList.add('hidden');
+      singleWrapper?.classList.remove('hidden');
+    }
+  });
+
+  slots = [
+    {
+      key: 'custom_wallpaper',
+      elements: {
+        dropzone: document.getElementById('wallpaperDropzone'),
+        fileInput: document.getElementById('wallpaperEditFileInput') as HTMLInputElement | null,
+        emptyState: document.getElementById('wallpaperDropzoneEmpty'),
+        previewState: document.getElementById('wallpaperDropzonePreview'),
+        previewThumb: document.getElementById('wallpaperPreviewThumb') as HTMLImageElement | null,
+        editThumbBtn: document.getElementById('editWallpaperThumbBtn'),
+        deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtn'),
+      },
+      pendingFile: null,
+      pendingDelete: false,
+      tempUrl: null,
+    },
+    {
+      key: 'custom_wallpaper_light',
+      elements: {
+        dropzone: document.getElementById('wallpaperDropzoneLight'),
+        fileInput: document.getElementById('wallpaperEditFileInputLight') as HTMLInputElement | null,
+        emptyState: document.getElementById('wallpaperDropzoneEmptyLight'),
+        previewState: document.getElementById('wallpaperDropzonePreviewLight'),
+        previewThumb: document.getElementById('wallpaperPreviewThumbLight') as HTMLImageElement | null,
+        editThumbBtn: document.getElementById('editWallpaperThumbBtnLight'),
+        deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtnLight'),
+      },
+      pendingFile: null,
+      pendingDelete: false,
+      tempUrl: null,
+    },
+    {
+      key: 'custom_wallpaper_dark',
+      elements: {
+        dropzone: document.getElementById('wallpaperDropzoneDark'),
+        fileInput: document.getElementById('wallpaperEditFileInputDark') as HTMLInputElement | null,
+        emptyState: document.getElementById('wallpaperDropzoneEmptyDark'),
+        previewState: document.getElementById('wallpaperDropzonePreviewDark'),
+        previewThumb: document.getElementById('wallpaperPreviewThumbDark') as HTMLImageElement | null,
+        editThumbBtn: document.getElementById('editWallpaperThumbBtnDark'),
+        deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtnDark'),
+      },
+      pendingFile: null,
+      pendingDelete: false,
+      tempUrl: null,
+    },
+  ];
+
+  for (const slot of slots) {
+    setupDropzoneEvents(slot);
+  }
+
+  saveBtn?.addEventListener('click', async () => {
+    const isDual = themeToggle ? themeToggle.checked : false;
+    localStorage.setItem('dualWallpaperEnabled', String(isDual));
+
+    const { saveWallpaperToDB, deleteWallpaperFromDB } = await import('@/core/lazy/wallpaper-storage');
+
+    for (const slot of slots) {
+      if (slot.pendingFile) {
+        await saveWallpaperToDB(slot.pendingFile, slot.key);
+      } else if (slot.pendingDelete) {
+        await deleteWallpaperFromDB(slot.key);
       }
-    });
+    }
 
-    themeToggle?.addEventListener('change', () => {
-      const isDual = themeToggle.checked;
-      if (isDual) {
-        singleWrapper?.classList.add('hidden');
-        dualWrapper?.classList.remove('hidden');
-      } else {
-        dualWrapper?.classList.add('hidden');
-        singleWrapper?.classList.remove('hidden');
+    localStorage.setItem('wallpaperEnabled', 'true');
+    localStorage.setItem('wallpaperSource', 'local');
+    localStorage.setItem('wallpaperType', 'upload');
+
+    const toggleWallpaper = document.getElementById('toggleWallpaper') as HTMLInputElement | null;
+    if (toggleWallpaper) {
+      toggleWallpaper.checked = true;
+    }
+
+    const wallpaperSourceSelect = document.getElementById('wallpaperSource') as HTMLSelectElement | null;
+    if (wallpaperSourceSelect) {
+      wallpaperSourceSelect.value = 'upload';
+      const trigger = document.querySelector('#wallpaperSourceContainer .fluent-select-value');
+      if (trigger) {
+        trigger.textContent = 'Upload Image';
+        trigger.setAttribute('data-i18n', 'uploadOption');
       }
-    });
+    }
 
-    setupDropzone({
-      dropzone: document.getElementById('wallpaperDropzone'),
-      fileInput: document.getElementById('wallpaperEditFileInput') as HTMLInputElement | null,
-      emptyState: document.getElementById('wallpaperDropzoneEmpty'),
-      previewState: document.getElementById('wallpaperDropzonePreview'),
-      previewThumb: document.getElementById('wallpaperPreviewThumb') as HTMLImageElement | null,
-      editThumbBtn: document.getElementById('editWallpaperThumbBtn'),
-      deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtn'),
-    });
+    const uploadContainer = document.getElementById('uploadWallpaperContainer');
+    if (uploadContainer) {
+      uploadContainer.style.display = 'flex';
+    }
 
-    setupDropzone({
-      dropzone: document.getElementById('wallpaperDropzoneLight'),
-      fileInput: document.getElementById('wallpaperEditFileInputLight') as HTMLInputElement | null,
-      emptyState: document.getElementById('wallpaperDropzoneEmptyLight'),
-      previewState: document.getElementById('wallpaperDropzonePreviewLight'),
-      previewThumb: document.getElementById('wallpaperPreviewThumbLight') as HTMLImageElement | null,
-      editThumbBtn: document.getElementById('editWallpaperThumbBtnLight'),
-      deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtnLight'),
-    });
+    const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+    await WallpaperEngine.render();
 
-    setupDropzone({
-      dropzone: document.getElementById('wallpaperDropzoneDark'),
-      fileInput: document.getElementById('wallpaperEditFileInputDark') as HTMLInputElement | null,
-      emptyState: document.getElementById('wallpaperDropzoneEmptyDark'),
-      previewState: document.getElementById('wallpaperDropzonePreviewDark'),
-      previewThumb: document.getElementById('wallpaperPreviewThumbDark') as HTMLImageElement | null,
-      editThumbBtn: document.getElementById('editWallpaperThumbBtnDark'),
-      deleteThumbBtn: document.getElementById('deleteWallpaperThumbBtnDark'),
-    });
+    closeModal();
+  });
+}
+
+export async function openWallpaperEditModal(): Promise<void> {
+  mountTemplate('tpl-wallpaper-edit-modal');
+
+  const modal = document.getElementById('wallpaperEditModal');
+  if (!modal) return;
+
+  initModal();
+
+  const themeToggle = document.getElementById('toggleThemeWallpaper') as HTMLInputElement | null;
+  const singleWrapper = document.getElementById('wallpaperSingleDropzoneWrapper');
+  const dualWrapper = document.getElementById('wallpaperDualDropzonesWrapper');
+
+  const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
+  if (themeToggle) {
+    themeToggle.checked = isDual;
+  }
+  if (isDual) {
+    singleWrapper?.classList.add('hidden');
+    dualWrapper?.classList.remove('hidden');
+  } else {
+    dualWrapper?.classList.add('hidden');
+    singleWrapper?.classList.remove('hidden');
+  }
+
+  for (const slot of slots) {
+    await loadSlot(slot);
   }
 
   document.addEventListener('keydown', handleKeyDown);

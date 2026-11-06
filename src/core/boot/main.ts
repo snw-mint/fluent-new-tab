@@ -775,6 +775,14 @@ async function bootInteractive(): Promise<void> {
         refs.themeBtns.forEach((b) => {
           b.classList.toggle('active', b.dataset.theme === theme);
         });
+        if (
+          localStorage.getItem('wallpaperEnabled') === 'true' &&
+          localStorage.getItem('dualWallpaperEnabled') === 'true'
+        ) {
+          import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
+            WallpaperEngine.render();
+          });
+        }
       });
     });
   }

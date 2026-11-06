@@ -44,6 +44,25 @@ export function applyAccentColor(color: string): void {
   updateTabFavicon(color);
 }
 
+let systemThemeListenerInitialized = false;
+
+export function initSystemThemeListener(): void {
+  if (systemThemeListenerInitialized || typeof window === 'undefined' || !window.matchMedia) return;
+  systemThemeListenerInitialized = true;
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  mediaQuery.addEventListener('change', () => {
+    const theme = localStorage.getItem('theme') || 'auto';
+    if (theme === 'auto') {
+      applyTheme('auto');
+      if (localStorage.getItem('wallpaperEnabled') === 'true' && localStorage.getItem('dualWallpaperEnabled') === 'true') {
+        import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
+          WallpaperEngine.render();
+        });
+      }
+    }
+  });
+}
+
 export function applyTheme(theme: string): void {
   document.documentElement.removeAttribute('data-theme');
   if (theme === 'auto') {
@@ -57,6 +76,7 @@ export function applyTheme(theme: string): void {
 
 export function applyInitialTheme(): void {
   applyTheme(savedTheme);
+  initSystemThemeListener();
 }
 
 export function applyInitialAccentColorState(): void {
