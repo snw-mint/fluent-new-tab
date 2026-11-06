@@ -56,6 +56,9 @@ Upload personal image files (.png, .jpeg, .webp) directly from your device. Imag
 
 ### Wallpaper Recommendations
 
+> [!NOTE]
+> Depending on the device, wallpapers with exceptionally high aspect ratios or very large file sizes may result in slower extension loading times.
+
 To ensure optimal performance and fast tab loading times, follow these recommendations when uploading custom wallpapers:
 
 - **Recommended Formats**: `.webp` or `.jpeg` / `.jpg`. These formats provide efficient compression and hardware-accelerated decoding. Heavy `.png` files take longer to decompress on the CPU.

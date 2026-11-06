@@ -32,19 +32,6 @@ export function openWallpaperDB(): Promise<IDBDatabase> {
   });
 }
 
-function convertBase64ToBlob(base64: string): Promise<Blob> {
-  return fetch(base64).then((res) => res.blob());
-}
-
-export function convertBlobToBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = () => reject(new Error('Failed to convert Blob to Base64'));
-    reader.readAsDataURL(blob);
-  });
-}
-
 export async function getWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<Blob | null> {
   try {
     const db = await openWallpaperDB();
@@ -60,6 +47,31 @@ export async function getWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<
   } catch {
     return null;
   }
+}
+
+export function getActiveWallpaperKey(): string {
+  const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
+  if (!isDual) {
+    return 'custom_wallpaper';
+  }
+  const savedTheme = localStorage.getItem('theme') || 'auto';
+  const isDark =
+    savedTheme === 'dark' ||
+    (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  return isDark ? 'custom_wallpaper_dark' : 'custom_wallpaper_light';
+}
+
+export async function getActiveWallpaperBlob(): Promise<Blob | null> {
+  const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
+  if (!isDual) {
+    return getWallpaperFromDB('custom_wallpaper');
+  }
+  const key = getActiveWallpaperKey();
+  const blob = await getWallpaperFromDB(key);
+  if (blob) {
+    return blob;
+  }
+  return getWallpaperFromDB('custom_wallpaper');
 }
 
 export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
@@ -201,21 +213,12 @@ export async function bootWallpaper(enabled: boolean, source: string, type: stri
 
   let url = '';
   if (source === 'local' && type === 'upload') {
-    url = localStorage.getItem('wallpaper_local_cache') || '';
-    if (!url) {
-      try {
-        const blob = await getWallpaperFromDB();
-        if (blob) {
-          url = URL.createObjectURL(blob);
-          if (blob.size <= 2.5 * 1024 * 1024) {
-            try {
-              const base64 = await convertBlobToBase64(blob);
-              localStorage.setItem('wallpaper_local_cache', base64);
-            } catch {}
-          }
-        }
-      } catch {}
-    }
+    try {
+      const blob = await getActiveWallpaperBlob();
+      if (blob) {
+        url = URL.createObjectURL(blob);
+      }
+    } catch {}
   } else if (source === 'api') {
     const cacheKey = `wallpaper_cache_${type}`;
     try {

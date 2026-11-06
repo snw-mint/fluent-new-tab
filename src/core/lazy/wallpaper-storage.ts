@@ -6,9 +6,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { WALLPAPER_STORE_NAME, openWallpaperDB, convertBlobToBase64 } from '@/core/boot/wallpaper-render';
-
-export const MAX_LOCALSTORAGE_CACHE_BYTES = 2.5 * 1024 * 1024;
+import { WALLPAPER_STORE_NAME, openWallpaperDB } from '@/core/boot/wallpaper-render';
 
 export async function saveWallpaperToDB(fileOrBlob: Blob | File, keyName = 'custom_wallpaper'): Promise<boolean> {
   const db = await openWallpaperDB();
@@ -32,16 +30,20 @@ export async function saveWallpaperToDB(fileOrBlob: Blob | File, keyName = 'cust
     request.onerror = () => reject(request.error || new Error('INDEXED_DB_WRITE_ERROR'));
   });
 
-  if (fileOrBlob.size <= MAX_LOCALSTORAGE_CACHE_BYTES) {
-    try {
-      const base64Data = await convertBlobToBase64(fileOrBlob);
-      localStorage.setItem('wallpaper_local_cache', base64Data);
-    } catch {
-      localStorage.removeItem('wallpaper_local_cache');
-    }
-  } else {
-    localStorage.removeItem('wallpaper_local_cache');
-  }
-
   return true;
+}
+
+export async function deleteWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<boolean> {
+  const db = await openWallpaperDB();
+
+  return new Promise<boolean>((resolve, reject) => {
+    const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
+    const store = transaction.objectStore(WALLPAPER_STORE_NAME);
+    const request = store.delete(keyName);
+
+    request.onsuccess = () => resolve(true);
+    transaction.oncomplete = () => resolve(true);
+    transaction.onerror = () => reject(transaction.error || new Error('INDEXED_DB_DELETE_ERROR'));
+    request.onerror = () => reject(request.error || new Error('INDEXED_DB_DELETE_ERROR'));
+  });
 }

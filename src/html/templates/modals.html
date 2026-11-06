@@ -1,3 +1,140 @@
+<template id="tpl-wallpaper-edit-modal">
+  <div id="wallpaperEditModal" class="modal-overlay">
+    <div class="modal-content wallpaper-edit-modal-content">
+      <div class="modal-header">
+        <h3 data-i18n="editWallpaperLabel">Wallpaper edit</h3>
+        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#wallpaper-recommendations" target="_blank" rel="noopener noreferrer" class="modal-help-link" title="Help">
+          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-info" /></svg>
+          <span>Help</span>
+        </a>
+      </div>
+
+      <div class="switch-row wallpaper-theme-switch-row">
+        <label for="toggleThemeWallpaper" class="setting-label-small">Separate wallpaper by theme</label>
+        <label class="switch">
+          <input type="checkbox" id="toggleThemeWallpaper" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div id="wallpaperSingleDropzoneWrapper" class="dropzones-single-wrapper">
+        <div class="wallpaper-dropzone" id="wallpaperDropzone">
+          <input type="file" id="wallpaperEditFileInput" accept="image/png, image/jpeg, image/webp" style="display: none" />
+
+          <div class="dropzone-empty" id="wallpaperDropzoneEmpty">
+            <svg class="dropzone-icon" width="48" height="48" viewBox="0 0 24 24">
+              <use href="#icon-image" />
+            </svg>
+            <span class="dropzone-text">
+              <span data-i18n="visualSearchDragText">Drag an image here or</span>
+              <span data-i18n="visualSearchUploadLink">upload a file</span>
+            </span>
+          </div>
+
+          <div class="dropzone-preview hidden" id="wallpaperDropzonePreview">
+            <img id="wallpaperPreviewThumb" class="dropzone-thumb" alt="Wallpaper Preview" />
+            <div class="dropzone-actions">
+              <button type="button" id="editWallpaperThumbBtn" class="dropzone-action-btn edit-btn" title="Change">
+                <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24">
+                  <use href="#icon-edit" />
+                </svg>
+                <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24">
+                  <use href="#icon-edit-filled" />
+                </svg>
+              </button>
+              <button type="button" id="deleteWallpaperThumbBtn" class="dropzone-action-btn delete-btn" title="Remove">
+                <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24">
+                  <use href="#icon-trash" />
+                </svg>
+                <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24">
+                  <use href="#icon-trash-filled" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="wallpaperDualDropzonesWrapper" class="dropzones-dual-wrapper hidden">
+        <div class="dual-dropzone-item">
+          <div class="wallpaper-dropzone dual-dropzone" id="wallpaperDropzoneLight" data-theme="light">
+            <input type="file" id="wallpaperEditFileInputLight" accept="image/png, image/jpeg, image/webp" style="display: none" />
+
+            <div class="dropzone-empty" id="wallpaperDropzoneEmptyLight">
+              <svg class="dropzone-icon" width="28" height="28" viewBox="0 0 24 24">
+                <use href="#icon-image" />
+              </svg>
+              <span class="dropzone-text">
+                <span data-i18n="visualSearchDragText">Drag an image here or</span>
+                <span data-i18n="visualSearchUploadLink">upload a file</span>
+              </span>
+            </div>
+
+            <div class="dropzone-preview hidden" id="wallpaperDropzonePreviewLight">
+              <img id="wallpaperPreviewThumbLight" class="dropzone-thumb" alt="Light Wallpaper Preview" />
+              <div class="dropzone-actions">
+                <button type="button" id="editWallpaperThumbBtnLight" class="dropzone-action-btn edit-btn" title="Change">
+                  <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-edit" /></svg>
+                  <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-edit-filled" /></svg>
+                </button>
+                <button type="button" id="deleteWallpaperThumbBtnLight" class="dropzone-action-btn delete-btn" title="Remove">
+                  <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-trash" /></svg>
+                  <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-trash-filled" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="dual-card-label">
+            <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-weather-sunny" /></svg>
+            <span>Light</span>
+          </div>
+        </div>
+
+        <div class="dual-dropzone-item">
+          <div class="wallpaper-dropzone dual-dropzone" id="wallpaperDropzoneDark" data-theme="dark">
+            <input type="file" id="wallpaperEditFileInputDark" accept="image/png, image/jpeg, image/webp" style="display: none" />
+
+            <div class="dropzone-empty" id="wallpaperDropzoneEmptyDark">
+              <svg class="dropzone-icon" width="28" height="28" viewBox="0 0 24 24">
+                <use href="#icon-image" />
+              </svg>
+              <span class="dropzone-text">
+                <span data-i18n="visualSearchDragText">Drag an image here or</span>
+                <span data-i18n="visualSearchUploadLink">upload a file</span>
+              </span>
+            </div>
+
+            <div class="dropzone-preview hidden" id="wallpaperDropzonePreviewDark">
+              <img id="wallpaperPreviewThumbDark" class="dropzone-thumb" alt="Dark Wallpaper Preview" />
+              <div class="dropzone-actions">
+                <button type="button" id="editWallpaperThumbBtnDark" class="dropzone-action-btn edit-btn" title="Change">
+                  <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-edit" /></svg>
+                  <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-edit-filled" /></svg>
+                </button>
+                <button type="button" id="deleteWallpaperThumbBtnDark" class="dropzone-action-btn delete-btn" title="Remove">
+                  <svg class="icon-outline" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-trash" /></svg>
+                  <svg class="icon-filled" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-trash-filled" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="dual-card-label">
+            <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-weather-moon" /></svg>
+            <span>Dark</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="closeWallpaperEditModalBtn" class="btn-cancel" data-i18n="btnCancel">Cancel</button>
+        <button type="button" id="saveWallpaperEditModalBtn" class="btn-save" data-i18n="btnSave">Save</button>
+      </div>
+    </div>
+  </div>
+</template>
+
 <template id="tpl-add-modal">
   <div id="addModal" class="modal-overlay">
     <div class="modal-content">
