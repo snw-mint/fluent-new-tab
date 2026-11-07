@@ -55,7 +55,7 @@ export async function getWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<
   try {
     const db = await openWallpaperDB();
 
-    return await new Promise<Blob | null>((resolve, reject) => {
+    const blob = await new Promise<Blob | null>((resolve, reject) => {
       const transaction = db.transaction([WALLPAPER_STORE_NAME], 'readonly');
       const store = transaction.objectStore(WALLPAPER_STORE_NAME);
       const request = store.get(keyName);
@@ -63,6 +63,31 @@ export async function getWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<
       request.onsuccess = (event) => resolve((event.target as IDBRequest<Blob | undefined>).result ?? null);
       request.onerror = () => reject(new Error('Error reading from DB'));
     });
+
+    if (blob) {
+      if (keyName === 'custom_wallpaper' && localStorage.getItem('wallpaper_local_cache')) {
+        localStorage.removeItem('wallpaper_local_cache');
+      }
+      return blob;
+    }
+
+    if (keyName === 'custom_wallpaper') {
+      const legacyBase64 = localStorage.getItem('wallpaper_local_cache');
+      if (legacyBase64 && legacyBase64.startsWith('data:image/')) {
+        const res = await fetch(legacyBase64);
+        const migratedBlob = await res.blob();
+        await new Promise<void>((resolve) => {
+          const tx = db.transaction([WALLPAPER_STORE_NAME], 'readwrite');
+          tx.objectStore(WALLPAPER_STORE_NAME).put(migratedBlob, 'custom_wallpaper');
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+        localStorage.removeItem('wallpaper_local_cache');
+        return migratedBlob;
+      }
+    }
+
+    return null;
   } catch {
     return null;
   }

@@ -134,12 +134,18 @@
           getReq.onsuccess = function () {
             const blob = getReq.result;
             if (blob) {
+              if (localStorage.getItem('wallpaper_local_cache')) {
+                localStorage.removeItem('wallpaper_local_cache');
+              }
               applyEarlyWallpaper(URL.createObjectURL(blob), key).then(resolve);
             } else if (isDual) {
               const fallbackReq = store.get('custom_wallpaper');
               fallbackReq.onerror = () => resolve(null);
               fallbackReq.onsuccess = function () {
                 if (fallbackReq.result) {
+                  if (localStorage.getItem('wallpaper_local_cache')) {
+                    localStorage.removeItem('wallpaper_local_cache');
+                  }
                   applyEarlyWallpaper(URL.createObjectURL(fallbackReq.result), 'custom_wallpaper').then(resolve);
                 } else {
                   resolve(null);
