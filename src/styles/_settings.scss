@@ -405,19 +405,6 @@
 #uploadWallpaperContainer {
   width: 100%;
   margin-top: 0.45rem;
-
-  .backup-btn {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 0.3rem 0.675rem;
-    width: 100%;
-
-    svg {
-      width: 1rem;
-      height: 1rem;
-      flex-shrink: 0;
-    }
-  }
 }
 
 .theme-selector {

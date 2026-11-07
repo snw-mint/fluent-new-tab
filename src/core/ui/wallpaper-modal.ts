@@ -1,5 +1,7 @@
 import { mountTemplate } from '@/core/shared/dom-utils';
 import { getWallpaperFromDB } from '@/core/boot/wallpaper-render';
+import * as state from '@/core/shared/state';
+import * as refs from '@/core/shared/dom-refs';
 
 interface DropzoneElements {
   dropzone: HTMLElement | null;
@@ -243,44 +245,69 @@ function initModal(): void {
     const isDual = themeToggle ? themeToggle.checked : false;
     localStorage.setItem('dualWallpaperEnabled', String(isDual));
 
-    const { saveWallpaperToDB, deleteWallpaperFromDB } = await import('@/core/lazy/wallpaper-storage');
+    try {
+      const { saveWallpaperToDB, deleteWallpaperFromDB } = await import('@/core/lazy/wallpaper-storage');
 
-    for (const slot of slots) {
-      if (slot.pendingFile) {
-        await saveWallpaperToDB(slot.pendingFile, slot.key);
-      } else if (slot.pendingDelete) {
-        await deleteWallpaperFromDB(slot.key);
+      for (const slot of slots) {
+        if (slot.pendingFile) {
+          await saveWallpaperToDB(slot.pendingFile, slot.key);
+        } else if (slot.pendingDelete) {
+          await deleteWallpaperFromDB(slot.key);
+        }
       }
-    }
 
-    localStorage.setItem('wallpaperEnabled', 'true');
-    localStorage.setItem('wallpaperSource', 'local');
-    localStorage.setItem('wallpaperType', 'upload');
+      state.setWallpaperEnabled(true);
+      state.setCurrentWallpaperSource('local');
+      state.setCurrentWallpaperType('upload');
+      localStorage.setItem('wallpaperEnabled', 'true');
+      localStorage.setItem('wallpaperSource', 'local');
+      localStorage.setItem('wallpaperType', 'upload');
 
-    const toggleWallpaper = document.getElementById('toggleWallpaper') as HTMLInputElement | null;
-    if (toggleWallpaper) {
-      toggleWallpaper.checked = true;
-    }
-
-    const wallpaperSourceSelect = document.getElementById('wallpaperSource') as HTMLSelectElement | null;
-    if (wallpaperSourceSelect) {
-      wallpaperSourceSelect.value = 'upload';
-      const trigger = document.querySelector('#wallpaperSourceContainer .fluent-select-value');
-      if (trigger) {
-        trigger.textContent = 'Upload Image';
-        trigger.setAttribute('data-i18n', 'uploadOption');
+      if (refs.toggleWallpaper) {
+        refs.toggleWallpaper.checked = true;
       }
+
+      const autoColorBtn = document.querySelector('.color-preset-btn.auto-preset') as HTMLButtonElement | null;
+      if (autoColorBtn) {
+        autoColorBtn.disabled = false;
+      }
+
+      import('@/core/ui/ui-components').then(({ setCollapsible }) => {
+        if (refs.wallpaperSourceContainer) setCollapsible(refs.wallpaperSourceContainer, true, false);
+        if (refs.wallpaperOverlaySetting) setCollapsible(refs.wallpaperOverlaySetting, true, false);
+      });
+
+      if (refs.wallpaperSourceSelect) {
+        refs.wallpaperSourceSelect.value = 'upload';
+        const trigger = refs.wallpaperSourceContainer?.querySelector('.fluent-select-value');
+        if (trigger) {
+          trigger.textContent = (window as any).getTranslation?.('uploadOption') || 'Upload Image';
+          trigger.setAttribute('data-i18n', 'uploadOption');
+        }
+      }
+
+      const uploadContainer = document.getElementById('uploadWallpaperContainer');
+      if (uploadContainer) {
+        uploadContainer.style.display = 'flex';
+      }
+
+      const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
+      await WallpaperEngine.render();
+
+      closeModal();
+    } catch (error) {
+      console.error('Failed to save image to IndexedDB:', error);
+      const { warningModal } = await import('@/core/ui/ui-components');
+      warningModal.show({
+        title: (window as any).getTranslation?.('wallpaperDbErrorTitle') || 'Storage Error',
+        message:
+          (window as any).getTranslation?.('wallpaperDbErrorDesc') ||
+          'Failed to save the wallpaper in IndexedDB. Your browser storage might be full or restricted.',
+        confirmText: (window as any).getTranslation?.('warningUnderstood') || 'Understood',
+        confirmVariant: 'danger',
+        onConfirm: () => {},
+      });
     }
-
-    const uploadContainer = document.getElementById('uploadWallpaperContainer');
-    if (uploadContainer) {
-      uploadContainer.style.display = 'flex';
-    }
-
-    const { WallpaperEngine } = await import('@/core/lazy/wallpaper-engine');
-    await WallpaperEngine.render();
-
-    closeModal();
   });
 }
 
@@ -308,9 +335,7 @@ export async function openWallpaperEditModal(): Promise<void> {
     singleWrapper?.classList.remove('hidden');
   }
 
-  for (const slot of slots) {
-    await loadSlot(slot);
-  }
+  await Promise.all(slots.map((slot) => loadSlot(slot)));
 
   document.addEventListener('keydown', handleKeyDown);
   modal.classList.add('active');

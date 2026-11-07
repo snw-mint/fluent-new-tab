@@ -12,8 +12,19 @@ const WALLPAPER_DB_NAME = 'FluentNewTabDB';
 const WALLPAPER_DB_VERSION = 1;
 export const WALLPAPER_STORE_NAME = 'wallpapers';
 
+let dbPromise: Promise<IDBDatabase> | null = null;
+let currentWallpaperObjectUrl: string | null = null;
+
+export function setTrackedWallpaperObjectUrl(nextUrl: string | null): void {
+  if (currentWallpaperObjectUrl && currentWallpaperObjectUrl !== nextUrl) {
+    URL.revokeObjectURL(currentWallpaperObjectUrl);
+  }
+  currentWallpaperObjectUrl = nextUrl && nextUrl.startsWith('blob:') ? nextUrl : null;
+}
+
 export function openWallpaperDB(): Promise<IDBDatabase> {
-  return new Promise((resolve, reject) => {
+  if (dbPromise) return dbPromise;
+  dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open(WALLPAPER_DB_NAME, WALLPAPER_DB_VERSION);
 
     request.onupgradeneeded = (event) => {
@@ -23,13 +34,21 @@ export function openWallpaperDB(): Promise<IDBDatabase> {
       }
     };
 
-    request.onsuccess = (event) => resolve((event.target as IDBOpenDBRequest).result);
+    request.onsuccess = (event) => {
+      const db = (event.target as IDBOpenDBRequest).result;
+      db.onclose = () => {
+        dbPromise = null;
+      };
+      resolve(db);
+    };
 
     request.onerror = (event) => {
+      dbPromise = null;
       const errorMsg = (event.target as IDBOpenDBRequest).error?.name || 'UnknownError';
       reject('Error opening database: ' + errorMsg);
     };
   });
+  return dbPromise;
 }
 
 export async function getWallpaperFromDB(keyName = 'custom_wallpaper'): Promise<Blob | null> {
@@ -61,17 +80,24 @@ export function getActiveWallpaperKey(): string {
   return isDark ? 'custom_wallpaper_dark' : 'custom_wallpaper_light';
 }
 
-export async function getActiveWallpaperBlob(): Promise<Blob | null> {
+export async function getActiveWallpaperData(): Promise<{ blob: Blob | null; key: string }> {
   const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
   if (!isDual) {
-    return getWallpaperFromDB('custom_wallpaper');
+    const blob = await getWallpaperFromDB('custom_wallpaper');
+    return { blob, key: 'custom_wallpaper' };
   }
   const key = getActiveWallpaperKey();
   const blob = await getWallpaperFromDB(key);
   if (blob) {
-    return blob;
+    return { blob, key };
   }
-  return getWallpaperFromDB('custom_wallpaper');
+  const fallback = await getWallpaperFromDB('custom_wallpaper');
+  return { blob: fallback, key: 'custom_wallpaper' };
+}
+
+export async function getActiveWallpaperBlob(): Promise<Blob | null> {
+  const { blob } = await getActiveWallpaperData();
+  return blob;
 }
 
 export function updateOverlay(sliderValue: number, isEnabled: boolean): void {
@@ -188,19 +214,12 @@ export function isWallpaperCacheValid(type: string): boolean {
 }
 
 export function clearWallpaper(): void {
+  setTrackedWallpaperObjectUrl(null);
   document.documentElement.style.setProperty('--wallpaper-image', 'none');
   document.body.removeAttribute('data-wallpaper-active');
-  try {
-    localStorage.removeItem('wallpaper_local_cache');
-  } catch {}
-  const earlyBg = document.getElementById('early-bg-black');
-  if (earlyBg) earlyBg.remove();
-  const earlyFade = document.getElementById('wallpaper-fade-overlay');
-  if (earlyFade) earlyFade.remove();
   const earlyStyle = document.getElementById('early-wallpaper-style');
   if (earlyStyle) earlyStyle.remove();
   document.querySelectorAll('.wallpaper-crossfade-layer').forEach((el) => el.remove());
-  document.documentElement.removeAttribute('data-early-wallpaper');
   updateOverlay(0, false);
   hideCreditsBoot();
 }
@@ -212,35 +231,58 @@ export async function bootWallpaper(enabled: boolean, source: string, type: stri
   }
 
   let url = '';
-  if (source === 'local' && type === 'upload') {
+  let wallpaperId = '';
+  let appliedEarly = false;
+
+  const earlyPromise = (window as any).__earlyWallpaperPromise as
+    | Promise<{ url: string; id: string } | null>
+    | undefined;
+  if (earlyPromise) {
     try {
-      const blob = await getActiveWallpaperBlob();
-      if (blob) {
-        url = URL.createObjectURL(blob);
+      const earlyResult = await earlyPromise;
+      if (earlyResult && earlyResult.url) {
+        url = earlyResult.url;
+        wallpaperId = earlyResult.id;
+        appliedEarly = true;
+        setTrackedWallpaperObjectUrl(url);
       }
     } catch {}
-  } else if (source === 'api') {
-    const cacheKey = `wallpaper_cache_${type}`;
-    try {
-      const cached = getWallpaperCache(cacheKey);
-      const today = new Date().toISOString().slice(0, 10);
-      if (cached && cached.url && cached.date === today) {
-        url = cached.url;
-      }
-    } catch {}
+    delete (window as any).__earlyWallpaperPromise;
+  }
+
+  if (!url) {
+    if (source === 'local' && type === 'upload') {
+      try {
+        const { blob, key } = await getActiveWallpaperData();
+        if (blob) {
+          url = URL.createObjectURL(blob);
+          wallpaperId = key;
+          setTrackedWallpaperObjectUrl(url);
+        }
+      } catch {}
+    } else if (source === 'api') {
+      const cacheKey = `wallpaper_cache_${type}`;
+      try {
+        const cached = getWallpaperCache(cacheKey);
+        const today = new Date().toISOString().slice(0, 10);
+        if (cached && cached.url && cached.date === today) {
+          url = cached.url;
+          wallpaperId = cached.url;
+        }
+      } catch {}
+    }
   }
 
   if (url) {
     updateOverlay(overlay, true);
 
-    if (!document.documentElement.hasAttribute('data-early-wallpaper')) {
+    if (!appliedEarly) {
       const img = new Image();
       img.src = url;
       await img.decode().catch(() => {});
+      document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
+      document.body.setAttribute('data-wallpaper-active', 'true');
     }
-
-    document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
-    document.body.setAttribute('data-wallpaper-active', 'true');
 
     if (source === 'api') {
       showCreditsBoot(type);
@@ -250,7 +292,7 @@ export async function bootWallpaper(enabled: boolean, source: string, type: stri
 
     if ((localStorage.getItem('accentColorMode') || 'auto') === 'auto') {
       import('@/core/lazy/color-extractor').then(({ extractAndApplyAutoColor }) => {
-        extractAndApplyAutoColor(url, url);
+        extractAndApplyAutoColor(url, wallpaperId || url);
       });
     }
   } else if (source !== 'api') {

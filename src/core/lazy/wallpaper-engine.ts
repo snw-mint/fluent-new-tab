@@ -9,7 +9,8 @@
 import {
   updateOverlay,
   updateBlur,
-  getActiveWallpaperBlob,
+  getActiveWallpaperData,
+  setTrackedWallpaperObjectUrl,
   clearWallpaper,
   showCreditsBoot,
   hideCreditsBoot,
@@ -54,11 +55,15 @@ export class WallpaperEngine {
     }
 
     let targetUrl: string | null = null;
+    let wallpaperId = '';
 
     try {
       if (fullConfig.source === 'local' && fullConfig.type === 'upload') {
-        const blob = await getActiveWallpaperBlob();
-        if (blob) targetUrl = URL.createObjectURL(blob);
+        const { blob, key } = await getActiveWallpaperData();
+        if (blob) {
+          targetUrl = URL.createObjectURL(blob);
+          wallpaperId = key;
+        }
       } else if (fullConfig.source === 'api') {
         if (!isWallpaperCacheValid(fullConfig.type)) {
           const sourceName = fullConfig.type.charAt(0).toUpperCase() + fullConfig.type.slice(1);
@@ -72,6 +77,7 @@ export class WallpaperEngine {
         }
 
         targetUrl = await fetchDailyWallpaper(fullConfig.type as any);
+        if (targetUrl) wallpaperId = targetUrl;
       }
     } catch (err) {
       console.error('Wallpaper Engine Error:', err);
@@ -79,13 +85,13 @@ export class WallpaperEngine {
     }
 
     if (targetUrl) {
-      this.applyCinematicTransition(targetUrl, fullConfig);
+      this.applyCinematicTransition(targetUrl, fullConfig, wallpaperId || targetUrl);
     } else {
       clearWallpaper();
     }
   }
 
-  private static applyCinematicTransition(url: string, config: WallpaperConfig): void {
+  private static applyCinematicTransition(url: string, config: WallpaperConfig, wallpaperId: string): void {
     const img = new Image();
     img.src = url;
 
@@ -93,8 +99,6 @@ export class WallpaperEngine {
       .decode()
       .catch(() => {})
       .finally(() => {
-        document.documentElement.removeAttribute('data-early-wallpaper');
-
         document.querySelectorAll('.wallpaper-crossfade-layer').forEach((el) => el.remove());
 
         const updateConfigOnly = () => {
@@ -116,7 +120,7 @@ export class WallpaperEngine {
 
           if ((localStorage.getItem('accentColorMode') || 'auto') === 'auto') {
             import('@/core/lazy/color-extractor').then(({ extractAndApplyAutoColor }) => {
-              extractAndApplyAutoColor(url, url);
+              extractAndApplyAutoColor(url, wallpaperId);
             });
           }
         };
@@ -141,7 +145,11 @@ export class WallpaperEngine {
           if (cleanedUp) return;
           cleanedUp = true;
           document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
-          crossfade.remove();
+          document.getElementById('early-wallpaper-style')?.remove();
+          setTrackedWallpaperObjectUrl(url);
+          requestAnimationFrame(() => {
+            crossfade.remove();
+          });
         };
 
         crossfade.addEventListener('transitionend', (e) => {

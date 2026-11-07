@@ -54,7 +54,11 @@ export function initSystemThemeListener(): void {
     const theme = localStorage.getItem('theme') || 'auto';
     if (theme === 'auto') {
       applyTheme('auto');
-      if (localStorage.getItem('wallpaperEnabled') === 'true' && localStorage.getItem('dualWallpaperEnabled') === 'true') {
+      if (
+        localStorage.getItem('wallpaperEnabled') === 'true' &&
+        localStorage.getItem('dualWallpaperEnabled') === 'true' &&
+        (localStorage.getItem('wallpaperSource') || 'local') === 'local'
+      ) {
         import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
           WallpaperEngine.render();
         });
@@ -64,12 +68,16 @@ export function initSystemThemeListener(): void {
 }
 
 export function applyTheme(theme: string): void {
-  document.documentElement.removeAttribute('data-theme');
   if (theme === 'auto') {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (isDark) {
+      if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } else {
+      document.documentElement.removeAttribute('data-theme');
     }
-  } else {
+  } else if (document.documentElement.getAttribute('data-theme') !== theme) {
     document.documentElement.setAttribute('data-theme', theme);
   }
 }

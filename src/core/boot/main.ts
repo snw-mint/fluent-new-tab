@@ -15,7 +15,7 @@ import {
   applyAccentColor,
   updateTabFavicon,
 } from '@/core/boot/theme';
-import { bootWallpaper, isWallpaperCacheValid } from '@/core/boot/wallpaper-render';
+import { bootWallpaper, isWallpaperCacheValid, getActiveWallpaperKey } from '@/core/boot/wallpaper-render';
 import { initDisplayWidget } from '@/core/boot/display';
 import { renderShortcutsGrid } from '@/core/boot/shortcuts-render';
 import { engines } from '@/core/boot/search-engines';
@@ -502,7 +502,8 @@ async function bootInteractive(): Promise<void> {
       if (rawBg && rawBg !== 'none') {
         const urlMatch = rawBg.match(/url\(['"]?(.*?)['"]?\)/);
         if (urlMatch && urlMatch[1] && urlMatch[1] !== 'none') {
-          await extractAndApplyAutoColor(urlMatch[1], urlMatch[1]);
+          const wallpaperId = state.currentWallpaperSource === 'local' ? getActiveWallpaperKey() : urlMatch[1];
+          await extractAndApplyAutoColor(urlMatch[1], wallpaperId);
         }
       }
     },
@@ -769,15 +770,19 @@ async function bootInteractive(): Promise<void> {
       btn.addEventListener('click', () => {
         const theme = btn.dataset.theme as any;
         if (!theme) return;
+        const wasDark = document.documentElement.getAttribute('data-theme') === 'dark';
         playThemeAnimation(btn);
         applyTheme(theme);
         localStorage.setItem('theme', theme);
         refs.themeBtns.forEach((b) => {
           b.classList.toggle('active', b.dataset.theme === theme);
         });
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         if (
+          wasDark !== isDark &&
           localStorage.getItem('wallpaperEnabled') === 'true' &&
-          localStorage.getItem('dualWallpaperEnabled') === 'true'
+          localStorage.getItem('dualWallpaperEnabled') === 'true' &&
+          (localStorage.getItem('wallpaperSource') || 'local') === 'local'
         ) {
           import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
             WallpaperEngine.render();

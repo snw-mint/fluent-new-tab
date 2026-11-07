@@ -12,18 +12,6 @@
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 
-  const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  systemThemeQuery.addEventListener('change', (e) => {
-    const currentTheme = localStorage.getItem('theme') || 'auto';
-    if (currentTheme === 'auto') {
-      if (e.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-    }
-  });
-
   const surfaceTintEnabled = localStorage.getItem('fluent_surface_tint') === 'true';
   if (surfaceTintEnabled) {
     document.documentElement.setAttribute('data-surface-tint', 'true');
@@ -71,20 +59,32 @@
   const wallpaperSource = localStorage.getItem('wallpaperSource') || 'local';
   const wallpaperType = localStorage.getItem('wallpaperType') || 'upload';
 
-  function applyEarlyWallpaper(url) {
-    if (!url) return;
-    const style = document.createElement('style');
-    style.id = 'early-wallpaper-style';
-    style.textContent = `:root { --wallpaper-image: url('${url}'); }`;
-    document.head.appendChild(style);
-    document.documentElement.setAttribute('data-early-wallpaper', 'true');
-    if (document.body) {
-      document.body.setAttribute('data-wallpaper-active', 'true');
-    } else {
-      document.addEventListener('DOMContentLoaded', () => {
+  function applyEarlyWallpaper(url, id) {
+    if (!url) return Promise.resolve(null);
+    const img = new Image();
+    img.src = url;
+    const finalize = () => {
+      let style = document.getElementById('early-wallpaper-style');
+      if (!style) {
+        style = document.createElement('style');
+        style.id = 'early-wallpaper-style';
+        document.head.appendChild(style);
+      }
+      style.textContent = `:root { --wallpaper-image: url('${url}'); }`;
+      if (document.body) {
         document.body.setAttribute('data-wallpaper-active', 'true');
-      });
-    }
+      } else {
+        document.addEventListener(
+          'DOMContentLoaded',
+          () => {
+            document.body.setAttribute('data-wallpaper-active', 'true');
+          },
+          { once: true },
+        );
+      }
+      return { url, id: id || url };
+    };
+    return (img.decode ? img.decode() : Promise.resolve()).then(finalize, finalize);
   }
 
   if (wallpaperSource === 'api') {
@@ -96,48 +96,63 @@
       const now = Date.now();
       const timestamp = Number(cached?.timestamp || 0);
       const cachedUrl = typeof cached?.url === 'string' ? cached.url : '';
+      const today = new Date().toISOString().slice(0, 10);
 
-      if (cachedUrl && timestamp > 0 && now - timestamp < cacheDuration) {
+      if (cachedUrl && ((timestamp > 0 && now - timestamp < cacheDuration) || cached?.date === today)) {
         try {
           const parsed = new URL(cachedUrl);
           if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
-            applyEarlyWallpaper(cachedUrl);
+            window.__earlyWallpaperPromise = applyEarlyWallpaper(cachedUrl, cachedUrl);
           }
         } catch {}
       }
     } catch {}
   } else if (wallpaperSource === 'local') {
-    try {
-      const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
-      let key = 'custom_wallpaper';
-      if (isDual) {
-        const isDark =
-          savedTheme === 'dark' ||
-          (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        key = isDark ? 'custom_wallpaper_dark' : 'custom_wallpaper_light';
-      }
+    window.__earlyWallpaperPromise = new Promise((resolve) => {
+      try {
+        const isDual = localStorage.getItem('dualWallpaperEnabled') === 'true';
+        let key = 'custom_wallpaper';
+        if (isDual) {
+          const isDark =
+            savedTheme === 'dark' ||
+            (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          key = isDark ? 'custom_wallpaper_dark' : 'custom_wallpaper_light';
+        }
 
-      const req = indexedDB.open('FluentNewTabDB', 1);
-      req.onsuccess = function (e) {
-        const db = e.target.result;
-        if (!db.objectStoreNames.contains('wallpapers')) return;
-        const tx = db.transaction(['wallpapers'], 'readonly');
-        const store = tx.objectStore('wallpapers');
-        const getReq = store.get(key);
-        getReq.onsuccess = function () {
-          const blob = getReq.result;
-          if (blob) {
-            applyEarlyWallpaper(URL.createObjectURL(blob));
-          } else if (isDual) {
-            const fallbackReq = store.get('custom_wallpaper');
-            fallbackReq.onsuccess = function () {
-              if (fallbackReq.result) {
-                applyEarlyWallpaper(URL.createObjectURL(fallbackReq.result));
-              }
-            };
+        const req = indexedDB.open('FluentNewTabDB', 1);
+        req.onerror = () => resolve(null);
+        req.onsuccess = function (e) {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains('wallpapers')) {
+            resolve(null);
+            return;
           }
+          const tx = db.transaction(['wallpapers'], 'readonly');
+          const store = tx.objectStore('wallpapers');
+          const getReq = store.get(key);
+          getReq.onerror = () => resolve(null);
+          getReq.onsuccess = function () {
+            const blob = getReq.result;
+            if (blob) {
+              applyEarlyWallpaper(URL.createObjectURL(blob), key).then(resolve);
+            } else if (isDual) {
+              const fallbackReq = store.get('custom_wallpaper');
+              fallbackReq.onerror = () => resolve(null);
+              fallbackReq.onsuccess = function () {
+                if (fallbackReq.result) {
+                  applyEarlyWallpaper(URL.createObjectURL(fallbackReq.result), 'custom_wallpaper').then(resolve);
+                } else {
+                  resolve(null);
+                }
+              };
+            } else {
+              resolve(null);
+            }
+          };
         };
-      };
-    } catch {}
+      } catch {
+        resolve(null);
+      }
+    });
   }
 })();
