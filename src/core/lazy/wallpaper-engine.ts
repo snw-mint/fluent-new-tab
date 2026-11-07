@@ -9,7 +9,8 @@
 import {
   updateOverlay,
   updateBlur,
-  getWallpaperFromDB,
+  getActiveWallpaperData,
+  setTrackedWallpaperObjectUrl,
   clearWallpaper,
   showCreditsBoot,
   hideCreditsBoot,
@@ -34,22 +35,38 @@ export class WallpaperEngine {
     updateBlur(blur);
   }
 
-  public static async render(config: WallpaperConfig): Promise<void> {
-    if (!config.enabled) {
+  public static async render(config?: Partial<WallpaperConfig>): Promise<void> {
+    const isEnabled = config?.enabled ?? (localStorage.getItem('wallpaperEnabled') === 'true');
+    const source = config?.source ?? (localStorage.getItem('wallpaperSource') || 'local');
+    const type = config?.type ?? (localStorage.getItem('wallpaperType') || 'upload');
+    const overlay = config?.overlay ?? parseFloat(localStorage.getItem('wallpaperOverlay') || '10');
+
+    const fullConfig: WallpaperConfig = {
+      enabled: isEnabled,
+      source,
+      type,
+      overlay,
+    };
+
+    if (!fullConfig.enabled) {
       clearWallpaper();
       hideCreditsBoot();
       return;
     }
 
     let targetUrl: string | null = null;
+    let wallpaperId = '';
 
     try {
-      if (config.source === 'local' && config.type === 'upload') {
-        const blob = await getWallpaperFromDB();
-        if (blob) targetUrl = URL.createObjectURL(blob);
-      } else if (config.source === 'api') {
-        if (!isWallpaperCacheValid(config.type)) {
-          const sourceName = config.type.charAt(0).toUpperCase() + config.type.slice(1);
+      if (fullConfig.source === 'local' && fullConfig.type === 'upload') {
+        const { blob, key } = await getActiveWallpaperData();
+        if (blob) {
+          targetUrl = URL.createObjectURL(blob);
+          wallpaperId = key;
+        }
+      } else if (fullConfig.source === 'api') {
+        if (!isWallpaperCacheValid(fullConfig.type)) {
+          const sourceName = fullConfig.type.charAt(0).toUpperCase() + fullConfig.type.slice(1);
           let msg = (window as any).getTranslation?.('fetchingImagePlaceholder');
           if (!msg || msg === 'fetchingImagePlaceholder') {
             msg = `Fetching ${sourceName} image...`;
@@ -59,7 +76,8 @@ export class WallpaperEngine {
           showToast(msg, '/assets/icons/fetch.svg', 0);
         }
 
-        targetUrl = await fetchDailyWallpaper(config.type as any);
+        targetUrl = await fetchDailyWallpaper(fullConfig.type as any);
+        if (targetUrl) wallpaperId = targetUrl;
       }
     } catch (err) {
       console.error('Wallpaper Engine Error:', err);
@@ -67,13 +85,13 @@ export class WallpaperEngine {
     }
 
     if (targetUrl) {
-      this.applyCinematicTransition(targetUrl, config);
+      this.applyCinematicTransition(targetUrl, fullConfig, wallpaperId || targetUrl);
     } else {
       clearWallpaper();
     }
   }
 
-  private static applyCinematicTransition(url: string, config: WallpaperConfig): void {
+  private static applyCinematicTransition(url: string, config: WallpaperConfig, wallpaperId: string): void {
     const img = new Image();
     img.src = url;
 
@@ -81,8 +99,6 @@ export class WallpaperEngine {
       .decode()
       .catch(() => {})
       .finally(() => {
-        document.documentElement.removeAttribute('data-early-wallpaper');
-
         document.querySelectorAll('.wallpaper-crossfade-layer').forEach((el) => el.remove());
 
         const updateConfigOnly = () => {
@@ -104,7 +120,7 @@ export class WallpaperEngine {
 
           if ((localStorage.getItem('accentColorMode') || 'auto') === 'auto') {
             import('@/core/lazy/color-extractor').then(({ extractAndApplyAutoColor }) => {
-              extractAndApplyAutoColor(url, url);
+              extractAndApplyAutoColor(url, wallpaperId);
             });
           }
         };
@@ -129,7 +145,11 @@ export class WallpaperEngine {
           if (cleanedUp) return;
           cleanedUp = true;
           document.documentElement.style.setProperty('--wallpaper-image', `url('${url}')`);
-          crossfade.remove();
+          document.getElementById('early-wallpaper-style')?.remove();
+          setTrackedWallpaperObjectUrl(url);
+          requestAnimationFrame(() => {
+            crossfade.remove();
+          });
         };
 
         crossfade.addEventListener('transitionend', (e) => {

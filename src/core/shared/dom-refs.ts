@@ -128,7 +128,6 @@ export const toggleWallpaper = getById<HTMLInputElement>('toggleWallpaper');
 export const wallpaperSourceSelect = getById<HTMLSelectElement>('wallpaperSource');
 export const wallpaperSourceContainer = getById<HTMLDivElement>('wallpaperSourceContainer');
 export const uploadWallpaperBtn = getById<HTMLButtonElement>('uploadWallpaperBtn');
-export const uploadInput = getById<HTMLInputElement>('wallpaperUploadInput');
 export const wallpaperOverlaySetting = getById<HTMLDivElement>('wallpaperOverlaySetting');
 export const overlayToggleBtn = getById<HTMLDivElement>('overlay-toggle-btn');
 export const overlaySliderContainer = getById<HTMLDivElement>('overlay-slider-container');

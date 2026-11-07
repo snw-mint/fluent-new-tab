@@ -44,19 +44,47 @@ export function applyAccentColor(color: string): void {
   updateTabFavicon(color);
 }
 
-export function applyTheme(theme: string): void {
-  document.documentElement.removeAttribute('data-theme');
-  if (theme === 'auto') {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+let systemThemeListenerInitialized = false;
+
+export function initSystemThemeListener(): void {
+  if (systemThemeListenerInitialized || typeof window === 'undefined' || !window.matchMedia) return;
+  systemThemeListenerInitialized = true;
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  mediaQuery.addEventListener('change', () => {
+    const theme = localStorage.getItem('theme') || 'auto';
+    if (theme === 'auto') {
+      applyTheme('auto');
+      if (
+        localStorage.getItem('wallpaperEnabled') === 'true' &&
+        localStorage.getItem('dualWallpaperEnabled') === 'true' &&
+        (localStorage.getItem('wallpaperSource') || 'local') === 'local'
+      ) {
+        import('@/core/lazy/wallpaper-engine').then(({ WallpaperEngine }) => {
+          WallpaperEngine.render();
+        });
+      }
     }
-  } else {
+  });
+}
+
+export function applyTheme(theme: string): void {
+  if (theme === 'auto') {
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (isDark) {
+      if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  } else if (document.documentElement.getAttribute('data-theme') !== theme) {
     document.documentElement.setAttribute('data-theme', theme);
   }
 }
 
 export function applyInitialTheme(): void {
   applyTheme(savedTheme);
+  initSystemThemeListener();
 }
 
 export function applyInitialAccentColorState(): void {

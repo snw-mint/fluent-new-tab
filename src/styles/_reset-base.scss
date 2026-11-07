@@ -58,7 +58,7 @@ body {
     z-index: -3;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &[data-wallpaper-blur='true']::before,
@@ -73,10 +73,6 @@ body {
   &[data-wallpaper-active='true'] {
     background-image: none !important;
 
-    &::before {
-      opacity: 1;
-    }
-
     &::after {
       content: '';
       position: fixed;
@@ -85,8 +81,13 @@ body {
       z-index: -1;
       pointer-events: none;
       opacity: var(--wallpaper-overlay, 0);
-      transition: opacity 0.2s ease;
+      transition: opacity 0.22s ease;
     }
+  }
+
+  &.loaded[data-wallpaper-active='true']::before {
+    opacity: 1;
+    animation: fadeInOverlay 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &.loaded {
@@ -120,15 +121,6 @@ textarea {
   svg {
     fill: currentColor;
     transition: fill 0.3s ease;
-  }
-}
-
-html[data-early-wallpaper='true'] body {
-  transition: none !important;
-
-  &::before {
-    transition: none !important;
-    opacity: 1 !important;
   }
 }
 

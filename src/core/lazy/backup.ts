@@ -32,9 +32,9 @@ export const APP_KEYS: string[] = [
   'voiceSearchEnabled',
   'weatherUnit',
   'wallpaperEnabled',
+  'dualWallpaperEnabled',
   'wallpaperSource',
   'wallpaperType',
-  'wallpaperValue',
   'animationsDisabled',
   'reducedEffectsEnabled',
   'accentColorEnabled',
@@ -90,7 +90,6 @@ export function initBackupSystem(): void {
         'suggestionsEnabled',
         'wallpaperSource',
         'wallpaperType',
-        'wallpaperValue',
       ];
 
       APP_KEYS.forEach((key) => {
