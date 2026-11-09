@@ -369,6 +369,10 @@ export function bindDisplayFeature(options: any): void {
     const max = parseInt(sliderInput.max, 10);
     const val = parseInt(sliderInput.value, 10);
     sliderInput.style.setProperty('--slider-progress', `${(val - min) / (max - min)}`);
+    const valEl = sliderInput.parentElement?.querySelector('.fluent-slider-value');
+    if (valEl) {
+      valEl.textContent = sliderInput.value;
+    }
   };
 
   const syncDisplayScaleSlider = (preset?: string) => {
@@ -674,6 +678,10 @@ export function bindShortcutRadiusFeature(options: any): void {
       const min = parseInt(refs.shortcutRadiusSlider.min, 10);
       const max = parseInt(refs.shortcutRadiusSlider.max, 10);
       refs.shortcutRadiusSlider.style.setProperty('--slider-progress', `${(valNum - min) / (max - min)}`);
+      const valEl = refs.shortcutRadiusSlider.parentElement?.querySelector('.fluent-slider-value');
+      if (valEl) {
+        valEl.textContent = String(valNum);
+      }
     };
 
     updateSliderUI(currentRadius);
@@ -1110,6 +1118,10 @@ export function bindMainUiScaleFeature(options: any): void {
       const max = parseFloat(sliderInput.max);
       const val = parseFloat(sliderInput.value);
       sliderInput.style.setProperty('--slider-progress', `${(val - min) / (max - min)}`);
+      const valEl = sliderInput.parentElement?.querySelector('.fluent-slider-value');
+      if (valEl) {
+        valEl.textContent = sliderInput.value;
+      }
     };
 
     updateSliderProgress(slider);
@@ -1284,6 +1296,10 @@ export function bindWallpaperFeature(options: any, getWallpaperEngine: () => Pro
       const max = parseFloat(slider.max) || 100;
       const val = parseFloat(slider.value) || 0;
       slider.style.setProperty('--slider-progress', String((val - min) / (max - min)));
+      const valEl = slider.parentElement?.querySelector('.fluent-slider-value');
+      if (valEl) {
+        valEl.textContent = slider.value;
+      }
     };
 
     updateSliderProg(refs.overlaySlider);
@@ -1319,6 +1335,10 @@ export function bindWallpaperFeature(options: any, getWallpaperEngine: () => Pro
       const max = parseFloat(slider.max) || 40;
       const val = parseFloat(slider.value) || 0;
       slider.style.setProperty('--slider-progress', String((val - min) / (max - min)));
+      const valEl = slider.parentElement?.querySelector('.fluent-slider-value');
+      if (valEl) {
+        valEl.textContent = slider.value;
+      }
     };
 
     updateSliderProg(refs.wallpaperBlurSlider);

@@ -186,6 +186,11 @@ export function applyMagneticSnap(sliderId: string, defaultValue: number, snapTh
     const max = parseFloat(target.max || '100');
     const progress = (parseFloat(target.value) - min) / (max - min || 1);
     target.style.setProperty('--slider-progress', progress.toString());
+
+    const valEl = target.parentElement?.querySelector('.fluent-slider-value');
+    if (valEl) {
+      valEl.textContent = target.value;
+    }
   });
 
   slider.addEventListener('dblclick', (event) => {
@@ -196,6 +201,10 @@ export function applyMagneticSnap(sliderId: string, defaultValue: number, snapTh
     const max = parseFloat(target.max || '100');
     const progress = (parseFloat(target.value) - min) / (max - min || 1);
     target.style.setProperty('--slider-progress', progress.toString());
+    const valEl = target.parentElement?.querySelector('.fluent-slider-value');
+    if (valEl) {
+      valEl.textContent = target.value;
+    }
     target.dispatchEvent(new Event('input'));
     target.dispatchEvent(new Event('change'));
   });

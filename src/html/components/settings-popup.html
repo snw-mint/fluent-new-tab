@@ -143,11 +143,17 @@
       <div class="setting-content collapsed" id="overlay-slider-container">
         <div class="slider-row child-setting" id="wallpaperOverlayRow">
           <label for="wallpaper-overlay-slider" class="setting-label-small" data-i18n="overlayLabel">Image Overlay</label>
-          <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1" value="10" />
+          <div class="slider-wrapper">
+            <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1" value="10" />
+            <span class="fluent-slider-value" id="wallpaper-overlay-val">10</span>
+          </div>
         </div>
         <div class="slider-row child-setting" id="wallpaperBlurRow" style="margin-top: 0.4rem">
           <label for="wallpaperBlurSlider" class="setting-label-small" data-i18n="blurLabel">Image Blur</label>
-          <input type="range" id="wallpaperBlurSlider" class="fluent-slider" min="0" max="40" step="1" value="0" />
+          <div class="slider-wrapper">
+            <input type="range" id="wallpaperBlurSlider" class="fluent-slider" min="0" max="40" step="1" value="0" />
+            <span class="fluent-slider-value" id="wallpaperBlurVal">0</span>
+          </div>
         </div>
       </div>
     </div>
@@ -191,7 +197,10 @@
           <div id="subScale" class="display-sub-setting">
             <div class="slider-row child-setting">
               <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
-              <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5" value="85" />
+              <div class="slider-wrapper">
+                <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5" value="85" />
+                <span class="fluent-slider-value" id="displayScaleVal">85</span>
+              </div>
             </div>
           </div>
 
@@ -373,7 +382,10 @@
 
         <div class="slider-row child-setting" id="shortcutRadiusRow" style="margin-top: 0.4rem">
           <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner radius</label>
-          <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-100" max="100" step="1" value="0" />
+          <div class="slider-wrapper">
+            <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-100" max="100" step="1" value="0" />
+            <span class="fluent-slider-value" id="shortcutRadiusVal">0</span>
+          </div>
         </div>
 
         <div class="switch-row child-setting" id="importBookmarksRow" style="margin-top: 0.4rem">
@@ -537,7 +549,10 @@
     <div id="accessibilityOptions">
       <div class="slider-row child-setting" style="margin-bottom: 0.5rem" id="mainUiScaleRow">
         <label for="mainUiScaleSlider" class="setting-label-small" data-i18n="mainUiScaleLabel">Main UI Scale</label>
-        <input type="range" id="mainUiScaleSlider" class="fluent-slider" min="0.5" max="2.0" step="0.1" value="1" />
+        <div class="slider-wrapper">
+          <input type="range" id="mainUiScaleSlider" class="fluent-slider" min="0.5" max="2.0" step="0.1" value="1" />
+          <span class="fluent-slider-value" id="mainUiScaleVal">1</span>
+        </div>
       </div>
 
       <div class="switch-row child-setting">
