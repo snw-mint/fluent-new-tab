@@ -96,6 +96,18 @@ async function sha256(blob: Blob): Promise<string> {
   return [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
 }
 
+function hasChromeFaviconApi(): boolean {
+  try {
+    return Boolean(chrome.runtime?.getManifest?.().permissions?.includes('favicon'));
+  } catch {
+    return false;
+  }
+}
+
+function isLocalFaviconUrl(src: string): boolean {
+  return src.includes('/_favicon/?pageUrl=');
+}
+
 function chromeCandidatePages(u: URL): string[] {
   const pages = new Set<string>([u.href, `${u.origin}/`]);
   if (!isLocalHost(u.hostname)) {
@@ -112,7 +124,7 @@ function chromeCandidatePages(u: URL): string[] {
 }
 
 async function chromeIcon(u: URL): Promise<string | null> {
-  if (!chrome.runtime.getManifest().permissions?.includes('favicon')) {
+  if (!hasChromeFaviconApi()) {
     return null;
   }
   try {
@@ -121,14 +133,14 @@ async function chromeIcon(u: URL): Promise<string | null> {
       .then((b) => (b && b.size ? sha256(b) : null))
       .catch(() => null);
     const fbHash = await fallbackHash;
+    if (!fbHash) return null;
     for (const pageUrl of chromeCandidatePages(u)) {
       const iconUrl = chromeFaviconUrl(pageUrl);
       const res = await fetch(iconUrl);
       if (!res.ok) continue;
       const blob = await res.blob();
       if (!blob.size) continue;
-      const hash = await sha256(blob);
-      if (!fbHash || hash !== fbHash) {
+      if ((await sha256(blob)) !== fbHash) {
         return iconUrl;
       }
     }
@@ -143,14 +155,14 @@ function remoteCandidates(u: URL): string[] {
   if (isLocalHost(u.hostname)) {
     return LOCAL_ICON_PATHS.map((path) => u.origin + path);
   }
-  return [`https://favicon.vemetric.com/${u.hostname}?size=64&default=none`];
+  return [`https://favicon.vemetric.com/${u.hostname}?size=64`];
 }
 
-function isValidCachedSrc(src: string): boolean {
+function isValidCachedSrc(src: string, allowChromeExt: boolean): boolean {
   if (!src) return false;
   if (src.includes('icons.duckduckgo.com')) return false;
-  if (src.includes('favicon.vemetric.com') && !src.includes('default=none')) return false;
-  if (src.startsWith('chrome-extension://')) return false;
+  if (src.includes('default=none')) return false;
+  if (isLocalFaviconUrl(src)) return allowChromeExt;
   return true;
 }
 
@@ -169,17 +181,26 @@ export function resolveFavicon(pageUrl: string | undefined, force = false): Prom
   if (running) return running;
 
   const task = (async () => {
-    const fromChrome = await chromeIcon(url);
-    if (fromChrome && (await canLoad(fromChrome))) {
-      await writeEntry(key, fromChrome);
-      return fromChrome;
+    const canUseChrome = hasChromeFaviconApi();
+    const hit = !force ? (await loadCache())[key] : undefined;
+    const hasValidCache = Boolean(
+      hit && Date.now() - hit.ts < TTL && isValidCachedSrc(hit.src, canUseChrome),
+    );
+
+    if (hasValidCache && isLocalFaviconUrl(hit!.src)) {
+      return hit!.src;
     }
 
-    if (!force) {
-      const hit = (await loadCache())[key];
-      if (hit && Date.now() - hit.ts < TTL && isValidCachedSrc(hit.src) && (await canLoad(hit.src))) {
-        return hit.src;
+    if (canUseChrome) {
+      const fromChrome = await chromeIcon(url);
+      if (fromChrome) {
+        await writeEntry(key, fromChrome);
+        return fromChrome;
       }
+    }
+
+    if (hasValidCache) {
+      return hit!.src;
     }
 
     for (const src of remoteCandidates(url)) {
