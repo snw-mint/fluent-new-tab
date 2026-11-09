@@ -96,38 +96,62 @@ async function sha256(blob: Blob): Promise<string> {
   return [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
 }
 
-async function chromeIcon(pageUrl: string): Promise<string | null> {
+function chromeCandidatePages(u: URL): string[] {
+  const pages = new Set<string>([u.href, `${u.origin}/`]);
+  if (!isLocalHost(u.hostname)) {
+    if (u.hostname.startsWith('www.')) {
+      const bareHost = u.host.slice(4);
+      pages.add(`${u.protocol}//${bareHost}${u.pathname}${u.search}`);
+      pages.add(`${u.protocol}//${bareHost}/`);
+    } else if (u.hostname.split('.').length === 2) {
+      pages.add(`${u.protocol}//www.${u.host}${u.pathname}${u.search}`);
+      pages.add(`${u.protocol}//www.${u.host}/`);
+    }
+  }
+  return [...pages];
+}
+
+async function chromeIcon(u: URL): Promise<string | null> {
   if (!chrome.runtime.getManifest().permissions?.includes('favicon')) {
     return null;
   }
   try {
     fallbackHash ??= fetch(chromeFaviconUrl('https://favicon-probe.invalid/'))
-      .then((r) => r.blob())
-      .then(sha256)
+      .then((r) => (r.ok ? r.blob() : null))
+      .then((b) => (b && b.size ? sha256(b) : null))
       .catch(() => null);
-    const iconUrl = chromeFaviconUrl(pageUrl);
-    const blob = await (await fetch(iconUrl)).blob();
-    if (!blob.size) return null;
-    return (await sha256(blob)) !== (await fallbackHash) ? iconUrl : null;
+    const fbHash = await fallbackHash;
+    for (const pageUrl of chromeCandidatePages(u)) {
+      const iconUrl = chromeFaviconUrl(pageUrl);
+      const res = await fetch(iconUrl);
+      if (!res.ok) continue;
+      const blob = await res.blob();
+      if (!blob.size) continue;
+      const hash = await sha256(blob);
+      if (!fbHash || hash !== fbHash) {
+        return iconUrl;
+      }
+    }
+    return null;
   } catch {
     return null;
   }
 }
 
-async function candidates(u: URL): Promise<string[]> {
+function remoteCandidates(u: URL): string[] {
   if (u.protocol !== 'http:' && u.protocol !== 'https:') return [];
-
-  const list: string[] = [];
-  const fromChrome = await chromeIcon(u.href);
-  if (fromChrome) list.push(fromChrome);
-
   if (isLocalHost(u.hostname)) {
-    list.push(...LOCAL_ICON_PATHS.map((path) => u.origin + path));
-  } else {
-    list.push(`https://favicon.vemetric.com/${u.hostname}?size=64`);
-    list.push(`https://icons.duckduckgo.com/ip3/${u.hostname}.ico`);
+    return LOCAL_ICON_PATHS.map((path) => u.origin + path);
   }
-  return list;
+  return [`https://favicon.vemetric.com/${u.hostname}?size=64&default=none`];
+}
+
+function isValidCachedSrc(src: string): boolean {
+  if (!src) return false;
+  if (src.includes('icons.duckduckgo.com')) return false;
+  if (src.includes('favicon.vemetric.com') && !src.includes('default=none')) return false;
+  if (src.startsWith('chrome-extension://')) return false;
+  return true;
 }
 
 export function resolveFavicon(pageUrl: string | undefined, force = false): Promise<string | null> {
@@ -140,21 +164,34 @@ export function resolveFavicon(pageUrl: string | undefined, force = false): Prom
   if (!url.host) return Promise.resolve(null);
 
   const key = url.host;
-  const taskKey = `${key}|${force}`;
+  const taskKey = `${url.href}|${force}`;
   const running = inflight.get(taskKey);
   if (running) return running;
 
   const task = (async () => {
+    const fromChrome = await chromeIcon(url);
+    if (fromChrome && (await canLoad(fromChrome))) {
+      await writeEntry(key, fromChrome);
+      return fromChrome;
+    }
+
     if (!force) {
       const hit = (await loadCache())[key];
-      if (hit && Date.now() - hit.ts < TTL) return hit.src;
+      if (hit && Date.now() - hit.ts < TTL && isValidCachedSrc(hit.src) && (await canLoad(hit.src))) {
+        return hit.src;
+      }
     }
-    for (const src of await candidates(url)) {
+
+    for (const src of remoteCandidates(url)) {
       if (src.startsWith('http:')) {
         const dataUrl = await fetchHttpIconAsDataUrl(src);
         if (dataUrl && (await canLoad(dataUrl))) {
           await writeEntry(key, dataUrl);
           return dataUrl;
+        }
+        if (await canLoad(src)) {
+          await writeEntry(key, src);
+          return src;
         }
       } else if (await canLoad(src)) {
         await writeEntry(key, src);
