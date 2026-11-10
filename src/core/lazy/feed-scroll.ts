@@ -52,7 +52,9 @@ export function initFeedScroll(): void {
     return Boolean(
       document.querySelector('.modal-overlay.active') ||
       document.querySelector('.settings-popup.active') ||
-      document.querySelector('.launcher-popup.active'),
+      document.querySelector('.launcher-popup.active') ||
+      document.querySelector('#engineDropdown.active') ||
+      document.querySelector('.dropdown-menu.active'),
     );
   };
 
@@ -62,7 +64,7 @@ export function initFeedScroll(): void {
       if (hasActiveModal() || isAnimating || drawer.style.display === 'none') return;
 
       const target = e.target as HTMLElement | null;
-      if (target?.closest('.shortcuts-grid, .launcher-grid, .settings-popup')) {
+      if (target?.closest('.shortcuts-grid, .launcher-grid, .settings-popup, #engineDropdown, .dropdown-menu')) {
         return;
       }
 

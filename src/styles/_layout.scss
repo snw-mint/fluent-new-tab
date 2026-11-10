@@ -19,9 +19,16 @@
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 10vh;
+  position: relative;
+  z-index: 1;
   transform: scale(var(--main-ui-scale));
   transform-origin: center center;
   transition: padding-bottom 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:has(#engineDropdown.active),
+  &:has(.dropdown-menu.active) {
+    z-index: 150;
+  }
 }
 
 html[data-feed-active='true'][data-feed-mode='minimal'] .container,
