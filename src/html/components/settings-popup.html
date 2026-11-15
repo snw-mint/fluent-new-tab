@@ -1,29 +1,46 @@
 <div class="settings-wrapper">
   <span class="settings-label" data-i18n="settingsTitle">Page Settings</span>
   <button id="settingsBtn" class="settings-btn">
-    <svg><use href="#icon-settings" /></svg>
+    <svg>
+      <use href="#icon-settings" />
+    </svg>
   </button>
 </div>
 <div class="settings-popup" id="settingsPopup">
   <div class="settings-popup-header">
     <h3 class="settings-popup-title">Fluent New Tab</h3>
-    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md" target="_blank" rel="noopener noreferrer" class="settings-popup-help" title="Help" aria-label="Help">
-      <svg><use href="#icon-question-circle" /></svg>
+    <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md" target="_blank"
+      rel="noopener noreferrer" class="settings-popup-help" title="Help" aria-label="Help">
+      <svg>
+        <use href="#icon-question-circle" />
+      </svg>
     </a>
   </div>
   <div class="setting-group">
     <div class="theme-selector">
       <button class="theme-btn" data-theme="light" title="Light">
-        <svg class="icon-outline"><use href="#icon-weather-sunny" /></svg>
-        <svg class="icon-filled"><use href="#icon-weather-sunny-filled" /></svg>
+        <svg class="icon-outline">
+          <use href="#icon-weather-sunny" />
+        </svg>
+        <svg class="icon-filled">
+          <use href="#icon-weather-sunny-filled" />
+        </svg>
       </button>
       <button class="theme-btn" data-theme="dark" title="Dark">
-        <svg class="icon-outline"><use href="#icon-weather-moon" /></svg>
-        <svg class="icon-filled"><use href="#icon-weather-moon-filled" /></svg>
+        <svg class="icon-outline">
+          <use href="#icon-weather-moon" />
+        </svg>
+        <svg class="icon-filled">
+          <use href="#icon-weather-moon-filled" />
+        </svg>
       </button>
       <button class="theme-btn" data-theme="auto" title="System">
-        <svg class="icon-outline"><use href="#icon-desktop" /></svg>
-        <svg class="icon-filled"><use href="#icon-desktop-filled" /></svg>
+        <svg class="icon-outline">
+          <use href="#icon-desktop" />
+        </svg>
+        <svg class="icon-filled">
+          <use href="#icon-desktop-filled" />
+        </svg>
       </button>
     </div>
   </div>
@@ -31,35 +48,57 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-color-palette" /></svg>
+        <svg>
+          <use href="#icon-color-palette" />
+        </svg>
         <span data-i18n="appearanceTitle">Appearance</span>
       </div>
     </div>
 
     <div id="accentColorOptions">
       <div class="color-presets-row" id="accentPresetsRow">
-        <button type="button" class="color-preset-btn" data-color="#C43E1C" style="background-color: #c43e1c" title="Power Point">
-          <svg class="preset-check-icon"><use href="#icon-checkmark" /></svg>
+        <button type="button" class="color-preset-btn" data-color="#C43E1C" style="background-color: #c43e1c"
+          title="Power Point">
+          <svg class="preset-check-icon">
+            <use href="#icon-checkmark" />
+          </svg>
         </button>
-        <button type="button" class="color-preset-btn" data-color="#F2C811" style="background-color: #f2c811" title="PowerBI">
-          <svg class="preset-check-icon"><use href="#icon-checkmark" /></svg>
+        <button type="button" class="color-preset-btn" data-color="#F2C811" style="background-color: #f2c811"
+          title="PowerBI">
+          <svg class="preset-check-icon">
+            <use href="#icon-checkmark" />
+          </svg>
         </button>
-        <button type="button" class="color-preset-btn" data-color="#107C41" style="background-color: #107c41" title="Excel">
-          <svg class="preset-check-icon"><use href="#icon-checkmark" /></svg>
+        <button type="button" class="color-preset-btn" data-color="#107C41" style="background-color: #107c41"
+          title="Excel">
+          <svg class="preset-check-icon">
+            <use href="#icon-checkmark" />
+          </svg>
         </button>
-        <button type="button" class="color-preset-btn selected" data-color="#0078d4" style="background-color: #0078d4" title="Windows">
-          <svg class="preset-check-icon"><use href="#icon-checkmark" /></svg>
+        <button type="button" class="color-preset-btn selected" data-color="#0078d4" style="background-color: #0078d4"
+          title="Windows">
+          <svg class="preset-check-icon">
+            <use href="#icon-checkmark" />
+          </svg>
         </button>
 
         <button type="button" class="color-preset-btn auto-preset" data-color="auto" title="Get from wallpaper">
-          <svg class="icon-outline"><use href="#icon-paint-brush" /></svg>
-          <svg class="icon-filled"><use href="#icon-paint-brush-filled" /></svg>
+          <svg class="icon-outline">
+            <use href="#icon-paint-brush" />
+          </svg>
+          <svg class="icon-filled">
+            <use href="#icon-paint-brush-filled" />
+          </svg>
         </button>
 
         <label class="color-preset-btn custom-preset" title="Custom Color">
           <input type="color" id="accentCustomColor" class="custom-color-input" />
-          <svg class="icon-outline"><use href="#icon-eyedropper" /></svg>
-          <svg class="icon-filled"><use href="#icon-eyedropper-filled" /></svg>
+          <svg class="icon-outline">
+            <use href="#icon-eyedropper" />
+          </svg>
+          <svg class="icon-filled">
+            <use href="#icon-eyedropper-filled" />
+          </svg>
         </label>
       </div>
 
@@ -73,7 +112,9 @@
       <div class="setting-item collapsible-setting" id="accentMoreSetting">
         <div class="setting-header" id="accent-more-btn">
           <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-          <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+          <svg class="chevron-icon">
+            <use href="#icon-chevron-down" />
+          </svg>
         </div>
 
         <div class="setting-content collapsed" id="accent-more-container">
@@ -82,17 +123,22 @@
             <label class="fluent-checkbox">
               <input type="checkbox" id="toggleSurfaceTint" />
               <span class="checkbox-box" aria-hidden="true">
-                <svg><use href="#icon-checkmark" /></svg>
+                <svg>
+                  <use href="#icon-checkmark" />
+                </svg>
               </span>
             </label>
           </div>
 
           <div class="child-setting" id="tabFaviconContainer">
-            <label class="setting-label-small" style="margin-bottom: 0.5rem; margin-top: 0.5rem" data-i18n="tabFaviconLabel">Tab Icon</label>
+            <label class="setting-label-small" style="margin-bottom: 0.5rem; margin-top: 0.5rem"
+              data-i18n="tabFaviconLabel">Tab Icon</label>
             <div class="input-row">
               <input type="text" id="tabFaviconInput" placeholder="https://..." data-i18n="tabFaviconPlaceholder" />
               <button type="button" id="tabFaviconUploadBtn" title="Upload image">
-                <svg><use href="#icon-arrow-upload" /></svg>
+                <svg>
+                  <use href="#icon-arrow-upload" />
+                </svg>
               </button>
               <input type="file" id="tabFaviconFileInput" accept="image/*" style="display: none" />
             </div>
@@ -105,7 +151,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-image" /></svg>
+        <svg>
+          <use href="#icon-image" />
+        </svg>
         <span data-i18n="wallpaperTitle">Wallpaper</span>
       </div>
       <label class="switch">
@@ -123,7 +171,7 @@
         <select id="wallpaperSource" class="settings-select hidden-native-select" aria-label="Image Source">
           <option value="upload" data-i18n="uploadOption">Upload Image</option>
           <option value="bing">Bing</option>
-          <option value="wikimedia">Media Commons</option>
+          <option value="wikimedia">Wikimedia Commons</option>
           <option value="unsplash">Unsplash</option>
           <option value="pexels">Pexels</option>
         </select>
@@ -138,13 +186,17 @@
     <div class="setting-item collapsible-setting" id="wallpaperOverlaySetting">
       <div class="setting-header" id="overlay-toggle-btn">
         <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-        <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+        <svg class="chevron-icon">
+          <use href="#icon-chevron-down" />
+        </svg>
       </div>
       <div class="setting-content collapsed" id="overlay-slider-container">
         <div class="slider-row child-setting" id="wallpaperOverlayRow">
-          <label for="wallpaper-overlay-slider" class="setting-label-small" data-i18n="overlayLabel">Image Overlay</label>
+          <label for="wallpaper-overlay-slider" class="setting-label-small" data-i18n="overlayLabel">Image
+            Overlay</label>
           <div class="slider-wrapper">
-            <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1" value="10" />
+            <input type="range" id="wallpaper-overlay-slider" class="fluent-slider" min="0" max="100" step="1"
+              value="10" />
             <span class="fluent-slider-value" id="wallpaper-overlay-val">10</span>
           </div>
         </div>
@@ -162,7 +214,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-tab" /></svg>
+        <svg>
+          <use href="#icon-tab" />
+        </svg>
         <span data-i18n="displayTitle">Display</span>
       </div>
       <label class="switch">
@@ -190,7 +244,9 @@
       <div class="setting-item collapsible-setting" id="displayAdvancedSetting">
         <div class="setting-header" id="display-toggle-btn">
           <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-          <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+          <svg class="chevron-icon">
+            <use href="#icon-chevron-down" />
+          </svg>
         </div>
 
         <div class="setting-content collapsed" id="display-slider-container">
@@ -198,7 +254,8 @@
             <div class="slider-row child-setting">
               <label class="setting-label-small" data-i18n="displayScaleLabel">Display Scale</label>
               <div class="slider-wrapper">
-                <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5" value="85" />
+                <input type="range" id="displayScaleSlider" class="fluent-slider" min="50" max="200" step="5"
+                  value="85" />
                 <span class="fluent-slider-value" id="displayScaleVal">85</span>
               </div>
             </div>
@@ -225,7 +282,8 @@
             <div class="display-sub-setting">
               <label class="setting-label-small" data-i18n="greetingNameLabel">Your Name</label>
               <div class="input-row">
-                <input type="text" id="greetingNameInput" placeholder="e.g., John (optional)" maxlength="20" data-i18n="namePlaceholder" />
+                <input type="text" id="greetingNameInput" placeholder="e.g., John (optional)" maxlength="20"
+                  data-i18n="namePlaceholder" />
               </div>
             </div>
 
@@ -234,7 +292,9 @@
               <label class="fluent-checkbox">
                 <input type="checkbox" id="toggleHighlightName" />
                 <span class="checkbox-box" aria-hidden="true">
-                  <svg><use href="#icon-checkmark" /></svg>
+                  <svg>
+                    <use href="#icon-checkmark" />
+                  </svg>
                 </span>
               </label>
             </div>
@@ -259,11 +319,16 @@
             </div>
 
             <div class="setting-field-group" id="customTimeFormatGroup" style="display: none">
-              <label for="customTimeFormatInput" class="setting-label-small" data-i18n="customPatternLabel">Custom pattern</label>
+              <label for="customTimeFormatInput" class="setting-label-small" data-i18n="customPatternLabel">Custom
+                pattern</label>
               <div class="input-row">
-                <input type="text" id="customTimeFormatInput" placeholder="%HH:%mm:%ss" data-i18n="customPatternPlaceholder" autocomplete="off" />
-                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#list-of-supported-tokens" target="_blank" rel="noopener noreferrer" class="input-icon-link" title="Help" aria-label="Help">
-                  <svg><use href="#icon-question-circle" /></svg>
+                <input type="text" id="customTimeFormatInput" placeholder="%HH:%mm:%ss"
+                  data-i18n="customPatternPlaceholder" autocomplete="off" />
+                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#list-of-supported-tokens"
+                  target="_blank" rel="noopener noreferrer" class="input-icon-link" title="Help" aria-label="Help">
+                  <svg>
+                    <use href="#icon-question-circle" />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -272,8 +337,11 @@
               <label for="timezoneInput" class="setting-label-small" data-i18n="timezoneLabel">Timezone</label>
               <div class="input-row">
                 <input type="text" id="timezoneInput" placeholder="UTC+00:00" autocomplete="off" />
-                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#timezones" target="_blank" rel="noopener noreferrer" class="input-icon-link" title="Help" aria-label="Help">
-                  <svg><use href="#icon-question-circle" /></svg>
+                <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md#timezones" target="_blank"
+                  rel="noopener noreferrer" class="input-icon-link" title="Help" aria-label="Help">
+                  <svg>
+                    <use href="#icon-question-circle" />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -286,7 +354,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-clock" /></svg>
+        <svg>
+          <use href="#icon-clock" />
+        </svg>
         <span data-i18n="weatherTitle">Weather</span>
       </div>
       <label class="switch">
@@ -298,9 +368,12 @@
     <div id="cityInputGroup" class="display-sub-setting" style="position: relative">
       <label for="cityInput" class="setting-label-small" data-i18n="locationLabel">Location</label>
       <div class="input-row">
-        <input type="text" id="cityInput" placeholder="e.g., Los Angeles, California" data-i18n="cityPlaceholder" autocomplete="off" />
+        <input type="text" id="cityInput" placeholder="e.g., Los Angeles, California" data-i18n="cityPlaceholder"
+          autocomplete="off" />
         <button id="saveCityBtn">
-          <svg><use href="#icon-checkmark-circle" /></svg>
+          <svg>
+            <use href="#icon-checkmark-circle" />
+          </svg>
         </button>
       </div>
       <div id="citySuggestionsDropdown" class="fluent-select-popup" style="width: 100%; top: 100%">
@@ -311,7 +384,9 @@
     <div class="setting-item collapsible-setting" id="weatherMoreSetting">
       <div class="setting-header" id="weather-more-btn">
         <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-        <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+        <svg class="chevron-icon">
+          <use href="#icon-chevron-down" />
+        </svg>
       </div>
       <div class="setting-content collapsed" id="weather-more-container">
         <div class="switch-row child-setting" id="weatherUnitGroup">
@@ -319,7 +394,9 @@
           <label class="fluent-checkbox">
             <input type="checkbox" id="toggleFahrenheit" />
             <span class="checkbox-box" aria-hidden="true">
-              <svg><use href="#icon-checkmark" /></svg>
+              <svg>
+                <use href="#icon-checkmark" />
+              </svg>
             </span>
           </label>
         </div>
@@ -329,7 +406,9 @@
           <label class="fluent-checkbox">
             <input type="checkbox" id="toggleWeatherAlerts" />
             <span class="checkbox-box" aria-hidden="true">
-              <svg><use href="#icon-checkmark" /></svg>
+              <svg>
+                <use href="#icon-checkmark" />
+              </svg>
             </span>
           </label>
         </div>
@@ -340,7 +419,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-grid" /></svg>
+        <svg>
+          <use href="#icon-grid" />
+        </svg>
         <span data-i18n="shortcutsTitle">Shortcuts</span>
       </div>
       <label class="switch">
@@ -367,7 +448,9 @@
     <div class="setting-item collapsible-setting" id="shortcutsMoreSetting">
       <div class="setting-header" id="shortcuts-more-btn">
         <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-        <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+        <svg class="chevron-icon">
+          <use href="#icon-chevron-down" />
+        </svg>
       </div>
       <div class="setting-content collapsed" id="shortcuts-more-container">
         <div class="switch-row child-setting" id="hideShortcutNamesRow">
@@ -375,15 +458,19 @@
           <label class="fluent-checkbox">
             <input type="checkbox" id="toggleHideShortcutNames" />
             <span class="checkbox-box" aria-hidden="true">
-              <svg><use href="#icon-checkmark" /></svg>
+              <svg>
+                <use href="#icon-checkmark" />
+              </svg>
             </span>
           </label>
         </div>
 
         <div class="slider-row child-setting" id="shortcutRadiusRow" style="margin-top: 0.4rem">
-          <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner radius</label>
+          <label for="shortcutRadiusSlider" class="setting-label-small" data-i18n="shortcutRadiusLabel">Corner
+            radius</label>
           <div class="slider-wrapper">
-            <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-100" max="100" step="1" value="0" />
+            <input type="range" id="shortcutRadiusSlider" class="fluent-slider" min="-100" max="100" step="1"
+              value="0" />
             <span class="fluent-slider-value" id="shortcutRadiusVal">0</span>
           </div>
         </div>
@@ -399,7 +486,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-apps" /></svg>
+        <svg>
+          <use href="#icon-apps" />
+        </svg>
         <span data-i18n="appLauncherTitle">App Launcher</span>
       </div>
       <label class="switch">
@@ -426,7 +515,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-news" /></svg>
+        <svg>
+          <use href="#icon-news" />
+        </svg>
         <span data-i18n="feedTitle">Feed</span>
       </div>
       <label class="switch">
@@ -460,7 +551,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-search" /></svg>
+        <svg>
+          <use href="#icon-search" />
+        </svg>
         <span data-i18n="searchTitle">Search</span>
       </div>
 
@@ -487,7 +580,9 @@
       <div class="setting-item collapsible-setting" id="searchMoreSetting">
         <div class="setting-header" id="search-more-btn">
           <span class="setting-label-small" data-i18n="moreOptionsLabel">More options</span>
-          <svg class="chevron-icon"><use href="#icon-chevron-down" /></svg>
+          <svg class="chevron-icon">
+            <use href="#icon-chevron-down" />
+          </svg>
         </div>
         <div class="setting-content collapsed" id="search-more-container">
           <div class="switch-row child-setting" id="suggestionsRow">
@@ -495,7 +590,9 @@
             <label class="fluent-checkbox">
               <input type="checkbox" id="toggleSuggestions" />
               <span class="checkbox-box" aria-hidden="true">
-                <svg><use href="#icon-checkmark" /></svg>
+                <svg>
+                  <use href="#icon-checkmark" />
+                </svg>
               </span>
             </label>
           </div>
@@ -505,7 +602,9 @@
             <label class="fluent-checkbox">
               <input type="checkbox" id="toggleClearSearch" />
               <span class="checkbox-box" aria-hidden="true">
-                <svg><use href="#icon-checkmark" /></svg>
+                <svg>
+                  <use href="#icon-checkmark" />
+                </svg>
               </span>
             </label>
           </div>
@@ -515,7 +614,9 @@
             <label class="fluent-checkbox">
               <input type="checkbox" id="toggleVoiceSearch" />
               <span class="checkbox-box" aria-hidden="true">
-                <svg><use href="#icon-checkmark" /></svg>
+                <svg>
+                  <use href="#icon-checkmark" />
+                </svg>
               </span>
             </label>
           </div>
@@ -525,7 +626,9 @@
             <label class="fluent-checkbox">
               <input type="checkbox" id="toggleAskAi" />
               <span class="checkbox-box" aria-hidden="true">
-                <svg><use href="#icon-checkmark" /></svg>
+                <svg>
+                  <use href="#icon-checkmark" />
+                </svg>
               </span>
             </label>
           </div>
@@ -537,7 +640,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-text-size" /></svg>
+        <svg>
+          <use href="#icon-text-size" />
+        </svg>
         <span data-i18n="AccessibilityTitle">Accessibility</span>
       </div>
       <label class="switch">
@@ -560,7 +665,9 @@
         <label class="fluent-checkbox">
           <input type="checkbox" id="toggleDisableAnimations" />
           <span class="checkbox-box" aria-hidden="true">
-            <svg><use href="#icon-checkmark" /></svg>
+            <svg>
+              <use href="#icon-checkmark" />
+            </svg>
           </span>
         </label>
       </div>
@@ -570,7 +677,9 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-local-language" /></svg>
+        <svg>
+          <use href="#icon-local-language" />
+        </svg>
         <span data-i18n="languageTitle">Language</span>
       </div>
     </div>
@@ -611,7 +720,8 @@
       </div>
       <p class="language-translate-hint">
         Missing Language?
-        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/_locales/TRANSLATING.md" target="_blank" rel="noopener noreferrer">Help translate!</a>
+        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/_locales/TRANSLATING.md" target="_blank"
+          rel="noopener noreferrer">Help translate!</a>
       </p>
     </div>
   </div>
@@ -619,21 +729,27 @@
   <div class="setting-group">
     <div class="setting-header-row">
       <div class="group-title">
-        <svg><use href="#icon-info-fluent" /></svg>
+        <svg>
+          <use href="#icon-info-fluent" />
+        </svg>
         <span data-i18n="backupTitle">Data Backup</span>
       </div>
     </div>
 
     <div class="backup-row">
       <button id="exportBtn" class="backup-btn" title="Save settings">
-        <svg><use href="#icon-arrow-download" /></svg>
+        <svg>
+          <use href="#icon-arrow-download" />
+        </svg>
         <span data-i18n="exportOption">Export</span>
       </button>
 
       <input type="file" id="importInput" accept=".json" style="display: none" />
 
       <button id="importBtn" class="backup-btn" title="Restore Backup">
-        <svg><use href="#icon-arrow-import" /></svg>
+        <svg>
+          <use href="#icon-arrow-import" />
+        </svg>
         <span data-i18n="importOption">Import</span>
       </button>
     </div>
@@ -641,30 +757,39 @@
 
   <div class="settings-footer">
     <div class="settings-footer-help">
-      <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link footer-bmc-link" title="Buy me a coffee" aria-label="Buy me a coffee">
+      <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer"
+        class="footer-link footer-help-link footer-bmc-link" title="Buy me a coffee" aria-label="Buy me a coffee">
         <span data-i18n="bmcTitle">Buy me a coffee</span>
       </a>
-      <a href="https://github.com/snw-mint/fluent-new-tab/discussions" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Discussions" aria-label="Discussions">
+      <a href="https://github.com/snw-mint/fluent-new-tab/discussions" target="_blank" rel="noopener noreferrer"
+        class="footer-link footer-help-link" title="Discussions" aria-label="Discussions">
         <span data-i18n="bmcTitle">Discussions</span>
       </a>
-      <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Report a Bug" aria-label="Help">
+      <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=bug_report.yml" target="_blank"
+        rel="noopener noreferrer" class="footer-link footer-help-link" title="Report a Bug" aria-label="Help">
         <span>Report Bug</span>
       </a>
-      <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Request a feature" aria-label="Get Support">
+      <a href="https://github.com/snw-mint/fluent-new-tab/issues/new?template=feature_request.yml" target="_blank"
+        rel="noopener noreferrer" class="footer-link footer-help-link" title="Request a feature"
+        aria-label="Get Support">
         <span>Request Feature</span>
       </a>
-      <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank" rel="noopener noreferrer" class="footer-link footer-help-link" title="Privacy Policy" aria-label="Request a feature">
+      <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank" rel="noopener noreferrer"
+        class="footer-link footer-help-link" title="Privacy Policy" aria-label="Request a feature">
         <span>Privacy Policy</span>
       </a>
     </div>
     <div class="settings-footer-meta">
-      <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay" class="footer-link">v1.0</a>
+      <a href="https://github.com/snw-mint/fluent-new-tab/releases" target="_blank" id="versionDisplay"
+        class="footer-link">v1.0</a>
       <div class="footer-author">
         <span class="footer-text">by</span>
         <a href="https://github.com/snw-mint" target="_blank" class="footer-link">Snow Mint</a>
       </div>
       <a href="https://github.com/snw-mint/fluent-new-tab" target="_blank" class="footer-icon-link" title="Source Code">
-        <svg><use href="#icon-github" /></svg>
+        <svg>
+          <use href="#icon-github" />
+        </svg>
       </a>
     </div>
   </div>
