@@ -68,15 +68,15 @@ function getFluentIconFilename(code: number, isDay: number | boolean): string {
     case 80:
     case 81:
     case 82:
-      return isDay ? 'rain_showers_day.svg' : 'rain_showers_night.svg';
+      return 'rain_showers.svg';
     case 85:
     case 86:
-      return isDay ? 'snow_showers_day.svg' : 'snow_showers_night.svg';
+      return 'snow_showers.svg';
     case 95:
       return 'thunderstorm.svg';
     case 96:
     case 99:
-      return isDay ? 'hail_day.svg' : 'hail_night.svg';
+      return 'hail.svg';
     default:
       return 'cloudy.svg';
   }
