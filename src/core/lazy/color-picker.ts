@@ -44,18 +44,30 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
 }
 
+let pickerAbortController: AbortController | null = null;
+
+function sanitizeHexInput(raw: string): string {
+  return raw.replace(/[^0-9a-f]/gi, '').slice(0, 6).toUpperCase();
+}
+
 function hexToHsv(hex: string): { h: number; s: number; v: number } {
+  const clean = sanitizeHexInput(hex);
   let r = 0,
     g = 0,
     b = 0;
-  if (hex.length === 4) {
-    r = parseInt(hex[1] + hex[1], 16);
-    g = parseInt(hex[2] + hex[2], 16);
-    b = parseInt(hex[3] + hex[3], 16);
-  } else if (hex.length === 7) {
-    r = parseInt(hex.substring(1, 3), 16);
-    g = parseInt(hex.substring(3, 5), 16);
-    b = parseInt(hex.substring(5, 7), 16);
+  if (clean.length === 3) {
+    r = parseInt(clean[0] + clean[0], 16);
+    g = parseInt(clean[1] + clean[1], 16);
+    b = parseInt(clean[2] + clean[2], 16);
+  } else if (clean.length === 6) {
+    r = parseInt(clean.substring(0, 2), 16);
+    g = parseInt(clean.substring(2, 4), 16);
+    b = parseInt(clean.substring(4, 6), 16);
+  } else {
+    return { h: 206, s: 100, v: 83 };
+  }
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
+    return { h: 206, s: 100, v: 83 };
   }
   r /= 255;
   g /= 255;
@@ -93,6 +105,10 @@ export function initCustomColorPicker(
   warningModal: any,
   clearPresetSelection: () => void,
 ): void {
+  pickerAbortController?.abort();
+  pickerAbortController = new AbortController();
+  const { signal } = pickerAbortController;
+
   warningModal?.ensureMounted?.();
   const currentColor = localStorage.getItem('accentColorValue') || '#0078D4';
   let { h, s, v } = hexToHsv(currentColor);
@@ -107,6 +123,24 @@ export function initCustomColorPicker(
   const rInput = document.getElementById('customColorR') as HTMLInputElement;
   const gInput = document.getElementById('customColorG') as HTMLInputElement;
   const bInput = document.getElementById('customColorB') as HTMLInputElement;
+  const moreBtn = document.getElementById('custom-color-more-btn') as HTMLDivElement | null;
+  const moreContainer = document.getElementById('custom-color-more-container') as HTMLDivElement | null;
+
+  if (moreBtn && moreContainer) {
+    moreContainer.classList.add('collapsed');
+    moreBtn.classList.remove('expanded');
+    moreContainer.style.maxHeight = '';
+    moreBtn.addEventListener(
+      'click',
+      () => {
+        const isCollapsed = moreContainer.classList.contains('collapsed');
+        moreContainer.classList.toggle('collapsed', !isCollapsed);
+        moreBtn.classList.toggle('expanded', isCollapsed);
+        moreContainer.style.maxHeight = isCollapsed ? '140px' : '';
+      },
+      { signal },
+    );
+  }
 
   pickerContainer.classList.remove('hidden');
 
@@ -181,26 +215,43 @@ export function initCustomColorPicker(
     updateInputs();
   };
 
-  canvas.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    handleCanvasInteraction(e);
-  });
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) handleCanvasInteraction(e);
-  });
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-  });
+  canvas.addEventListener(
+    'mousedown',
+    (e) => {
+      isDragging = true;
+      handleCanvasInteraction(e);
+    },
+    { signal },
+  );
+  document.addEventListener(
+    'mousemove',
+    (e) => {
+      if (isDragging) handleCanvasInteraction(e);
+    },
+    { signal },
+  );
+  document.addEventListener(
+    'mouseup',
+    () => {
+      isDragging = false;
+    },
+    { signal },
+  );
 
-  hueSlider.addEventListener('input', (e) => {
-    h = parseInt((e.target as HTMLInputElement).value, 10);
-    drawMatrix();
-    updateInputs();
-  });
+  hueSlider.addEventListener(
+    'input',
+    (e) => {
+      h = parseInt((e.target as HTMLInputElement).value, 10);
+      drawMatrix();
+      updateInputs();
+    },
+    { signal },
+  );
 
   const applyFromHex = (hexVal: string) => {
-    if (/^[0-9A-F]{6}$/i.test(hexVal)) {
-      const newHsv = hexToHsv(`#${hexVal}`);
+    const clean = sanitizeHexInput(hexVal);
+    if (clean.length === 6) {
+      const newHsv = hexToHsv(`#${clean}`);
       h = newHsv.h;
       s = newHsv.s;
       v = newHsv.v;
@@ -208,16 +259,38 @@ export function initCustomColorPicker(
       drawMatrix();
       updateCursor();
       updateInputs(false);
-      const rgb = hexToRgb(hexVal);
+      const rgb = hexToRgb(clean);
       rInput.value = rgb.r.toString();
       gInput.value = rgb.g.toString();
       bInput.value = rgb.b.toString();
     }
   };
 
-  hexInput.addEventListener('input', (e) => {
-    applyFromHex((e.target as HTMLInputElement).value.toUpperCase());
-  });
+  hexInput.addEventListener(
+    'paste',
+    (e) => {
+      const pasted = e.clipboardData?.getData('text') || '';
+      const clean = sanitizeHexInput(pasted);
+      if (clean) {
+        e.preventDefault();
+        hexInput.value = clean;
+        applyFromHex(clean);
+      }
+    },
+    { signal },
+  );
+
+  hexInput.addEventListener(
+    'input',
+    () => {
+      const clean = sanitizeHexInput(hexInput.value);
+      if (hexInput.value !== clean) {
+        hexInput.value = clean;
+      }
+      applyFromHex(clean);
+    },
+    { signal },
+  );
 
   const handleRgbInput = () => {
     let r = Math.min(255, Math.max(0, parseInt(rInput.value) || 0));
@@ -228,9 +301,9 @@ export function initCustomColorPicker(
     applyFromHex(newHex);
   };
 
-  rInput.addEventListener('input', handleRgbInput);
-  gInput.addEventListener('input', handleRgbInput);
-  bInput.addEventListener('input', handleRgbInput);
+  rInput.addEventListener('input', handleRgbInput, { signal });
+  gInput.addEventListener('input', handleRgbInput, { signal });
+  bInput.addEventListener('input', handleRgbInput, { signal });
 
   warningModal.show({
     title: getSafeText('customColorTitle', 'Custom Color'),
@@ -239,8 +312,10 @@ export function initCustomColorPicker(
     cancelText: getSafeText('btnCancel', 'Cancel'),
     confirmVariant: 'accent',
     onConfirm: () => {
+      pickerAbortController?.abort();
       pickerContainer.classList.add('hidden');
-      const finalColor = `#${hexInput.value}`;
+      const cleanHex = sanitizeHexInput(hexInput.value);
+      const finalColor = cleanHex.length === 6 ? `#${cleanHex}` : hsvToHex(h, s, v);
       customBtn.style.backgroundColor = finalColor;
       clearPresetSelection();
       customBtn.classList.add('selected');
@@ -251,6 +326,7 @@ export function initCustomColorPicker(
       if (toggleAuto) toggleAuto.checked = false;
     },
     onCancel: () => {
+      pickerAbortController?.abort();
       pickerContainer.classList.add('hidden');
     },
   });
