@@ -72,7 +72,7 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
         fluent_city_lon: message.lon,
       });
 
-      chrome.alarms.create('weatherAlertsFetch', { periodInMinutes: 180 });
+      chrome.alarms.create('weatherAlertsFetch', { periodInMinutes: 60 });
       fetchAndEvaluateAlerts(message.lat, message.lon);
     } else {
       chrome.alarms.clear('weatherAlertsFetch');
@@ -103,15 +103,14 @@ async function fetchAndEvaluateAlerts(lat, lon) {
 
     let activeAlert = null;
 
-    const temps = climateRes.hourly.temperature_2m;
-    const maxTemp = Math.max(...temps);
-    const minTemp = Math.min(...temps);
-    const currentTemp = temps[0];
+    const codes = climateRes.hourly.weathercode;
+    const hasStorm = codes.some((code) => [65, 75, 95, 96, 99].includes(code));
+    if (hasStorm) activeAlert = { type: 'storm', value: null };
 
-    if (currentTemp - minTemp >= 5) {
-      activeAlert = { type: 'temp_drop', value: Math.round(minTemp) };
-    } else if (maxTemp - currentTemp >= 5) {
-      activeAlert = { type: 'temp_rise', value: Math.round(maxTemp) };
+    if (!activeAlert) {
+      const gusts = climateRes.hourly.windgusts_10m;
+      const maxGust = Math.max(...gusts);
+      if (maxGust >= 45) activeAlert = { type: 'wind_high', value: Math.round(maxGust) };
     }
 
     if (!activeAlert) {
@@ -121,15 +120,16 @@ async function fetchAndEvaluateAlerts(lat, lon) {
     }
 
     if (!activeAlert) {
-      const codes = climateRes.hourly.weathercode;
-      const hasStorm = codes.some((code) => [65, 75, 95, 96, 99].includes(code));
-      if (hasStorm) activeAlert = { type: 'storm', value: null };
-    }
+      const temps = climateRes.hourly.temperature_2m;
+      const maxTemp = Math.max(...temps);
+      const minTemp = Math.min(...temps);
+      const currentTemp = temps[0];
 
-    if (!activeAlert) {
-      const gusts = climateRes.hourly.windgusts_10m;
-      const maxGust = Math.max(...gusts);
-      if (maxGust >= 45) activeAlert = { type: 'wind_high', value: Math.round(maxGust) };
+      if (currentTemp - minTemp >= 5) {
+        activeAlert = { type: 'temp_drop', value: Math.round(minTemp) };
+      } else if (maxTemp - currentTemp >= 5) {
+        activeAlert = { type: 'temp_rise', value: Math.round(maxTemp) };
+      }
     }
 
     if (!activeAlert && airRes.hourly) {

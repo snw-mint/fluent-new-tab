@@ -172,7 +172,7 @@ export function renderWeatherAlertWidget(): void {
     const alert = result?.currentWeatherAlert;
     let widget = document.getElementById(containerId);
 
-    if (!alert || Date.now() - alert.timestamp > 3600000) {
+    if (!alert || Date.now() - alert.timestamp > 5400000) {
       if (widget) widget.remove();
       return;
     }
@@ -200,17 +200,24 @@ export function renderWeatherAlertWidget(): void {
     const text = document.createElement('span');
     text.className = 'weather-alert-text';
 
+    const isFahrenheit = (localStorage.getItem('weatherUnit') || 'c').toLowerCase() === 'f';
+    const isTempAlert = alert.type === 'temp_drop' || alert.type === 'temp_rise';
+    const displayValue =
+      isTempAlert && isFahrenheit && alert.value !== null
+        ? Math.round((Number(alert.value) * 9) / 5 + 32)
+        : alert.value;
+
     let message = '';
     let i18nKey = '';
 
     switch (alert.type) {
       case 'temp_drop':
         i18nKey = 'alertTempDrop';
-        message = `Expected temperature drop: ${alert.value}°`;
+        message = `Expected temperature drop: ${displayValue}°`;
         break;
       case 'temp_rise':
         i18nKey = 'alertTempRise';
-        message = `Expected temperature rise: ${alert.value}°`;
+        message = `Expected temperature rise: ${displayValue}°`;
         break;
       case 'storm':
         i18nKey = 'alertStorm';
@@ -234,7 +241,7 @@ export function renderWeatherAlertWidget(): void {
     const win = window as any;
     if (typeof win.getTranslation === 'function') {
       let translated = win.getTranslation(i18nKey) || message;
-      translated = translated.replace('$VALUE$', String(alert.value || ''));
+      translated = translated.replace('$VALUE$', String(displayValue ?? ''));
       if (alert.type === 'pollen_high') {
         const pName = String(alert.value).replace('_pollen', '');
         translated = translated.replace('$POLLEN$', pName);
