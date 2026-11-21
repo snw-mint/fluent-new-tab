@@ -7,361 +7,377 @@
  - If not, see <https://www.gnu.org/licenses/>.
  -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
-    <link rel="stylesheet" href="/setup/setup.css" />
-    <script src="/scripts/theme-loader.js"></script>
-  </head>
 
-  <body>
-    <div id="splash-screen" class="splash-screen">
-      <div class="splash-content">
-        <img src="icons/logo.svg" alt="Fluent New Tab" class="splash-logo" />
-        <h1 class="splash-title">
-          <span class="splash-word word-fluent">Fluent</span>
-          <span class="splash-word word-new">New</span>
-          <span class="splash-word word-tab">Tab</span>
-        </h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link rel="stylesheet" href="/setup/setup.css" />
+  <script src="/scripts/theme-loader.js"></script>
+</head>
+
+<body>
+  <div id="step-welcome" class="step step-welcome active">
+    <div class="setup-brand">
+      <img src="/assets/icon-48.png" alt="Fluent New Tab" class="setup-brand-logo" />
+      <span class="setup-brand-name">Fluent New Tab</span>
+    </div>
+
+    <div class="welcome-language-picker">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m9.34 6.372.05.105 5.56 14.5a.755.755 0 0 1-.418.971.73.73 0 0 1-.91-.333l-.043-.092-1.433-3.737H5.06l-.094-.006-1.546 3.76a.73.73 0 0 1-.963.401.754.754 0 0 1-.427-.885l.033-.096 5.964-14.5a.73.73 0 0 1 1.314-.088m9.406-4.37a.75.75 0 0 1 .743.65l.007.1V7.5h1.75a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.648.743L21.246 9l-1.75-.001v7.25a.75.75 0 0 1-.648.744l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102V2.753a.75.75 0 0 1 .75-.75M8.81 8.748l-3.16 7.538h6.11zm1.937-6.744h5.498a.75.75 0 0 1 .743.648l.006.102v3.004c0 2.344-1.9 4.245-4.245 4.245a.75.75 0 0 1 0-1.5c1.46 0 2.654-1.14 2.74-2.578l.005-.167V3.503h-4.747a.75.75 0 0 1-.102-1.493zh5.498z"
+          fill="currentColor" />
+      </svg>
+      <div class="fluent-select-container">
+        <button type="button" class="fluent-select-trigger" data-target="select-language">
+          <span class="fluent-select-value">English</span>
+          <span class="fluent-select-arrow"></span>
+        </button>
+        <select id="select-language" class="welcome-lang-select hidden-native-select" aria-label="Language">
+          <option value="cs_CZ">Čeština</option>
+          <option value="da_DK">Dansk</option>
+          <option value="de_DE">Deutsch</option>
+          <option value="el_GR">Ελληνικά</option>
+          <option value="en_US" selected>English</option>
+          <option value="es_ES">Español</option>
+          <option value="fil_PH">Filipino</option>
+          <option value="fi_FI">Suomi</option>
+          <option value="fr_FR">Français</option>
+          <option value="hu_HU">Magyar</option>
+          <option value="id_ID">Bahasa Indonesia</option>
+          <option value="it_IT">Italiano</option>
+          <option value="ja_JP">日本語</option>
+          <option value="ko_KR">한국어</option>
+          <option value="nl_NL">Nederlands</option>
+          <option value="pl_PL">Polski</option>
+          <option value="pt_BR">Português</option>
+          <option value="ro_RO">Română</option>
+          <option value="ru_RU">Русский</option>
+          <option value="sv_SE">Svenska</option>
+          <option value="tr_TR">Türkçe</option>
+          <option value="uk_UA">Українська</option>
+          <option value="vi_VN">Tiếng Việt</option>
+          <option value="zh_CN">中文 (简体)</option>
+          <option value="zh_TW">中文 (繁體)</option>
+        </select>
       </div>
     </div>
 
-    <div id="step-welcome" class="step step-welcome active">
-      <div class="welcome-language-picker">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="m9.34 6.372.05.105 5.56 14.5a.755.755 0 0 1-.418.971.73.73 0 0 1-.91-.333l-.043-.092-1.433-3.737H5.06l-.094-.006-1.546 3.76a.73.73 0 0 1-.963.401.754.754 0 0 1-.427-.885l.033-.096 5.964-14.5a.73.73 0 0 1 1.314-.088m9.406-4.37a.75.75 0 0 1 .743.65l.007.1V7.5h1.75a.75.75 0 0 1 .743.649l.007.102a.75.75 0 0 1-.648.743L21.246 9l-1.75-.001v7.25a.75.75 0 0 1-.648.744l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102V2.753a.75.75 0 0 1 .75-.75M8.81 8.748l-3.16 7.538h6.11zm1.937-6.744h5.498a.75.75 0 0 1 .743.648l.006.102v3.004c0 2.344-1.9 4.245-4.245 4.245a.75.75 0 0 1 0-1.5c1.46 0 2.654-1.14 2.74-2.578l.005-.167V3.503h-4.747a.75.75 0 0 1-.102-1.493zh5.498z" fill="currentColor" />
-        </svg>
-        <div class="fluent-select-container">
-          <button type="button" class="fluent-select-trigger" data-target="select-language">
-            <span class="fluent-select-value">English</span>
-            <span class="fluent-select-arrow"></span>
-          </button>
-          <select id="select-language" class="welcome-lang-select hidden-native-select" aria-label="Language">
-            <option value="cs_CZ">Čeština</option>
-            <option value="da_DK">Dansk</option>
-            <option value="de_DE">Deutsch</option>
-            <option value="el_GR">Ελληνικά</option>
-            <option value="en_US" selected>English</option>
-            <option value="es_ES">Español</option>
-            <option value="fil_PH">Filipino</option>
-            <option value="fi_FI">Suomi</option>
-            <option value="fr_FR">Français</option>
-            <option value="hu_HU">Magyar</option>
-            <option value="id_ID">Bahasa Indonesia</option>
-            <option value="it_IT">Italiano</option>
-            <option value="ja_JP">日本語</option>
-            <option value="ko_KR">한국어</option>
-            <option value="nl_NL">Nederlands</option>
-            <option value="pl_PL">Polski</option>
-            <option value="pt_BR">Português</option>
-            <option value="ro_RO">Română</option>
-            <option value="ru_RU">Русский</option>
-            <option value="sv_SE">Svenska</option>
-            <option value="tr_TR">Türkçe</option>
-            <option value="uk_UA">Українська</option>
-            <option value="vi_VN">Tiếng Việt</option>
-            <option value="zh_CN">中文 (简体)</option>
-            <option value="zh_TW">中文 (繁體)</option>
-          </select>
-        </div>
-      </div>
+    <div class="welcome-container">
+      <h1 class="welcome-title" data-i18n="wizardWelcomeTitle">
+        Welcome
+        <span class="welcome-title-home">Home</span>
+      </h1>
+      <p class="welcome-subtitle" data-i18n="wizardWelcomeSubtitle">Your new fluent workspace is ready. Choose your next
+        step below.</p>
 
-      <div class="welcome-container">
-        <h1 class="welcome-title" data-i18n="wizardWelcomeTitle">
-          Welcome
-          <span class="welcome-title-home">Home</span>
-        </h1>
-        <p class="welcome-subtitle" data-i18n="wizardWelcomeSubtitle">Your new fluent workspace is ready. Choose your next step below.</p>
+      <div class="welcome-cards-horizontal">
+        <button type="button" class="welcome-card" id="btn-restore">
+          <img src="icons/restore.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardRestoreTitle">Restore settings</span>
+          <span class="welcome-card-desc" data-i18n="wizardRestoreDesc">Do you have a backup file?</span>
+        </button>
 
-        <div class="welcome-cards-horizontal">
-          <button type="button" class="welcome-card" id="btn-restore">
-            <img src="icons/restore.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardRestoreTitle">Restore settings</span>
-            <span class="welcome-card-desc" data-i18n="wizardRestoreDesc">Do you have a backup file?</span>
-          </button>
+        <button type="button" class="welcome-card" id="btn-start">
+          <img src="icons/init.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardStartTitle">Start the setup</span>
+          <span class="welcome-card-desc" data-i18n="wizardStartDesc">Start with a few steps.</span>
+        </button>
 
-          <button type="button" class="welcome-card" id="btn-start">
-            <img src="icons/init.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardStartTitle">Start the setup</span>
-            <span class="welcome-card-desc" data-i18n="wizardStartDesc">Start with a few steps.</span>
-          </button>
-
-          <button type="button" class="welcome-card" id="btn-skip">
-            <img src="icons/skip.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardSkipTitle">Skip setup</span>
-            <span class="welcome-card-desc" data-i18n="wizardSkipDesc">Start with the default setup.</span>
-          </button>
-        </div>
+        <button type="button" class="welcome-card" id="btn-skip">
+          <img src="icons/skip.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardSkipTitle">Skip setup</span>
+          <span class="welcome-card-desc" data-i18n="wizardSkipDesc">Start with the default setup.</span>
+        </button>
       </div>
     </div>
+  </div>
 
-    <div id="step-appearance" class="step step-split">
-      <div class="split-sidebar">
-        <div class="sidebar-top">
-          <img src="icons/theme.svg" alt="" class="card-icon" width="24" height="24" />
-          <h2 class="split-sidebar-title" data-i18n="wizardAppearanceTitle">Style & Appearance</h2>
-          <p class="split-sidebar-desc" data-i18n="wizardAppearanceDesc">Set your theme, accent color, name, and language.</p>
-        </div>
-        <div class="sidebar-bottom">
-          <div class="pagination-control">
-            <div class="btn-group">
-              <button class="btn-back" id="btnBack" data-i18n="btnBack">Back</button>
-              <button class="btn-next-large" id="btnNext" data-i18n="btnNext">Continue</button>
-            </div>
-            <div class="pagination-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-        </div>
+  <div id="step-appearance" class="step step-split">
+    <div class="split-sidebar">
+      <div class="sidebar-top">
+        <img src="icons/theme.svg" alt="" class="card-icon" width="24" height="24" />
+        <h2 class="split-sidebar-title" data-i18n="wizardAppearanceTitle">Style & Appearance</h2>
+        <p class="split-sidebar-desc" data-i18n="wizardAppearanceDesc">Set your theme, accent color, name, and language.
+        </p>
       </div>
-
-      <div class="split-main">
-        <div class="split-content spread-content">
-          <div class="setting-block">
-            <label class="setting-label-large">
-              <span data-i18n="appearanceTitle">Appearance</span>
-            </label>
-            <div class="theme-circles-container">
-              <div class="theme-wrapper">
-                <button class="theme-circle-big" data-theme="auto"></button>
-                <span class="theme-label" data-i18n="wizardThemeAuto">System</span>
-              </div>
-
-              <div class="theme-wrapper">
-                <button class="theme-circle-big" data-theme="light"></button>
-                <span class="theme-label" data-i18n="wizardThemeLight">Light</span>
-              </div>
-
-              <div class="theme-wrapper">
-                <button class="theme-circle-big" data-theme="dark"></button>
-                <span class="theme-label" data-i18n="wizardThemeDark">Dark</span>
-              </div>
-            </div>
+      <div class="sidebar-bottom">
+        <div class="pagination-control">
+          <div class="btn-group">
+            <button class="btn-back" id="btnBack" data-i18n="btnBack">Back</button>
+            <button class="btn-next-large" id="btnNext" data-i18n="btnNext">Continue</button>
           </div>
-
-          <div class="setting-block">
-            <label class="setting-label-large">
-              <span data-i18n="wizardAccentLabel">Accent Color</span>
-            </label>
-            <div class="accent-picker">
-              <button class="accent-option" data-color="#C43E1C" style="background-color: #c43e1c" title="Power Point"></button>
-              <button class="accent-option" data-color="#F2C811" style="background-color: #f2c811" title="PowerBI"></button>
-              <button class="accent-option" data-color="#107C41" style="background-color: #107c41" title="Excel"></button>
-              <button class="accent-option" data-color="#0078D4" style="background-color: #0078d4" title="Windows"></button>
-              <button class="accent-option" data-color="#5B5FC7" style="background-color: #5b5fc7" title="Teams"></button>
-              <button class="accent-option" data-color="#BC1948" style="background-color: #bc1948" title="Stream"></button>
-            </div>
-          </div>
-
-          <div class="setting-block">
-            <label class="setting-label-large" for="input-name">
-              <span data-i18n="greetingNameLabel">Your Name</span>
-            </label>
-            <input type="text" id="input-name" class="text-input-full" maxlength="20" data-i18n="namePlaceholder" placeholder="e.g., John (optional)" />
-          </div>
-
-          <div class="setting-block">
-            <label class="setting-label-large" for="input-tab-name">
-              <span data-i18n="tabNameLabel">Tab Name</span>
-            </label>
-            <input type="text" id="input-tab-name" class="text-input-full" maxlength="60" data-i18n="newTabTitle" placeholder="New Tab" />
+          <div class="pagination-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="step-widgets" class="step step-split">
-      <div class="split-sidebar">
-        <div class="sidebar-top">
-          <img src="icons/apps.svg" alt="" class="card-icon" width="24" height="24" />
-          <h2 class="split-sidebar-title" data-i18n="wizardWidgetsTitle">Widgets & Utilities</h2>
-          <p class="split-sidebar-desc" data-i18n="wizardWidgetsDesc">Choose what shows up on your page.</p>
-        </div>
-        <div class="sidebar-bottom">
-          <div class="pagination-control">
-            <div class="btn-group">
-              <button class="btn-back" id="btn-widgets-back" data-i18n="btnBack">Back</button>
-              <button class="btn-next-large" id="btn-widgets-next" data-i18n="btnNext">Continue</button>
+    <div class="split-main">
+      <div class="split-content spread-content">
+        <div class="setting-block">
+          <label class="setting-label-large">
+            <span data-i18n="appearanceTitle">Appearance</span>
+          </label>
+          <div class="theme-circles-container">
+            <div class="theme-wrapper">
+              <button class="theme-circle-big" data-theme="auto"></button>
+              <span class="theme-label" data-i18n="wizardThemeAuto">System</span>
             </div>
-            <div class="pagination-dots">
-              <span class="dot"></span>
-              <span class="dot active"></span>
+
+            <div class="theme-wrapper">
+              <button class="theme-circle-big" data-theme="light"></button>
+              <span class="theme-label" data-i18n="wizardThemeLight">Light</span>
+            </div>
+
+            <div class="theme-wrapper">
+              <button class="theme-circle-big" data-theme="dark"></button>
+              <span class="theme-label" data-i18n="wizardThemeDark">Dark</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="split-main">
-        <div class="split-content spread-content">
-          <div class="setting-block vertical-widget">
-            <div class="widget-header">
-              <label class="switch">
-                <input type="checkbox" id="toggle-display" checked />
-                <span class="slider"></span>
-              </label>
-              <div class="widget-label-group">
-                <div class="widget-info">
-                  <span class="setting-label-large" data-i18n="displayTitle">Display</span>
-                </div>
+        <div class="setting-block">
+          <label class="setting-label-large">
+            <span data-i18n="wizardAccentLabel">Accent Color</span>
+          </label>
+          <div class="accent-picker">
+            <button class="accent-option" data-color="#C43E1C" style="background-color: #c43e1c"
+              title="Power Point"></button>
+            <button class="accent-option" data-color="#F2C811" style="background-color: #f2c811"
+              title="PowerBI"></button>
+            <button class="accent-option" data-color="#107C41" style="background-color: #107c41" title="Excel"></button>
+            <button class="accent-option" data-color="#0078D4" style="background-color: #0078d4"
+              title="Windows"></button>
+            <button class="accent-option" data-color="#5B5FC7" style="background-color: #5b5fc7" title="Teams"></button>
+            <button class="accent-option" data-color="#BC1948" style="background-color: #bc1948"
+              title="Stream"></button>
+          </div>
+        </div>
+
+        <div class="setting-block">
+          <label class="setting-label-large" for="input-name">
+            <span data-i18n="greetingNameLabel">Your Name</span>
+          </label>
+          <input type="text" id="input-name" class="text-input-full" maxlength="20" data-i18n="namePlaceholder"
+            placeholder="e.g., John (optional)" />
+        </div>
+
+        <div class="setting-block">
+          <label class="setting-label-large" for="input-tab-name">
+            <span data-i18n="tabNameLabel">Tab Name</span>
+          </label>
+          <input type="text" id="input-tab-name" class="text-input-full" maxlength="60" data-i18n="newTabTitle"
+            placeholder="New Tab" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="step-widgets" class="step step-split">
+    <div class="split-sidebar">
+      <div class="sidebar-top">
+        <img src="icons/apps.svg" alt="" class="card-icon" width="24" height="24" />
+        <h2 class="split-sidebar-title" data-i18n="wizardWidgetsTitle">Widgets & Utilities</h2>
+        <p class="split-sidebar-desc" data-i18n="wizardWidgetsDesc">Choose what shows up on your page.</p>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="pagination-control">
+          <div class="btn-group">
+            <button class="btn-back" id="btn-widgets-back" data-i18n="btnBack">Back</button>
+            <button class="btn-next-large" id="btn-widgets-next" data-i18n="btnNext">Continue</button>
+          </div>
+          <div class="pagination-dots">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-main">
+      <div class="split-content spread-content">
+        <div class="setting-block vertical-widget">
+          <div class="widget-header">
+            <label class="switch">
+              <input type="checkbox" id="toggle-display" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="widget-label-group">
+              <div class="widget-info">
+                <span class="setting-label-large" data-i18n="displayTitle">Display</span>
               </div>
             </div>
+          </div>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="select-display">
+              <span class="fluent-select-value" data-i18n="displayGreeting">Greeting</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="select-display" class="settings-select-full hidden-native-select">
+              <option value="greeting" data-i18n="displayGreeting" selected>Greeting</option>
+              <option value="time" data-i18n="displayTime">Time</option>
+              <option value="date" data-i18n="displayDate">Date</option>
+              <option value="timedate" data-i18n="displayTimeDate">Time & Date</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-block vertical-widget">
+          <div class="widget-header">
+            <label class="switch">
+              <input type="checkbox" id="toggle-search" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="widget-label-group">
+              <div class="widget-info">
+                <span class="setting-label-large" data-i18n="searchTitle">Search</span>
+              </div>
+            </div>
+          </div>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="select-search">
+              <span class="fluent-select-value" data-i18n="systemDefault">System Default</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="select-search" class="settings-select-full hidden-native-select">
+              <option value="system" selected data-i18n="systemDefault">System Default</option>
+              <option value="bing">Bing</option>
+              <option value="google">Google</option>
+              <option value="brave">Brave Search</option>
+              <option value="duck">DuckDuckGo</option>
+              <option value="ecosia">Ecosia Search</option>
+              <option value="startpage">Start Page</option>
+              <option value="kagi">Kagi</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-block vertical-widget">
+          <div class="widget-header">
+            <label class="switch">
+              <input type="checkbox" id="toggle-shortcuts" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="widget-label-group">
+              <div class="widget-info">
+                <span class="setting-label-large" data-i18n="shortcutsTitle">Shortcuts</span>
+              </div>
+            </div>
+          </div>
+          <div class="setup-controls-row">
             <div class="fluent-select-container">
-              <button type="button" class="fluent-select-trigger" data-target="select-display">
-                <span class="fluent-select-value" data-i18n="displayGreeting">Greeting</span>
+              <button type="button" class="fluent-select-trigger" data-target="select-shortcuts">
+                <span class="fluent-select-value" data-i18n="rows1">1 Row</span>
                 <span class="fluent-select-arrow"></span>
               </button>
-              <select id="select-display" class="settings-select-full hidden-native-select">
-                <option value="greeting" data-i18n="displayGreeting" selected>Greeting</option>
-                <option value="time" data-i18n="displayTime">Time</option>
-                <option value="date" data-i18n="displayDate">Date</option>
-                <option value="timedate" data-i18n="displayTimeDate">Time & Date</option>
+              <select id="select-shortcuts" class="settings-select-full hidden-native-select">
+                <option value="1" data-i18n="rows1" selected>1 Row</option>
+                <option value="2" data-i18n="rows2">2 Rows</option>
+                <option value="3" data-i18n="rows3">3 Rows</option>
+                <option value="4" data-i18n="rows4">4 Rows</option>
               </select>
             </div>
+            <button type="button" id="importBookmarksBtn" class="accent-btn" data-i18n="importBookmarksBtnText">Import
+              Bookmarks</button>
           </div>
+        </div>
 
-          <div class="setting-block vertical-widget">
-            <div class="widget-header">
-              <label class="switch">
-                <input type="checkbox" id="toggle-search" checked />
-                <span class="slider"></span>
-              </label>
-              <div class="widget-label-group">
-                <div class="widget-info">
-                  <span class="setting-label-large" data-i18n="searchTitle">Search</span>
-                </div>
+        <div class="setting-block vertical-widget">
+          <div class="widget-header">
+            <label class="switch">
+              <input type="checkbox" id="toggle-launcher" />
+              <span class="slider"></span>
+            </label>
+            <div class="widget-label-group">
+              <div class="widget-info">
+                <span class="setting-label-large" data-i18n="appLauncherTitle">App Launcher</span>
               </div>
-            </div>
-            <div class="fluent-select-container">
-              <button type="button" class="fluent-select-trigger" data-target="select-search">
-                <span class="fluent-select-value" data-i18n="systemDefault">System Default</span>
-                <span class="fluent-select-arrow"></span>
-              </button>
-              <select id="select-search" class="settings-select-full hidden-native-select">
-                <option value="system" selected data-i18n="systemDefault">System Default</option>
-                <option value="bing">Bing</option>
-                <option value="google">Google</option>
-                <option value="brave">Brave Search</option>
-                <option value="duck">DuckDuckGo</option>
-                <option value="ecosia">Ecosia Search</option>
-                <option value="startpage">Start Page</option>
-                <option value="kagi">Kagi</option>
-              </select>
             </div>
           </div>
-
-          <div class="setting-block vertical-widget">
-            <div class="widget-header">
-              <label class="switch">
-                <input type="checkbox" id="toggle-shortcuts" checked />
-                <span class="slider"></span>
-              </label>
-              <div class="widget-label-group">
-                <div class="widget-info">
-                  <span class="setting-label-large" data-i18n="shortcutsTitle">Shortcuts</span>
-                </div>
-              </div>
-            </div>
-            <div class="setup-controls-row">
-              <div class="fluent-select-container">
-                <button type="button" class="fluent-select-trigger" data-target="select-shortcuts">
-                  <span class="fluent-select-value" data-i18n="rows1">1 Row</span>
-                  <span class="fluent-select-arrow"></span>
-                </button>
-                <select id="select-shortcuts" class="settings-select-full hidden-native-select">
-                  <option value="1" data-i18n="rows1" selected>1 Row</option>
-                  <option value="2" data-i18n="rows2">2 Rows</option>
-                  <option value="3" data-i18n="rows3">3 Rows</option>
-                  <option value="4" data-i18n="rows4">4 Rows</option>
-                </select>
-              </div>
-              <button type="button" id="importBookmarksBtn" class="accent-btn" data-i18n="importBookmarksBtnText">Import Bookmarks</button>
-            </div>
-          </div>
-
-          <div class="setting-block vertical-widget">
-            <div class="widget-header">
-              <label class="switch">
-                <input type="checkbox" id="toggle-launcher" />
-                <span class="slider"></span>
-              </label>
-              <div class="widget-label-group">
-                <div class="widget-info">
-                  <span class="setting-label-large" data-i18n="appLauncherTitle">App Launcher</span>
-                </div>
-              </div>
-            </div>
-            <div class="fluent-select-container">
-              <button type="button" class="fluent-select-trigger" data-target="select-launcher">
-                <span class="fluent-select-value">Microsoft 365</span>
-                <span class="fluent-select-arrow"></span>
-              </button>
-              <select id="select-launcher" class="settings-select-full hidden-native-select">
-                <option value="microsoft" selected>Microsoft 365</option>
-                <option value="google">Google Workspace</option>
-                <option value="proton">Proton</option>
-              </select>
-            </div>
+          <div class="fluent-select-container">
+            <button type="button" class="fluent-select-trigger" data-target="select-launcher">
+              <span class="fluent-select-value">Microsoft 365</span>
+              <span class="fluent-select-arrow"></span>
+            </button>
+            <select id="select-launcher" class="settings-select-full hidden-native-select">
+              <option value="microsoft" selected>Microsoft 365</option>
+              <option value="google">Google Workspace</option>
+              <option value="proton">Proton</option>
+            </select>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="step-final" class="step step-welcome">
-      <div class="welcome-container">
-        <h1 class="welcome-title" data-i18n="wizardFinalTitle">
-          You're all
-          <span class="welcome-title-home">Set</span>
-        </h1>
-        <p class="welcome-subtitle" data-i18n="wizardFinalSubtitle">Thank you for using Fluent New Tab!</p>
+  <div id="step-final" class="step step-welcome">
+    <div class="setup-brand">
+      <img src="/assets/icon-48.png" alt="Fluent New Tab" class="setup-brand-logo" />
+      <span class="setup-brand-name">Fluent New Tab</span>
+    </div>
 
-        <div class="welcome-cards-horizontal">
-          <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md" target="_blank" rel="noopener noreferrer" class="welcome-card" id="btn-final-docs">
-            <img src="icons/help.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardFinalDocsTitle">Documentation</span>
-            <span class="welcome-card-desc" data-i18n="wizardFinalDocsDesc">Learn how to use Fluent New Tab.</span>
-          </a>
+    <div class="welcome-container">
+      <h1 class="welcome-title" data-i18n="wizardFinalTitle">
+        You're all
+        <span class="welcome-title-home">Set</span>
+      </h1>
+      <p class="welcome-subtitle" data-i18n="wizardFinalSubtitle">Thank you for using Fluent New Tab!</p>
 
-          <button type="button" class="welcome-card" id="btn-final-start">
-            <img src="icons/start.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardFinalStartTitle">Get started</span>
-            <span class="welcome-card-desc" data-i18n="wizardFinalStartDesc">Open your new tab page.</span>
-          </button>
+      <div class="welcome-cards-horizontal">
+        <a href="https://github.com/snw-mint/fluent-new-tab/blob/main/.github/HELP.md" target="_blank"
+          rel="noopener noreferrer" class="welcome-card" id="btn-final-docs">
+          <img src="icons/help.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardFinalDocsTitle">Documentation</span>
+          <span class="welcome-card-desc" data-i18n="wizardFinalDocsDesc">Learn how to use Fluent New Tab.</span>
+        </a>
 
-          <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer" class="welcome-card" id="btn-final-support">
-            <img src="icons/support.svg" alt="" class="card-icon" width="24" height="24" />
-            <span class="welcome-card-title" data-i18n="wizardFinalSupportTitle">Support the project</span>
-            <span class="welcome-card-desc" data-i18n="wizardFinalSupportDesc">Help keep the project updated.</span>
-          </a>
-        </div>
+        <button type="button" class="welcome-card" id="btn-final-start">
+          <img src="icons/start.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardFinalStartTitle">Get started</span>
+          <span class="welcome-card-desc" data-i18n="wizardFinalStartDesc">Open your new tab page.</span>
+        </button>
+
+        <a href="https://buymeacoffee.com/snw.mint" target="_blank" rel="noopener noreferrer" class="welcome-card"
+          id="btn-final-support">
+          <img src="icons/support.svg" alt="" class="card-icon" width="24" height="24" />
+          <span class="welcome-card-title" data-i18n="wizardFinalSupportTitle">Support the project</span>
+          <span class="welcome-card-desc" data-i18n="wizardFinalSupportDesc">Help keep the project updated.</span>
+        </a>
       </div>
     </div>
+  </div>
 
-    <footer class="setup-footer">
-      <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer">By Snow Mint</a>
-      <span>&middot;</span>
-      <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-      <span>&middot;</span>
-      <a href="https://snw-mint.github.io/fluent-new-tab/terms.html" target="_blank" rel="noopener noreferrer">Terms of Use</a>
-    </footer>
+  <footer class="setup-footer">
+    <a href="https://github.com/snw-mint" target="_blank" rel="noopener noreferrer">By Snow Mint</a>
+    <span>&middot;</span>
+    <a href="https://snw-mint.github.io/fluent-new-tab/privacy.html" target="_blank" rel="noopener noreferrer">Privacy
+      Policy</a>
+    <span>&middot;</span>
+    <a href="https://snw-mint.github.io/fluent-new-tab/terms.html" target="_blank" rel="noopener noreferrer">Terms of
+      Use</a>
+  </footer>
 
-    <div id="warningModal" class="modal-overlay">
-      <div class="modal-content">
-        <h3 id="wizardBackupErrorTitle">Error</h3>
-        <p id="warning-modal-message" class="warning-modal-text"></p>
-        <div class="modal-actions">
-          <button id="warning-btn-cancel" class="btn-cancel" data-i18n="warningUnderstood">Understood</button>
-        </div>
+  <div id="warningModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="wizardBackupErrorTitle">Error</h3>
+      <p id="warning-modal-message" class="warning-modal-text"></p>
+      <div class="modal-actions">
+        <button id="warning-btn-cancel" class="btn-cancel" data-i18n="warningUnderstood">Understood</button>
       </div>
     </div>
+  </div>
 
-    <input type="file" id="restore-file-input" accept=".json" style="display: none" />
+  <input type="file" id="restore-file-input" accept=".json" style="display: none" />
 
-    <div id="fluent-select-popup" class="fluent-select-popup" aria-hidden="true">
-      <ul class="fluent-select-options-list" role="listbox"></ul>
-    </div>
+  <div id="fluent-select-popup" class="fluent-select-popup" aria-hidden="true">
+    <ul class="fluent-select-options-list" role="listbox"></ul>
+  </div>
 
-    <script src="/setup/setup.js"></script>
-  </body>
+  <script src="/setup/setup.js"></script>
+</body>
+
 </html>

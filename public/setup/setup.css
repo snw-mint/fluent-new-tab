@@ -31,16 +31,16 @@
 }
 
 html[data-theme='dark'] {
-  --bg-color: #202020;
+  --bg-color: #181a1f;
   --text-color: #ffffff;
-  --search-bg: #2b2b2b;
-  --border-color: rgba(255, 255, 255, 0.08);
+  --search-bg: #23262e;
+  --border-color: rgba(255, 255, 255, 0.07);
   --border-strong: rgba(255, 255, 255, 0.12);
-  --surface: #2b2b2b;
+  --surface: #23262e;
   --surface-muted: rgba(255, 255, 255, 0.06);
   --overlay-weak: rgba(255, 255, 255, 0.06);
   --overlay-strong: rgba(255, 255, 255, 0.1);
-  --sidebar-bg: #161616;
+  --sidebar-bg: #13151a;
   --sidebar-text: #ffffff;
 }
 
@@ -136,145 +136,48 @@ body.slide-prev .step.active {
 }
 
 html[data-theme='dark'] .step-welcome {
-  background: linear-gradient(180deg, #202020 0%, #0f1724 100%);
+  background: linear-gradient(180deg, #1b1d23 0%, #151922 100%);
 }
 
-.splash-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 40%, rgba(221, 245, 255, 1) 100%);
-  animation: splashFadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) 3.2s forwards;
+html[data-theme='dark'] .welcome-card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-html[data-theme='dark'] .splash-screen {
-  background: linear-gradient(180deg, #202020 0%, #0f1724 100%);
+html[data-theme='dark'] .welcome-card:hover {
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
-.splash-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1.25rem, 2.5vh, 2rem);
-  padding: 1.5rem;
-  box-sizing: border-box;
+html[data-theme='dark'] .split-sidebar {
+  border-right: 1px solid var(--border-color);
 }
 
-.splash-logo {
-  width: clamp(12rem, 22vw, 19rem);
-  height: clamp(12rem, 22vw, 19rem);
-  max-width: 85vw;
-  max-height: 45vh;
-  object-fit: contain;
-  animation: splashLogoIntro 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-.splash-title {
-  font-family: var(--font-body);
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
-  font-weight: 700;
-  color: var(--text-color);
-  display: flex;
-  gap: clamp(0.5rem, 1vw, 0.9rem);
-  margin: 0;
-  letter-spacing: -0.025em;
-  text-align: center;
-}
-
-.splash-word {
-  opacity: 0;
-  transform: translateY(12px);
-  filter: blur(6px);
-  animation: splashWordIntro 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-.word-fluent {
-  animation-delay: 1s;
-  position: relative;
-  display: inline-block;
-}
-
-.word-fluent::after {
-  content: 'Fluent';
+.setup-brand {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #1775d1 0%, #7a64c6 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0;
-  animation: splashGradientFade 0.7s ease-in-out 2.1s forwards;
+  top: 1.5rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 20;
+  pointer-events: none;
 }
 
-.word-new {
-  animation-delay: 1.25s;
+.setup-brand-logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  display: block;
 }
 
-.word-tab {
-  animation-delay: 1.5s;
-}
-
-@keyframes splashLogoIntro {
-  0% {
-    opacity: 0;
-    filter: blur(20px);
-    transform: translateY(0) scale(0.9);
-  }
-
-  50% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) scale(1);
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(-18px) scale(1);
-  }
-}
-
-@keyframes splashWordIntro {
-  0% {
-    opacity: 0;
-    filter: blur(6px);
-    transform: translateY(12px);
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes splashGradientFade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes splashFadeOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.02);
-    pointer-events: none;
-    visibility: hidden;
-  }
+.setup-brand-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: -0.01em;
 }
 
 .welcome-container {

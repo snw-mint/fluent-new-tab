@@ -654,22 +654,8 @@ function init() {
   applyAccentColor(getCurrentAccent());
 
   const savedStep = localStorage.getItem('setup_current_step') || 'welcome';
-  const splashScreen = document.getElementById('splash-screen');
   const stepWelcome = document.getElementById('step-welcome');
-
-  if (splashScreen) {
-    if (savedStep !== 'welcome') {
-      splashScreen.style.display = 'none';
-      if (stepWelcome) stepWelcome.classList.add('ready');
-    } else {
-      setTimeout(() => {
-        if (stepWelcome) stepWelcome.classList.add('ready');
-      }, 3200);
-      setTimeout(() => {
-        splashScreen.style.display = 'none';
-      }, 3700);
-    }
-  } else if (stepWelcome) {
+  if (stepWelcome) {
     stepWelcome.classList.add('ready');
   }
 
