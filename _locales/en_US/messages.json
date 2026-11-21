@@ -445,6 +445,15 @@
       }
     }
   },
+  "alertAirQualityBad": {
+    "message": "Air quality poor (AQI: $VALUE$) expected.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "165"
+      }
+    }
+  },
   "searchTitle": {
     "message": "Search"
   },

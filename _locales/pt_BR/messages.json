@@ -436,6 +436,15 @@
       }
     }
   },
+  "alertAirQualityBad": {
+    "message": "Qualidade do ar ruim (AQI: $VALUE$) esperada.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "165"
+      }
+    }
+  },
   "alertPollenHigh": {
     "message": "Esperados altos níveis de pólen ($POLLEN$)",
     "placeholders": {
