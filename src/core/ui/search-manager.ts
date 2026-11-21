@@ -8,12 +8,16 @@
 
 import * as refs from '@/core/shared/dom-refs';
 import { requestFeaturePermissionUI } from '@/core/ui/ui-components';
-import { performSearch } from '@/core/boot/search';
+import { performSearch, resolveDirectUrl } from '@/core/boot/search';
 import {
+  acceptAutocompleteGhost,
+  getAutocompleteValue,
   handleAskAiRedirect,
-  updateAskAiUiState,
   registerVoiceSearchEngine,
   renderAiEnginesDropdown,
+  syncAutocompleteGhostScroll,
+  updateAutocompleteGhost,
+  updateAskAiUiState,
 } from '@/core/lazy/search-features';
 
 export function bindSearchFeature(options: any): void {
@@ -144,10 +148,39 @@ export function bindSearchFeature(options: any): void {
       }
     }, 150);
 
+    refs.searchInput.addEventListener('input', () => {
+      const activeGhost = getAutocompleteValue();
+      if (activeGhost) {
+        updateAutocompleteGhost(refs.searchInput, [activeGhost]);
+      }
+      syncAutocompleteGhostScroll(refs.searchInput);
+    });
+    refs.searchInput.addEventListener('scroll', () => {
+      syncAutocompleteGhostScroll(refs.searchInput);
+    });
     refs.searchInput.addEventListener('input', handleInput);
     refs.searchInput.addEventListener('focus', handleInput);
     refs.searchInput.addEventListener('keydown', (event) => {
       if (!options.getSuggestionsActive()) return;
+
+      if (event.key === 'Tab' && getAutocompleteValue()) {
+        event.preventDefault();
+        acceptAutocompleteGhost(refs.searchInput);
+        return;
+      }
+
+      if (
+        event.key === 'ArrowRight' &&
+        getAutocompleteValue() &&
+        refs.searchInput &&
+        refs.searchInput.selectionStart === refs.searchInput.value.length &&
+        refs.searchInput.selectionEnd === refs.searchInput.value.length
+      ) {
+        event.preventDefault();
+        acceptAutocompleteGhost(refs.searchInput);
+        return;
+      }
+
       const suggestionItems = Array.from(document.querySelectorAll('.suggestion-item')) as HTMLElement[];
       if (!suggestionItems.length) return;
       let currentIndex = suggestionItems.findIndex((item) => item.classList.contains('selected'));
@@ -227,13 +260,23 @@ export function bindSearchFeature(options: any): void {
           askAiBtn: refs.askAiBtn,
         });
         options.clearSuggestions();
-      } else if (currentEngine === 'system') {
-        event.preventDefault();
-        const query = refs.searchInput?.value || '';
-        options.clearSuggestions();
-        performSearch(query, 'system');
       } else {
-        options.clearSuggestions();
+        const query = refs.searchInput?.value || '';
+        const directUrl = resolveDirectUrl(query);
+        if (directUrl) {
+          event.preventDefault();
+          options.clearSuggestions();
+          window.location.href = directUrl;
+          return;
+        }
+
+        if (currentEngine === 'system') {
+          event.preventDefault();
+          options.clearSuggestions();
+          performSearch(query, 'system');
+        } else {
+          options.clearSuggestions();
+        }
       }
     });
   }

@@ -37,8 +37,42 @@ export function applyGoogleSearchParams(
   }
 }
 
+export function resolveDirectUrl(rawInput: string): string | null {
+  const trimmed = rawInput.trim();
+  if (!trimmed || /\s/.test(trimmed)) return null;
+
+  if (/^https?:\/\/.+/i.test(trimmed)) {
+    return trimmed;
+  }
+
+  if (/^localhost(:\d{1,5})?([/?#].*)?$/i.test(trimmed)) {
+    return `http://${trimmed}`;
+  }
+
+  const ipv4Match = trimmed.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})(:\d{1,5})?([/?#].*)?$/);
+  if (ipv4Match) {
+    const octets = [ipv4Match[1], ipv4Match[2], ipv4Match[3], ipv4Match[4]].map(Number);
+    if (octets.every((n) => n >= 0 && n <= 255)) {
+      return `http://${trimmed}`;
+    }
+  }
+
+  if (/^([a-z0-9-]+\.)+[a-z]{2,}(:\d{1,5})?([/?#].*)?$/i.test(trimmed)) {
+    return `https://${trimmed}`;
+  }
+
+  return null;
+}
+
 export function performSearch(query: string, engine: string): void {
   if (!query.trim()) return;
+
+  const directUrl = resolveDirectUrl(query);
+  if (directUrl) {
+    window.location.href = directUrl;
+    return;
+  }
+
   if (engine === 'engine0' || engine === 'system') {
     try {
       const win = window as any;

@@ -60,8 +60,49 @@
       height: 0.9rem;
     }
 
+    .search-input-wrap {
+      input,
+      .search-autocomplete-ghost {
+        font-size: var(--font-size-base);
+      }
+    }
+
     input {
       font-size: var(--font-size-base);
+    }
+  }
+
+  .search-input-wrap {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .search-autocomplete-ghost {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 0.45rem;
+      font-size: var(--font-size-lg);
+      font-family: inherit;
+      letter-spacing: inherit;
+      white-space: pre;
+      overflow: hidden;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+
+      .ghost-prefix {
+        visibility: hidden;
+      }
+
+      .ghost-suffix {
+        color: var(--text-color);
+        opacity: 0.4;
+      }
     }
   }
 

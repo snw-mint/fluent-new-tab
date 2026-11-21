@@ -19,11 +19,112 @@ interface SearchSuggestionRefs {
 let voiceRecognitionInstance: any = null;
 let isVoiceListening = false;
 let lastVoiceClickTimestamp = 0;
+let currentAutocompleteValue = '';
+
+function ensureAutocompleteGhost(searchInput: HTMLInputElement | null): HTMLElement | null {
+  if (!searchInput) return null;
+  let wrap = searchInput.parentElement;
+  if (!wrap || !wrap.classList.contains('search-input-wrap')) {
+    const parent = searchInput.parentElement;
+    if (!parent) return null;
+    const wasFocused = document.activeElement === searchInput;
+    const selStart = searchInput.selectionStart;
+    const selEnd = searchInput.selectionEnd;
+
+    wrap = document.createElement('div');
+    wrap.className = 'search-input-wrap';
+    parent.insertBefore(wrap, searchInput);
+    wrap.appendChild(searchInput);
+
+    if (wasFocused) {
+      searchInput.focus({ preventScroll: true });
+      if (selStart !== null && selEnd !== null) {
+        searchInput.setSelectionRange(selStart, selEnd);
+      }
+    }
+  }
+
+  let ghost = wrap.querySelector('.search-autocomplete-ghost') as HTMLElement | null;
+  if (!ghost) {
+    ghost = document.createElement('div');
+    ghost.className = 'search-autocomplete-ghost';
+    ghost.setAttribute('aria-hidden', 'true');
+    const prefix = document.createElement('span');
+    prefix.className = 'ghost-prefix';
+    const suffix = document.createElement('span');
+    suffix.className = 'ghost-suffix';
+    ghost.append(prefix, suffix);
+    wrap.prepend(ghost);
+  }
+  return ghost;
+}
+
+export function getAutocompleteValue(): string {
+  return currentAutocompleteValue;
+}
+
+export function clearAutocompleteGhost(searchInput?: HTMLInputElement | null): void {
+  currentAutocompleteValue = '';
+  const wrap = searchInput?.parentElement;
+  const ghost = wrap?.classList.contains('search-input-wrap')
+    ? (wrap.querySelector('.search-autocomplete-ghost') as HTMLElement | null)
+    : (document.querySelector('.search-autocomplete-ghost') as HTMLElement | null);
+  if (!ghost) return;
+  const prefixEl = ghost.querySelector('.ghost-prefix');
+  const suffixEl = ghost.querySelector('.ghost-suffix');
+  if (prefixEl) prefixEl.textContent = '';
+  if (suffixEl) suffixEl.textContent = '';
+}
+
+export function syncAutocompleteGhostScroll(searchInput: HTMLInputElement | null): void {
+  if (!searchInput) return;
+  const wrap = searchInput.parentElement;
+  const ghost = wrap?.classList.contains('search-input-wrap')
+    ? (wrap.querySelector('.search-autocomplete-ghost') as HTMLElement | null)
+    : null;
+  if (ghost) {
+    ghost.scrollLeft = searchInput.scrollLeft;
+  }
+}
+
+export function updateAutocompleteGhost(searchInput: HTMLInputElement | null, suggestions: string[]): void {
+  if (!searchInput) return;
+  const raw = searchInput.value;
+  if (!raw || !raw.trim()) {
+    clearAutocompleteGhost(searchInput);
+    return;
+  }
+
+  const lowerRaw = raw.toLowerCase();
+  const match = suggestions.find((item) => item.toLowerCase().startsWith(lowerRaw) && item.length > raw.length);
+  if (!match) {
+    clearAutocompleteGhost(searchInput);
+    return;
+  }
+
+  const ghost = ensureAutocompleteGhost(searchInput);
+  if (!ghost) return;
+
+  currentAutocompleteValue = match;
+  const prefixEl = ghost.querySelector('.ghost-prefix');
+  const suffixEl = ghost.querySelector('.ghost-suffix');
+  if (prefixEl) prefixEl.textContent = raw;
+  if (suffixEl) suffixEl.textContent = match.slice(raw.length);
+  ghost.scrollLeft = searchInput.scrollLeft;
+}
+
+export function acceptAutocompleteGhost(searchInput: HTMLInputElement | null): boolean {
+  if (!searchInput || !currentAutocompleteValue) return false;
+  searchInput.value = currentAutocompleteValue;
+  clearAutocompleteGhost(searchInput);
+  return true;
+}
 
 export function clearSuggestionsUI(
   suggestionsContainer: HTMLDivElement | null,
   searchWrapper?: HTMLElement | null,
 ): void {
+  clearAutocompleteGhost();
   if (searchWrapper) searchWrapper.classList.remove('suggestions-open');
   if (!suggestionsContainer) return;
   suggestionsContainer.textContent = '';
@@ -36,10 +137,13 @@ export function renderSuggestionsUI(suggestions: string[], refs: SearchSuggestio
 
   suggestionsContainer.textContent = '';
   if (suggestions.length === 0) {
+    clearAutocompleteGhost(searchInput);
     suggestionsContainer.classList.remove('active');
     if (searchWrapper) searchWrapper.classList.remove('suggestions-open');
     return;
   }
+
+  updateAutocompleteGhost(searchInput, suggestions);
 
   const iconSvg = `<svg class="suggestion-icon" viewBox="0 0 24 24"><path d="M11.5 2.75a8.75 8.75 0 0 1 6.695 14.384l6.835 6.836a.75.75 0 0 1-.976 1.133l-.084-.073-6.836-6.835A8.75 8.75 0 1 1 11.5 2.75m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5" fill="#5f6368"/></svg>`;
 
@@ -75,6 +179,7 @@ export function updateSuggestionSelectionUI(
   items.forEach((item) => item.classList.remove('selected'));
   if (index > -1 && items[index]) {
     items[index].classList.add('selected');
+    clearAutocompleteGhost(searchInput);
     if (searchInput) {
       searchInput.value = items[index].dataset.value || '';
     }
