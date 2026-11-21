@@ -94,7 +94,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 async function fetchAndEvaluateAlerts(lat, lon) {
   try {
     const climateUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,windgusts_10m,weathercode,uv_index&timezone=auto&forecast_hours=14`;
-    const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,olive_pollen,ragweed_pollen&timezone=auto&forecast_hours=14`;
+    const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=us_aqi,alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,olive_pollen,ragweed_pollen&timezone=auto&forecast_hours=14`;
 
     const [climateRes, airRes] = await Promise.all([
       fetch(climateUrl).then((res) => res.json()),
@@ -111,6 +111,11 @@ async function fetchAndEvaluateAlerts(lat, lon) {
       const gusts = climateRes.hourly.windgusts_10m;
       const maxGust = Math.max(...gusts);
       if (maxGust >= 45) activeAlert = { type: 'wind_high', value: Math.round(maxGust) };
+    }
+
+    if (!activeAlert && airRes?.hourly?.us_aqi) {
+      const maxAqi = Math.max(...airRes.hourly.us_aqi);
+      if (maxAqi >= 101) activeAlert = { type: 'air_quality_bad', value: Math.round(maxAqi) };
     }
 
     if (!activeAlert) {

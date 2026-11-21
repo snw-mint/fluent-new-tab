@@ -231,6 +231,10 @@ export function renderWeatherAlertWidget(): void {
         i18nKey = 'alertUvHigh';
         message = `UV rays at critical levels: ${alert.value}`;
         break;
+      case 'air_quality_bad':
+        i18nKey = 'alertAirQualityBad';
+        message = `Poor air quality expected (AQI: ${alert.value})`;
+        break;
       case 'pollen_high':
         i18nKey = 'alertPollenHigh';
         const pollenName = String(alert.value).replace('_pollen', '');
