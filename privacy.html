@@ -188,111 +188,117 @@
 
       <header class="header">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: September 2026</p>
+        <p class="last-updated">Last Updated: November 2026</p>
       </header>
 
       <div class="content">
         <p>
-          Thank you for using Fluent New Tab. Your privacy is and always will be
-          critically important. This policy explains what data the extension
-          handles and why, ensuring you have full transparency and control.
+          This policy describes how <strong>Fluent New Tab</strong> handles data,
+          browser permissions, and network requests. It reflects the current
+          implementation in the extension&#39;s source code.
         </p>
 
-        <h2 id="1-the-golden-rule-no-personal-data-collection">
-          1. The Golden Rule: No Personal Data Collection
-        </h2>
+        <h2 id="1-data-collection">1. Data Collection</h2>
         <p>
-          <strong
-            >Fluent New Tab does not collect, store, transmit, or sell your
-            personal data. Period.</strong
-          >
-        </p>
-        <p>
-          We do not use any tracking scripts, analytics, or telemetry. We have
-          no way of knowing who you are, how you use the extension, or what you
-          search for.
+          Fluent New Tab does not collect, sell, or transmit personal data to
+          developer-controlled servers, and does not include analytics,
+          telemetry, or tracking scripts.
         </p>
 
-        <h2 id="2-your-data-stays-on-your-device">
-          2. Your Data Stays On Your Device
-        </h2>
+        <h2 id="2-local-storage">2. Local Storage</h2>
         <p>
-          All your settings—including preferences, custom shortcuts, and
-          uploaded wallpapers—are stored locally on your computer using the
-          browser&#39;s built-in storage (<code>localStorage</code> and
-          <code>IndexedDB</code>). This data is yours and yours alone; we have
-          no access to it.
+          All configuration and user-created content are stored locally on your
+          device using browser storage APIs (no cloud sync via
+          <code>chrome.storage.sync</code> is used):
         </p>
-
-        <h2 id="3-third-party-services-how-features-work">
-          3. Third-Party Services & Proxy Infrastructure
-        </h2>
-        <p>
-          To provide features like weather forecasts, daily wallpapers, and RSS
-          news updates, the extension communicates with external services. Most
-          requests happen directly between your browser and the provider.
-          However, certain wallpaper APIs require authentication keys; to protect
-          these keys and prevent rate-limit exhaustion, those specific requests
-          are routed through a secure proxy infrastructure managed by us.
-        </p>
-        <p>
-          <strong
-            >No personal data, IP addresses, or tracking identifiers are ever
-            logged or stored on our proxy servers.</strong
-          >
-        </p>
-        <p>Below is a breakdown of all external services and endpoints used:</p>
         <ul>
           <li>
-            <strong>Search Suggestions:</strong> When you type in the search
-            bar, queries are sent directly to your chosen search engine (e.g.,
-            Google) to provide auto-completion suggestions.
+            <strong><code>localStorage</code>:</strong> Preferences, theme and
+            accent settings, custom greeting name, language, shortcuts, selected
+            weather city, and configured RSS/Atom feed URLs.
           </li>
           <li>
-            <strong>Weather Information:</strong> If you enable the weather
-            widget, your location coordinates are sent directly to
-            <code>Open-Meteo</code> to fetch weather forecasts.
+            <strong><code>chrome.storage.local</code>:</strong> Favicon cache
+            (14-day TTL), selected city coordinates for background weather
+            alerts, the latest evaluated weather alert, and local update-notice
+            flags.
           </li>
           <li>
-            <strong>Direct Dynamic Wallpapers:</strong> Fetched directly from
-            public providers:
-            <ul>
-              <li><strong>Bing Wallpaper:</strong> <code>peapix.com</code></li>
-              <li>
-                <strong>Wikimedia Picture of the Day:</strong>
-                <code>commons.wikimedia.org</code>
-              </li>
-            </ul>
+            <strong><code>IndexedDB</code>:</strong> Custom wallpaper images
+            uploaded from your device.
           </li>
           <li>
-            <strong>RSS Feed Reader:</strong> When you configure custom RSS or
-            Atom feeds, requests are made directly from your browser to the feed
-            source URLs you specify. Feed source favicons are loaded via
-            <code>favicon.vemetric.com</code>.
-          </li>
-          <li>
-            <strong>Proxied Wallpapers (Cloudflare Workers):</strong> To
-            securely authenticate requests without exposing developer keys, the
-            following sources are routed through our intermediate server
-            endpoints (<code>snw-mint.workers.dev</code>):
-            <ul>
-              <li>
-                <strong>Unsplash (Abstract Wallpapers):</strong> Serves a
-                globally cached daily background.
-              </li>
-              <li>
-                <strong>Pexels (Aesthetic Wallpapers):</strong> Serves a
-                globally cached curated background.
-              </li>
-            </ul>
+            <strong>Manual Backups:</strong> You can export and import your
+            settings as a local JSON file; this file is generated and read
+            entirely on your device.
           </li>
         </ul>
 
-        <h2 id="4-permissions-explained">4. Permissions Explained</h2>
+        <h2 id="3-external-requests">3. External Services &amp; Network Requests</h2>
         <p>
-          To ensure full transparency, below is the exact
-          <code>manifest.json</code> file currently running in production,
-          loaded dynamically in real-time from our official GitHub repository:
+          External network requests occur only when you enable or use specific
+          features. Most requests go directly from your browser to the
+          respective provider:
+        </p>
+        <ul>
+          <li>
+            <strong>Search Suggestions:</strong> When enabled, typed queries are
+            sent to DuckDuckGo (<code>duckduckgo.com/ac/</code>) to fetch
+            autocomplete suggestions.
+          </li>
+          <li>
+            <strong>Weather &amp; Weather Alerts:</strong> The extension does
+            not use browser GPS/geolocation. When you search for a city or
+            enable weather/alerts, the city query or manually selected
+            coordinates are sent to Open-Meteo
+            (<code>geocoding-api.open-meteo.com</code>,
+            <code>api.open-meteo.com</code>, and
+            <code>air-quality-api.open-meteo.com</code>).
+          </li>
+          <li>
+            <strong>Direct Wallpaper Providers:</strong> Daily wallpapers are
+            fetched directly from <code>peapix.com</code> /
+            <code>img.peapix.com</code> (Bing) or
+            <code>commons.wikimedia.org</code> /
+            <code>upload.wikimedia.org</code> (Wikimedia Commons).
+          </li>
+          <li>
+            <strong>Proxied Wallpaper Providers:</strong> Unsplash and Pexels
+            requests are routed through Cloudflare Workers
+            (<code>unsplash.snw-mint.workers.dev</code> and
+            <code>pexels.snw-mint.workers.dev</code>) solely to protect API
+            credentials and handle rate limits. These workers do not log or
+            store personal data or tracking identifiers.
+          </li>
+          <li>
+            <strong>RSS/Atom Feeds:</strong> When you add custom feeds, the
+            extension fetches those feed URLs directly from your browser.
+          </li>
+          <li>
+            <strong>Favicons:</strong> On Chromium-based browsers, shortcut
+            icons are resolved locally using Chrome&#39;s built-in
+            <code>favicon</code> API whenever available. For RSS feed sources
+            and as a fallback when the native API is unavailable (such as on
+            Firefox), only the site&#39;s domain is requested from
+            <code>favicon.vemetric.com</code>.
+          </li>
+          <li>
+            <strong>Voice Search:</strong> When triggered by the user, voice
+            input uses the browser&#39;s native Web Speech API
+            (<code>SpeechRecognition</code>), which is processed according to
+            your browser and operating system&#39;s speech service.
+          </li>
+          <li>
+            <strong>Uninstall Page:</strong> Upon uninstallation, the browser
+            opens <code>https://snw-mint.github.io/fluent-new-tab/uninstall.html</code>
+            via <code>chrome.runtime.setUninstallURL</code>.
+          </li>
+        </ul>
+
+        <h2 id="4-permissions">4. Browser Permissions</h2>
+        <p>
+          Below is the live <code>manifest.json</code> from the official
+          repository for reference:
         </p>
 
         <div class="manifest-container">
@@ -301,107 +307,79 @@
           >
         </div>
 
-        <h3>General Permissions</h3>
+        <h3>Required Permissions</h3>
         <ul>
           <li>
-            <code>storage</code>: Essential for saving your personal settings,
-            theme preferences, custom shortcuts, and widget configurations
-            locally on your device.
+            <code>storage</code> and <code>unlimitedStorage</code>: Store
+            settings, cached metadata, and user-uploaded wallpapers locally.
           </li>
           <li>
-            <code>unlimitedStorage</code>: Allows the extension to store larger
-            files locally, such as high-resolution wallpapers uploaded from your
-            computer, preventing the browser from evicting them.
+            <code>search</code>: Execute searches using your browser&#39;s
+            default search engine when the &quot;System&quot; search option is
+            selected.
           </li>
           <li>
-            <code>search</code>: Enables the "System default" search engine
-            option by utilizing the browser's native search API, complying with
-            Chrome Web Store policies.
+            <code>alarms</code>: Schedule hourly background checks (every 60
+            minutes) for weather alerts, active only when Weather Alerts are
+            enabled.
           </li>
           <li>
-            <code>alarms</code>: Optional permission requested strictly when
-            "Weather Alerts" are enabled, used to schedule background
-            updates.
+            <code>favicon</code> (Chrome): Resolve shortcut favicons locally
+            without sending shortcut URLs to external services.
           </li>
         </ul>
 
-        <h3>Optional Host Permissions</h3>
+        <h3>Optional Permissions</h3>
         <p>
-          To give you maximum control,
-          <strong>all external host permissions are optional by default</strong
-          >. You are not required to approve these hosts during installation.
-          Instead, the browser will prompt you individually only when you
-          activate a specific feature.
+          Optional API and host permissions are not granted at installation and
+          are requested only when you enable or trigger the corresponding
+          feature:
         </p>
         <ul>
           <li>
-            <strong>Search Suggestions</strong> (e.g., <code>google.com</code>):
-            Used for search auto-completion.
+            <code>bookmarks</code>: Requested only when you click to import
+            browser bookmarks into your shortcuts.
           </li>
           <li>
-            <strong>Direct Wallpapers</strong> (<code>peapix.com</code>,
-            <code>wikimedia.org</code>): Used to fetch
-            daily backgrounds.
-          </li>
-          <li>
-            <strong>RSS Feed Sources</strong>: Requested dynamically when you
-            validate and add a new RSS or Atom feed origin.
-          </li>
-          <li>
-            <strong>Proxied Wallpapers</strong>
-            (<code>snw-mint.workers.dev</code>): Used to securely fetch Unsplash
-            and Pexels daily images via our Cloudflare Worker cache.
-          </li>
-          <li>
-            <strong>Weather Widget</strong> (<code>open-meteo.com</code>): Used
-            to fetch forecast data.
+            <strong>Host permissions:</strong> Requested individually for
+            <code>duckduckgo.com</code> (search suggestions),
+            <code>open-meteo.com</code> endpoints (weather and alerts),
+            <code>peapix.com</code> / <code>commons.wikimedia.org</code> /
+            <code>snw-mint.workers.dev</code> (wallpaper sources), and user-added
+            <code>https://*/*</code> origins (RSS/Atom feeds).
           </li>
         </ul>
 
-        <h2 id="5-you-are-in-control">5. You Are in Control</h2>
-        <p>
-          Because all data is stored locally, you maintain complete ownership.
-          You can delete your data at any time by:
-        </p>
+        <h2 id="5-data-control">5. Managing &amp; Deleting Data</h2>
+        <p>Because all data is stored locally, you can remove it at any time by:</p>
         <ol>
-          <li>
-            Using the &quot;Reset to Defaults&quot; option in the extension
-            settings.
-          </li>
-          <li>
-            Clearing your browser&#39;s local storage and cache for the
-            extension.
-          </li>
-          <li>
-            Uninstalling the extension, which instantly purges all associated
-            local data.
-          </li>
+          <li>Using the reset option in the extension settings.</li>
+          <li>Clearing the extension&#39;s local storage/site data in your browser.</li>
+          <li>Uninstalling the extension, which removes its local storage.</li>
         </ol>
 
-        <h2 id="6-open-source-and-verifiable">6. Open Source and Verifiable</h2>
+        <h2 id="6-source-code">6. Source Code</h2>
         <p>
-          Fluent New Tab is 100% open-source. We invite you to inspect our
+          Fluent New Tab is open-source under the GPL-3.0 license. You can
+          audit the implementation in the
           <a
             href="https://github.com/snw-mint/fluent-new-tab"
             target="_blank"
             rel="noopener noreferrer"
-            >source code on GitHub</a
-          >
-          to verify that the extension operates exactly as outlined in this
-          document.
+            >GitHub repository</a
+          >.
         </p>
 
-        <h2 id="7-changes-to-this-policy">7. Changes to This Policy</h2>
+        <h2 id="7-changes">7. Changes to This Policy</h2>
         <p>
-          We may update this Privacy Policy to reflect feature additions or
-          infrastructure improvements. Any modifications will be reflected here
-          with an updated &quot;Last Updated&quot; date.
+          Updates to this policy will be published on this page with a revised
+          &quot;Last Updated&quot; date whenever permissions or external
+          integrations change.
         </p>
 
-        <h2>8. Contact</h2>
+        <h2 id="8-contact">8. Contact</h2>
         <p>
-          If you have any questions or concerns regarding this policy or data
-          handling practices, please reach out via email at
+          Questions regarding this policy can be sent to
           <a href="mailto:snowmint.dev@gmail.com">snowmint.dev@gmail.com</a>.
         </p>
       </div>
