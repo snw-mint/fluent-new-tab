@@ -8,7 +8,7 @@
 
 import { ICON_MENU_DOTS, ICON_EDIT, ICON_REMOVE, ICON_ADD } from '@/core/shared/icons';
 import { sanitizeUrl } from '@/core/shared/dom-utils';
-import { resolveFavicon, letterIcon } from '@/core/shared/favicon-resolver';
+import { resolveFavicon, resolveCustomIcon, pruneFaviconCache, letterIcon } from '@/core/shared/favicon-resolver';
 import { Shortcut } from '@/core/shared/types';
 import { activeShortcutDropdowns } from '@/core/shared/state';
 
@@ -119,6 +119,7 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
   } = options;
   if (!shortcutsGrid) return;
 
+  pruneFaviconCache(shortcuts);
   activeShortcutDropdowns.clear();
 
   const isHideNamesActive = localStorage.getItem('hideShortcutNames') === 'true';
@@ -179,13 +180,24 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
     if (isFolder) {
       if (itemData.customIcon) {
         const img = document.createElement('img');
-        img.className = 'shortcut-icon loaded';
-        img.src = sanitizeUrl(itemData.customIcon);
+        img.decoding = 'async';
+        img.className = 'shortcut-icon';
         img.alt = itemData.name;
         img.style.width = '1.575rem';
         img.style.height = '1.575rem';
         img.style.objectFit = 'contain';
         img.draggable = false;
+        img.onload = () => {
+          img.classList.add('loaded');
+        };
+        const safeCustomIcon = sanitizeUrl(itemData.customIcon);
+        if (safeCustomIcon.startsWith('data:')) {
+          img.src = safeCustomIcon;
+        } else {
+          resolveCustomIcon(safeCustomIcon).then((resolvedSrc) => {
+            img.src = resolvedSrc ?? safeCustomIcon;
+          });
+        }
         card.appendChild(img);
       } else {
         card.insertAdjacentHTML('afterbegin', FOLDER_ICON_SVG);
@@ -203,9 +215,11 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
 
       let retried = false;
       img.onerror = async () => {
-        if (!retried && !itemData.customIcon) {
+        if (!retried) {
           retried = true;
-          const fresh = await resolveFavicon(itemData.url, true);
+          const fresh = itemData.customIcon
+            ? await resolveCustomIcon(sanitizeUrl(itemData.customIcon), true)
+            : await resolveFavicon(itemData.url, true);
           if (fresh && fresh !== img.src) {
             img.src = fresh;
             return;
@@ -216,10 +230,17 @@ export function renderShortcutsGrid(options: ShortcutsRenderOptions): void {
       };
 
       if (itemData.customIcon) {
-        img.src = sanitizeUrl(itemData.customIcon);
+        const safeCustomIcon = sanitizeUrl(itemData.customIcon);
+        if (safeCustomIcon.startsWith('data:')) {
+          img.src = safeCustomIcon;
+        } else {
+          resolveCustomIcon(safeCustomIcon).then((resolvedSrc) => {
+            img.src = resolvedSrc ?? safeCustomIcon;
+          });
+        }
       } else {
-        resolveFavicon(itemData.url).then((src) => {
-          img.src = src ?? letterIcon(itemData.name);
+        resolveFavicon(itemData.url).then((resolvedSrc) => {
+          img.src = resolvedSrc ?? letterIcon(itemData.name);
         });
       }
 
